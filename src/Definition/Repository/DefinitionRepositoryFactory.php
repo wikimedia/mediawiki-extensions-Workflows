@@ -22,7 +22,7 @@ class DefinitionRepositoryFactory {
 			if ( is_callable( $callback ) ) {
 				$instance = ObjectFactory::getObjectFromSpec( [
 					'factory' => $callback,
-					'args' => [ $this->services, ...$params ]
+					'args' => array_merge( [ $this->services ], $params )
 				] );
 				if ( $instance instanceof IDefinitionRepository ) {
 					return $instance;
