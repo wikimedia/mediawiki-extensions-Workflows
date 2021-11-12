@@ -1,0 +1,4 @@
+.oo-ui-defaultOverlay .oo-ui-menuSelectWidget {
+	/** Make sure menu is on top in a dialog */
+	z-index: 99999;
+}

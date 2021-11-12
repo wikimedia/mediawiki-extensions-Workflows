@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:wf="http://hallowelt.com/schema/bpmn/wf" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_01ckcby" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.5.0">
+  <bpmn:process id="Process_0krx43m" isExecutable="false">
+  	<bpmn:extensionElements>
+		<wf:context>
+			<wf:contextItem name="page">MyPage</wf:contextItem>
+			<wf:contextItem name="owner">User:Page owner</wf:contextItem>
+		</wf:context>
+	</bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_0gq05mv">
+  		<bpmn:outgoing>Flow_0i2fiaw</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_1n3fgk9" name="Looping">
+   		<bpmn:extensionElements>
+    		<wf:type>user_vote</wf:type>
+    	</bpmn:extensionElements>
+      <bpmn:incoming>Flow_0i2fiaw</bpmn:incoming>
+      <bpmn:outgoing>Flow_09pbc7z</bpmn:outgoing>
+      <bpmn:property id="action" name="__targetRef_placeholder"/>
+      <bpmn:property id="vote" name="__targetRef_placeholder"/>
+      <bpmn:property id="comment" name="__targetRef_placeholder"/>
+      <bpmn:property id="delegate_to" name="__targetRef_placeholder"/>
+      <bpmn:standardLoopCharacteristics />
+    </bpmn:userTask>
+    <bpmn:dataObject id="DataObject_0vg9j37" isCollection="false">
+    	<bpmn:extensionElements>
+    		<wf:data>
+    			<wf:dataItem name="action"></wf:dataItem>
+    			<wf:dataItem name="vote"></wf:dataItem>
+    			<wf:dataItem name="comment"></wf:dataItem>
+    			<wf:dataItem name="delegate_to"></wf:dataItem>
+    		</wf:data>
+    	</bpmn:extensionElements>
+    </bpmn:dataObject>
+    <bpmn:dataObjectReference dataObjectRef="DataObject_0vg9j37" id="DataObjectReference_1ms3cnk" name="initial data"/>
+	<bpmn:dataInputAssociation id="ActionInput">
+		<bpmn:sourceRef>DataObjectReference_17cxj6l</bpmn:sourceRef>
+		<bpmn:targetRef>action</bpmn:targetRef>
+	</bpmn:dataInputAssociation>
+	<bpmn:dataInputAssociation id="VoteInput">
+		<bpmn:sourceRef>DataObjectReference_17cxj6l</bpmn:sourceRef>
+		<bpmn:targetRef>vote</bpmn:targetRef>
+	</bpmn:dataInputAssociation>
+	<bpmn:dataInputAssociation id="CommentInput">
+		<bpmn:sourceRef>DataObjectReference_17cxj6l</bpmn:sourceRef>
+		<bpmn:targetRef>comment</bpmn:targetRef>
+	</bpmn:dataInputAssociation>
+	<bpmn:dataInputAssociation id="DelegateToInput">
+		<bpmn:sourceRef>DataObjectReference_17cxj6l</bpmn:sourceRef>
+		<bpmn:targetRef>delegate_to</bpmn:targetRef>
+	</bpmn:dataInputAssociation>
+    <bpmn:sequenceFlow id="Flow_0i2fiaw" sourceRef="StartEvent_0gq05mv" targetRef="Activity_1n3fgk9" />
+    <bpmn:endEvent id="Event_1iybc6h" name="Completed">
+      <bpmn:incoming>Flow_09pbc7z</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_09pbc7z" sourceRef="Activity_1n3fgk9" targetRef="Event_1iybc6h" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0krx43m">
+      <bpmndi:BPMNEdge id="Flow_0i2fiaw_di" bpmnElement="Flow_0i2fiaw">
+        <di:waypoint x="192" y="120" />
+        <di:waypoint x="290" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09pbc7z_di" bpmnElement="Flow_09pbc7z">
+        <di:waypoint x="390" y="120" />
+        <di:waypoint x="492" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_0gq05mv">
+        <dc:Bounds x="156" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1n3fgk9_di" bpmnElement="Activity_1n3fgk9">
+        <dc:Bounds x="290" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1iybc6h_di" bpmnElement="Event_1iybc6h">
+        <dc:Bounds x="492" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="483" y="145" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

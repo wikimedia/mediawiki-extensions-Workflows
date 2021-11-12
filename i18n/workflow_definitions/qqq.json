@@ -1,0 +1,20 @@
+{
+	"workflows-workflow-file-definition-group-feedback-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-group-feedback-desc": "Description for an option in a select dropdown",
+	"workflows-workflow-file-definition-user-approval-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-user-approval-desc": "Description for an option in a select dropdown",
+	"workflows-workflow-file-definition-user-feedback-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-user-feedback-desc": "Description for an option in a select dropdown",
+	"workflows-workflow-file-definition-document-control-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-document-control-desc": "Description for an option in a select dropdown",
+	"workflow-default-editorial-review-report-subject": "Mail subject line for when a editorial review finishes.\n$1 - Page name",
+	"workflow-default-editorial-review-report-body": "Mail body text for when a editorial review finishes.\n$1 - Summary of votes",
+	"workflow-default-user-feedback-report-subject": "Mail subject line for when the user feedback finishes.\n$1 - Page name",
+	"workflow-default-user-feedback-body": "Mail body text for when the user feedback finishes.\n$1 - User feedback summary",
+	"workflow-default-group-feedback-report-subject": "Mail subject line for when the group feedback finishes.\n$1 - Page name",
+	"workflow-default-group-feedback-body": "Mail body text for when the group feedback finishes.\n$1 - Group feedback summary",
+	"workflow-default-user-approval-report-subject": "Mail subject line for when the user approval workflow finishes.\n$1 - Page name",
+	"workflow-default-user-approval-report-body": "Mail body text for when the user approval workflow finishes.\n$1 - User approval summary",
+	"workflow-default-document-control-report-subject": "Mail subject line for when the expert document control workflow finishes.\n$1 - Page name",
+	"workflow-default-document-control-report-body": "Mail body text for when the expert document control workflow finishes.\n$1 - Document control summary"
+}

@@ -1,0 +1,17 @@
+{
+	"workflows-desc": "Description of Workflows for [[Special:Version]]",
+	"action-workflows-view": "Text to be displayed in a permission error message",
+	"right-workflows-view": "Name of a permission",
+	"action-workflows-execute": "Text to be displayed in a permission error message",
+	"right-pageassignments": "Name of a permission",
+	"log-name-ext-workflows": "Select option label on [[Special:Log]]",
+	"log-description-ext-workflows": "Intro text on [[Special:Log]]",
+	"logentry-ext-workflows-uservote-yes": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-uservote-no": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-uservote-delegate": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-sendmail-send": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-groupvote-yes": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-groupvote-no": "Entry on [[Special:Log]]",
+	"workflows-form-comment": "Label for VoteWidget comment input",
+	"workflows-form-placeholder-comment": "Label for VoteWidget placeholder input"
+}

@@ -1,0 +1,40 @@
+.workflows-widget-vote {
+	&.invalid .oo-ui-panelLayout {
+		border-left: 3px solid red;
+	}
+	.oo-ui-panelLayout {
+		text-align: center;
+		.vote-icon {
+			width: 80px;
+			display: block;
+			height: 80px;
+			margin: 0 auto 25px auto;
+			&.oo-ui-icon-circleHelp {
+				background-image: url('images/question-circle.svg');
+			}
+
+			&.oo-ui-icon-accept-icon {
+				background-image: url('images/check2-circle.svg');
+			}
+
+			&.oo-ui-icon-decline-icon {
+				background-image: url('images/x-circle.svg');
+			}
+		}
+
+		.vote-button-group {
+			display: block;
+			margin: 0;
+			.vote-yes.oo-ui-optionWidget-selected .oo-ui-buttonElement-button {
+				background-color: #47A65D;
+				color: #fff;
+				border-color: #47A65D;
+			}
+			.vote-no.oo-ui-optionWidget-selected .oo-ui-buttonElement-button {
+				background-color: #A62E39;
+				color: #fff;
+				border-color: #A62E39;
+			}
+		}
+	}
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+				   xmlns:wf="http://hallowelt.com/schema/bpmn/wf"
+				   targetNamespace="http://activiti.org/bpmn">
+	<bpmn2:process id="ExecuteGroupVote">
+		<bpmn2:extensionElements>
+			<wf:context>
+				<wf:contextItem name="page">MyPage</wf:contextItem>
+				<wf:contextItem name="isLocal">true</wf:contextItem>
+			</wf:context>
+		</bpmn2:extensionElements>
+		<bpmn2:startEvent id="StartEvent_0c7hytm" isInterrupting="true" parallelMultiple="false">
+			<bpmn2:outgoing>StartToVote</bpmn2:outgoing>
+			<bpmn2:outputSet/>
+		</bpmn2:startEvent>
+		<bpmn2:userTask id="GroupVote_1" name="Execute group vote">
+			<bpmn2:incoming>StartToVote</bpmn2:incoming>
+			<bpmn2:outgoing>VoteToGW</bpmn2:outgoing>
+			<bpmn2:property id="actor" name="__targetRef_placeholder"/>
+			<bpmn2:property id="group" name="__targetRef_placeholder"/>
+			<bpmn2:dataInputAssociation id="ActorInput">
+				<bpmn2:sourceRef>DataObjectReference_17cxj6l</bpmn2:sourceRef>
+				<bpmn2:targetRef>actor</bpmn2:targetRef>
+			</bpmn2:dataInputAssociation>
+			<bpmn2:dataInputAssociation id="GroupInput">
+				<bpmn2:sourceRef>DataObjectReference_17cxj6l</bpmn2:sourceRef>
+				<bpmn2:targetRef>group</bpmn2:targetRef>
+			</bpmn2:dataInputAssociation>
+			<bpmn2:dataOutputAssociation id="DataOutputAssociation_0tm4fj8">
+				<bpmn2:targetRef>DataObjectReference_1ms3cnk</bpmn2:targetRef>
+			</bpmn2:dataOutputAssociation>
+			<bpmn2:extensionElements>
+				<!-- This section contains all activity related data -->
+				<wf:type>group_vote</wf:type>
+				<wf:serial>test</wf:serial>
+				<wf:serial>test2</wf:serial>
+				<wf:serial>
+					<wf:s1>test</wf:s1>
+				</wf:serial>
+				<wf:threshold>
+					<wf:name>yes</wf:name>
+					<wf:value>50</wf:value>
+					<wf:unit>percent</wf:unit>
+				</wf:threshold>
+				<wf:threshold>
+					<wf:name>no</wf:name>
+					<wf:value>3</wf:value>
+					<wf:unit>user</wf:unit>
+				</wf:threshold>
+				<wf:threshold>
+					<wf:name>limit</wf:name>
+					<wf:value>
+						<wf:key1>1</wf:key1>
+						<wf:key2>2</wf:key2>
+						<wf:key3>3</wf:key3>
+					</wf:value>
+					<wf:unit>
+						<wf:subunit>user</wf:subunit>
+						<wf:subunit>percent</wf:subunit>
+						<wf:subunit>group</wf:subunit>
+					</wf:unit>
+				</wf:threshold>
+			</bpmn2:extensionElements>
+		</bpmn2:userTask>
+		<bpmn2:dataObjectReference dataObjectRef="DataObject_0vg9j37" id="DataObjectReference_1ms3cnk" name="initial data"/>
+		<bpmn2:dataObject id="DataObject_0vg9j37" isCollection="false">
+			<bpmn2:extensionElements>
+				<wf:data>
+					<wf:dataItem name="actor"></wf:dataItem>
+					<wf:dataItem name="group"></wf:dataItem>
+					<wf:dataItem name="type"></wf:dataItem>
+				</wf:data>
+			</bpmn2:extensionElements>
+		</bpmn2:dataObject>
+		<bpmn2:dataObjectReference dataObjectRef="DataObject_0ml7359" id="DataObjectReference_17cxj6l" name="Type, users"/>
+		<bpmn2:dataObject id="DataObject_0ml7359" isCollection="false">
+			<bpmn2:extensionElements>
+				<wf:data>
+					<wf:dataItem name="actor"></wf:dataItem>
+					<wf:dataItem name="group"></wf:dataItem>
+				</wf:data>
+			</bpmn2:extensionElements>
+		</bpmn2:dataObject>
+		<bpmn2:sequenceFlow id="StartToVote" sourceRef="StartEvent_0c7hytm" targetRef="GroupVote_1"/>
+		<bpmn2:exclusiveGateway gatewayDirection="Unspecified" id="Gateway_1ui0zp0" name="GroupVote_1.group">
+			<bpmn2:incoming>VoteToGW</bpmn2:incoming>
+			<bpmn2:outgoing>GWToEnd</bpmn2:outgoing>
+			<bpmn2:outgoing>GWToMail</bpmn2:outgoing>
+		</bpmn2:exclusiveGateway>
+		<bpmn2:sequenceFlow id="VoteToGW" sourceRef="GroupVote_1" targetRef="Gateway_1ui0zp0"/>
+		<bpmn2:endEvent id="End1" name="End of path 1">
+			<bpmn2:incoming>GWToEnd</bpmn2:incoming>
+			<bpmn2:inputSet/>
+		</bpmn2:endEvent>
+		<bpmn2:sequenceFlow id="GWToEnd" name="default" sourceRef="Gateway_1ui0zp0" targetRef="End1"/>
+		<bpmn2:task completionQuantity="1" id="Activity_1nevr4m" isForCompensation="false" name="Create page" startQuantity="1">
+			<bpmn2:incoming>GWToMail</bpmn2:incoming>
+			<bpmn2:outgoing>MailToEnd</bpmn2:outgoing>
+			<bpmn2:property id="group" name="__targetRef_placeholder"/>
+			<bpmn2:dataInputAssociation id="DataInputAssociation_0r4rrd7">
+				<bpmn2:sourceRef>DataObjectReference_1ms3cnk</bpmn2:sourceRef>
+				<bpmn2:targetRef>group</bpmn2:targetRef>
+			</bpmn2:dataInputAssociation>
+			<bpmn2:extensionElements>
+				<wf:type>create_page</wf:type>
+				<wf:properties>
+					<wf:property name="pagename">CreatedByWorkflow</wf:property>
+				</wf:properties>
+			</bpmn2:extensionElements>
+		</bpmn2:task>
+		<bpmn2:sequenceFlow id="GWToMail" name="Dummy" sourceRef="Gateway_1ui0zp0" targetRef="Activity_1nevr4m"/>
+		<bpmn2:endEvent id="End2" name="End of path 2">
+			<bpmn2:incoming>MailToEnd</bpmn2:incoming>
+			<bpmn2:inputSet/>
+		</bpmn2:endEvent>
+		<bpmn2:sequenceFlow id="MailToEnd" sourceRef="Activity_1nevr4m" targetRef="End2"/>
+	</bpmn2:process>
+</bpmn2:definitions>

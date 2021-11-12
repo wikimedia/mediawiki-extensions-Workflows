@@ -1,0 +1,44 @@
+{
+	"name": "mediawiki/workflows",
+	"type": "mediawiki-extension",
+	"keywords": [
+		"mediawiki",
+		"wiki"
+	],
+	"license": "GPL-3.0-only",
+	"authors": [
+		{
+			"name": "Hallo Welt! GmbH",
+			"email": "info@hallowelt.com",
+			"homepage": "http://www.hallowelt.com"
+		}
+	],
+	"extra": {
+		"installer-name": "Workflows"
+	},
+	"require": {
+		"composer/installers": "~1.0",
+		"eventsauce/eventsauce": "0.8.*",
+		"mwstake/mediawiki-component-formengine": "1.*",
+		"mwstake/mediawiki-component-notifications": "1.*",
+		"mwstake/mediawiki-component-runjobstrigger": "1.*",
+		"mwstake/mediawiki-component-alertbanners": "~1.0"
+	},
+	"require-dev": {
+		"mediawiki/mediawiki-codesniffer": "31.0.0",
+		"mediawiki/minus-x": "1.1.0",
+		"php-parallel-lint/php-console-highlighter": "0.5.0",
+		"php-parallel-lint/php-parallel-lint": "1.2.0"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor --exclude node_modules",
+			"minus-x check .",
+			"phpcs -sp"
+		],
+		"fix": [
+			"minus-x fix .",
+			"phpcbf"
+		]
+	}
+}

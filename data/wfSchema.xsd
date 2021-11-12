@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://hallowelt.com/schema/bpmn/wf">
+	<xs:element name="type" type="xs:string"/>
+	<xs:element name="initializer" type="xs:boolean"/>
+	<xs:element name="form" type="xs:boolean"/>
+	<xs:element name="initiationActivity" type="xs:boolean"/>
+	<xs:element name="permission" type="xs:string"/>
+	<xs:element name="dataItem" />
+	<xs:element name="dataItemKey" type="xs:string"/>
+	<xs:element name="multiInstanceProperty" type="xs:string"/>
+	<xs:element name="properties">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="property" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="form_module">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="module" />
+				<xs:element name="class" />
+				<xs:element name="callback" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="context">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="contextItem" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,49 @@
+.overview-booklet {
+	.overview-title {
+		font-size: 1.3em !important;
+	}
+	.overview-desc {
+		color: grey;
+		font-size: 0.9em !important;
+	}
+	.overview-state-layout {
+		position: absolute;
+		right: 10px;
+		top: -10px;
+		font-size: 1.3em;
+		.workflow-state-active {
+			color: green;
+		}
+		.workflow-state-inactive {
+			color: red;
+		}
+		.oo-ui-popupWidget-popup {
+			span {
+				font-size: 14px;
+			}
+		}
+	}
+	.overview-section-label {
+		font-size: 1.3em;
+		padding: 10px;
+	}
+	.overview-activity-layout {
+		background-color: #f7f6f6;
+		position: relative;
+		.oo-ui-labelWidget.name {
+			font-size: 1.2em;
+		}
+		.proximity-layout {
+			position: absolute;
+			right: 10px;
+			top: 5px;
+			color: green;
+			&.proximity-close {
+				color: orangered;
+			}
+			&.proximity-overdue {
+				color: red;
+			}
+		}
+	}
+}

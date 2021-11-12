@@ -1,0 +1,18 @@
+{
+	"workflows-workflow-file-definition-group-feedback-title": "Group Feedback",
+	"workflows-workflow-file-definition-group-feedback-desc": "Ask a group of users for feedback while reviewing a page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-workflow-file-definition-user-approval-title": "User approval",
+	"workflows-workflow-file-definition-user-approval-desc": "Ask a user for reviewing and approving a page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-workflow-file-definition-user-feedback-title": "User feedback",
+	"workflows-workflow-file-definition-user-feedback-desc": "Ask a user for feedback while reviewing a page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-workflow-file-definition-document-control-title": "Expert document control",
+	"workflows-workflow-file-definition-document-control-desc": "Ask one user to edit a page and another expert user to review those changes. Then ask a third user to accept and publish the page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflow-default-user-feedback-report-subject": "User feedback workflow of '$1' finished!",
+	"workflow-default-user-feedback-body": "This is a report about the user feedback workflow:\n$1",
+	"workflow-default-group-feedback-report-subject": "Group feedback workflow of '$1' finished!",
+	"workflow-default-group-feedback-body": "This is a report about the group feedback workflow:\n$1",
+	"workflow-default-user-approval-report-subject": "User approval workflow of '$1' finished!",
+	"workflow-default-user-approval-report-body": "This is a report about the user approval workflow:\n$1",
+	"workflow-default-document-control-report-subject": "Expert document control workflow of '$1' finished!",
+	"workflow-default-document-control-report-body": "This is a report about the expert document control workflow:\n$1"
+}

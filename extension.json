@@ -1,0 +1,480 @@
+{
+	"name": "Workflows",
+	"version": "0.1",
+	"license-name": "GPL-3.0-only",
+	"author": [
+		"[http://www.hallowelt.com Hallo Welt! GmbH]"
+	],
+	"url": "http://www.hallowelt.com",
+	"descriptionmsg": "workflows-desc",
+	"requires": {
+		"MediaWiki": ">= 1.35.0",
+		"extensions": {
+			"Forms": "*",
+			"OOJSPlus": "*"
+		}
+	},
+	"attributes": {
+		"BlueSpiceFoundation": {
+			"PermissionRegistry": {
+				"workflows-view": {
+					"type": "global",
+					"roles": [
+						"reader"
+					]
+				},
+				"workflows-execute": {
+					"type": "global",
+					"roles": [
+						"admin", "reviewer"
+					]
+				},
+				"workflows-admin": {
+					"type": "global",
+					"roles": [
+						"admin"
+					]
+				}
+			}
+		},
+		"Workflows": {
+			"LogicObjects": {
+				"ActivityRegistry": {
+					"user_vote": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\VoteActivity\\UserVoteActivity",
+						"services": [ "MWStakeNotificationsNotifier" ]
+					},
+					"group_vote": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\VoteActivity\\GroupVoteActivity",
+						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider", "WorkflowUtilThresholdCheckerFactory" ]
+					},
+					"user_feedback": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\UserFeedbackActivity",
+						"services": [ "MWStakeNotificationsNotifier" ]
+					},
+					"group_feedback": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\GroupFeedbackActivity",
+						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider", "WorkflowUtilThresholdCheckerFactory" ]
+					},
+					"send_mail": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\SendMail\\SendMailActivity",
+						"services": [ "Emailer", "MainConfig" ]
+					},
+					"custom_form": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\CustomForm\\CustomFormActivity"
+					},
+					"edit_request": {
+						"class":"\\MediaWiki\\Extension\\Workflows\\Activity\\EditRequest\\EditRequestActivity"
+					}
+				},
+				"DecisionRegistry": {}
+			},
+			"DefinitionRepositories": {
+				"wikipage": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WikiPageDefinitionRepository::factory",
+				"workflow-file": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WorkflowFileDefinitionRepository::factory"
+			},
+			"WorkflowListeners": {},
+			"WorkflowDefinitions": {}
+		},
+		"BlueSpiceDiscovery": {
+			"AttentionIndicatorRegistry": {
+				"workflows": "\\MediaWiki\\Extension\\Workflows\\AttentionIndicator\\Workflows::factory"
+			}
+		},
+		"UnifiedTaskOverview": {
+			"AttentionIndicatorCollectionRegistry": [
+				"workflows"
+			]
+		}
+	},
+	"callback": "MediaWiki\\Extension\\Workflows\\Extension::register",
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"MessagesDirs": {
+		"Workflows": "i18n",
+		"WorkflowsDefinitions": "i18n/workflow_definitions"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\Workflows\\": "src/",
+		"MediaWiki\\Extension\\Workflows\\Tests\\": "tests/phpunit"
+	},
+	"ResourceModules": {
+		"ext.workflows.bootstrap": {
+			"scripts": "bootstrap.js"
+		},
+		"ext.workflows.api": {
+			"scripts": [
+				"api/Api.js"
+			]
+		},
+		"ext.workflows.objects": {
+			"scripts": [
+				"object/Element.js",
+				"object/Activity.js",
+				"object/UserInteractionModule.js",
+				"object/UserInteractiveActivity.js",
+				"object/ElementFactory.js",
+				"object/Workflow.js",
+				"object/NullWorkflow.js"
+			]
+		},
+		"ext.workflows.form": {
+			"scripts": [
+				"object/form/Form.js"
+			],
+			"dependencies": [
+				"ext.forms.standalone"
+			]
+		},
+		"ext.workflows.ui.starter": {
+			"scripts": [
+				"ui/booklet/WorkflowSelectionPage.js",
+				"ui/booklet/WorkflowStartPage.js",
+				"ui/booklet/WorkflowStartBooklet.js",
+				"ui/WorkflowPicker.js",
+				"ui/dialog/WorkflowStarter.js"
+			],
+			"styles": [
+				"styles/bootstrap.css"
+			],
+			"messages": [
+				"workflows-ui-starter-select-workflow",
+				"workflows-ui-starter-init-note",
+				"workflows-ui-starter-error-generic",
+				"workflows-ui-starter-error-no-init-prompt",
+				"workflows-ui-starter-dialog-title",
+				"workflows-ui-starter-action-choose",
+				"workflows-ui-starter-action-start",
+				"workflows-ui-starter-action-back",
+				"workflows-ui-starter-action-cancel",
+				"workflows-ui-starter-init-form-fail"
+			]
+		},
+		"ext.workflows.ui.task.complete": {
+			"scripts": [
+				"ui/dialog/TaskCompletion.js"
+			],
+			"messages": [
+				"workflows-ui-task-completion-dialog-title",
+				"workflows-ui-task-completion-action-complete",
+				"workflows-ui-task-completion-action-cancel"
+			]
+		},
+		"ext.workflows.alert": {
+			"scripts": [
+				"ui/widget/ManageButton.js",
+				"ui/alert/Alert.js",
+				"ui/alert/ActivityAlert.js",
+				"ui/alert/Manager.js"
+			],
+			"styles": [
+				"styles/alert.css"
+			],
+			"dependencies": [
+				"mwstake.component.alertbanners",
+				"ext.workflows.dialog.overview.bootstrap"
+			],
+			"messages": [
+				"workflows-ui-alert-running-workflow"
+			]
+		},
+		"ext.workflows.dialog.overview.bootstrap": {
+			"scripts": [
+				"ui/dialog/WorkflowOverview.js"
+			],
+			"messages": [
+				"workflows-ui-workflow-overview-dialog-title",
+				"workflows-ui-workflow-overview-action-abort",
+				"workflows-ui-workflow-overview-action-restore",
+				"workflows-ui-workflow-overview-action-cancel"
+			],
+			"dependencies": [
+				"oojs-ui"
+			]
+		},
+		"ext.workflows.special.overview": {
+			"scripts": [
+				"special.overview.js"
+			],
+			"dependencies": [
+				"ext.workflows.panel.overview",
+				"ext.workflows.dialog.overview.bootstrap",
+				"ext.workflows.dialog.overview",
+				"oojs-ui"
+			]
+		},
+		"ext.workflows.panel.overview": {
+			"scripts": [
+				"ui/panel/WorkflowList.js"
+			],
+			"messages": [
+				"workflows-ui-overview-details-start-time-column",
+				"workflows-ui-overview-details-last-time-column",
+				"workflows-ui-overview-details-state-column",
+				"workflows-ui-overview-details-state-not_started",
+				"workflows-ui-overview-details-state-running",
+				"workflows-ui-overview-details-state-finished",
+				"workflows-ui-overview-details-state-aborted",
+				"workflows-ui-overview-details-section-activity",
+				"workflows-ui-overview-details-section-page",
+				"workflows-ui-overview-details-workflow-type-label",
+				"workflows-ui-overview-grid-filter-state-all",
+				"workflows-ui-overview-grid-filter-state-active",
+				"workflows-error-generic"
+			],
+			"dependencies": [
+				"ext.oOJSPlus.data",
+				"oojs-ui.styles.icons-alerts"
+			]
+		},
+		"ext.workflows.dialog.overview": {
+			"scripts": [
+				"ui/booklet/WorkflowListPage.js",
+				"ui/booklet/WorkflowDetailsPage.js",
+				"ui/booklet/WorkflowAbortRestorePage.js",
+				"ui/booklet/WorkflowOverviewBooklet.js"
+			],
+			"styles": [
+				"styles/overview.less"
+			],
+			"messages": [
+				"workflows-ui-overview-details-start-time",
+				"workflows-ui-overview-details-last-time",
+				"workflows-ui-overview-details-state-label",
+				"workflows-ui-overview-details-state-not_started",
+				"workflows-ui-overview-details-state-running",
+				"workflows-ui-overview-details-state-finished",
+				"workflows-ui-overview-details-state-aborted",
+				"workflows-ui-overview-details-state-comment",
+				"workflows-ui-overview-details-end-time",
+				"workflows-ui-overview-details-section-activity",
+				"workflows-ui-overview-details-section-page",
+				"workflows-ui-overview-details-activity-assigned-users",
+				"workflows-ui-overview-details-activity-assigned-users-none",
+				"workflows-ui-overview-details-action-abort-note",
+				"workflows-ui-overview-details-action-restore-note",
+				"workflows-ui-overview-details-action-reason",
+				"workflows-ui-overview-details-page-context-revision",
+				"workflows-ui-overview-details-page-context-page",
+				"workflows-ui-overview-details-no-current-activity",
+				"workflows-ui-workflow-overview-dialog-title-list-page",
+				"workflows-ui-workflow-overview-dialog-title-list",
+				"workflows-ui-workflow-overview-dialog-title-abort",
+				"workflows-ui-workflow-overview-dialog-title-restore",
+				"workflows-ui-overview-details-state-autoabort-comment",
+				"workflows-ui-overview-details-section-expired",
+				"workflows-ui-overview-details-activity-due-date",
+				"workflows-ui-overview-details-initiator"
+			],
+			"dependencies": [
+				"oojs-ui.styles.icons-moderation",
+				"oojs-ui.styles.icons-interactions",
+				"oojs-ui.styles.icons-content",
+				"oojs-ui.styles.icons-user",
+				"oojs-ui.styles.icons-alerts",
+				"ext.workflows.panel.overview"
+			]
+		},
+		"ext.workflows.widgets": {
+			"scripts": [
+				"ui/widget/VoteWidget.js"
+			],
+			"styles": "styles/voteWidget.less"
+		},
+		"ext.workflows.activity.vote": {
+			"scripts": [
+				"object/form/formelement/Vote.js",
+				"object/form/UserVote.js",
+				"object/form/GroupVote.js"
+			],
+			"dependencies": [
+				"ext.workflows.widgets",
+				"ext.workflows.form",
+				"mediawiki.widgets.UserInputWidget"
+			],
+			"messages": [
+				"workflows-form-placeholder-comment",
+				"workflows-form-label-delegate-cancel",
+				"workflows-form-label-delegate",
+				"workflows-form-label-delegate-to",
+				"workflows-form-label-delegate-comment",
+				"workflows-form-label-vote-widget-approve",
+				"workflows-form-label-vote-widget-decline",
+				"workflows-form-delegate-header-comment",
+				"workflows-form-delegate-header",
+				"workflows-form-instructions-loading-text"
+			]
+		},
+		"ext.workflows.activity.edit.request": {
+			"scripts": [
+				"object/form/EditRequest.js"
+			],
+			"dependencies": [
+				"ext.workflows.widgets",
+				"ext.workflows.form"
+			],
+			"messages": [
+				"workflows-form-edit-request-submit-to-continue"
+			]
+		},
+		"ext.workflows.activity.activity.feedback": {
+			"scripts": [
+				"object/form/Feedback.js"
+			],
+			"dependencies": [
+				"ext.workflows.widgets",
+				"ext.workflows.form"
+			],
+			"messages": [
+				"workflows-form-instructions-comment",
+				"workflows-form-instructions-loading-text"
+			]
+		},
+		"ext.workflows.uto.styles": {
+			"styles": [ "styles/utoStyles.css" ]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "Workflows/resources"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "addTables",
+		"BeforePageDisplay": "addBootstrap",
+		"ContentHandlerDefaultModelFor": "setBPMNContent",
+		"SkinTemplateNavigation::Universal": "addActions",
+		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
+		"MWStakeRunJobsTriggerRegisterHandlers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\MWStakeRunJobsTriggerRegisterHandlers\\AddBackgroundProcess::callback",
+		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "addActions",
+		"ArticleDeleteComplete": "abortWorkflows"
+	},
+	"HookHandlers": {
+		"addTables": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddTables"
+		},
+		"addBootstrap": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddBootstrap"
+		},
+		"setBPMNContent": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\SetBPMNContent"
+		},
+		"addActions": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddActions",
+			"services": [
+				"PermissionManager"
+			]
+		},
+		"addUTOUserActivities": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddUnifiedTaskOverviewUserActivities",
+			"services": [ "WorkflowsStateStore", "WorkflowFactory", "PermissionManager", "SpecialPageFactory" ]
+		},
+		"abortWorkflows": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AbortWorkflowsOnDelete",
+			"services": [ "WorkflowFactory", "WorkflowsStateStore" ]
+		}
+	},
+	"ContentHandlers": {
+		"BPMN": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ContentHandler\\BPMNHandler"
+	},
+	"GroupPermissions": {
+		"user": {
+			"workflows-view": true,
+			"workflows-admin": false
+		},
+		"sysop": {
+			"workflows-execute": true,
+			"workflows-admin": true
+		},
+		"review": {
+			"workflows-execute": true
+		}
+	},
+	"AvailableRights": [
+		"workflows-view",
+		"workflows-execute",
+		"workflows-admin"
+	],
+	"RestRoutes": [
+		{
+			"path": "/workflow/list",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\ListHandler",
+			"services": [
+				"WorkflowFactory",
+				"WorkflowsStateStore",
+				"WorkflowSerializer"
+			]
+		},
+		{
+			"path": "/workflow/{id}",
+			"method": "DELETE",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DeleteHandler",
+			"services": [
+				"WorkflowFactory"
+			]
+		},
+		{
+			"path": "/workflow/restore/{id}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RestoreHandler",
+			"services": [
+				"WorkflowFactory"
+			]
+		},
+		{
+			"path": "/workflow/start/{repository}/{id}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\StartHandler",
+			"services": [
+				"WorkflowFactory"
+			]
+		},
+		{
+			"path": "/workflow/dry_start/{repository}/{id}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DryStartHandler",
+			"services": [
+				"WorkflowFactory"
+			]
+		},
+		{
+			"path": "/workflow/complete_task/{id}/{taskId}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\CompleteHandler",
+			"services": [
+				"WorkflowFactory"
+			]
+		},
+		{
+			"path": "/workflow/retrieve/{id}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveHandler",
+			"services": [
+				"WorkflowFactory"
+			]
+		},
+		{
+			"path": "/workflow/definition/list",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DefinitionListHandler",
+			"services": [
+				"DefinitionRepositoryFactory"
+			]
+		}
+	],
+	"LogTypes": [ "ext-workflows" ],
+	"LogActionsHandlers": {
+		"ext-workflows/*": "LogFormatter"
+	},
+	"SpecialPages": {
+		"WorkflowsOverview": {
+			"class":  "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\WorkflowOverview"
+		}
+	},
+	"ExtensionMessagesFiles": {
+		"WorkflowsOverviewAlias": "languages/SpecialWorkflowOverview.alias.php"
+	},
+	"manifest_version": 2,
+	"load_composer_autoloader": true
+}
