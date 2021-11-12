@@ -97,7 +97,7 @@
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\Workflows\\": "src/",
-		"MediaWiki\\Extension\\Workflows\\Tests\\": "tests/phpunit"
+		"MediaWiki\\Extension\\Workflows\\Tests\\": "tests/phpunit/"
 	},
 	"ResourceModules": {
 		"ext.workflows.bootstrap": {
