@@ -101,8 +101,8 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$this->notifier = $this->createMock( INotifier::class );
 
-		$this->actor = $this->getTestUser( ['actor'] )->getUser();
-		$this->owner = $this->getTestUser( ['owner'] )->getUser();
+		$this->actor = $this->getTestUser( [ 'actor' ] )->getUser();
+		$this->owner = $this->getTestUser( [ 'owner' ] )->getUser();
 
 		$this->targetPage = $this->getExistingTestPage()->getTitle()->getArticleID();
 	}
@@ -168,7 +168,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$activity = $this->prepareActivity();
 
-		$delegateToUser = $this->getTestUser( ['delegate_to'] )->getUser()->getName();
+		$delegateToUser = $this->getTestUser( [ 'delegate_to' ] )->getUser()->getName();
 
 		$activity->start( [], $this->workflowContext );
 

@@ -3,11 +3,11 @@
 namespace MediaWiki\Extension\Workflows\Rest;
 
 use Exception;
+use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use MediaWiki\Rest\HttpException;
-use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\Rest\HttpException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class CompleteHandler extends JSONBodyActionHandler {

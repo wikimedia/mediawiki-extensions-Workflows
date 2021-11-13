@@ -13,7 +13,7 @@ use Message;
 use RequestContext;
 
 class GenericDescriptor implements IActivityDescriptor {
-	/** @var UserInteractiveActivity  */
+	/** @var UserInteractiveActivity */
 	protected $activity;
 	/** @var IContextSource */
 	protected $context;

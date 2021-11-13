@@ -48,8 +48,7 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 
 		if ( $vote === 'yes' ) {
 			$this->voteYes( $comment );
-		}
-		else {
+		} else {
 			$this->voteNo( $comment );
 		}
 	}
@@ -62,8 +61,7 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 
 		if ( $this->activityKey === 'group-vote' ) {
 			$action = 'groupvote-yes';
-		}
-		else {
+		} else {
 			$action = 'uservote-yes';
 		}
 
@@ -88,8 +86,7 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 
 		if ( $this->activityKey === 'group-vote' ) {
 			$action = 'groupvote-no';
-		}
-		else {
+		} else {
 			$action = 'uservote-no';
 		}
 

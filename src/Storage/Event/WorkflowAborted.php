@@ -9,7 +9,6 @@ use User;
 class WorkflowAborted extends Event {
 	use ActorTrait;
 
-	/** @var */
 	private $reason;
 
 	public function __construct( UuidInterface $id, User $actor, $reason ) {

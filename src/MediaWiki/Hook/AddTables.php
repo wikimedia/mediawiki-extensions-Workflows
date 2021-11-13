@@ -9,7 +9,7 @@ class AddTables implements LoadExtensionSchemaUpdatesHook {
 	public function onLoadExtensionSchemaUpdates( $updater ) {
 		$updater->addExtensionTable(
 			'workflow_event',
-			dirname(dirname(dirname(__DIR__))) . '/db/workflows_event.sql'
+			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_event.sql'
 		);
 
 		$updater->addExtensionTable(

@@ -107,7 +107,7 @@ class DefinitionContext implements JsonSerializable {
 	 * @return array
 	 */
 	private function convertData( array $data ) {
-		array_walk( $data, function ( &$value, $key ) {
+		array_walk( $data, static function ( &$value, $key ) {
 			if ( $value === '' ) {
 				return;
 			}

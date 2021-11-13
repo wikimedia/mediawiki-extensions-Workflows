@@ -12,9 +12,9 @@ class EditRequestActivity extends UIActivity {
 	/**
 	 * @return UserInteractionModule
 	 */
-	public function getUserInteractionModule(): UserInteractionModule{
+	public function getUserInteractionModule(): UserInteractionModule {
 		return new UserInteractionModule(
-			['ext.workflows.activity.edit.request'],
+			[ 'ext.workflows.activity.edit.request' ],
 			'workflows.object.form.EditRequest'
 		);
 	}

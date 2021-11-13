@@ -48,7 +48,6 @@ class UIActivity extends GenericActivity implements UserInteractiveActivity {
 		return UserInteractionModule::newFromDefinitionForm( $definition );
 	}
 
-
 	/**
 	 * Get UI Module for the form defined in code
 	 *

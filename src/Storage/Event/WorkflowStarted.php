@@ -14,6 +14,7 @@ final class WorkflowStarted extends Event {
 
 	/**
 	 * @param UuidInterface $id
+	 * @param User $actor
 	 * @param array $contextData
 	 */
 	public function __construct( UuidInterface $id, User $actor, $contextData = [] ) {

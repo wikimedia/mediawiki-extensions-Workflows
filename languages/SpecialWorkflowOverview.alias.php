@@ -6,4 +6,3 @@ $specialPageAliases = [];
 $specialPageAliases['en'] = [
 	'WorkflowsOverview' => [ 'Workflows overview', 'WorkflowsOverview' ],
 ];
-

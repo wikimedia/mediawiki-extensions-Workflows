@@ -17,15 +17,15 @@ use Wikimedia\Rdbms\ILoadBalancer;
 final class DBStateStore implements WorkflowStateStore {
 	private const TABLE = 'workflows_state';
 
-	/** @var ILoadBalancer  */
+	/** @var ILoadBalancer */
 	private $lb;
-	/** @var WorkflowEventClassInflector  */
+	/** @var WorkflowEventClassInflector */
 	private $inflector;
 	/** @var WorkflowStateModel[] */
 	private $models = [];
 	/** @var WorkflowId[] */
 	private $inserted = [];
-	/** @var array  */
+	/** @var array */
 	private $conditions = [];
 
 	/**
@@ -71,7 +71,7 @@ final class DBStateStore implements WorkflowStateStore {
 	/**
 	 * @inheritDoc
 	 */
-	public function complexQuery( $filter ): array  {
+	public function complexQuery( $filter ): array {
 		$ids = $this->query();
 		$workSet = [];
 		foreach ( $ids as $id ) {

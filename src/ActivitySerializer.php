@@ -6,7 +6,7 @@ use FormatJson;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 
 class ActivitySerializer {
-	/** @var Workflow  */
+	/** @var Workflow */
 	private $workflow;
 
 	public function __construct( Workflow $workflow ) {

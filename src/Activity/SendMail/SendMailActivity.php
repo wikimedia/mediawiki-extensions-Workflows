@@ -4,13 +4,13 @@ namespace MediaWiki\Extension\Workflows\Activity\SendMail;
 
 use Config;
 use MailAddress;
-use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
-use MediaWiki\Mail\IEmailer;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\GenericActivity;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
+use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\Mail\IEmailer;
 use MWException;
 use Title;
 use User;
@@ -18,14 +18,13 @@ use User;
 class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {
 
 	/** @var IEmailer */
-	private $emailer ;
+	private $emailer;
 	/** @var MailAddress */
 	private $fromAddress;
-	/** @var User  */
+	/** @var User */
 	private $logActor;
 	/** @var ISpecialLogLogger */
 	private $specialLogLogger;
-
 
 	/**
 	 * @param IEmailer $emailer
@@ -70,7 +69,7 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 		if ( !is_array( $to ) ) {
 			$to = [ $to ];
 		}
-		$to = array_map( function( $to ) {
+		$to = array_map( static function ( $to ) {
 			if ( strpos( $to, '@' ) !== false ) {
 				// Very basic check for email address
 				return new MailAddress( $to );
@@ -82,7 +81,7 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 			return null;
 		}, $to );
 
-		$to = array_filter( $to, function( $to ) {
+		$to = array_filter( $to, static function ( $to ) {
 			return $to instanceof MailAddress;
 		} );
 		$from = $this->fromAddress;

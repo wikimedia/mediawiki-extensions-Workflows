@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Util;
 
 class ThresholdCheckerFactory {
-	/** @var GroupDataProvider  */
+	/** @var GroupDataProvider */
 	private $groupDataProvider;
 
 	/**

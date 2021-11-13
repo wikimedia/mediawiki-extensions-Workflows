@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
 use BlueSpice\Discovery\Hook\BlueSpiceDiscoveryTemplateDataProviderAfterInit;
@@ -8,7 +10,7 @@ use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Permissions\PermissionManager;
 
 class AddActions implements SkinTemplateNavigation__UniversalHook, BlueSpiceDiscoveryTemplateDataProviderAfterInit {
-	/** @var PermissionManager  */
+	/** @var PermissionManager */
 	private $permissionManager;
 
 	/**
@@ -20,7 +22,7 @@ class AddActions implements SkinTemplateNavigation__UniversalHook, BlueSpiceDisc
 
 	/**
 	 * @param \SkinTemplate $sktemplate
-	 * @param array $links
+	 * @param array &$links
 	 */
 	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
 		$title = $sktemplate->getTitle();

@@ -18,7 +18,7 @@ class VoteDelegate extends VoteNotification {
 	 * @param User $delegateTo
 	 */
 	public function __construct( $agent, $title, $owner, $activity, $comment, $delegateTo ) {
-		parent::__construct('workflows-vote-delegate', $agent, $title, $owner, $activity, $comment );
+		parent::__construct( 'workflows-vote-delegate', $agent, $title, $owner, $activity, $comment );
 		$this->delegateTo = $delegateTo;
 
 		$this->addAffectedUsers( [ $this->delegateTo ] );

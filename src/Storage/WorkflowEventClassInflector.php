@@ -9,7 +9,7 @@ class WorkflowEventClassInflector implements ClassNameInflector {
 	public function classNameToType( string $className ): string {
 		$bits = explode( '\\', $className );
 		$eventName = array_pop( $bits );
-		$bits = array_filter( $bits, function ( $item ) {
+		$bits = array_filter( $bits, static function ( $item ) {
 			return !empty( $item );
 		} );
 		if ( empty( $bits ) ) {

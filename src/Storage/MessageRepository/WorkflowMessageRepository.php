@@ -39,6 +39,7 @@ class WorkflowMessageRepository implements MessageRepository {
 
 	/**
 	 * @param ILoadBalancer $lb
+	 * @param MessageSerializer $serializer
 	 */
 	public function __construct( ILoadBalancer $lb, MessageSerializer $serializer ) {
 		$this->lb = $lb;
@@ -85,7 +86,7 @@ class WorkflowMessageRepository implements MessageRepository {
 	}
 
 	private function toWorkflowIds( $array ) {
-		return array_map( function( $id ) {
+		return array_map( static function ( $id ) {
 			return WorkflowId::fromString( $id );
 		}, $array );
 	}

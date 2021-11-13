@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Workflows\Activity\FeedbackActivity;
 
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackNotification;
-use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;

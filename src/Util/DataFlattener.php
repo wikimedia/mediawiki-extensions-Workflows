@@ -17,8 +17,7 @@ class DataFlattener {
 
 				if ( is_array( $dataValue ) ) {
 					$this->flattenArray( $flattened, $nestedDataKey, $dataValue );
-				}
-				else {
+				} else {
 					$flattened[$nestedDataKey] = $dataValue;
 				}
 			}
@@ -30,7 +29,7 @@ class DataFlattener {
 	/**
 	 * Recursively flattens nested arrays
 	 *
-	 * @param array $resultArray
+	 * @param array &$resultArray
 	 * @param string $initialKey
 	 * @param array $dataArray
 	 */
@@ -40,15 +39,14 @@ class DataFlattener {
 		foreach ( $dataArray as $dataKey => $dataValue ) {
 			$nestedDataKey = "$initialKey.$dataKey";
 
-			if ( is_array( $dataValue) ) {
+			if ( is_array( $dataValue ) ) {
 				$this->flattenArray( $resultArray, $nestedDataKey, $dataValue );
 
 				// Length is calculated only for lists
 				if ( is_numeric( $dataKey ) ) {
 					$length++;
 				}
-			}
-			else {
+			} else {
 				$resultArray[$nestedDataKey] = $dataValue;
 			}
 		}

@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
+use MediaWiki\MediaWikiServices;
 
 class RetrieveHandler extends ActionHandler {
 	/**
@@ -21,6 +21,5 @@ class RetrieveHandler extends ActionHandler {
 			$this->getWorkflowId()->toString() => $workflowSerializer->serialize( $engine )
 		] );
 	}
-
 
 }

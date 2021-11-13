@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\Tests;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\MediaWikiServices;
 use PHPUnit\Framework\TestCase;
 use User;
 
@@ -26,7 +26,7 @@ class WorkflowProcessMultiTest extends TestCase {
 		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
-		$this->assertEquals( [ 'Activity_1yuv5s2', 'Activity_1dhd9wm' ], array_keys( $engine->current() ) ) ;
+		$this->assertEquals( [ 'Activity_1yuv5s2', 'Activity_1dhd9wm' ], array_keys( $engine->current() ) );
 
 		// Complete one of the parallel tasks
 		$engine->completeTask( $engine->current( 'Activity_1yuv5s2' ) );
@@ -38,7 +38,6 @@ class WorkflowProcessMultiTest extends TestCase {
 		$this->assertSame( Workflow::STATE_FINISHED, $engine->getCurrentState() );
 	}
 
-
 	/**
 	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
 	 */
@@ -47,7 +46,7 @@ class WorkflowProcessMultiTest extends TestCase {
 		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
-		$this->assertEquals( [ 'Activity_1yuv5s2_0', 'Activity_1yuv5s2_1' ], array_keys( $engine->current() ) ) ;
+		$this->assertEquals( [ 'Activity_1yuv5s2_0', 'Activity_1yuv5s2_1' ], array_keys( $engine->current() ) );
 		$properties1 = $engine->getActivityManager()->getActivityProperties(
 			$engine->getActivityManager()->getActivityForTask( $engine->current( 'Activity_1yuv5s2_0' ) )
 		);
@@ -72,13 +71,13 @@ class WorkflowProcessMultiTest extends TestCase {
 		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
-		$this->assertEquals( [ 'Activity_1yuv5s2_seq_0' ], array_keys( $engine->current() ) ) ;
+		$this->assertEquals( [ 'Activity_1yuv5s2_seq_0' ], array_keys( $engine->current() ) );
 		$properties = $engine->getActivityManager()->getActivityProperties(
 			$engine->getActivityManager()->getActivityForTask( $engine->current( 'Activity_1yuv5s2_seq_0' ) )
 		);
 		$this->assertEquals( [ 'user' => 'UserA', 'type' => 'single' ], $properties );
 		$engine->completeTask( $engine->current( 'Activity_1yuv5s2_seq_0' ) );
-		$this->assertEquals( [ 'Activity_1yuv5s2_seq_1' ], array_keys( $engine->current() ) ) ;
+		$this->assertEquals( [ 'Activity_1yuv5s2_seq_1' ], array_keys( $engine->current() ) );
 		$properties = $engine->getActivityManager()->getActivityProperties(
 			$engine->getActivityManager()->getActivityForTask( $engine->current( 'Activity_1yuv5s2_seq_1' ) )
 		);

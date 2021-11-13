@@ -26,8 +26,8 @@ class WorkflowDefinitionTest extends TestCase {
 			$process->getElementById( 'StartToEnd' ),
 			'Element should be a sequenceFlow'
 		);
-		$this->assertEquals(
-			3, count( $process->getElements() ), 'Process should have 3 elements'
+		$this->assertCount(
+			3, $process->getElements(), 'Process should have 3 elements'
 		);
 	}
 

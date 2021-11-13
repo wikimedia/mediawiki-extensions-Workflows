@@ -3,24 +3,26 @@
 namespace MediaWiki\Extension\Workflows\Rest;
 
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use MediaWiki\Rest\Handler;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
+use MediaWiki\Rest\Handler;
 use MediaWiki\Rest\HttpException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ListHandler extends Handler {
-	/** @var WorkflowStateStore  */
+	/** @var WorkflowStateStore */
 	private $stateStore;
 	/** @var WorkflowFactory */
 	private $workflowFactory;
-	/** @var WorkflowSerializer  */
+	/** @var WorkflowSerializer */
 	private $workflowSerializer;
 
 	/**
+	 * @param WorkflowFactory $factory
 	 * @param WorkflowStateStore $stateStore
+	 * @param WorkflowSerializer $workflowSerializer
 	 */
 	public function __construct(
 		WorkflowFactory $factory, WorkflowStateStore $stateStore,
@@ -45,7 +47,7 @@ class ListHandler extends Handler {
 					$workflows[$id->toString()] = $this->getSerializedWorkflow( $id );
 				}
 			} else {
-				$workflows = array_map( function( WorkflowId $id ) {
+				$workflows = array_map( static function ( WorkflowId $id ) {
 					return $id->toString();
 				}, $trimmed );
 			}

@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
-use MediaWiki\Rest\Handler;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
+use MediaWiki\Rest\Handler;
 
 class DefinitionListHandler extends Handler {
 	/** @var DefinitionRepositoryFactory */
@@ -19,7 +19,7 @@ class DefinitionListHandler extends Handler {
 			$repository = $this->repositoryFactory->getRepository( $key );
 			$definitions = $repository->getAllKeys();
 			$res[$key] = [
-				'definitions' => array_map( function( $item ) use ( $repository ) {
+				'definitions' => array_map( static function ( $item ) use ( $repository ) {
 					return [
 						'key' => $item,
 						'title' => $repository->getDefinitionDisplayTitle( $item ),

@@ -5,9 +5,6 @@ namespace MediaWiki\Extension\Workflows;
 use DateTime;
 use EventSauce\EventSourcing\AggregateRoot;
 use Exception;
-use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAutoAborted;
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus\IntermediateExecutionStatus;
 use MediaWiki\Extension\Workflows\Definition\Element\EndEvent;
 use MediaWiki\Extension\Workflows\Definition\Element\Gateway;
@@ -38,16 +35,18 @@ use MediaWiki\Extension\Workflows\Storage\Event\TaskIntermediateStateChanged;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskLoopCompleted;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAborted;
+use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAutoAborted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowEnded;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowInitialized;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowUnAborted;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use PermissionsError;
 use RequestContext;
 use TitleFactory;
 use User;
-use function Matrix\add;
 
 final class Workflow {
 	public const STATE_NOT_STARTED = 'not_started';
@@ -63,7 +62,7 @@ final class Workflow {
 
 	/** @var string */
 	private $state;
-	/** @var string|array  */
+	/** @var string|array */
 	private $stateMessage = '';
 	/** @var IElement[]|null */
 	private $current = null;
@@ -77,7 +76,7 @@ final class Workflow {
 	private $logicObjectFactory;
 	/** @var string */
 	private $executionMode;
-	/** @var int  */
+	/** @var int */
 	private $actionFlags = 0;
 	/** @var PermissionManager */
 	private $permissionManager;
@@ -192,6 +191,7 @@ final class Workflow {
 	 * @param LogicObjectFactory $logicObjFactory
 	 * @param ActivityManager $activityManager
 	 * @param PermissionManager $pm
+	 * @param TitleFactory $titleFactory
 	 */
 	public function __construct(
 		LogicObjectFactory $logicObjFactory,
@@ -312,7 +312,7 @@ final class Workflow {
 	 * @param string|null $reason
 	 * @throws WorkflowExecutionException
 	 */
-	public function abort( $reason = null) {
+	public function abort( $reason = null ) {
 		$this->assertActorCan( 'execute' );
 		$this->assertWorkflowState( static::STATE_RUNNING );
 		$this->assertMembers( __METHOD__ );
@@ -396,6 +396,7 @@ final class Workflow {
 			);
 		}
 	}
+
 	/**
 	 * Retrieve current element(s) in the process
 	 *
@@ -493,6 +494,7 @@ final class Workflow {
 	}
 
 	/**
+	 * @param array $contextData
 	 * @throws WorkflowExecutionException
 	 */
 	private function doStart( $contextData = [] ) {
@@ -636,7 +638,6 @@ final class Workflow {
 			throw new WorkflowExecutionException( 'Workflow not started, call Workflow::start() first' );
 		}
 
-
 		if ( $this->multiInstanceStateTracker !== null ) {
 			if ( $this->multiInstanceStateTracker instanceof ParallelStateTracker ) {
 				// We are currently executing tasks in parallel, handle each of them
@@ -766,7 +767,7 @@ final class Workflow {
 				$flow = $this->definition->getElementById( $flowRef );
 				$task = $this->definition->getElementById( $flow->getTargetRef() );
 				if ( !$task instanceof ITask ) {
-					throw new WorkflowExecutionException('Parallel gateway must lead tasks only');
+					throw new WorkflowExecutionException( 'Parallel gateway must lead tasks only' );
 				}
 				$outgoingFlow = $this->definition->getElementById( $task->getOutgoing()[0] );
 				if ( $outgoingAfterParallel && $outgoingFlow->getTargetRef() !== $outgoingAfterParallel ) {
@@ -822,6 +823,8 @@ final class Workflow {
 	 * Never to be called directly!
 	 *
 	 * @param Event $event
+	 * @param WorkflowId $id
+	 * @param array ...$dependencies
 	 */
 	public function handleEvent( Event $event, WorkflowId $id, ...$dependencies ) {
 		if ( $this->executionMode !== static::EXECUTION_MODE_REPLAYING ) {
@@ -962,7 +965,7 @@ final class Workflow {
 			$this->current[$task->getId()] = $task;
 		} else {
 			$this->current = [ $task->getId() => $task ];
- 		}
+		}
 
 		return $this->activityManager->getActivityForTask( $task );
 	}
@@ -971,6 +974,7 @@ final class Workflow {
 	 * Make sure Context of the process is completely filled
 	 *
 	 * @param array $contextData
+	 * @return array
 	 * @throws WorkflowExecutionException
 	 */
 	private function assertAndFilterDefinitionContextData( array $contextData ) {
@@ -996,16 +1000,17 @@ final class Workflow {
 	/**
 	 * Assert actor has permissions
 	 * @param string $action
+	 * @param ITask|null $task
 	 */
 	private function assertActorCan( $action, $task = null ) {
 		if ( !$this->actor instanceof User ) {
-			return false;
+			return;
 		}
 		if ( $this->state === self::STATE_RUNNING ) {
 			$initiator = $this->getContext()->getInitiator();
 			if ( $initiator instanceof User && $initiator->equals( $this->actor ) ) {
 				// Workflow initiator can execute "restricted" operations
-				return true;
+				return;
 			}
 		}
 		$right = "workflows-$action";
@@ -1046,8 +1051,7 @@ final class Workflow {
 	/**
 	 * Loop back to the same task
 	 *
-	 * @param string $activityId
-	 * @param array|null $data
+	 * @param IActivity $activity
 	 * @return IElement|null
 	 * @throws WorkflowExecutionException
 	 */
@@ -1101,7 +1105,7 @@ final class Workflow {
 		// We have reached parallel tasks, multiple target tasks, create a parallel tracker
 		$this->multiInstanceStateTracker = new ParallelStateTracker( $from );
 		$this->storage->recordEvent(
-			ParallelStateTrackerInitialized::newFromData( array_map( function ( ITask $task ) {
+			ParallelStateTrackerInitialized::newFromData( array_map( static function ( ITask $task ) {
 				return $task->getId();
 			}, $from ) )
 		);
@@ -1125,7 +1129,6 @@ final class Workflow {
 		$this->current = [];
 		return $this->continueExecution( $task );
 	}
-
 
 	private function startSequential( ITask $task ) {
 		$this->multiInstanceStateTracker = new SequentialStateTracker(
@@ -1151,7 +1154,7 @@ final class Workflow {
 
 		$users = $this->activityManager->getTargetUsersForActivity( $activity );
 		if ( $users === null ) {
-			return null;
+			return;
 		}
 		if ( !in_array( $this->getActor()->getName(), $users ) ) {
 			throw new WorkflowExecutionException(

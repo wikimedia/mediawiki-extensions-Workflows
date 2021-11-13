@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\Tests\Util;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
+use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 use Title;
 
@@ -25,9 +25,6 @@ class DataPreprocessorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @covers \MediaWiki\Extension\Workflows\Util\DataPreprocessor::preprocess
 	 * @dataProvider providePreprocessTestData
-	 * @param array $input
-	 * @param array $expectedOutput
-	 * @return void
 	 */
 	public function testPreprocess( $context, $contextData, $inputData, $expectedData ) {
 		$parser = MediaWikiServices::getInstance()->getParser();

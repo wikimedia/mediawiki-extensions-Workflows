@@ -20,6 +20,7 @@ class WorkflowDefinition {
 	/**
 	 * @param string $id
 	 * @param DefinitionSource $definitionSource
+	 * @param DefinitionContext|null $context
 	 * @param array|null $elements
 	 * @return static
 	 */
@@ -40,7 +41,7 @@ class WorkflowDefinition {
 
 	/**
 	 * @param string $id
-	 * @param DefinitionSource $source
+	 * @param DefinitionSource $definitionSource
 	 * @param DefinitionContext|null $context
 	 */
 	public function __construct(
@@ -115,7 +116,7 @@ class WorkflowDefinition {
 		}
 
 		$index = $this->index[$type];
-		return array_filter( $this->elements, function ( $key ) use ( $index ) {
+		return array_filter( $this->elements, static function ( $key ) use ( $index ) {
 			return in_array( $key, $index );
 		}, ARRAY_FILTER_USE_KEY );
 	}

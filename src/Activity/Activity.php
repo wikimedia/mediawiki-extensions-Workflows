@@ -29,7 +29,6 @@ abstract class Activity implements IActivity, LoggerAwareInterface {
 		$this->logger = $logger;
 	}
 
-
 	public function __construct( ITask $task ) {
 		$this->task = $task;
 

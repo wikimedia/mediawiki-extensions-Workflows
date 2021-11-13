@@ -54,7 +54,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 	 */
 	private $groupDataProvider;
 
-	/** @var ThresholdChecker  */
+	/** @var ThresholdChecker */
 	private $thresholdChecker;
 
 	/**
@@ -122,8 +122,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 			if ( $this->groupDataProvider->getNumberOfUsersInGroup( $this->groupName ) === 0 ) {
 				$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
 			}
-		}
-		else {
+		} else {
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-empty';
 		}
 
@@ -159,7 +158,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 		$data['comment'] = '';
 
 		try {
-			if(
+			if (
 				!$this->thresholdChecker->hasReachedThresholds( $this->getUsersFeedbacks(), $this->groupName )
 			) {
 				// No thresholds reached yet
@@ -185,7 +184,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 		}
 		$processed = array_column( $processed, 'userName' );
 
-		return array_values( array_filter( $usernames, function ( $username ) use ( $processed ) {
+		return array_values( array_filter( $usernames, static function ( $username ) use ( $processed ) {
 			return !in_array( $username, $processed );
 		} ) );
 	}

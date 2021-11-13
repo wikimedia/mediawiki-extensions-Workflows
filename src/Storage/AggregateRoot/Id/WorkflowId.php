@@ -14,7 +14,7 @@ class WorkflowId implements AggregateRootId {
 	/**
 	 * @return WorkflowId
 	 */
-	public static function newWorkflowId() : WorkflowId {
+	public static function newWorkflowId(): WorkflowId {
 		return new static( Uuid::uuid4() );
 	}
 

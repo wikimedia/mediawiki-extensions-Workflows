@@ -4,12 +4,12 @@ namespace MediaWiki\Extension\Workflows\Tests\Activity;
 
 use HashConfig;
 use MailAddress;
-use MediaWiki\Mail\IEmailer;
 use MediaWiki\Extension\Workflows\Activity\SendMail\SendMailActivity;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\Element\Task;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\Mail\IEmailer;
 use MediaWikiIntegrationTestCase;
 use Status;
 use TitleFactory;

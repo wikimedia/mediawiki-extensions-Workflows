@@ -17,7 +17,7 @@ class Task extends Element implements ITask {
 	protected $extensionElements;
 	/** @var bool */
 	protected $isLooping;
-	/** @var array|null  */
+	/** @var array|null */
 	protected $multiInstanceCharacteristics;
 
 	public function __construct(

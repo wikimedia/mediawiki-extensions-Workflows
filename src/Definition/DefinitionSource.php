@@ -19,6 +19,7 @@ class DefinitionSource implements JsonSerializable {
 	 * @param string $repositoryKey
 	 * @param string $name
 	 * @param int $version
+	 * @param array $params
 	 */
 	public function __construct( $repositoryKey, $name, int $version, $params = [] ) {
 		$this->repositoryKey = $repositoryKey;
@@ -28,7 +29,7 @@ class DefinitionSource implements JsonSerializable {
 	}
 
 	/**
-	 * @param $data
+	 * @param array $data
 	 * @return static
 	 */
 	public static function newFromArray( array $data ) {

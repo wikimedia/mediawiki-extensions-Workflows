@@ -11,7 +11,6 @@ class ThresholdChecker {
 	public function __construct(
 		array $thresholds, GroupDataProvider $groupDataProvider
 	) {
-
 		if ( empty( $thresholds ) ) {
 			throw new Exception( 'No thresholds available' );
 		}
@@ -31,7 +30,7 @@ class ThresholdChecker {
 	 * @return bool
 	 * @throws Exception
 	 */
-	public function hasReachedThresholds( array $data, string $groupName, ?string $keyToCheck = null  ): bool {
+	public function hasReachedThresholds( array $data, string $groupName, ?string $keyToCheck = null ): bool {
 		$canBeReached = false;
 		foreach ( $this->thresholds as $threshold ) {
 			if ( $threshold->isReached( $data, $groupName, $keyToCheck ) ) {

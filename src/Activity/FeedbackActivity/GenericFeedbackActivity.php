@@ -110,24 +110,21 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 		$target = Title::newFromId( $page );
 		if ( $target instanceof Title && $target->exists() ) {
 			$this->targetPage = $target;
-		}
-		else {
+		} else {
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-target-title-invalid';
 		}
 
 		$owner = $context->getInitiator();
 		if ( $owner instanceof User && $owner->getId() ) {
 			$this->owner = $owner;
-		}
-		else {
+		} else {
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-owner-invalid';
 		}
 
 		$actor = $context->getCurrentActor();
 		if ( $actor instanceof User && $actor->getId() ) {
 			$this->actor = $actor;
-		}
-		else {
+		} else {
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-actor-invalid';
 		}
 
@@ -142,10 +139,10 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 	 */
 	protected function handleErrors( array $errorMessages ): void {
 		if ( $errorMessages ) {
-			$errorMessages = array_map( function( $key ) {
+			$errorMessages = array_map( static function ( $key ) {
 				return Message::newFromKey( $key )->text();
 			}, $errorMessages );
-			foreach( $errorMessages as $errorMessage ) {
+			foreach ( $errorMessages as $errorMessage ) {
 				$this->logger->error( $errorMessage );
 			}
 

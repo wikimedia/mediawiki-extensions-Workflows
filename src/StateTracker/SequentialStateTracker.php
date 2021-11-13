@@ -15,11 +15,11 @@ class SequentialStateTracker extends MultiInstanceStateTracker {
 	private $context;
 	/** @var ActivityManager */
 	private $activityManager;
-	/** @var MultiInstanceHelper  */
+	/** @var MultiInstanceHelper */
 	private $helper;
-	/** @var array  */
+	/** @var array */
 	private $sets = [];
-	/** @var int  */
+	/** @var int */
 	private $counter = 0;
 	/** @var ITask|null */
 	private $currentTask = null;
@@ -32,13 +32,11 @@ class SequentialStateTracker extends MultiInstanceStateTracker {
 		$this->activityManager = $activityManager;
 		$this->helper = new MultiInstanceHelper();
 		$this->populateSets();
-
 	}
 
 	private function populateSets() {
 		$this->sets = $this->helper->getMultiInstancePropertyData( $this->task, $this->context );
 	}
-
 
 	public function isCompleted(): bool {
 		return empty( $this->sets );
@@ -83,7 +81,7 @@ class SequentialStateTracker extends MultiInstanceStateTracker {
 		}
 	}
 
-	public function getVirtualTask($taskId): ?ITask {
+	public function getVirtualTask( $taskId ): ?ITask {
 		if ( $this->currentTask instanceof ITask && $this->currentTask->getId() === $taskId ) {
 			return $this->currentTask;
 		}

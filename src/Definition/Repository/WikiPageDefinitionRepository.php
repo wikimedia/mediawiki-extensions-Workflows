@@ -3,12 +3,11 @@
 namespace MediaWiki\Extension\Workflows\Definition\Repository;
 
 use Exception;
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Storage\RevisionStore;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
-use Message;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Storage\RevisionStore;
 use Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -33,6 +32,7 @@ class WikiPageDefinitionRepository implements IDefinitionRepository {
 
 	/**
 	 * @param ILoadBalancer $lb
+	 * @param RevisionStore $revisionStore
 	 */
 	public function __construct( ILoadBalancer $lb, RevisionStore $revisionStore ) {
 		$this->lb = $lb;

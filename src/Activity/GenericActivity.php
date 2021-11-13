@@ -9,7 +9,7 @@ class GenericActivity extends Activity {
 	 * @inheritDoc
 	 */
 	public function start( $data, WorkflowContext $context ) {
-		//NOOP
+		// NOOP
 	}
 
 	/**

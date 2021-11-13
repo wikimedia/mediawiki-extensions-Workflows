@@ -9,6 +9,7 @@ abstract class JSONBodyActionHandler extends ActionHandler {
 
 	/**
 	 * @param string|null $key Piece of data to retrieve
+	 * @param array $default
 	 * @return array|mixed
 	 */
 	protected function getBodyData( $key = null, $default = [] ) {
