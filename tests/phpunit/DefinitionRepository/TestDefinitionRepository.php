@@ -29,11 +29,11 @@ class TestDefinitionRepository implements IDefinitionRepository {
 		return Message::newFromKey( 'dummy' );
 	}
 
-	public function getDefinitionDisplayTitle($definition): string {
+	public function getDefinitionDisplayTitle( $definition ): string {
 		return $definition;
 	}
 
-	public function getDefinitionDescription($definition): string {
+	public function getDefinitionDescription( $definition ): string {
 		return '';
 	}
 }

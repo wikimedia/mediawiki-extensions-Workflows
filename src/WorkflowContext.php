@@ -21,7 +21,8 @@ class WorkflowContext {
 	private $titleFactory;
 
 	/**
-	 * @param array $data
+	 * @param DefinitionContext $definitionContext
+	 * @param TitleFactory $titleFactory
 	 * @param User|null $initiator
 	 */
 	public function __construct( DefinitionContext $definitionContext, TitleFactory $titleFactory, ?User $initiator = null ) {
@@ -121,7 +122,7 @@ class WorkflowContext {
 	 *
 	 * @return array
 	 */
-	public function getFlatRunningData() : array {
+	public function getFlatRunningData(): array {
 		$dataFlattener = new DataFlattener();
 
 		return $dataFlattener->flatten( $this->runningData );

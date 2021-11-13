@@ -1,8 +1,8 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\MediaWikiServices;
 
 require_once dirname( dirname( dirname( __DIR__ ) ) ) . '/maintenance/Maintenance.php';
 
@@ -26,7 +26,7 @@ class RebuildWorkflowStateData extends Maintenance {
 		foreach ( $ids as $id ) {
 			$counter++;
 			if ( $counter % 100 === 0 ) {
-				$this->output( "Processed $counter...\n");
+				$this->output( "Processed $counter...\n" );
 			}
 			// Retrieving will recreate WorkflowStorage from events...
 			// ... and fire each event for out state store to react to

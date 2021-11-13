@@ -12,7 +12,7 @@ use RequestContext;
 use Title;
 
 class WorkflowSerializer {
-	/** @var WorkflowEventRepository  */
+	/** @var WorkflowEventRepository */
 	private $eventRepository;
 	/** @var IContextSource */
 	private $context;

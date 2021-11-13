@@ -15,10 +15,11 @@ abstract class VoteNotification extends BaseNotification {
 	protected $comment;
 	/** @var string */
 	protected $activity;
-	/** @var User  */
+	/** @var User */
 	protected $owner;
 
 	/**
+	 * @param string $key
 	 * @param User $agent Agent of notification
 	 * @param Title $title Target page title object
 	 * @param User $owner User to receive notification

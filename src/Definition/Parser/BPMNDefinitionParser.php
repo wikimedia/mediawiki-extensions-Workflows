@@ -220,7 +220,6 @@ class BPMNDefinitionParser implements IDefinitionParser {
 				}
 			}
 
-
 			if ( empty( $props ) ) {
 				throw new \Exception(
 					"Tasks with multi-instance characteristics must have at least one wf:multiInstanceProperty defined"

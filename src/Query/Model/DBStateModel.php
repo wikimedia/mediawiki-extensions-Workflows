@@ -14,19 +14,19 @@ use MediaWiki\Extension\Workflows\Storage\WorkflowEventClassInflector;
 use MediaWiki\Extension\Workflows\Workflow;
 
 final class DBStateModel implements WorkflowStateModel {
-	/** @var WorkflowEventClassInflector  */
+	/** @var WorkflowEventClassInflector */
 	private $inflector;
-	/** @var WorkflowId  */
+	/** @var WorkflowId */
 	private $workflowId;
-	/** @var string  */
+	/** @var string */
 	private $state;
-	/** @var string  */
+	/** @var string */
 	private $lastEvent;
-	/** @var int|null  */
+	/** @var int|null */
 	private $initiator;
 	/** @var string */
 	private $touched;
-	/** @var array  */
+	/** @var array */
 	private $payload;
 
 	public static function newFromRow( $row ) {
@@ -34,7 +34,7 @@ final class DBStateModel implements WorkflowStateModel {
 			WorkflowId::fromString( $row->wfs_workflow_id ),
 			$row->wfs_state,
 			$row->wfs_last_event,
-			(int) $row->wfs_initiator,
+			(int)$row->wfs_initiator,
 			$row->wfs_touched,
 			$row->wfs_payload
 		);
@@ -44,7 +44,6 @@ final class DBStateModel implements WorkflowStateModel {
 	 * @param WorkflowId $workflowId
 	 * @param string $state
 	 * @param string $lastEvent
-	 * @param null $pageAffected
 	 * @param null $initiator
 	 * @param string|null $touched
 	 * @param string|array|null $payload

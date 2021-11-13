@@ -8,7 +8,7 @@ class AddBackgroundProcess {
 
 	/**
 	 *
-	 * @param array $handlers
+	 * @param array &$handlers
 	 * @return bool
 	 */
 	public static function callback( &$handlers ) {

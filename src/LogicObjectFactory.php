@@ -3,9 +3,6 @@
 namespace MediaWiki\Extension\Workflows;
 
 use Exception;
-use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
-use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Activity\Activity;
 use MediaWiki\Extension\Workflows\Activity\GenericActivity;
 use MediaWiki\Extension\Workflows\Activity\UIActivity;
@@ -13,15 +10,17 @@ use MediaWiki\Extension\Workflows\Decision\DataBasedDecision;
 use MediaWiki\Extension\Workflows\Definition\Element\Gateway;
 use MediaWiki\Extension\Workflows\Definition\IElement;
 use MediaWiki\Extension\Workflows\Definition\ITask;
+use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
+use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
+use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
 class LogicObjectFactory {
 	/** @var array */
 	private $registry;
-	/** @var ISpecialLogLogger  */
+	/** @var ISpecialLogLogger */
 	private $specialLogLogger;
-	/** @var $logger */
 	private $logger;
 
 	/**

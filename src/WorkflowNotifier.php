@@ -19,11 +19,11 @@ use User;
  * this class deals only with generic workflows notifications
  */
 class WorkflowNotifier implements Consumer {
-	/** @var INotifier  */
+	/** @var INotifier */
 	private $notifier;
 	/** @var ActivityManager */
 	private $activityManger;
-	/** @var Workflow  */
+	/** @var Workflow */
 	private $workflow;
 
 	public function __construct(
@@ -62,7 +62,7 @@ class WorkflowNotifier implements Consumer {
 			}
 
 		}
-		if ( $event instanceof Storage\Event\WorkflowAborted) {
+		if ( $event instanceof Storage\Event\WorkflowAborted ) {
 			$notification = new WorkflowAborted(
 				$this->workflow->getContext()->getInitiator(),
 				$this->workflow->getContext()->getContextPage()
@@ -70,7 +70,7 @@ class WorkflowNotifier implements Consumer {
 			$this->notifier->notify( $notification );
 		}
 
-		if ( $event instanceof Storage\Event\WorkflowEnded) {
+		if ( $event instanceof Storage\Event\WorkflowEnded ) {
 			$notification = new WorkflowEnded(
 				$this->workflow->getContext()->getInitiator(),
 				$this->workflow->getContext()->getContextPage()

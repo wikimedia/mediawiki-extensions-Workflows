@@ -8,7 +8,7 @@ use Title;
 use User;
 
 class DueDateProximity extends BaseNotification {
-	/** @var string  */
+	/** @var string */
 	protected $activity;
 
 	/**
@@ -19,10 +19,10 @@ class DueDateProximity extends BaseNotification {
 	 */
 	public function __construct( $agent, $assigned, $title, $activity ) {
 		$agent = $agent ?? User::newSystemUser( 'Mediawiki default' );
-		$assigned = array_map( static function( $username ) {
+		$assigned = array_map( static function ( $username ) {
 			return User::newFromName( $username );
 		}, $assigned );
-		$assigned = array_filter( $assigned, static function( User $user ) {
+		$assigned = array_filter( $assigned, static function ( User $user ) {
 			return $user->isRegistered();
 		} );
 		if ( !$title instanceof Title ) {

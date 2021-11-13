@@ -7,9 +7,9 @@ use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
-use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
+use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
@@ -126,8 +126,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 			if ( $this->groupDataProvider->getNumberOfUsersInGroup( $this->groupName ) === 0 ) {
 				$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
 			}
-		}
-		else {
+		} else {
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-empty';
 		}
 
@@ -154,7 +153,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 		$data['comment'] = '';
 
 		try {
-			if(
+			if (
 				!$this->thresholdChecker->hasReachedThresholds( $this->usersVoted, $this->groupName, 'vote' )
 			) {
 				// No thresholds reached yet
@@ -180,7 +179,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 		}
 		$voted = array_column( $voted, 'userName' );
 
-		return array_values( array_filter( $usernames, function ( $username ) use ( $voted ) {
+		return array_values( array_filter( $usernames, static function ( $username ) use ( $voted ) {
 			return !in_array( $username, $voted );
 		} ) );
 	}

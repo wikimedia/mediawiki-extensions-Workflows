@@ -23,7 +23,6 @@ class Threshold {
 
 	/**
 	 * @param array $thresholdData
-	 * @param string $groupName
 	 * @param GroupDataProvider $groupDataProvider
 	 * @throws Exception
 	 */
@@ -32,7 +31,7 @@ class Threshold {
 	) {
 		foreach ( [ 'type', 'value', 'unit' ] as $dataKey ) {
 			if ( isset( $thresholdData[$dataKey] ) ) {
-				$this->$dataKey =  $thresholdData[$dataKey];
+				$this->$dataKey = $thresholdData[$dataKey];
 			} else {
 				$this->delayedException = new Exception( "Threshold data must contain \"{$dataKey}\"" );
 				break;
@@ -90,7 +89,8 @@ class Threshold {
 	 * @return int[]
 	 */
 	private function getProcessedAndFulfilled( $data, $key ) {
-		$total = 0; $fulfilled = 0;
+		$total = 0;
+		$fulfilled = 0;
 		foreach ( $data as $dataItem ) {
 			$total++;
 			if ( !$key ) {

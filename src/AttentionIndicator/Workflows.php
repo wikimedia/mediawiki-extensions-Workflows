@@ -109,7 +109,7 @@ class Workflows extends AttentionIndicator {
 	/**
 	 * @return int
 	 */
-    private function getUserActivityCount(): int {
+	private function getUserActivityCount(): int {
 		$ids = array_merge(
 			$this->stateStore->active()->onEvent( TaskStarted::class )->query(),
 			$this->stateStore->active()->onEvent( TaskLoopCompleted::class )->query(),
@@ -168,7 +168,7 @@ class Workflows extends AttentionIndicator {
 				if ( !is_array( $stateMessage ) ) {
 					continue;
 				}
-				$autoAbortedWorkflows ++;
+				$autoAbortedWorkflows++;
 
 			} catch ( WorkflowExecutionException $ex ) {
 				// TODO: Log

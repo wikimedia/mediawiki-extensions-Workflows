@@ -1,21 +1,21 @@
 <?php
 
-use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
-use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
-use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Logger\GenericSpecialLogLogger;
 use MediaWiki\Extension\Workflows\LogicObjectFactory;
 use MediaWiki\Extension\Workflows\Query\Store\DBStateStore;
 use MediaWiki\Extension\Workflows\Storage\MessageRepository\WorkflowMessageRepository;
-use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
+use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
+use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
+use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 return [
-	'DefinitionRepositoryFactory' => function ( MediaWikiServices $services ) {
+	'DefinitionRepositoryFactory' => static function ( MediaWikiServices $services ) {
 		$registry = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsDefinitionRepositories' );
 		return new DefinitionRepositoryFactory(
 			$registry,
@@ -23,7 +23,7 @@ return [
 		);
 	},
 
-	'WorkflowEventRepository' => function ( MediaWikiServices $services ) {
+	'WorkflowEventRepository' => static function ( MediaWikiServices $services ) {
 		$messageRepository = WorkflowMessageRepository::newRepository(
 			$services->getDBLoadBalancer()
 		);
@@ -36,15 +36,14 @@ return [
 		return $instance;
 	},
 
-	'WorkflowFactory' => function ( MediaWikiServices $services ) {
+	'WorkflowFactory' => static function ( MediaWikiServices $services ) {
 		return new WorkflowFactory(
 			$services->getService( 'WorkflowEventRepository' ),
 			$services->getService( 'DefinitionRepositoryFactory' )
 		);
 	},
 
-
-	'WorkflowLogicObjectFactory' => function ( MediaWikiServices $services ) {
+	'WorkflowLogicObjectFactory' => static function ( MediaWikiServices $services ) {
 		return new LogicObjectFactory(
 			ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsLogicObjects' ),
 			$services->getService( 'WorkflowsSpecialLogLogger' ),
@@ -52,35 +51,35 @@ return [
 		);
 	},
 
-	'WorkflowsSpecialLogLogger' => function ( MediaWikiServices $services ) {
+	'WorkflowsSpecialLogLogger' => static function ( MediaWikiServices $services ) {
 		return new GenericSpecialLogLogger();
 	},
 
-	'WorkflowLogger' => function ( MediaWikiServices $services ) {
+	'WorkflowLogger' => static function ( MediaWikiServices $services ) {
 		return LoggerFactory::getInstance( 'workflows' );
 	},
 
-	'WorkflowsDataPreprocessor' => function ( MediaWikiServices $services ) {
+	'WorkflowsDataPreprocessor' => static function ( MediaWikiServices $services ) {
 		$context = RequestContext::getMain();
 		return new DataPreprocessor( $services->getParser(), $context );
 	},
 
-	'WorkflowUtilGroupDataProvider' => function( MediaWikiServices $services ) {
+	'WorkflowUtilGroupDataProvider' => static function ( MediaWikiServices $services ) {
 		return new GroupDataProvider();
 	},
 
-	'WorkflowUtilThresholdCheckerFactory' => function( MediaWikiServices $services ) {
+	'WorkflowUtilThresholdCheckerFactory' => static function ( MediaWikiServices $services ) {
 		return new ThresholdCheckerFactory(
 			$services->getService( 'WorkflowUtilGroupDataProvider' )
 		);
 	},
 
-	'WorkflowsStateStore' => function ( MediaWikiServices $services ) {
+	'WorkflowsStateStore' => static function ( MediaWikiServices $services ) {
 		// For now, is hardcoded to DB store, but we might change this
 		return new DBStateStore( $services->getDBLoadBalancer() );
 	},
 
-	'WorkflowSerializer' => function ( MediaWikiServices $services ) {
+	'WorkflowSerializer' => static function ( MediaWikiServices $services ) {
 		return new WorkflowSerializer( $services->getService( 'WorkflowEventRepository' ) );
 	},
 ];

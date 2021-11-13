@@ -4,12 +4,12 @@ namespace MediaWiki\Extension\Workflows\Rest;
 
 use Exception;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use MediaWiki\Rest\Handler;
-use MediaWiki\Rest\HttpException;
-use MediaWiki\Rest\Response;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
+use MediaWiki\Rest\Handler;
+use MediaWiki\Rest\HttpException;
+use MediaWiki\Rest\Response;
 use Wikimedia\ParamValidator\ParamValidator;
 
 abstract class ActionHandler extends Handler {
@@ -38,6 +38,7 @@ abstract class ActionHandler extends Handler {
 
 	/**
 	 * @param string $name
+	 * @param string|null $default
 	 * @return string
 	 */
 	public function getParameter( $name, $default = null ) {
@@ -103,6 +104,6 @@ abstract class ActionHandler extends Handler {
 	 */
 	private function isValidId( WorkflowId $id ) {
 		return true;
-		//TODO: From ReadModel
+		// TODO: From ReadModel
 	}
 }

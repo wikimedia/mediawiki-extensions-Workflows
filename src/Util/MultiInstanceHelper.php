@@ -10,7 +10,7 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 class MultiInstanceHelper {
 
 	public function assertTarget( ITask $task, &$prop ) {
-		if ( !$prop['target']  ) {
+		if ( !$prop['target'] ) {
 			if ( !isset( $task->getDataProperties()[$prop['source']] ) ) {
 				throw new WorkflowExecutionException(
 					'If no target is specified for multi-instance property, source must exist as a property',
@@ -78,7 +78,7 @@ class MultiInstanceHelper {
 		foreach ( $data as $key => &$value ) {
 			$size = count( $value );
 			if ( $size < $maxLength ) {
-				$value = array_pad( $value, $maxLength, $value[$size-1] );
+				$value = array_pad( $value, $maxLength, $value[$size - 1] );
 			}
 		}
 		$numberOfSets = count( array_values( $data )[0] );

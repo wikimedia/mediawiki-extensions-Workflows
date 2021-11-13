@@ -6,28 +6,25 @@ use DateTime;
 use Exception;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Definition\ITask;
-use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
-use User;
 
 final class ActivityManager {
 
-	/** @var Workflow  */
+	/** @var Workflow */
 	private $workflow;
-	/** @var LogicObjectFactory  */
+	/** @var LogicObjectFactory */
 	private $logicObjectFactory;
-	/** @var DataPreprocessor  */
+	/** @var DataPreprocessor */
 	private $preprocessor;
 	/** @var IActivity[] */
 	private $activities = [];
 	/** @var array */
 	private $properties = [];
-	/** @var array  */
+	/** @var array */
 	private $states = [];
-	/** @var array  */
+	/** @var array */
 	private $stale = [];
 
 	/**
@@ -71,7 +68,6 @@ final class ActivityManager {
 
 	/**
 	 * @param IActivity $activity
-	 * @param WorkflowContext $context
 	 * @return bool
 	 * @throws WorkflowExecutionException
 	 */
@@ -103,7 +99,7 @@ final class ActivityManager {
 
 	/**
 	 * @param IActivity $activity
-	 * @param $status
+	 * @param ExecutionStatus $status
 	 * @throws WorkflowExecutionException
 	 */
 	public function setActivityStatus( IActivity $activity, $status ) {
@@ -123,7 +119,7 @@ final class ActivityManager {
 
 	/**
 	 * @param IActivity $activity
-	 * @param $data
+	 * @param mixed $data
 	 * @throws WorkflowExecutionException
 	 */
 	public function setActivityProperties( IActivity $activity, $data ) {
@@ -133,8 +129,9 @@ final class ActivityManager {
 
 	/**
 	 * @param IActivity $activity
-	 * @param $data
+	 * @param mixed $data
 	 * @param WorkflowContext $context
+	 * @return ExecutionStatus
 	 * @throws WorkflowExecutionException
 	 */
 	public function completeActivity( IActivity $activity, $data, WorkflowContext $context ) {
@@ -209,7 +206,7 @@ final class ActivityManager {
 
 		return array_filter(
 			$data,
-			function( $key ) use ( $publicValid ) {
+			static function ( $key ) use ( $publicValid ) {
 				return in_array( $key, $publicValid );
 			},
 			ARRAY_FILTER_USE_KEY
@@ -227,7 +224,7 @@ final class ActivityManager {
 		$internalProperties = $activity->getTask()->getExtensionElements()['_internal_properties'] ?? [];
 		return array_filter(
 			$this->getActivityProperties( $activity ),
-			function ( $i ) use ( $internalProperties ) {
+			static function ( $i ) use ( $internalProperties ) {
 				return !in_array( $i, $internalProperties );
 			},
 			ARRAY_FILTER_USE_KEY
@@ -250,6 +247,7 @@ final class ActivityManager {
 	 * Check if ExecutionStatus contains any data that
 	 * is different than what is already set
 	 *
+	 * @param IActivity $activity
 	 * @param ExecutionStatus $status
 	 * @return bool
 	 */
@@ -290,7 +288,7 @@ final class ActivityManager {
 	 * @param array $data
 	 */
 	private function updateActivityProperties( IActivity $activity, $data ) {
-		foreach( $this->properties[$activity->getTask()->getId()] as $property => &$value ) {
+		foreach ( $this->properties[$activity->getTask()->getId()] as $property => &$value ) {
 			if ( isset( $data[$property] ) ) {
 				$value = $data[$property];
 				if ( $property === 'due_date' ) {

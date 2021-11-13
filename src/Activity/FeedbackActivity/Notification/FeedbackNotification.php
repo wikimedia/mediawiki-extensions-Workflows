@@ -15,7 +15,7 @@ class FeedbackNotification extends BaseNotification {
 	protected $feedback;
 	/** @var string */
 	protected $activity;
-	/** @var User  */
+	/** @var User */
 	protected $owner;
 
 	/**

@@ -11,7 +11,6 @@ class WorkflowEnded extends BaseNotification {
 	/**
 	 * @param User $targetUser
 	 * @param Title $title Target page title object
-	 * @param string $activity
 	 */
 	public function __construct( $targetUser, $title ) {
 		parent::__construct(

@@ -7,7 +7,6 @@ use MediaWiki\Extension\UnifiedTaskOverview\Hook\GetTaskDescriptors;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowAborted;
 use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\AutoAbortedWorkflow;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskIntermediateStateChanged;
@@ -42,20 +41,20 @@ class AddUnifiedTaskOverviewUserActivities implements GetTaskDescriptors {
 	}
 
 	/**
-     * @inheritDoc
-     */
-    public function onUnifiedTaskOverviewGetTaskDescriptors( &$descriptors, $user ) {
+	 * @inheritDoc
+	 */
+	public function onUnifiedTaskOverviewGetTaskDescriptors( &$descriptors, $user ) {
 		$tasks = $this->getUserActivities( $user );
 		$aborted = $this->getAutoAborted( $user );
 		$descriptors = array_merge( $descriptors, $tasks );
 		$descriptors = array_merge( $descriptors, $aborted );
-    }
+	}
 
 	/**
 	 * @param User $user
 	 * @return array
 	 */
-    private function getUserActivities( User $user ) {
+	private function getUserActivities( User $user ) {
 		$ids = array_merge(
 			$this->stateStore->active()->onEvent( TaskStarted::class )->query(),
 			$this->stateStore->active()->onEvent( TaskLoopCompleted::class )->query(),

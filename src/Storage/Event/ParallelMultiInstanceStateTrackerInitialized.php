@@ -6,12 +6,12 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use Ramsey\Uuid\UuidInterface;
 
 final class ParallelMultiInstanceStateTrackerInitialized extends Event {
-	/** @var ITask  */
+	/** @var ITask */
 	private $task;
 
 	/**
 	 * @param UuidInterface $id
-	 * @param array $tasks
+	 * @param ITask $taskId
 	 */
 	public function __construct( UuidInterface $id, $taskId ) {
 		parent::__construct( $id );

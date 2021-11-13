@@ -11,7 +11,7 @@ use RawMessage;
 use Title;
 
 class ActivityTask implements ITaskDescriptor {
-	/** @var UserInteractiveActivity  */
+	/** @var UserInteractiveActivity */
 	protected $activity;
 	/** @var Workflow */
 	protected $workflow;
@@ -34,7 +34,7 @@ class ActivityTask implements ITaskDescriptor {
 		$title = $this->workflow->getContext()->getContextPage();
 		if ( $title instanceof Title ) {
 			$this->title = $title;
-			$this->revision = $this->workflow->getContext()->getDefinitionContext()->getItem('revision' );
+			$this->revision = $this->workflow->getContext()->getDefinitionContext()->getItem( 'revision' );
 		}
 	}
 
@@ -68,8 +68,8 @@ class ActivityTask implements ITaskDescriptor {
 	 * @throws Exception
 	 */
 	public function getSubHeader(): Message {
-		return  \Message::newFromKey(
-			'workflows-uto-activity-'. $this->getActivityType()
+		return \Message::newFromKey(
+			'workflows-uto-activity-' . $this->getActivityType()
 		);
 	}
 
@@ -89,7 +89,7 @@ class ActivityTask implements ITaskDescriptor {
 		}
 
 		return new RawMessage(
-			implode( "\n", array_map( function( $a ) {
+			implode( "\n", array_map( static function ( $a ) {
 				return '* ' . $a;
 			}, $body ) )
 		);

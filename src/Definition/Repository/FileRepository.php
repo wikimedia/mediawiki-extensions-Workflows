@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\Workflows\Definition\Repository;
 
 use Exception;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
+use MediaWiki\MediaWikiServices;
 use Message;
 use MWException;
 
@@ -87,7 +87,7 @@ abstract class FileRepository implements IDefinitionRepository {
 	public function register( $key, $filePath ) {
 		$fullPath = $this->getFilePath( $filePath );
 		if ( !file_exists( $fullPath ) ) {
-			throw new MWException('Cannot find definition file at ' . $fullPath );
+			throw new MWException( 'Cannot find definition file at ' . $fullPath );
 		}
 		$this->files[$key] = $this->getDefinitionText( $filePath );
 	}

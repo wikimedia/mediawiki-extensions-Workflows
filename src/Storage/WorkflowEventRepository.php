@@ -40,7 +40,6 @@ class WorkflowEventRepository implements AggregateRootRepository {
 	/**
 	 * Get all workflow IDs, current and past
 	 *
-	 * @public
 	 * @return WorkflowId[]
 	 */
 	public function retrieveAllIds(): array {
@@ -49,7 +48,6 @@ class WorkflowEventRepository implements AggregateRootRepository {
 
 	/**
 	 * @param Consumer $consumer
-	 * @param string $dispatchType
 	 */
 	public function addConsumerToDispatcher( Consumer $consumer ) {
 		$this->dispatcher->addConsumer( $consumer );
@@ -82,7 +80,7 @@ class WorkflowEventRepository implements AggregateRootRepository {
 	 * Internal use only!
 	 * @protected
 	 * @param Workflow $workflow
-	 * @param mixed ...$dependecies
+	 * @param mixed ...$dependencies
 	 */
 	public function setWorkflowForReplay( Workflow $workflow, ...$dependencies ) {
 		$this->replayDispatcher->setWorkflow( $workflow, ...$dependencies );
@@ -110,7 +108,7 @@ class WorkflowEventRepository implements AggregateRootRepository {
 	public function persistEvents(
 		AggregateRootId $aggregateRootId, int $aggregateRootVersion, object ...$events
 	): void {
-		if ( 0 === count( $events ) ) {
+		if ( count( $events ) === 0 ) {
 			return;
 		}
 

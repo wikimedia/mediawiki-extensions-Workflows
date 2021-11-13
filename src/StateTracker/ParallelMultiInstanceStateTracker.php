@@ -8,9 +8,9 @@ use MediaWiki\Extension\Workflows\Util\MultiInstanceHelper;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 
 class ParallelMultiInstanceStateTracker extends ParallelStateTracker {
-	/** @var WorkflowContext  */
+	/** @var WorkflowContext */
 	private $context;
-	/** @var ActivityManager  */
+	/** @var ActivityManager */
 	private $manager;
 
 	public function __construct( ITask $task, WorkflowContext $context, ActivityManager $manager ) {

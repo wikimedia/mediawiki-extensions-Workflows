@@ -8,7 +8,7 @@ use Title;
 use User;
 
 class TaskAssigned extends BaseNotification {
-	/** @var string  */
+	/** @var string */
 	protected $activity;
 
 	/**

@@ -19,8 +19,7 @@ final class WorkflowInitialized extends Event {
 	/**
 	 * @param UuidInterface $id
 	 * @param User $actor
-	 * @param string $definitionId
-	 * @param int $definitionVersion
+	 * @param DefinitionSource $definitionSource
 	 * @param DefinitionContext $workflowContext
 	 */
 	public function __construct(

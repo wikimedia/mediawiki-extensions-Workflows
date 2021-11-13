@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Workflows\Activity;
 
 class ExecutionStatus {
-	/** @var int  */
+	/** @var int */
 	private $status;
-	/** @var array  */
+	/** @var array */
 	private $payload;
 
 	public function __construct( int $status, array $payload = [] ) {

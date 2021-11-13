@@ -6,8 +6,8 @@ use DateTime;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\DueDateProximity;
-use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use MWStake\MediaWiki\Component\RunJobsTrigger\IHandler;
@@ -39,12 +39,14 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	 * @var LoggerInterface
 	 */
 	protected $logger = null;
-	/** @var INotifier  */
+	/** @var INotifier */
 	protected $notifier;
 
 	/**
 	 *
 	 * @param WorkflowEventRepository $workflowRepo
+	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
+	 * @param INotifier $notifier
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,

@@ -5,9 +5,7 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview;
 use Exception;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\Special\WorkflowOverview;
-use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use MediaWiki\Special\SpecialPageFactory;
 use Message;
 use RawMessage;
 use Title;
@@ -22,6 +20,7 @@ class AutoAbortedWorkflow implements ITaskDescriptor {
 
 	/**
 	 * @param Workflow $workflow
+	 * @param WorkflowOverview $workflowOverview
 	 */
 	public function __construct( Workflow $workflow, WorkflowOverview $workflowOverview ) {
 		$this->workflow = $workflow;
@@ -59,7 +58,7 @@ class AutoAbortedWorkflow implements ITaskDescriptor {
 	 * @throws Exception
 	 */
 	public function getSubHeader(): Message {
-		return  \Message::newFromKey(
+		return \Message::newFromKey(
 			'workflows-uto-auto-aborted-workflow-' . $this->getAbortType()
 		);
 	}

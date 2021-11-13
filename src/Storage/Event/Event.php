@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Workflows\Storage\Event;
 use EventSauce\EventSourcing\Serialization\SerializablePayload;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
-use User;
 
 abstract class Event implements SerializablePayload {
 	/** @var UuidInterface */
@@ -27,7 +26,8 @@ abstract class Event implements SerializablePayload {
 	}
 
 	/**
-	 * @param User $user
+	 * @param UuidInterface $id
+	 * @param mixed ...$data
 	 */
 	public function __construct( UuidInterface $id, ...$data ) {
 		$this->id = $id;

@@ -26,7 +26,7 @@ class ParallelStateTracker extends MultiInstanceStateTracker {
 	 * @throws WorkflowExecutionException
 	 */
 	public function getPending(): array {
-		return array_filter( $this->tasks, function( ITask $task ) {
+		return array_filter( $this->tasks, function ( ITask $task ) {
 			return !in_array( $task->getId(), $this->completed );
 		} );
 	}

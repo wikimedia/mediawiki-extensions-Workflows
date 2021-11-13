@@ -8,10 +8,10 @@ use User;
 
 class DataPreprocessorContext {
 
-	/** @var Title  */
+	/** @var Title */
 	private $title;
-	/** @var User  */
-	private $user ;
+	/** @var User */
+	private $user;
 	private $revisionId;
 
 	/**

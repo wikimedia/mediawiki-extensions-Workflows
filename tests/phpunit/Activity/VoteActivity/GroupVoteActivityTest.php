@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\Tests\Activity\VoteActivity;
 
-use MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupVoteActivity;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\Action\ActionList;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupDataProvider;
+use MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupVoteActivity;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\Element\Task;
 use MediaWiki\Extension\Workflows\IActivity;
@@ -123,11 +123,11 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$this->notifier = $this->createMock( INotifier::class );
 
-		$this->actor_1 = $this->getTestUser( ['actor_1', 'custom_test_group'] )->getUser();
-		$this->actor_2 = $this->getTestUser( ['actor_2', 'custom_test_group'] )->getUser();
-		$this->actor_3 = $this->getTestUser( ['actor_3', 'custom_test_group'] )->getUser();
+		$this->actor_1 = $this->getTestUser( [ 'actor_1', 'custom_test_group' ] )->getUser();
+		$this->actor_2 = $this->getTestUser( [ 'actor_2', 'custom_test_group' ] )->getUser();
+		$this->actor_3 = $this->getTestUser( [ 'actor_3', 'custom_test_group' ] )->getUser();
 
-		$this->owner = $this->getTestUser( ['owner'] )->getUser();
+		$this->owner = $this->getTestUser( [ 'owner' ] )->getUser();
 
 		$this->targetPage = $this->getExistingTestPage()->getTitle()->getArticleID();
 	}
@@ -200,7 +200,6 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupVoteActivity::execute()
 	 */
 	public function testThresholdYes() {
-
 		$this->setData();
 
 		$this->specialLogLogger->expects( $this->atLeastOnce() )->method( 'addEntry' );

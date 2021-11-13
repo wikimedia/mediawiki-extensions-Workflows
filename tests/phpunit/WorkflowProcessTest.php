@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows\Tests;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Element\EndEvent;
@@ -18,6 +17,7 @@ use MediaWiki\Extension\Workflows\Storage\Event\WorkflowInitialized;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowStarted;
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\MediaWikiServices;
 use PHPUnit\Framework\TestCase;
 use User;
 
@@ -103,6 +103,7 @@ class WorkflowProcessTest extends TestCase {
 
 	/**
 	 * @param array $data
+	 * @return Workflow
 	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
 	 */
 	private function completeWithData( $data ) {

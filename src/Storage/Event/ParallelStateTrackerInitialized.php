@@ -6,12 +6,12 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use Ramsey\Uuid\UuidInterface;
 
 final class ParallelStateTrackerInitialized extends Event {
-	/** @var ITask[]  */
+	/** @var ITask[] */
 	private $tasks;
 
 	/**
 	 * @param UuidInterface $id
-	 * @param array $tasks
+	 * @param ITask[] $taskIds
 	 */
 	public function __construct( UuidInterface $id, $taskIds ) {
 		parent::__construct( $id );

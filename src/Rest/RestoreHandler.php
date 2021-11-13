@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
-use MediaWiki\Rest\HttpException;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\Rest\HttpException;
 
 class RestoreHandler extends JSONBodyActionHandler {
 
