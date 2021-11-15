@@ -23,6 +23,11 @@ class AddActions implements SkinTemplateNavigation__UniversalHook, BlueSpiceDisc
 	 * @param array $links
 	 */
 	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
+		$user = $sktemplate->getUser();
+		if ( !$this->permissionManager->userHasRight( $user, 'workflows-execute' ) ) {
+			return;
+		}
+
 		$title = $sktemplate->getTitle();
 		if ( !$title->exists() || $title->isSpecialPage() || !$title->isContentPage() ) {
 			return;
