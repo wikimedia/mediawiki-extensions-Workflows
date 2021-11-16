@@ -4,12 +4,10 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
-use BlueSpice\Discovery\Hook\BlueSpiceDiscoveryTemplateDataProviderAfterInit;
-use BlueSpice\Discovery\ITemplateDataProvider;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Permissions\PermissionManager;
 
-class AddActions implements SkinTemplateNavigation__UniversalHook, BlueSpiceDiscoveryTemplateDataProviderAfterInit {
+class AddActions implements SkinTemplateNavigation__UniversalHook {
 	/** @var PermissionManager */
 	private $permissionManager;
 
@@ -41,15 +39,5 @@ class AddActions implements SkinTemplateNavigation__UniversalHook, BlueSpiceDisc
 			'id' => 'ca-wf-start',
 			'position' => 10,
 		];
-	}
-
-	/**
-	 *
-	 * @param ITemplateDataProvider $registry
-	 * @return void
-	 */
-	public function onBlueSpiceDiscoveryTemplateDataProviderAfterInit( $registry ): void {
-		$registry->register( 'actions_secondary', 'ca-wf_start' );
-		$registry->unregister( 'toolbox', 'ca-wf_start' );
 	}
 }
