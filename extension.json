@@ -346,7 +346,7 @@
 		"SkinTemplateNavigation::Universal": "addActions",
 		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
 		"MWStakeRunJobsTriggerRegisterHandlers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\MWStakeRunJobsTriggerRegisterHandlers\\AddBackgroundProcess::callback",
-		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "addActions",
+		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
 		"ArticleDeleteComplete": "abortWorkflows"
 	},
 	"HookHandlers": {
@@ -372,6 +372,9 @@
 		"abortWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AbortWorkflowsOnDelete",
 			"services": [ "WorkflowFactory", "WorkflowsStateStore" ]
+		},
+		"discovery-skin": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\DiscoverySkin"
 		}
 	},
 	"ContentHandlers": {
