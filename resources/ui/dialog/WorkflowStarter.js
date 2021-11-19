@@ -4,6 +4,7 @@
 
 		this.repos = cfg.repos || [];
 		this.contextData = cfg.contextData || {};
+		this.lastError = null;
 	};
 
 	OO.inheritClass( workflows.ui.dialog.WorkflowStarter, OO.ui.ProcessDialog );
@@ -138,8 +139,11 @@
 					if ( this.booklet.getCurrentPage().getName() ) {
 						var form = this.booklet.getCurrentPage().getForm();
 						if ( !form ) {
+							this.lastError = 'no-form';
 							return new OO.ui.Error(
-								mw.message( 'workflows-ui-starter-init-form-fail' ).text()
+								mw.message( 'workflows-ui-starter-init-form-fail' ).text(), {
+									recoverable: false
+								}
 							);
 						}
 						var dfd = $.Deferred();
@@ -150,8 +154,7 @@
 							},
 							initFailed: function( error ) {
 								this.popPending();
-								// At this point dialog is pretty much broken
-								// since there is no way to react to "Dismiss" button click :(
+								this.lastError = 'init-failed';
 								dfd.reject( new OO.ui.Error( error, {
 									recoverable: false
 								} ) );
@@ -174,6 +177,18 @@
 
 	workflows.ui.dialog.WorkflowStarter.prototype.reloadPage = function () {
 		location.reload();
+	};
+
+	workflows.ui.dialog.WorkflowStarter.prototype.onDismissErrorButtonClick = function () {
+		this.hideErrors();
+		this.lastError = null;
+		if ( this.lastError === 'no-form' ) {
+			this.switchPanel( 'choose' );
+		} else if ( this.booklet.getCurrentPage().getName() === 'init' ) {
+			this.actions.setAbilities( { choose: false, start: true, back: true } );
+		}
+
+		this.updateSize();
 	};
 
 	workflows.ui.dialog.WorkflowStarter.prototype.getBodyHeight = function () {
