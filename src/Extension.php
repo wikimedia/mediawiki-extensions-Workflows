@@ -11,7 +11,8 @@ class Extension {
 		$notifier = MediaWikiServices::getInstance()->getService( 'MWStakeNotificationsNotifier' );
 		$notifier->registerNotificationCategory( 'workflow-cat', [
 			'priority' => 3,
-			'tooltip' => "workflows-pref-tooltip-notification-workflow-cat"
+			'tooltip' => "workflows-pref-tooltip-notification-workflow-cat",
+			'no-dismiss' => [ 'email' ],
 		] );
 
 		$notifier->registerNotification(
