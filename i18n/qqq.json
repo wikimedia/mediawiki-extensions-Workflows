@@ -109,7 +109,7 @@
 	"workflows-ui-overview-details-section-activity": "Label for section that lists the current tasks.\n{{Identical|Current tasks}}",
 	"workflows-ui-overview-details-section-page": "Label for the section that shows the subject page.\n{{Identical|Subject page}}",
 	"workflows-ui-overview-details-no-current-activity": "Info text when there is no pending tasks for the current activity",
-	"workflows-ui-overview-details-activity-assigned-users": "Info text for the currently assigned users in the workflow overview dialog.\n{{Identical|Assigned users:}}",
+	"workflows-ui-overview-details-activity-assigned-users": "Info text for the currently assigned users in the workflow overview dialog.\n{{Identical|Pending action from users:}}",
 	"workflows-ui-overview-details-activity-assigned-users-none": "Info text if there is no users assigned for the current workflow. Should inform that anyone can complete this task",
 	"workflows-ui-overview-details-activity-automatic": "Info text when the current task is an automatic task and it will be processed in background.",
 	"workflows-ui-overview-details-action-abort-note": "Info text that aborting a workflow will immediately stop all ongoing tasks. The user should be asked if the user really wants to abort the workflow",

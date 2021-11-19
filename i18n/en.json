@@ -105,7 +105,7 @@
 	"workflows-ui-overview-details-section-activity": "Current tasks",
 	"workflows-ui-overview-details-section-page": "Subject page",
 	"workflows-ui-overview-details-no-current-activity": "No pending tasks found",
-	"workflows-ui-overview-details-activity-assigned-users": "Assigned users:",
+	"workflows-ui-overview-details-activity-assigned-users": "Pending action from users:",
 	"workflows-ui-overview-details-activity-assigned-users-none": "No users assigned, anyone can complete this task",
 	"workflows-ui-overview-details-activity-automatic": "Automatic task. Processing in background...",
 	"workflows-ui-overview-details-action-abort-note": "Aborting a workflow will immediately stop all ongoing tasks. Are you sure you want to abort this workflow?",
