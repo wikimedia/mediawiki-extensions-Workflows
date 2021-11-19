@@ -7,6 +7,7 @@ use Exception;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
+use MediaWiki\Extension\Workflows\Exception\WorkflowPropertyValidationException;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
 
@@ -26,16 +27,21 @@ final class ActivityManager {
 	private $states = [];
 	/** @var array */
 	private $stale = [];
+	/** @var PropertyValidatorFactory */
+	private $propertyValidatorFactory;
 
 	/**
 	 * @param LogicObjectFactory $logicObjectFactory
 	 * @param DataPreprocessor $preprocessor
+	 * @param PropertyValidatorFactory $propertyValidatorFactory
 	 */
 	public function __construct(
-		LogicObjectFactory $logicObjectFactory, DataPreprocessor $preprocessor
+		LogicObjectFactory $logicObjectFactory, DataPreprocessor $preprocessor,
+		PropertyValidatorFactory $propertyValidatorFactory
 	) {
 		$this->logicObjectFactory = $logicObjectFactory;
 		$this->preprocessor = $preprocessor;
+		$this->propertyValidatorFactory = $propertyValidatorFactory;
 	}
 
 	/**
@@ -99,11 +105,14 @@ final class ActivityManager {
 
 	/**
 	 * @param IActivity $activity
-	 * @param ExecutionStatus $status
+	 * @param ExecutionStatus|int $status
 	 * @throws WorkflowExecutionException
 	 */
 	public function setActivityStatus( IActivity $activity, $status ) {
 		$this->assertMembers( $activity );
+		if ( $status instanceof ExecutionStatus ) {
+			$status = $status->getStatus();
+		}
 		$this->states[$activity->getTask()->getId()] = $status;
 	}
 
@@ -204,13 +213,44 @@ final class ActivityManager {
 		$internals = $activity->getTask()->getExtensionElements()['_internal_properties'] ?? [];
 		$publicValid = array_diff( $properties, $internals );
 
-		return array_filter(
+		$data = array_filter(
 			$data,
 			static function ( $key ) use ( $publicValid ) {
 				return in_array( $key, $publicValid );
 			},
 			ARRAY_FILTER_USE_KEY
 		);
+
+		$validated = [];
+		$validation = $activity->getTask()->getExtensionElements()['_property_validators'] ?? [];
+		foreach ( $data as $key => $value ) {
+			if ( !isset( $validation[$key] ) ) {
+				continue;
+			}
+			foreach ( $validation[$key] as $validatorKey ) {
+				$validator = $this->propertyValidatorFactory->getValidator( $validatorKey );
+				if ( !$validator ) {
+					throw new WorkflowExecutionException(
+						"Validator {$validation[$key]}, for property $key, does not exist"
+					);
+				}
+				$toTest = $value;
+				if ( !is_array( $toTest ) ) {
+					$toTest = [ $toTest ];
+				}
+				foreach ( $toTest as $element ) {
+					if ( !$validator->validate( $element, $activity ) ) {
+						throw new WorkflowPropertyValidationException(
+							$validator->getError( $element )->text(), $key
+						);
+					}
+				}
+			}
+
+			$validated[$key] = $value;
+		}
+
+		return $validated;
 	}
 
 	/**
@@ -239,8 +279,7 @@ final class ActivityManager {
 	private function setActivityStatusFromExecutionStatus(
 		IActivity $activity, ExecutionStatus $status
 	) {
-		$activityStatus = $status->getStatus();
-		$this->setActivityStatus( $activity, $activityStatus );
+		$this->setActivityStatus( $activity, $status );
 	}
 
 	/**

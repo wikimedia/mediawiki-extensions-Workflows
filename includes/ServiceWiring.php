@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Logger\GenericSpecialLogLogger;
 use MediaWiki\Extension\Workflows\LogicObjectFactory;
+use MediaWiki\Extension\Workflows\PropertyValidatorFactory;
 use MediaWiki\Extension\Workflows\Query\Store\DBStateStore;
 use MediaWiki\Extension\Workflows\Storage\MessageRepository\WorkflowMessageRepository;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
@@ -81,5 +82,12 @@ return [
 
 	'WorkflowSerializer' => static function ( MediaWikiServices $services ) {
 		return new WorkflowSerializer( $services->getService( 'WorkflowEventRepository' ) );
+	},
+
+	'PropertyValidatorFactory' => static function ( MediaWikiServices $services ) {
+		return new PropertyValidatorFactory(
+			ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsPropertyValidators' ),
+			$services->getObjectFactory()
+		);
 	},
 ];

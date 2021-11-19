@@ -167,6 +167,7 @@ class BPMNDefinitionParser implements IDefinitionParser {
 	private function parseTask( SimpleXMLElement $child, $type ) {
 		$properties = [];
 		$internalProperties = [];
+		$propertyValidators = [];
 		foreach ( $child->property as $key => $property ) {
 			$propertyName = $this->getAttribute( $property, 'name' );
 			if ( empty( trim( $propertyName ) ) ) {
@@ -174,6 +175,11 @@ class BPMNDefinitionParser implements IDefinitionParser {
 			}
 			$properties[$propertyName] =
 				$this->getAttribute( $property, 'default' ) ?: (string)$property;
+			if ( !empty( $this->getAttribute( $property, 'validation' ) ) ) {
+				$validators = $this->getAttribute( $property, 'validation' );
+				$validators = explode( ',', $validators );
+				$propertyValidators[$propertyName] = $validators;
+			}
 			$internal = (bool)$this->getAttribute( $property, 'internal' );
 			if ( $internal ) {
 				$internalProperties[] = $propertyName;
@@ -182,6 +188,7 @@ class BPMNDefinitionParser implements IDefinitionParser {
 
 		$extensionElements = $this->getExtensionElementsData( $child ) ?? [];
 		$extensionElements['_internal_properties'] = $internalProperties;
+		$extensionElements['_property_validators'] = $propertyValidators;
 
 		return new Task(
 			$this->getAttribute( $child, 'id' ),

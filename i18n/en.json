@@ -128,5 +128,11 @@
 	"workflows-uto-body-field-instructions": "Instructions: $1",
 	"workflows-ui-overview-details-initiator": "Started by",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|initiated}} this workflow",
-	"workflows-ui-overview-details-action-details-column": "see details"
+	"workflows-ui-overview-details-action-details-column": "see details",
+	"workflows-exception-property-validation": "Validation failed for property \"$1\": $2",
+	"workflows-property-validator-valid-user-error": "User \"$1\" is not a valid user",
+	"workflows-property-validator-valid-title-error": "\"$1\" is not a valid title",
+	"workflows-property-validator-required-error": "Value is required",
+	"workflows-property-validator-valid-task-executor-error": "User \"$1\" {{GENDER:$1|does not have permissions}} to complete assigned task",
+	"workflows-property-validator-email-recipient-error": "Value \"$1\" is not a valid email address, or a user with valid email address set"
 }

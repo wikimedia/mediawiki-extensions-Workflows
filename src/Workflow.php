@@ -105,7 +105,8 @@ final class Workflow {
 
 		$activityManager = new ActivityManager(
 			$services->getService( 'WorkflowLogicObjectFactory' ),
-			$services->getService( 'WorkflowsDataPreprocessor' )
+			$services->getService( 'WorkflowsDataPreprocessor' ),
+			$services->getService( 'PropertyValidatorFactory' )
 		);
 		$instance = new self (
 			$services->getService( 'WorkflowLogicObjectFactory' ),
@@ -151,7 +152,8 @@ final class Workflow {
 		$services = MediaWikiServices::getInstance();
 		$activityManager = new ActivityManager(
 			$services->getService( 'WorkflowLogicObjectFactory' ),
-			$services->getService( 'WorkflowsDataPreprocessor' )
+			$services->getService( 'WorkflowsDataPreprocessor' ),
+			$services->getService( 'PropertyValidatorFactory' )
 		);
 		$instance = new self(
 			$services->getService( 'WorkflowLogicObjectFactory' ),

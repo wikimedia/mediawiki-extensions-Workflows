@@ -26,7 +26,7 @@
 				"workflows-execute": {
 					"type": "global",
 					"roles": [
-						"admin", "reviewer"
+						"admin", "reviewer", "editor"
 					]
 				},
 				"workflows-admin": {
@@ -74,7 +74,28 @@
 				"workflow-file": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WorkflowFileDefinitionRepository::factory"
 			},
 			"WorkflowListeners": {},
-			"WorkflowDefinitions": {}
+			"WorkflowDefinitions": {},
+			"PropertyValidators": {
+				"existing-user": {
+					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\ExistingUser",
+					"services": [ "UserFactory" ]
+				},
+				"can-execute-task": {
+					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\CanExecuteTask",
+					"services": [ "UserFactory", "PermissionManager" ]
+				},
+				"existing-title": {
+					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\ExistingTitle",
+					"services": [ "TitleFactory" ]
+				},
+				"required": {
+					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\Required"
+				},
+				"email-recipient": {
+					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\EmailRecipient",
+					"services": [ "UserFactory" ]
+				}
+			}
 		},
 		"BlueSpiceDiscovery": {
 			"AttentionIndicatorRegistry": {

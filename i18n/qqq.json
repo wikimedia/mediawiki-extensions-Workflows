@@ -128,5 +128,13 @@
 	"workflows-ui-overview-details-initiator": "Label for button that shows who started the workflow.\n{{Identical|Started by}}",
 	"workflows-uto-activity-body-initiator": "Info text on who initiated the workflow.\n*$1 - Name of the user that initiated the workflow. Use GENDER.\n*$2 - Realname of the user that initiated the workflow"
 	"workflows-form-comment": "Label for VoteWidget comment input",
-	"workflows-ui-overview-details-action-details-column": "Label for the grid action button"
+	"workflows-ui-overview-details-action-details-column": "Label for the grid action button",
+	"workflows-uto-activity-body-initiator": "Info text on who initiated the workflow.\n*$1 - Name of the user that initiated the workflow. Use GENDER.\n*$2 - Realname of the user that initiated the workflow",
+	"workflows-form-comment": "Label for VoteWidget comment input",
+	"workflows-exception-property-validation": "Validation exception text.\n$1 - failed property\n$2 - error message from validator",
+	"workflows-property-validator-valid-user-error": "Exception text when user fails validation\n$1 - username",
+	"workflows-property-validator-valid-title-error": "Exception text when title fails validation\n$1 - title",
+	"workflows-property-validator-required-error": "Generic exception message when required value is missing",
+	"workflows-property-validator-valid-task-executor-error": "Exception text when user cannot execute task assigned\n$1 - username",
+	"workflows-property-validator-email-recipient-error": "Exception text when value cannot be converted to a valid email recipient"
 }
