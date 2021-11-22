@@ -295,10 +295,10 @@
 					items: [ icon, label ],
 					classes: [ 'proximity-layout' ]
 				} );
-				if ( proximity && proximity < 3 && proximity >= 0 ) {
+				if ( typeof proximity === 'number' && proximity < 3 && proximity >= 0 ) {
 					dueDateLayout.$element.addClass( 'proximity-close' );
 				}
-				if ( proximity && proximity < 0 ) {
+				if ( typeof proximity === 'number' && proximity < 0 ) {
 					dueDateLayout.$element.addClass( 'proximity-overdue' );
 				}
 				layout.$element.append( dueDateLayout.$element );
