@@ -22,6 +22,11 @@ class VoteDelegate extends VoteNotification {
 		$this->delegateTo = $delegateTo;
 
 		$this->addAffectedUsers( [ $this->delegateTo ] );
+		// Do not send this to owner
+		$key = array_search( $owner->getId(), $this->audience );
+		if ( $key !== false ) {
+			unset( $this->audience[$key] );
+		}
 	}
 
 	/**
