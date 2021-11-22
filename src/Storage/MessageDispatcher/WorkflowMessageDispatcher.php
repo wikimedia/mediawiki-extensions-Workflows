@@ -6,6 +6,7 @@ use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\Message;
 use EventSauce\EventSourcing\MessageDispatcher;
 use ExtensionRegistry;
+use MediaWiki\MediaWikiServices;
 
 class WorkflowMessageDispatcher implements MessageDispatcher {
 	/** @var Consumer[] */
@@ -14,11 +15,13 @@ class WorkflowMessageDispatcher implements MessageDispatcher {
 	public static function newFromRegisteredListeners() {
 		$dispatcher = new static();
 		$registry = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsWorkflowListeners' );
-		foreach ( $registry as $key => $callable ) {
-			if ( !is_callable( $callable ) ) {
+		foreach ( $registry as $key => $spec ) {
+			if ( !is_array( $spec ) ) {
 				continue;
 			}
-			$instance = call_user_func_array( $callable, [] );
+			// TODO: Inject
+			$objectFactory = MediaWikiServices::getInstance()->getObjectFactory();
+			$instance = $objectFactory->createObject( $spec );
 			if ( !$instance instanceof Consumer ) {
 				continue;
 			}

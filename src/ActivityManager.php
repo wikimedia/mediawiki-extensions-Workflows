@@ -308,7 +308,7 @@ final class ActivityManager {
 		);
 		return $this->preprocessor->preprocess(
 			$values,
-			$this->workflow->getContext()->getFlatRunningData(),
+			$this->workflow->getContext()->flatSerialize(),
 			$context
 		);
 	}

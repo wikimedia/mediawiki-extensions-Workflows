@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows;
 
 use DateTime;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
+use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Util\DataFlattener;
 use Title;
 use TitleFactory;
@@ -11,7 +12,7 @@ use User;
 
 class WorkflowContext {
 	/** @var DefinitionContext */
-	private $definitionContext = null;
+	private $definitionContext;
 	/** @var null */
 	private $runningActor = null;
 	/** @var array */
@@ -22,15 +23,22 @@ class WorkflowContext {
 	private $initiator;
 	/** @var TitleFactory */
 	private $titleFactory;
+	/** @var WorkflowId */
+	private $workflowId;
 
 	/**
 	 * @param DefinitionContext $definitionContext
 	 * @param TitleFactory $titleFactory
+	 * @param WorkflowId $workflowId
 	 * @param User|null $initiator
 	 */
-	public function __construct( DefinitionContext $definitionContext, TitleFactory $titleFactory, ?User $initiator = null ) {
+	public function __construct(
+		DefinitionContext $definitionContext, TitleFactory $titleFactory,
+		WorkflowId $workflowId, ?User $initiator = null
+	) {
 		$this->definitionContext = $definitionContext;
 		$this->titleFactory = $titleFactory;
+		$this->workflowId = $workflowId;
 		$this->initiator = $initiator;
 	}
 
@@ -134,21 +142,20 @@ class WorkflowContext {
 	}
 
 	/**
-	 * Return data in a simple hashmap, where the keys are combinations of the activity ID and the
-	 * data key. E.g. `[ 'activity1.field1' => 42, 'activitry2.field1' => 23 ]`
+	 * Return data in a simple hashmap
+	 * Returns all output data of the activities as well any required "workflow-global" data
+	 * data key. E.g. `[ 'activity1.field1' => 42, 'activity2.field1' => 23 ]`
 	 *
 	 * @return array
 	 */
-	public function getFlatRunningData(): array {
+	public function flatSerialize(): array {
 		$dataFlattener = new DataFlattener();
 
 		$additionalData = [
 			'initiator' => $this->initiator->getName(),
 			'start_date' => $this->startDate->format( 'YmdHis' )
 		];
-		$data = array_merge( $this->runningData, $additionalData );
-
-		return $dataFlattener->flatten( $data );
+		return $dataFlattener->flatten( array_merge( $this->runningData, $additionalData ) );
 	}
 
 	/**
@@ -158,5 +165,12 @@ class WorkflowContext {
 	 */
 	public function getInitiator(): ?User {
 		return $this->initiator;
+	}
+
+	/**
+	 * @return WorkflowId
+	 */
+	public function getWorkflowId(): WorkflowId {
+		return $this->workflowId;
 	}
 }
