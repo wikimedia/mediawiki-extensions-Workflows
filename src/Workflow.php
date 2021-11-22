@@ -230,7 +230,9 @@ final class Workflow {
 		$this->assertMembers( __METHOD__ );
 		$contextData = $this->assertAndFilterDefinitionContextData( $contextData );
 		$this->startDate = new DateTime();
-		$this->storage->recordEvent( WorkflowStarted::newFromData( $this->getActor(), $this->startDate, $contextData ) );
+		$this->storage->recordEvent(
+			WorkflowStarted::newFromData( $this->getActor(), $this->startDate, $contextData )
+		);
 		$this->doStart( $contextData );
 	}
 
@@ -498,19 +500,21 @@ final class Workflow {
 
 	/**
 	 * @param array $contextData
+	 * @param WorkflowId|null $workflowId
 	 * @throws WorkflowExecutionException
 	 */
-	private function doStart( $contextData = [] ) {
+	private function doStart( $contextData = [], WorkflowId $workflowId = null ) {
 		$start = $this->definition->getElementsOfType( 'startEvent' );
 		if ( empty( $start ) ) {
 			throw new Exception( 'Cannot start process: No start event found' );
 		}
+		$workflowId = $workflowId ?? $this->storage->aggregateRootId();
 		$this->definition->setContextData( $contextData );
 		if ( !$this->actor instanceof User ) {
 			$this->setActor( RequestContext::getMain()->getUser() );
 		}
 		$this->workflowContext = new WorkflowContext(
-			$this->definition->getContext(), $this->titleFactory, $this->getActor()
+			$this->definition->getContext(), $this->titleFactory, $workflowId, $this->getActor()
 		);
 		$this->workflowContext->setStartDate( $this->startDate );
 
@@ -741,7 +745,7 @@ final class Workflow {
 		if ( $this->executionMode === static::EXECUTION_MODE_EXECUTING ) {
 			// Let the gateway decide on the path of the flow and follow that path
 			$decision = $this->logicObjectFactory->getDecisionForGateway( $from );
-			$data = $this->getContext()->getFlatRunningData();
+			$data = $this->getContext()->flatSerialize();
 			$nextRef = $decision->decideFlow( $data, $this->definition );
 			// TODO: Is this event even needed?
 			$this->storage->recordEvent(
@@ -837,6 +841,7 @@ final class Workflow {
 		}
 		if ( $event instanceof WorkflowInitialized ) {
 			$defSource = $event->getDefinitionSource();
+			/** @var DefinitionRepositoryFactory $defRepoFactory */
 			$defRepoFactory = $dependencies[0];
 			/** @var IDefinitionRepository $defRepo */
 			$defRepo = $defRepoFactory->getRepository( $defSource->getRepositoryKey(), $defSource->getParams() );
@@ -852,7 +857,7 @@ final class Workflow {
 		if ( $event instanceof WorkflowStarted ) {
 			$this->actor = $event->getActor();
 			$this->startDate = $event->getStartDate();
-			$this->doStart( $event->getContextData() );
+			$this->doStart( $event->getContextData(), $id );
 		}
 
 		if ( $event instanceof ParallelStateTrackerInitialized ) {

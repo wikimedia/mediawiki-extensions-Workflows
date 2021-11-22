@@ -6,19 +6,19 @@ class DataFlattener {
 
 	/**
 	 *
-	 * @param array $activityData
+	 * @param array $contextData
 	 * @return array
 	 */
-	public function flatten( $activityData ) {
+	public function flatten( $contextData ) {
 		$flattened = [];
-		foreach ( $activityData as $activityId => $data ) {
+		foreach ( $contextData as $key => $data ) {
 			if ( !is_array( $data ) ) {
-				$flattened[$activityId] = $data;
+				$flattened[$key] = $data;
 				continue;
 			}
 
 			foreach ( $data as $dataKey => $dataValue ) {
-				$nestedDataKey = "$activityId.$dataKey";
+				$nestedDataKey = "$key.$dataKey";
 
 				if ( is_array( $dataValue ) ) {
 					$this->flattenArray( $flattened, $nestedDataKey, $dataValue );
