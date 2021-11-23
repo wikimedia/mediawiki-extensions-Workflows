@@ -9,6 +9,8 @@ class Extension {
 	public static function register() {
 		/** @var INotifier $notifier */
 		$notifier = MediaWikiServices::getInstance()->getService( 'MWStakeNotificationsNotifier' );
+
+		// echo-category-title-workflow-cat
 		$notifier->registerNotificationCategory( 'workflow-cat', [
 			'priority' => 3,
 			'tooltip' => "workflows-pref-tooltip-notification-workflow-cat",

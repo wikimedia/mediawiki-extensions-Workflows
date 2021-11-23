@@ -92,8 +92,7 @@
 		"includes/ServiceWiring.php"
 	],
 	"MessagesDirs": {
-		"Workflows": "i18n",
-		"WorkflowsDefinitions": "i18n/workflow_definitions"
+		"Workflows": "i18n"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\Workflows\\": "src/"
@@ -144,7 +143,6 @@
 				"workflows-ui-starter-select-workflow",
 				"workflows-ui-starter-init-note",
 				"workflows-ui-starter-error-generic",
-				"workflows-ui-starter-error-no-init-prompt",
 				"workflows-ui-starter-dialog-title",
 				"workflows-ui-starter-action-choose",
 				"workflows-ui-starter-action-start",
@@ -265,7 +263,6 @@
 				"workflows-ui-workflow-overview-dialog-title-abort",
 				"workflows-ui-workflow-overview-dialog-title-restore",
 				"workflows-ui-overview-details-state-autoabort-comment",
-				"workflows-ui-overview-details-section-expired",
 				"workflows-ui-overview-details-activity-due-date",
 				"workflows-ui-overview-details-initiator"
 			],
