@@ -12,6 +12,11 @@ class DataFlattener {
 	public function flatten( $activityData ) {
 		$flattened = [];
 		foreach ( $activityData as $activityId => $data ) {
+			if ( !is_array( $data ) ) {
+				$flattened[$activityId] = $data;
+				continue;
+			}
+
 			foreach ( $data as $dataKey => $dataValue ) {
 				$nestedDataKey = "$activityId.$dataKey";
 

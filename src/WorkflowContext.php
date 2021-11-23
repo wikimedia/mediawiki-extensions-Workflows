@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows;
 
+use DateTime;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Util\DataFlattener;
 use Title;
@@ -15,6 +16,8 @@ class WorkflowContext {
 	private $runningActor = null;
 	/** @var array */
 	private $runningData = [];
+	/** @var DateTime|null */
+	private $startDate = null;
 	/** @var User|null */
 	private $initiator;
 	/** @var TitleFactory */
@@ -52,6 +55,20 @@ class WorkflowContext {
 	 */
 	public function getCurrentActor(): ?User {
 		return $this->runningActor;
+	}
+
+	/**
+	 * @param DateTime $startDate
+	 */
+	public function setStartDate( DateTime $startDate ) {
+		$this->startDate = $startDate;
+	}
+
+	/**
+	 * @return DateTime|null
+	 */
+	public function getStartDate(): ?DateTime {
+		return $this->startDate;
 	}
 
 	/**
@@ -125,7 +142,13 @@ class WorkflowContext {
 	public function getFlatRunningData(): array {
 		$dataFlattener = new DataFlattener();
 
-		return $dataFlattener->flatten( $this->runningData );
+		$additionalData = [
+			'initiator' => $this->initiator->getName(),
+			'start_date' => $this->startDate->format( 'YmdHis' )
+		];
+		$data = array_merge( $this->runningData, $additionalData );
+
+		return $dataFlattener->flatten( $data );
 	}
 
 	/**
