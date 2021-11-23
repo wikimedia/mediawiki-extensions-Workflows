@@ -83,15 +83,15 @@ final class Workflow {
 	/** @var User|null */
 	private $actor = null;
 	/** @var WorkflowContext */
-	private $workflowContext = null;
+	private $publicContext = null;
+	/** @var WorkflowContextMutable */
+	private $privateContext = null;
 	/** @var ActivityManager */
 	private $activityManager;
 	/** @var MultiInstanceStateTracker */
 	private $multiInstanceStateTracker;
 	/** @var TitleFactory */
 	private $titleFactory;
-	/** @var DateTime|null */
-	private $startDate = null;
 
 	/**
 	 * Create a new engine, use only when starting a new workflow
@@ -215,9 +215,7 @@ final class Workflow {
 	 */
 	public function setActor( User $user ) {
 		$this->actor = $user;
-		if ( $this->workflowContext ) {
-			$this->workflowContext->setActor( $this->getActor() );
-		}
+		$this->getPrivateContext()->setActor( $user );
 	}
 
 	/**
@@ -229,10 +227,12 @@ final class Workflow {
 		$this->assertWorkflowState( static::STATE_NOT_STARTED );
 		$this->assertMembers( __METHOD__ );
 		$contextData = $this->assertAndFilterDefinitionContextData( $contextData );
-		$this->startDate = new DateTime();
+		$startDate = new DateTime();
 		$this->storage->recordEvent(
-			WorkflowStarted::newFromData( $this->getActor(), $this->startDate, $contextData )
+			WorkflowStarted::newFromData( $this->getActor(), $startDate, $contextData )
 		);
+		$this->getPrivateContext()->setStartDate( $startDate );
+		$this->getPrivateContext()->setWorkflowId( $this->getStorage()->aggregateRootId() );
 		$this->doStart( $contextData );
 	}
 
@@ -321,8 +321,10 @@ final class Workflow {
 		$this->assertActorCan( 'execute' );
 		$this->assertWorkflowState( static::STATE_RUNNING );
 		$this->assertMembers( __METHOD__ );
+		$endDate = new DateTime();
+		$this->getPrivateContext()->setEndDate( $endDate );
 		$this->storage->recordEvent(
-			WorkflowAborted::newFromData( $this->getActor(), $reason )
+			WorkflowAborted::newFromData( $this->getActor(), $endDate, $reason )
 		);
 		$this->stateMessage = $reason;
 		$this->state = static::STATE_ABORTED;
@@ -348,8 +350,10 @@ final class Workflow {
 			'isRestorable' => $restorable,
 			'isAuto' => true,
 		];
+		$endDate = new DateTime();
+		$this->getPrivateContext()->setEndDate( $endDate );
 		$this->storage->recordEvent(
-			WorkflowAutoAborted::newFromData( $this->getActor(), $stateMessage )
+			WorkflowAutoAborted::newFromData( $this->getActor(), $endDate, $stateMessage )
 		);
 		$this->stateMessage = $stateMessage;
 		$this->state = static::STATE_ABORTED;
@@ -366,6 +370,7 @@ final class Workflow {
 		$this->storage->recordEvent(
 			WorkflowUnAborted::newFromData( $this->getActor(), $reason )
 		);
+		$this->getPrivateContext()->setEndDate( null );
 		$this->state = static::STATE_RUNNING;
 		$this->stateMessage = $reason;
 		$this->extendDueDateIfExpired();
@@ -500,23 +505,19 @@ final class Workflow {
 
 	/**
 	 * @param array $contextData
-	 * @param WorkflowId|null $workflowId
 	 * @throws WorkflowExecutionException
 	 */
-	private function doStart( $contextData = [], WorkflowId $workflowId = null ) {
+	private function doStart( $contextData = [] ) {
 		$start = $this->definition->getElementsOfType( 'startEvent' );
 		if ( empty( $start ) ) {
 			throw new Exception( 'Cannot start process: No start event found' );
 		}
-		$workflowId = $workflowId ?? $this->storage->aggregateRootId();
 		$this->definition->setContextData( $contextData );
+		$this->getPrivateContext()->setDefinitionContext( $this->definition->getContext() );
 		if ( !$this->actor instanceof User ) {
 			$this->setActor( RequestContext::getMain()->getUser() );
 		}
-		$this->workflowContext = new WorkflowContext(
-			$this->definition->getContext(), $this->titleFactory, $workflowId, $this->getActor()
-		);
-		$this->workflowContext->setStartDate( $this->startDate );
+		$this->getPrivateContext()->setInitiator( $this->getActor() );
 
 		$this->state = static::STATE_RUNNING;
 		$this->continueExecution( array_shift( $start ) );
@@ -533,7 +534,7 @@ final class Workflow {
 		if ( !isset( $this->current[$taskID] ) ) {
 			throw new WorkflowExecutionException( "Execution failed: Execution order broken" );
 		}
-		$this->workflowContext->updateRunningData( $taskID, $data );
+		$this->getPrivateContext()->updateRunningData( $taskID, $data );
 
 		$this->completedTasks[$taskID] = $activity;
 		// Once the activity is done, mark it as stale
@@ -713,8 +714,10 @@ final class Workflow {
 	 */
 	private function endProcess( EndEvent $end ) {
 		if ( $this->executionMode === static::EXECUTION_MODE_EXECUTING ) {
+			$endDate = new DateTime();
+			$this->getPrivateContext()->setEndDate( $endDate );
 			$this->storage->recordEvent(
-				WorkflowEnded::newFromData( $end->getId() )
+				WorkflowEnded::newFromData( $end->getId(), $endDate )
 			);
 			return $this->markEnd( $end );
 		}
@@ -840,6 +843,7 @@ final class Workflow {
 			throw new WorkflowExecutionException( __METHOD__ . ' called while not in replaying mode!' );
 		}
 		if ( $event instanceof WorkflowInitialized ) {
+			$this->getPrivateContext()->setWorkflowId( $id );
 			$defSource = $event->getDefinitionSource();
 			/** @var DefinitionRepositoryFactory $defRepoFactory */
 			$defRepoFactory = $dependencies[0];
@@ -851,13 +855,14 @@ final class Workflow {
 					$this->setDefinition( $definition );
 				}
 			}
+
 			$this->actor = $event->getActor();
 		}
 
 		if ( $event instanceof WorkflowStarted ) {
 			$this->actor = $event->getActor();
-			$this->startDate = $event->getStartDate();
-			$this->doStart( $event->getContextData(), $id );
+			$this->getPrivateContext()->setStartDate( $event->getStartDate() );
+			$this->doStart( $event->getContextData() );
 		}
 
 		if ( $event instanceof ParallelStateTrackerInitialized ) {
@@ -873,7 +878,7 @@ final class Workflow {
 		if ( $event instanceof SequentialStateTrackerInitialized ) {
 			$this->multiInstanceStateTracker = new SequentialStateTracker(
 				$this->definition->getElementById( $event->getTask() ),
-				$this->workflowContext,
+				$this->getContext(),
 				$this->activityManager
 			);
 			$this->current = [];
@@ -883,7 +888,7 @@ final class Workflow {
 		if ( $event instanceof ParallelMultiInstanceStateTrackerInitialized ) {
 			$this->multiInstanceStateTracker = new ParallelMultiInstanceStateTracker(
 				$this->definition->getElementById( $event->getTask() ),
-				$this->workflowContext,
+				$this->getContext(),
 				$this->activityManager
 			);
 			$this->current = [];
@@ -937,12 +942,14 @@ final class Workflow {
 		if ( $event instanceof WorkflowEnded ) {
 			/** @var EndEvent $endEvent */
 			$endEvent = $this->definition->getElementById( $event->getElementId() );
+			$this->getPrivateContext()->setEndDate( $event->getDate() );
 			$this->markEnd( $endEvent );
 		}
 
 		if ( $event instanceof WorkflowAborted ) {
 			$this->state = static::STATE_ABORTED;
 			$this->actor = $event->getActor();
+			$this->getPrivateContext()->setEndDate( $event->getDate() );
 			$this->stateMessage = $event->getReason();
 		}
 
@@ -1045,10 +1052,24 @@ final class Workflow {
 	}
 
 	/**
-	 * @return WorkflowContext|null if process not started
+	 * @return WorkflowContext
 	 */
-	public function getContext() {
-		return $this->workflowContext;
+	public function getContext(): WorkflowContext {
+		if ( !$this->publicContext ) {
+			$this->publicContext = new WorkflowContext( $this->getPrivateContext() );
+		}
+		return $this->publicContext;
+	}
+
+	/**
+	 * @return WorkflowContextMutable
+	 */
+	private function getPrivateContext(): WorkflowContextMutable {
+		if ( !$this->privateContext ) {
+			$this->privateContext = new WorkflowContextMutable( $this->titleFactory );
+		}
+
+		return $this->privateContext;
 	}
 
 	/**
@@ -1073,7 +1094,7 @@ final class Workflow {
 
 		$data = $this->activityManager->getActivityProperties( $activity );
 		$this->activityManager->setActivityStatus( $activity, IActivity::STATUS_STARTED );
-		$this->workflowContext->updateRunningData( $activity->getTask()->getId(), $data );
+		$this->getPrivateContext()->updateRunningData( $activity->getTask()->getId(), $data );
 
 		// Continue execution by executing the same step again
 		return $this->continueExecution( $activity->getTask() );
@@ -1143,7 +1164,7 @@ final class Workflow {
 
 	private function startSequential( ITask $task ) {
 		$this->multiInstanceStateTracker = new SequentialStateTracker(
-			$task, $this->workflowContext, $this->activityManager
+			$task, $this->getContext(), $this->activityManager
 		);
 		$this->storage->recordEvent(
 			SequentialStateTrackerInitialized::newFromData( $task->getId() )
