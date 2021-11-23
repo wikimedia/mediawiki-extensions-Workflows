@@ -68,6 +68,11 @@ class ActivityTask implements ITaskDescriptor {
 	 * @throws Exception
 	 */
 	public function getSubHeader(): Message {
+		// workflows-uto-activity-custom_form
+		// workflows-uto-activity-user_vote
+		// workflows-uto-activity-group_vote
+		// workflows-uto-activity-user_feedback
+		// workflows-uto-activity-group_feedback
 		return \Message::newFromKey(
 			'workflows-uto-activity-' . $this->getActivityType()
 		);
