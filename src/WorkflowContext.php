@@ -5,41 +5,22 @@ namespace MediaWiki\Extension\Workflows;
 use DateTime;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
-use MediaWiki\Extension\Workflows\Util\DataFlattener;
 use Title;
-use TitleFactory;
 use User;
 
+/**
+ * @package MediaWiki\Extension\Workflows
+ * @public
+ */
 class WorkflowContext {
-	/** @var DefinitionContext */
-	private $definitionContext;
-	/** @var null */
-	private $runningActor = null;
-	/** @var array */
-	private $runningData = [];
-	/** @var DateTime|null */
-	private $startDate = null;
-	/** @var User|null */
-	private $initiator;
-	/** @var TitleFactory */
-	private $titleFactory;
-	/** @var WorkflowId */
-	private $workflowId;
+	/** @var WorkflowContextMutable */
+	private $mutable;
 
 	/**
-	 * @param DefinitionContext $definitionContext
-	 * @param TitleFactory $titleFactory
-	 * @param WorkflowId $workflowId
-	 * @param User|null $initiator
+	 * @param WorkflowContextMutable $contextMutable
 	 */
-	public function __construct(
-		DefinitionContext $definitionContext, TitleFactory $titleFactory,
-		WorkflowId $workflowId, ?User $initiator = null
-	) {
-		$this->definitionContext = $definitionContext;
-		$this->titleFactory = $titleFactory;
-		$this->workflowId = $workflowId;
-		$this->initiator = $initiator;
+	public function __construct( WorkflowContextMutable $contextMutable ) {
+		$this->mutable = $contextMutable;
 	}
 
 	/**
@@ -47,43 +28,28 @@ class WorkflowContext {
 	 * @return DefinitionContext
 	 */
 	public function getDefinitionContext(): DefinitionContext {
-		return $this->definitionContext;
-	}
-
-	/**
-	 * Set current actor
-	 * @param User|null $user
-	 */
-	public function setActor( ?User $user ) {
-		$this->runningActor = $user;
+		return $this->mutable->getDefinitionContext();
 	}
 
 	/**
 	 * @return User|null
 	 */
 	public function getCurrentActor(): ?User {
-		return $this->runningActor;
+		return $this->mutable->getCurrentActor();
 	}
 
 	/**
-	 * @param DateTime $startDate
-	 */
-	public function setStartDate( DateTime $startDate ) {
-		$this->startDate = $startDate;
-	}
-
-	/**
-	 * @return DateTime|null
+	 * @return DateTime|null if not started
 	 */
 	public function getStartDate(): ?DateTime {
-		return $this->startDate;
+		return $this->mutable->getStartDate();
 	}
 
 	/**
-	 * Clear out running data
+	 * @return DateTime|null if not finished
 	 */
-	public function resetRunningData() {
-		$this->runningData = [];
+	public function getEndDate(): ?DateTime {
+		return $this->mutable->getEndDate();
 	}
 
 	/**
@@ -92,29 +58,7 @@ class WorkflowContext {
 	 * @return Title|null
 	 */
 	public function getContextPage(): ?Title {
-		$pageId = $this->getDefinitionContext()->getItem( 'pageId' );
-		if ( !$pageId ) {
-			return null;
-		}
-
-		return $this->titleFactory->newFromID( $pageId );
-	}
-
-	/**
-	 * Update data set though workflow execution
-	 *
-	 * @param string $activityId
-	 * @param array $data
-	 */
-	public function updateRunningData( $activityId, array $data ) {
-		if ( isset( $this->runningData[$activityId] ) ) {
-			$this->runningData[$activityId] = array_merge(
-				$this->runningData[$activityId],
-				$data
-			);
-			return;
-		}
-		$this->runningData[$activityId] = $data;
+		return $this->mutable->getContextPage();
 	}
 
 	/**
@@ -125,20 +69,7 @@ class WorkflowContext {
 	 * @return mixed|null if no data found
 	 */
 	public function getRunningData( $activityId = null, $key = null ) {
-		if ( !$activityId ) {
-			return $this->runningData;
-		}
-		if ( !isset( $this->runningData[$activityId] ) ) {
-			return null;
-		}
-		if ( !$key ) {
-			return $this->runningData[$activityId];
-		}
-		if ( !isset( $this->runningData[$activityId][$key] ) ) {
-			return null;
-		}
-
-		return $this->runningData[$activityId][$key];
+		return $this->mutable->getRunningData( $activityId, $key );
 	}
 
 	/**
@@ -149,13 +80,7 @@ class WorkflowContext {
 	 * @return array
 	 */
 	public function flatSerialize(): array {
-		$dataFlattener = new DataFlattener();
-
-		$additionalData = [
-			'initiator' => $this->initiator->getName(),
-			'start_date' => $this->startDate->format( 'YmdHis' )
-		];
-		return $dataFlattener->flatten( array_merge( $this->runningData, $additionalData ) );
+		return $this->mutable->flatSerialize();
 	}
 
 	/**
@@ -164,13 +89,13 @@ class WorkflowContext {
 	 * @return User|null
 	 */
 	public function getInitiator(): ?User {
-		return $this->initiator;
+		return $this->mutable->getInitiator();
 	}
 
 	/**
 	 * @return WorkflowId
 	 */
 	public function getWorkflowId(): WorkflowId {
-		return $this->workflowId;
+		return $this->mutable->getWorkflowId();
 	}
 }
