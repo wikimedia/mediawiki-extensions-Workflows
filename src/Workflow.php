@@ -90,6 +90,8 @@ final class Workflow {
 	private $multiInstanceStateTracker;
 	/** @var TitleFactory */
 	private $titleFactory;
+	/** @var DateTime|null */
+	private $startDate = null;
 
 	/**
 	 * Create a new engine, use only when starting a new workflow
@@ -227,7 +229,8 @@ final class Workflow {
 		$this->assertWorkflowState( static::STATE_NOT_STARTED );
 		$this->assertMembers( __METHOD__ );
 		$contextData = $this->assertAndFilterDefinitionContextData( $contextData );
-		$this->storage->recordEvent( WorkflowStarted::newFromData( $this->getActor(), $contextData ) );
+		$this->startDate = new DateTime();
+		$this->storage->recordEvent( WorkflowStarted::newFromData( $this->getActor(), $this->startDate, $contextData ) );
 		$this->doStart( $contextData );
 	}
 
@@ -509,6 +512,8 @@ final class Workflow {
 		$this->workflowContext = new WorkflowContext(
 			$this->definition->getContext(), $this->titleFactory, $this->getActor()
 		);
+		$this->workflowContext->setStartDate( $this->startDate );
+
 		$this->state = static::STATE_RUNNING;
 		$this->continueExecution( array_shift( $start ) );
 	}
@@ -846,6 +851,7 @@ final class Workflow {
 
 		if ( $event instanceof WorkflowStarted ) {
 			$this->actor = $event->getActor();
+			$this->startDate = $event->getStartDate();
 			$this->doStart( $event->getContextData() );
 		}
 

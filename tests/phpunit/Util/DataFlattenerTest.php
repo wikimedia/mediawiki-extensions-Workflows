@@ -27,6 +27,7 @@ class DataFlattenerTest extends TestCase {
 		return [
 			'test1' => [
 				'input' => [
+					'someContextData' => 'value123',
 					'step1' => [
 						'data1' => 'value1',
 						'data2' => 'value2'
@@ -59,6 +60,7 @@ class DataFlattenerTest extends TestCase {
 					],
 				],
 				'output' => [
+					'someContextData' => 'value123',
 					'step1.data1' => 'value1',
 					'step1.data2' => 'value2',
 					'step2.data1' => 'value1',
