@@ -21,6 +21,7 @@ class LogicObjectFactory {
 	private $registry;
 	/** @var ISpecialLogLogger */
 	private $specialLogLogger;
+	/** @var LoggerInterface */
 	private $logger;
 
 	/**

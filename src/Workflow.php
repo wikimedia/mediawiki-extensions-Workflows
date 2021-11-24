@@ -128,7 +128,11 @@ final class Workflow {
 		$instance->setStorage( $storage );
 
 		$storage->recordEvent(
-			WorkflowInitialized::newFromData( $instance->getActor(), $definition->getSource(), $definition->getContext() )
+			WorkflowInitialized::newFromData(
+				$instance->getActor(),
+				$definition->getSource(),
+				$definition->getContext()
+			)
 		);
 		$instance->setExecutionMode( self::EXECUTION_MODE_EXECUTING );
 

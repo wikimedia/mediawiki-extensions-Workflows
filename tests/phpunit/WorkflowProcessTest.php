@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Element\EndEvent;
 use MediaWiki\Extension\Workflows\Definition\ITask;
+use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\GatewayDecisionMade;
@@ -24,6 +25,7 @@ use MediaWikiIntegrationTestCase;
  * @covers \MediaWiki\Extension\Workflows\Workflow
  */
 class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
+	/** @var TestDefinitionRepository */
 	protected $defRepository;
 
 	public function setUp(): void {
@@ -103,7 +105,7 @@ class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @param array $data
 	 * @return Workflow
-	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
+	 * @throws WorkflowExecutionException
 	 */
 	private function completeWithData( $data ) {
 		$engine = Workflow::newEmpty( 'test', $this->defRepository );
@@ -121,7 +123,7 @@ class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
+	 * @throws WorkflowExecutionException
 	 */
 	public function testLooping() {
 		$services = MediaWikiServices::getInstance();
