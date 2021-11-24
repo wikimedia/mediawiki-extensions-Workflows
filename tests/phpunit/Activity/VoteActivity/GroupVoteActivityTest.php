@@ -176,7 +176,12 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 		$thresholdCheckerFactoryMock = $this->createMock( ThresholdCheckerFactory::class );
 		$thresholdCheckerFactoryMock->method( 'makeThresholdChecker' )->willReturn( $this->thresholdCheckerMock );
 
-		$activity = new GroupVoteActivity( $this->notifier, $groupDataProviderMock, $thresholdCheckerFactoryMock, $this->task );
+		$activity = new GroupVoteActivity(
+			$this->notifier,
+			$groupDataProviderMock,
+			$thresholdCheckerFactoryMock,
+			$this->task
+		);
 		$activity->setSpecialLogLogger( $this->specialLogLogger );
 
 		$definitionContext = new DefinitionContext( [

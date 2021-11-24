@@ -25,6 +25,7 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		'wf' => null
 	];
 
+	/** @var null */
 	private $process = null;
 
 	public function __construct( DefinitionSource $source ) {

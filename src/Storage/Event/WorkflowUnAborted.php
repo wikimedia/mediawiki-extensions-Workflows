@@ -9,6 +9,7 @@ use User;
 final class WorkflowUnAborted extends Event {
 	use ActorTrait;
 
+	/** @var array */
 	private $reason;
 
 	public function __construct( UuidInterface $id, User $actor, $reason ) {

@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Tests;
 
+use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWikiIntegrationTestCase;
@@ -10,6 +11,7 @@ use MediaWikiIntegrationTestCase;
  * @covers \MediaWiki\Extension\Workflows\Workflow
  */
 class WorkflowProcessMultiTest extends MediaWikiIntegrationTestCase {
+	/** @var TestDefinitionRepository */
 	protected $defRepository;
 
 	public function setUp(): void {
@@ -18,7 +20,7 @@ class WorkflowProcessMultiTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
+	 * @throws WorkflowExecutionException
 	 */
 	public function testParallelMulti() {
 		$engine = Workflow::newEmpty( 'parallelMulti', $this->defRepository );
@@ -37,7 +39,7 @@ class WorkflowProcessMultiTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
+	 * @throws WorkflowExecutionException
 	 */
 	public function testParallelSingle() {
 		$engine = Workflow::newEmpty( 'parallelSingle', $this->defRepository );
