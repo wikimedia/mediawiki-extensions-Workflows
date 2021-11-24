@@ -17,6 +17,7 @@ class ActivityTask implements ITaskDescriptor {
 	protected $workflow;
 	/** @var Title|null */
 	protected $title = null;
+	/** @var Revision|null */
 	protected $revision = null;
 
 	/**

@@ -12,6 +12,7 @@ class DataPreprocessorContext {
 	private $title;
 	/** @var User */
 	private $user;
+	/** @var bool|int|null */
 	private $revisionId;
 
 	/**
@@ -37,7 +38,7 @@ class DataPreprocessorContext {
 	 * @param User|null $user
 	 * @param int|null $revisionId
 	 */
-	public function __construct( $title = null, $user = null, int $revisionId = 0 ) {
+	public function __construct( Title $title = null, User $user = null, int $revisionId = 0 ) {
 		$this->title = $title;
 		$this->user = $user;
 		$this->revisionId = $revisionId;

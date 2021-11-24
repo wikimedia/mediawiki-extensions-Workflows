@@ -126,7 +126,9 @@ class WorkflowMessageRepository implements MessageRepository {
 
 	private function getMessageData( Message $message ): array {
 		$payload = $this->serializer->serializeMessage( $message );
+		// phpcs:ignore MediaWiki.Usage.AssignmentInReturn.AssignmentInReturn
 		return [
+			// phpcs:ignore Generic.Files.LineLength.TooLong
 			'wfe_event_id' => $payload['headers'][Header::EVENT_ID] = $payload['headers'][Header::EVENT_ID] ?? Uuid::uuid4()->toString(),
 			'wfe_event_type' => $payload['headers'][Header::EVENT_TYPE] ?? null,
 			'wfe_aggregate_root_id' => $payload['headers'][Header::AGGREGATE_ROOT_ID] ?? null,

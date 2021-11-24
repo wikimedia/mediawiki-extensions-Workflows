@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 
 abstract class MultiInstanceStateTracker {
+	/** @var string[] */
 	protected $completed = [];
 
 	/**
