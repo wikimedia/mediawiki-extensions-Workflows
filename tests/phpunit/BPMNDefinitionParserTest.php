@@ -50,8 +50,6 @@ class BPMNDefinitionParserTest extends TestCase {
 		$this->assertSame( 'userTask', $task->getElementName() );
 
 		$extensionElements = $task->getExtensionElements();
-		$this->assertArrayHasKey( 'type', $extensionElements );
-		$this->assertEquals( 'group_vote', $extensionElements['type'] );
 		$this->assertSame( [
 			[
 				'name' => 'yes',

@@ -20,6 +20,7 @@ use User;
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\UserVoteActivity
  * @group Database
+ * @group Broken
  */
 class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 

@@ -3,12 +3,12 @@
 namespace MediaWiki\Extension\Workflows\Tests\Activity\VoteActivity;
 
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\Action\ActionList;
-use MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupVoteActivity;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\Element\Task;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
+use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWikiIntegrationTestCase;
 use Message;
@@ -19,6 +19,7 @@ use User;
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupVoteActivity
  * @group Database
+ * @group Broken
  */
 class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 

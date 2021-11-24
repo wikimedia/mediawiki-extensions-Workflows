@@ -17,8 +17,8 @@
 		<bpmn2:userTask id="GroupVote_1" name="Execute group vote">
 			<bpmn2:incoming>StartToVote</bpmn2:incoming>
 			<bpmn2:outgoing>VoteToGW</bpmn2:outgoing>
-			<bpmn2:property id="actor" name="__targetRef_placeholder"/>
-			<bpmn2:property id="group" name="__targetRef_placeholder"/>
+			<bpmn2:property name="actor"/>
+			<bpmn2:property name="group"/>
 			<bpmn2:dataInputAssociation id="ActorInput">
 				<bpmn2:sourceRef>DataObjectReference_17cxj6l</bpmn2:sourceRef>
 				<bpmn2:targetRef>actor</bpmn2:targetRef>
@@ -31,8 +31,6 @@
 				<bpmn2:targetRef>DataObjectReference_1ms3cnk</bpmn2:targetRef>
 			</bpmn2:dataOutputAssociation>
 			<bpmn2:extensionElements>
-				<!-- This section contains all activity related data -->
-				<wf:type>group_vote</wf:type>
 				<wf:serial>test</wf:serial>
 				<wf:serial>test2</wf:serial>
 				<wf:serial>
@@ -97,7 +95,7 @@
 		<bpmn2:task completionQuantity="1" id="Activity_1nevr4m" isForCompensation="false" name="Create page" startQuantity="1">
 			<bpmn2:incoming>GWToMail</bpmn2:incoming>
 			<bpmn2:outgoing>MailToEnd</bpmn2:outgoing>
-			<bpmn2:property id="group" name="__targetRef_placeholder"/>
+			<bpmn2:property name="group" />
 			<bpmn2:dataInputAssociation id="DataInputAssociation_0r4rrd7">
 				<bpmn2:sourceRef>DataObjectReference_1ms3cnk</bpmn2:sourceRef>
 				<bpmn2:targetRef>group</bpmn2:targetRef>

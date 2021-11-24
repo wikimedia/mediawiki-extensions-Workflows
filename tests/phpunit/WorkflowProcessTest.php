@@ -18,17 +18,17 @@ use MediaWiki\Extension\Workflows\Storage\Event\WorkflowStarted;
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\MediaWikiServices;
-use PHPUnit\Framework\TestCase;
-use User;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Workflows\Workflow
  */
-class WorkflowProcessTest extends TestCase {
+class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
 	protected $defRepository;
 
 	public function setUp(): void {
 		$this->defRepository = new TestDefinitionRepository();
+		\RequestContext::getMain()->setUser( $this->getTestUser( 'sysop' )->getUser() );
 	}
 
 	/**
@@ -37,14 +37,13 @@ class WorkflowProcessTest extends TestCase {
 	 */
 	public function testStart() {
 		$engine = Workflow::newEmpty( 'test', $this->defRepository );
-		$engine->setActor( $this->getTestUser() );
 		$this->assertSame( Workflow::STATE_NOT_STARTED, $engine->getCurrentState() );
 		$engine->start();
 		$this->assertSame( Workflow::STATE_RUNNING, $engine->getCurrentState() );
 	}
 
 	/**
-	 * @covers \MediaWiki\Extension\Workflows\Workflow::completeCurrentTask()
+	 * @covers \MediaWiki\Extension\Workflows\Workflow::completeTask()
 	 * @covers \MediaWiki\Extension\Workflows\Workflow::current()
 	 */
 	public function testCompleteTaskPath1() {
@@ -53,7 +52,7 @@ class WorkflowProcessTest extends TestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extension\Workflows\Workflow::completeCurrentTask()
+	 * @covers \MediaWiki\Extension\Workflows\Workflow::completeTask()
 	 * @covers \MediaWiki\Extension\Workflows\Workflow::current()
 	 */
 	public function testCompleteTaskPath2() {
@@ -108,7 +107,6 @@ class WorkflowProcessTest extends TestCase {
 	 */
 	private function completeWithData( $data ) {
 		$engine = Workflow::newEmpty( 'test', $this->defRepository );
-		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 		$current = $engine->current( 'GroupVote_1' );
 		$this->assertInstanceOf( ITask::class, $current );
@@ -128,14 +126,14 @@ class WorkflowProcessTest extends TestCase {
 	public function testLooping() {
 		$services = MediaWikiServices::getInstance();
 		$loFactory = $services->getService( 'WorkflowLogicObjectFactory' );
-		$loFactory->register( TestActivity::class . '::factory', 'TestActivity', 'activity' );
+		$loFactory->register( [ 'class' => TestActivity::class ], 'TestActivity', 'activity' );
 		$engine = Workflow::newEmpty( 'looping', $this->defRepository );
-		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
 		$this->assertInstanceOf( ITask::class, $engine->current( 'Activity_1n3fgk9' ) );
 		for ( $i = 0; $i < 5; $i++ ) {
 			$current = $engine->current( 'Activity_1n3fgk9' );
+
 			$activity = $engine->getActivityForTask( $current );
 			$this->assertInstanceOf( ITask::class, $current );
 			$this->assertInstanceOf(
@@ -151,18 +149,5 @@ class WorkflowProcessTest extends TestCase {
 		);
 
 		$this->assertSame( Workflow::STATE_FINISHED, $engine->getCurrentState() );
-	}
-
-	/**
-	 * @return User|null
-	 */
-	private function getTestUser() {
-		$user = User::newSystemUser( 'PHPTester' );
-
-		MediaWikiServices::getInstance()
-			->getUserGroupManager()
-			->addUserToGroup( $user, 'sysop' );
-
-		return $user;
 	}
 }

@@ -10,8 +10,8 @@
     	</bpmn:extensionElements>
       <bpmn:incoming>Flow_0i2fiaw</bpmn:incoming>
       <bpmn:outgoing>Flow_09pbc7z</bpmn:outgoing>
-      <bpmn:property id="loop" name="__targetRef_placeholder"/>
-      <bpmn:property id="dummy" name="__targetRef_placeholder"/>
+      <bpmn:property name="loop" />
+      <bpmn:property name="dummy" />
       <bpmn:standardLoopCharacteristics />
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0i2fiaw" sourceRef="StartEvent_0gq05mv" targetRef="Activity_1n3fgk9" />

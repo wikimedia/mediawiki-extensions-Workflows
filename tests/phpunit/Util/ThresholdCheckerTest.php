@@ -29,7 +29,6 @@ class ThresholdCheckerTest extends TestCase {
 		}
 
 		$checker = new ThresholdChecker( $thresholdData, $groupDataProviderMock );
-
 		$this->assertSame( $hasReached, $checker->hasReachedThresholds( $checkData, 'dummy', $checkDataKey ) );
 	}
 
@@ -173,7 +172,7 @@ class ThresholdCheckerTest extends TestCase {
 						'vote' => 'no'
 					]
 				],
-				null,
+				'vote',
 				8,
 				false,
 				true
