@@ -10,8 +10,8 @@
     <bpmn:userTask id="Activity_1yuv5s2">
       <bpmn:incoming>Flow_0era4m5</bpmn:incoming>
       <bpmn:outgoing>Flow_1gvzush</bpmn:outgoing>
-      <bpmn:property id="user" default="UserA|UserB" />
-	  <bpmn:property id="type" default="single|double"/>
+      <bpmn:property name="user" default="UserA|UserB" />
+	  <bpmn:property name="type" default="single|double"/>
 		<bpmn:multiInstanceLoopCharacteristics>
 		  <bpmn:extensionElements>
 			<wf:multiInstanceProperty source="user"></wf:multiInstanceProperty>

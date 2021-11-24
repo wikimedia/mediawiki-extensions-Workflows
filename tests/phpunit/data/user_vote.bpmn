@@ -16,10 +16,10 @@
     	</bpmn:extensionElements>
       <bpmn:incoming>Flow_0i2fiaw</bpmn:incoming>
       <bpmn:outgoing>Flow_09pbc7z</bpmn:outgoing>
-      <bpmn:property id="action" name="__targetRef_placeholder"/>
-      <bpmn:property id="vote" name="__targetRef_placeholder"/>
-      <bpmn:property id="comment" name="__targetRef_placeholder"/>
-      <bpmn:property id="delegate_to" name="__targetRef_placeholder"/>
+      <bpmn:property name="action" />
+      <bpmn:property name="vote" />
+      <bpmn:property name="comment" />
+      <bpmn:property name="delegate_to"/>
       <bpmn:standardLoopCharacteristics />
     </bpmn:userTask>
     <bpmn:dataObject id="DataObject_0vg9j37" isCollection="false">

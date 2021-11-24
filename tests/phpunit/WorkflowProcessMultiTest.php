@@ -4,18 +4,17 @@ namespace MediaWiki\Extension\Workflows\Tests;
 
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
-use MediaWiki\MediaWikiServices;
-use PHPUnit\Framework\TestCase;
-use User;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Workflows\Workflow
  */
-class WorkflowProcessMultiTest extends TestCase {
+class WorkflowProcessMultiTest extends MediaWikiIntegrationTestCase {
 	protected $defRepository;
 
 	public function setUp(): void {
 		$this->defRepository = new TestDefinitionRepository();
+		\RequestContext::getMain()->setUser( $this->getTestUser( 'sysop' )->getUser() );
 	}
 
 	/**
@@ -23,7 +22,6 @@ class WorkflowProcessMultiTest extends TestCase {
 	 */
 	public function testParallelMulti() {
 		$engine = Workflow::newEmpty( 'parallelMulti', $this->defRepository );
-		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
 		$this->assertEquals( [ 'Activity_1yuv5s2', 'Activity_1dhd9wm' ], array_keys( $engine->current() ) );
@@ -43,7 +41,6 @@ class WorkflowProcessMultiTest extends TestCase {
 	 */
 	public function testParallelSingle() {
 		$engine = Workflow::newEmpty( 'parallelSingle', $this->defRepository );
-		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
 		$this->assertEquals( [ 'Activity_1yuv5s2_0', 'Activity_1yuv5s2_1' ], array_keys( $engine->current() ) );
@@ -68,7 +65,6 @@ class WorkflowProcessMultiTest extends TestCase {
 
 	public function testSequential() {
 		$engine = Workflow::newEmpty( 'sequential', $this->defRepository );
-		$engine->setActor( $this->getTestUser() );
 		$engine->start();
 
 		$this->assertEquals( [ 'Activity_1yuv5s2_seq_0' ], array_keys( $engine->current() ) );
@@ -85,18 +81,5 @@ class WorkflowProcessMultiTest extends TestCase {
 		$engine->completeTask( $engine->current( 'Activity_1yuv5s2_seq_1' ) );
 
 		$this->assertSame( Workflow::STATE_FINISHED, $engine->getCurrentState() );
-	}
-
-	/**
-	 * @return User|null
-	 */
-	private function getTestUser() {
-		$user = User::newSystemUser( 'PHPTester' );
-
-		MediaWikiServices::getInstance()
-			->getUserGroupManager()
-			->addUserToGroup( $user, 'sysop' );
-
-		return $user;
 	}
 }
