@@ -225,6 +225,7 @@ final class ActivityManager {
 		$validation = $activity->getTask()->getExtensionElements()['_property_validators'] ?? [];
 		foreach ( $data as $key => $value ) {
 			if ( !isset( $validation[$key] ) ) {
+				$validated[$key] = $value;
 				continue;
 			}
 			foreach ( $validation[$key] as $validatorKey ) {

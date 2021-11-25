@@ -385,7 +385,8 @@
 		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
 		"MWStakeRunJobsTriggerRegisterHandlers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\MWStakeRunJobsTriggerRegisterHandlers\\AddBackgroundProcess::callback",
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
-		"ArticleDeleteComplete": "abortWorkflows"
+		"ArticleDeleteComplete": "abortWorkflows",
+		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface"
 	},
 	"HookHandlers": {
 		"addTables": {
@@ -413,6 +414,9 @@
 		},
 		"discovery-skin": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\DiscoverySkin"
+		},
+		"common-user-interface": {
+			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\CommonUserInterface"
 		}
 	},
 	"ContentHandlers": {
