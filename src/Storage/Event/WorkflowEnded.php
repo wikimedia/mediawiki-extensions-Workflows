@@ -12,15 +12,16 @@ final class WorkflowEnded extends Event {
 	/** @var DateTime */
 	private $date;
 
-	public function __construct( UuidInterface $id, DateTime $date ) {
+	public function __construct( UuidInterface $id, $elementID, DateTime $date ) {
 		parent::__construct( $id );
+		$this->elementID = $elementID;
 		$this->date = $date;
 	}
 
 	/**
 	 * @return DateTime
 	 */
-	public function getDate(): DateTime {
+	public function getDate(): ?DateTime {
 		return $this->date;
 	}
 
@@ -30,6 +31,7 @@ final class WorkflowEnded extends Event {
 	public function toPayload(): array {
 		return array_merge( [
 			'date' => $this->date->format( 'YmdHis' ),
+			'elementID' => $this->getElementId(),
 		], parent::toPayload() );
 	}
 
@@ -39,9 +41,14 @@ final class WorkflowEnded extends Event {
 	protected static function decodePayloadData( array $payload ): array {
 		$data = parent::decodePayloadData( $payload );
 
+		$date = null;
+		if ( isset( $payload['date'] ) ) {
+			$date = DateTime::createFromFormat( 'YmdHis', $payload['date'] );
+		}
 		return [
 			$data['id'],
-			DateTime::createFromFormat( 'YmdHis', $payload['date'] ),
+			$payload['elementID'],
+			$date,
 		];
 	}
 }

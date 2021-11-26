@@ -7,9 +7,11 @@ use IContextSource;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\ActivityTask;
+use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use Message;
+use MWStake\MediaWiki\Component\Notifications\INotification;
 use RequestContext;
 
 class GenericDescriptor implements IActivityDescriptor {
@@ -95,5 +97,21 @@ class GenericDescriptor implements IActivityDescriptor {
 			'dueDate' => $this->getDueDate(),
 			'dueDateProximity' => $this->getDueDateProximity(),
 		];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getNotificationFor(
+		ActivityEvent $event, Workflow $workflow
+	): ?INotification {
+		return null;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getHistoryReport( Workflow $workflow ): array {
+		return [];
 	}
 }

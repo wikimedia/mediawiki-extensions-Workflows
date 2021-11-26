@@ -286,7 +286,8 @@
 				"workflows-ui-overview-details-state-autoabort-comment",
 				"workflows-ui-overview-details-activity-due-date",
 				"workflows-ui-overview-details-initiator",
-				"workflows-ui-overview-details-action-details-column"
+				"workflows-ui-overview-details-action-details-column",
+				"workflows-ui-overview-details-section-past"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-moderation",

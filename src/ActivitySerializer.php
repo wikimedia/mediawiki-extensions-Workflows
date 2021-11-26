@@ -38,7 +38,10 @@ class ActivitySerializer {
 			} catch ( WorkflowExecutionException $exception ) {
 				$data['targetUsers'] = [];
 			}
+
 			$data['description'] = $activity->getActivityDescriptor()->jsonSerialize();
+			$data['history'] = $activity->getActivityDescriptor()
+				->getHistoryReport( $this->workflow );
 		}
 
 		return array_merge( $activity->getTask()->jsonSerialize(), $data );

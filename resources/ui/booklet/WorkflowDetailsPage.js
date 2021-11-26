@@ -147,6 +147,12 @@
 			this.addSection( 'expired', 'clock' );
 			this.addCurrentActivities();
 		}
+
+		var pastActivities = this.getPastActivities();
+		if ( pastActivities.length > 0 ) {
+			this.addSection( 'past', 'clock' );
+			this.addPastActivities( pastActivities );
+		}
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addCurrentActivities = function() {
@@ -161,6 +167,92 @@
 			}
 			this.addActivity( current[name] );
 		}
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.addPastActivities = function( activities ) {
+		for ( var i = 0; i < activities.length; i++ ) {
+			var activity = activities[i];
+			var name = new OO.ui.LabelWidget( {
+					label: activity.name,
+					classes: [ 'name' ]
+				} ),
+				layout = new OO.ui.PanelLayout( {
+					expanded: false,
+					padded: true,
+					classes: [ 'overview-activity-layout' ]
+				} );
+
+			layout.$element.append( name.$element );
+			var historyWidget = this.getActivityHistory( activity, true );
+			if ( historyWidget ) {
+				layout.$element.append( historyWidget.$element );
+			}
+
+			this.panel.$element.append(
+				layout.$element
+			);
+		}
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.getPastActivities = function() {
+		var taskKeys = this.workflow.getTaskKeys(),
+			activities = [];
+		for ( var i = 0; i < taskKeys.length; i ++ ) {
+			var task = this.workflow.getTask( taskKeys[i] );
+			if ( task.state !== workflows.state.activity.COMPLETE ) {
+				continue;
+			}
+			if ( !task instanceof workflows.object.UserInteractiveActivity )  {
+				continue;
+			}
+			if ( typeof task.getHistory !== 'function' ) {
+				continue;
+			}
+			activities.push( task );
+		}
+
+		return activities;
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function( activity, includeHeader ) {
+		includeHeader = includeHeader || false;
+		var history = activity.getHistory() || {};
+		if ( $.isEmptyObject( history ) ) {
+			return null;
+		}
+		var historyPanel = new OO.ui.PanelLayout( {
+			padded: true,
+			expanded: false,
+			classes: [ 'workflow-details-history' ]
+		} );
+		if ( includeHeader ) {
+			historyPanel.$element.append(
+				new OO.ui.LabelWidget( {
+					label: 'History'
+				} ).$element
+			);
+		}
+		for ( var key in history ) {
+			if ( !history.hasOwnProperty( key ) ) {
+				continue;
+			}
+			historyPanel.$element.append(
+				new OO.ui.HorizontalLayout( {
+					items: [
+						new OO.ui.LabelWidget( {
+							label: key,
+							classes: [ 'history-item' ]
+						} ),
+						new OO.ui.LabelWidget( {
+							label: history[key],
+							classes: [ 'history-value' ]
+						} )
+					]
+				} ).$element
+			);
+		}
+
+		return historyPanel;
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addSection = function( name, icon ) {
@@ -242,9 +334,9 @@
 			return;
 		}
 		var name = new OO.ui.LabelWidget( {
-			label: activity.name,
-			classes: [ 'name' ]
-		} ),
+				label: activity.name,
+				classes: [ 'name' ]
+			} ),
 			layout = new OO.ui.PanelLayout( {
 				expanded: false,
 				padded: true,
@@ -304,7 +396,12 @@
 				layout.$element.append( dueDateLayout.$element );
 			}
 
-
+			if ( !$.isEmptyObject( activity.getHistory() ) ) {
+				var historyWidget = this.getActivityHistory( activity, true );
+				if ( historyWidget ) {
+					layout.$element.append( historyWidget.$element );
+				}
+			}
 		} else {
 			layout.$element.append( new OO.ui.LabelWidget( {
 					label: mw.message( 'workflows-ui-overview-details-activity-automatic' ).text()

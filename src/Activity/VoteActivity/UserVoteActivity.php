@@ -61,7 +61,7 @@ class UserVoteActivity extends GenericVoteActivity {
 				$this->getSpecialLogLogger()->addEntry(
 					'uservote-delegate',
 					$this->targetPage,
-					$this->logActor,
+					$this->actor ?? $this->logActor,
 					$delegateToComment,
 					[
 						'4::delegatee' => $delegateToUsername

@@ -60,7 +60,7 @@
 		this.setFiltersDisabled( true );
 		this.$element.find( '.oo-ui-messageWidget' ).remove();
 		this.emit( 'loadStarted' );
-		this.load( this.filterData ).done( function() {
+		this.load().done( function() {
 			this.setFiltersDisabled( false );
 			this.drawGrid();
 		}.bind( this ) ).fail( function( error ) {
@@ -72,12 +72,12 @@
 		}.bind( this ) );
 	};
 
-	workflows.ui.panel.WorkflowList.prototype.load = function( filter ) {
+	workflows.ui.panel.WorkflowList.prototype.load = function() {
 		this.data = [];
 		var dfd = $.Deferred(),
-			active = filter.active || false;
-		delete( filter.active );
-		wf.list.filtered( active, filter, true ).done( function( response ) {
+			active = this.filterData.active || false;
+		delete( this.filterData.active );
+		wf.list.filtered( active, this.filterData, true ).done( function( response ) {
 			if ( !response.hasOwnProperty( 'workflows' ) ) {
 				return;
 			}

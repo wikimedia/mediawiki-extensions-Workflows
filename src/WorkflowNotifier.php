@@ -7,7 +7,9 @@ use EventSauce\EventSourcing\Message;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowAborted;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowEnded;
+use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
+use MWStake\MediaWiki\Component\Notifications\INotification;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use User;
 
@@ -41,27 +43,15 @@ class WorkflowNotifier implements Consumer {
 		}
 		$event = $message->event();
 
-		if ( $event instanceof TaskStarted ) {
+		if ( $event instanceof ActivityEvent ) {
 			$task = $this->workflow->getTaskFromId( $event->getElementId() );
 			$activity = $this->activityManger->getActivityForTask( $task );
 
 			if ( $activity instanceof UserInteractiveActivity ) {
-				$targetUsers = $this->activityManger->getTargetUsersForActivity( $activity ) ?? [];
-				foreach ( $targetUsers as $username ) {
-					$user = User::newFromName( $username );
-					if ( !$user instanceof User || !$user->isRegistered() ) {
-						continue;
-					}
-					$notification = new TaskAssigned(
-						$user,
-						$this->workflow->getContext()->getContextPage(),
-						$activity->getActivityDescriptor()->getActivityName()->parse()
-					);
-					$this->notifier->notify( $notification );
-				}
+				$this->notifyAboutEvent( $activity, $event );
 			}
-
 		}
+
 		if ( $event instanceof Storage\Event\WorkflowAborted ) {
 			$notification = new WorkflowAborted(
 				$this->workflow->getContext()->getInitiator(),
@@ -77,5 +67,54 @@ class WorkflowNotifier implements Consumer {
 			);
 			$this->notifier->notify( $notification );
 		}
+	}
+
+	private function notifyAboutEvent( UserInteractiveActivity $activity, ActivityEvent $event ) {
+		if ( $event instanceof TaskStarted ) {
+			$notification = $this->getNotificationFor( $activity, $event );
+			if ( $notification instanceof INotification ) {
+				$this->notifier->notify( $notification );
+			}
+		}
+	}
+
+	private function getNotificationFor(
+		UserInteractiveActivity $activity, ActivityEvent $event
+	) {
+		$notification = $activity->getActivityDescriptor()->getNotificationFor(
+			$event, $this->workflow
+		);
+
+		if ( $notification instanceof INotification ) {
+			return $notification;
+		}
+		if ( $event instanceof TaskStarted ) {
+			return new TaskAssigned(
+				$this->getTargetUsers( $activity ),
+				$this->workflow->getContext()->getContextPage(),
+				$activity->getActivityDescriptor()->getActivityName()->parse()
+			);
+		}
+
+		return null;
+	}
+
+	/**
+	 * @param UserInteractiveActivity $activity
+	 * @return array
+	 * @throws Exception\WorkflowExecutionException
+	 */
+	public function getTargetUsers( UserInteractiveActivity $activity ) {
+		$targetUsers = $this->activityManger->getTargetUsersForActivity( $activity ) ?? [];
+		$validUsers = [];
+		foreach ( $targetUsers as $username ) {
+			$user = User::newFromName( $username );
+			if ( !$user instanceof User || !$user->isRegistered() ) {
+				continue;
+			}
+			$validUsers[] = $user;
+		}
+
+		return $validUsers;
 	}
 }
