@@ -85,7 +85,6 @@
 	"workflows-notification-due-date-proximity-web": "Notification when a workflow task is due soon",
 	"workflows-notification-due-date-proximity-email-sub": "Subject for the notification when a workflow task is due soon",
 	"workflows-notification-due-date-proximity-email-body": "Body for the notification when a workflow task is due soon. Should tell the user that if the due date is reached, the workflow will be automatically aborted\n$1 - Name of the page the workflow task is due soon.\n*$2 - Name of the task is due soon.",
-
 	"workflows-ui-workflow-overview-dialog-title": "Title for the workflow overview dialog.\n{{Identical|Workflow details}}",
 	"workflows-ui-workflow-overview-action-abort": "Label for \"abort-arm\" action in the workflow overview dialog.\n{{Identical|Abort}}",
 	"workflows-ui-workflow-overview-action-restore": "Label for \"restore-arm\" action in the workflow overview dialog.\n{{Identical|Restore}}",
@@ -128,4 +127,6 @@
 	"workflows-uto-body-field-instructions": "Info text that shows additional instructions.\n{{Identical|Instructions: $1}}.\n$1 - text for additional instructions",
 	"workflows-ui-overview-details-initiator": "Label for button that shows who started the workflow.\n{{Identical|Started by}}",
 	"workflows-uto-activity-body-initiator": "Info text on who initiated the workflow.\n*$1 - Name of the user that initiated the workflow. Use GENDER.\n*$2 - Realname of the user that initiated the workflow"
+	"workflows-form-comment": "Label for VoteWidget comment input",
+	"workflows-ui-overview-details-action-details-column": "Label for the grid action button"
 }
