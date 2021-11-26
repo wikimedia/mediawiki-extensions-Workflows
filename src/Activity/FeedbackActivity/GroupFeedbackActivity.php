@@ -120,9 +120,11 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 			$this->groupName = $data['assigned_group'];
 
 			if ( $this->groupDataProvider->getNumberOfUsersInGroup( $this->groupName ) === 0 ) {
+				// workflows-group-vote-group-no-users
 				$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
 			}
 		} else {
+			// workflows-group-vote-group-empty
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-empty';
 		}
 

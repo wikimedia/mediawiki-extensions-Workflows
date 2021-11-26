@@ -111,6 +111,8 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 		if ( $target instanceof Title && $target->exists() ) {
 			$this->targetPage = $target;
 		} else {
+			// workflows-group-vote-target-title-invalid
+			// workflows-user-vote-target-title-invalid
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-target-title-invalid';
 		}
 
@@ -118,6 +120,8 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 		if ( $owner instanceof User && $owner->getId() ) {
 			$this->owner = $owner;
 		} else {
+			// workflows-group-vote-owner-invalid
+			// workflows-user-vote-owner-invalid
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-owner-invalid';
 		}
 
@@ -125,6 +129,8 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 		if ( $actor instanceof User && $actor->getId() ) {
 			$this->actor = $actor;
 		} else {
+			// workflows-group-vote-actor-invalid
+			// workflows-user-vote-actor-invalid
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-actor-invalid';
 		}
 
