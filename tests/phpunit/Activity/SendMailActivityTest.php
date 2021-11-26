@@ -17,6 +17,7 @@ use TitleFactory;
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\SendMail\SendMailActivity
  * @group Database
+ * @group Broken
  */
 class SendMailActivityTest extends MediaWikiIntegrationTestCase {
 

@@ -12,18 +12,21 @@ class TaskAssigned extends BaseNotification {
 	protected $activity;
 
 	/**
-	 * @param User $targetUser User task is assigned to
+	 * @param array $targetUsers
 	 * @param Title $title Target page title object
 	 * @param string $activity
 	 */
-	public function __construct( $targetUser, $title, $activity ) {
+	public function __construct( $targetUsers, $title, $activity ) {
 		parent::__construct(
 			'workflows-task-assign',
 			User::newSystemUser( 'Mediawiki default' ),
 			$title
 		);
 
-		$this->addAffectedUsers( [ $targetUser ] );
+		if ( !is_array( $targetUsers ) ) {
+			$targetUsers = [ $targetUsers ];
+		}
+		$this->addAffectedUsers( $targetUsers );
 		$this->activity = $activity;
 	}
 

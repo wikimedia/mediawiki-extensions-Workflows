@@ -162,7 +162,7 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 		$this->getSpecialLogLogger()->addEntry(
 			$action,
 			$this->targetPage,
-			$this->logActor,
+			$this->actor ?? $this->logActor,
 			$comment,
 			$params
 		);

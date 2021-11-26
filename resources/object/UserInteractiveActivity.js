@@ -6,6 +6,7 @@
 		this.targetUsers = cfg.targetUsers || [];
 		this.description = cfg.description || {};
 		this.name = cfg.description.name || this.id;
+		this.history = cfg.history || {};
 		this.alertMessage = this.description.alertMessage || '';
 		this.completeButtonMessage = this.description.completeButtonMessage || '';
 		this.userInteractionModule = new workflows.object.UserInteractionModule( cfg.userInteractionModule );
@@ -91,6 +92,10 @@
 
 	workflows.object.UserInteractiveActivity.prototype.getCompleteButtonMessage = function() {
 		return this.completeButtonMessage;
+	};
+
+	workflows.object.UserInteractiveActivity.prototype.getHistory = function() {
+		return this.history;
 	};
 
 	workflows.object.UserInteractiveActivity.prototype.complete = function( data ) {

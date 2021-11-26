@@ -4,7 +4,9 @@ namespace MediaWiki\Extension\Workflows;
 
 use JsonSerializable;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
+use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use Message;
+use MWStake\MediaWiki\Component\Notifications\INotification;
 
 interface IActivityDescriptor extends JsonSerializable {
 	/**
@@ -46,4 +48,22 @@ interface IActivityDescriptor extends JsonSerializable {
 	 * @return ITaskDescriptor
 	 */
 	public function getTaskDescriptor( Workflow $workflow ): ITaskDescriptor;
+
+	/**
+	 * @param ActivityEvent $event
+	 * @param Workflow $workflow
+	 * @return INotification|null
+	 */
+	public function getNotificationFor( ActivityEvent $event, Workflow $workflow ): ?INotification;
+
+	/**
+	 * Return user-formatted data that was a result of the activity
+	 * Basically, nicely formatted running-data
+	 * Only needs to return something on completed activities,
+	 * and on activities that had loop-completed event
+	 *
+	 * @param Workflow $workflow
+	 * @return array
+	 */
+	public function getHistoryReport( Workflow $workflow ): array;
 }

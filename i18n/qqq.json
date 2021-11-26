@@ -29,6 +29,7 @@
 	"logentry-ext-workflows-sendmail-send": "Entry on [[Special:Log]]",
 	"logentry-ext-workflows-groupvote-yes": "Entry on [[Special:Log]]",
 	"logentry-ext-workflows-groupvote-no": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-userfeedback": "Entry on [[Special:Log]]",
 	"workflows-ui-alert-action-complete": "Label for button that completes an action.\n{{Identical|Complete action}}",
 	"workflows-ui-alert-running-workflow-user-task": "Alert message that there is a workflow running on the current page and an action from the user is required.",
 	"workflows-ui-alert-running-workflow": "Alert message that there is a workflow running on the current page.\n*$1 - Type of workflow that is running on the current page",
@@ -141,5 +142,6 @@
 	"workflows-property-validator-valid-title-error": "Exception text when title fails validation\n$1 - title",
 	"workflows-property-validator-required-error": "Generic exception message when required value is missing",
 	"workflows-property-validator-valid-task-executor-error": "Exception text when user cannot execute task assigned\n$1 - username",
-	"workflows-property-validator-email-recipient-error": "Exception text when value cannot be converted to a valid email recipient"
+	"workflows-property-validator-email-recipient-error": "Exception text when value cannot be converted to a valid email recipient",
+	"workflows-ui-overview-details-section-past": "Section label for the workflow overview"
 }
