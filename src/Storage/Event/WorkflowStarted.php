@@ -21,7 +21,7 @@ final class WorkflowStarted extends Event {
 	 * @param DateTime $startDate
 	 * @param array $contextData
 	 */
-	public function __construct( UuidInterface $id, User $actor, DateTime $startDate, $contextData = [] ) {
+	public function __construct( UuidInterface $id, User $actor, ?DateTime $startDate, $contextData = [] ) {
 		parent::__construct( $id );
 		$this->actor = $actor;
 		$this->startDate = $startDate;
@@ -36,9 +36,9 @@ final class WorkflowStarted extends Event {
 	}
 
 	/**
-	 * @return DateTime
+	 * @return DateTime|null
 	 */
-	public function getStartDate(): DateTime {
+	public function getStartDate(): ?DateTime {
 		return $this->startDate;
 	}
 
@@ -53,10 +53,14 @@ final class WorkflowStarted extends Event {
 	protected static function decodePayloadData( array $payload ): array {
 		$data = parent::decodePayloadData( $payload );
 
+		$startDate = null;
+		if ( isset( $payload['startDate'] ) ) {
+			$startDate = DateTime::createFromFormat( 'YmdHis', $payload['startDate'] );
+		}
 		return [
 			$data['id'],
 			static::actorFromPayload( $payload ),
-			DateTime::createFromFormat( 'YmdHis', $payload['startDate'] ),
+			$startDate,
 			$payload['contextData'],
 		];
 	}

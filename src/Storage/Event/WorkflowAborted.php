@@ -12,7 +12,7 @@ class WorkflowAborted extends Event {
 
 	/** @var string */
 	private $reason;
-	/** @var DateTime */
+	/** @var DateTime|null */
 	private $date;
 
 	/**
@@ -21,7 +21,7 @@ class WorkflowAborted extends Event {
 	 * @param DateTime $date
 	 * @param string $reason
 	 */
-	public function __construct( UuidInterface $id, User $actor, DateTime $date, $reason = '' ) {
+	public function __construct( UuidInterface $id, User $actor, ?DateTime $date, $reason = '' ) {
 		parent::__construct( $id );
 
 		$this->actor = $actor;
@@ -37,9 +37,9 @@ class WorkflowAborted extends Event {
 	}
 
 	/**
-	 * @return DateTime
+	 * @return DateTime|null
 	 */
-	public function getDate(): DateTime {
+	public function getDate(): ?DateTime {
 		return $this->date;
 	}
 
@@ -60,10 +60,15 @@ class WorkflowAborted extends Event {
 	protected static function decodePayloadData( array $payload ): array {
 		$data = parent::decodePayloadData( $payload );
 
+		$date = null;
+		if ( isset( $payload['date' ] ) ) {
+			$date = DateTime::createFromFormat( 'YmdHis', $payload['date'] );
+		}
+
 		return [
 			$data['id'],
 			static::actorFromPayload( $payload ),
-			DateTime::createFromFormat( 'YmdHis', $payload['date'] ),
+			$date,
 			$payload['reason'],
 		];
 	}

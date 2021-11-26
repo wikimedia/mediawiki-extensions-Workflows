@@ -164,6 +164,11 @@
 				last: {
 					headerText: mw.message( 'workflows-ui-overview-details-last-time-column' ).text(),
 					type: "text"
+				},
+				detailsAction: {
+					type: "action",
+					actionId: 'details',
+					label: mw.message( 'workflows-ui-overview-details-action-details-column' ).text()
 				}
 			},
 			data: this.data
@@ -171,15 +176,11 @@
 
 		var voGrid = new OOJSPlus.ui.data.GridWidget( gridCfg );
 		voGrid.connect( this, {
-			cellDblclick: function( e ) {
-				if ( !this.singleClickSelect ) {
-					this.emit( 'selected', e.data.item.id );
+			action: function( action, row ) {
+				if ( action !== 'details' ) {
+					return;
 				}
-			},
-			cellClick: function( e ) {
-				if ( this.singleClickSelect ) {
-					this.emit( 'selected', e.data.item.id );
-				}
+				this.emit( 'selected', row.id );
 			}
 		} );
 		this.$grid.html( voGrid.$element );

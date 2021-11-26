@@ -264,7 +264,8 @@
 				"workflows-ui-workflow-overview-dialog-title-restore",
 				"workflows-ui-overview-details-state-autoabort-comment",
 				"workflows-ui-overview-details-activity-due-date",
-				"workflows-ui-overview-details-initiator"
+				"workflows-ui-overview-details-initiator",
+				"workflows-ui-overview-details-action-details-column"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-moderation",
