@@ -1,4 +1,7 @@
 {
+	"@metadata": {
+		"authors": []
+	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
 	"action-workflows-view": "Workflow-Elemente zu betrachten",
 	"right-workflows-view": "Workflow-Elemente betrachten",
@@ -13,7 +16,7 @@
 	"logentry-ext-workflows-uservote-delegate": "Benutzerabstimmung: $1 {{GENDER:$2|übertrug seine}} Stimme für Seite $3 an [[User:$4|$4]]",
 	"logentry-ext-workflows-groupvote-yes": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'ja'",
 	"logentry-ext-workflows-groupvote-no": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
+	"workflows-uto-activity-custom_form": "Benutzerdefinierte Aufgabe",
 	"workflows-uto-activity-user_vote": "Benutzerabstimmung",
-	"workflows-uto-activity-group_vote": "Gruppenabstimmung",
-	"workflows-uto-activity-custom_form": "Benutzerdefinierte Aufgabe"
+	"workflows-uto-activity-group_vote": "Gruppenabstimmung"
 }

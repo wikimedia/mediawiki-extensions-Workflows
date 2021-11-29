@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"workflows-ui-starter-action-choose": "선택",
+	"workflows-ui-starter-action-cancel": "취소",
+	"workflows-ui-task-completion-action-complete": "제출",
+	"workflows-ui-task-completion-action-cancel": "취소",
+	"workflows-uto-activity-custom_form": "사용자 지정 요청",
+	"workflows-form-label-vote-widget-approve": "승인",
+	"workflows-form-label-vote-widget-decline": "거부",
+	"workflows-ui-alert-activity-edit-request-complete-button": "자세한 정보 보기",
+	"workflows-activity-edit-request-name": "요청 편집",
+	"workflows-ui-workflow-overview-action-abort": "중단",
+	"workflows-ui-workflow-overview-action-cancel": "닫기",
+	"workflows-ui-overview-details-state-not_started": "시작되지 않음",
+	"workflows-ui-overview-details-state-aborted": "중단됨",
+	"workflows-ui-overview-details-activity-assigned-users": "할당된 사용자:",
+	"workflows-ui-overview-details-action-reason": "이유",
+	"workflows-ui-overview-grid-filter-state-all": "모두"
+}

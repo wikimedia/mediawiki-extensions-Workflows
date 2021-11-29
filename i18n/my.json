@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"workflows-ui-starter-action-cancel": "မလုပ်တော့ပါ",
+	"workflows-ui-task-completion-action-cancel": "မလုပ်တော့ပါ",
+	"workflows-form-placeholder-comment": "မှတ်ချက်",
+	"workflows-ui-workflow-overview-action-restore": "ပြန်လည် ထိန်းသိမ်းရန်",
+	"workflows-ui-workflow-overview-action-cancel": "ပိတ်ရန်",
+	"workflows-ui-overview-details-state-running": "လက်ရှိ အသုံးပြုနေသည်",
+	"workflows-ui-overview-details-action-reason": "အကြောင်းပြချက်",
+	"workflows-ui-overview-details-page-context-page": "စာမျက်နှာ",
+	"workflows-ui-overview-grid-filter-state-all": "အားလုံး"
+}

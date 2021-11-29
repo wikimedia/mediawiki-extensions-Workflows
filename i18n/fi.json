@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"MITO"
+		]
+	},
+	"workflows-ui-starter-action-choose": "Valitse",
+	"workflows-ui-starter-action-back": "Valitse toinen",
+	"workflows-ui-starter-action-cancel": "Peruuta",
+	"workflows-ui-alert-action-complete": "Suorita tehtävä",
+	"workflows-ui-task-completion-action-complete": "Lähetä",
+	"workflows-ui-task-completion-action-cancel": "Peruuta",
+	"workflows-uto-activity-custom_form": "Mukautettu pyyntö",
+	"workflows-form-placeholder-comment": "Kommentti",
+	"workflows-form-label-vote-widget-approve": "Hyväksy",
+	"workflows-form-label-vote-widget-decline": "Hylätty",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Näytä tiedot",
+	"workflows-activity-edit-request-name": "Muokkaa pyyntöä",
+	"workflows-ui-workflow-overview-action-restore": "Palauta",
+	"workflows-ui-workflow-overview-action-cancel": "Sulje",
+	"workflows-ui-overview-details-state-not_started": "Ei aloitettu",
+	"workflows-ui-overview-details-state-running": "Aktiivinen",
+	"workflows-ui-overview-details-state-finished": "Päättynyt",
+	"workflows-ui-overview-details-section-activity": "Nykyiset tehtävät",
+	"workflows-ui-overview-details-section-page": "Aihesivu",
+	"workflows-ui-overview-details-activity-assigned-users": "Määrätyt käyttäjät:",
+	"workflows-ui-overview-details-activity-due-date": "Eräpäivä",
+	"workflows-ui-overview-details-action-reason": "Syy",
+	"workflows-ui-overview-details-page-context-revision": "Versio",
+	"workflows-ui-overview-details-page-context-page": "Sivu",
+	"workflows-ui-overview-details-workflow-type-label": "Tyyppi",
+	"workflows-ui-overview-grid-filter-state-all": "Kaikki",
+	"workflows-ui-overview-grid-filter-state-active": "Aktiivinen",
+	"workflows-form-instructions-comment": "Kommentti",
+	"workflows-error-generic": "Tapahtui virhe",
+	"workflows-uto-body-field-instructions": "Ohjeet: $1"
+}
