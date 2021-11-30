@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"workflows-ui-task-completion-action-complete": "Invia",
+	"workflows-ui-task-completion-action-cancel": "Annulla",
+	"workflows-form-placeholder-comment": "Commento",
+	"workflows-ui-overview-details-state-running": "Attivo",
+	"workflows-ui-overview-details-activity-assigned-users": "Utenti assegnati:",
+	"workflows-ui-overview-details-page-context-page": "Pagina",
+	"workflows-uto-body-field-instructions": "Istruzioni: $1"
+}
