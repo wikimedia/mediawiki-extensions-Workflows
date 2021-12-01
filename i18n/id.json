@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ekirahardian"
+		]
+	},
+	"workflows-ui-task-completion-action-complete": "Kirim",
+	"workflows-ui-task-completion-action-cancel": "Batal",
+	"workflows-form-placeholder-comment": "Komentar",
+	"workflows-ui-workflow-overview-action-abort": "Batalkan",
+	"workflows-ui-workflow-overview-action-cancel": "Tutup",
+	"workflows-ui-overview-details-state-finished": "Selesai",
+	"workflows-ui-overview-details-action-reason": "Alasan",
+	"workflows-ui-overview-details-workflow-type-label": "Tipe",
+	"workflows-ui-overview-grid-filter-state-all": "Semua",
+	"workflows-form-instructions-comment": "Komentar",
+	"workflows-error-generic": "Terjadi galat"
+}
