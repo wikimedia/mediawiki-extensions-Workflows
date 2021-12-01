@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wf="http://hallowelt.com/schema/bpmn/wf" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1vrglfw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.7.1">
+	<!-- Process part -->
+	<bpmn:process id="Process_User_Control" isExecutable="false">
+		<bpmn:extensionElements>
+			<wf:context>
+				<wf:contextItem name="pageId"/>
+			</wf:context>
+		</bpmn:extensionElements>
+		<!-- StartEvent -->
+		<bpmn:startEvent id="TheStart">
+			<bpmn:outgoing>FromTheStartToCollectData</bpmn:outgoing>
+		</bpmn:startEvent>
+		<bpmn:sequenceFlow id="FromTheStartToCollectData" sourceRef="TheStart" targetRef="CollectData"/>
+		<!-- CollectData -->
+		<bpmn:userTask id="CollectData" name="CollectData">
+			<bpmn:extensionElements>
+				<wf:type>custom_form</wf:type>
+				<wf:formModule>
+					<wf:module>ext.workflows.activity.collectdata.forms</wf:module>
+					<wf:class>workflows.object.form.UserCollectData</wf:class>
+				</wf:formModule>
+				<wf:initializer>true</wf:initializer>
+			</bpmn:extensionElements>
+			<bpmn:property name="username"/>
+			<bpmn:property name="instructions"/>
+			<bpmn:property name="reportrecipient"/>
+			<bpmn:property name="due_date"/>
+			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
+			<bpmn:outgoing>FromCollectDataToUserFeedback</bpmn:outgoing>
+		</bpmn:userTask>
+		<bpmn:sequenceFlow id="FromCollectDataToUserFeedback" sourceRef="CollectData" targetRef="UserFeedback"/>
+		<!-- Collect user vote -->
+		<bpmn:userTask id="UserFeedback" name="UserFeedback">
+			<bpmn:extensionElements>
+				<wf:type>user_feedback</wf:type>
+			</bpmn:extensionElements>
+			<bpmn:property name="assigned_user">{{{CollectData.username}}}</bpmn:property>
+			<bpmn:property name="instructions">{{{CollectData.instructions}}}</bpmn:property>
+			<bpmn:property name="comment"/>
+			<bpmn:property name="due_date">{{#time:YmdHis|{{{CollectData.due_date}}} + 7days}}</bpmn:property>
+			<bpmn:incoming>FromCollectDataToUserFeedback</bpmn:incoming>
+			<bpmn:outgoing>FromUserFeedbackToSendMail</bpmn:outgoing>
+		</bpmn:userTask>
+		<bpmn:sequenceFlow id="FromUserFeedbackToSendMail" sourceRef="UserFeedback" targetRef="SendMail"/>
+		<!-- Send mail -->
+		<bpmn:task id="SendMail" name="SendMail">
+			<bpmn:extensionElements>
+				<wf:type>send_mail</wf:type>
+			</bpmn:extensionElements>
+			<bpmn:property name="recipient" default="{{{CollectData.reportrecipient}}}"/>
+			<bpmn:property name="subject">{{int:workflows-default-user-feedback-report-subject|{{PAGENAME}}}}</bpmn:property>
+			<bpmn:property name="body">{{int:workflows-default-user-feedback-body|
+{{#timel:D j, Y (H:i T)|{{{start_date}}} }}|
+{{#timel:D j, Y (H:i T)|{{LOCALTIMESTAMP}} }}|
+{{PAGENAME}}|
+{{REVISIONID}}|
+{{{CollectData.username}}}|
+{{{CollectData.instructions}}}|
+{{{UserFeedback.comment}}}|
+{{{initiator}}} }}
+				</bpmn:property>
+			<bpmn:incoming>FromUserFeedbackToSendMail</bpmn:incoming>
+			<bpmn:outgoing>FromSendMailToTheEnd</bpmn:outgoing>
+		</bpmn:task>
+		<bpmn:sequenceFlow id="FromSendMailToTheEnd" sourceRef="SendMail" targetRef="TheEnd"/>
+		<!-- EndEvent -->
+		<bpmn:endEvent id="TheEnd">
+			<bpmn:incoming>FromSendMailToTheEnd</bpmn:incoming>
+		</bpmn:endEvent>
+	</bpmn:process>
+	<!-- Visual part -->
+	<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+		<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_User_Control">
+			<bpmndi:BPMNEdge id="FromUserFeedbackToSendMail_di" bpmnElement="FromUserFeedbackToSendMail">
+				<di:waypoint x="530" y="120"/>
+				<di:waypoint x="650" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="FromSendMailToTheEnd_di" bpmnElement="FromSendMailToTheEnd">
+				<di:waypoint x="750" y="120"/>
+				<di:waypoint x="812" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="FromCollectDataToUserFeedback_di" bpmnElement="FromCollectDataToUserFeedback">
+				<di:waypoint x="350" y="120"/>
+				<di:waypoint x="430" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="FromTheStartToCollectData_di" bpmnElement="FromTheStartToCollectData">
+				<di:waypoint x="198" y="120"/>
+				<di:waypoint x="250" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="TheStart">
+				<dc:Bounds x="162" y="102" width="36" height="36"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="CollectData_di" bpmnElement="CollectData">
+				<dc:Bounds x="250" y="80" width="100" height="80"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="UserFeedback_di" bpmnElement="UserFeedback">
+				<dc:Bounds x="430" y="80" width="100" height="80"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="SendMail_di" bpmnElement="SendMail">
+				<dc:Bounds x="650" y="80" width="100" height="80"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="TheEnd_di" bpmnElement="TheEnd">
+				<dc:Bounds x="812" y="102" width="36" height="36"/>
+			</bpmndi:BPMNShape>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</bpmn:definitions>

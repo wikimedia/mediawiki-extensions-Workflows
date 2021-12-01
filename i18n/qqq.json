@@ -143,5 +143,13 @@
 	"workflows-property-validator-required-error": "Generic exception message when required value is missing",
 	"workflows-property-validator-valid-task-executor-error": "Exception text when user cannot execute task assigned\n$1 - username",
 	"workflows-property-validator-email-recipient-error": "Exception text when value cannot be converted to a valid email recipient",
-	"workflows-ui-overview-details-section-past": "Section label for the workflow overview"
+	"workflows-ui-overview-details-section-past": "Section label for the workflow overview",
+	"workflows-default-user-feedback-report-subject": "Mail subject line for when the user feedback finishes.\n$1 - Page name",
+	"workflows-default-user-feedback-body": "Mail body text for when the user feedback finishes.\n$1 - Start date\n$2 - Finish date\n$3 - Page name\n$4 - Revision ID\n$5 - Name of assigned user\n$6 - Instructions for assigned user\n$7 - Feedback of assigned user\n$8 - initiator of workflow",
+	"workflows-default-group-feedback-report-subject": "Mail subject line for when the group feedback finishes.\n$1 - Page name",
+	"workflows-default-group-feedback-body": "Mail body text for when the group feedback finishes.\n$1 - Start date\n$2 - Finish date\n$3 - Page name\n$4 - Revision ID\n$5 - List of assigned users\n$6 - Instructions for assigned users\n$7 - List of feedbacks of assigned users\n$8 - initiator of workflow",
+	"workflows-collect-data-form-groupname": "Label in a form\n{{identical|Group}}",
+	"workflows-collect-data-form-instructions": "Label in a form",
+	"workflows-collect-data-form-username": "Label in a form\n{{identical|User}}",
+	"workflows-collect-data-form-reportrecipient": "Label for the workflow form field"
 }
