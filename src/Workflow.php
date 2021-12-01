@@ -861,7 +861,9 @@ final class Workflow {
 
 		if ( $event instanceof WorkflowStarted ) {
 			$this->actor = $event->getActor();
-			$this->getPrivateContext()->setStartDate( $event->getStartDate() );
+			if ( $event->getStartDate() instanceof DateTime ) {
+				$this->getPrivateContext()->setStartDate( $event->getStartDate() );
+			}
 			$this->doStart( $event->getContextData() );
 		}
 
@@ -949,7 +951,9 @@ final class Workflow {
 		if ( $event instanceof WorkflowAborted ) {
 			$this->state = static::STATE_ABORTED;
 			$this->actor = $event->getActor();
-			$this->getPrivateContext()->setEndDate( $event->getDate() );
+			if ( $event->getDate() instanceof DateTime ) {
+				$this->getPrivateContext()->setEndDate( $event->getDate() );
+			}
 			$this->stateMessage = $event->getReason();
 		}
 
