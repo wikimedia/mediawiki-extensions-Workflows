@@ -9,10 +9,15 @@ use Ramsey\Uuid\UuidInterface;
 final class WorkflowEnded extends Event {
 	use ElementTrait;
 
-	/** @var DateTime */
+	/** @var DateTime|null */
 	private $date;
 
-	public function __construct( UuidInterface $id, $elementID, DateTime $date ) {
+	/**
+	 * @param UuidInterface $id
+	 * @param string $elementID
+	 * @param DateTime|null $date
+	 */
+	public function __construct( UuidInterface $id, $elementID, ?DateTime $date ) {
 		parent::__construct( $id );
 		$this->elementID = $elementID;
 		$this->date = $date;
