@@ -136,5 +136,13 @@
 	"workflows-property-validator-required-error": "Value is required",
 	"workflows-property-validator-valid-task-executor-error": "User \"$1\" {{GENDER:$1|does not have permissions}} to complete assigned task",
 	"workflows-property-validator-email-recipient-error": "Value \"$1\" is not a valid email address, or a user with valid email address set",
-	"workflows-ui-overview-details-section-past": "Past activities"
+	"workflows-ui-overview-details-section-past": "Past activities",
+	"workflows-default-user-feedback-report-subject": "The workflow \"User feedback\" for page \"$1\" has finished",
+	"workflows-default-user-feedback-body": "Workflow details:\nStarted on: $1\nFinished on: $2\nPage: $3\nRevision: $4\nUser: $5\nInstructions: $6\nFeedback: $7\n\nThis email has been sent to you, because $8 has designated you as email recipient for this workflow.",
+	"workflows-default-group-feedback-report-subject": "The workflow \"Group feedback\" for page \"$1\" has finished",
+	"workflows-default-group-feedback-body": "Workflow details:\nStarted on: $1\nFinished on: $2\nPage: $3\nRevision: $4\nUsers:$5\nInstructions: $6\nFeedbacks:$7\n\nThis email has been sent to you, because $8 has designated you as email recipient for this workflow.",
+	"workflows-collect-data-form-groupname": "Group",
+	"workflows-collect-data-form-instructions": "Instructions (wikitext supported)",
+	"workflows-collect-data-form-username": "User",
+	"workflows-collect-data-form-reportrecipient": "Send report to (valid email or username)"
 }

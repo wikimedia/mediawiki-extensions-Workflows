@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wf="http://hallowelt.com/schema/bpmn/wf" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1vrglfw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.7.1">
+	<!-- Process part -->
+	<bpmn:process id="Process_Group_Control" isExecutable="false">
+		<bpmn:extensionElements>
+			<wf:context>
+				<wf:contextItem name="pageId"/>
+			</wf:context>
+		</bpmn:extensionElements>
+		<!-- StartEvent -->
+		<bpmn:startEvent id="TheStart">
+			<bpmn:outgoing>FromTheStartToCollectData</bpmn:outgoing>
+		</bpmn:startEvent>
+		<bpmn:sequenceFlow id="FromTheStartToCollectData" sourceRef="TheStart" targetRef="CollectData"/>
+		<!-- CollectData -->
+		<bpmn:userTask id="CollectData" name="CollectData">
+			<bpmn:extensionElements>
+				<wf:type>custom_form</wf:type>
+				<wf:formModule>
+					<wf:module>ext.workflows.activity.collectdata.forms</wf:module>
+					<wf:class>workflows.object.form.GroupCollectData</wf:class>
+				</wf:formModule>
+				<wf:initializer>true</wf:initializer>
+			</bpmn:extensionElements>
+			<bpmn:property name="groupname"/>
+			<bpmn:property name="instructions"/>
+			<bpmn:property name="reportrecipient"/>
+			<bpmn:property name="due_date"/>
+			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
+			<bpmn:outgoing>FromCollectDataToGroupFeedback</bpmn:outgoing>
+		</bpmn:userTask>
+		<bpmn:sequenceFlow id="FromCollectDataToGroupFeedback" sourceRef="CollectData" targetRef="GroupFeedback"/>
+		<!-- Collect group vote -->
+		<bpmn:userTask id="GroupFeedback" name="GroupFeedback">
+			<bpmn:extensionElements>
+				<wf:type>group_feedback</wf:type>
+				<wf:threshold>
+					<wf:type>complete</wf:type>
+					<wf:value>3</wf:value>
+					<wf:unit>user</wf:unit>
+				</wf:threshold>
+			</bpmn:extensionElements>
+			<bpmn:property name="assigned_group">{{{CollectData.groupname}}}</bpmn:property>
+			<bpmn:property name="instructions">{{{CollectData.instructions}}}</bpmn:property>
+			<bpmn:property name="comment"/>
+			<bpmn:property name="users_feedbacks"/>
+			<bpmn:property name="due_date">{{#time:YmdHis|{{{CollectData.due_date}}} + 7days}}</bpmn:property>
+			<bpmn:incoming>FromCollectDataToGroupFeedback</bpmn:incoming>
+			<bpmn:outgoing>FromGroupFeedbackToSendMail</bpmn:outgoing>
+			<bpmn:standardLoopCharacteristics/>
+		</bpmn:userTask>
+		<bpmn:sequenceFlow id="FromGroupFeedbackToSendMail" sourceRef="GroupFeedback" targetRef="SendMail"/>
+		<!-- Send mail -->
+		<bpmn:task id="SendMail" name="SendMail">
+			<bpmn:extensionElements>
+				<wf:type>send_mail</wf:type>
+			</bpmn:extensionElements>
+			<bpmn:property name="recipient" default="{{{CollectData.reportrecipient}}}"/>
+			<bpmn:property name="subject">{{int:workflows-default-group-feedback-report-subject|{{PAGENAME}}}}</bpmn:property>
+			<bpmn:property name="body">{{int:workflows-default-group-feedback-body|
+{{#timel:D j, Y (H:i T)|{{{start_date}}} }}|
+{{#timel:D j, Y (H:i T)|{{LOCALTIMESTAMP}} }}|
+{{PAGENAME}}|
+{{REVISIONID}}|
+<![CDATA[{{#loop: i
+ | 0
+ | {{{GroupFeedback.users_feedbacks._length}}}
+ | <nowiki />
+* {{{GroupFeedback.users_feedbacks.{{#var:i}}.userName}}}
+}}]]>|
+{{{CollectData.instructions}}}|
+<![CDATA[{{#loop: i
+ | 0
+ | {{{GroupFeedback.users_feedbacks._length}}}
+ | <nowiki />
+* {{{GroupFeedback.users_feedbacks.{{#var:i}}.userName}}}: {{{GroupFeedback.users_feedbacks.{{#var:i}}.feedback}}}
+}}]]>|
+{{{initiator}}} }}
+		</bpmn:property>
+			<bpmn:incoming>FromGroupFeedbackToSendMail</bpmn:incoming>
+			<bpmn:outgoing>FromSendMailToTheEnd</bpmn:outgoing>
+		</bpmn:task>
+		<bpmn:sequenceFlow id="FromSendMailToTheEnd" sourceRef="SendMail" targetRef="TheEnd"/>
+		<!-- EndEvent -->
+		<bpmn:endEvent id="TheEnd">
+			<bpmn:incoming>FromSendMailToTheEnd</bpmn:incoming>
+		</bpmn:endEvent>
+	</bpmn:process>
+	<!-- Visual part -->
+	<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+		<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Group_Control">
+			<bpmndi:BPMNEdge id="FromGroupFeedbackToSendMail_di" bpmnElement="FromGroupFeedbackToSendMail">
+				<di:waypoint x="530" y="120"/>
+				<di:waypoint x="620" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="FromSendMailToTheEnd_di" bpmnElement="FromSendMailToTheEnd">
+				<di:waypoint x="720" y="120"/>
+				<di:waypoint x="842" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="FromCollectDataToGroupFeedback_di" bpmnElement="FromCollectDataToGroupFeedback">
+				<di:waypoint x="350" y="120"/>
+				<di:waypoint x="430" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="FromTheStartToCollectData_di" bpmnElement="FromTheStartToCollectData">
+				<di:waypoint x="192" y="120"/>
+				<di:waypoint x="250" y="120"/>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="TheStart">
+				<dc:Bounds x="156" y="102" width="36" height="36"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="CollectData_di" bpmnElement="CollectData">
+				<dc:Bounds x="250" y="80" width="100" height="80"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="GroupFeedback_di" bpmnElement="GroupFeedback">
+				<dc:Bounds x="430" y="80" width="100" height="80"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="SendMail_di" bpmnElement="SendMail">
+				<dc:Bounds x="620" y="80" width="100" height="80"/>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="TheEnd_di" bpmnElement="TheEnd">
+				<dc:Bounds x="842" y="102" width="36" height="36"/>
+			</bpmndi:BPMNShape>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</bpmn:definitions>
