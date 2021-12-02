@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MITO"
+			"MITO",
+			"Rönttönen"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Valitse",
@@ -16,8 +17,11 @@
 	"workflows-form-label-vote-widget-decline": "Hylätty",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Näytä tiedot",
 	"workflows-activity-edit-request-name": "Muokkaa pyyntöä",
+	"workflows-ui-workflow-overview-action-abort": "Keskeytä",
 	"workflows-ui-workflow-overview-action-restore": "Palauta",
 	"workflows-ui-workflow-overview-action-cancel": "Sulje",
+	"workflows-ui-overview-details-state-label": "Tila:",
+	"workflows-ui-overview-details-state-column": "Tila",
 	"workflows-ui-overview-details-state-not_started": "Ei aloitettu",
 	"workflows-ui-overview-details-state-running": "Aktiivinen",
 	"workflows-ui-overview-details-state-finished": "Päättynyt",
@@ -33,5 +37,6 @@
 	"workflows-ui-overview-grid-filter-state-active": "Aktiivinen",
 	"workflows-form-instructions-comment": "Kommentti",
 	"workflows-error-generic": "Tapahtui virhe",
-	"workflows-uto-body-field-instructions": "Ohjeet: $1"
+	"workflows-uto-body-field-instructions": "Ohjeet: $1",
+	"workflows-ui-overview-details-action-details-column": "näytä tiedot"
 }

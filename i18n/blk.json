@@ -6,6 +6,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "လွိုက်",
+	"workflows-ui-starter-action-cancel": "မာꩻတဝ်းဒွုမ်",
 	"workflows-ui-task-completion-action-complete": "ဒင်ႏသွင်ꩻသော့ꩻ",
 	"workflows-ui-task-completion-action-cancel": "မာꩻတဝ်းဒွုမ်",
 	"workflows-uto-activity-custom_form": "သꩻကျွိုက်ကွီကော့ꩻ",
@@ -18,9 +19,11 @@
 	"workflows-ui-workflow-overview-action-cancel": "ပေ့ꩻထိုꩻ",
 	"workflows-ui-overview-details-state-running": "ရုဲင်ꩻတသွိုးဒျာႏ",
 	"workflows-ui-overview-details-state-finished": "ထွူထိုꩻလဲဉ်း",
+	"workflows-ui-overview-details-action-reason": "အကျောင်ꩻပျꩻချက်",
 	"workflows-ui-overview-details-page-context-page": "လိတ်မဲ့ငါ",
 	"workflows-ui-overview-details-workflow-type-label": "အစွိုးအမျိုꩻ",
 	"workflows-ui-overview-grid-filter-state-all": "ကားကအဝ်ႏ",
 	"workflows-ui-overview-grid-filter-state-active": "ရုဲင်ꩻတသွိုးဒျာႏ",
-	"workflows-form-instructions-comment": "တောင်ꩻသေꩻ"
+	"workflows-form-instructions-comment": "တောင်ꩻသေꩻ",
+	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ"
 }
