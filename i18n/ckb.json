@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Muhammed taha"
+		]
+	},
+	"workflows-ui-task-completion-action-complete": "بینێرە",
+	"workflows-ui-task-completion-action-cancel": "ھەڵوەشاندنەوە",
+	"workflows-ui-overview-details-state-not_started": "دەستی پێنەکردووە",
+	"workflows-ui-overview-details-state-running": "چالاک",
+	"workflows-ui-overview-details-page-context-page": "پەڕە"
+}

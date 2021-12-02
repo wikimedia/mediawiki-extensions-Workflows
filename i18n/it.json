@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf",
+			"Beta16"
+		]
+	},
+	"workflows-ui-starter-action-back": "Scegli un altro",
+	"workflows-ui-starter-action-cancel": "Annulla",
+	"workflows-ui-alert-action-complete": "Completa azione",
+	"workflows-ui-task-completion-action-complete": "Invia",
+	"workflows-ui-task-completion-action-cancel": "Annulla",
+	"workflows-form-placeholder-comment": "Commento",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Vedi dettagli",
+	"workflows-ui-workflow-overview-action-cancel": "Chiudi",
+	"workflows-ui-overview-details-state-label": "Stato:",
+	"workflows-ui-overview-details-state-column": "Stato",
+	"workflows-ui-overview-details-state-not_started": "Non iniziato",
+	"workflows-ui-overview-details-state-running": "Attivo",
+	"workflows-ui-overview-details-state-finished": "Finito",
+	"workflows-ui-overview-details-activity-assigned-users": "Utenti assegnati:",
+	"workflows-ui-overview-details-action-reason": "Motivo",
+	"workflows-ui-overview-details-page-context-page": "Pagina",
+	"workflows-ui-overview-details-workflow-type-label": "Tipo",
+	"workflows-ui-overview-grid-filter-state-all": "Tutti",
+	"workflows-form-instructions-comment": "Commenta",
+	"workflows-uto-body-field-instructions": "Istruzioni: $1"
+}

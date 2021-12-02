@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gramo Džukić",
+			"Gramo6"
+		]
+	},
+	"workflows-ui-starter-action-cancel": "Зрушыти",
+	"workflows-ui-task-completion-action-cancel": "Зрушыти",
+	"workflows-form-placeholder-comment": "Коментарь",
+	"workflows-ui-workflow-overview-action-cancel": "Заперти",
+	"workflows-ui-overview-details-state-running": "Активный",
+	"workflows-ui-overview-details-state-finished": "Готово",
+	"workflows-ui-overview-details-action-reason": "Причина",
+	"workflows-ui-overview-grid-filter-state-all": "Вшыткы",
+	"workflows-form-instructions-comment": "Коментарь",
+	"workflows-ui-overview-details-initiator": "Заложив"
+}

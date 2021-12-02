@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"workflows-ui-starter-action-choose": "Choisir",
+	"workflows-ui-starter-action-back": "Choisir un autre",
+	"workflows-ui-starter-action-cancel": "Annuler",
+	"workflows-ui-task-completion-action-cancel": "Annuler",
+	"workflows-form-label-vote-widget-approve": "Approuver",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Voir les détails",
+	"workflows-ui-workflow-overview-action-cancel": "Fermer",
+	"workflows-ui-overview-details-state-label": "État :",
+	"workflows-ui-overview-details-state-column": "État",
+	"workflows-ui-overview-details-state-running": "Actif",
+	"workflows-ui-overview-details-state-finished": "Terminé",
+	"workflows-ui-overview-details-page-context-page": "Page",
+	"workflows-ui-overview-details-workflow-type-label": "Type",
+	"workflows-ui-overview-grid-filter-state-all": "Tous",
+	"workflows-ui-overview-grid-filter-state-active": "Actif",
+	"workflows-error-generic": "Une erreur s’est produite",
+	"workflows-ui-overview-details-action-details-column": "voir les détails"
+}

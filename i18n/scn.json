@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"workflows-ui-starter-action-choose": "Scegghi",
+	"workflows-ui-starter-action-back": "Scegghi n'àutru",
+	"workflows-ui-starter-action-cancel": "Annulla",
+	"workflows-ui-task-completion-action-cancel": "Annulla",
+	"workflows-form-placeholder-comment": "Cummentu",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Talìa li dittagghî",
+	"workflows-ui-workflow-overview-action-cancel": "Chiudi",
+	"workflows-ui-overview-details-state-label": "Statu:",
+	"workflows-ui-overview-details-state-column": "Statu",
+	"workflows-ui-overview-details-action-reason": "Mutivu",
+	"workflows-ui-overview-details-page-context-page": "Pàggina",
+	"workflows-ui-overview-details-workflow-type-label": "Tipu",
+	"workflows-ui-overview-grid-filter-state-all": "Tutti",
+	"workflows-ui-overview-grid-filter-state-active": "Attivu",
+	"workflows-form-instructions-comment": "Cumminta",
+	"workflows-ui-overview-details-action-details-column": "talìa dittagghî"
+}

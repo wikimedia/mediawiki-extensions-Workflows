@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"workflows-ui-starter-action-choose": "Eraussichen",
+	"workflows-ui-starter-action-cancel": "Ofbriechen",
+	"workflows-ui-alert-action-complete": "Aktioun ofschléissen",
+	"workflows-ui-task-completion-action-cancel": "Ofbriechen",
+	"workflows-uto-activity-user_feedback": "Benotzer-Feedback",
+	"workflows-form-placeholder-comment": "Bemierkung",
+	"workflows-form-label-vote-widget-approve": "Zoustëmmen",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Detailer weisen",
+	"workflows-ui-workflow-overview-action-abort": "Ofbriechen",
+	"workflows-ui-workflow-overview-action-restore": "Restauréieren",
+	"workflows-ui-workflow-overview-action-cancel": "Zoumaachen",
+	"workflows-ui-overview-details-start-time": "ugefaangen den: $1",
+	"workflows-ui-overview-details-start-time-column": "Ugefaangen den",
+	"workflows-ui-overview-details-last-time": "Lescht Aktivitéit den: $1",
+	"workflows-ui-overview-details-last-time-column": "Lescht Aktivitéit den",
+	"workflows-ui-overview-details-state-label": "Status:",
+	"workflows-ui-overview-details-state-column": "Status",
+	"workflows-ui-overview-details-state-not_started": "Net ugefaangen",
+	"workflows-ui-overview-details-state-running": "Aktiv",
+	"workflows-ui-overview-details-state-finished": "Fäerdeg",
+	"workflows-ui-overview-details-state-aborted": "Ofgebrach",
+	"workflows-ui-overview-details-section-activity": "Aktuell Aufgaben",
+	"workflows-ui-overview-details-action-reason": "Grond",
+	"workflows-ui-overview-details-page-context-revision": "Versioun",
+	"workflows-ui-overview-details-page-context-page": "Säit",
+	"workflows-ui-overview-details-workflow-type-label": "Typ",
+	"workflows-ui-overview-grid-filter-state-all": "All",
+	"workflows-ui-overview-grid-filter-state-active": "Aktiv",
+	"workflows-form-instructions-comment": "Bemierkung",
+	"workflows-error-generic": "Et ass e Feeler geschitt",
+	"workflows-uto-body-field-instructions": "Instruktiounen: $1",
+	"workflows-ui-overview-details-initiator": "Ugefaange vum"
+}
