@@ -18,11 +18,12 @@
 	"workflows-ui-overview-details-state-not_started": "Non iniziato",
 	"workflows-ui-overview-details-state-running": "Attivo",
 	"workflows-ui-overview-details-state-finished": "Finito",
-	"workflows-ui-overview-details-activity-assigned-users": "Utenti assegnati:",
+	"workflows-ui-overview-details-activity-assigned-users": "Azione in attesa dagli utenti:",
 	"workflows-ui-overview-details-action-reason": "Motivo",
 	"workflows-ui-overview-details-page-context-page": "Pagina",
 	"workflows-ui-overview-details-workflow-type-label": "Tipo",
 	"workflows-ui-overview-grid-filter-state-all": "Tutti",
 	"workflows-form-instructions-comment": "Commenta",
-	"workflows-uto-body-field-instructions": "Istruzioni: $1"
+	"workflows-uto-body-field-instructions": "Istruzioni: $1",
+	"workflows-ui-overview-details-action-details-column": "vedi dettagli"
 }
