@@ -22,9 +22,9 @@
 				</wf:formModule>
 				<wf:initializer>true</wf:initializer>
 			</bpmn:extensionElements>
-			<bpmn:property name="username"/>
+			<bpmn:property name="username" validation="existing-user"/>
 			<bpmn:property name="instructions"/>
-			<bpmn:property name="reportrecipient"/>
+			<bpmn:property name="reportrecipient" validation="email-recipient"/>
 			<bpmn:property name="due_date"/>
 			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
 			<bpmn:outgoing>FromCollectDataToUserFeedback</bpmn:outgoing>

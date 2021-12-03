@@ -232,7 +232,7 @@ final class ActivityManager {
 				$validator = $this->propertyValidatorFactory->getValidator( $validatorKey );
 				if ( !$validator ) {
 					throw new WorkflowExecutionException(
-						"Validator {$validation[$key]}, for property $key, does not exist"
+						"Validator {$validatorKey}, for property $key, does not exist"
 					);
 				}
 				$toTest = $value;
