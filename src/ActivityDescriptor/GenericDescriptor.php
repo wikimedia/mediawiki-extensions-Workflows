@@ -72,7 +72,11 @@ class GenericDescriptor implements IActivityDescriptor {
 			return null;
 		}
 		$now = new DateTime( "now" );
-		return $due->diff( $now )->days;
+		$diff = $due->diff( $now )->days;
+		if ( $now > $due ) {
+			return $diff * -1;
+		}
+		return $diff;
 	}
 
 	/**

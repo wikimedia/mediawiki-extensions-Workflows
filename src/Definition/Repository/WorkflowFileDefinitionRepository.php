@@ -29,6 +29,9 @@ class WorkflowFileDefinitionRepository extends FileRepository {
 	}
 
 	protected function getFilePath( $file ) {
+		if ( is_array( $file ) ) {
+			$file = array_pop( $file );
+		}
 		if ( $this->isAbsoluteFilePath( $file ) ) {
 			return $file;
 		}
