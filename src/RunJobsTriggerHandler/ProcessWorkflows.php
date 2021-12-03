@@ -132,7 +132,7 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 		// Dont know how else to get DT with today's date only
 		$now = new DateTime( $now->format( 'd-m-Y' ) );
 
-		return $dueDate > $now;
+		return $dueDate < $now;
 	}
 
 	/**

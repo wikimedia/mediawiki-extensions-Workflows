@@ -4,17 +4,13 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
 use EventSauce\EventSourcing\AggregateRootId;
 use MediaWiki\Extension\UnifiedTaskOverview\Hook\GetTaskDescriptors;
-use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\AutoAbortedWorkflow;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskIntermediateStateChanged;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskLoopCompleted;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
-use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAutoAborted;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
-use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\SpecialPage\SpecialPageFactory;
@@ -45,9 +41,7 @@ class AddUnifiedTaskOverviewUserActivities implements GetTaskDescriptors {
 	 */
 	public function onUnifiedTaskOverviewGetTaskDescriptors( &$descriptors, $user ) {
 		$tasks = $this->getUserActivities( $user );
-		$aborted = $this->getAutoAborted( $user );
 		$descriptors = array_merge( $descriptors, $tasks );
-		$descriptors = array_merge( $descriptors, $aborted );
 	}
 
 	/**
@@ -89,50 +83,5 @@ class AddUnifiedTaskOverviewUserActivities implements GetTaskDescriptors {
 		}
 
 		return $activities;
-	}
-
-	/**
-	 * @param User $user
-	 * @return array
-	 */
-	private function getAutoAborted( User $user ) {
-		$ids = $this->stateStore->onEvent( WorkflowAutoAborted::class )->query();
-
-		$autoAbortedWorkflows = [];
-		/** @var AggregateRootId $id */
-		foreach ( $ids as $id ) {
-			try {
-				$workflow = $this->workflowFactory->getWorkflow( $id );
-				$initiator = $workflow->getContext()->getInitiator();
-				if ( !$this->isUserAdmin( $user ) && ( !$initiator || !$user->equals( $initiator ) ) ) {
-					continue;
-				}
-				$stateMessage = $workflow->getStateMessage();
-				if ( !is_array( $stateMessage ) ) {
-					continue;
-				}
-				if ( isset( $stateMessage['noReport'] ) && $stateMessage['noReport'] ) {
-					continue;
-				}
-				$autoAbortedWorkflows[] = $this->getAutoAbortedWorkflowDescriptor( $workflow );
-			} catch ( WorkflowExecutionException $ex ) {
-				// TODO: Log
-				continue;
-			}
-		}
-
-		return $autoAbortedWorkflows;
-	}
-
-	/**
-	 * @param User $user
-	 * @return bool
-	 */
-	private function isUserAdmin( User $user ): bool {
-		return $this->permissionManager->userHasRight( $user, 'workflows-admin' );
-	}
-
-	private function getAutoAbortedWorkflowDescriptor( Workflow $workflow ): ITaskDescriptor {
-		return new AutoAbortedWorkflow( $workflow, $this->specialPageFactory->getPage( 'WorkflowsOverview' ) );
 	}
 }

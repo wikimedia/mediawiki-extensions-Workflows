@@ -47,12 +47,14 @@ class Extension {
 			'workflows-aborted',
 			[
 				'category' => 'workflows-cat',
+				'summary-message' => 'workflows-notification-aborted-web-summary',
+				'summary-params' => [ 'title' ],
 				'web-body-message' => 'workflows-notification-aborted-web',
-				'web-body-params' => [ 'title' ],
+				'web-body-params' => [ 'reason' ],
 				'email-subject-message' => 'workflows-notification-aborted-email-sub',
 				'email-subject-params' => [ 'title' ],
 				'email-body-message' => 'workflows-notification-aborted-email-body',
-				'email-body-params' => [ 'title' ],
+				'email-body-params' => [ 'title', 'reason' ],
 			]
 		);
 
