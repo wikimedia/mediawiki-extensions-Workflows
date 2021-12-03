@@ -24,7 +24,7 @@
 			</bpmn:extensionElements>
 			<bpmn:property name="groupname"/>
 			<bpmn:property name="instructions"/>
-			<bpmn:property name="reportrecipient"/>
+			<bpmn:property name="reportrecipient" validation="email-recipient"/>
 			<bpmn:property name="due_date"/>
 			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
 			<bpmn:outgoing>FromCollectDataToGroupFeedback</bpmn:outgoing>
