@@ -53,9 +53,18 @@ class WorkflowNotifier implements Consumer {
 		}
 
 		if ( $event instanceof Storage\Event\WorkflowAborted ) {
+			$reason = $event->getReason();
+			if ( is_array( $reason ) ) {
+				if ( isset( $reason['message'] ) ) {
+					$reason = $reason['message'];
+				} else {
+					$reason = '';
+				}
+			}
 			$notification = new WorkflowAborted(
 				$this->workflow->getContext()->getInitiator(),
-				$this->workflow->getContext()->getContextPage()
+				$this->workflow->getContext()->getContextPage(),
+				$reason
 			);
 			$this->notifier->notify( $notification );
 		}
