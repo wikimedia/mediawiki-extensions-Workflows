@@ -18,5 +18,9 @@
 	"logentry-ext-workflows-groupvote-no": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
 	"workflows-uto-activity-custom_form": "Benutzerdefinierte Aufgabe",
 	"workflows-uto-activity-user_vote": "Benutzerabstimmung",
-	"workflows-uto-activity-group_vote": "Gruppenabstimmung"
+	"workflows-uto-activity-group_vote": "Gruppenabstimmung",
+	"workflows-default-user-feedback-report-subject": "Die Begutachtung \"User feedback\" auf der Seite \"$1\" ist abgeschlossen",
+	"workflows-default-user-feedback-body": "Begutachtungsdetails:\nBegonnen am: $1\nBeendet am: $2\nSeite: $3\nRevision: $4\nBenutzer: $5\nAnweisung: $6\nFeedback: $7\n\nDiese Email wurde generiert, weil $8 diese Email-Adresse als Empfänger der Begutachtungsdetails angegeben hat.",
+	"workflows-default-group-feedback-report-subject": "Die Begutachtung \"Group feedback\" auf der Seite \"$1\" ist abgeschlossen",
+	"workflows-default-group-feedback-body": "Begutachtungsdetails:\nBegonnen am: $1\nBeendet am: $2\nSeite: $3\nRevision: $4\nBenutzer:$5\nAnweisung: $6\nFeedback:$7\n\nDiese Email wurde generiert, weil $8 diese Email-Adresse als Empfänger der Begutachtungsdetails angegeben hat."
 }

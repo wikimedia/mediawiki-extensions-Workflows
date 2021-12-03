@@ -74,25 +74,28 @@
 				"workflow-file": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WorkflowFileDefinitionRepository::factory"
 			},
 			"WorkflowListeners": {},
-			"WorkflowDefinitions": {},
+			"WorkflowDefinitions": {
+				"group-feedback": "Workflows/workflow/GroupFeedback.bpmn",
+				"user-feedback": "Workflows/workflow/UserFeedback.bpmn"
+			},
 			"PropertyValidators": {
 				"existing-user": {
-					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\ExistingUser",
+					"class": "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\ExistingUser",
 					"services": [ "UserFactory" ]
 				},
 				"can-execute-task": {
-					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\CanExecuteTask",
+					"class": "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\CanExecuteTask",
 					"services": [ "UserFactory", "PermissionManager" ]
 				},
 				"existing-title": {
-					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\ExistingTitle",
+					"class": "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\ExistingTitle",
 					"services": [ "TitleFactory" ]
 				},
 				"required": {
-					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\Required"
+					"class": "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\Required"
 				},
 				"email-recipient": {
-					"class":  "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\EmailRecipient",
+					"class": "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\EmailRecipient",
 					"services": [ "UserFactory" ]
 				}
 			}
@@ -351,6 +354,21 @@
 				"workflows-form-instructions-loading-text"
 			]
 		},
+		"ext.workflows.activity.collectdata.forms": {
+			"scripts": [
+				"object/form/GroupCollectDataForm.js",
+				"object/form/UserCollectDataForm.js"
+			],
+			"dependencies": [
+				"ext.oOJSPlus.formelements"
+			],
+			"messages": [
+				"workflows-collect-data-form-username",
+				"workflows-collect-data-form-instructions",
+				"workflows-collect-data-form-reportrecipient",
+				"workflows-collect-data-form-groupname"
+			]
+		},
 		"ext.workflows.uto.styles": {
 			"styles": [ "styles/utoStyles.css" ]
 		}
@@ -492,7 +510,7 @@
 	},
 	"SpecialPages": {
 		"WorkflowsOverview": {
-			"class":  "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\WorkflowOverview"
+			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\WorkflowOverview"
 		}
 	},
 	"ExtensionMessagesFiles": {
