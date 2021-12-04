@@ -153,5 +153,7 @@
 	"workflows-collect-data-form-instructions": "Label in a form",
 	"workflows-collect-data-form-username": "Label in a form\n{{identical|User}}",
 	"workflows-collect-data-form-reportrecipient": "Label for the workflow form field",
+	"workflows-workflow-history-vote-result-yes": "Label for 'yes' vote result in workflow history",
+	"workflows-workflow-history-vote-result-no": "Label for 'no' vote result in workflow history",
 	"workflows-notification-aborted-web-summary": "Notification when the workflow on a page was aborted.\n*$1 - Name of the page the workflow was aborted for"
 }

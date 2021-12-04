@@ -146,5 +146,7 @@
 	"workflows-collect-data-form-instructions": "Instructions (wikitext supported)",
 	"workflows-collect-data-form-username": "User",
 	"workflows-collect-data-form-reportrecipient": "Send report to (valid email or username)",
-	"workflows-notification-feedback-task-assign-web-body": "Created by: \"$3\", Instructions: \"$4\""
+	"workflows-notification-feedback-task-assign-web-body": "Created by: \"$3\", Instructions: \"$4\"",
+	"workflows-activity-history-vote-result-yes": "Approved",
+	"workflows-activity-history-vote-result-no": "Declined"
 }

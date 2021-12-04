@@ -11,6 +11,7 @@ use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Logger\GenericSpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWikiIntegrationTestCase;
 use Message;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
@@ -20,7 +21,6 @@ use User;
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\UserVoteActivity
  * @group Database
- * @group Broken
  */
 class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 
@@ -122,8 +122,13 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 		] );
 
 		$titleFactory = $this->createMock( TitleFactory::class );
-		$this->workflowContext = new WorkflowContext( $definitionContext, $titleFactory, $this->owner );
-		$this->workflowContext->setActor( $this->actor );
+
+		$mutableContext = new WorkflowContextMutable( $titleFactory );
+		$mutableContext->setActor( $this->actor );
+		$mutableContext->setInitiator( $this->owner );
+		$mutableContext->setDefinitionContext( $definitionContext );
+
+		$this->workflowContext = new WorkflowContext( $mutableContext );
 
 		return $activity;
 	}
