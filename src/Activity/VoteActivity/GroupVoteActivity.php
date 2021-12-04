@@ -4,9 +4,11 @@ namespace MediaWiki\Extension\Workflows\Activity\VoteActivity;
 
 use Exception;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
+use MediaWiki\Extension\Workflows\ActivityDescriptor\GroupVoteDescriptor;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
+use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
@@ -104,6 +106,13 @@ class GroupVoteActivity extends GenericVoteActivity {
 	/**
 	 * @inheritDoc
 	 */
+	protected function getSpecialLogAction( string $vote ): string {
+		return 'groupvote-' . $vote;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	protected function setSecondaryData( array $data, WorkflowContext $context ): void {
 		parent::setSecondaryData( $data, $context );
 
@@ -149,7 +158,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 		$this->saveUserVote( $this->actor->getName(), $vote, $comment );
 
 		// Update data to be returned
-		$data['users_voted'] = $this->usersVoted;
+		$data['users_voted'] = $this->getUserVotes();
 
 		// We need to reset comment field for next users
 		$data['comment'] = '';
@@ -194,5 +203,12 @@ class GroupVoteActivity extends GenericVoteActivity {
 			[ 'ext.workflows.activity.vote', 'ext.oOJSPlus.formelements' ],
 			'workflows.object.form.GroupVote'
 		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getActivityDescriptor(): IActivityDescriptor {
+		return new GroupVoteDescriptor( $this );
 	}
 }

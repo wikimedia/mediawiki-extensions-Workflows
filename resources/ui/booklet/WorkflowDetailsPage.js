@@ -172,25 +172,26 @@
 	workflows.ui.WorkflowDetailsPage.prototype.addPastActivities = function( activities ) {
 		for ( var i = 0; i < activities.length; i++ ) {
 			var activity = activities[i];
-			var name = new OO.ui.LabelWidget( {
-					label: activity.name,
-					classes: [ 'name' ]
-				} ),
-				layout = new OO.ui.PanelLayout( {
-					expanded: false,
-					padded: true,
-					classes: [ 'overview-activity-layout' ]
-				} );
 
-			layout.$element.append( name.$element );
-			var historyWidget = this.getActivityHistory( activity, true );
+			var historyWidget = this.getActivityHistory( activity, false );
 			if ( historyWidget ) {
+				var name = new OO.ui.LabelWidget( {
+						label: activity.name,
+						classes: [ 'name' ]
+					} ),
+					layout = new OO.ui.PanelLayout( {
+						expanded: false,
+						padded: true,
+						classes: [ 'overview-activity-layout' ]
+					} );
+
+				layout.$element.append( name.$element );
+
+				this.panel.$element.append(
+					layout.$element
+				);
 				layout.$element.append( historyWidget.$element );
 			}
-
-			this.panel.$element.append(
-				layout.$element
-			);
 		}
 	};
 
@@ -217,7 +218,10 @@
 	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function( activity, includeHeader ) {
 		includeHeader = includeHeader || false;
 		var history = activity.getHistory() || {};
-		if ( $.isEmptyObject( history ) ) {
+		if (
+			$.isEmptyObject( history ) ||
+			( Array.isArray( history ) && history.length === 0 )
+		) {
 			return null;
 		}
 		var historyPanel = new OO.ui.PanelLayout( {

@@ -61,11 +61,7 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 	protected function voteYes( string $comment ): void {
 		$this->logger->info( "User {$this->actor->getName()} voted as 'yes'" );
 
-		if ( $this->activityKey === 'group-vote' ) {
-			$action = 'groupvote-yes';
-		} else {
-			$action = 'uservote-yes';
-		}
+		$action = $this->getSpecialLogAction( 'yes' );
 
 		$this->logToSpecialLog( $action, $comment );
 
@@ -86,11 +82,7 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 	protected function voteNo( string $comment ): void {
 		$this->logger->info( "User {$this->actor->getName()} voted as 'no'" );
 
-		if ( $this->activityKey === 'group-vote' ) {
-			$action = 'groupvote-no';
-		} else {
-			$action = 'uservote-no';
-		}
+		$action = $this->getSpecialLogAction( 'no' );
 
 		$this->logToSpecialLog( $action, $comment );
 
@@ -104,4 +96,14 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 
 		$this->getNotifier()->notify( $notification );
 	}
+
+	/**
+	 * Gets action string, which is used to log entry about vote in Special:Log.
+	 * It is used to compose final translated message "logentry-ext-workflows-{action}".
+	 * So it may look like that: "logentry-ext-workflows-uservote-yes".
+	 *
+	 * @param string $vote "yes" or "no", depending on user vote
+	 * @return string Action as string
+	 */
+	abstract protected function getSpecialLogAction( string $vote ): string;
 }
