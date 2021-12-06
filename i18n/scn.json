@@ -19,5 +19,9 @@
 	"workflows-ui-overview-grid-filter-state-all": "Tutti",
 	"workflows-ui-overview-grid-filter-state-active": "Attivu",
 	"workflows-form-instructions-comment": "Cumminta",
-	"workflows-ui-overview-details-action-details-column": "talìa dittagghî"
+	"workflows-ui-overview-details-action-details-column": "talìa dittagghî",
+	"workflows-property-validator-valid-user-error": "L'utenti \"$1\" nun è n'utenti vàlidu",
+	"workflows-property-validator-valid-title-error": "Lu tìtulu \"$1\" nun è vàlidu",
+	"workflows-collect-data-form-groupname": "Gruppu",
+	"workflows-collect-data-form-username": "Utenti"
 }

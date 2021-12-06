@@ -28,5 +28,7 @@
 	"workflows-ui-overview-grid-filter-state-active": "ရုဲင်ꩻတသွိုးဒျာႏ",
 	"workflows-form-instructions-comment": "တောင်ꩻသေꩻ",
 	"workflows-error-generic": "မောꩻခါꩻလဲဉ်း အမာႏတဗာႏ",
-	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ"
+	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ",
+	"workflows-collect-data-form-groupname": "အစွိုꩻ",
+	"workflows-collect-data-form-username": "ကေားသုင်ꩻသား"
 }

@@ -31,7 +31,7 @@
 	"workflows-ui-overview-details-state-aborted": "הופסק",
 	"workflows-ui-overview-details-end-time": "הסתיים ב־$1",
 	"workflows-ui-overview-details-section-activity": "משימות נוכחיות",
-	"workflows-ui-overview-details-activity-assigned-users": "משתמשים משויכים:",
+	"workflows-ui-overview-details-activity-assigned-users": "פעולה ממתינה ממשתמשים:",
 	"workflows-ui-overview-details-activity-assigned-users-none": "אף משתמש לא שויך, כל אחד יכול להשלים את המשימה הזאת",
 	"workflows-ui-overview-details-activity-due-date": "תאריך יעד",
 	"workflows-ui-overview-details-action-reason": "סיבה",

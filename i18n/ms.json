@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tofeiku"
+		]
+	},
+	"workflows-ui-starter-action-choose": "Pilih",
+	"workflows-ui-starter-action-cancel": "Batalkan",
+	"workflows-ui-task-completion-action-cancel": "Batalkan",
+	"workflows-uto-activity-user_vote": "Undian pengguna",
+	"workflows-uto-activity-user_feedback": "Maklum balas pengguna",
+	"workflows-form-placeholder-comment": "Ulasan",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Lihat butiran",
+	"workflows-ui-workflow-overview-action-cancel": "Tutup",
+	"workflows-ui-overview-details-last-time": "Kegiatan terakhir pada: $1",
+	"workflows-ui-overview-details-state-not_started": "Belum mula",
+	"workflows-ui-overview-details-state-running": "Aktif",
+	"workflows-ui-overview-details-action-reason": "Sebab",
+	"workflows-ui-overview-details-page-context-page": "Laman",
+	"workflows-ui-overview-details-workflow-type-label": "Jenis",
+	"workflows-ui-overview-grid-filter-state-all": "Semua",
+	"workflows-ui-overview-details-initiator": "Dimulakan oleh",
+	"workflows-ui-overview-details-action-details-column": "lihat butiran",
+	"workflows-property-validator-required-error": "Nilai diperlukan",
+	"workflows-collect-data-form-groupname": "Kumpulan",
+	"workflows-collect-data-form-username": "Pengguna"
+}

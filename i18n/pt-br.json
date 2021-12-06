@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eduardoaddad"
+		]
+	},
+	"workflows-ui-task-completion-action-cancel": "Cancelar",
+	"workflows-form-placeholder-comment": "Comentário",
+	"workflows-ui-workflow-overview-action-cancel": "Fechar",
+	"workflows-ui-overview-details-state-label": "Estado:",
+	"workflows-ui-overview-details-action-reason": "Motivo",
+	"workflows-ui-overview-details-page-context-page": "Página",
+	"workflows-collect-data-form-username": "Usuário"
+}

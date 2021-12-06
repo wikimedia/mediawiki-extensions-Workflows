@@ -5,5 +5,6 @@
 		]
 	},
 	"workflows-ui-task-completion-action-cancel": "Отмена",
-	"workflows-ui-overview-details-page-context-page": "Страница"
+	"workflows-ui-overview-details-page-context-page": "Страница",
+	"workflows-collect-data-form-groupname": "Группа"
 }

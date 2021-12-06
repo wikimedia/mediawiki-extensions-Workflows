@@ -25,5 +25,6 @@
 	"workflows-ui-overview-grid-filter-state-all": "Tutti",
 	"workflows-form-instructions-comment": "Commenta",
 	"workflows-uto-body-field-instructions": "Istruzioni: $1",
-	"workflows-ui-overview-details-action-details-column": "vedi dettagli"
+	"workflows-ui-overview-details-action-details-column": "vedi dettagli",
+	"workflows-collect-data-form-username": "Utente"
 }
