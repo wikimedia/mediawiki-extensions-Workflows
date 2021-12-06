@@ -84,7 +84,7 @@
 	};
 
 	workflows.api.Api.prototype.abort = function ( id, reason ) {
-		return this.delete( '{0}'.format( id ), { reason: reason } );
+		return this.post( 'abort/{0}'.format( id ), { reason: reason } );
 	};
 
 	workflows.api.Api.prototype.restore = function ( id, reason ) {

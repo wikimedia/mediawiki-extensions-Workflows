@@ -452,9 +452,9 @@
 			]
 		},
 		{
-			"path": "/workflow/{id}",
-			"method": "DELETE",
-			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DeleteHandler",
+			"path": "/workflow/abort/{id}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\AbortHandler",
 			"services": [
 				"WorkflowFactory"
 			]

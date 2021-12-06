@@ -31,13 +31,30 @@ class Extension {
 		);
 
 		$notifier->registerNotification(
+			'workflows-feedback-task-assign',
+			[
+				'category' => 'workflows-cat',
+				'summary-message' => 'workflows-notification-task-assign-web',
+				'summary-params' => [ 'activity-type', 'title' ],
+				'web-body-message' => 'workflows-notification-feedback-task-assign-web-body',
+				'web-body-params' => [ 'activity-type', 'title', 'initiator', 'instructions' ],
+				'email-subject-message' => 'workflows-notification-task-assign-email-sub',
+				'email-subject-params' => [ 'title' ],
+				'email-body-message' => 'workflows-notification-task-assign-email-body',
+				'email-body-params' => [ 'activity-type' ],
+			]
+		);
+
+		$notifier->registerNotification(
 			'workflows-ended',
 			[
 				'category' => 'workflows-cat',
-				'web-body-message' => 'workflows-notification-ended-web',
-				'web-body-params' => [ 'title' ],
+				'summary-message' => 'workflows-notification-ended-web-summary',
+				'summary-params' => [ 'title', 'workflow-name' ],
+				'web-body-message' => 'workflows-notification-ended-web-body',
+				'web-body-params' => [ 'title', 'workflow-name' ],
 				'email-subject-message' => 'workflows-notification-ended-email-sub',
-				'email-subject-params' => [ 'title' ],
+				'email-subject-params' => [ 'title', 'workflow-name' ],
 				'email-body-message' => 'workflows-notification-ended-email-body',
 				'email-body-params' => [ 'title' ],
 			]
@@ -48,13 +65,13 @@ class Extension {
 			[
 				'category' => 'workflows-cat',
 				'summary-message' => 'workflows-notification-aborted-web-summary',
-				'summary-params' => [ 'title' ],
+				'summary-params' => [ 'title', 'workflow-name' ],
 				'web-body-message' => 'workflows-notification-aborted-web',
 				'web-body-params' => [ 'reason' ],
 				'email-subject-message' => 'workflows-notification-aborted-email-sub',
-				'email-subject-params' => [ 'title' ],
+				'email-subject-params' => [ 'title', 'workflow-name' ],
 				'email-body-message' => 'workflows-notification-aborted-email-body',
-				'email-body-params' => [ 'title', 'reason' ],
+				'email-body-params' => [ 'title', 'reason', 'workflow-name' ],
 			]
 		);
 
@@ -65,7 +82,7 @@ class Extension {
 				'web-body-message' => 'workflows-notification-due-date-proximity-web',
 				'web-body-params' => [ 'title', 'activity-type' ],
 				'email-subject-message' => 'workflows-notification-due-date-proximity-email-sub',
-				'email-subject-params' => [ 'title' ],
+				'email-subject-params' => [ 'title', 'activity-type' ],
 				'email-body-message' => 'workflows-notification-due-date-proximity-email-body',
 				'email-body-params' => [ 'title', 'activity-type' ],
 			]

@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Workflows\Rest;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Rest\HttpException;
 
-class DeleteHandler extends JSONBodyActionHandler {
+class AbortHandler extends JSONBodyActionHandler {
 
 	public function doExecute() {
 		$workflow = $this->loadWorkflow( $this->getWorkflowId() );
@@ -13,7 +13,6 @@ class DeleteHandler extends JSONBodyActionHandler {
 			throw new HttpException( 'Cannot abort non-running workflow' );
 		}
 		try {
-			// Does not work! No body data on DELETE REQUEST
 			$workflow->abort( $this->getBodyData( 'reason', '' ) );
 			$this->getWorkflowFactory()->persist( $workflow );
 		} catch ( \Exception $ex ) {

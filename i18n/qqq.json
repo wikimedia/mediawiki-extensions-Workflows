@@ -82,7 +82,7 @@
 	"workflows-notification-user-vote-delegate-web": "Notification when a user got a task delegated to.\n*$1 - Name of the user that delegated the task to the receiver. Use GENDER.\n*$2 - Name of the page the task is for.\n*$3 - Name of the task that was delegated to the receiver",
 	"workflows-notification-user-vote-delegate-email-sub": "Subject for the notification when a user got a task delegated to.\n*$1 - Name of the user that delegated the task to the receiver. Use GENDER.\n*$2 - Name of the page the task is for.\n*$3 - Name of the task that was delegated to the receiver",
 	"workflows-notification-user-vote-delegate-email-body": "Body for the notification when a user got a task delegated to.\n*$1 - Name of the user that delegated the task to the receiver. Use GENDER.\n*$2 - Name of the page the task is for.\n*$3 - Name of the task that was delegated to the receiver.\n*$4 - Comment the user left that delegated the task to the receiver",
-	"workflows-notification-ended-web": "Notification when the workflow on a page was completed.\n*$1 - Name of the page a workflow was completed for",
+	"workflows-notification-ended-web": "Notification when the workflow on a page was completed.\n*$1 - Name of the page a workflow was completed for\n*$2 - Name of workflow which was completed",
 	"workflows-notification-ended-email-sub": "Subject for the notification when the workflow on a page was completed.",
 	"workflows-notification-ended-email-body-summary": "Title for the notification when the workflow on a page was completed.\n*$1 - Name of the page the workflow was completed for",
 	"workflows-notification-ended-email-body": "Body for the notification when the workflow on a page was completed.\n*$2 - Reason for aborting",
