@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowAborted;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowEnded;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
+use Message as MWMessage;
 use MWStake\MediaWiki\Component\Notifications\INotification;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use User;
@@ -28,6 +29,11 @@ class WorkflowNotifier implements Consumer {
 	/** @var Workflow */
 	private $workflow;
 
+	/**
+	 * @param INotifier $notifier
+	 * @param ActivityManager $activityManager
+	 * @param Workflow $workflow
+	 */
 	public function __construct(
 		INotifier $notifier, ActivityManager $activityManager, Workflow $workflow
 	) {
@@ -36,12 +42,22 @@ class WorkflowNotifier implements Consumer {
 		$this->workflow = $workflow;
 	}
 
+	/**
+	 * @param Message $message
+	 * @return void
+	 */
 	public function handle( Message $message ) {
 		if ( $message->aggregateRootId() !== $this->workflow->getStorage()->aggregateRootId() ) {
 			// Not a message for us
 			return;
 		}
 		$event = $message->event();
+
+		$workflowName = $this->workflow->getDefinition()->getSource()->getName();
+		$workflowNameMsg = MWMessage::newFromKey( "workflows-workflow-file-definition-$workflowName-title" );
+		if ( $workflowNameMsg->exists() ) {
+			$workflowName = $workflowNameMsg->text();
+		}
 
 		if ( $event instanceof ActivityEvent ) {
 			$task = $this->workflow->getTaskFromId( $event->getElementId() );
@@ -61,8 +77,10 @@ class WorkflowNotifier implements Consumer {
 					$reason = '';
 				}
 			}
+			// Notify initiator of workflow
 			$notification = new WorkflowAborted(
 				$this->workflow->getContext()->getInitiator(),
+				$workflowName,
 				$this->workflow->getContext()->getContextPage(),
 				$reason
 			);
@@ -72,6 +90,7 @@ class WorkflowNotifier implements Consumer {
 		if ( $event instanceof Storage\Event\WorkflowEnded ) {
 			$notification = new WorkflowEnded(
 				$this->workflow->getContext()->getInitiator(),
+				$workflowName,
 				$this->workflow->getContext()->getContextPage()
 			);
 			$this->notifier->notify( $notification );
