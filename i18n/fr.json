@@ -62,7 +62,7 @@
 	"workflows-form-label-delegate-comment": "Commentaire de délégation",
 	"workflows-form-label-vote-widget-approve": "Approuver",
 	"workflows-form-label-vote-widget-decline": "Refuser",
-	"workflows-form-delegate-header-comment": "Cette tâche vous a été déléguée par l’utilisateur $2, avec le commentaire : $2",
+	"workflows-form-delegate-header-comment": "Cette tâche vous a été déléguée par l’utilisateur $1, avec le commentaire : $2",
 	"workflows-form-delegate-header": "Cette tâche vous a été déléguée par l’utilisateur $1",
 	"workflows-form-instructions-loading-text": "Les instructions sont en cours de chargement…",
 	"workflows-form-edit-request-submit-to-continue": "Une fois que vous avez terminé la modification, cliquer sur « Soumettre » pour marquer la tâche comme terminée",
@@ -89,7 +89,7 @@
 	"workflows-notification-ended-email-body": "Le processus sur la page $1 est terminé",
 	"workflows-notification-aborted-web-summary": "Le processus sur la page $1 a été annulé",
 	"workflows-notification-aborted-email-sub": "Processus annulé",
-	"workflows-notification-aborted-email-body": "Le processus sur la page $1 a été annulé",
+	"workflows-notification-aborted-email-body": "Le processus sur la page $1 a été annulé. Motif : $2",
 	"workflows-notification-due-date-proximity-web": "La tâche du processus est attendue prochainement",
 	"workflows-notification-due-date-proximity-email-sub": "La tâche du processus est attendue prochainement",
 	"workflows-notification-due-date-proximity-email-body": "La tâche du processus sur la page $1 st attendue prochainement. Veuillez vérifier la tâche en cours « $2 ».\nSi la date d’échéance est atteinte, le processus sera automatiquement annulé",
@@ -141,6 +141,14 @@
 	"workflows-property-validator-valid-title-error": "« $1 » n’est pas un titre valide",
 	"workflows-property-validator-required-error": "La valeur est obligatoire",
 	"workflows-property-validator-valid-task-executor-error": "L’utilisateur « $1 » {{GENDER:$1|n’a pas les droits}} pour terminer la tâche affectée",
+	"workflows-property-validator-email-recipient-error": "La valeur « $1 » n’est pas une adresse de courriel valide, ni un utilisateur avec une adresse de courriel valide définie",
+	"workflows-ui-overview-details-section-past": "Activités passées",
+	"workflows-default-user-feedback-report-subject": "Le processus « Retour utilisateur » pour la page « $1 » est terminé",
+	"workflows-default-user-feedback-body": "Détails du processus :\nDémarré le : $1\nTerminé le : $2\nPage : $3\nRévision : $4\nUtilisateur : $5\nInstructions : $6\nRetour : $7\n\nCe courriel vous a été envoyé, parce que $8 vous a désigné comme destinataire de courriel pour ce processus.",
+	"workflows-default-group-feedback-report-subject": "Le processus « Retour utilisateur » pour la page « $1 » est terminé",
+	"workflows-default-group-feedback-body": "Détails du processus :\nDémarré le : $1\nTerminé le : $2\nPage : $3\nRévision : $4\nUtilisateurs :$5\nInstructions : $6\nRetours :$7\n\nCe courriel vous a été envoyé, parce que $8 vous a désigné comme destinataire de courriel pour ce processus.",
 	"workflows-collect-data-form-groupname": "Groupe",
-	"workflows-collect-data-form-username": "Utilisateur"
+	"workflows-collect-data-form-instructions": "Instructions (wikitexte supporté)",
+	"workflows-collect-data-form-username": "Utilisateur",
+	"workflows-collect-data-form-reportrecipient": "Envoyer un rapport à (courriel valide ou nom d’utilisateur)"
 }
