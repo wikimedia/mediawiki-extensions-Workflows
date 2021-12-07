@@ -36,5 +36,12 @@
 	"workflows-ui-workflow-overview-dialog-title-list": "워크플로 개요",
 	"workflows-ui-workflow-overview-dialog-title-abort": "워크플로 중단",
 	"workflows-error-generic": "오류가 발생했습니다",
-	"workflows-auto-aborted-workflow-page-deleted": "워크플로와 관련된 문서가 삭제되었기 때문에 워크플로가 중단되었습니다"
+	"workflows-auto-aborted-workflow-page-deleted": "워크플로와 관련된 문서가 삭제되었기 때문에 워크플로가 중단되었습니다",
+	"workflows-group-vote-group-empty": "투표할 그룹 이름이 지정되지 않았습니다",
+	"workflows-property-validator-valid-user-error": "\"$1\" 사용자는 유효한 사용자가 아닙니다",
+	"workflows-property-validator-valid-title-error": "\"$1\"은(는) 유효한 제목이 아닙니다",
+	"workflows-property-validator-required-error": "값은 필수입니다",
+	"workflows-collect-data-form-groupname": "그룹",
+	"workflows-collect-data-form-instructions": "안내 (위키텍스트 지원)",
+	"workflows-collect-data-form-username": "사용자"
 }

@@ -25,5 +25,10 @@
 	"workflows-ui-overview-grid-filter-state-all": "ကားကအဝ်ႏ",
 	"workflows-ui-overview-grid-filter-state-active": "ရုဲင်ꩻတသွိုးဒျာႏ",
 	"workflows-form-instructions-comment": "တောင်ꩻသေꩻ",
-	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ"
+	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ",
+	"workflows-ui-starter-action-back": "လွိုက်ရွေꩻအလင်",
+	"workflows-notification-user-vote-accept-web": "$1 {{GENDER:$1|လက်ခံႏလဲဉ်း}} လိတ်မဲ့ငါ $2",
+	"workflows-error-generic": "မောꩻခါꩻလဲဉ်း အမာႏတဗာႏ",
+	"workflows-collect-data-form-groupname": "အစွိုꩻ",
+	"workflows-collect-data-form-username": "ကေားသုင်ꩻသား"
 }

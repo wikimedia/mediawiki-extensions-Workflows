@@ -132,5 +132,6 @@
 	"workflows-auto-aborted-workflow-page-deleted": "Arbetsflödet avbröts för att den berörda sidan raderades",
 	"workflows-uto-body-field-instructions": "Instruktioner: $1",
 	"workflows-ui-overview-details-initiator": "Inleddes av",
-	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde"
+	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde",
+	"workflows-notification-aborted-web-summary": "Arbetsflöde på sidan $1 avbröts"
 }

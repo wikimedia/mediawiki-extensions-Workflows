@@ -14,5 +14,11 @@
 	"workflows-ui-overview-details-action-reason": "Причина",
 	"workflows-ui-overview-grid-filter-state-all": "Вшыткы",
 	"workflows-form-instructions-comment": "Коментарь",
-	"workflows-ui-overview-details-initiator": "Заложив"
+	"workflows-ui-overview-details-initiator": "Заложив",
+	"workflows-ui-starter-action-choose": "Убрати",
+	"workflows-form-label-vote-widget-decline": "Удхылити",
+	"workflows-ui-overview-details-page-context-page": "Сторунка",
+	"workflows-ui-overview-grid-filter-state-active": "Активный",
+	"workflows-ui-overview-details-action-details-column": "побзерати детайлы",
+	"workflows-collect-data-form-groupname": "Ґрупа"
 }
