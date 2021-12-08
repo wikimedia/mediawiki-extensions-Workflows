@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows;
 
 use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\Message;
+use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowAborted;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowEnded;
@@ -85,6 +86,31 @@ class WorkflowNotifier implements Consumer {
 				$reason
 			);
 			$this->notifier->notify( $notification );
+
+			// Get all current workflow elements
+			$currentElements = $this->workflow->current();
+			if ( !is_array( $currentElements ) ) {
+				$currentElements = [ $currentElements ];
+			}
+
+			// Go through all current tasks and notify target users about workflow abortion
+			foreach ( $currentElements as $currentElement ) {
+				if ( $currentElement instanceof ITask ) {
+					$activity = $this->activityManger->getActivityForTask( $currentElement );
+
+					if ( $activity instanceof UserInteractiveActivity ) {
+						// Notify participants
+						$notification = new WorkflowAborted(
+							$this->getTargetUsers( $activity ),
+							$workflowName,
+							$this->workflow->getContext()->getContextPage(),
+							$reason
+						);
+
+						$this->notifier->notify( $notification );
+					}
+				}
+			}
 		}
 
 		if ( $event instanceof Storage\Event\WorkflowEnded ) {
