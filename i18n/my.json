@@ -12,5 +12,8 @@
 	"workflows-ui-overview-details-state-running": "လက်ရှိ အသုံးပြုနေသည်",
 	"workflows-ui-overview-details-action-reason": "အကြောင်းပြချက်",
 	"workflows-ui-overview-details-page-context-page": "စာမျက်နှာ",
-	"workflows-ui-overview-grid-filter-state-all": "အားလုံး"
+	"workflows-ui-overview-grid-filter-state-all": "အားလုံး",
+	"workflows-error-generic": "အမှားတစ်ခု ဖြစ်ပွားခဲ့ပါသည်",
+	"workflows-collect-data-form-groupname": "အုပ်စု",
+	"workflows-collect-data-form-username": "အသုံးပြုသူ"
 }

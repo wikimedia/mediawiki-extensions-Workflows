@@ -45,5 +45,6 @@
 	"workflows-collect-data-form-groupname": "Ryhmä",
 	"workflows-collect-data-form-instructions": "Ohjeet (wikiteksti tuettu)",
 	"workflows-collect-data-form-username": "Käyttäjä",
-	"workflows-collect-data-form-reportrecipient": "Lähetä raportti käyttäjälle (pätevä sähköposti tai käyttäjänimi)"
+	"workflows-collect-data-form-reportrecipient": "Lähetä raportti käyttäjälle (pätevä sähköposti tai käyttäjänimi)",
+	"workflows-notification-feedback-task-assign-web-body": "Luonut: \"$3\", ohjeet: \"$4\""
 }
