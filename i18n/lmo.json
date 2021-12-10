@@ -4,7 +4,16 @@
 			"Salvemm el lombard"
 		]
 	},
-	"workflows-notification-aborted-email-body": "El fluss de lavorà a pagina $1 l'è stad piantad lì. Reson: $2",
+	"workflows-notification-task-assign-web": "Noeuva truscia: \"$1\" per la pagina \"$2\"",
+	"workflows-notification-ended-web": "Fluss de lavorà completad: \"$2\" per la pagina \"$1\"",
+	"workflows-notification-ended-email-sub": "El fluss de lavorà \"$2\" in su la pagina \"$1\" l'è terminad",
+	"workflows-notification-ended-email-body": "El fluss de lavorà \"$2\" in su la pagina \"$1\" l'è terminad",
+	"workflows-notification-aborted-web-summary": "El fluss de lavorà \"$2\" in su la pagina \"$1\" l'è stad piantad lì",
+	"workflows-notification-aborted-email-sub": "El fluss de lavorà \"$2\" in su la pagina \"$1\" l'è stad piantad lì",
+	"workflows-notification-aborted-email-body": "El fluss de lavorà \"$3\" a pagina \"$1\" l'è stad piantad lì. Motiv: $2",
+	"workflows-notification-due-date-proximity-web": "La truscia del fluss de lavorà \"$2\" in su la pagina \"$1\" l'è adree per partì",
+	"workflows-notification-due-date-proximity-email-sub": "La truscia del fluss de lavorà \"$2\" in su la pagina \"$1\" l'è adree per partì",
+	"workflows-notification-due-date-proximity-email-body": "La truscia del fluss de lavorà a la pagina \"$1\" l'è adree per partì. Controlla la truscia che l'è 'dree per partì \"$2\".\nAl rivà de la data de scadenza, el fluss de lavorà el sarà piantad lì in automatich.",
 	"workflows-ui-overview-details-state-not_started": "Nonanmò partid",
 	"workflows-ui-overview-details-activity-assigned-users": "Azzion adree per vesser fornide di utentː",
 	"workflows-ui-overview-grid-filter-state-all": "Tusscoss",
@@ -16,5 +25,6 @@
 	"workflows-default-group-feedback-body": "Detali del fluss de lavorà:\nComenzad el: $1\nFinid el: $2\nPagina: $3\nVersion: $4\nUtent: $5\nIstruzzion: $6\nGiudizzi:\n$7\n\nEl te l'è stad mandad a tì quell messagg chì, perchè $8 l'ha designad ti come destinatari de posta eletronica per quell fluss de lavorà chì.",
 	"workflows-collect-data-form-groupname": "Grup",
 	"workflows-collect-data-form-instructions": "Istruzzion (wikitext suportad)",
-	"workflows-collect-data-form-username": "Utent"
+	"workflows-collect-data-form-username": "Utent",
+	"workflows-notification-feedback-task-assign-web-body": "Tirad in pee de: \"$3\", Istruzzion: \"$4\""
 }

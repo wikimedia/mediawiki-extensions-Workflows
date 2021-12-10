@@ -86,9 +86,9 @@
 	"workflows-notification-user-vote-delegate-email-body": "Body for the notification when a user got a task delegated to.\n*$1 - Name of the user that delegated the task to the receiver. Use GENDER.\n*$2 - Name of the page the task is for.\n*$3 - Name of the task that was delegated to the receiver.\n*$4 - Comment the user left that delegated the task to the receiver",
 	"workflows-notification-ended-web": "Notification when the workflow on a page was completed.\n*$1 - Name of the page a workflow was completed for\n*$2 - Name of workflow which was completed",
 	"workflows-notification-ended-email-sub": "Subject for the notification when the workflow on a page was completed.",
-	"workflows-notification-ended-email-body-summary": "Title for the notification when the workflow on a page was completed.\n*$1 - Name of the page the workflow was completed for",
 	"workflows-notification-ended-email-body": "Body for the notification when the workflow on a page was completed.\n*$2 - Reason for aborting",
 	"workflows-notification-aborted-web": "{{notranslate}}\nNotification when the workflow on a page was aborted.\n*$1 - Name of the page the workflow was aborted for",
+	"workflows-notification-aborted-web-summary": "Notification when the workflow on a page was aborted.\n*$1 - Name of the page the workflow was aborted for",
 	"workflows-notification-aborted-email-sub": "Subject for the notification when the workflow on a page was aborted.",
 	"workflows-notification-aborted-email-body": "Body for the notification when the workflow on a page was aborted.\n*$1 - Name of the page the workflow was aborted for\n*2 - Reason for aborting",
 	"workflows-notification-due-date-proximity-web": "Notification when a workflow task is due soon",
@@ -136,7 +136,6 @@
 	"workflows-uto-body-field-instructions": "Info text that shows additional instructions.\n{{Identical|Instructions: $1}}.\n$1 - text for additional instructions",
 	"workflows-ui-overview-details-initiator": "Label for button that shows who started the workflow.\n{{Identical|Started by}}",
 	"workflows-uto-activity-body-initiator": "Info text on who initiated the workflow.\n*$1 - Name of the user that initiated the workflow. Use GENDER.\n*$2 - Realname of the user that initiated the workflow",
-	"workflows-form-comment": "Label for VoteWidget comment input",
 	"workflows-ui-overview-details-action-details-column": "Label for the grid action button",
 	"workflows-exception-property-validation": "Validation exception text.\n$1 - failed property\n$2 - error message from validator",
 	"workflows-property-validator-valid-user-error": "Exception text when user fails validation\n$1 - username",
@@ -154,6 +153,5 @@
 	"workflows-collect-data-form-username": "Label in a form\n{{identical|User}}",
 	"workflows-collect-data-form-reportrecipient": "Label for the workflow form field",
 	"workflows-workflow-history-vote-result-yes": "Label for 'yes' vote result in workflow history",
-	"workflows-workflow-history-vote-result-no": "Label for 'no' vote result in workflow history",
-	"workflows-notification-aborted-web-summary": "Notification when the workflow on a page was aborted.\n*$1 - Name of the page the workflow was aborted for"
+	"workflows-workflow-history-vote-result-no": "Label for 'no' vote result in workflow history"
 }

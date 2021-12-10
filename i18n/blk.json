@@ -6,6 +6,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "လွိုက်",
+	"workflows-ui-starter-action-back": "လွိုက်ရွေꩻအလင်",
 	"workflows-ui-starter-action-cancel": "မာꩻတဝ်းဒွုမ်",
 	"workflows-ui-task-completion-action-complete": "ဒင်ႏသွင်ꩻသော့ꩻ",
 	"workflows-ui-task-completion-action-cancel": "မာꩻတဝ်းဒွုမ်",
@@ -16,6 +17,7 @@
 	"workflows-form-label-vote-widget-approve": "အွောန်ႏအတီႏ",
 	"workflows-ui-alert-activity-edit-request-complete-button": "ထွား စဲင်းစဲ့အခရာႏဖုံႏ",
 	"workflows-activity-edit-request-name": "မွဉ်းဖျင်ကွီကော့ꩻမုꩻ",
+	"workflows-notification-user-vote-accept-web": "$1 {{GENDER:$1|လက်ခံႏလဲဉ်း}} လိတ်မဲ့ငါ $2",
 	"workflows-ui-workflow-overview-action-cancel": "ပေ့ꩻထိုꩻ",
 	"workflows-ui-overview-details-state-running": "ရုဲင်ꩻတသွိုးဒျာႏ",
 	"workflows-ui-overview-details-state-finished": "ထွူထိုꩻလဲဉ်း",
@@ -25,10 +27,8 @@
 	"workflows-ui-overview-grid-filter-state-all": "ကားကအဝ်ႏ",
 	"workflows-ui-overview-grid-filter-state-active": "ရုဲင်ꩻတသွိုးဒျာႏ",
 	"workflows-form-instructions-comment": "တောင်ꩻသေꩻ",
-	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ",
-	"workflows-ui-starter-action-back": "လွိုက်ရွေꩻအလင်",
-	"workflows-notification-user-vote-accept-web": "$1 {{GENDER:$1|လက်ခံႏလဲဉ်း}} လိတ်မဲ့ငါ $2",
 	"workflows-error-generic": "မောꩻခါꩻလဲဉ်း အမာႏတဗာႏ",
+	"workflows-ui-overview-details-action-details-column": "ထွား စဲင်းစဲ့အခရာႏဖိုင်ႏ",
 	"workflows-collect-data-form-groupname": "အစွိုꩻ",
 	"workflows-collect-data-form-username": "ကေားသုင်ꩻသား"
 }

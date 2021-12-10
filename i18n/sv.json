@@ -85,7 +85,7 @@
 	"workflows-notification-ended-web": "Arbetsflöde på sidan $1 slutförd",
 	"workflows-notification-ended-email-sub": "Arbetsflöde slutförd",
 	"workflows-notification-ended-email-body": "Arbetsflöde på sidan $1 är slutförd",
-	"workflows-notification-aborted-web": "Arbetsflöde på sidan $1 avbröts",
+	"workflows-notification-aborted-web-summary": "Arbetsflöde på sidan $1 avbröts",
 	"workflows-notification-aborted-email-sub": "Arbetsflöde avbrutet",
 	"workflows-notification-aborted-email-body": "Arbetsflödet på sidan $1 avbröts",
 	"workflows-notification-due-date-proximity-web": "Arbetsflödesuppgiften förfaller snart",
@@ -132,6 +132,5 @@
 	"workflows-auto-aborted-workflow-page-deleted": "Arbetsflödet avbröts för att den berörda sidan raderades",
 	"workflows-uto-body-field-instructions": "Instruktioner: $1",
 	"workflows-ui-overview-details-initiator": "Inleddes av",
-	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde",
-	"workflows-notification-aborted-web-summary": "Arbetsflöde på sidan $1 avbröts"
+	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde"
 }
