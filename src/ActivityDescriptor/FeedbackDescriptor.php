@@ -14,6 +14,26 @@ use User;
 class FeedbackDescriptor extends GenericDescriptor {
 
 	/**
+	 * Maximum user comment length to be displayed
+	 */
+	private const COMMENT_MAX_LENGTH = 100;
+
+	/**
+	 * Strips comment depending on its length
+	 *
+	 * @param string $comment Comment
+	 * @return string Stripped comment
+	 */
+	protected function stripComment( string $comment ): string {
+		$comment = strip_tags( $comment );
+		if ( strlen( $comment ) > self::COMMENT_MAX_LENGTH ) {
+			$comment = substr( $comment, 0, self::COMMENT_MAX_LENGTH - 1 ) . '…';
+		}
+
+		return $comment;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTaskDescriptor( Workflow $workflow ): ITaskDescriptor {

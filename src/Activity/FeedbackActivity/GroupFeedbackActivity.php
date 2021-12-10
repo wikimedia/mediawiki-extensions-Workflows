@@ -5,9 +5,11 @@ namespace MediaWiki\Extension\Workflows\Activity\FeedbackActivity;
 use Exception;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackNotification;
+use MediaWiki\Extension\Workflows\ActivityDescriptor\GroupFeedbackDescriptor;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
+use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
@@ -199,5 +201,12 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 			[ 'ext.workflows.activity.activity.feedback' ],
 			'workflows.object.form.Feedback'
 		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getActivityDescriptor(): IActivityDescriptor {
+		return new GroupFeedbackDescriptor( $this );
 	}
 }
