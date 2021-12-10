@@ -22,8 +22,16 @@
 	"workflows-activity-edit-request-name": "요청 편집",
 	"workflows-uto-activity-edit-request-header": "문서 편집이 요청됨",
 	"echo-category-title-workflow-cat": "워크플로 알림",
-	"workflows-notification-ended-email-sub": "워크플로 완료",
-	"workflows-notification-aborted-email-sub": "워크플로가 중단됨",
+	"workflows-notification-task-assign-web": "문서 \"$2\"의 새 작업: \"$1\"",
+	"workflows-notification-ended-web": "워크플로 완료: 문서 \"$1\"의 \"$2\"",
+	"workflows-notification-ended-email-sub": "문서 \"$1\"의 워크플로 \"$2\" 완료",
+	"workflows-notification-ended-email-body": "문서 \"$1\"의 \"$2\" 워크플로가 완료되었습니다",
+	"workflows-notification-aborted-web-summary": "문서 \"$1\"의 \"$2\" 워크플로가 중단되었습니다",
+	"workflows-notification-aborted-email-sub": "문서 \"$1\"의 \"$2\" 워크플로가 중단됨",
+	"workflows-notification-aborted-email-body": "문서 \"$1\"의 \"$3\" 워크플로가 중단되었습니다. 이유: $2",
+	"workflows-notification-due-date-proximity-web": "문서 \"$1\"의 \"$2\" 워크플로 작업이 곧 다가옵니다",
+	"workflows-notification-due-date-proximity-email-sub": "문서 \"$1\"의 \"$2\" 워크플로 작업이 곧 다가옵니다",
+	"workflows-notification-due-date-proximity-email-body": "문서 \"$1\"의 워크플로 작업이 곧 다가옵니다. 보류 중인 \"$2\" 작업을 확인해 주십시오.\n만기일에 도달하면 워크플로는 자동으로 중단됩니다",
 	"workflows-ui-workflow-overview-action-abort": "중단",
 	"workflows-ui-workflow-overview-action-cancel": "닫기",
 	"workflows-ui-overview-details-state-not_started": "시작되지 않음",
@@ -43,5 +51,6 @@
 	"workflows-property-validator-required-error": "값은 필수입니다",
 	"workflows-collect-data-form-groupname": "그룹",
 	"workflows-collect-data-form-instructions": "안내 (위키텍스트 지원)",
-	"workflows-collect-data-form-username": "사용자"
+	"workflows-collect-data-form-username": "사용자",
+	"workflows-notification-feedback-task-assign-web-body": "만든이: \"$3\", 안내: \"$4\""
 }

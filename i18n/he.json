@@ -15,7 +15,7 @@
 	"workflows-form-placeholder-comment": "הערה",
 	"workflows-user-vote-action-invalid": "הפעולה אינה תקינה או שלא צוינה פעולה",
 	"workflows-ui-alert-activity-edit-request-complete-button": "הצגת פרטים",
-	"workflows-notification-task-assign-web": "שויכת למשימה $1 ב־$2",
+	"workflows-notification-task-assign-web": "משימה חדשה: \"$1\" עבור הדף \"$2\"",
 	"workflows-notification-task-assign-email-sub": "שויכת למשימה ב־$1",
 	"workflows-notification-task-assign-email-body": "אנא {{GENDER:|בקר|בקרי|בקרו}} בדף זה כדי להשלים את המשימה \"$1\" ש{{GENDER:|שוייכת|שוייכת|שוייכתם}} אליה",
 	"workflows-ui-workflow-overview-action-restore": "שחזור",
