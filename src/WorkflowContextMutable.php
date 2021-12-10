@@ -84,16 +84,16 @@ class WorkflowContextMutable {
 	}
 
 	/**
-	 * @param DateTime $startDate
+	 * @param DateTime|null $startDate
 	 */
-	public function setStartDate( DateTime $startDate ) {
+	public function setStartDate( ?DateTime $startDate ) {
 		$this->startDate = $startDate;
 	}
 
 	/**
-	 * @param DateTime $endDate
+	 * @param DateTime|null $endDate
 	 */
-	public function setEndDate( DateTime $endDate ) {
+	public function setEndDate( ?DateTime $endDate ) {
 		$this->endDate = $endDate;
 	}
 
