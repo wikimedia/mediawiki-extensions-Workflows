@@ -9,7 +9,10 @@ use MediaWiki\Extension\Workflows\Definition\Element\Task;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
+use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
+use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWikiIntegrationTestCase;
 use Message;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
@@ -19,7 +22,6 @@ use User;
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\GroupVoteActivity
  * @group Database
- * @group Broken
  */
 class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
@@ -81,11 +83,26 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Workflow context object.
-	 * Used to set actor and is necessary for activity running
+	 * Necessary for activity execution
 	 *
 	 * @var WorkflowContext
 	 */
 	private $workflowContext;
+
+	/**
+	 * Workflow mutable context object.
+	 * Used to set different actors into workflow context
+	 *
+	 * @var WorkflowContextMutable
+	 */
+	private $mutableContext;
+
+	/**
+	 * Threshold checker mock
+	 *
+	 * @var ThresholdChecker
+	 */
+	private $thresholdCheckerMock;
 
 	/**
 	 * Sets all necessary data in properties for further testing
@@ -156,16 +173,24 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 			[ 'custom_test_group', $filledGroupUsers ]
 		] );
 
-		$activity = new GroupVoteActivity( $this->notifier, $this->task, $groupDataProviderMock );
+		$thresholdCheckerFactoryMock = $this->createMock( ThresholdCheckerFactory::class );
+		$thresholdCheckerFactoryMock->method( 'makeThresholdChecker' )->willReturn( $this->thresholdCheckerMock );
+
+		$activity = new GroupVoteActivity( $this->notifier, $groupDataProviderMock, $thresholdCheckerFactoryMock, $this->task );
 		$activity->setSpecialLogLogger( $this->specialLogLogger );
 
 		$definitionContext = new DefinitionContext( [
 			'pageId' => $this->targetPage
 		] );
+
 		$titleFactory = $this->createMock( TitleFactory::class );
 
-		$this->workflowContext = new WorkflowContext( $definitionContext, $titleFactory, $this->owner );
-		$this->workflowContext->setActor( $this->actor_1 );
+		$this->mutableContext = new WorkflowContextMutable( $titleFactory );
+		$this->mutableContext->setActor( $this->actor_1 );
+		$this->mutableContext->setInitiator( $this->owner );
+		$this->mutableContext->setDefinitionContext( $definitionContext );
+
+		$this->workflowContext = new WorkflowContext( $this->mutableContext );
 
 		return $activity;
 	}
@@ -182,6 +207,8 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$this->specialLogLogger->expects( $this->never() )->method( 'addEntry' );
 		$this->notifier->expects( $this->never() )->method( 'notify' );
+
+		$this->thresholdCheckerMock = $this->createMock( ThresholdChecker::class );
 
 		$activity = $this->prepareActivity();
 
@@ -205,6 +232,9 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$this->specialLogLogger->expects( $this->atLeastOnce() )->method( 'addEntry' );
 		$this->notifier->expects( $this->atLeastOnce() )->method( 'notify' );
+
+		$this->thresholdCheckerMock = $this->createMock( ThresholdChecker::class );
+		$this->thresholdCheckerMock->method( 'hasReachedThresholds' )->willReturnOnConsecutiveCalls( false, true );
 
 		$activity = $this->prepareActivity();
 
@@ -230,14 +260,13 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$data = $payload->getPayload();
 
-		$this->workflowContext->setActor( $this->actor_2 );
+		$this->mutableContext->setActor( $this->actor_2 );
 
 		// Vote from second user is processed
 		$payload = $activity->execute( $data, $this->workflowContext );
 
 		// As soon as accept threshold is reached - group vote is completed
 		$this->assertEquals( IActivity::STATUS_COMPLETE, $payload->getStatus() );
-		$this->assertEquals( 'accept', $payload->getPayload()['vote_summary'] );
 	}
 
 	/**
@@ -253,6 +282,9 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$this->specialLogLogger->expects( $this->atLeastOnce() )->method( 'addEntry' );
 		$this->notifier->expects( $this->atLeastOnce() )->method( 'notify' );
+
+		$this->thresholdCheckerMock = $this->createMock( ThresholdChecker::class );
+		$this->thresholdCheckerMock->method( 'hasReachedThresholds' )->willReturn( true );
 
 		$activity = $this->prepareActivity();
 
@@ -276,6 +308,5 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		// As soon as decline threshold is reached - group vote is completed
 		$this->assertEquals( IActivity::STATUS_COMPLETE, $payload->getStatus() );
-		$this->assertEquals( 'decline', $payload->getPayload()['vote_summary'] );
 	}
 }

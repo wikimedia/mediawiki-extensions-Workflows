@@ -4,7 +4,9 @@ namespace MediaWiki\Extension\Workflows\Activity\FeedbackActivity;
 
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackNotification;
+use MediaWiki\Extension\Workflows\ActivityDescriptor\UserFeedbackDescriptor;
 use MediaWiki\Extension\Workflows\IActivity;
+use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 
@@ -63,6 +65,13 @@ class UserFeedbackActivity extends GenericFeedbackActivity {
 			[ 'ext.workflows.activity.activity.feedback' ],
 			'workflows.object.form.Feedback'
 		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getActivityDescriptor(): IActivityDescriptor {
+		return new UserFeedbackDescriptor( $this );
 	}
 
 	protected function setSecondaryData( array $data, WorkflowContext $context ): void {

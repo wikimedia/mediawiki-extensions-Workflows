@@ -5,8 +5,10 @@ namespace MediaWiki\Extension\Workflows\Activity\VoteActivity;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\Action\ActionList;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\Notification\VoteDelegate;
+use MediaWiki\Extension\Workflows\ActivityDescriptor\UserVoteDescriptor;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
+use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;
@@ -19,6 +21,13 @@ class UserVoteActivity extends GenericVoteActivity {
 	 * @inheritDoc
 	 */
 	protected $activityKey = 'user-vote';
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getSpecialLogAction( string $vote ): string {
+		return 'uservote-' . $vote;
+	}
 
 	/**
 	 * @inheritDoc
@@ -111,5 +120,12 @@ class UserVoteActivity extends GenericVoteActivity {
 			[ 'ext.workflows.activity.vote', 'ext.oOJSPlus.formelements' ],
 			'workflows.object.form.UserVote'
 		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getActivityDescriptor(): IActivityDescriptor {
+		return new UserVoteDescriptor( $this );
 	}
 }

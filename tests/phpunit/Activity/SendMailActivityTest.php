@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\Element\Task;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWiki\Mail\IEmailer;
 use MediaWikiIntegrationTestCase;
 use Status;
@@ -17,7 +18,6 @@ use TitleFactory;
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\SendMail\SendMailActivity
  * @group Database
- * @group Broken
  */
 class SendMailActivityTest extends MediaWikiIntegrationTestCase {
 
@@ -46,7 +46,9 @@ class SendMailActivityTest extends MediaWikiIntegrationTestCase {
 		$config = new HashConfig( [ 'NoReplyAddress' => 'noreply@wiki.local' ] );
 		$definitionContext = new DefinitionContext( [] );
 		$titleFactory = $this->createMock( TitleFactory::class );
-		$workflowContext = new WorkflowContext( $definitionContext, $titleFactory );
+		$mutableContext = new WorkflowContextMutable( $titleFactory );
+		$mutableContext->setDefinitionContext( $definitionContext );
+		$workflowContext = new WorkflowContext( $mutableContext );
 
 		$activity = new SendMailActivity( $emailerMock, $config, $task );
 		$activity->setSpecialLogLogger( $spclLogLoggerMock );
