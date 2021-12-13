@@ -151,5 +151,7 @@
 	"workflows-collect-data-form-instructions": "Instructions (wikitexte supporté)",
 	"workflows-collect-data-form-username": "Utilisateur",
 	"workflows-collect-data-form-reportrecipient": "Envoyer un rapport à (courriel valide ou nom d’utilisateur)",
-	"workflows-notification-feedback-task-assign-web-body": "Créé par : « $3 », Instructions : « $4 »"
+	"workflows-notification-feedback-task-assign-web-body": "Créé par : « $3 », Instructions : « $4 »",
+	"workflows-activity-history-vote-result-yes": "Approuvé",
+	"workflows-activity-history-vote-result-no": "Refusé"
 }

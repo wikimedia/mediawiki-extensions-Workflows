@@ -150,5 +150,7 @@
 	"workflows-collect-data-form-instructions": "Напатствија (поддржува викитекст)",
 	"workflows-collect-data-form-username": "Корисник",
 	"workflows-collect-data-form-reportrecipient": "Испрати извештај на (важечка е-пошта или корисничко име)",
-	"workflows-notification-feedback-task-assign-web-body": "Создадено од: „$3“, Напатствија: „$4“"
+	"workflows-notification-feedback-task-assign-web-body": "Создадено од: „$3“, Напатствија: „$4“",
+	"workflows-activity-history-vote-result-yes": "Одобрено",
+	"workflows-activity-history-vote-result-no": "Одбиено"
 }
