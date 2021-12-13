@@ -77,13 +77,13 @@
 	"workflows-notification-user-vote-deny-web": "$1 hat die Seite $2 {{GENDER:$1 | abgelehnt}}",
 	"workflows-notification-user-vote-deny-email-sub": "$1 hat die Seite $2 {{GENDER:$1 | abgelehnt}}",
 	"workflows-notification-user-vote-deny-email-body": "Benutzer $1 hat die $3 Aktivität auf der Seite $2 mit folgendem Kommentar {{GENDER:$1 | abgelehnt}}: $4",
-	"workflows-notification-task-assign-web": "Dir wurde die Aufgabe $1 auf $2 zugewiesen",
+	"workflows-notification-task-assign-web": "Neue Aufgabe: \"$1\" für Seite \"$2\"",
 	"workflows-notification-task-assign-email-sub": "Dir wurde die Aufgabe auf $1 zugewiesen",
 	"workflows-notification-task-assign-email-body": "Bitte besuche diese Seite um die \"$1\" Aufgabe abzuschließen, die dir zugewiesen wurde",
 	"workflows-notification-user-vote-delegate-web": "$1 hat die Aufgabe $3 an dich {{GENDER: $1| weitergegeben}}",
 	"workflows-notification-user-vote-delegate-email-sub": "$1 hat die Aufgabe $3 auf Seite $2 an dich {{GENDER:$1 | weitergegeben}}",
 	"workflows-notification-user-vote-delegate-email-body": "Benutzer $1 hat die $3 Aktivität auf Seite $2 mit folgendem Kommentar {{GENDER:$1|weitergegeben}}: $4",
-	"workflows-notification-ended-web": "Der Workflow auf der Seite $1 ist abgeschlossen",
+	"workflows-notification-ended-web": "Begutachtung abgeschlossen: \"$2\" für Seite \"$1\"",
 	"workflows-notification-ended-email-sub": "Workflow abgeschlossen",
 	"workflows-notification-ended-email-body": "Der Workflow auf der Seite $1 ist abgeschlossen",
 	"workflows-notification-aborted-web-summary": "Der Workflow auf der Seite $1 wurde abgebrochen",
@@ -149,5 +149,6 @@
 	"workflows-collect-data-form-groupname": "Gruppe",
 	"workflows-collect-data-form-instructions": "Anweisungen (wikitextgestützt)",
 	"workflows-collect-data-form-username": "Benutzer",
-	"workflows-collect-data-form-reportrecipient": "Bericht senden an (gültige E-Mail oder Benutzername)"
+	"workflows-collect-data-form-reportrecipient": "Bericht senden an (gültige E-Mail oder Benutzername)",
+	"workflows-notification-feedback-task-assign-web-body": "Erstellt von: \"$3\", Anweisung: \"$4\""
 }

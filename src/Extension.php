@@ -49,9 +49,9 @@ class Extension {
 			'workflows-ended',
 			[
 				'category' => 'workflows-cat',
-				'summary-message' => 'workflows-notification-ended-web-summary',
+				'summary-message' => 'workflows-notification-ended-web',
 				'summary-params' => [ 'title', 'workflow-name' ],
-				'web-body-message' => 'workflows-notification-ended-web-body',
+				'web-body-message' => 'workflows-notification-ended-web',
 				'web-body-params' => [ 'title', 'workflow-name' ],
 				'email-subject-message' => 'workflows-notification-ended-email-sub',
 				'email-subject-params' => [ 'title', 'workflow-name' ],
