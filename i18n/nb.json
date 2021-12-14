@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"workflows-activity-history-vote-result-yes": "Godkjent",
+	"workflows-activity-history-vote-result-no": "Avvist"
+}
