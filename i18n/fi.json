@@ -51,5 +51,7 @@
 	"workflows-collect-data-form-instructions": "Ohjeet (wikiteksti tuettu)",
 	"workflows-collect-data-form-username": "Käyttäjä",
 	"workflows-collect-data-form-reportrecipient": "Lähetä raportti käyttäjälle (pätevä sähköposti tai käyttäjänimi)",
-	"workflows-notification-feedback-task-assign-web-body": "Luonut: \"$3\", ohjeet: \"$4\""
+	"workflows-notification-feedback-task-assign-web-body": "Luonut: \"$3\", ohjeet: \"$4\"",
+	"workflows-activity-history-vote-result-yes": "Hyväksytty",
+	"workflows-activity-history-vote-result-no": "Hylätty"
 }

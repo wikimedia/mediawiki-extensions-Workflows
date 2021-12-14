@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Keo010122"
+		]
+	},
+	"workflows-ui-starter-action-choose": "Chọn",
+	"workflows-ui-starter-action-cancel": "Hủy bỏ",
+	"workflows-ui-task-completion-action-complete": "Đăng",
+	"workflows-ui-task-completion-action-cancel": "Hủy bỏ",
+	"workflows-uto-activity-user_feedback": "Phản hồi của người dùng",
+	"workflows-form-placeholder-comment": "Bình luận",
+	"workflows-form-label-vote-widget-approve": "Chấp nhận",
+	"workflows-form-label-vote-widget-decline": "Từ chối",
+	"workflows-ui-alert-activity-edit-request-complete-button": "Xem chi tiết",
+	"workflows-ui-workflow-overview-action-restore": "Phục hồi",
+	"workflows-ui-workflow-overview-action-cancel": "Đóng",
+	"workflows-ui-overview-details-state-column": "Trạng thái",
+	"workflows-ui-overview-details-state-running": "Hoạt động",
+	"workflows-ui-overview-details-state-finished": "Hoàn thành",
+	"workflows-ui-overview-details-action-reason": "Lý do",
+	"workflows-ui-overview-details-page-context-page": "Trang",
+	"workflows-ui-overview-details-workflow-type-label": "Loại",
+	"workflows-ui-overview-grid-filter-state-all": "Tất cả",
+	"workflows-form-instructions-comment": "Bình luận",
+	"workflows-ui-overview-details-initiator": "Người bắt đầu",
+	"workflows-ui-overview-details-action-details-column": "chi tiết",
+	"workflows-property-validator-required-error": "Giá trị bắt buộc",
+	"workflows-default-group-feedback-body": "Chi tiết quy trình:\nBắt đầu: $1\nKết thúc: $2\nTrang: $3\nPhiên bản: $4\nThành viên: $5\nHướng dẫn: $6\nPhản hồi: $7\n\nEmail này được gửi cho bạn, vì $8 đã chỉ định bạn là người nhận email cho quy trình này.",
+	"workflows-collect-data-form-groupname": "Nhóm",
+	"workflows-collect-data-form-username": "Người dùng",
+	"workflows-activity-history-vote-result-yes": "Chấp nhận",
+	"workflows-activity-history-vote-result-no": "Từ chối"
+}

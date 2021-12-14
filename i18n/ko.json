@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Apzp79",
 			"Ykhwong"
 		]
 	},
@@ -52,5 +53,7 @@
 	"workflows-collect-data-form-groupname": "그룹",
 	"workflows-collect-data-form-instructions": "안내 (위키텍스트 지원)",
 	"workflows-collect-data-form-username": "사용자",
-	"workflows-notification-feedback-task-assign-web-body": "만든이: \"$3\", 안내: \"$4\""
+	"workflows-notification-feedback-task-assign-web-body": "만든이: \"$3\", 안내: \"$4\"",
+	"workflows-activity-history-vote-result-yes": "승인",
+	"workflows-activity-history-vote-result-no": "거부"
 }
