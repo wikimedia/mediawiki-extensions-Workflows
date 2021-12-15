@@ -4,7 +4,15 @@
 			"Kareyac"
 		]
 	},
+	"workflows-ui-starter-action-choose": "Выбрать",
+	"workflows-ui-starter-action-cancel": "Отменить",
 	"workflows-ui-task-completion-action-cancel": "Отмена",
+	"workflows-ui-workflow-overview-action-restore": "Восстановить",
+	"workflows-ui-workflow-overview-action-cancel": "Закрыть",
+	"workflows-ui-overview-details-action-reason": "Причина",
 	"workflows-ui-overview-details-page-context-page": "Страница",
-	"workflows-collect-data-form-groupname": "Группа"
+	"workflows-ui-overview-details-workflow-type-label": "Тип",
+	"workflows-collect-data-form-groupname": "Группа",
+	"workflows-activity-history-vote-result-yes": "Одобрено",
+	"workflows-activity-history-vote-result-no": "Отклонено"
 }
