@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mschlindwein"
+		]
+	},
+	"workflows-ui-alert-activity-edit-request": "Sie wurden aufgefordert, diese Seite zu bearbeiten",
+	"workflows-ui-overview-details-action-abort-note": "Einen Workflow abzubrechen wird sofort alle laufenden Aufgaben beenden. Sind Sie sicher, dass Sie diesen Workflow abbrechen möchten?",
+	"workflows-ui-overview-details-action-restore-note": "Die Wiederherstellung eines Workflows setzt den Workflow in dem Zustand fort, in dem er abgebrochen wurde. Sind Sie sicher, dass Sie diesen Workflow wiederherstellen möchten?"
+}
