@@ -148,5 +148,8 @@
 	"workflows-collect-data-form-reportrecipient": "Send report to (valid email or username)",
 	"workflows-notification-feedback-task-assign-web-body": "Created by: \"$3\", Instructions: \"$4\"",
 	"workflows-activity-history-vote-result-yes": "Approved",
-	"workflows-activity-history-vote-result-no": "Declined"
+	"workflows-activity-history-vote-result-no": "Declined",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Property",
+	"workflows-ui-overview-details-raw-data-popup-value": "Value",
+	"workflows-ui-overview-details-raw-data-popup-label": "Property values"
 }

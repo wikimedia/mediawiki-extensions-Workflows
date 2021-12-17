@@ -173,23 +173,24 @@
 		for ( var i = 0; i < activities.length; i++ ) {
 			var activity = activities[i];
 
+			var name = new OO.ui.LabelWidget( {
+					label: activity.name,
+					classes: [ 'name' ]
+				} ),
+				rawData = new workflows.ui.widget.ActivityRawDataPopup( activity.getProperties() ),
+				layout = new OO.ui.PanelLayout( {
+					expanded: false,
+					padded: true,
+					classes: [ 'overview-activity-layout' ]
+				} );
+
+			layout.$element.append( name.$element, rawData.$element );
+
+			this.panel.$element.append(
+				layout.$element
+			);
 			var historyWidget = this.getActivityHistory( activity, false );
 			if ( historyWidget ) {
-				var name = new OO.ui.LabelWidget( {
-						label: activity.name,
-						classes: [ 'name' ]
-					} ),
-					layout = new OO.ui.PanelLayout( {
-						expanded: false,
-						padded: true,
-						classes: [ 'overview-activity-layout' ]
-					} );
-
-				layout.$element.append( name.$element );
-
-				this.panel.$element.append(
-					layout.$element
-				);
 				layout.$element.append( historyWidget.$element );
 			}
 		}
@@ -218,6 +219,7 @@
 	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function( activity, includeHeader ) {
 		includeHeader = includeHeader || false;
 		var history = activity.getHistory() || {};
+
 		if (
 			$.isEmptyObject( history ) ||
 			( Array.isArray( history ) && history.length === 0 )
