@@ -17,7 +17,7 @@
 				name: 'comment',
 				placeholder: mw.message( "workflows-form-instructions-comment" ).text(),
 				noLayout: true,
-				type: 'wikitext',
+				type: 'textarea',
 				required: true
 			}
 		];

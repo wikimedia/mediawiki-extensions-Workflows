@@ -143,7 +143,7 @@
 	"workflows-default-group-feedback-report-subject": "The workflow \"Group feedback\" for page \"$1\" has finished",
 	"workflows-default-group-feedback-body": "Workflow details:\nStarted on: $1\nFinished on: $2\nPage: $3\nRevision: $4\nUsers:$5\nInstructions: $6\nFeedbacks:$7\n\nThis email has been sent to you, because $8 has designated you as email recipient for this workflow.",
 	"workflows-collect-data-form-groupname": "Group",
-	"workflows-collect-data-form-instructions": "Instructions (wikitext supported)",
+	"workflows-collect-data-form-instructions": "Instructions",
 	"workflows-collect-data-form-username": "User",
 	"workflows-collect-data-form-reportrecipient": "Send report to (valid email or username)",
 	"workflows-notification-feedback-task-assign-web-body": "Created by: \"$3\", Instructions: \"$4\"",
