@@ -209,6 +209,6 @@ class GroupVoteActivity extends GenericVoteActivity {
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new GroupVoteDescriptor( $this );
+		return new GroupVoteDescriptor( $this, $this->logger );
 	}
 }

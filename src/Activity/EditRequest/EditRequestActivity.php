@@ -23,6 +23,6 @@ class EditRequestActivity extends UIActivity {
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new EditRequestDescriptor( $this );
+		return new EditRequestDescriptor( $this, $this->logger );
 	}
 }

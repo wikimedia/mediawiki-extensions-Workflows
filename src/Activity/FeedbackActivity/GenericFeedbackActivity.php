@@ -172,6 +172,6 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new FeedbackDescriptor( $this );
+		return new FeedbackDescriptor( $this, $this->logger );
 	}
 }

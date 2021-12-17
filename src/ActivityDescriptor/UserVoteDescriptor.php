@@ -15,18 +15,19 @@ class UserVoteDescriptor extends FeedbackDescriptor {
 		$status = $workflow->getActivityManager()->getActivityStatus( $this->activity );
 
 		if (
-			$status === IActivity::STATUS_NOT_STARTED ||
-			$status === IActivity::STATUS_EXECUTING ||
-			$status === IActivity::STATUS_STARTED
+			$status !== IActivity::STATUS_COMPLETE &&
+			$status !== IActivity::STATUS_LOOP_COMPLETE
 		) {
 			return [];
 		}
 
-		$history = [];
-
 		$rd = $workflow->getContext()->getRunningData(
 			$this->activity->getTask()->getId()
 		);
+
+		if ( $rd === null ) {
+			return [];
+		}
 
 		if ( $rd['vote'] === 'yes' ) {
 			$voteResult = Message::newFromKey( 'workflows-activity-history-vote-result-yes' )->text();
@@ -34,8 +35,8 @@ class UserVoteDescriptor extends FeedbackDescriptor {
 			$voteResult = Message::newFromKey( 'workflows-activity-history-vote-result-no' )->text();
 		}
 
-		$history[$rd['assigned_user']] = $voteResult . ': ' . $this->stripComment( $rd['comment'] );
-
-		return $history;
+		return [
+			$rd['assigned_user'] => $voteResult . ': ' . $this->stripComment( $rd['comment'] )
+		];
 	}
 }

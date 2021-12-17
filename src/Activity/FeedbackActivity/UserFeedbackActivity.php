@@ -71,10 +71,13 @@ class UserFeedbackActivity extends GenericFeedbackActivity {
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new UserFeedbackDescriptor( $this );
+		return new UserFeedbackDescriptor( $this, $this->logger );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function setSecondaryData( array $data, WorkflowContext $context ): void {
-		// TODO: Implement setSecondaryData() method.
+		// Nothing to do here, as soon as this activity does not have secondary data
 	}
 }
