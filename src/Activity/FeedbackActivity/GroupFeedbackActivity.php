@@ -207,6 +207,6 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new GroupFeedbackDescriptor( $this );
+		return new GroupFeedbackDescriptor( $this, $this->logger );
 	}
 }

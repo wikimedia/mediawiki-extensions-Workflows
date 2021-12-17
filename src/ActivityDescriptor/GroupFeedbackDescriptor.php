@@ -14,9 +14,8 @@ class GroupFeedbackDescriptor extends FeedbackDescriptor {
 		$status = $workflow->getActivityManager()->getActivityStatus( $this->activity );
 
 		if (
-			$status === IActivity::STATUS_NOT_STARTED ||
-			$status === IActivity::STATUS_EXECUTING ||
-			$status === IActivity::STATUS_STARTED
+			$status !== IActivity::STATUS_COMPLETE &&
+			$status !== IActivity::STATUS_LOOP_COMPLETE
 		) {
 			return [];
 		}
@@ -26,6 +25,10 @@ class GroupFeedbackDescriptor extends FeedbackDescriptor {
 		$rd = $workflow->getContext()->getRunningData(
 			$this->activity->getTask()->getId()
 		);
+
+		if ( $rd === null ) {
+			return [];
+		}
 
 		$feedbacks = $rd['users_feedbacks'];
 		foreach ( $feedbacks as $feedback ) {

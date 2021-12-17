@@ -126,6 +126,6 @@ class UIActivity extends GenericActivity implements UserInteractiveActivity {
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new GenericDescriptor( $this );
+		return new GenericDescriptor( $this, $this->logger );
 	}
 }

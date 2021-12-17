@@ -12,23 +12,29 @@ use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use Message;
 use MWStake\MediaWiki\Component\Notifications\INotification;
+use Psr\Log\LoggerInterface;
 use RequestContext;
 
 class GenericDescriptor implements IActivityDescriptor {
 	/** @var UserInteractiveActivity */
 	protected $activity;
+	/** @var LoggerInterface */
+	protected $logger;
 	/** @var IContextSource */
 	protected $context;
 
 	/**
 	 * @param UserInteractiveActivity $activity
+	 * @param LoggerInterface $logger
 	 * @param IContextSource|null $context Context in which Activity is being described
 	 */
 	public function __construct(
 		UserInteractiveActivity $activity,
+		LoggerInterface $logger,
 		?IContextSource $context = null
 	) {
 		$this->activity = $activity;
+		$this->logger = $logger;
 		if ( !$context ) {
 			// Soo nice
 			$context = RequestContext::getMain();
