@@ -98,8 +98,10 @@
 					current: workflows[id].state === 'running' ? workflows[id].current[0] : '-',
 					state: mw.message( 'workflows-ui-overview-details-state-' + workflows[id].state ).text(),
 					notice: this.getNotice( workflows[id] ),
-					start: workflows[id].timestamps.startFormatted,
-					last: workflows[id].timestamps.lastFormatted,
+					start: workflows[id].timestamps.start,
+					startFormatted: workflows[id].timestamps.startFormatted,
+					last: workflows[id].timestamps.last,
+					lastFormatted: workflows[id].timestamps.lastFormatted,
 				} );
 			}
 			this.emit( 'loaded', this.data );
@@ -159,11 +161,13 @@
 				},
 				start: {
 					headerText: mw.message( 'workflows-ui-overview-details-start-time-column' ).text(),
-					type: "text"
+					type: "date",
+					display: "startFormatted"
 				},
 				last: {
 					headerText: mw.message( 'workflows-ui-overview-details-last-time-column' ).text(),
-					type: "text"
+					type: "date",
+					display: "lastFormatted"
 				},
 				detailsAction: {
 					type: "action",
