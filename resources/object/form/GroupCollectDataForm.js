@@ -16,7 +16,7 @@
 			{
 				name: 'instructions',
 				label: mw.message( 'workflows-collect-data-form-instructions' ).text(),
-				type: 'wikitext'
+				type: 'textarea'
 			},
 			{
 				name: 'reportrecipient',
