@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mschlindwein"
+			"Mschlindwein",
+			"Umlaut"
 		]
 	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
@@ -150,5 +151,6 @@
 	"workflows-collect-data-form-instructions": "Anweisungen (wikitextgestützt)",
 	"workflows-collect-data-form-username": "Benutzer",
 	"workflows-collect-data-form-reportrecipient": "Bericht senden an (gültige E-Mail oder Benutzername)",
-	"workflows-notification-feedback-task-assign-web-body": "Erstellt von: \"$3\", Anweisung: \"$4\""
+	"workflows-notification-feedback-task-assign-web-body": "Erstellt von: \"$3\", Anweisung: \"$4\"",
+	"workflows-activity-history-vote-result-yes": "Genehmigt"
 }
