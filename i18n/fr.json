@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
-			"Gomoko"
+			"Gomoko",
+			"Paraboule"
 		]
 	},
 	"workflows-desc": "Permet de définir et d’exécuter différents processus sur le wiki",
@@ -148,7 +149,7 @@
 	"workflows-default-group-feedback-report-subject": "Le processus « Retour utilisateur » pour la page « $1 » est terminé",
 	"workflows-default-group-feedback-body": "Détails du processus :\nDémarré le : $1\nTerminé le : $2\nPage : $3\nRévision : $4\nUtilisateurs :$5\nInstructions : $6\nRetours :$7\n\nCe courriel vous a été envoyé, parce que $8 vous a désigné comme destinataire de courriel pour ce processus.",
 	"workflows-collect-data-form-groupname": "Groupe",
-	"workflows-collect-data-form-instructions": "Instructions (wikitexte supporté)",
+	"workflows-collect-data-form-instructions": "Instructions",
 	"workflows-collect-data-form-username": "Utilisateur",
 	"workflows-collect-data-form-reportrecipient": "Envoyer un rapport à (courriel valide ou nom d’utilisateur)",
 	"workflows-notification-feedback-task-assign-web-body": "Créé par : « $3 », Instructions : « $4 »",
