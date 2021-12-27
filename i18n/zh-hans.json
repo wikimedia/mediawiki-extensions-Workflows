@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"GuoPC",
-			"Interestinghe"
+			"Interestinghe",
+			"Stang"
 		]
 	},
 	"action-workflows-admin": "管理工作流",
@@ -15,5 +16,6 @@
 	"workflows-notification-due-date-proximity-email-sub": "页面“$1”工作流任务“$2”即将到期",
 	"workflows-ui-overview-details-state-not_started": "未开始",
 	"workflows-ui-overview-details-action-abort-note": "放弃一个工作流将立即停止所有在进行的任务。你确定你想放弃这个工作流吗？",
-	"workflows-ui-overview-details-page-context-page": "页面"
+	"workflows-ui-overview-details-page-context-page": "页面",
+	"workflows-collect-data-form-instructions": "说明"
 }
