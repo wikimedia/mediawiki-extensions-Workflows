@@ -48,7 +48,7 @@
 	"workflows-property-validator-valid-title-error": "\"$1\" ei ole kelvollinen otsikko",
 	"workflows-default-group-feedback-body": "Työnkulun tiedot:\nAloitettu: $1\nSuoritettu loppuun: $2\nSivu: $3\nVersio: $4\nKäyttäjät: $5\nOhjeet: $6\nPalautteet: $7\n\nTämä sähköpostiviesti lähetettiin sinulle, koska $8 on merkinnyt sinut tämän sähköpostin vastaanottajaksi.",
 	"workflows-collect-data-form-groupname": "Ryhmä",
-	"workflows-collect-data-form-instructions": "Ohjeet (wikiteksti tuettu)",
+	"workflows-collect-data-form-instructions": "Ohjeet",
 	"workflows-collect-data-form-username": "Käyttäjä",
 	"workflows-collect-data-form-reportrecipient": "Lähetä raportti käyttäjälle (pätevä sähköposti tai käyttäjänimi)",
 	"workflows-notification-feedback-task-assign-web-body": "Luonut: \"$3\", ohjeet: \"$4\"",
