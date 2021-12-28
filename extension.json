@@ -254,6 +254,7 @@
 		},
 		"ext.workflows.dialog.overview": {
 			"scripts": [
+				"ui/widget/ActivityRawDataPopup.js",
 				"ui/booklet/WorkflowListPage.js",
 				"ui/booklet/WorkflowDetailsPage.js",
 				"ui/booklet/WorkflowAbortRestorePage.js",
@@ -290,7 +291,10 @@
 				"workflows-ui-overview-details-activity-due-date",
 				"workflows-ui-overview-details-initiator",
 				"workflows-ui-overview-details-action-details-column",
-				"workflows-ui-overview-details-section-past"
+				"workflows-ui-overview-details-section-past",
+				"workflows-ui-overview-details-raw-data-popup-prop",
+				"workflows-ui-overview-details-raw-data-popup-value",
+				"workflows-ui-overview-details-raw-data-popup-label"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-moderation",
