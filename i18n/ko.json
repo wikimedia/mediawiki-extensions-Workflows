@@ -83,7 +83,7 @@
 	"workflows-default-user-feedback-report-subject": "\"$1\" 문서의 \"사용자 피드백\" 워크플로가 완료되었습니다",
 	"workflows-default-group-feedback-report-subject": "\"$1\" 문서의 \"그룹 피드백\" 워크플로가 완료되었습니다",
 	"workflows-collect-data-form-groupname": "그룹",
-	"workflows-collect-data-form-instructions": "안내 (위키텍스트 지원)",
+	"workflows-collect-data-form-instructions": "안내",
 	"workflows-collect-data-form-username": "사용자",
 	"workflows-notification-feedback-task-assign-web-body": "만든이: \"$3\", 안내: \"$4\"",
 	"workflows-activity-history-vote-result-yes": "승인",
