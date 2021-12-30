@@ -53,5 +53,8 @@
 	"workflows-collect-data-form-reportrecipient": "Lähetä raportti käyttäjälle (pätevä sähköposti tai käyttäjänimi)",
 	"workflows-notification-feedback-task-assign-web-body": "Luonut: \"$3\", ohjeet: \"$4\"",
 	"workflows-activity-history-vote-result-yes": "Hyväksytty",
-	"workflows-activity-history-vote-result-no": "Hylätty"
+	"workflows-activity-history-vote-result-no": "Hylätty",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Ominaisuus",
+	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
+	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot"
 }

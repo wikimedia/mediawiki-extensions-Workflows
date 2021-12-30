@@ -24,7 +24,10 @@
 	"workflows-default-group-feedback-report-subject": "El fluss de lavorà \"Giudizzi de grup\" per la pagina \"$1\" l'è finid",
 	"workflows-default-group-feedback-body": "Detali del fluss de lavorà:\nComenzad el: $1\nFinid el: $2\nPagina: $3\nVersion: $4\nUtent: $5\nIstruzzion: $6\nGiudizzi:\n$7\n\nEl te l'è stad mandad a tì quell messagg chì, perchè $8 l'ha designad ti come destinatari de posta eletronica per quell fluss de lavorà chì.",
 	"workflows-collect-data-form-groupname": "Grup",
-	"workflows-collect-data-form-instructions": "Istruzzion (wikitext suportad)",
+	"workflows-collect-data-form-instructions": "Istruzzion",
 	"workflows-collect-data-form-username": "Utent",
-	"workflows-notification-feedback-task-assign-web-body": "Tirad in pee de: \"$3\", Istruzzion: \"$4\""
+	"workflows-notification-feedback-task-assign-web-body": "Tirad in pee de: \"$3\", Istruzzion: \"$4\"",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Proprietà",
+	"workflows-ui-overview-details-raw-data-popup-value": "Valor",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valor de la proprietà"
 }
