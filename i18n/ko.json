@@ -87,5 +87,8 @@
 	"workflows-collect-data-form-username": "사용자",
 	"workflows-notification-feedback-task-assign-web-body": "만든이: \"$3\", 안내: \"$4\"",
 	"workflows-activity-history-vote-result-yes": "승인",
-	"workflows-activity-history-vote-result-no": "거부"
+	"workflows-activity-history-vote-result-no": "거부",
+	"workflows-ui-overview-details-raw-data-popup-prop": "속성",
+	"workflows-ui-overview-details-raw-data-popup-value": "값",
+	"workflows-ui-overview-details-raw-data-popup-label": "속성 값"
 }
