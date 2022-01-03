@@ -23,5 +23,8 @@
 	"workflows-property-validator-valid-user-error": "L'utenti \"$1\" nun è n'utenti vàlidu",
 	"workflows-property-validator-valid-title-error": "Lu tìtulu \"$1\" nun è vàlidu",
 	"workflows-collect-data-form-groupname": "Gruppu",
-	"workflows-collect-data-form-username": "Utenti"
+	"workflows-collect-data-form-username": "Utenti",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Prupità",
+	"workflows-ui-overview-details-raw-data-popup-value": "Valuri",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valuri dâ prupità"
 }

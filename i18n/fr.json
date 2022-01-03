@@ -154,5 +154,8 @@
 	"workflows-collect-data-form-reportrecipient": "Envoyer un rapport à (courriel valide ou nom d’utilisateur)",
 	"workflows-notification-feedback-task-assign-web-body": "Créé par : « $3 », Instructions : « $4 »",
 	"workflows-activity-history-vote-result-yes": "Approuvé",
-	"workflows-activity-history-vote-result-no": "Refusé"
+	"workflows-activity-history-vote-result-no": "Refusé",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Propriété",
+	"workflows-ui-overview-details-raw-data-popup-value": "Valeur",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs de la propriété"
 }

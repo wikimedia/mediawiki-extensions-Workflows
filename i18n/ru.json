@@ -14,5 +14,7 @@
 	"workflows-ui-overview-details-workflow-type-label": "Тип",
 	"workflows-collect-data-form-groupname": "Группа",
 	"workflows-activity-history-vote-result-yes": "Одобрено",
-	"workflows-activity-history-vote-result-no": "Отклонено"
+	"workflows-activity-history-vote-result-no": "Отклонено",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Свойство",
+	"workflows-ui-overview-details-raw-data-popup-value": "Значение"
 }
