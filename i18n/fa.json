@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeeputer"
+		]
+	},
+	"workflows-collect-data-form-instructions": "دستورالعمل",
+	"workflows-activity-history-vote-result-yes": "تأییدشده",
+	"workflows-activity-history-vote-result-no": "برگشت‌خورده",
+	"workflows-ui-overview-details-raw-data-popup-prop": "ویژگی",
+	"workflows-ui-overview-details-raw-data-popup-value": "مقدار",
+	"workflows-ui-overview-details-raw-data-popup-label": "مقدارهای ویژگی"
+}
