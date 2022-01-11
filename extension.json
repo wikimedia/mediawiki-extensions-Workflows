@@ -170,7 +170,8 @@
 				"workflows-ui-starter-action-start",
 				"workflows-ui-starter-action-back",
 				"workflows-ui-starter-action-cancel",
-				"workflows-ui-starter-init-form-fail"
+				"workflows-ui-starter-init-form-fail",
+				"workflows-ui-starter-action-done"
 			]
 		},
 		"ext.workflows.ui.task.complete": {
@@ -209,7 +210,8 @@
 				"workflows-ui-workflow-overview-dialog-title",
 				"workflows-ui-workflow-overview-action-abort",
 				"workflows-ui-workflow-overview-action-restore",
-				"workflows-ui-workflow-overview-action-cancel"
+				"workflows-ui-workflow-overview-action-cancel",
+				"workflows-ui-workflow-overview-action-back"
 			],
 			"dependencies": [
 				"oojs-ui"
