@@ -15,12 +15,12 @@
 		{
 			action: 'choose',
 			label: mw.message( 'workflows-ui-starter-action-choose' ).text(),
-			flags: 'primary', modes: [ 'wfSelection' ]
+			flags: [ 'primary', 'progressive' ], modes: [ 'wfSelection' ]
 		},
 		{
 			action: 'start', disabled: true,
-			label: mw.message( 'workflows-ui-starter-action-start' ).text(),
-			flags: 'primary', modes: [ 'init' ]
+			label: mw.message( 'workflows-ui-starter-action-done' ).text(),
+			flags: [ 'primary', 'progressive' ], modes: [ 'init' ]
 		},
 		{
 			action: 'back', disabled: true,

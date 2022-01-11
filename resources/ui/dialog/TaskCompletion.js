@@ -14,7 +14,7 @@
 		{
 			action: 'complete',
 			label: mw.message( 'workflows-ui-task-completion-action-complete' ).text(),
-			flags: 'primary'
+			flags: [ 'primary', 'progressive' ]
 		},
 		{
 			label: mw.message( 'workflows-ui-task-completion-action-cancel' ).text(),

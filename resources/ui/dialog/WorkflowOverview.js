@@ -25,7 +25,7 @@
 			modes: [ 'running', 'aborted', 'list', 'inactive' ]
 		},
 		{
-			title: mw.message( 'workflows-ui-workflow-overview-action-cancel' ).text(),
+			title: mw.message( 'workflows-ui-workflow-overview-action-back' ).text(),
 			icon: 'previous',
 			action: 'back',
 			flags: 'safe',
