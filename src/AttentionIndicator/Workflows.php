@@ -12,12 +12,9 @@ use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskIntermediateStateChanged;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskLoopCompleted;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
-use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAutoAborted;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Permissions\PermissionManager;
-use MediaWiki\SpecialPage\SpecialPageFactory;
 use User;
 
 class Workflows extends AttentionIndicator {
@@ -33,31 +30,16 @@ class Workflows extends AttentionIndicator {
 	protected $workflowFactory;
 
 	/**
-	 * @var PermissionManager
-	 */
-	protected $permissionManager;
-
-	/**
-	 * @var SpecialPageFactory
-	 */
-	protected $specialPageFactory;
-
-	/**
 	 * @param string $key
 	 * @param Config $config
 	 * @param User $user
 	 * @param WorkflowStateStore $stateStore
 	 * @param WorkflowFactory $workflowFactory
-	 * @param PermissionManager $permissionManager
-	 * @param SpecialPageFactory $specialPageFactory
 	 */
 	public function __construct( string $key, Config $config, User $user,
-		WorkflowStateStore $stateStore, WorkflowFactory $workflowFactory,
-		PermissionManager $permissionManager, SpecialPageFactory $specialPageFactory ) {
+		WorkflowStateStore $stateStore, WorkflowFactory $workflowFactory ) {
 		$this->stateStore = $stateStore;
 		$this->workflowFactory = $workflowFactory;
-		$this->permissionManager = $permissionManager;
-		$this->specialPageFactory = $specialPageFactory;
 		parent::__construct( $key, $config, $user );
 	}
 
@@ -68,34 +50,24 @@ class Workflows extends AttentionIndicator {
 	 * @param MediaWikiServices $services
 	 * @param WorkflowStateStore|null $stateStore
 	 * @param WorkflowFactory|null $workflowFactory
-	 * @param PermissionManager|null $permissionManager
-	 * @param SpecialPageFactory|null $specialPageFactory
 	 * @return IAttentionIndicator
 	 */
 	public static function factory( string $key, Config $config, User $user,
 		MediaWikiServices $services, WorkflowStateStore $stateStore = null,
-		WorkflowFactory $workflowFactory = null, PermissionManager $permissionManager = null,
-		SpecialPageFactory $specialPageFactory = null ) {
+		WorkflowFactory $workflowFactory = null ) {
 		if ( !$stateStore ) {
 			$stateStore = $services->getService( 'WorkflowsStateStore' );
 		}
 		if ( !$workflowFactory ) {
 			$workflowFactory = $services->getService( 'WorkflowFactory' );
 		}
-		if ( !$permissionManager ) {
-			$permissionManager = $services->getPermissionManager();
-		}
-		if ( !$specialPageFactory ) {
-			$specialPageFactory = $services->getSpecialPageFactory();
-		}
+
 		return new static(
 			$key,
 			$config,
 			$user,
 			$stateStore,
-			$workflowFactory,
-			$permissionManager,
-			$specialPageFactory
+			$workflowFactory
 		);
 	}
 
@@ -103,7 +75,7 @@ class Workflows extends AttentionIndicator {
 	 * @return int
 	 */
 	protected function doIndicationCount(): int {
-		return $this->getUserActivityCount() + $this->getAutoAbortedCount();
+		return $this->getUserActivityCount();
 	}
 
 	/**
@@ -146,44 +118,6 @@ class Workflows extends AttentionIndicator {
 		}
 
 		return $activities;
-	}
-
-	/**
-	 * @return int
-	 */
-	private function getAutoAbortedCount(): int {
-		$ids = $this->stateStore->onEvent( WorkflowAutoAborted::class )->query();
-
-		$autoAbortedWorkflows = 0;
-		/** @var AggregateRootId $id */
-		foreach ( $ids as $id ) {
-			try {
-				$workflow = $this->workflowFactory->getWorkflow( $id );
-				$initiator = $workflow->getContext()->getInitiator();
-				if ( !$this->isUserAdmin()
-					&& ( !$initiator || !$this->user->equals( $initiator ) ) ) {
-					continue;
-				}
-				$stateMessage = $workflow->getStateMessage();
-				if ( !is_array( $stateMessage ) ) {
-					continue;
-				}
-				$autoAbortedWorkflows++;
-
-			} catch ( WorkflowExecutionException $ex ) {
-				// TODO: Log
-				continue;
-			}
-		}
-
-		return $autoAbortedWorkflows;
-	}
-
-	/**
-	 * @return bool
-	 */
-	private function isUserAdmin(): bool {
-		return $this->permissionManager->userHasRight( $this->user, 'workflows-admin' );
 	}
 
 }
