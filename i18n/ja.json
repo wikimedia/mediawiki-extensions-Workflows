@@ -4,6 +4,8 @@
 			"MathXplore"
 		]
 	},
+	"workflows-ui-starter-action-done": "完了",
+	"workflows-ui-workflow-overview-action-back": "戻る",
 	"workflows-ui-overview-details-raw-data-popup-prop": "プロパティ",
 	"workflows-ui-overview-details-raw-data-popup-value": "値"
 }
