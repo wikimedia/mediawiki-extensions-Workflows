@@ -5,10 +5,12 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
+	"workflows-ui-starter-action-done": "Готово",
 	"workflows-ui-starter-action-cancel": "Отменить",
 	"workflows-ui-task-completion-action-cancel": "Отмена",
 	"workflows-ui-workflow-overview-action-restore": "Восстановить",
 	"workflows-ui-workflow-overview-action-cancel": "Закрыть",
+	"workflows-ui-workflow-overview-action-back": "Назад",
 	"workflows-ui-overview-details-action-reason": "Причина",
 	"workflows-ui-overview-details-page-context-page": "Страница",
 	"workflows-ui-overview-details-workflow-type-label": "Тип",

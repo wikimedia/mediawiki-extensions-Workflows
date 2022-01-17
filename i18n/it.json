@@ -5,6 +5,7 @@
 			"Beta16"
 		]
 	},
+	"workflows-ui-starter-action-done": "Fatto",
 	"workflows-ui-starter-action-back": "Scegli un altro",
 	"workflows-ui-starter-action-cancel": "Annulla",
 	"workflows-ui-alert-action-complete": "Completa azione",
@@ -13,6 +14,7 @@
 	"workflows-form-placeholder-comment": "Commento",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Vedi dettagli",
 	"workflows-ui-workflow-overview-action-cancel": "Chiudi",
+	"workflows-ui-workflow-overview-action-back": "Indietro",
 	"workflows-ui-overview-details-state-label": "Stato:",
 	"workflows-ui-overview-details-state-column": "Stato",
 	"workflows-ui-overview-details-state-not_started": "Non iniziato",

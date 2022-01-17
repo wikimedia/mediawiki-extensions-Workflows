@@ -5,6 +5,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Ընտրել",
+	"workflows-ui-starter-action-done": "Արված է",
 	"workflows-ui-starter-action-cancel": "Չեղարկել",
 	"workflows-ui-task-completion-action-cancel": "Չեղարկել",
 	"workflows-form-placeholder-comment": "Մեկնաբանություն",
