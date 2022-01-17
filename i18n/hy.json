@@ -17,5 +17,6 @@
 	"workflows-form-instructions-comment": "Մեկնաբանություն",
 	"workflows-ui-overview-details-action-details-column": "դիտել մանրամասները",
 	"workflows-collect-data-form-groupname": "Խումբ",
-	"workflows-activity-history-vote-result-yes": "Հաստատվել է"
+	"workflows-activity-history-vote-result-yes": "Հաստատվել է",
+	"workflows-ui-starter-action-done": "Արված է"
 }

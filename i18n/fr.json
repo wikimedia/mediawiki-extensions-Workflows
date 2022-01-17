@@ -157,5 +157,7 @@
 	"workflows-activity-history-vote-result-no": "Refusé",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Propriété",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valeur",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs de la propriété"
+	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs de la propriété",
+	"workflows-ui-starter-action-done": "Terminé",
+	"workflows-ui-workflow-overview-action-back": "Retour"
 }

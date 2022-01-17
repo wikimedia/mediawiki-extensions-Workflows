@@ -56,5 +56,7 @@
 	"workflows-activity-history-vote-result-no": "Hylätty",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Ominaisuus",
 	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
-	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot"
+	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
+	"workflows-ui-starter-action-done": "Valmis",
+	"workflows-ui-workflow-overview-action-back": "Takaisin"
 }

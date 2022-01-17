@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mschlindwein",
-			"Umlaut",
-			"Talex42"
+			"Talex42",
+			"Umlaut"
 		]
 	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
@@ -29,7 +29,7 @@
 	"log-description-ext-workflows": "Dieses Log enthält sämtliche Informationen aus abgelaufenen Aktivitäten der [[mw:Extension:Workflows]]",
 	"logentry-ext-workflows-uservote-yes": "Benutzerabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'ja'",
 	"logentry-ext-workflows-uservote-no": "Benutzerabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
-	"logentry-ext-workflows-uservote-delegate": "Benutzerabstimmung: $1 {{GENDER:$2|übertrug seine}} Stimme für Seite $3 an [[User:$4|$4]]",
+	"logentry-ext-workflows-uservote-delegate": "Benutzerabstimmung: $1 {{GENDER:$2|übertrug seine|übertrug ihre|übertrug seine}} Stimme für Seite $3 an [[User:$4|$4]]",
 	"logentry-ext-workflows-sendmail-send": "Mail senden: Mail mit Betreff '$4' senden",
 	"logentry-ext-workflows-groupvote-yes": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'ja'",
 	"logentry-ext-workflows-groupvote-no": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
@@ -155,5 +155,9 @@
 	"workflows-collect-data-form-username": "Benutzer",
 	"workflows-collect-data-form-reportrecipient": "Bericht senden an (gültige E-Mail oder Benutzername)",
 	"workflows-notification-feedback-task-assign-web-body": "Erstellt von: \"$3\", Anweisung: \"$4\"",
-	"workflows-activity-history-vote-result-yes": "Genehmigt"
+	"workflows-activity-history-vote-result-yes": "Genehmigt",
+	"workflows-activity-history-vote-result-no": "Abgelehnt",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Eigenschaft",
+	"workflows-ui-overview-details-raw-data-popup-value": "Wert",
+	"workflows-ui-overview-details-raw-data-popup-label": "Eigenschaftswerte"
 }

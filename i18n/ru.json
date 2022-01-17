@@ -16,5 +16,7 @@
 	"workflows-activity-history-vote-result-yes": "Одобрено",
 	"workflows-activity-history-vote-result-no": "Отклонено",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Свойство",
-	"workflows-ui-overview-details-raw-data-popup-value": "Значение"
+	"workflows-ui-overview-details-raw-data-popup-value": "Значение",
+	"workflows-ui-starter-action-done": "Готово",
+	"workflows-ui-workflow-overview-action-back": "Назад"
 }

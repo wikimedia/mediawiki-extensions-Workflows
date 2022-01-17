@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"GraceL",
 			"GuoPC",
 			"Interestinghe",
 			"Stang"
@@ -17,5 +18,7 @@
 	"workflows-ui-overview-details-state-not_started": "未开始",
 	"workflows-ui-overview-details-action-abort-note": "放弃一个工作流将立即停止所有在进行的任务。你确定你想放弃这个工作流吗？",
 	"workflows-ui-overview-details-page-context-page": "页面",
-	"workflows-collect-data-form-instructions": "说明"
+	"workflows-collect-data-form-instructions": "说明",
+	"workflows-ui-starter-action-done": "完成",
+	"workflows-ui-workflow-overview-action-back": "返回"
 }
