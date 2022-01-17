@@ -4,6 +4,8 @@
 			"Jon Harald Søby"
 		]
 	},
+	"workflows-ui-starter-action-done": "Ferdig",
+	"workflows-ui-workflow-overview-action-back": "Tilbake",
 	"workflows-activity-history-vote-result-yes": "Godkjent",
 	"workflows-activity-history-vote-result-no": "Avvist"
 }
