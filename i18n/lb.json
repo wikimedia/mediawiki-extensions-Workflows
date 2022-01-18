@@ -5,6 +5,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Eraussichen",
+	"workflows-ui-starter-action-done": "Fäerdeg",
 	"workflows-ui-starter-action-cancel": "Ofbriechen",
 	"workflows-ui-alert-action-complete": "Aktioun ofschléissen",
 	"workflows-ui-task-completion-action-cancel": "Ofbriechen",
@@ -15,6 +16,7 @@
 	"workflows-ui-workflow-overview-action-abort": "Ofbriechen",
 	"workflows-ui-workflow-overview-action-restore": "Restauréieren",
 	"workflows-ui-workflow-overview-action-cancel": "Zoumaachen",
+	"workflows-ui-workflow-overview-action-back": "Zréck",
 	"workflows-ui-overview-details-start-time": "ugefaangen den: $1",
 	"workflows-ui-overview-details-start-time-column": "Ugefaangen den",
 	"workflows-ui-overview-details-last-time": "Lescht Aktivitéit den: $1",
