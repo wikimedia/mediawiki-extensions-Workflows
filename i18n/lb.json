@@ -38,5 +38,7 @@
 	"workflows-ui-overview-details-initiator": "Ugefaange vum",
 	"workflows-property-validator-required-error": "Wäert ass obligatoresch",
 	"workflows-collect-data-form-instructions": "Instruktiounen",
-	"workflows-ui-overview-details-raw-data-popup-value": "Wäert"
+	"workflows-ui-overview-details-raw-data-popup-value": "Wäert",
+	"workflows-ui-starter-action-done": "Fäerdeg",
+	"workflows-ui-workflow-overview-action-back": "Zréck"
 }
