@@ -5,18 +5,19 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Ընտրել",
+	"workflows-ui-starter-action-done": "Արված է",
 	"workflows-ui-starter-action-cancel": "Չեղարկել",
 	"workflows-ui-task-completion-action-cancel": "Չեղարկել",
 	"workflows-form-placeholder-comment": "Մեկնաբանություն",
 	"workflows-form-label-vote-widget-approve": "Հաստատել",
 	"workflows-ui-workflow-overview-action-restore": "Վերականգնել",
 	"workflows-ui-workflow-overview-action-cancel": "Փակել",
+	"workflows-ui-workflow-overview-action-back": "Հետ",
 	"workflows-ui-overview-details-action-reason": "Պատճառ",
 	"workflows-ui-overview-details-page-context-page": "Էջ",
 	"workflows-ui-overview-grid-filter-state-all": "Բոլորը",
 	"workflows-form-instructions-comment": "Մեկնաբանություն",
 	"workflows-ui-overview-details-action-details-column": "դիտել մանրամասները",
 	"workflows-collect-data-form-groupname": "Խումբ",
-	"workflows-activity-history-vote-result-yes": "Հաստատվել է",
-	"workflows-ui-starter-action-done": "Արված է"
+	"workflows-activity-history-vote-result-yes": "Հաստատվել է"
 }
