@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"HumansCanWinElves"
+			"HumansCanWinElves",
+			"YaronSh"
 		]
 	},
+	"workflows-ui-starter-action-done": "בוצע",
 	"workflows-ui-starter-action-cancel": "ביטול",
 	"workflows-ui-alert-action-complete": "השלמת הפעולה",
 	"workflows-ui-task-completion-dialog-title": "השלמת פעילות",
@@ -20,6 +22,7 @@
 	"workflows-notification-task-assign-email-body": "אנא {{GENDER:|בקר|בקרי|בקרו}} בדף זה כדי להשלים את המשימה \"$1\" ש{{GENDER:|שוייכת|שוייכת|שוייכתם}} אליה",
 	"workflows-ui-workflow-overview-action-restore": "שחזור",
 	"workflows-ui-workflow-overview-action-cancel": "סגירה",
+	"workflows-ui-workflow-overview-action-back": "חזרה",
 	"workflows-ui-overview-details-start-time": "הותחל ב־$1",
 	"workflows-ui-overview-details-start-time-column": "הותחל ב־",
 	"workflows-ui-overview-details-last-time": "פעילות אחרונה ב־$1",
@@ -42,5 +45,9 @@
 	"workflows-form-instructions-comment": "הערה",
 	"workflows-error-generic": "אירעה שגיאה",
 	"workflows-uto-body-field-instructions": "הנחיות: $1",
-	"workflows-ui-overview-details-initiator": "נפתח על־ידי"
+	"workflows-ui-overview-details-initiator": "נפתח על־ידי",
+	"workflows-collect-data-form-instructions": "הוראות",
+	"workflows-ui-overview-details-raw-data-popup-prop": "מאפיין",
+	"workflows-ui-overview-details-raw-data-popup-value": "ערך",
+	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים"
 }
