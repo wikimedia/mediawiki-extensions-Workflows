@@ -34,6 +34,7 @@
 	"logentry-ext-workflows-groupvote-yes": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'ja'",
 	"logentry-ext-workflows-groupvote-no": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
 	"logentry-ext-workflows-userfeedback": "Benutzer $1 {{GENDER: $2| hat }} Feedback auf der Seite $3 gegeben",
+	"logentry-ext-workflows-groupfeedback": "Gruppenfeedback: Benutzer $1 {{GENDER:$2|hat}} Feedback auf der Seite $3 gegeben:",
 	"workflows-ui-alert-action-complete": "Aktion ausführen",
 	"workflows-ui-alert-running-workflow-user-task": "Ein Workflow läuft auf dieser Seite. Aktion erforderlich",
 	"workflows-ui-alert-running-workflow": "Workflow $1 läuft auf dieser Seite",

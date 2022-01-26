@@ -27,6 +27,7 @@
 	"logentry-ext-workflows-groupvote-yes": "Group vote: $1 {{GENDER:$2|voted}} 'yes' on page $3",
 	"logentry-ext-workflows-groupvote-no": "Group vote: $1 {{GENDER:$2|voted}} 'no' on page $3",
 	"logentry-ext-workflows-userfeedback": "User $1 {{GENDER:$2|gave feedback}} on page $3",
+	"logentry-ext-workflows-groupfeedback": "Group feedback: User $1 {{GENDER:$2|gave}} feedback on page $3:",
 	"workflows-ui-alert-action-complete": "Complete action",
 	"workflows-ui-alert-running-workflow-user-task": "Workflow is running on this page. Action is required",
 	"workflows-ui-alert-running-workflow": "$1 workflow is running on this page",
