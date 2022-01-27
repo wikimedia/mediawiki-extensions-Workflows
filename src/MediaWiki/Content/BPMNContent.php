@@ -27,7 +27,7 @@ class BPMNContent extends TextContent {
 						$output->setText(
 							Article::getRedirectHeaderHtml( $title->getPageLanguage(), $chain, false )
 						);
-						$output->addModuleStyles( 'mediawiki.action.view.redirectPage' );
+						$output->addModuleStyles( [ 'mediawiki.action.view.redirectPage' ] );
 					}
 				}
 			}
