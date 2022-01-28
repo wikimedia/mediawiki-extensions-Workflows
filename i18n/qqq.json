@@ -33,6 +33,7 @@
 	"logentry-ext-workflows-groupvote-yes": "Entry on [[Special:Log]]",
 	"logentry-ext-workflows-groupvote-no": "Entry on [[Special:Log]]",
 	"logentry-ext-workflows-userfeedback": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-groupfeedback": "Entry on [[Special:Log]] for group feedback",
 	"workflows-ui-alert-action-complete": "Label for button that completes an action.\n{{Identical|Complete action}}",
 	"workflows-ui-alert-running-workflow-user-task": "Alert message that there is a workflow running on the current page and an action from the user is required.",
 	"workflows-ui-alert-running-workflow": "Alert message that there is a workflow running on the current page.\n*$1 - Type of workflow that is running on the current page",
