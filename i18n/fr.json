@@ -3,7 +3,8 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Gomoko",
-			"Paraboule"
+			"Paraboule",
+			"Verdy p"
 		]
 	},
 	"workflows-desc": "Permet de définir et d’exécuter différents processus sur le wiki",
@@ -159,5 +160,6 @@
 	"workflows-ui-overview-details-raw-data-popup-value": "Valeur",
 	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs de la propriété",
 	"workflows-ui-starter-action-done": "Terminé",
-	"workflows-ui-workflow-overview-action-back": "Retour"
+	"workflows-ui-workflow-overview-action-back": "Retour",
+	"logentry-ext-workflows-groupfeedback": "Avis du groupe : l’utilisat{{GENDER:$2|eur|rire}} $1 a donné un avis sur la page $3 :"
 }

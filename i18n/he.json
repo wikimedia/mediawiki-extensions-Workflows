@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"HumansCanWinElves",
-			"YaronSh"
+			"YaronSh",
+			"מקף"
 		]
 	},
 	"workflows-ui-starter-action-done": "בוצע",
@@ -49,5 +50,6 @@
 	"workflows-collect-data-form-instructions": "הוראות",
 	"workflows-ui-overview-details-raw-data-popup-prop": "מאפיין",
 	"workflows-ui-overview-details-raw-data-popup-value": "ערך",
-	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים"
+	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים",
+	"logentry-ext-workflows-groupfeedback": "משוב קבוצתי: המשתמש $1 {{GENDER:$2|נתן|נתנה}} משוב בעמוד $3:"
 }

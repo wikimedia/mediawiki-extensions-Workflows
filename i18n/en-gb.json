@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ohvet"
+			"Ohvet",
+			"Valentine Badu"
 		]
 	},
 	"workflows-ui-starter-action-done": "Mawie",
-	"workflows-ui-workflow-overview-action-back": "Sane kɔ akyire"
+	"workflows-ui-workflow-overview-action-back": "Sane kɔ akyire",
+	"logentry-ext-workflows-groupfeedback": "Ɛkuo adwenkyerɛ: User $1 {{GENDER:$2|gave}} adwenkyereɛ wɔ krataafa $3:"
 }
