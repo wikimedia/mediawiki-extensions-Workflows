@@ -3,7 +3,8 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Gomoko",
-			"Paraboule"
+			"Paraboule",
+			"Verdy p"
 		]
 	},
 	"workflows-desc": "Permet de définir et d’exécuter différents processus sur le wiki",
@@ -34,6 +35,7 @@
 	"logentry-ext-workflows-groupvote-yes": "Vote de groupe : $1 {{GENDER:$2|a voté}} 'oui' sur la page $3",
 	"logentry-ext-workflows-groupvote-no": "Vote de groupe : $1 {{GENDER:$2|a voté}} 'non' sur la page $3",
 	"logentry-ext-workflows-userfeedback": "L’utilisateur $1 {{GENDER:$2|a donné un avis}} sur la page $3",
+	"logentry-ext-workflows-groupfeedback": "Avis du groupe : l’utilisat{{GENDER:$2|eur|rire}} $1 a donné un avis sur la page $3 :",
 	"workflows-ui-alert-action-complete": "Terminer l’action",
 	"workflows-ui-alert-running-workflow-user-task": "Le processus est en cours sur cette page. Une action est nécessaire",
 	"workflows-ui-alert-running-workflow": "Le processus $1 tourne sur cette page",

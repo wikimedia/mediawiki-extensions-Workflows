@@ -3,11 +3,13 @@
 		"authors": [
 			"Amire80",
 			"HumansCanWinElves",
-			"YaronSh"
+			"YaronSh",
+			"מקף"
 		]
 	},
 	"workflows-ui-starter-action-done": "בוצע",
 	"workflows-ui-starter-action-cancel": "ביטול",
+	"logentry-ext-workflows-groupfeedback": "משוב קבוצתי: המשתמש $1 {{GENDER:$2|נתן|נתנה}} משוב בעמוד $3:",
 	"workflows-ui-alert-action-complete": "השלמת הפעולה",
 	"workflows-ui-task-completion-dialog-title": "השלמת פעילות",
 	"workflows-ui-task-completion-action-complete": "שליחה",
