@@ -15,6 +15,7 @@
 	"workflows-ui-workflow-overview-action-cancel": "Chiudi",
 	"workflows-ui-overview-details-state-label": "Statu:",
 	"workflows-ui-overview-details-state-column": "Statu",
+	"workflows-ui-overview-details-state-running": "Attivu",
 	"workflows-ui-overview-details-state-aborted": "Annullatu",
 	"workflows-ui-overview-details-action-reason": "Mutivu",
 	"workflows-ui-overview-details-page-context-page": "Pàggina",
