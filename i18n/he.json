@@ -9,7 +9,7 @@
 	},
 	"workflows-ui-starter-action-done": "בוצע",
 	"workflows-ui-starter-action-cancel": "ביטול",
-	"logentry-ext-workflows-groupfeedback": "משוב קבוצתי: המשתמש $1 {{GENDER:$2|נתן|נתנה}} משוב בעמוד $3:",
+	"logentry-ext-workflows-groupfeedback": "משוב קבוצתי: {{GENDER:$2|המשתמש $1 נתן|המשתמשת $1 נתנה}} משוב בעמוד $3:",
 	"workflows-ui-alert-action-complete": "השלמת הפעולה",
 	"workflows-ui-task-completion-dialog-title": "השלמת פעילות",
 	"workflows-ui-task-completion-action-complete": "שליחה",
