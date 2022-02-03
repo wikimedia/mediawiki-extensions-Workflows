@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Robin van der Vliet"
 		]
 	},
 	"workflows-ui-starter-action-cancel": "Annuleren",
@@ -13,6 +14,7 @@
 	"workflows-ui-alert-activity-edit-request-complete-button": "Details bekijken",
 	"workflows-ui-workflow-overview-action-abort": "Afbreken",
 	"workflows-ui-workflow-overview-action-cancel": "Sluiten",
+	"workflows-ui-workflow-overview-action-back": "Terug",
 	"workflows-ui-overview-details-state-running": "Actief",
 	"workflows-ui-overview-details-state-finished": "Voltooid",
 	"workflows-ui-overview-details-state-aborted": "Geannuleerd",
