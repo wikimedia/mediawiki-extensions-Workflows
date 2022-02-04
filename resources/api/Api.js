@@ -30,6 +30,11 @@
 		return this.ajax( path, JSON.stringify( { data: params } ), 'POST' );
 	};
 
+	workflows.api.Api.prototype.put = function( path, params ) {
+		params = params || {};
+		return this.ajax( path, JSON.stringify( { data: params } ), 'PUT' );
+	};
+
 	workflows.api.Api.prototype.delete = function( path, params ) {
 		params = params || {};
 		return this.ajax( path, JSON.stringify( { data: params } ), 'DELETE' );
@@ -47,6 +52,10 @@
 			contentType: "application/json",
 			dataType: 'json'
 		} ).done( function( response ) {
+			if ( response.success === false ) {
+				dfd.reject();
+				return;
+			}
 			dfd.resolve( response );
 		} ).fail( function( jgXHR, type, status ) {
 			if ( type === 'error' ) {
@@ -89,5 +98,18 @@
 
 	workflows.api.Api.prototype.restore = function ( id, reason ) {
 		return this.post( 'restore/{0}'.format( id ), { reason: reason } );
+	};
+
+	workflows.api.Api.prototype.getTriggers = function ( key ) {
+		key = key || '*';
+		return this.get( 'triggers/{0}'.format( key ) );
+	};
+
+	workflows.api.Api.prototype.persistTriggers = function ( data ) {
+		return this.put( 'triggers', data );
+	};
+
+	workflows.api.Api.prototype.deleteTrigger = function ( key ) {
+		return this.delete( 'triggers/{0}'.format( key ) );
 	};
 } )( mediaWiki, jQuery );

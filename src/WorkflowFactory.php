@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows;
 
 use EventSauce\EventSourcing\AggregateRootId;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
+use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 
@@ -47,6 +48,11 @@ class WorkflowFactory {
 	 */
 	public function newEmpty( $definition, $definitionRepositoryKey ): Workflow {
 		$repo = $this->defintionRepositoryFactory->getRepository( $definitionRepositoryKey );
+		if ( !( $repo instanceof IDefinitionRepository ) ) {
+			throw new \InvalidArgumentException(
+				"Definition repository {$definitionRepositoryKey} not found"
+			);
+		}
 		return Workflow::newEmpty( $definition, $repo );
 	}
 

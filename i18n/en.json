@@ -43,8 +43,6 @@
 	"workflows-group-vote-group-empty": "Group name to vote is not specified",
 	"workflows-group-vote-group-no-users": "Specified group has no users to vote",
 	"workflows-group-vote-target-title-invalid": "Activity target title is invalid or not specified",
-	"workflows-group-vote-owner-invalid": "Activity owner is invalid or not specified",
-	"workflows-group-vote-actor-invalid": "Activity actor is invalid or not specified",
 	"workflows-group-vote-action-invalid": "Action is invalid or not specified",
 	"workflows-user-vote-target-title-invalid": "Activity target title is invalid or not specified",
 	"workflows-user-vote-owner-invalid": "Activity owner is invalid or not specified",

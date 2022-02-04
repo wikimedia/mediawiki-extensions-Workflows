@@ -8,6 +8,7 @@ use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\Feedbac
 use MediaWiki\Extension\Workflows\ActivityDescriptor\GroupFeedbackDescriptor;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
+use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
@@ -16,6 +17,7 @@ use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
+use User;
 
 class GroupFeedbackActivity extends GenericFeedbackActivity {
 
@@ -139,6 +141,9 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$this->setPrimaryData( $data, $context );
 		$this->setSecondaryData( $data, $context );
+		if ( !$this->actor instanceof User ) {
+			throw new WorkflowExecutionException( 'workflows-user-vote-actor-invalid' );
+		}
 
 		$feedback = $data['comment'] ?? '';
 

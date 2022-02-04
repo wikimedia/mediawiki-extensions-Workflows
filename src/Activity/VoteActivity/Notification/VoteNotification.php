@@ -22,14 +22,16 @@ abstract class VoteNotification extends BaseNotification {
 	 * @param string $key
 	 * @param User $agent Agent of notification
 	 * @param Title $title Target page title object
-	 * @param User $owner User to receive notification
+	 * @param User|null $owner User to receive notification
 	 * @param string $activity
 	 * @param string $comment Additional comment
 	 */
 	public function __construct( $key, $agent, $title, $owner, $activity, $comment ) {
 		parent::__construct( $key, $agent, $title );
 
-		$this->addAffectedUsers( [ $owner ] );
+		if ( $owner instanceof User ) {
+			$this->addAffectedUsers( [ $owner ] );
+		}
 		$this->owner = $owner;
 		$this->comment = $comment;
 		$this->activity = $activity;

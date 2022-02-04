@@ -12,7 +12,7 @@ class VoteDelegate extends VoteNotification {
 	/**
 	 * @param User $agent Agent of notification
 	 * @param Title $title Target page title object
-	 * @param User $owner User to receive notification
+	 * @param User|null $owner User to receive notification
 	 * @param string $activity
 	 * @param string $comment Additional comment
 	 * @param User $delegateTo
@@ -22,10 +22,12 @@ class VoteDelegate extends VoteNotification {
 		$this->delegateTo = $delegateTo;
 
 		$this->addAffectedUsers( [ $this->delegateTo ] );
-		// Do not send this to owner
-		$key = array_search( $owner->getId(), $this->audience );
-		if ( $key !== false ) {
-			unset( $this->audience[$key] );
+		if ( $owner instanceof User ) {
+			// Do not send this to owner
+			$key = array_search( $owner->getId(), $this->audience );
+			if ( $key !== false ) {
+				unset( $this->audience[$key] );
+			}
 		}
 	}
 
@@ -34,7 +36,17 @@ class VoteDelegate extends VoteNotification {
 	 */
 	public function getParams() {
 		return parent::getParams() + [
-			'delegated-from' => $this->owner->getRealName() ?? $this->owner->getName(),
+			'delegated-from' => $this->getDelegatedFromLabel(),
 		];
+	}
+
+	/**
+	 * @return string
+	 */
+	private function getDelegatedFromLabel() {
+		if ( $this->owner instanceof User ) {
+			return $this->owner->getRealName() ?? $this->owner->getName();
+		}
+		return '-';
 	}
 }

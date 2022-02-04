@@ -6,7 +6,6 @@ use Exception;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\RevisionStore;
 use Title;
 use Wikimedia\Rdbms\ILoadBalancer;
@@ -22,13 +21,6 @@ class WikiPageDefinitionRepository implements IDefinitionRepository {
 	private $workflows = [];
 	/** @var bool */
 	private $loaded = false;
-
-	public static function factory( MediaWikiServices $services ) {
-		return new static(
-			$services->getDBLoadBalancer(),
-			$services->getRevisionStore()
-		);
-	}
 
 	/**
 	 * @param ILoadBalancer $lb

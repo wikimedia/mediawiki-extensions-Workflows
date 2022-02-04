@@ -4,6 +4,7 @@
 		cfg.$overlay = true;
 		this.repos = cfg.repos || [];
 		workflows.ui.WorkflowPickerWidget.parent.call( this, cfg );
+		this.allowed = mw.config.get( 'workflowsAllowed' ) || [];
 
 		this.loadOptions();
 	};
@@ -22,6 +23,9 @@
 				}
 				definitions = types[repo].definitions;
 				for ( i = 0; i < definitions.length; i++ ) {
+					if ( !this.isAllowed( repo, definitions[i].key ) ) {
+						continue;
+					}
 					var option = new OO.ui.MenuOptionWidget( {
 						data: {
 							workflow: {
@@ -48,4 +52,15 @@
 		}.bind( this ) );
 	};
 
+	workflows.ui.WorkflowPickerWidget.prototype.isAllowed = function( repo, definition ) {
+		for ( var i = 0; i < this.allowed.length; i ++ ) {
+			if ( !this.allowed[i].hasOwnProperty( 'repo' ) || !this.allowed[i].hasOwnProperty( 'definition' ) ) {
+				continue;
+			}
+			if ( this.allowed[i].repo === repo && this.allowed[i].definition === definition ) {
+				return true;
+			}
+		}
+		return false;
+	};
 } )( mediaWiki, jQuery, workflows );

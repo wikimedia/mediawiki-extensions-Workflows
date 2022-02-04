@@ -20,7 +20,7 @@ return [
 		$registry = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsDefinitionRepositories' );
 		return new DefinitionRepositoryFactory(
 			$registry,
-			$services
+			$services->getObjectFactory()
 		);
 	},
 
@@ -82,6 +82,25 @@ return [
 
 	'WorkflowSerializer' => static function ( MediaWikiServices $services ) {
 		return new WorkflowSerializer( $services->getService( 'WorkflowEventRepository' ) );
+	},
+
+	'WorkflowTriggerRepo' => static function ( MediaWikiServices $services ) {
+		$registry = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsTriggerTypes' );
+
+		return new \MediaWiki\Extension\Workflows\TriggerRepo(
+			$services->getService( 'WorkflowFactory' ),
+			$services->getTitleFactory(),
+			$services->getService( 'WorkflowLogger' ),
+			$services->getObjectFactory(),
+			'Mediawiki:WorkflowTriggers.json',
+			$registry
+		);
+	},
+	'WorkflowTriggerRunner' => static function ( MediaWikiServices $services ) {
+		return new \MediaWiki\Extension\Workflows\TriggerRunner(
+			$services->getService( 'WorkflowTriggerRepo' ),
+			$services->getService( 'WorkflowLogger' )
+		);
 	},
 
 	'PropertyValidatorFactory' => static function ( MediaWikiServices $services ) {

@@ -1,0 +1,37 @@
+{
+	"start-approval-on-edit": {
+		"type": "edit",
+		"active": true,
+		"definition": "user-approval",
+		"repository": "workflow-file",
+		"initData": {
+			"username": "Dummy user",
+			"instructions": "Do this thing!"
+		},
+		"rules": {
+			"include": {
+				"namespace": [
+					0,
+					12
+				]
+			},
+			"exclude": {
+				"category": [
+					"Test"
+				],
+				"editType": "minor"
+			}
+		}
+	},
+	"inactive-trigger": {
+		"type": "edit",
+		"active": false,
+		"definition": "dummy",
+		"repository": "dummy",
+		"rules": {
+			"exclude": {
+				"editType": "minor"
+			}
+		}
+	}
+}

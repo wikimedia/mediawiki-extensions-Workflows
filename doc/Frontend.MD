@@ -89,3 +89,20 @@ In case it's a user task, retrieving its form will return form in view mode.
 	} catch( e ) {
 		console.log( e );
 	}
+
+## Triggers API
+
+All trigger API endopoints are located in object `workflows.triggers`;
+
+- `getAll()` retrieve all trigger data
+- `get( key )` Retrieve only details of one trigger
+- `persist(triggers)` Save triggers. This data will replace all trigger data previously saved
+- `delete(key)` Delete particular trigger
+
+Example on how to read, and persist modified trigger data
+
+	workflows.triggers.getAll().done( function( triggers ) {
+		// Modify/add/delete triggers
+		triggers['in-main']['active'] = true;
+		workflows.triggers.persist( triggers );
+	} );

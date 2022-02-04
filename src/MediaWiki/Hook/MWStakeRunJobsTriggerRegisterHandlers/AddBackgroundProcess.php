@@ -16,7 +16,7 @@ class AddBackgroundProcess {
 			'class' => ProcessWorkflows::class,
 			'services' => [
 				'WorkflowEventRepository', 'DefinitionRepositoryFactory',
-				'MWStakeNotificationsNotifier'
+				'MWStakeNotificationsNotifier', 'WorkflowTriggerRunner'
 			]
 		];
 
