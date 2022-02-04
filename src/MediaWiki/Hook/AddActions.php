@@ -4,7 +4,10 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
+use MediaWiki\Extension\Workflows\Trigger\Manual;
+use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 
 class AddActions implements SkinTemplateNavigation__UniversalHook {
@@ -32,12 +35,24 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 		if ( !$title->exists() || $title->isSpecialPage() || !$title->isContentPage() ) {
 			return;
 		}
-		$links['actions']['wf_start'] = [
-			'text' => $sktemplate->getContext()->msg( "workflows-ui-action-start" )->text(),
-			'href' => '#',
-			'class' => false,
-			'id' => 'ca-wf-start',
-			'position' => 10,
-		];
+
+		/** @var TriggerRepo $triggerRepo */
+		$triggerRepo = MediaWikiServices::getInstance()->getService( 'WorkflowTriggerRepo' );
+		$triggers = $triggerRepo->getActive( 'manual' );
+		/** @var Manual $trigger */
+		foreach ( $triggers as $trigger ) {
+			$trigger->setTitle( $title );
+			if ( $trigger->shouldTrigger() ) {
+				$sktemplate->getOutput()->addJsConfigVars( 'workflowsAllowed', $trigger->getAttributes() );
+				$links['actions']['wf_start'] = [
+					'text' => $sktemplate->getContext()->msg( "workflows-ui-action-start" )->text(),
+					'href' => '#',
+					'class' => false,
+					'id' => 'ca-wf-start',
+					'position' => 10,
+				];
+				return;
+			}
+		}
 	}
 }

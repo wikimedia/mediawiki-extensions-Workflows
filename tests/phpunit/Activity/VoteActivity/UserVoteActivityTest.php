@@ -257,39 +257,4 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$activity->start( [], $this->workflowContext );
 	}
-
-	/**
-	 * Case with non-existing owner specified
-	 *
-	 * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\UserVoteActivity::start()
-	 */
-	public function testInvalidOwner() {
-		$this->expectExceptionMessage( Message::newFromKey( 'workflows-user-vote-owner-invalid' )->text() );
-
-		$this->setData();
-
-		$this->owner = User::newFromName( 'Non-existing user' );
-
-		$activity = $this->prepareActivity();
-
-		$activity->start( [], $this->workflowContext );
-	}
-
-	/**
-	 * Case with non-existing actor specified
-	 *
-	 * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\UserVoteActivity::start()
-	 */
-	public function testInvalidActor() {
-		$this->expectExceptionMessage( Message::newFromKey( 'workflows-user-vote-actor-invalid' )->text() );
-
-		$this->setData();
-
-		$this->actor = null;
-
-		$activity = $this->prepareActivity();
-
-		$activity->start( [], $this->workflowContext );
-	}
-
 }

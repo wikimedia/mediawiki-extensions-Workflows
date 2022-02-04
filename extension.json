@@ -70,8 +70,14 @@
 				"DecisionRegistry": {}
 			},
 			"DefinitionRepositories": {
-				"wikipage": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WikiPageDefinitionRepository::factory",
-				"workflow-file": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WorkflowFileDefinitionRepository::factory"
+				"wikipage": {
+					"class": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WikiPageDefinitionRepository",
+					"services": [ "DBLoadBalancer", "RevisionStore" ]
+				},
+				"workflow-file": {
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Definition\\Repository\\WorkflowFileDefinitionRepository::factory",
+					"services": [ "MainConfig", "HookContainer" ]
+				}
 			},
 			"WorkflowListeners": {},
 			"WorkflowDefinitions": {
@@ -97,6 +103,24 @@
 				"email-recipient": {
 					"class": "\\MediaWiki\\Extension\\Workflows\\PropertyValidator\\EmailRecipient",
 					"services": [ "UserFactory" ]
+				}
+			},
+			"TriggerTypes": {
+				"edit": {
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory"
+				},
+				"create": {
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory"
+				},
+				"move": {
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory"
+				},
+				"manual": {
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\Manual::factory"
+				},
+				"since-last-major": {
+					"class": "\\MediaWiki\\Extension\\Workflows\\Trigger\\SinceLastMajor",
+					"services": [ "DBLoadBalancer", "TitleFactory" ]
 				}
 			}
 		},
@@ -395,7 +419,9 @@
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
 		"ArticleDeleteComplete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
-		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage"
+		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
+		"PageSaveComplete": "triggerWorkflows",
+		"PageMoveComplete": "triggerWorkflows"
 	},
 	"HookHandlers": {
 		"addTables": {
@@ -426,6 +452,10 @@
 		},
 		"common-user-interface": {
 			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\CommonUserInterface"
+		},
+		"triggerWorkflows": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\TriggerWorkflows",
+			"services": [ "WorkflowTriggerRunner" ]
 		}
 	},
 	"ContentHandlers": {
@@ -514,6 +544,30 @@
 			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DefinitionListHandler",
 			"services": [
 				"DefinitionRepositoryFactory"
+			]
+		},
+		{
+			"path": "/workflow/triggers/{key}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveTriggersHandler",
+			"services": [
+				"WorkflowTriggerRepo"
+			]
+		},
+		{
+			"path": "/workflow/triggers/{key}",
+			"method": "DELETE",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DeleteTriggerHandler",
+			"services": [
+				"WorkflowTriggerRepo"
+			]
+		},
+		{
+			"path": "/workflow/triggers",
+			"method": "PUT",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\PersistTriggersHandler",
+			"services": [
+				"WorkflowTriggerRepo"
 			]
 		}
 	],

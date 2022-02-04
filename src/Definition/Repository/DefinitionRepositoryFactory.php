@@ -8,25 +8,33 @@ use Wikimedia\ObjectFactory;
 class DefinitionRepositoryFactory {
 	/** @var array */
 	private $registry;
-	/** @var MediaWikiServices */
-	private $services;
+	/** @var ObjectFactory */
+	private $objectFactory;
 
-	public function __construct( array $registry, MediaWikiServices $services ) {
+	public function __construct( array $registry, ObjectFactory $objectFactory ) {
 		$this->registry = $registry;
-		$this->services = $services;
+		$this->objectFactory = $objectFactory;
 	}
 
 	public function getRepository( $name, $params = [] ) {
+		// TEMP: If we use OF instance that was injected, it will report "Container disabled!"
+		// when it tries to inject services into objects it creates, dont really know why
+		$this->objectFactory = MediaWikiServices::getInstance()->getObjectFactory();
+
 		if ( isset( $this->registry[$name] ) ) {
-			$callback = $this->registry[$name];
-			if ( is_callable( $callback ) ) {
-				$instance = ObjectFactory::getObjectFromSpec( [
-					'factory' => $callback,
-					'args' => array_merge( [ $this->services ], $params )
+			$spec = $this->registry[$name];
+			if ( is_callable( $spec ) ) {
+				$instance = $this->objectFactory->createObject( [
+					'factory' => $spec,
+					'args' => $params
 				] );
-				if ( $instance instanceof IDefinitionRepository ) {
-					return $instance;
-				}
+			} else {
+				$spec['args'] = $params;
+				$instance = $this->objectFactory->createObject( $spec );
+			}
+
+			if ( $instance instanceof IDefinitionRepository ) {
+				return $instance;
 			}
 		}
 

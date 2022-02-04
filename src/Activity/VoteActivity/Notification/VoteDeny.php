@@ -9,7 +9,7 @@ class VoteDeny extends VoteNotification {
 	/**
 	 * @param User $agent Agent of notification
 	 * @param Title $title Target page title object
-	 * @param User $owner User to receive notification
+	 * @param User|null $owner User to receive notification
 	 * @param string $activity
 	 * @param string $comment Additional comment
 	 */

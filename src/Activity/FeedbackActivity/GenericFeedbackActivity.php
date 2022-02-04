@@ -116,23 +116,9 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-target-title-invalid';
 		}
 
-		$owner = $context->getInitiator();
-		if ( $owner instanceof User && $owner->getId() ) {
-			$this->owner = $owner;
-		} else {
-			// workflows-group-vote-owner-invalid
-			// workflows-user-vote-owner-invalid
-			$errorMessages[] = 'workflows-' . $this->activityKey . '-owner-invalid';
-		}
+		$this->owner = $context->getInitiator();
 
-		$actor = $context->getCurrentActor();
-		if ( $actor instanceof User && $actor->getId() ) {
-			$this->actor = $actor;
-		} else {
-			// workflows-group-vote-actor-invalid
-			// workflows-user-vote-actor-invalid
-			$errorMessages[] = 'workflows-' . $this->activityKey . '-actor-invalid';
-		}
+		$this->actor = $context->getCurrentActor();
 
 		$this->handleErrors( $errorMessages );
 	}

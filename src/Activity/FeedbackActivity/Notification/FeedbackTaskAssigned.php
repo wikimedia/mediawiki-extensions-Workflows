@@ -10,7 +10,7 @@ use User;
 class FeedbackTaskAssigned extends BaseNotification {
 	/** @var string */
 	protected $activity;
-	/** @var User */
+	/** @var User|null */
 	protected $initiator;
 	/** @var string */
 	protected $instructions;
@@ -19,10 +19,10 @@ class FeedbackTaskAssigned extends BaseNotification {
 	 * @param array $targetUsers
 	 * @param Title $title Target page title object
 	 * @param string $activity
-	 * @param User $initiator Workflow initiator
+	 * @param User|null $initiator Workflow initiator
 	 * @param string $instructions Instructions for a user, who task is assigned to
 	 */
-	public function __construct( $targetUsers, $title, $activity, User $initiator, string $instructions ) {
+	public function __construct( $targetUsers, $title, $activity, $initiator, string $instructions ) {
 		parent::__construct(
 			'workflows-feedback-task-assign',
 			User::newSystemUser( 'Mediawiki default' ),
@@ -44,7 +44,7 @@ class FeedbackTaskAssigned extends BaseNotification {
 	public function getParams() {
 		return parent::getParams() + [
 			'activity-type' => $this->activity,
-			'initiator' => $this->initiator,
+			'initiator' => $this->initiator instanceof User ? $this->initiator->getName() : '-',
 			'instructions' => $this->instructions
 		];
 	}
