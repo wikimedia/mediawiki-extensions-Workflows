@@ -19,10 +19,10 @@
 	"require": {
 		"composer/installers": "~1.0",
 		"eventsauce/eventsauce": "0.8.*",
-		"mwstake/mediawiki-component-formengine": "1.*",
-		"mwstake/mediawiki-component-notifications": "1.*",
-		"mwstake/mediawiki-component-runjobstrigger": "1.*",
-		"mwstake/mediawiki-component-alertbanners": "~1.0"
+		"mwstake/mediawiki-component-formengine": "~2",
+		"mwstake/mediawiki-component-notifications": "~2",
+		"mwstake/mediawiki-component-runjobstrigger": "~2",
+		"mwstake/mediawiki-component-alertbanners": "~2"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "38.0.0",

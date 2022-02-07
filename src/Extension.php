@@ -7,6 +7,8 @@ use MWStake\MediaWiki\Component\Notifications\INotifier;
 
 class Extension {
 	public static function register() {
+		\mwsInitComponents();
+
 		/** @var INotifier $notifier */
 		$notifier = MediaWikiServices::getInstance()->getService( 'MWStakeNotificationsNotifier' );
 
