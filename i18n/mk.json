@@ -32,6 +32,7 @@
 	"logentry-ext-workflows-groupvote-yes": "Групен глас: $1 {{GENDER:$2|гласано}} „да“ на страницата $3",
 	"logentry-ext-workflows-groupvote-no": "Групен глас: $1 {{GENDER:$2|гласано}} „не“ на страницата $3",
 	"logentry-ext-workflows-userfeedback": "Корисникот $1 {{GENDER:$2|даде мислење}} на страницата $3",
+	"logentry-ext-workflows-groupfeedback": "Групен одѕив: Корисникот $1 {{GENDER:$2|даде}} мислење на страницата $3:",
 	"workflows-ui-alert-action-complete": "Завршено дејство",
 	"workflows-ui-alert-running-workflow-user-task": "Работниот тек се одвива на на оваа страница. Се бара дејство",
 	"workflows-ui-alert-running-workflow": "На страницава е пуштен работен тек $1",
