@@ -1,0 +1,6 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"logentry-ext-workflows-groupfeedback": "Retroalimentación de grupo: {{GENDER:$2|Usuario}} $1  dio retroalimentación encima página $3:"
+}
