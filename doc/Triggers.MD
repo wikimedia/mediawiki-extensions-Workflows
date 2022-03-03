@@ -25,6 +25,7 @@ data will be set to the correct title automatically
 		- `namespace` =>   namespace ID or array of namespaces IDs. Pages in these namespace will match this rule
 		- `category` => category names (without Namespace prefix).
 		- `editType` => `minor` / `major`. Type of edit to match. If set to `major`, only major edit will match this rule
+		- `pages` => plainlist of pipe (|) separated page titles. Supports wikitext parsing, can be calculated field (like `#ask` query)
 - `days` (optional) => only applicable for time-based triggers. Number of days since a particular action until the WF is triggered
 - `definitions` (optional) => only applicable for `manual` triggers. Array of objects containing `definition` and `definition-repo`.
 Only workflows from this list will be listed in the list when starting the workflow manually, for all pages that match trigger's rules

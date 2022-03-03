@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Workflows;
 use CommentStoreComment;
 use Content;
 use FormatJson;
-use JsonContent;
+use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\PageUpdater;
 use MediaWiki\Storage\SlotRecord;
@@ -17,8 +17,6 @@ use Wikimedia\ObjectFactory;
 use WikiPage;
 
 class TriggerRepo {
-	public const GROUP_BY_KEY = 'key';
-	public const GROUP_BY_TYPE = 'type';
 
 	/** @var string */
 	private $page;
@@ -68,20 +66,15 @@ class TriggerRepo {
 		$this->objectFactory = $objectFactory;
 		$this->page = $page;
 		$this->triggerTypeRegistry = $triggerTypeRegistry;
-
-		$this->triggers = [
-			static::GROUP_BY_KEY => [],
-			static::GROUP_BY_TYPE => []
-		];
 	}
 
 	/**
-	 * @param string $groupBy
 	 * @return array
 	 */
-	public function getAll( $groupBy = self::GROUP_BY_TYPE ): array {
+	public function getAll(): array {
 		$this->assertLoaded();
-		return $this->triggers[$groupBy];
+
+		return $this->triggers ?? [];
 	}
 
 	/**
@@ -90,10 +83,14 @@ class TriggerRepo {
 	 */
 	public function getAllOfType( $type ): array {
 		$this->assertLoaded();
-		if ( !isset( $this->triggers[static::GROUP_BY_TYPE][$type] ) ) {
-			return [];
+		$ofType = [];
+		foreach ( $this->triggers as $key => $trigger ) {
+			if ( $trigger->getType() === $type || $trigger->getNativeType() === $type ) {
+				$ofType[] = $trigger;
+			}
 		}
-		return $this->triggers[static::GROUP_BY_TYPE][$type];
+
+		return $ofType;
 	}
 
 	/**
@@ -123,23 +120,28 @@ class TriggerRepo {
 		$this->triggers = [];
 		if ( $content === null ) {
 			$this->setWikipage();
-			$content = $this->wikipage->getContent();
-			if ( !( $content instanceof JsonContent ) ) {
-				$this->logger->error( 'Trigger page\'s content is not JSON' );
-				return;
-			}
+			if ( $this->wikipage ) {
+				$content = $this->wikipage->getContent();
+				if ( !( $content instanceof TriggerDefinitionContent ) ) {
+					$this->logger->error( 'Trigger page\'s content is not correct' );
+					return;
+				}
 
-			if ( !$content->isValid() ) {
-				$this->logger->error( 'Could not load trigger data from the page specified' );
-				return;
+				if ( !$content->isValid() ) {
+					$this->logger->error( 'Could not load trigger data from the page specified' );
+					return;
+				}
+				$this->content = $content;
 			}
-			$this->content = $content;
 		}
 
-		$data = FormatJson::decode( $content->getText(), 1 );
-		foreach ( $data as $key => $triggerData ) {
-			$this->loadTriggerFromData( $key, $triggerData );
+		if ( $this->content ) {
+			$data = FormatJson::decode( $content->getText(), 1 );
+			foreach ( $data as $key => $triggerData ) {
+				$this->loadTriggerFromData( $key, $triggerData );
+			}
 		}
+
 		$this->loaded = true;
 	}
 
@@ -174,12 +176,7 @@ class TriggerRepo {
 			$object->setLogger( $this->logger );
 		}
 
-		if ( !isset( $this->triggers[static::GROUP_BY_TYPE][$type] ) ) {
-			$this->triggers[static::GROUP_BY_TYPE][$type] = [];
-		}
-		$this->triggers[static::GROUP_BY_TYPE][$type][] = $object;
-
-		$this->triggers[static::GROUP_BY_KEY][$object->getName()] = $object;
+		$this->triggers[$object->getId()] = $object;
 	}
 
 	/**
@@ -222,7 +219,7 @@ class TriggerRepo {
 	 */
 	public function setContent( $data ) {
 		$this->assertLoaded();
-		$content = new JsonContent( FormatJson::encode( $data ) );
+		$content = new TriggerDefinitionContent( FormatJson::encode( $data ) );
 		$updater = $this->getPageUpdater();
 		$updater->setContent( SlotRecord::MAIN, $content );
 
@@ -268,5 +265,27 @@ class TriggerRepo {
 
 		// No WikiPageFactory service yet :(
 		$this->wikipage = WikiPage::factory( $title );
+	}
+
+	/**
+	 * Generate key for the trigger based on its name
+	 * @param string $name
+	 * @param string $type
+	 * @return string
+	 */
+	public function generateTriggerKey( $name, $type ) {
+		if ( !$name || !is_string( $name ) ) {
+			$this->logger->error( 'Attempted to generate trigger key from invalid name', [
+				'name' => $name
+			] );
+			throw new \UnexpectedValueException(
+				'Cannot generate trigger key from invalid name: ' . $name
+			);
+		}
+		$key = trim(
+			str_replace( ' ', '-', strtolower( $name ) )
+		);
+
+		return "trigger-$key-$type";
 	}
 }

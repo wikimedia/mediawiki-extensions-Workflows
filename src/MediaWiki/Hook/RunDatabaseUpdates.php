@@ -2,9 +2,10 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
+use MediaWiki\Extension\Workflows\MediaWiki\Maintenance\CreateDefaultTriggersPage;
 use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
 
-class AddTables implements LoadExtensionSchemaUpdatesHook {
+class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
 
 	public function onLoadExtensionSchemaUpdates( $updater ) {
 		$updater->addExtensionTable(
@@ -15,6 +16,10 @@ class AddTables implements LoadExtensionSchemaUpdatesHook {
 		$updater->addExtensionTable(
 			'workflows_state',
 			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_state.sql'
+		);
+
+		$updater->addPostDatabaseUpdateMaintenance(
+			CreateDefaultTriggersPage::class
 		);
 
 		return true;

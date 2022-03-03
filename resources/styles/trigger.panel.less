@@ -1,0 +1,45 @@
+.workflows-ui-trigger-cnt {
+	margin-top: 10px;
+	display: flex;
+	flex-flow: row wrap;
+	.workflows-trigger-entity {
+		position: relative;
+		word-wrap: break-word;
+		background-color: #e9e9ee;
+		margin: 1.16%;
+		width: 31%;
+		border-radius: 5px;
+		padding: 16px;
+		&:hover {
+			background-color: #dbdbe3;
+		}
+		&.trigger-inactive {
+			.trigger-name {
+				color: grey;
+			}
+		}
+		.trigger-actions {
+			position: absolute;
+			top: 0;
+			padding: 14px;
+			right: 0;
+		}
+		.trigger-name {
+			font-weight: bold;
+			line-height: 1.5;
+			padding: 5px 5px 0 5px;
+			font-size: 1.2rem;
+			display: block;
+			max-width: 72%;
+		}
+		.trigger-type-label {
+			padding-left: 5px;
+		}
+		.trigger-type-desc {
+			padding-left: 5px;
+			color: #474747;
+			font-size: 0.8rem;
+		}
+	}
+}
+

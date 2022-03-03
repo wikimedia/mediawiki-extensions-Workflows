@@ -4,7 +4,7 @@
 
 		this.value = null;
 		this.panel = new OO.ui.PanelLayout();
-		this.picker = new workflows.ui.WorkflowPickerWidget( { repos: cfg.repos } );
+		this.picker = new workflows.ui.widget.ManualTriggerPicker( {} );
 		this.picker.connect( this, {
 			error: function( error ) {
 				this.emit( 'error', error );
@@ -38,6 +38,10 @@
 
 	workflows.ui.WorkflowSelectionPage.prototype.getDescription = function() {
 		return this.value.desc || '';
+	};
+
+	workflows.ui.WorkflowSelectionPage.prototype.getInitialData = function() {
+		return this.value.initData || {};
 	};
 
 } )( mediaWiki, jQuery, workflows );

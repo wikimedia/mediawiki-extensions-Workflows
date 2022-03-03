@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\Tests;
 
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use PHPUnit\Framework\TestCase;
+use TitleFactory;
 
 class PageRelatedTriggerTest extends TestCase {
 	/**
@@ -15,7 +16,19 @@ class PageRelatedTriggerTest extends TestCase {
 	 * @covers \MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger::shouldTrigger
 	 */
 	public function testShouldTrigger( $title, $rules, $qualifyingData, $shouldTrigger ) {
-		$trigger = new PageRelatedTrigger( 'dummy', 'foo', '', '', [], [], $rules );
+		$titleFactoryMock = $this->createMock( TitleFactory::class );
+		$titleFactoryMock->method( 'newFromText' )->willReturnCallback( static function ( $pagename ){
+			return \Title::newFromDBkey( $pagename );
+		} );
+		$trigger = new PageRelatedTrigger(
+			$titleFactoryMock, 'dummy',
+			'Foo',
+			'Bar',
+			'foo',
+			'', '',
+			[], [],
+			$rules
+		);
 		$trigger->setTitle( $title );
 		$this->assertSame( $shouldTrigger, $trigger->shouldTrigger( $qualifyingData ) );
 	}
@@ -23,6 +36,7 @@ class PageRelatedTriggerTest extends TestCase {
 	public function provideTriggerData() {
 		$title = $this->createMock( \Title::class );
 		$title->method( 'getNamespace' )->willReturn( 0 );
+		$title->method( 'getPrefixedDBkey' )->willReturn( 'PageA' );
 		$title->method( 'getParentCategories' )->willReturn( [
 			'Category:Test' => 1,
 			'Category:Dummy' => 2
@@ -96,7 +110,27 @@ class PageRelatedTriggerTest extends TestCase {
 					'editType' => 'minor'
 				],
 				false
-			]
+			],
+			'page-list-contains' => [
+				$title,
+				[
+					'include' => [
+						'pages' => 'PageA|PageB'
+					]
+				],
+				[],
+				true
+			],
+			'page-list-does-not-contain' => [
+				$title,
+				[
+					'include' => [
+						'pages' => 'PageC'
+					]
+				],
+				[],
+				false
+			],
 		];
 	}
 }
