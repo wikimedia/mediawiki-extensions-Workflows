@@ -7,18 +7,28 @@
 
 	OO.inheritClass( workflows.ui.WorkflowStartPage, OO.ui.PageLayout );
 
-	workflows.ui.WorkflowStartPage.prototype.initWorkflow = function( workflow, data, desc ) {
+	workflows.ui.WorkflowStartPage.prototype.initWorkflow = function( workflow, data, desc, initData ) {
 		data = data || {};
 		this.workflowSource = workflow;
 		this.startData = data;
-		this.descLabel = new OO.ui.LabelWidget( { label: desc } );
+		this.workflowTitle = new OO.ui.LabelWidget( { label: '', classes: [ 'workflows-ui-starter-wf-title-label' ] } );
+		this.workflowDesc = new OO.ui.LabelWidget( { label: '', classes: [ 'workflows-ui-starter-wf-title-desc' ] } );
+		workflows.initiate.getDefinitionDetails( workflow.repository, workflow.definition ).done( function ( details ) {
+			if ( details.hasOwnProperty( 'title' ) ) {
+				this.workflowTitle.setLabel( details.title );
+			}
+			if ( details.hasOwnProperty( 'desc' ) ) {
+				this.workflowDesc.setLabel( details.desc );
+			}
+		}.bind( this ) );
 
-		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repo, this.workflowSource.workflow, this.startData )
+		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repository, this.workflowSource.definition, this.startData )
 			.done( function( activity ) {
 				if ( activity ) {
 					this.hasForm = true;
-					activity.getForm( { buttons: [] } ).done( function( formObject ) {
-						this.$element.append( this.descLabel.$element );
+					activity.getForm( { buttons: [], properties: initData } ).done( function( formObject ) {
+						this.$element.append( this.workflowTitle.$element );
+						this.$element.append( this.workflowDesc.$element );
 						this.$element.append(
 							new OO.ui.LabelWidget( {
 								label: mw.message( 'workflows-ui-starter-init-note' ).text()
@@ -26,7 +36,10 @@
 						);
 						this.$element.append( formObject.$element );
 						// Force page size to form size
-						this.$element.height( formObject.$element.outerHeight() + this.descLabel.$element.outerHeight() + 30 );
+						this.$element.height(
+							formObject.$element.outerHeight() + this.workflowTitle.$element.outerHeight() +
+							this.workflowDesc.$element.outerHeight() + 40
+						);
 						formObject.connect( this, {
 							submit: 'startWorkflow',
 							validationFailed: 'validationFailed'
@@ -36,8 +49,11 @@
 					}.bind( this ) );
 				} else {
 					this.hasForm = false;
-					this.$element.height( 130 );
-					this.$element.append( this.descLabel.$element );
+					this.$element.append( this.workflowTitle.$element );
+					this.$element.append( this.workflowDesc.$element );
+					this.$element.height(
+						this.workflowTitle.$element.outerHeight() + this.workflowDesc.$element.outerHeight() + 40
+					);
 					this.emit( 'loaded' );
 				}
 			}.bind( this ) ).fail( function( error ) {
@@ -81,8 +97,8 @@
 		}
 
 		workflows.initiate.startWorkflowOfType(
-			this.workflowSource.repo,
-			this.workflowSource.workflow,
+			this.workflowSource.repository,
+			this.workflowSource.definition,
 			data
 		)
 		.done( function( workflow ) {

@@ -16,7 +16,7 @@
 
 	workflows.object.UserInteractiveActivity.prototype.getForm = function( formCfg ) {
 		formCfg = formCfg || {};
-		formCfg = $.extend( formCfg, { properties: this.getProperties() } );
+		formCfg = $.extend( { properties: this.getProperties() }, formCfg  );
 		var dfd = $.Deferred(),
 			modules = [];
 
@@ -35,7 +35,6 @@
 					if ( data ) {
 						formCfg.moduleData = data;
 					}
-
 					if ( cls ) {
 						cls = this.callbackFromString( cls );
 						form = new cls( formCfg, this );

@@ -94,6 +94,8 @@ final class Workflow {
 	private $titleFactory;
 	/** @var bool */
 	private $isBotProcess = false;
+	/** @var bool */
+	private $runningDry = false;
 
 	/**
 	 * Create a new engine, use only when starting a new workflow
@@ -241,13 +243,16 @@ final class Workflow {
 	}
 
 	/**
-	 * @param array|null $contextData
+	 * @param array $contextData
+	 * @param bool $dry
+	 * @throws PermissionsError
 	 * @throws WorkflowExecutionException
 	 */
-	public function start( $contextData = [] ) {
+	public function start( $contextData = [], $dry = false ) {
 		$this->assertActorCan( 'execute' );
 		$this->assertWorkflowState( static::STATE_NOT_STARTED );
 		$this->assertMembers( __METHOD__ );
+		$this->runningDry = $dry;
 		$contextData = $this->assertAndFilterDefinitionContextData( $contextData );
 		$startDate = new DateTime();
 		$this->storage->recordEvent(
@@ -580,8 +585,13 @@ final class Workflow {
 			// If we are replaying the events, do not call actual activity objects
 			return $task;
 		}
+		if ( $this->runningDry ) {
+			$this->current[$task->getId()] = $task;
+			return $task;
+		}
 
 		$activity = $this->activityManager->getActivityForTask( $task );
+
 		$status = $this->activityManager->getActivityStatus( $activity );
 		if ( $status === IActivity::STATUS_EXPIRED ) {
 			// Wait for un-expiration

@@ -3,11 +3,11 @@
 namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
 
 use DateTime;
+use Exception;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\DueDateProximity;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
-use MediaWiki\Extension\Workflows\TriggerRunner;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
@@ -42,68 +42,66 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	protected $logger = null;
 	/** @var INotifier */
 	protected $notifier;
-	/** @var TriggerRunner */
-	protected $triggerRunner;
 
 	/**
 	 *
 	 * @param WorkflowEventRepository $workflowRepo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
 	 * @param INotifier $notifier
-	 * @param TriggerRunner $triggerRunner
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		INotifier $notifier, TriggerRunner $triggerRunner
+		INotifier $notifier
 	) {
 		$this->workflowRepo = $workflowRepo;
 		$this->definitionRepositoryFactory = $definitionRepositoryFactory;
 		$this->logger = new NullLogger();
 		$this->notifier = $notifier;
-		$this->triggerRunner = $triggerRunner;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function run() {
-		$status = Status::newGood();
-
 		$workflowIds = $this->workflowRepo->retrieveAllIds();
 		foreach ( $workflowIds as $workflowId ) {
 			$this->logger->debug( "Loading '{id}'", [ 'id' => $workflowId->toString() ] );
-			// Just the act of loading the workflow will probe any activity it might be on
-			// and automatically preserve changes in case of status update
-			$workflow = Workflow::newFromInstanceID(
-				$workflowId, $this->workflowRepo, $this->definitionRepositoryFactory
-			);
-			if ( !$workflow instanceof Workflow ) {
-				continue;
+
+			try {
+				// Just the act of loading the workflow will probe any activity it might be on
+				// and automatically preserve changes in case of status update
+				$workflow = Workflow::newFromInstanceID(
+					$workflowId, $this->workflowRepo, $this->definitionRepositoryFactory
+				);
+				if ( !$workflow instanceof Workflow ) {
+					continue;
+				}
+
+				// Next part checks for due dates
+				$current = $workflow->current();
+				foreach ( $current as $element ) {
+					if ( !$element instanceof ITask ) {
+						continue;
+					}
+					$activity = $workflow->getActivityForTask( $element );
+					if ( !$activity instanceof UserInteractiveActivity ) {
+						continue;
+					}
+					if ( $this->dueDateClose( $activity ) ) {
+						$this->notifyDueDateProximity( $activity, $workflow );
+					}
+					if ( $this->dueDateReached( $activity ) ) {
+						$workflow->expireActivity( $activity );
+						$workflow->persist( $this->workflowRepo );
+					}
+				}
+			} catch ( Exception $ex ) {
+				return Status::newFatal( $ex->getMessage() );
 			}
 
-			// Next part checks for due dates
-			$current = $workflow->current();
-			foreach ( $current as $element ) {
-				if ( !$element instanceof ITask ) {
-					continue;
-				}
-				$activity = $workflow->getActivityForTask( $element );
-				if ( !$activity instanceof UserInteractiveActivity ) {
-					continue;
-				}
-				if ( $this->dueDateClose( $activity ) ) {
-					$this->notifyDueDateProximity( $activity, $workflow );
-				}
-				if ( $this->dueDateReached( $activity ) ) {
-					$workflow->expireActivity( $activity );
-					$workflow->persist( $this->workflowRepo );
-				}
-			}
 		}
 
-		$this->runScheduleTriggers();
-
-		return $status;
+		return Status::newGood();
 	}
 
 	/**
@@ -171,12 +169,5 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 				$activity->getActivityDescriptor()->getActivityName()
 			)
 		);
-	}
-
-	/**
-	 * Run time-based triggers
-	 */
-	private function runScheduleTriggers() {
-		$this->triggerRunner->triggerAllOfType( 'since-last-major' );
 	}
 }

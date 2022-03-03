@@ -77,7 +77,10 @@ window.workflows = {
 		alert: {},
 		dialog: {},
 		panel: {},
-		widget: {}
+		widget: {},
+		trigger: {
+			mixin: {}
+		}
 	},
 	object: {
 		form: {}
@@ -129,6 +132,19 @@ window.workflows = {
 
 				api.getDefinitions().done( function( definitions ) {
 					dfd.resolve( definitions );
+				} ).fail( function ( error ) {
+					dfd.reject( error );
+				} );
+			} );
+			return dfd.promise();
+		},
+		getDefinitionDetails: function( repo, definition ) {
+			var dfd = $.Deferred();
+			mw.loader.using( [ "ext.workflows.api" ], function() {
+				var api = new workflows.api.Api();
+
+				api.getDefinitionDetails( repo, definition ).done( function( data ) {
+					dfd.resolve( data );
 				} ).fail( function ( error ) {
 					dfd.reject( error );
 				} );
@@ -230,6 +246,19 @@ window.workflows = {
 		return dfd.promise();
 	},
 	triggers: {
+		getAvailableTypes: function() {
+			var dfd = $.Deferred();
+			mw.loader.using( [ "ext.workflows.api" ], function() {
+				var api = new workflows.api.Api();
+
+				api.getTriggerTypes().done( function( data ) {
+					dfd.resolve( data );
+				} ).fail( function ( error ) {
+					dfd.reject( error );
+				} );
+			} );
+			return dfd.promise();
+		},
 		getAll: function() {
 			return workflows.triggers.get( null );
 		},
@@ -270,6 +299,76 @@ window.workflows = {
 					dfd.reject( error );
 				} );
 			} );
+			return dfd.promise();
+		},
+		getManualTriggersForPage: function( page ) {
+			var dfd = $.Deferred();
+			mw.loader.using( [ "ext.workflows.api" ], function() {
+				var api = new workflows.api.Api();
+
+				api.getManualTriggersForPage( page ).done( function( data ) {
+					dfd.resolve( data );
+				} ).fail( function ( error ) {
+					dfd.reject( error );
+				} );
+			} );
+			return dfd.promise();
+		}
+	},
+	util: {
+		callbackFromString: function( str ) {
+			var parts = str.split( '.' );
+			var func = window[parts[0]];
+			for( var i = 1; i < parts.length; i++ ) {
+				func = func[parts[i]];
+			}
+
+			return func;
+		},
+		getDeepValue: function( obj, path ) {
+			if ( !obj ) {
+				return undefined;
+			}
+			var parts = path.split( "." );
+			if ( parts.length === 1 ) {
+				return obj[parts[0]];
+			}
+
+ 			return workflows.util.getDeepValue( obj[parts[0]], parts.slice( 1 ).join( "." ) );
+		},
+		getAvailableWorkflowOptions: function( availableRepos ) {
+			availableRepos = availableRepos || [];
+			var dfd = $.Deferred();
+			workflows.initiate.listAvailableTypes().done( function ( types ) {
+				var options = [], definitions, repo, i;
+				for ( repo in types ) {
+					if ( !types.hasOwnProperty( repo ) ) {
+						continue;
+					}
+					if ( availableRepos.length > 0 && availableRepos.indexOf( repo ) === -1 ) {
+						continue;
+					}
+					definitions = types[repo].definitions;
+					for ( i = 0; i < definitions.length; i++ ) {
+						var option = {
+							data: {
+								workflow: {
+									repo: repo,
+									workflow: definitions[i].key,
+								},
+								desc: definitions[i].desc || ''
+							},
+							label: definitions[i].title,
+							desc: definitions[i].desc
+						};
+						options.push(  option );
+					}
+				}
+				dfd.resolve( options );
+			}  ).fail( function() {
+				dfd.reject( arguments );
+			}  );
+
 			return dfd.promise();
 		}
 	}

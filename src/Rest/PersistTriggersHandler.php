@@ -7,12 +7,13 @@ use MediaWiki\Rest\Validator\JsonBodyValidator;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class PersistTriggersHandler extends TriggerHandler {
+
 	/**
 	 * @inheritDoc
 	 */
 	public function execute() {
 		$body = $this->getValidatedBody()['data'];
-
+		$this->assertUserIsAdmin();
 		if ( !is_array( $body ) ) {
 			throw new HttpException( 'Body data must be an array', 400 );
 		}

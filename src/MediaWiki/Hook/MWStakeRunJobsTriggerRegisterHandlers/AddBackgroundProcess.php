@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook\MWStakeRunJobsTriggerRegisterHandlers;
 
+use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\ProcessTimeBasedTriggers;
 use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\ProcessWorkflows;
 
 class AddBackgroundProcess {
@@ -16,8 +17,12 @@ class AddBackgroundProcess {
 			'class' => ProcessWorkflows::class,
 			'services' => [
 				'WorkflowEventRepository', 'DefinitionRepositoryFactory',
-				'MWStakeNotificationsNotifier', 'WorkflowTriggerRunner'
+				'MWStakeNotificationsNotifier'
 			]
+		];
+		$handlers[ProcessTimeBasedTriggers::HANDLER_KEY] = [
+			'class' => ProcessTimeBasedTriggers::class,
+			'services' => [ 'WorkflowTriggerRunner' ]
 		];
 
 		return true;

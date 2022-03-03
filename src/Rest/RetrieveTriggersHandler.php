@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
-use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Rest\HttpException;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -11,7 +10,7 @@ class RetrieveTriggersHandler extends TriggerHandler {
 	 * @inheritDoc
 	 */
 	public function execute() {
-		$triggers = $this->getTriggerRepo()->getAll( TriggerRepo::GROUP_BY_KEY );
+		$triggers = $this->getTriggerRepo()->getAll();
 
 		$params = $this->getValidatedParams();
 		if ( $params['key'] === '*' ) {
