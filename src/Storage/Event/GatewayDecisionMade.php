@@ -8,6 +8,7 @@ use Ramsey\Uuid\UuidInterface;
 final class GatewayDecisionMade extends Event {
 	use ElementTrait;
 
+	/** @var null */
 	private $nextRef = null;
 
 	public function __construct( UuidInterface $id, $taskId, $nextRef ) {

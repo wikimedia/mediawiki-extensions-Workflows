@@ -23,7 +23,9 @@ class UserFeedbackActivity extends GenericFeedbackActivity {
 	public function start( $data, WorkflowContext $context ) {
 		$this->setPrimaryData( $data, $context );
 
-		$this->logger->info( "User {$this->actor->getName()} is assigned to give feedback on {$this->targetPage->getText()}" );
+		$this->logger->info(
+			"User {$this->actor->getName()} is assigned to give feedback on {$this->targetPage->getText()}"
+		);
 	}
 
 	/**
