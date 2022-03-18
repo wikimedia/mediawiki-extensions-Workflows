@@ -262,8 +262,8 @@ class TriggerRepo {
 	 */
 	private function setWikipage() {
 		$title = $this->titleFactory->newFromText( $this->page );
-		if ( !( $title instanceof \Title ) || !$title->exists() ) {
-			throw new MWException( 'Cannot load triggers from page ' . $this->page );
+		if ( !$title->exists() ) {
+			$this->logger->error( 'Cannot load triggers from page ' . $this->page );
 		}
 
 		// No WikiPageFactory service yet :(
