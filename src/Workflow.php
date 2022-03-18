@@ -92,6 +92,8 @@ final class Workflow {
 	private $multiInstanceStateTracker;
 	/** @var TitleFactory */
 	private $titleFactory;
+	/** @var bool */
+	private $isBotProcess = false;
 
 	/**
 	 * Create a new engine, use only when starting a new workflow
@@ -212,6 +214,20 @@ final class Workflow {
 		$this->titleFactory = $titleFactory;
 		$this->activityManager = $activityManager;
 		$this->state = static::STATE_NOT_STARTED;
+	}
+
+	/**
+	 * Do not run in the user context
+	 */
+	public function markAsBotProcess() {
+		$this->isBotProcess = true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function runsAsBotProcess() {
+		return $this->isBotProcess;
 	}
 
 	/**
@@ -1031,6 +1047,9 @@ final class Workflow {
 	 * @param ITask|null $task
 	 */
 	private function assertActorCan( $action, $task = null ) {
+		if ( $this->runsAsBotProcess() ) {
+			return;
+		}
 		if ( !$this->actor instanceof User ) {
 			return;
 		}

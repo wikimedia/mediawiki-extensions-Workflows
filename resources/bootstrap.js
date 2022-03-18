@@ -228,6 +228,50 @@ window.workflows = {
 		}
 
 		return dfd.promise();
+	},
+	triggers: {
+		getAll: function() {
+			return workflows.triggers.get( null );
+		},
+		get: function( key ) {
+			var dfd = $.Deferred();
+			mw.loader.using( [ "ext.workflows.api" ], function() {
+				var api = new workflows.api.Api();
+
+				api.getTriggers( key ).done( function( data ) {
+					dfd.resolve( data );
+				} ).fail( function ( error ) {
+					dfd.reject( error );
+				} );
+			} );
+			return dfd.promise();
+		},
+		persist: function( triggers ) {
+			var dfd = $.Deferred();
+			mw.loader.using( [ "ext.workflows.api" ], function() {
+				var api = new workflows.api.Api();
+
+				api.persistTriggers( triggers ).done( function() {
+					dfd.resolve();
+				} ).fail( function ( error ) {
+					dfd.reject( error );
+				} );
+			} );
+			return dfd.promise();
+		},
+		delete: function( key ) {
+			var dfd = $.Deferred();
+			mw.loader.using( [ "ext.workflows.api" ], function() {
+				var api = new workflows.api.Api();
+
+				api.deleteTrigger( key ).done( function() {
+					dfd.resolve();
+				} ).fail( function ( error ) {
+					dfd.reject( error );
+				} );
+			} );
+			return dfd.promise();
+		}
 	}
 };
 

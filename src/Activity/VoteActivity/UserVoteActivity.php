@@ -44,6 +44,9 @@ class UserVoteActivity extends GenericVoteActivity {
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$this->setPrimaryData( $data, $context );
 		$this->setSecondaryData( $data, $context );
+		if ( !$this->actor instanceof User ) {
+			throw new WorkflowExecutionException( 'workflows-user-vote-actor-invalid' );
+		}
 
 		switch ( $this->action ) {
 			case ActionList::ACTION_VOTE:

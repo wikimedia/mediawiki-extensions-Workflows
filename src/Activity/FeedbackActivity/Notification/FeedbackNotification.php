@@ -15,21 +15,20 @@ class FeedbackNotification extends BaseNotification {
 	protected $feedback;
 	/** @var string */
 	protected $activity;
-	/** @var User */
-	protected $owner;
 
 	/**
 	 * @param User $agent Agent of notification
 	 * @param Title $title Target page title object
-	 * @param User $owner User to receive notification
+	 * @param User|null $owner User to receive notification
 	 * @param string $activity
 	 * @param string $feedback Additional comment
 	 */
 	public function __construct( $agent, $title, $owner, $activity, $feedback ) {
 		parent::__construct( 'workflows-feedback', $agent, $title );
 
-		$this->addAffectedUsers( [ $owner ] );
-		$this->owner = $owner;
+		if ( $owner instanceof User ) {
+			$this->addAffectedUsers( [ $owner ] );
+		}
 		$this->feedback = $feedback;
 		$this->activity = $activity;
 	}

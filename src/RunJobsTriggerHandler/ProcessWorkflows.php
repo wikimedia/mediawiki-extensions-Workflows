@@ -7,6 +7,7 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\DueDateProximity;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\Extension\Workflows\TriggerRunner;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
@@ -41,21 +42,25 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	protected $logger = null;
 	/** @var INotifier */
 	protected $notifier;
+	/** @var TriggerRunner */
+	protected $triggerRunner;
 
 	/**
 	 *
 	 * @param WorkflowEventRepository $workflowRepo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
 	 * @param INotifier $notifier
+	 * @param TriggerRunner $triggerRunner
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		INotifier $notifier
+		INotifier $notifier, TriggerRunner $triggerRunner
 	) {
 		$this->workflowRepo = $workflowRepo;
 		$this->definitionRepositoryFactory = $definitionRepositoryFactory;
 		$this->logger = new NullLogger();
 		$this->notifier = $notifier;
+		$this->triggerRunner = $triggerRunner;
 	}
 
 	/**
@@ -95,6 +100,8 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 				}
 			}
 		}
+
+		$this->runScheduleTriggers();
 
 		return $status;
 	}
@@ -164,5 +171,12 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 				$activity->getActivityDescriptor()->getActivityName()
 			)
 		);
+	}
+
+	/**
+	 * Run time-based triggers
+	 */
+	private function runScheduleTriggers() {
+		$this->triggerRunner->triggerAllOfType( 'since-last-major' );
 	}
 }

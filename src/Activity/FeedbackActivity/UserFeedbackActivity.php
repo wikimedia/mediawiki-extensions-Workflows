@@ -5,10 +5,12 @@ namespace MediaWiki\Extension\Workflows\Activity\FeedbackActivity;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackNotification;
 use MediaWiki\Extension\Workflows\ActivityDescriptor\UserFeedbackDescriptor;
+use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use User;
 
 class UserFeedbackActivity extends GenericFeedbackActivity {
 
@@ -33,6 +35,9 @@ class UserFeedbackActivity extends GenericFeedbackActivity {
 	 */
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$this->setPrimaryData( $data, $context );
+		if ( !$this->actor instanceof User ) {
+			throw new WorkflowExecutionException( 'workflows-user-vote-actor-invalid' );
+		}
 
 		$feedback = $data['comment'] ?? '';
 

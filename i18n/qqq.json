@@ -50,8 +50,6 @@
 	"workflows-group-vote-group-empty": "Error message when the group name, that has to vote, is not specified",
 	"workflows-group-vote-group-no-users": "Error message when the specified group has no users to vote",
 	"workflows-group-vote-target-title-invalid": "Error message when the activity target title is invalid or not specified",
-	"workflows-group-vote-owner-invalid": "Error message when the activity owner is invalid or not specified",
-	"workflows-group-vote-actor-invalid": "Error message when the activity actor is invalid or not specified",
 	"workflows-group-vote-action-invalid": "Error message when the activity action is invalid or not specified",
 	"workflows-user-vote-target-title-invalid": "Error message when the activity target title is invalid or not specified",
 	"workflows-user-vote-owner-invalid": "Error message when the activity owner is invalid or not specified",

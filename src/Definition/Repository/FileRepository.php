@@ -6,7 +6,6 @@ use Exception;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
-use MediaWiki\MediaWikiServices;
 use Message;
 use MWException;
 
@@ -17,10 +16,6 @@ abstract class FileRepository implements IDefinitionRepository {
 	protected $workflows = [];
 	/** @var bool */
 	protected $loaded = false;
-
-	public static function factory( MediaWikiServices $services ) {
-		return new static();
-	}
 
 	public function getAllKeys(): array {
 		if ( !$this->loaded ) {

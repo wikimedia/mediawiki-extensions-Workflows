@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\Definition\Repository;
 
+use Config;
 use ExtensionRegistry;
 use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\MediaWikiServices;
 
 class WorkflowFileDefinitionRepository extends FileRepository {
 	/** @var array */
@@ -14,11 +14,11 @@ class WorkflowFileDefinitionRepository extends FileRepository {
 	/** @var HookContainer */
 	private $hookContainer;
 
-	public static function factory( MediaWikiServices $services ) {
+	public static function factory( Config $config, HookContainer $hookContainer ) {
 		return new static(
 			ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsWorkflowDefinitions' ),
-			$services->getMainConfig()->get( 'ExtensionDirectory' ),
-			$services->getHookContainer()
+			$config->get( 'ExtensionDirectory' ),
+			$hookContainer
 		);
 	}
 
