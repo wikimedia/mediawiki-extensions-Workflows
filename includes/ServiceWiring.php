@@ -92,7 +92,7 @@ return [
 			$services->getTitleFactory(),
 			$services->getService( 'WorkflowLogger' ),
 			$services->getObjectFactory(),
-			'Mediawiki:WorkflowTriggers.json',
+			'MediaWiki:WorkflowTriggers.json',
 			$registry
 		);
 	},
