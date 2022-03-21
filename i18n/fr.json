@@ -51,8 +51,6 @@
 	"workflows-group-vote-group-empty": "Le nom du groupe pour voter n’est pas spécifié",
 	"workflows-group-vote-group-no-users": "Le groupe spécifié n’a aucun utilisateur pour voter",
 	"workflows-group-vote-target-title-invalid": "Le titre de la cible de l’activité n’est pas valide ou n’est pas spécifié",
-	"workflows-group-vote-owner-invalid": "Le propriétaire de l’activité n’est pas valide ou n’est pas spécifié",
-	"workflows-group-vote-actor-invalid": "L’acteur de l’activité n’est pas valide ou n’est pas spécifié",
 	"workflows-group-vote-action-invalid": "L’action n’est pas valide ou n’est pas spécifiée",
 	"workflows-user-vote-target-title-invalid": "Le titre de la cible de l’activité n’est pas valide ou n’est pas spécifié",
 	"workflows-user-vote-owner-invalid": "Le propriétaire de l’activité n’est pas valide ou n’est pas spécifié",

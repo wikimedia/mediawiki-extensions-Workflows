@@ -48,8 +48,6 @@
 	"workflows-group-vote-group-empty": "Не е укажано името на групата што ќе гласа",
 	"workflows-group-vote-group-no-users": "Укажаната група нема корисници",
 	"workflows-group-vote-target-title-invalid": "Целниот наслов на активноста е неважечки или неукажан",
-	"workflows-group-vote-owner-invalid": "Сопственикот на активноста е неважечки или неукажан",
-	"workflows-group-vote-actor-invalid": "Дејствителот на активноста е неважечки или неукажан",
 	"workflows-group-vote-action-invalid": "Дејството е неважечко или неукажано",
 	"workflows-user-vote-target-title-invalid": "Целниот наслов на активноста не неважечки или неукажан",
 	"workflows-user-vote-owner-invalid": "Сопственикот на активноста е неважечки или неукажан",

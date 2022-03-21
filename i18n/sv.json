@@ -45,8 +45,6 @@
 	"workflows-group-vote-group-empty": "Gruppnamn som ska rösta har inte angetts",
 	"workflows-group-vote-group-no-users": "Specificerad grupp som ska rösta har inte angetts",
 	"workflows-group-vote-target-title-invalid": "Aktivitetsmåltiteln är ogiltig eller har inte angetts",
-	"workflows-group-vote-owner-invalid": "Aktivitetsägaren är ogiltig eller har inte angetts",
-	"workflows-group-vote-actor-invalid": "Aktivitetsaktören är ogiltig eller har inte angetts",
 	"workflows-group-vote-action-invalid": "Åtgärden är ogiltig eller har inte angetts",
 	"workflows-user-vote-target-title-invalid": "Aktivitetsmåltiteln är ogiltig eller har inte angetts",
 	"workflows-user-vote-owner-invalid": "Aktivitetsägaren är ogiltig eller har inte angetts",

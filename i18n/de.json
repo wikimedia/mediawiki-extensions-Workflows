@@ -50,8 +50,6 @@
 	"workflows-group-vote-group-empty": "Der Name der stimmberechtigten Gruppe ist nicht definiert",
 	"workflows-group-vote-group-no-users": "Die ausgewählte Gruppe hat keine stimmberechtigten Benutzer",
 	"workflows-group-vote-target-title-invalid": "Der Titel der ausgewählten Aktivität ist ungültig oder nicht definiert",
-	"workflows-group-vote-owner-invalid": "Der Besitzer der Aktivität ist ungültig oder nicht definiert",
-	"workflows-group-vote-actor-invalid": "Der Auszuführende der Aktivität ist ungültig oder nicht definiert",
 	"workflows-group-vote-action-invalid": "Die Aktion ist ungültig oder nicht definiert",
 	"workflows-user-vote-target-title-invalid": "Der Titel der ausgewählten Aktivität ist ungültig oder nicht definiert",
 	"workflows-user-vote-owner-invalid": "Der Besitzer der Aktivität ist ungültig oder nicht definiert",
