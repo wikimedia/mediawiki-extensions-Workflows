@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Apzp79",
+			"Twotwo2019",
 			"Ykhwong"
 		]
 	},
@@ -58,6 +59,7 @@
 	"workflows-ui-overview-details-last-time-column": "마지막 활동:",
 	"workflows-ui-overview-details-state-column": "상태",
 	"workflows-ui-overview-details-state-not_started": "시작되지 않음",
+	"workflows-ui-overview-details-state-running": "활성",
 	"workflows-ui-overview-details-state-finished": "완료",
 	"workflows-ui-overview-details-state-aborted": "중단됨",
 	"workflows-ui-overview-details-state-comment": "현재 상태의 의견",
@@ -67,6 +69,7 @@
 	"workflows-ui-overview-details-action-reason": "이유",
 	"workflows-ui-overview-details-workflow-type-label": "유형",
 	"workflows-ui-overview-grid-filter-state-all": "모두",
+	"workflows-ui-overview-grid-filter-state-active": "활성",
 	"workflows-ui-workflow-overview-dialog-title-list": "워크플로 개요",
 	"workflows-ui-workflow-overview-dialog-title-abort": "워크플로 중단",
 	"workflows-ui-workflow-overview-dialog-title-restore": "워크플로 복원",
