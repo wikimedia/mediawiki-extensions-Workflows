@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"workflows-ui-starter-action-cancel": "Prekliči",
+	"workflows-ui-task-completion-action-cancel": "Prekliči",
+	"workflows-ui-overview-details-action-reason": "Razlog"
+}
