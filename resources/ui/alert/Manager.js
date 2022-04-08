@@ -95,7 +95,7 @@
 			}
 
 			if (
-				!activities[id] instanceof workflows.object.UserInteractiveActivity ||
+				!( activities[id] instanceof workflows.object.UserInteractiveActivity ) ||
 				activities[id].getState() !== workflows.state.activity.STARTED
 			) {
 				continue;

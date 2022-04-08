@@ -137,19 +137,12 @@
 					}
 				}
 				if ( action === 'start' ) {
-					if ( this.booklet.getCurrentPage().getName() ) {
-						var form = this.booklet.getCurrentPage().getForm();
-						if ( !form ) {
-							this.lastError = 'no-form';
-							return new OO.ui.Error(
-								mw.message( 'workflows-ui-starter-init-form-fail' ).text(), {
-									recoverable: false
-								}
-							);
-						}
+					var page = this.booklet.getCurrentPage();
+					if ( page.getName() === 'init' ) {
 						var dfd = $.Deferred();
 						this.pushPending();
-						this.booklet.getCurrentPage().connect( this, {
+
+						page.connect( this, {
 							initCompleted: function( workflow ) {
 								return this.close( { result: true, workflow: workflow } );
 							},
@@ -165,9 +158,24 @@
 								dfd.resolve();
 							}
 						} );
-						form.submit();
+
+						var form = page.getForm();
+						if ( form ) {
+							if ( !( form instanceof workflows.object.form.Form ) ) {
+								this.lastError = 'no-form';
+								return new OO.ui.Error(
+									mw.message( 'workflows-ui-starter-init-form-fail' ).text(), {
+										recoverable: false
+									}
+								);
+							}
+							form.submit();
+						} else {
+							page.startWorkflow();
+						}
+						return dfd.promise();
 					}
-					return dfd.promise();
+
 				}
 				if ( action === 'back' ) {
 					this.switchPanel( 'wfSelection' );

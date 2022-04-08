@@ -43,6 +43,13 @@ class DefinitionContext implements JsonSerializable {
 	}
 
 	/**
+	 * @return array
+	 */
+	public function getAllItems() {
+		return $this->items;
+	}
+
+	/**
 	 * @param string $key
 	 * @param mixed $value
 	 */
