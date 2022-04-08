@@ -65,6 +65,10 @@
 					},
 					"edit_request": {
 						"class":"\\MediaWiki\\Extension\\Workflows\\Activity\\EditRequest\\EditRequestActivity"
+					},
+					"edit_page": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\EditPageActivity",
+						"services": [ "TitleFactory", "UserFactory", "PermissionManager" ]
 					}
 				},
 				"DecisionRegistry": {}

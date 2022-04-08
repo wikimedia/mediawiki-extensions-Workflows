@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows;
 
 use MediaWiki\Extension\Workflows\PropertyValidator\IPropertyValidator;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 class PropertyValidatorFactory {
 	/** @var array */

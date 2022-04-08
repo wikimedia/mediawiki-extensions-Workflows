@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Definition\Repository;
 
 use MediaWiki\MediaWikiServices;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 class DefinitionRepositoryFactory {
 	/** @var array */

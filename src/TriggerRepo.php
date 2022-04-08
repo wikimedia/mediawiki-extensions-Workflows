@@ -13,7 +13,7 @@ use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use TitleFactory;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 use WikiPage;
 
 class TriggerRepo {

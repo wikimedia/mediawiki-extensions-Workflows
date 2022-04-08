@@ -200,5 +200,8 @@
 	"workflows-action-delete-label": "Action label",
 	"workflows-ui-trigger-item-inactive": "Trigger name label when trigger is inactive.\n$1 - trigger name",
 	"workflows-ui-trigger-field-description": "Field label",
-	"workflows-ui-trigger-field-workflow-picker": "Field label"
+	"workflows-ui-trigger-field-workflow-picker": "Field label",
+	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title",
+	"workflows-activity-editpage-invalid-permissiondenied": "Error message when user cannot edit the page.\n$1 - username, $2 - title",
+	"logentry-ext-workflows-editpage-edit": "Log entry message"
 }
