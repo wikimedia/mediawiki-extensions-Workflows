@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeeputer"
+			"Jeeputer",
+			"Mohammad ebz"
 		]
 	},
+	"workflows-uto-activity-user_feedback": "بازخورد کاربر",
 	"workflows-collect-data-form-instructions": "دستورالعمل",
 	"workflows-activity-history-vote-result-yes": "تأییدشده",
 	"workflows-activity-history-vote-result-no": "برگشت‌خورده",
