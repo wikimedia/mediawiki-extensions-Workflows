@@ -13,7 +13,7 @@
 	"workflows-ui-starter-dialog-title": "Start a workflow",
 	"workflows-ui-starter-action-choose": "Choose",
 	"workflows-ui-starter-action-start": "Start workflow",
-	"workflows-ui-starter-action-done": "Done",
+	"workflows-ui-starter-action-done": "Start",
 	"workflows-ui-starter-action-back": "Choose another",
 	"workflows-ui-starter-action-cancel": "Cancel",
 	"workflows-ui-starter-init-form-fail": "Initialization form cannot be retrieved",
@@ -28,6 +28,7 @@
 	"logentry-ext-workflows-groupvote-no": "Group vote: $1 {{GENDER:$2|voted}} 'no' on page $3",
 	"logentry-ext-workflows-userfeedback": "User $1 {{GENDER:$2|gave feedback}} on page $3",
 	"logentry-ext-workflows-groupfeedback": "Group feedback: User $1 {{GENDER:$2|gave}} feedback on page $3:",
+	"logentry-ext-workflows-editpage-edit": "Page edited: $4",
 	"workflows-ui-alert-action-complete": "Complete action",
 	"workflows-ui-alert-running-workflow-user-task": "Workflow is running on this page. Action is required",
 	"workflows-ui-alert-running-workflow": "$1 workflow is running on this page",
@@ -192,5 +193,7 @@
 	"workflows-action-delete-label": "Delete",
 	"workflows-ui-trigger-item-inactive": "$1 (inactive)",
 	"workflows-ui-trigger-field-description": "Description",
-	"workflows-ui-trigger-field-workflow-picker": "Workflow to start"
+	"workflows-ui-trigger-field-workflow-picker": "Workflow to start",
+	"workflows-activity-editpage-error-no-title": "No title provided",
+	"workflows-activity-editpage-permissiondenied": "User \"$1\" does not have permission to edit page \"$2\""
 }

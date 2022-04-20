@@ -48,6 +48,9 @@ class WorkflowNotifier implements Consumer {
 	 * @return void
 	 */
 	public function handle( Message $message ) {
+		if ( $this->workflow->runsAsBotProcess() ) {
+			return;
+		}
 		if ( $message->aggregateRootId() !== $this->workflow->getStorage()->aggregateRootId() ) {
 			// Not a message for us
 			return;

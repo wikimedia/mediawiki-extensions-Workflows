@@ -201,7 +201,8 @@ class WorkflowContextMutable {
 
 		$additionalData = [
 			'initiator' => $this->initiator instanceof User ? $this->initiator->getName() : '',
-			'start_date' => $this->startDate->format( 'YmdHis' )
+			'start_date' => $this->startDate->format( 'YmdHis' ),
+			'definition_context' => $this->getDefinitionContext()->getAllItems(),
 		];
 		return $dataFlattener->flatten( array_merge( $this->runningData, $additionalData ) );
 	}

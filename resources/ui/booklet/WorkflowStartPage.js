@@ -2,7 +2,6 @@
 	workflows.ui.WorkflowStartPage = function( name, cfg ) {
 		workflows.ui.WorkflowStartPage.parent.call( this, name, cfg );
 		this.form = null;
-		this.hasForm = false;
 	};
 
 	OO.inheritClass( workflows.ui.WorkflowStartPage, OO.ui.PageLayout );
@@ -25,7 +24,6 @@
 		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repository, this.workflowSource.definition, this.startData )
 			.done( function( activity ) {
 				if ( activity ) {
-					this.hasForm = true;
 					activity.getForm( { buttons: [], properties: initData } ).done( function( formObject ) {
 						this.$element.append( this.workflowTitle.$element );
 						this.$element.append( this.workflowDesc.$element );
@@ -48,7 +46,7 @@
 						this.form = formObject;
 					}.bind( this ) );
 				} else {
-					this.hasForm = false;
+					this.form = null;
 					this.$element.append( this.workflowTitle.$element );
 					this.$element.append( this.workflowDesc.$element );
 					this.$element.height(
@@ -70,12 +68,7 @@
 
 	workflows.ui.WorkflowStartPage.prototype.reset = function() {
 		this.$element.children().remove();
-		this.hasForm = false;
 		this.form = null;
-	};
-
-	workflows.ui.WorkflowStartPage.prototype.hasForm = function() {
-		return this.hasForm && this.form !== null;
 	};
 
 	workflows.ui.WorkflowStartPage.prototype.getForm = function() {
