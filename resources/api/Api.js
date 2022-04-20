@@ -84,6 +84,10 @@
 		return this.get( 'definition/list' );
 	};
 
+	workflows.api.Api.prototype.getDefinitionDetails = function ( repo, definition ) {
+		return this.get( 'definition/details/{0}/{1}'.format( repo, definition ) );
+	};
+
 	workflows.api.Api.prototype.startWorkflow = function ( repository, type, data ) {
 		return this.post( 'start/{0}/{1}'.format( repository, type ), data );
 	};
@@ -111,5 +115,13 @@
 
 	workflows.api.Api.prototype.deleteTrigger = function ( key ) {
 		return this.delete( 'triggers/{0}'.format( key ) );
+	};
+
+	workflows.api.Api.prototype.getTriggerTypes = function () {
+		return this.get( 'trigger_types' );
+	};
+
+	workflows.api.Api.prototype.getManualTriggersForPage = function ( page ) {
+		return this.get( 'triggers/manual/{0}'.format( page ) );
 	};
 } )( mediaWiki, jQuery );

@@ -92,7 +92,7 @@
 				break;
 			case 'init':
 				this.setSize( 'large' );
-				page.initWorkflow( data.workflow, data.contextData, data.desc );
+				page.initWorkflow( data.workflow, data.contextData, data.desc, data.initData );
 				page.connect( this, {
 				 	loaded: function( form ) {
 				 		this.popPending();
@@ -131,7 +131,8 @@
 						this.switchPanel( 'init', {
 							workflow: selectedWorkflow,
 							contextData: this.contextData,
-							desc: this.booklet.getCurrentPage().getDescription()
+							desc: this.booklet.getCurrentPage().getDescription(),
+							initData: this.booklet.getCurrentPage().getInitialData()
 						} );
 					}
 				}

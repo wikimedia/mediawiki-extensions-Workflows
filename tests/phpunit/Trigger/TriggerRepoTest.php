@@ -17,7 +17,7 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 		parent::setUp();
 
 		$this->insertPage(
-			'MediaWiki:Dummy.json',
+			'MediaWiki:WorkflowTriggers',
 			file_get_contents( dirname( __DIR__ ) . '/data/triggers.json' )
 		);
 	}
@@ -30,7 +30,7 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 		$repo = $this->getRepo();
 		$triggers = $repo->getAll();
 
-		$this->assertArrayEquals( [ 'edit' ], array_keys( $triggers ) );
+		$this->assertArrayEquals( [ 'start-approval-on-edit', 'inactive-trigger' ], array_keys( $triggers ) );
 		$this->assertCount( 2, $repo->getAllOfType( 'edit' ) );
 	}
 
@@ -45,7 +45,7 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 
 		$trigger = $triggers[0];
 
-		$this->assertSame( 'start-approval-on-edit', $trigger->getName() );
+		$this->assertSame( 'start-approval-on-edit', $trigger->getId() );
 	}
 
 	/**
@@ -88,7 +88,7 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 
 		return new TriggerRepo(
 			$workflowFactoryMock, $titleFactory, $loggerMock,
-			$objectFactory, 'MediaWiki:Dummy.json', $registry
+			$objectFactory, 'MediaWiki:WorkflowTriggers', $registry
 		);
 	}
 

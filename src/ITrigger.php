@@ -12,7 +12,13 @@ interface ITrigger extends JsonSerializable {
 	public function trigger(): bool;
 
 	/**
-	 * Unique trigger name
+	 * Unique trigger ID
+	 * @return string
+	 */
+	public function getId(): string;
+
+	/**
+	 * Trigger name
 	 * @return string
 	 */
 	public function getName(): string;
@@ -20,7 +26,19 @@ interface ITrigger extends JsonSerializable {
 	/**
 	 * @return string
 	 */
+	public function getDescription(): string;
+
+	/**
+	 * @return string
+	 */
 	public function getType(): string;
+
+	/**
+	 * Get the root type (parent type)
+	 * Not the best implementation, still thinking about it
+	 * @return string
+	 */
+	public function getNativeType(): string;
 
 	/**
 	 * @return array

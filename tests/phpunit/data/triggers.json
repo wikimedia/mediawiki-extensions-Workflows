@@ -1,5 +1,7 @@
 {
 	"start-approval-on-edit": {
+		"name": "Start approval on edit",
+		"description": "Dummy",
 		"type": "edit",
 		"active": true,
 		"definition": "user-approval",
@@ -24,11 +26,16 @@
 		}
 	},
 	"inactive-trigger": {
+		"name": "Inactive trigger",
+		"description": "Dummy",
 		"type": "edit",
 		"active": false,
 		"definition": "dummy",
 		"repository": "dummy",
 		"rules": {
+			"include": {
+				"pages": "PageA|PageB"
+			},
 			"exclude": {
 				"editType": "minor"
 			}

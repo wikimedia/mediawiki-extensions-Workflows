@@ -30,7 +30,7 @@ class WorkflowTriggerException extends Exception {
 
 		return sprintf(
 			$exceptionMessage,
-			$this->message, $this->trigger->getName()
+			$this->message, $this->trigger->getId()
 		);
 	}
 }

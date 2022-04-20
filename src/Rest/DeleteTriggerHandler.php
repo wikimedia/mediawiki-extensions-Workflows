@@ -9,6 +9,7 @@ class DeleteTriggerHandler extends TriggerHandler {
 	 * @inheritDoc
 	 */
 	public function execute() {
+		$this->assertUserIsAdmin();
 		$key = $this->getValidatedParams()['key'];
 		return $this->getResponseFactory()->createJson(
 			[ 'success' => $this->getTriggerRepo()->deleteTrigger( $key ) ]

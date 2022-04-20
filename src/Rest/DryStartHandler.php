@@ -15,7 +15,7 @@ class DryStartHandler extends StartHandler {
 	public function doExecute() {
 		$engine = $this->getWorkflowEngine();
 
-		$engine->start( $this->getBodyData( 'startData' ) );
+		$engine->start( $this->getBodyData( 'startData' ), true );
 		$initializer = $this->getInitializer( $engine );
 		if ( $initializer ) {
 			$serializer = new ActivitySerializer( $engine );

@@ -31,16 +31,16 @@ class TriggerRunner {
 		$triggers = $this->repo->getActive( $type );
 
 		foreach ( $triggers as $trigger ) {
-			if ( in_array( $trigger->getName(), $this->triggered ) ) {
+			if ( in_array( $trigger->getId(), $this->triggered ) ) {
 				// Do not evaluate same trigger multiple times in one request
 				continue;
 			}
-			$this->triggered[] = $trigger->getName();
+			$this->triggered[] = $trigger->getId();
 
 			if ( $trigger instanceof IPageTrigger ) {
 				if ( $title === null || !$this->canRunWorkflowForTitle( $title ) ) {
 					$this->logger->error( 'Page context trigger called without title', [
-						'trigger' => $trigger->getName(),
+						'trigger' => $trigger->getId(),
 						'action' => $type
 					] );
 					continue;
@@ -50,7 +50,7 @@ class TriggerRunner {
 			if ( $trigger->shouldTrigger( $qualifyingData ) ) {
 				$res = $trigger->trigger();
 				$logContext = [
-					'trigger' => $trigger->getName(),
+					'trigger' => $trigger->getId(),
 					'attributes' => $trigger->getAttributes()
 				];
 				if ( $res ) {

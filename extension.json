@@ -107,20 +107,32 @@
 			},
 			"TriggerTypes": {
 				"edit": {
-					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory"
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory",
+					"services": [ "TitleFactory" ]
 				},
 				"create": {
-					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory"
-				},
-				"move": {
-					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory"
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory",
+					"services": [ "TitleFactory" ]
 				},
 				"manual": {
-					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\Manual::factory"
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\PageRelatedTrigger::factory",
+					"services": [ "TitleFactory" ]
 				},
-				"since-last-major": {
-					"class": "\\MediaWiki\\Extension\\Workflows\\Trigger\\SinceLastMajor",
-					"services": [ "DBLoadBalancer", "TitleFactory" ]
+				"time": {
+					"factory": "\\MediaWiki\\Extension\\Workflows\\Trigger\\TimeBasedTrigger::factory",
+					"services": [ "TitleFactory" ]
+				}
+			},
+			"TriggerEditors": {
+				"page-action": {
+					"supports": [ "edit", "create" ],
+					"module": "ext.workflows.trigger.editors",
+					"class": "workflows.ui.trigger.PageRelated"
+				},
+				"manual": {
+					"supports": [ "manual" ],
+					"module": "ext.workflows.trigger.editors",
+					"class": "workflows.ui.trigger.Manual"
 				}
 			}
 		},
@@ -174,12 +186,20 @@
 				"ext.forms.standalone"
 			]
 		},
+		"ext.workflows.ui.workflowpicker": {
+			"scripts": [
+				"ui/WorkflowPicker.js"
+			],
+			"messages": [
+				"workflows-ui-starter-select-workflow"
+			]
+		},
 		"ext.workflows.ui.starter": {
 			"scripts": [
+				"ui/widget/ManualTriggerPicker.js",
 				"ui/booklet/WorkflowSelectionPage.js",
 				"ui/booklet/WorkflowStartPage.js",
 				"ui/booklet/WorkflowStartBooklet.js",
-				"ui/WorkflowPicker.js",
 				"ui/dialog/WorkflowStarter.js"
 			],
 			"styles": [
@@ -196,6 +216,9 @@
 				"workflows-ui-starter-action-cancel",
 				"workflows-ui-starter-init-form-fail",
 				"workflows-ui-starter-action-done"
+			],
+			"dependencies": [
+				"ext.workflows.ui.workflowpicker"
 			]
 		},
 		"ext.workflows.ui.task.complete": {
@@ -331,7 +354,8 @@
 		},
 		"ext.workflows.widgets": {
 			"scripts": [
-				"ui/widget/VoteWidget.js"
+				"ui/widget/VoteWidget.js",
+				"ui/widget/WorkflowMultiselect.js"
 			],
 			"styles": "styles/voteWidget.less"
 		},
@@ -401,6 +425,84 @@
 		},
 		"ext.workflows.uto.styles": {
 			"styles": [ "styles/utoStyles.css" ]
+		},
+		"ext.workflows.trigger.editors": {
+			"scripts": [
+				"ui/trigger/mixin/WorkflowSelector.js",
+				"ui/trigger/Trigger.js",
+				"ui/trigger/PageRelated.js",
+				"ui/trigger/Manual.js"
+			],
+			"messages": [
+				"workflows-trigger-ui-condition-include-namespace",
+				"workflows-trigger-ui-condition-exclude-namespace",
+				"workflows-trigger-ui-condition-exclude-category",
+				"workflows-trigger-ui-condition-include-category",
+				"workflows-trigger-ui-condition-exclude-editType",
+				"workflows-ui-trigger-field-name",
+				"workflows-ui-trigger-field-active",
+				"workflows-ui-trigger-field-description",
+				"workflows-ui-trigger-field-workflow-picker"
+			],
+			"dependencies": [
+				"ext.workflows.ui.workflowpicker",
+				"ext.oOJSPlus.widgets",
+				"mediawiki.widgets",
+				"mediawiki.widgets.NamespacesMultiselectWidget",
+				"ext.oOJSPlus.widgets",
+				"ext.workflows.widgets"
+			]
+		},
+		"ext.workflows.trigger.editor.dialog": {
+			"scripts": [
+				"ui/booklet/TriggerSelectionPage.js",
+				"ui/booklet/TriggerDetailsPage.js",
+				"ui/booklet/TriggerEditorBooklet.js",
+				"ui/dialog/TriggerEditor.js",
+				"ui/dialog/DeleteTrigger.js"
+			],
+			"messages": [
+				"workflows-ui-action-cancel",
+				"workflows-ui-trigger-action-create",
+				"workflows-ui-trigger-action-choose",
+				"workflows-ui-trigger-editor-dialog-title",
+				"workflows-error-generic",
+				"workflows-ui-trigger-delete-dialog-title",
+				"workflows-ui-trigger-action-delete",
+				"workflows-ui-trigger-delete-prompt",
+				"workflows-ui-triggers-error-delete-fail",
+				"workflows-ui-trigger-choose-error",
+				"workflows-ui-triggers-error-persist-fail",
+				"workflows-ui-triggers-add-button",
+				"workflows-ui-workflow-trigger-editor-booklet-page-details-title",
+				"workflows-ui-trigger-editor-error",
+				"workflows-ui-trigger-init-form",
+				"workflows-ui-trigger-manual-workflows",
+				"workflows-ui-trigger-since-last-major-days",
+				"workflows-action-edit-label",
+				"workflows-action-delete-label"
+			]
+		},
+		"ext.workflows.trigger.editor.panel": {
+			"scripts": [
+				"ui/widget/TriggerEntity.js",
+				"ui/panel/TriggerEditor.js"
+			],
+			"styles": [
+				"styles/trigger.panel.less"
+			],
+			"messages": [
+				"workflows-ui-trigger-item-inactive"
+			],
+			"dependencies": [
+				"ext.workflows.trigger.editor.dialog",
+				"oojs-ui.styles.icons-editing-core"
+			]
+		},
+		"ext.workflows.triggers": {
+			"scripts": [
+				"triggerEditor.js"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -408,9 +510,9 @@
 		"remoteExtPath": "Workflows/resources"
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "addTables",
+		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
 		"BeforePageDisplay": "addBootstrap",
-		"ContentHandlerDefaultModelFor": "setBPMNContent",
+		"ContentHandlerDefaultModelFor": "setContentModels",
 		"SkinTemplateNavigation::Universal": "addActions",
 		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
 		"MWStakeRunJobsTriggerRegisterHandlers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\MWStakeRunJobsTriggerRegisterHandlers\\AddBackgroundProcess::callback",
@@ -418,18 +520,17 @@
 		"ArticleDeleteComplete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
-		"PageSaveComplete": "triggerWorkflows",
-		"PageMoveComplete": "triggerWorkflows"
+		"PageSaveComplete": "triggerWorkflows"
 	},
 	"HookHandlers": {
-		"addTables": {
-			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddTables"
+		"runDatabaseUpdates": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\RunDatabaseUpdates"
 		},
 		"addBootstrap": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddBootstrap"
 		},
-		"setBPMNContent": {
-			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\SetBPMNContent"
+		"setContentModels": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\SetContentModels"
 		},
 		"addActions": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddActions",
@@ -457,7 +558,8 @@
 		}
 	},
 	"ContentHandlers": {
-		"BPMN": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ContentHandler\\BPMNHandler"
+		"BPMN": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ContentHandler\\BPMNHandler",
+		"workflow-triggers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ContentHandler\\TriggerDefinitionHandler"
 	},
 	"GroupPermissions": {
 		"user": {
@@ -545,6 +647,14 @@
 			]
 		},
 		{
+			"path": "/workflow/definition/details/{repo}/{definition}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DefinitionDetailsHandler",
+			"services": [
+				"DefinitionRepositoryFactory"
+			]
+		},
+		{
 			"path": "/workflow/triggers/{key}",
 			"method": "GET",
 			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveTriggersHandler",
@@ -553,11 +663,19 @@
 			]
 		},
 		{
+			"path": "/workflow/triggers/manual/{page}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveManualTriggersForPageHandler",
+			"services": [
+				"WorkflowTriggerRepo", "TitleFactory"
+			]
+		},
+		{
 			"path": "/workflow/triggers/{key}",
 			"method": "DELETE",
 			"class": "MediaWiki\\Extension\\Workflows\\Rest\\DeleteTriggerHandler",
 			"services": [
-				"WorkflowTriggerRepo"
+				"WorkflowTriggerRepo", "PermissionManager"
 			]
 		},
 		{
@@ -565,8 +683,13 @@
 			"method": "PUT",
 			"class": "MediaWiki\\Extension\\Workflows\\Rest\\PersistTriggersHandler",
 			"services": [
-				"WorkflowTriggerRepo"
+				"WorkflowTriggerRepo", "PermissionManager"
 			]
+		},
+		{
+			"path": "/workflow/trigger_types",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveTriggerTypesHandler"
 		}
 	],
 	"LogTypes": [ "ext-workflows" ],
