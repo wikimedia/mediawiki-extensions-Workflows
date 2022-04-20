@@ -152,22 +152,29 @@ final class ActivityManager {
 				'Activity execution must return instance of ' . ExecutionStatus::class
 			);
 		}
-		if ( !$status instanceof ExecutionStatus\IntermediateExecutionStatus ) {
-			$this->setActivityStatusFromExecutionStatus( $activity, $status );
-		}
+		$this->setActivityStatusFromExecutionStatus( $activity, $status );
 		$this->updateActivityProperties( $activity, $this->parseValues( $status->getPayload() ) );
 
 		return $status;
 	}
 
-	public function probeActivityStatus( IActivity $activity ): bool {
-		$status = $activity->probe();
+	/**
+	 * Check if ongoing activity is completed
+	 *
+	 * @param IActivity $activity
+	 * @param WorkflowContext $context
+	 * @return bool
+	 * @throws WorkflowExecutionException
+	 */
+	public function probeActivityStatus( IActivity $activity, WorkflowContext $context ): bool {
+		$status = $activity->probe( $this->getActivityProperties( $activity ), $context );
 		if ( !$status instanceof ExecutionStatus ) {
 			return false;
 		}
-		if ( $this->hasDataChange( $activity, $status ) ) {
+		$parsedPayload = $this->parseValues( $status->getPayload() );
+		if ( $this->hasDataChange( $activity, $status->getStatus(), $parsedPayload ) ) {
 			$this->setActivityStatusFromExecutionStatus( $activity, $status );
-			$this->updateActivityProperties( $activity, $this->parseValues( $status->getPayload() ) );
+			$this->updateActivityProperties( $activity, $parsedPayload );
 			return true;
 		}
 
@@ -288,22 +295,23 @@ final class ActivityManager {
 	 * is different than what is already set
 	 *
 	 * @param IActivity $activity
-	 * @param ExecutionStatus $status
+	 * @param int $status
+	 * @param array $parsedPayload
 	 * @return bool
+	 * @throws WorkflowExecutionException
 	 */
-	private function hasDataChange( IActivity $activity, ExecutionStatus $status ): bool {
+	private function hasDataChange( IActivity $activity, int $status, $parsedPayload ): bool {
 		if (
-			$status->getStatus() === IActivity::STATUS_COMPLETE &&
+			$status === IActivity::STATUS_COMPLETE &&
 			$this->getActivityStatus( $activity ) !== IActivity::STATUS_COMPLETE
 		) {
 			return true;
 		}
-		$newProperties = $status->getPayload();
 		foreach ( $this->getActivityProperties( $activity ) as $key => $value ) {
-			if ( !isset( $newProperties[$key] ) ) {
+			if ( !isset( $parsedPayload[$key] ) ) {
 				continue;
 			}
-			if ( $newProperties[$key] !== $value ) {
+			if ( $parsedPayload[$key] !== $value ) {
 				return true;
 			}
 		}

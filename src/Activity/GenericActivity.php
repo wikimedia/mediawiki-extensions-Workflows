@@ -22,7 +22,7 @@ class GenericActivity extends Activity {
 	/**
 	 * @inheritDoc
 	 */
-	public function probe(): ?ExecutionStatus {
+	public function probe( $data, WorkflowContext $context ): ?ExecutionStatus {
 		return null;
 	}
 }

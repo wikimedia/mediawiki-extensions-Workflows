@@ -15,10 +15,13 @@ class WorkflowAborted extends BaseNotification {
 	/**
 	 * @param User|User[] $targetUsers Recipient or list of recipients
 	 * @param string $workflowName Workflow name
-	 * @param Title $title Target page title object
+	 * @param Title|null $title Target page title object
 	 * @param string $reason
 	 */
-	public function __construct( $targetUsers, string $workflowName, Title $title, string $reason ) {
+	public function __construct( $targetUsers, string $workflowName, ?Title $title, string $reason ) {
+		if ( !$title instanceof Title ) {
+			$title = Title::newMainPage();
+		}
 		parent::__construct(
 			'workflows-aborted',
 			User::newSystemUser( 'Mediawiki default' ),

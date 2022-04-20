@@ -14,9 +14,12 @@ class WorkflowEnded extends BaseNotification {
 	/**
 	 * @param User $targetUser
 	 * @param string $workflowName Workflow name
-	 * @param Title $title Target page title object
+	 * @param Title|null $title Target page title object
 	 */
-	public function __construct( User $targetUser, string $workflowName, Title $title ) {
+	public function __construct( User $targetUser, string $workflowName, ?Title $title ) {
+		if ( !$title instanceof Title ) {
+			$title = Title::newMainPage();
+		}
 		parent::__construct(
 			'workflows-ended',
 			User::newSystemUser( 'Mediawiki default' ),

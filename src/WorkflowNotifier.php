@@ -48,9 +48,6 @@ class WorkflowNotifier implements Consumer {
 	 * @return void
 	 */
 	public function handle( Message $message ) {
-		if ( $this->workflow->runsAsBotProcess() ) {
-			return;
-		}
 		if ( $message->aggregateRootId() !== $this->workflow->getStorage()->aggregateRootId() ) {
 			// Not a message for us
 			return;
@@ -58,7 +55,8 @@ class WorkflowNotifier implements Consumer {
 		$event = $message->event();
 
 		$workflowName = $this->workflow->getDefinition()->getSource()->getName();
-		$workflowNameMsg = MWMessage::newFromKey( "workflows-workflow-file-definition-$workflowName-title" );
+		$repo = $this->workflow->getDefinition()->getSource()->getRepositoryKey();
+		$workflowNameMsg = MWMessage::newFromKey( "workflows-$repo-definition-$workflowName-title" );
 		if ( $workflowNameMsg->exists() ) {
 			$workflowName = $workflowNameMsg->text();
 		}
@@ -81,14 +79,17 @@ class WorkflowNotifier implements Consumer {
 					$reason = '';
 				}
 			}
-			// Notify initiator of workflow
-			$notification = new WorkflowAborted(
-				$this->workflow->getContext()->getInitiator(),
-				$workflowName,
-				$this->workflow->getContext()->getContextPage(),
-				$reason
-			);
-			$this->notifier->notify( $notification );
+			$initiator = $this->workflow->getContext()->getInitiator();
+			if ( $initiator ) {
+				// Notify initiator of workflow
+				$notification = new WorkflowAborted(
+					$initiator,
+					$workflowName,
+					$this->workflow->getContext()->getContextPage(),
+					$reason
+				);
+				$this->notifier->notify( $notification );
+			}
 
 			// Get all current workflow elements
 			$currentElements = $this->workflow->current();
@@ -102,13 +103,16 @@ class WorkflowNotifier implements Consumer {
 					$activity = $this->activityManger->getActivityForTask( $currentElement );
 
 					if ( $activity instanceof UserInteractiveActivity ) {
-						// Notify participants
-						$notification = new WorkflowAborted(
-							$this->getTargetUsers( $activity ),
-							$workflowName,
-							$this->workflow->getContext()->getContextPage(),
-							$reason
-						);
+						$targetUsers = $this->getTargetUsers( $activity );
+						if ( !empty( $targetUsers ) ) {
+							// Notify participants
+							$notification = new WorkflowAborted(
+								$targetUsers,
+								$workflowName,
+								$this->workflow->getContext()->getContextPage(),
+								$reason
+							);
+						}
 
 						$this->notifier->notify( $notification );
 					}
@@ -117,12 +121,15 @@ class WorkflowNotifier implements Consumer {
 		}
 
 		if ( $event instanceof Storage\Event\WorkflowEnded ) {
-			$notification = new WorkflowEnded(
-				$this->workflow->getContext()->getInitiator(),
-				$workflowName,
-				$this->workflow->getContext()->getContextPage()
-			);
-			$this->notifier->notify( $notification );
+			$initiator = $this->workflow->getContext()->getInitiator();
+			if ( $initiator ) {
+				$notification = new WorkflowEnded(
+					$initiator,
+					$workflowName,
+					$this->workflow->getContext()->getContextPage()
+				);
+				$this->notifier->notify( $notification );
+			}
 		}
 	}
 
@@ -146,8 +153,12 @@ class WorkflowNotifier implements Consumer {
 			return $notification;
 		}
 		if ( $event instanceof TaskStarted ) {
+			$targetUsers = $this->getTargetUsers( $activity );
+			if ( empty( $targetUsers ) ) {
+				return null;
+			}
 			return new TaskAssigned(
-				$this->getTargetUsers( $activity ),
+				$targetUsers,
 				$this->workflow->getContext()->getContextPage(),
 				$activity->getActivityDescriptor()->getActivityName()->parse()
 			);
