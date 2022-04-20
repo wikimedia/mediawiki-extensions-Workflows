@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Apzp79",
+			"Twotwo2019",
 			"Ykhwong"
 		]
 	},
@@ -90,5 +91,7 @@
 	"workflows-activity-history-vote-result-no": "거부",
 	"workflows-ui-overview-details-raw-data-popup-prop": "속성",
 	"workflows-ui-overview-details-raw-data-popup-value": "값",
-	"workflows-ui-overview-details-raw-data-popup-label": "속성 값"
+	"workflows-ui-overview-details-raw-data-popup-label": "속성 값",
+	"workflows-ui-overview-details-state-running": "활성",
+	"workflows-ui-overview-grid-filter-state-active": "활성"
 }
