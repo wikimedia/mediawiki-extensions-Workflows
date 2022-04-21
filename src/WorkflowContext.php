@@ -98,4 +98,11 @@ class WorkflowContext {
 	public function getWorkflowId(): WorkflowId {
 		return $this->mutable->getWorkflowId();
 	}
+
+	/**
+	 * @return bool
+	 */
+	public function isRunningAsBot(): bool {
+		return $this->mutable->isRunningAsBot();
+	}
 }
