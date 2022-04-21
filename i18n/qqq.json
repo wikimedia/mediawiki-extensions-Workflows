@@ -36,6 +36,7 @@
 	"logentry-ext-workflows-groupvote-no": "Entry on [[Special:Log]]",
 	"logentry-ext-workflows-userfeedback": "Entry on [[Special:Log]]",
 	"logentry-ext-workflows-groupfeedback": "Entry on [[Special:Log]] for group feedback",
+	"logentry-ext-workflows-editpage-edit": "Log entry message",
 	"workflows-ui-alert-action-complete": "Label for button that completes an action.\n{{Identical|Complete action}}",
 	"workflows-ui-alert-running-workflow-user-task": "Alert message that there is a workflow running on the current page and an action from the user is required.",
 	"workflows-ui-alert-running-workflow": "Alert message that there is a workflow running on the current page.\n*$1 - Type of workflow that is running on the current page",
@@ -201,7 +202,5 @@
 	"workflows-ui-trigger-item-inactive": "Trigger name label when trigger is inactive.\n$1 - trigger name",
 	"workflows-ui-trigger-field-description": "Field label",
 	"workflows-ui-trigger-field-workflow-picker": "Field label",
-	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title",
-	"workflows-activity-editpage-invalid-permissiondenied": "Error message when user cannot edit the page.\n$1 - username, $2 - title",
-	"logentry-ext-workflows-editpage-edit": "Log entry message"
+	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title"
 }
