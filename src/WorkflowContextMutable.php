@@ -31,6 +31,8 @@ class WorkflowContextMutable {
 	private $workflowId;
 	/** @var DateTime|null */
 	private $endDate;
+	/** @var bool */
+	private $runningAsBot = false;
 
 	/**
 	 * @param TitleFactory $titleFactory
@@ -205,5 +207,19 @@ class WorkflowContextMutable {
 			'definition_context' => $this->getDefinitionContext()->getAllItems(),
 		];
 		return $dataFlattener->flatten( array_merge( $this->runningData, $additionalData ) );
+	}
+
+	/**
+	 * @param bool $isBotProcess
+	 */
+	public function markAsBotProcess( bool $isBotProcess ) {
+		$this->runningAsBot = $isBotProcess;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isRunningAsBot(): bool {
+		return $this->runningAsBot;
 	}
 }
