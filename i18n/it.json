@@ -5,7 +5,7 @@
 			"Beta16"
 		]
 	},
-	"workflows-ui-starter-action-done": "Fatto",
+	"workflows-ui-starter-action-done": "Inizio",
 	"workflows-ui-starter-action-back": "Scegli un altro",
 	"workflows-ui-starter-action-cancel": "Annulla",
 	"workflows-ui-alert-action-complete": "Completa azione",
@@ -29,5 +29,15 @@
 	"workflows-uto-body-field-instructions": "Istruzioni: $1",
 	"workflows-ui-overview-details-action-details-column": "vedi dettagli",
 	"workflows-collect-data-form-instructions": "Istruzioni",
-	"workflows-collect-data-form-username": "Utente"
+	"workflows-collect-data-form-username": "Utente",
+	"workflows-triggers-type-manual-label": "Manuale",
+	"workflows-ui-action-cancel": "Annulla",
+	"workflows-ui-trigger-action-create": "Salva",
+	"workflows-ui-trigger-action-choose": "Continua",
+	"workflows-ui-trigger-action-delete": "Cancella",
+	"workflows-ui-trigger-field-name": "Nome",
+	"workflows-action-edit-label": "Modifica",
+	"workflows-action-delete-label": "Cancella",
+	"workflows-ui-trigger-field-description": "Descrizione",
+	"workflows-activity-editpage-error-no-title": "Nessun titolo fornito"
 }
