@@ -52,6 +52,20 @@ class GenericDescriptor implements IActivityDescriptor {
 	/**
 	 * @inheritDoc
 	 */
+	public function getTaskName(): Message {
+		$taskName = $this->activity->getTask()->getName();
+
+		$taskMsg = Message::newFromKey( "workflows-ui-workflow-overview-step-name-$taskName" );
+		if ( !$taskMsg->exists() ) {
+			$taskMsg = new \RawMessage( $taskName );
+		}
+
+		return $taskMsg;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getAlertText(): Message {
 		return Message::newFromKey( 'workflows-ui-alert-running-workflow-user-task' );
 	}
@@ -102,6 +116,7 @@ class GenericDescriptor implements IActivityDescriptor {
 	public function jsonSerialize() {
 		return [
 			'name' => $this->getActivityName()->text(),
+			'taskName' => $this->getTaskName()->text(),
 			'alertMessage' => $this->getAlertText()->parse(),
 			'completeButtonMessage' => $this->getCompleteButtonText()->parse(),
 			'dueDate' => $this->getDueDate(),

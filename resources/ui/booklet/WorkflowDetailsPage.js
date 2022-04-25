@@ -174,7 +174,7 @@
 			var activity = activities[i];
 
 			var name = new OO.ui.LabelWidget( {
-					label: activity.name,
+					label: activity.description.taskName,
 					classes: [ 'name' ]
 				} ),
 				rawData = new workflows.ui.widget.ActivityRawDataPopup( activity.getProperties() ),
@@ -340,7 +340,7 @@
 			return;
 		}
 		var name = new OO.ui.LabelWidget( {
-				label: activity.name,
+				label: activity.description.taskName,
 				classes: [ 'name' ]
 			} ),
 			layout = new OO.ui.PanelLayout( {

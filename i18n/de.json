@@ -160,5 +160,16 @@
 	"workflows-activity-history-vote-result-no": "Abgelehnt",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Eigenschaft",
 	"workflows-ui-overview-details-raw-data-popup-value": "Wert",
-	"workflows-ui-overview-details-raw-data-popup-label": "Eigenschaftswerte"
+	"workflows-ui-overview-details-raw-data-popup-label": "Eigenschaftswerte",
+	"workflows-activity-user-feedback-name": "Feedback",
+	"workflows-activity-user-vote-name": "Benutzerabstimmung",
+	"workflows-activity-group-feedback-name": "Feedback",
+	"workflows-activity-group-vote-name": "Gruppenabstimmung",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Begutachtung",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Freigabe",
+	"workflows-ui-workflow-overview-step-name-user-vote": "Benutzerabstimmung",
+	"workflows-ui-workflow-overview-step-name-user-feedback": "Feedback",
+	"workflows-ui-workflow-overview-step-name-group-feedback": "Feedback",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Bearbeitungsanfrage",
+	"workflows-ui-workflow-overview-step-name-collect-data": "Dateneingabe"
 }

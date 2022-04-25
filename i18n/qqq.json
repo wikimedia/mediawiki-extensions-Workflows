@@ -205,5 +205,16 @@
 	"workflows-ui-trigger-field-workflow-picker": "Field label",
 	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title",
 	"workflows-activity-editpage-invalid-permissiondenied": "Error message when user cannot edit the page.\n$1 - username, $2 - title",
-	"logentry-ext-workflows-editpage-edit": "Log entry message"
+	"logentry-ext-workflows-editpage-edit": "Log entry message",
+	"workflows-activity-user-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|User feedback}}",
+	"workflows-activity-user-vote-name": "Name of activity, which is used in notifications.\n{{Identical|User vote}}",
+	"workflows-activity-group-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|Group feedback}}",
+	"workflows-activity-group-vote-name": "Name of activity, which is used in notifications.\n{{Identical|Group vote}}",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Name of workflow step, which is bind to activity.",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Name of workflow step, which is bind to activity.",
+	"workflows-ui-workflow-overview-step-name-user-vote": "Name of workflow step, which is bind to activity.\n{{Identical|User vote}}",
+	"workflows-ui-workflow-overview-step-name-user-feedback": "Name of workflow step, which is bind to activity.\n{{Identical|User feedback}}",
+	"workflows-ui-workflow-overview-step-name-group-feedback": "Name of workflow step, which is bind to activity.\n{{Identical|Group feedback}}",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Name of workflow step, which is bind to activity.\n{{Identical|Edit request}}",
+	"workflows-ui-workflow-overview-step-name-collect-data": "Name of workflow step, which is bind to activity.\n{{Identical|Collect data}}"
 }
