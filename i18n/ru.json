@@ -1,14 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Pacha Tchernof"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
+	"workflows-ui-starter-action-done": "Начать",
 	"workflows-ui-starter-action-cancel": "Отменить",
 	"workflows-ui-task-completion-action-cancel": "Отмена",
 	"workflows-ui-workflow-overview-action-restore": "Восстановить",
 	"workflows-ui-workflow-overview-action-cancel": "Закрыть",
+	"workflows-ui-workflow-overview-action-back": "Назад",
 	"workflows-ui-overview-details-action-reason": "Причина",
 	"workflows-ui-overview-details-page-context-page": "Страница",
 	"workflows-ui-overview-details-workflow-type-label": "Тип",
@@ -17,6 +20,10 @@
 	"workflows-activity-history-vote-result-no": "Отклонено",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Свойство",
 	"workflows-ui-overview-details-raw-data-popup-value": "Значение",
-	"workflows-ui-starter-action-done": "Готово",
-	"workflows-ui-workflow-overview-action-back": "Назад"
+	"workflows-ui-action-cancel": "Отмена",
+	"workflows-ui-trigger-action-create": "Сохранить",
+	"workflows-ui-trigger-action-choose": "Продолжить",
+	"workflows-action-edit-label": "Изменить",
+	"workflows-action-delete-label": "Удалить",
+	"workflows-ui-trigger-field-description": "Описание"
 }

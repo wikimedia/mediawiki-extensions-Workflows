@@ -5,5 +5,13 @@
 		]
 	},
 	"workflows-ui-starter-action-done": "पूर्ण हुआ",
-	"workflows-ui-workflow-overview-action-back": "पीछे"
+	"workflows-ui-workflow-overview-action-back": "पीछे",
+	"workflows-ui-action-cancel": "रद्द करें",
+	"workflows-ui-trigger-action-create": "सहेजें",
+	"workflows-ui-trigger-action-choose": "जारी रखें",
+	"workflows-ui-trigger-action-delete": "हटाएँ",
+	"workflows-ui-trigger-field-name": "नाम",
+	"workflows-action-edit-label": "संपादित करें",
+	"workflows-action-delete-label": "हटाएँ",
+	"workflows-ui-trigger-field-description": "विवरण"
 }

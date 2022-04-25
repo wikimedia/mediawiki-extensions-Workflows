@@ -5,6 +5,7 @@
 			"Beta16"
 		]
 	},
+	"workflows-ui-starter-action-done": "Inizio",
 	"workflows-ui-starter-action-back": "Scegli un altro",
 	"workflows-ui-starter-action-cancel": "Annulla",
 	"workflows-ui-alert-action-complete": "Completa azione",
@@ -13,6 +14,7 @@
 	"workflows-form-placeholder-comment": "Commento",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Vedi dettagli",
 	"workflows-ui-workflow-overview-action-cancel": "Chiudi",
+	"workflows-ui-workflow-overview-action-back": "Indietro",
 	"workflows-ui-overview-details-state-label": "Stato:",
 	"workflows-ui-overview-details-state-column": "Stato",
 	"workflows-ui-overview-details-state-not_started": "Non iniziato",
@@ -28,6 +30,14 @@
 	"workflows-ui-overview-details-action-details-column": "vedi dettagli",
 	"workflows-collect-data-form-instructions": "Istruzioni",
 	"workflows-collect-data-form-username": "Utente",
-	"workflows-ui-starter-action-done": "Fatto",
-	"workflows-ui-workflow-overview-action-back": "Indietro"
+	"workflows-triggers-type-manual-label": "Manuale",
+	"workflows-ui-action-cancel": "Annulla",
+	"workflows-ui-trigger-action-create": "Salva",
+	"workflows-ui-trigger-action-choose": "Continua",
+	"workflows-ui-trigger-action-delete": "Cancella",
+	"workflows-ui-trigger-field-name": "Nome",
+	"workflows-action-edit-label": "Modifica",
+	"workflows-action-delete-label": "Cancella",
+	"workflows-ui-trigger-field-description": "Descrizione",
+	"workflows-activity-editpage-error-no-title": "Nessun titolo fornito"
 }

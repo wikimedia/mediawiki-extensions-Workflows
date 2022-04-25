@@ -4,8 +4,22 @@
 			"MathXplore"
 		]
 	},
-	"workflows-ui-starter-action-done": "完了",
+	"workflows-ui-starter-action-done": "開始",
 	"workflows-ui-workflow-overview-action-back": "戻る",
 	"workflows-ui-overview-details-raw-data-popup-prop": "プロパティ",
-	"workflows-ui-overview-details-raw-data-popup-value": "値"
+	"workflows-ui-overview-details-raw-data-popup-value": "値",
+	"workflows-triggers-type-manual-label": "マニュアル",
+	"workflows-ui-action-cancel": "キャンセル",
+	"workflows-ui-trigger-action-create": "保存",
+	"workflows-ui-trigger-action-choose": "続行",
+	"workflows-ui-trigger-delete-dialog-title": "トリガーを削除する",
+	"workflows-ui-trigger-action-delete": "削除",
+	"workflows-ui-triggers-error-delete-fail": "トリガーの削除に失敗しました",
+	"workflows-ui-triggers-add-button": "新しいトリガーを追加する",
+	"workflows-ui-trigger-field-name": "名前",
+	"workflows-ui-trigger-field-active": "アクティブ",
+	"workflows-action-edit-label": "編集",
+	"workflows-action-delete-label": "削除",
+	"workflows-ui-trigger-field-description": "説明",
+	"workflows-activity-editpage-error-no-title": "タイトルが与えられていません。"
 }
