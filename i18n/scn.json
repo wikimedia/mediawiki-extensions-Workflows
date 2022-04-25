@@ -30,5 +30,9 @@
 	"workflows-collect-data-form-username": "Utenti",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Prupità",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valuri",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valuri dâ prupità"
+	"workflows-ui-overview-details-raw-data-popup-label": "Valuri dâ prupità",
+	"workflows-ui-action-cancel": "Annulla",
+	"workflows-ui-trigger-action-create": "Sarva",
+	"workflows-ui-trigger-field-name": "Nomu",
+	"workflows-action-edit-label": "Cancia"
 }

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"LoveIceLang"
+		]
+	},
+	"workflows-ui-starter-action-done": "Byrja",
+	"workflows-triggers-type-manual-label": "Leiðbeiningar",
+	"workflows-ui-action-cancel": "Hætta við",
+	"workflows-ui-trigger-action-create": "Vista",
+	"workflows-ui-trigger-action-choose": "Halda áfram",
+	"workflows-ui-trigger-field-name": "Nafn",
+	"workflows-action-edit-label": "Breyta",
+	"workflows-action-delete-label": "Eyða"
+}

@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Josuert"
+		]
+	},
+	"workflows-ui-starter-action-done": "Iniciar",
+	"workflows-triggers-type-edit-label": "Al editar",
+	"workflows-triggers-type-create-label": "En la creación de la página",
+	"workflows-triggers-type-manual-label": "Manual",
+	"workflows-ui-action-cancel": "Cancelar",
+	"workflows-ui-trigger-action-create": "Guardar",
+	"workflows-ui-trigger-action-choose": "Continuar",
+	"workflows-ui-trigger-delete-dialog-title": "Eliminar disparador",
+	"workflows-ui-trigger-action-delete": "Eliminar",
+	"workflows-ui-trigger-delete-prompt": "¿Estás seguro de querer eliminar el disparador \"$1\"?",
+	"workflows-ui-triggers-error-delete-fail": "Fallo al eliminar el disparador",
+	"workflows-ui-triggers-add-button": "Añadir un disparador nuevo",
+	"workflows-ui-trigger-field-name": "Nombre",
+	"workflows-ui-trigger-field-active": "Activo",
+	"workflows-action-edit-label": "Editar",
+	"workflows-action-delete-label": "Eliminar",
+	"workflows-ui-trigger-item-inactive": "$1 (inactivo)",
+	"workflows-ui-trigger-field-description": "Descripción"
+}

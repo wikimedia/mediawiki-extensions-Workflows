@@ -20,10 +20,15 @@
 	"workflows-activity-history-vote-result-no": "Отклонено",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Свойство",
 	"workflows-ui-overview-details-raw-data-popup-value": "Значение",
+	"workflows-triggers-type-manual-label": "Руководство",
 	"workflows-ui-action-cancel": "Отмена",
 	"workflows-ui-trigger-action-create": "Сохранить",
 	"workflows-ui-trigger-action-choose": "Продолжить",
+	"workflows-ui-trigger-action-delete": "Удалить",
+	"workflows-ui-trigger-since-last-major-days": "Количество дней с последней большой версии",
+	"workflows-ui-trigger-field-active": "Активен",
 	"workflows-action-edit-label": "Изменить",
 	"workflows-action-delete-label": "Удалить",
+	"workflows-ui-trigger-item-inactive": "$1 (неактивен)",
 	"workflows-ui-trigger-field-description": "Описание"
 }
