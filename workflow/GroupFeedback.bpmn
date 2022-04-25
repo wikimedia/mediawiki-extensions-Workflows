@@ -13,7 +13,7 @@
 		</bpmn:startEvent>
 		<bpmn:sequenceFlow id="FromTheStartToCollectData" sourceRef="TheStart" targetRef="CollectData"/>
 		<!-- CollectData -->
-		<bpmn:userTask id="CollectData" name="CollectData">
+		<bpmn:userTask id="CollectData" name="collect-data">
 			<bpmn:extensionElements>
 				<wf:type>custom_form</wf:type>
 				<wf:formModule>
@@ -31,7 +31,7 @@
 		</bpmn:userTask>
 		<bpmn:sequenceFlow id="FromCollectDataToGroupFeedback" sourceRef="CollectData" targetRef="GroupFeedback"/>
 		<!-- Collect group vote -->
-		<bpmn:userTask id="GroupFeedback" name="GroupFeedback">
+		<bpmn:userTask id="GroupFeedback" name="group-feedback">
 			<bpmn:extensionElements>
 				<wf:type>group_feedback</wf:type>
 				<wf:threshold>
@@ -51,7 +51,7 @@
 		</bpmn:userTask>
 		<bpmn:sequenceFlow id="FromGroupFeedbackToSendMail" sourceRef="GroupFeedback" targetRef="SendMail"/>
 		<!-- Send mail -->
-		<bpmn:task id="SendMail" name="SendMail">
+		<bpmn:task id="SendMail" name="send-mail">
 			<bpmn:extensionElements>
 				<wf:type>send_mail</wf:type>
 			</bpmn:extensionElements>

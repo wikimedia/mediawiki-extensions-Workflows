@@ -29,6 +29,29 @@ interface IActivityDescriptor extends JsonSerializable {
 	public function getActivityName(): Message;
 
 	/**
+	 * Actual translated (if there is translation for it) task name.
+	 * There is some difference between "task name" and "activity name".
+	 * Here is an example:
+	 *
+	 * <bpmn:userTask id="UserVoteReview" name="user-vote-review">
+	 * 		<bpmn:extensionElements>
+	 * 			<wf:type>user_vote</wf:type>
+	 * 		</bpmn:extensionElements>
+	 * 		...
+	 * </bpmn:userTask>
+	 *
+	 * In this case "user-vote-review" is specific task name, and "User vote" - name of activity.
+	 * One "User vote" activity may be used several times during the workflow, in context of different tasks.
+	 * For example, "user-vote-review", "user-vote-approve" etc.
+	 *
+	 * Task name is written in such way (lowercase with dashes separation) to easily look for translation.
+	 * Obviously, if new task appear - it should be properly translated.
+	 *
+	 * @return Message
+	 */
+	public function getTaskName(): Message;
+
+	/**
 	 * Get UI-friendly due date
 	 *
 	 * @return string|null if
