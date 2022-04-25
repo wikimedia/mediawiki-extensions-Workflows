@@ -205,7 +205,6 @@
 	"workflows-ui-trigger-field-workflow-picker": "Field label",
 	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title",
 	"workflows-activity-editpage-invalid-permissiondenied": "Error message when user cannot edit the page.\n$1 - username, $2 - title",
-	"logentry-ext-workflows-editpage-edit": "Log entry message",
 	"workflows-activity-user-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|User feedback}}",
 	"workflows-activity-user-vote-name": "Name of activity, which is used in notifications.\n{{Identical|User vote}}",
 	"workflows-activity-group-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|Group feedback}}",
@@ -216,5 +215,10 @@
 	"workflows-ui-workflow-overview-step-name-user-feedback": "Name of workflow step, which is bind to activity.\n{{Identical|User feedback}}",
 	"workflows-ui-workflow-overview-step-name-group-feedback": "Name of workflow step, which is bind to activity.\n{{Identical|Group feedback}}",
 	"workflows-ui-workflow-overview-step-name-edit-request": "Name of workflow step, which is bind to activity.\n{{Identical|Edit request}}",
-	"workflows-ui-workflow-overview-step-name-collect-data": "Name of workflow step, which is bind to activity.\n{{Identical|Collect data}}"
+	"workflows-ui-workflow-overview-step-name-collect-data": "Name of workflow step, which is bind to activity.\n{{Identical|Collect data}}",
+	"workflows-activity-set-template-params-no-target": "Error message when template that was requested cannot be found on the page",
+	"workflows-activity-error-no-revision": "Generic error message when no valid revision can be found",
+	"workflows-activity-error-no-title": "Generic error message when no title can be found",
+	"workflows-activity-cannot-edit": "Generic error message when user cannot edit a page.\n$1 - username\n$2 - title",
+	"workflows-activity-set-template-params-cannot-save": "Error message when update template cannot be saved"
 }

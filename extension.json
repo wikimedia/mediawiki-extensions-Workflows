@@ -69,6 +69,10 @@
 					"edit_page": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\EditPageActivity",
 						"services": [ "TitleFactory", "UserFactory", "PermissionManager" ]
+					},
+					"set_template_param": {
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\SetTemplateParamsActivity",
+						"services": [ "WikitextParserFactory", "TitleFactory", "RevisionStore", "UserFactory", "PermissionManager" ]
 					}
 				},
 				"DecisionRegistry": {}

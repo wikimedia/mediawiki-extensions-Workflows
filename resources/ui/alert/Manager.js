@@ -10,6 +10,9 @@
 	};
 
 	workflows.ui.alert.Manager.prototype.addFromWorkflow = function( workflow ) {
+		if ( workflow.getState() !== workflows.state.RUNNING ) {
+			return;
+		}
 		var activities = workflow.getCurrent();
 		if ( !$.isEmptyObject( activities ) ) {
 			var selected = this.selectActivity( activities );
