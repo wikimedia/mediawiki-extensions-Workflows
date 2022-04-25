@@ -4,8 +4,16 @@ namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Workflow;
+use Message;
 
 class GroupFeedbackDescriptor extends FeedbackDescriptor {
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getActivityName(): Message {
+		return Message::newFromKey( 'workflows-activity-group-feedback-name' );
+	}
 
 	/**
 	 * @inheritDoc

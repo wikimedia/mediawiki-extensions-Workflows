@@ -58,7 +58,7 @@ class FeedbackDescriptor extends GenericDescriptor {
 			$notification = new FeedbackTaskAssigned(
 				$validUsers,
 				$workflow->getContext()->getContextPage(),
-				$this->getActivityName()->parse(),
+				$this->getActivityName(),
 				$workflow->getContext()->getInitiator(),
 				$workflow->getActivityManager()->getActivityProperties( $this->activity )['instructions']
 			);

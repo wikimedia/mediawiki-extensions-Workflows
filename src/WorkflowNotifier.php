@@ -13,6 +13,7 @@ use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use Message as MWMessage;
 use MWStake\MediaWiki\Component\Notifications\INotification;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
+use RawMessage;
 use User;
 
 /**
@@ -57,8 +58,8 @@ class WorkflowNotifier implements Consumer {
 		$workflowName = $this->workflow->getDefinition()->getSource()->getName();
 		$repo = $this->workflow->getDefinition()->getSource()->getRepositoryKey();
 		$workflowNameMsg = MWMessage::newFromKey( "workflows-$repo-definition-$workflowName-title" );
-		if ( $workflowNameMsg->exists() ) {
-			$workflowName = $workflowNameMsg->text();
+		if ( !$workflowNameMsg->exists() ) {
+			$workflowNameMsg = RawMessage::newFromKey( $workflowName );
 		}
 
 		if ( $event instanceof ActivityEvent ) {
@@ -84,7 +85,7 @@ class WorkflowNotifier implements Consumer {
 				// Notify initiator of workflow
 				$notification = new WorkflowAborted(
 					$initiator,
-					$workflowName,
+					$workflowNameMsg,
 					$this->workflow->getContext()->getContextPage(),
 					$reason
 				);
@@ -108,13 +109,13 @@ class WorkflowNotifier implements Consumer {
 							// Notify participants
 							$notification = new WorkflowAborted(
 								$targetUsers,
-								$workflowName,
+								$workflowNameMsg,
 								$this->workflow->getContext()->getContextPage(),
 								$reason
 							);
-						}
 
-						$this->notifier->notify( $notification );
+							$this->notifier->notify( $notification );
+						}
 					}
 				}
 			}

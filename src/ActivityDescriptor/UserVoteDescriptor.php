@@ -11,6 +11,13 @@ class UserVoteDescriptor extends FeedbackDescriptor {
 	/**
 	 * @inheritDoc
 	 */
+	public function getActivityName(): Message {
+		return Message::newFromKey( 'workflows-activity-user-vote-name' );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getHistoryReport( Workflow $workflow ): array {
 		$status = $workflow->getActivityManager()->getActivityStatus( $this->activity );
 

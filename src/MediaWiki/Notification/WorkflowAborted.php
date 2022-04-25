@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Notification;
 
+use Message;
 use MWStake\MediaWiki\Component\Notifications\BaseNotification;
 use Title;
 use User;
@@ -9,16 +10,16 @@ use User;
 class WorkflowAborted extends BaseNotification {
 	/** @var string */
 	protected $reason;
-	/** @var string */
-	protected $workflowName;
+	/** @var Message */
+	protected $workflowNameMsg;
 
 	/**
 	 * @param User|User[] $targetUsers Recipient or list of recipients
-	 * @param string $workflowName Workflow name
+	 * @param Message $workflowNameMsg Message, containing workflow name. Will be translated for recipient
 	 * @param Title|null $title Target page title object
 	 * @param string $reason
 	 */
-	public function __construct( $targetUsers, string $workflowName, ?Title $title, string $reason ) {
+	public function __construct( $targetUsers, Message $workflowNameMsg, ?Title $title, string $reason ) {
 		if ( !$title instanceof Title ) {
 			$title = Title::newMainPage();
 		}
@@ -32,7 +33,7 @@ class WorkflowAborted extends BaseNotification {
 		}
 
 		$this->reason = $reason;
-		$this->workflowName = $workflowName;
+		$this->workflowNameMsg = $workflowNameMsg;
 		$this->addAffectedUsers( $targetUsers );
 	}
 
@@ -42,7 +43,7 @@ class WorkflowAborted extends BaseNotification {
 	public function getParams() {
 		return parent::getParams() + [
 			'reason' => $this->reason,
-			'workflow-name' => $this->workflowName
+			'workflow-name' => $this->workflowNameMsg
 		];
 	}
 }
