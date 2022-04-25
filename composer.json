@@ -22,7 +22,8 @@
 		"mwstake/mediawiki-component-formengine": "~2",
 		"mwstake/mediawiki-component-notifications": "~2",
 		"mwstake/mediawiki-component-runjobstrigger": "~2",
-		"mwstake/mediawiki-component-alertbanners": "~2"
+		"mwstake/mediawiki-component-alertbanners": "~2",
+		"mwstake/mediawiki-component-wikitext": "~3"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "38.0.0",
