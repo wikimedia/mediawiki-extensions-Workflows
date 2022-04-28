@@ -8,6 +8,7 @@
 	"workflows-ui-starter-action-choose": "Выбрать",
 	"workflows-ui-starter-action-done": "Начать",
 	"workflows-ui-starter-action-cancel": "Отменить",
+	"logentry-ext-workflows-editpage-edit": "Страниц отредактировано: $4",
 	"workflows-ui-task-completion-action-cancel": "Отмена",
 	"workflows-ui-workflow-overview-action-restore": "Восстановить",
 	"workflows-ui-workflow-overview-action-cancel": "Закрыть",
