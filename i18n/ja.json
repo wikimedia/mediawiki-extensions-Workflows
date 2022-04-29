@@ -16,6 +16,7 @@
 	"workflows-ui-trigger-action-delete": "削除",
 	"workflows-ui-triggers-error-delete-fail": "トリガーの削除に失敗しました",
 	"workflows-ui-triggers-add-button": "新しいトリガーを追加する",
+	"workflows-ui-trigger-manual-workflows": "許可されたワークフロー",
 	"workflows-ui-trigger-field-name": "名前",
 	"workflows-ui-trigger-field-active": "アクティブ",
 	"workflows-action-edit-label": "編集",
