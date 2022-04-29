@@ -13,10 +13,13 @@ class TaskAssigned extends BaseNotification {
 
 	/**
 	 * @param array $targetUsers
-	 * @param Title $title Target page title object
+	 * @param Title|null $title Target page title object
 	 * @param string $activity
 	 */
 	public function __construct( $targetUsers, $title, $activity ) {
+		if ( !$title instanceof Title ) {
+			$title = Title::newMainPage();
+		}
 		parent::__construct(
 			'workflows-task-assign',
 			User::newSystemUser( 'Mediawiki default' ),

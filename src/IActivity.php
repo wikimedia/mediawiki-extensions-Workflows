@@ -47,9 +47,11 @@ interface IActivity {
 	 * It is allowed for this function to change its internal state (props and status)
 	 * but should not contain any logic that could have otherwise went to execute()
 	 *
+	 * @param array $data
+	 * @param WorkflowContext $context
 	 * @return ExecutionStatus|null if no change is to be reported
 	 */
-	public function probe(): ?ExecutionStatus;
+	public function probe( $data, WorkflowContext $context ): ?ExecutionStatus;
 
 	/**
 	 * Get task object this activity bases on

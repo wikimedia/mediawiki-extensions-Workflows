@@ -39,6 +39,16 @@ Property can be marked as internal by specifying `internal="1"` ( `<bpmn:propert
 
 This means that the property will not be sent in API requests (to the client) and cannot be set by data coming from the client.
 
+### Property value syntax
+How to set the value of the property?
+
+Setting the default value:
+- As an attribute: `<bpmn:property name="myprop" default="test"/>`
+- As the node value `<bpmn:property name="myprop">test</bpmn:property>`
+
+Both of these ways support specifying the value dynamically from another (past) activity or WF context.
+Syntax for that is `{{{ActivityName.propertyName}}}`. For specifying context values, its `{{{definition_context.contextItem}}}` where `contextItem` is key of the context item
+
 ## Multi-instance characteristics
 Engine supports parallel and sequential multi-instance execution. Marking a task as multi-instance is done using
 `<bpmn:multiInstanceLoopCharacteristics>` tag.

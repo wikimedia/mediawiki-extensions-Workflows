@@ -10,6 +10,6 @@ class IntermediateExecutionStatus extends ExecutionStatus {
 	 * @param array $payload
 	 */
 	public function __construct( array $payload = [] ) {
-		parent::__construct( IActivity::STATUS_STARTED, $payload );
+		parent::__construct( IActivity::STATUS_EXECUTING, $payload );
 	}
 }

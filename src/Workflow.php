@@ -323,7 +323,7 @@ final class Workflow {
 	}
 
 	private function probeActivityStatus( IActivity $activity ) {
-		$changed = $this->activityManager->probeActivityStatus( $activity );
+		$changed = $this->activityManager->probeActivityStatus( $activity, $this->getContext() );
 		if ( !$changed ) {
 			return $activity->getTask();
 		}
