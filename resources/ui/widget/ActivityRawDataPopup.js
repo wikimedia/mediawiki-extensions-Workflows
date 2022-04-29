@@ -26,8 +26,7 @@
 			$overlay: true,
 			popup: {
 				$content: $table,
-				padded: true,
-				width: null
+				padded: true
 			}
 		};
 		workflows.ui.widget.ActivityRawDataPopup.parent.call( this, cfg );
