@@ -12,7 +12,7 @@ class WorkflowFactory {
 	/** @var WorkflowEventRepository */
 	private $eventRepo;
 	/** @var DefinitionRepositoryFactory */
-	private $defintionRepositoryFactory;
+	private $definitionRepositoryFactory;
 
 	/**
 	 * @param WorkflowEventRepository $repository
@@ -23,7 +23,7 @@ class WorkflowFactory {
 		DefinitionRepositoryFactory $definitionRepositoryFactory
 	) {
 		$this->eventRepo = $repository;
-		$this->defintionRepositoryFactory = $definitionRepositoryFactory;
+		$this->definitionRepositoryFactory = $definitionRepositoryFactory;
 	}
 
 	/**
@@ -37,7 +37,7 @@ class WorkflowFactory {
 		AggregateRootId $aggregateRootId
 	): Workflow {
 		return Workflow::newFromInstanceID(
-			$aggregateRootId, $this->eventRepo, $this->defintionRepositoryFactory
+			$aggregateRootId, $this->eventRepo, $this->definitionRepositoryFactory
 		);
 	}
 
@@ -47,7 +47,7 @@ class WorkflowFactory {
 	 * @return Workflow
 	 */
 	public function newEmpty( $definition, $definitionRepositoryKey ): Workflow {
-		$repo = $this->defintionRepositoryFactory->getRepository( $definitionRepositoryKey );
+		$repo = $this->definitionRepositoryFactory->getRepository( $definitionRepositoryKey );
 		if ( !( $repo instanceof IDefinitionRepository ) ) {
 			throw new \InvalidArgumentException(
 				"Definition repository {$definitionRepositoryKey} not found"
