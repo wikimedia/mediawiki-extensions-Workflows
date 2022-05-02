@@ -7,7 +7,7 @@
 			"מקף"
 		]
 	},
-	"workflows-ui-starter-action-done": "בוצע",
+	"workflows-ui-starter-action-done": "להתחיל",
 	"workflows-ui-starter-action-cancel": "ביטול",
 	"logentry-ext-workflows-groupfeedback": "משוב קבוצתי: {{GENDER:$2|המשתמש $1 נתן|המשתמשת $1 נתנה}} משוב בעמוד $3:",
 	"workflows-ui-alert-action-complete": "השלמת הפעולה",

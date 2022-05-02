@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Can"
+			"Can",
+			"Ahmetlii"
 		]
 	},
-	"workflows-ui-starter-action-done": "Tamam",
+	"workflows-ui-starter-action-done": "Başlat",
 	"workflows-ui-workflow-overview-action-back": "Geri",
 	"workflows-collect-data-form-instructions": "Talimatlar",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Nitelik",
