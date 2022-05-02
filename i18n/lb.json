@@ -5,7 +5,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Eraussichen",
-	"workflows-ui-starter-action-done": "Fäerdeg",
+	"workflows-ui-starter-action-done": "Ufänken",
 	"workflows-ui-starter-action-cancel": "Ofbriechen",
 	"workflows-ui-alert-action-complete": "Aktioun ofschléissen",
 	"workflows-ui-task-completion-action-cancel": "Ofbriechen",
@@ -40,5 +40,16 @@
 	"workflows-ui-overview-details-initiator": "Ugefaange vum",
 	"workflows-property-validator-required-error": "Wäert ass obligatoresch",
 	"workflows-collect-data-form-instructions": "Instruktiounen",
-	"workflows-ui-overview-details-raw-data-popup-value": "Wäert"
+	"workflows-ui-overview-details-raw-data-popup-value": "Wäert",
+	"workflows-triggers-type-manual-label": "Handbuch",
+	"workflows-ui-action-cancel": "Ofbriechen",
+	"workflows-ui-trigger-action-create": "Späicheren",
+	"workflows-ui-trigger-action-choose": "Virufueren",
+	"workflows-ui-trigger-action-delete": "Läschen",
+	"workflows-ui-trigger-field-name": "Numm",
+	"workflows-ui-trigger-field-active": "Aktiv",
+	"workflows-action-edit-label": "Änneren",
+	"workflows-action-delete-label": "Läschen",
+	"workflows-ui-trigger-item-inactive": "$1 (inaktiv)",
+	"workflows-ui-trigger-field-description": "Beschreiwung"
 }
