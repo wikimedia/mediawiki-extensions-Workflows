@@ -22,7 +22,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-task-assign',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'web-body-message' => 'workflows-notification-task-assign-web',
 				'web-body-params' => [ 'activity-type', 'title' ],
 				'email-subject-message' => 'workflows-notification-task-assign-email-sub',
@@ -35,7 +35,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-feedback-task-assign',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'summary-message' => 'workflows-notification-task-assign-web',
 				'summary-params' => [ 'activity-type', 'title' ],
 				'web-body-message' => 'workflows-notification-feedback-task-assign-web-body',
@@ -50,7 +50,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-ended',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'summary-message' => 'workflows-notification-ended-web',
 				'summary-params' => [ 'title', 'workflow-name' ],
 				'web-body-message' => 'workflows-notification-ended-web',
@@ -65,7 +65,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-aborted',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'summary-message' => 'workflows-notification-aborted-web-summary',
 				'summary-params' => [ 'title', 'workflow-name' ],
 				'web-body-message' => 'workflows-notification-aborted-web',
@@ -80,7 +80,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-due-date-proximity',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'web-body-message' => 'workflows-notification-due-date-proximity-web',
 				'web-body-params' => [ 'title', 'activity-type' ],
 				'email-subject-message' => 'workflows-notification-due-date-proximity-email-sub',
@@ -94,7 +94,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-vote-accept',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'web-body-message' => 'workflows-notification-user-vote-accept-web',
 				'web-body-params' => [ 'agent', 'title' ],
 				'email-subject-message' => 'workflows-notification-user-vote-accept-email-sub',
@@ -107,7 +107,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-vote-deny',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'web-body-message' => 'workflows-notification-user-vote-deny-web',
 				'web-body-params' => [ 'agent', 'title' ],
 				'email-subject-message' => 'workflows-notification-user-vote-deny-email-sub',
@@ -120,7 +120,7 @@ class Extension {
 		$notifier->registerNotification(
 			'workflows-vote-delegate',
 			[
-				'category' => 'workflows-cat',
+				'category' => 'workflow-cat',
 				'web-body-message' => 'workflows-notification-user-vote-delegate-web',
 				'web-body-params' => [ 'agent', 'title', 'activity-type' ],
 				'email-subject-message' => 'workflows-notification-user-vote-delegate-email-sub',
