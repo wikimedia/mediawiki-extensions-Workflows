@@ -5,7 +5,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Ընտրել",
-	"workflows-ui-starter-action-done": "Արված է",
+	"workflows-ui-starter-action-done": "Սկսել",
 	"workflows-ui-starter-action-cancel": "Չեղարկել",
 	"workflows-ui-task-completion-action-cancel": "Չեղարկել",
 	"workflows-form-placeholder-comment": "Մեկնաբանություն",
@@ -19,5 +19,12 @@
 	"workflows-form-instructions-comment": "Մեկնաբանություն",
 	"workflows-ui-overview-details-action-details-column": "դիտել մանրամասները",
 	"workflows-collect-data-form-groupname": "Խումբ",
-	"workflows-activity-history-vote-result-yes": "Հաստատվել է"
+	"workflows-activity-history-vote-result-yes": "Հաստատվել է",
+	"workflows-ui-action-cancel": "Չեղարկել",
+	"workflows-ui-trigger-action-create": "Հիշել",
+	"workflows-ui-trigger-action-choose": "Շարունակել",
+	"workflows-ui-trigger-action-delete": "Ջնջել",
+	"workflows-action-edit-label": "Խմբագրել",
+	"workflows-action-delete-label": "Ջնջել",
+	"workflows-ui-trigger-field-description": "Նկարագրություն"
 }
