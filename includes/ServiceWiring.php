@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Workflows\ActivityManagerFactory;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Logger\GenericSpecialLogLogger;
 use MediaWiki\Extension\Workflows\LogicObjectFactory;
@@ -108,6 +109,15 @@ return [
 		return new PropertyValidatorFactory(
 			ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsPropertyValidators' ),
 			$services->getObjectFactory()
+		);
+	},
+
+	'WorkflowsActivityManagerFactory' => static function ( MediaWikiServices $services ) {
+		return new ActivityManagerFactory(
+			$services->getService( 'WorkflowLogicObjectFactory' ),
+			$services->getService( 'WorkflowsDataPreprocessor' ),
+			$services->getService( 'PropertyValidatorFactory' ),
+			$services->getUserFactory()
 		);
 	},
 ];
