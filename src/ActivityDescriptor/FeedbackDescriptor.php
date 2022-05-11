@@ -9,7 +9,6 @@ use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Notifications\INotification;
-use User;
 
 class FeedbackDescriptor extends GenericDescriptor {
 
@@ -45,15 +44,7 @@ class FeedbackDescriptor extends GenericDescriptor {
 	 */
 	public function getNotificationFor( ActivityEvent $event, Workflow $workflow ): ?INotification {
 		if ( $event instanceof TaskStarted ) {
-			$targetUsers = $workflow->getActivityManager()->getTargetUsersForActivity( $this->activity ) ?? [];
-			$validUsers = [];
-			foreach ( $targetUsers as $username ) {
-				$user = User::newFromName( $username );
-				if ( !$user instanceof User || !$user->isRegistered() ) {
-					continue;
-				}
-				$validUsers[] = $user;
-			}
+			$validUsers = $workflow->getActivityManager()->getTargetUsersForActivity( $this->activity, true ) ?? [];
 
 			$notification = new FeedbackTaskAssigned(
 				$validUsers,

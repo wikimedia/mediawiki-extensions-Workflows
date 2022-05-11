@@ -107,11 +107,8 @@ final class Workflow {
 	public static function newEmpty( $definitionId, $definitionRepository ) {
 		$services = MediaWikiServices::getInstance();
 
-		$activityManager = new ActivityManager(
-			$services->getService( 'WorkflowLogicObjectFactory' ),
-			$services->getService( 'WorkflowsDataPreprocessor' ),
-			$services->getService( 'PropertyValidatorFactory' )
-		);
+		$activityManagerFactory = $services->get( 'WorkflowsActivityManagerFactory' );
+		$activityManager = $activityManagerFactory->newActivityManager();
 		$instance = new self (
 			$services->getService( 'WorkflowLogicObjectFactory' ),
 			$activityManager,
@@ -158,11 +155,8 @@ final class Workflow {
 		DefinitionRepositoryFactory $definitionRepositoryFactory
 	) {
 		$services = MediaWikiServices::getInstance();
-		$activityManager = new ActivityManager(
-			$services->getService( 'WorkflowLogicObjectFactory' ),
-			$services->getService( 'WorkflowsDataPreprocessor' ),
-			$services->getService( 'PropertyValidatorFactory' )
-		);
+		$activityManagerFactory = $services->get( 'WorkflowsActivityManagerFactory' );
+		$activityManager = $activityManagerFactory->newActivityManager();
 		$instance = new self(
 			$services->getService( 'WorkflowLogicObjectFactory' ),
 			$activityManager,
