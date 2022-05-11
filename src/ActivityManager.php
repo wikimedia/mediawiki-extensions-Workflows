@@ -10,6 +10,8 @@ use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Exception\WorkflowPropertyValidationException;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
+use MediaWiki\User\UserFactory;
+use User;
 
 final class ActivityManager {
 
@@ -29,19 +31,23 @@ final class ActivityManager {
 	private $stale = [];
 	/** @var PropertyValidatorFactory */
 	private $propertyValidatorFactory;
+	/** @var UserFactory */
+	private $userFactory;
 
 	/**
 	 * @param LogicObjectFactory $logicObjectFactory
 	 * @param DataPreprocessor $preprocessor
 	 * @param PropertyValidatorFactory $propertyValidatorFactory
+	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
 		LogicObjectFactory $logicObjectFactory, DataPreprocessor $preprocessor,
-		PropertyValidatorFactory $propertyValidatorFactory
+		PropertyValidatorFactory $propertyValidatorFactory, UserFactory $userFactory
 	) {
 		$this->logicObjectFactory = $logicObjectFactory;
 		$this->preprocessor = $preprocessor;
 		$this->propertyValidatorFactory = $propertyValidatorFactory;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -187,18 +193,33 @@ final class ActivityManager {
 
 	/**
 	 * @param UserInteractiveActivity $activity
-	 * @return string[]|null
+	 * @param bool $returnObjects If true, will return User objects
+	 * @return User[]|string[]|null
 	 * @throws WorkflowExecutionException
 	 */
-	public function getTargetUsersForActivity( UserInteractiveActivity $activity ) {
+	public function getTargetUsersForActivity( UserInteractiveActivity $activity, $returnObjects = false ) {
 		$properties = $this->getActivityProperties( $activity );
 
 		$activityTarget = $activity->getTargetUsers( $properties );
-		if ( $activityTarget === null && isset( $properties['assigned_user'] ) ) {
-			return explode( ',', $properties['assigned_user'] );
+		if ( $activityTarget === null ) {
+			if ( isset( $properties['assigned_user'] ) ) {
+				return explode( ',', $properties['assigned_user'] );
+			} else {
+				return null;
+			}
 		}
 
-		return $activityTarget;
+		$validated = array_map( function ( $username ) use ( $returnObjects ) {
+			$user = $this->userFactory->newFromName( $username );
+			if ( !$user ) {
+				return null;
+			}
+			return $returnObjects ? $user : $user->getName();
+		}, $activityTarget );
+
+		return array_filter( $validated, static function ( $user ) {
+			return $user !== null;
+		} );
 	}
 
 	/**

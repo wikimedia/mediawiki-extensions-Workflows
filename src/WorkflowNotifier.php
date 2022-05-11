@@ -14,7 +14,6 @@ use Message as MWMessage;
 use MWStake\MediaWiki\Component\Notifications\INotification;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use RawMessage;
-use User;
 
 /**
  * Class responsible for sending out notifications
@@ -27,7 +26,7 @@ class WorkflowNotifier implements Consumer {
 	/** @var INotifier */
 	private $notifier;
 	/** @var ActivityManager */
-	private $activityManger;
+	private $activityManager;
 	/** @var Workflow */
 	private $workflow;
 
@@ -40,7 +39,7 @@ class WorkflowNotifier implements Consumer {
 		INotifier $notifier, ActivityManager $activityManager, Workflow $workflow
 	) {
 		$this->notifier = $notifier;
-		$this->activityManger = $activityManager;
+		$this->activityManager = $activityManager;
 		$this->workflow = $workflow;
 	}
 
@@ -65,7 +64,7 @@ class WorkflowNotifier implements Consumer {
 
 		if ( $event instanceof ActivityEvent ) {
 			$task = $this->workflow->getTaskFromId( $event->getElementId() );
-			$activity = $this->activityManger->getActivityForTask( $task );
+			$activity = $this->activityManager->getActivityForTask( $task );
 
 			if ( $activity instanceof UserInteractiveActivity ) {
 				$this->notifyAboutEvent( $activity, $event );
@@ -99,16 +98,18 @@ class WorkflowNotifier implements Consumer {
 			// Go through all current tasks and notify target users about workflow abortion
 			foreach ( $currentElements as $currentElement ) {
 				if ( $currentElement instanceof ITask ) {
-					$activity = $this->activityManger->getActivityForTask( $currentElement );
+					$activity = $this->activityManager->getActivityForTask( $currentElement );
 
 					if ( $activity instanceof UserInteractiveActivity ) {
-						// Notify participants
-						$notification = new WorkflowAborted(
-							$this->getTargetUsers( $activity ),
-							$workflowNameMsg,
-							$this->workflow->getContext()->getContextPage(),
-							$reason
-						);
+						$targetUsers = $this->activityManager->getTargetUsersForActivity( $activity, true );
+						if ( !empty( $targetUsers ) ) {
+							// Notify participants
+							$notification = new WorkflowAborted(
+								$targetUsers,
+								$workflowNameMsg,
+								$this->workflow->getContext()->getContextPage(),
+								$reason
+							);
 
 							$this->notifier->notify( $notification );
 						}
@@ -147,6 +148,10 @@ class WorkflowNotifier implements Consumer {
 			return $notification;
 		}
 		if ( $event instanceof TaskStarted ) {
+			$targetUsers = $this->activityManager->getTargetUsersForActivity( $activity, true );
+			if ( empty( $targetUsers ) ) {
+				return null;
+			}
 			return new TaskAssigned(
 				$this->getTargetUsers( $activity ),
 				$this->workflow->getContext()->getContextPage(),
@@ -155,24 +160,5 @@ class WorkflowNotifier implements Consumer {
 		}
 
 		return null;
-	}
-
-	/**
-	 * @param UserInteractiveActivity $activity
-	 * @return array
-	 * @throws Exception\WorkflowExecutionException
-	 */
-	public function getTargetUsers( UserInteractiveActivity $activity ) {
-		$targetUsers = $this->activityManger->getTargetUsersForActivity( $activity ) ?? [];
-		$validUsers = [];
-		foreach ( $targetUsers as $username ) {
-			$user = User::newFromName( $username );
-			if ( !$user instanceof User || !$user->isRegistered() ) {
-				continue;
-			}
-			$validUsers[] = $user;
-		}
-
-		return $validUsers;
 	}
 }
