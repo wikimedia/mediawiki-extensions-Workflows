@@ -4,7 +4,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
-use MediaWiki\Extension\Workflows\Trigger\Manual;
+use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\MediaWikiServices;
@@ -36,10 +36,20 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 			return;
 		}
 
+		$links['actions']['wf_view_for_page'] = [
+			'text' => $sktemplate->getContext()->msg(
+				"workflows-ui-workflow-overview-dialog-title-list-page"
+			)->text(),
+			'href' => '#',
+			'class' => false,
+			'id' => 'ca-wf_view_for_page',
+			'position' => 12,
+		];
+
 		/** @var TriggerRepo $triggerRepo */
 		$triggerRepo = MediaWikiServices::getInstance()->getService( 'WorkflowTriggerRepo' );
 		$triggers = $triggerRepo->getActive( 'manual' );
-		/** @var Manual $trigger */
+		/** @var PageRelatedTrigger $trigger */
 		foreach ( $triggers as $trigger ) {
 			$trigger->setTitle( $title );
 			if ( $trigger->shouldTrigger() ) {

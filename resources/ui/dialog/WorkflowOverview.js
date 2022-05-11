@@ -107,6 +107,7 @@
 
 		this.booklet.setPage( name );
 		this.title.setLabel( page.getTitle() );
+
 		switch ( name ) {
 			case 'list':
 				page.panel.connect( this, {
