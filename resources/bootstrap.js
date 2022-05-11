@@ -387,8 +387,8 @@ $( function() {
 		workflows.ui.openWorkflowStarter();
 	} );
 
-	$( document ).on( 'click', '#ca-wf_manage', function() {
-		workflows.ui.openWorkflowManager();
+	$( document ).on( 'click', '#ca-wf_view_for_page,#ca-varlang-wf_view_for_page', function() {
+		workflows.ui.openWorkflowManager( null, 'page' );
 	} );
 
 	mw.loader.using( [ 'ext.workflows.alert' ], function() {
