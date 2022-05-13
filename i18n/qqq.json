@@ -204,7 +204,6 @@
 	"workflows-ui-trigger-field-description": "Field label",
 	"workflows-ui-trigger-field-workflow-picker": "Field label",
 	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title",
-	"workflows-activity-editpage-invalid-permissiondenied": "Error message when user cannot edit the page.\n$1 - username, $2 - title",
 	"workflows-activity-user-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|User feedback}}",
 	"workflows-activity-user-vote-name": "Name of activity, which is used in notifications.\n{{Identical|User vote}}",
 	"workflows-activity-group-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|Group feedback}}",

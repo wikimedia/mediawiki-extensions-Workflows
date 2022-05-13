@@ -202,5 +202,21 @@
 	"workflows-ui-trigger-field-description": "Description",
 	"workflows-ui-trigger-field-workflow-picker": "Flux de travail à démarrer",
 	"workflows-activity-editpage-error-no-title": "Aucun titre fourni",
-	"workflows-activity-editpage-permissiondenied": "L’utilisateur « $1 » n’a pas le droit de modifier la page « $2 »"
+	"workflows-activity-editpage-permissiondenied": "L’utilisat{{GENDER:$1|eur|rice}} « $1 » n’a pas le droit de modifier la page « $2 »",
+	"workflows-activity-user-feedback-name": "Avis d’utilisateur",
+	"workflows-activity-user-vote-name": "Vote d’utilisateur",
+	"workflows-activity-group-feedback-name": "Avis de groupe",
+	"workflows-activity-group-vote-name": "Vote de groupe",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Relecture",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Approbation",
+	"workflows-ui-workflow-overview-step-name-user-vote": "Vote d’utilisateur",
+	"workflows-ui-workflow-overview-step-name-user-feedback": "Avis d’utilisateur",
+	"workflows-ui-workflow-overview-step-name-group-feedback": "Avis de groupe",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Demande de modification",
+	"workflows-ui-workflow-overview-step-name-collect-data": "Collecte de données",
+	"workflows-activity-set-template-params-no-target": "Le modèle cible défini n’existe pas sur la page spécifiée",
+	"workflows-activity-error-no-revision": "Aucune révision trouvée pour le titre donné",
+	"workflows-activity-error-no-title": "Titre non valide",
+	"workflows-activity-cannot-edit": "L’utilisat{{GENDER:$1|eur|rice}} « $1 » ne peut pas modifier la page « $2 »",
+	"workflows-activity-set-template-params-cannot-save": "La publication a échoué"
 }
