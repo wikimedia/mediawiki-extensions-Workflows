@@ -491,6 +491,9 @@
 				"workflows-ui-trigger-since-last-major-days",
 				"workflows-action-edit-label",
 				"workflows-action-delete-label"
+			],
+			"dependencies": [
+				"oojs-ui"
 			]
 		},
 		"ext.workflows.trigger.editor.panel": {
