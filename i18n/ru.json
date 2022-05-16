@@ -31,5 +31,8 @@
 	"workflows-action-edit-label": "Изменить",
 	"workflows-action-delete-label": "Удалить",
 	"workflows-ui-trigger-item-inactive": "$1 (неактивен)",
-	"workflows-ui-trigger-field-description": "Описание"
+	"workflows-ui-trigger-field-description": "Описание",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Утвердить",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Отредактировать запрос",
+	"workflows-activity-error-no-revision": "Ни одной версии не найдено для указанного названия."
 }
