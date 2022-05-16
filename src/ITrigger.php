@@ -56,6 +56,13 @@ interface ITrigger extends JsonSerializable {
 	public function isActive(): bool;
 
 	/**
+	 * Does the process run without user interaction
+	 *
+	 * @return bool
+	 */
+	public function isAutomatic(): bool;
+
+	/**
 	 * @param array $qualifyingData Any data that may affect the decision
 	 * @return bool
 	 */

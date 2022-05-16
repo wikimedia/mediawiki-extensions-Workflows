@@ -50,4 +50,11 @@ class PageRelatedTrigger extends GenericTrigger implements IPageTrigger {
 			'workflows.object.form.trigger.PageRelated'
 		);
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function isAutomatic(): bool {
+		return false;
+	}
 }

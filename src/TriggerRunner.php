@@ -38,7 +38,7 @@ class TriggerRunner {
 			$this->triggered[] = $trigger->getId();
 
 			if ( $trigger instanceof IPageTrigger ) {
-				if ( $title === null || !$this->canRunWorkflowForTitle( $title ) ) {
+				if ( $title === null && !$this->canRunWorkflowForTitle( $title ) ) {
 					$this->logger->error( 'Page context trigger called without title', [
 						'trigger' => $trigger->getId(),
 						'action' => $type
@@ -47,6 +47,7 @@ class TriggerRunner {
 				}
 				$trigger->setTitle( $title );
 			}
+
 			if ( $trigger->shouldTrigger( $qualifyingData ) ) {
 				$res = $trigger->trigger();
 				$logContext = [

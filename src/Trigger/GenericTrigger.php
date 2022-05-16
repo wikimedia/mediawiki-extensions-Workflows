@@ -173,13 +173,14 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	 */
 	protected function startWorkflow( $repo, $definition, $contextData = [], $initData = null ): string {
 		$workflow = $this->workflowFactory->newEmpty( $definition, $repo );
-		$workflow->markAsBotProcess();
+		if ( $this->isAutomatic() ) {
+			$workflow->markAsBotProcess();
+		}
 		$workflow->start( $contextData );
 		$initializer = $this->getInitializer( $workflow );
 		if ( $initData && $initializer ) {
 			$workflow->completeTask( $initializer->getTask(), $initData );
 		}
-
 		$this->workflowFactory->persist( $workflow );
 		return $workflow->getStorage()->aggregateRootId()->toString();
 	}
@@ -254,6 +255,13 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	 * @return bool
 	 */
 	public function shouldTrigger( $qualifyingData = [] ): bool {
+		return true;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function isAutomatic(): bool {
 		return true;
 	}
 
