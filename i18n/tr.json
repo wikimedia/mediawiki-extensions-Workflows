@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ahmetlii",
-			"Can"
+			"Can",
+			"SaldırganSincap"
 		]
 	},
 	"workflows-ui-starter-action-done": "Başlat",
+	"logentry-ext-workflows-editpage-edit": "Sayfa düzenlendi: $4",
 	"workflows-ui-workflow-overview-action-back": "Geri",
 	"workflows-collect-data-form-instructions": "Talimatlar",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Nitelik",
