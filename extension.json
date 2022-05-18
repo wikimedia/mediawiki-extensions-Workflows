@@ -312,6 +312,7 @@
 		"ext.workflows.dialog.overview": {
 			"scripts": [
 				"ui/widget/ActivityRawDataPopup.js",
+				"ui/widget/InitialRawDataPopup.js",
 				"ui/booklet/WorkflowListPage.js",
 				"ui/booklet/WorkflowDetailsPage.js",
 				"ui/booklet/WorkflowAbortRestorePage.js",
@@ -353,7 +354,8 @@
 				"workflows-ui-overview-details-raw-data-popup-value",
 				"workflows-ui-overview-details-raw-data-popup-label",
 				"workflows-ui-overview-details-section-details",
-				"workflows-ui-overview-details-due-date-label"
+				"workflows-ui-overview-details-due-date-label",
+				"workflows-ui-workflow-overview-initial-data-title"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-moderation",
