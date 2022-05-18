@@ -200,6 +200,7 @@
 	"workflows-activity-user-vote-name": "User vote",
 	"workflows-activity-group-feedback-name": "Group feedback",
 	"workflows-activity-group-vote-name": "Group vote",
+	"workflows-ui-workflow-overview-initial-data-title": "Initial data",
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Review",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Approve",
 	"workflows-ui-workflow-overview-step-name-user-vote": "User vote",

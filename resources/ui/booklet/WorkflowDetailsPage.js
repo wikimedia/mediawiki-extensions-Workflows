@@ -97,9 +97,14 @@
 			flags: 'progressive',
 			target: '_new'
 		} );
+
+		var initialData = this.getInitialData();
+		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
+
 		this.$detailsPanelTable.append( $('<tr>' ).append(
 			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
-			$( '<td>' ).append( revision.$element )
+			$( '<td>' ).append( revision.$element ),
+			$( '<td>' ).append( initialRawDataPopup.$element )
 		));
 	};
 
@@ -189,6 +194,10 @@
 	workflows.ui.WorkflowDetailsPage.prototype.addPastActivities = function( activities ) {
 		for ( var i = 0; i < activities.length; i++ ) {
 			var activity = activities[i];
+
+			if ( activity.initializer ) {
+				continue;
+			}
 
 			var name = new OO.ui.LabelWidget( {
 					label: activity.description.taskName,
@@ -435,6 +444,19 @@
 		this.panel.$element.append(
 			layout.$element
 		);
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.getInitialData = function() {
+		var activities = this.getPastActivities();
+		for ( var i = 0; i < activities.length; i++ ) {
+			var activity = activities[i];
+
+			if ( activity.initializer ) {
+				return activity.getProperties();
+			}
+		}
+
+		return {};
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.getTitle = function() {
