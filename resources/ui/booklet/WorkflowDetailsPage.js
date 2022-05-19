@@ -15,12 +15,37 @@
 		this.panel.$element.children().remove();
 
 		this.workflow = workflow;
-		this.addDefinition();
-		this.addTimestamps();
-		this.addInitiator();
-		this.addState();
-		this.addContextPage();
+		this.addHeaderSection();
+		this.addDetailsSection();
+
 		this.addActivities();
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.addHeaderSection = function() {
+		this.headerPanel = new OO.ui.HorizontalLayout( {
+			padded: true,
+			expanded: false
+		} );
+		this.panel.$element.append( this.headerPanel.$element );
+		this.addDefinition();
+		this.addState();
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.addDetailsSection = function() {
+		this.addSection( 'details', 'article' );
+		this.detailsPanel = new OO.ui.PanelLayout( {
+			expanded: false,
+			padded: true,
+			classes: [ 'details-panel' ]
+		} );
+		this.$detailsPanelTable = $( '<table>' ).append( $('<colgroup>')
+		.append( $('<col span="1" style="width: 30%;">')
+		.append( $('<col span="1" style="width: 70%;">'))) );;
+		this.detailsPanel.$element.append( this.$detailsPanelTable );
+		this.panel.$element.append( this.detailsPanel.$element );
+		this.addContextPage();
+		this.addInitiator();
+		this.addTimestamps();
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addDefinition = function() {
@@ -29,34 +54,30 @@
 			label: definition.title,
 			classes: [ 'overview-title' ]
 		} );
-		this.panel.$element.append( title.$element );
-		if ( definition.desc ) {
-			var desc = new OO.ui.LabelWidget( {
-				label: definition.desc,
-				classes: [ 'overview-desc' ]
-			} );
-			this.panel.$element.append( desc.$element );
-		}
+		this.headerPanel.addItems( [ title ] );
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addTimestamps = function() {
 		var timestamps = this.workflow.getTimestamps();
-		var start = new OO.ui.LabelWidget( {
-			label: mw.message( 'workflows-ui-overview-details-start-time', timestamps.startFormatted ).text()
-		} );
 
-		var last = new OO.ui.LabelWidget( {
-			label: mw.message(
-				this.workflow.getState() !== 'finished' ? 'workflows-ui-overview-details-last-time' : 'workflows-ui-overview-details-end-time',
-				timestamps.lastFormatted
-			).text()
-		} );
+		this.$detailsPanelTable.append( $('<tr>' ).append(
+			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-start-time', '' ).text() ),
+			$( '<td>' ).append( timestamps.startFormatted  )
+		));
 
-		this.panel.$element.append(
-			new OO.ui.HorizontalLayout( {
-				items: [ start, last ]
-			} ).$element
-		);
+		var messageKey = '';
+		if ( this.workflow.getState() !== 'finished' ) {
+			messageKey = 'workflows-ui-overview-details-last-time';
+		} else {
+			messageKey = 'workflows-ui-overview-details-end-time';
+		}
+		this.$detailsPanelTable.append( $('<tr>' ).append(
+			$( '<td>' ).text( mw.message(
+				messageKey,
+				''
+			) ),
+			$( '<td>' ).append( timestamps.lastFormatted  )
+		));
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addInitiator = function() {
@@ -68,22 +89,18 @@
 		if ( !title ) {
 			return;
 		}
-		this.panel.$element.append(
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( "workflows-ui-overview-details-initiator" ).text()
-					} ),
-					new OO.ui.ButtonWidget( {
-						label: initiator,
-						href: title.getUrl(),
-						framed: false,
-						flags: 'progressive',
-						target: '_new'
-					} )
-				]
-			} ).$element
-		);
+
+		var revision = new OO.ui.ButtonWidget( {
+			label: initiator,
+			href: title.getUrl(),
+			framed: false,
+			flags: 'progressive',
+			target: '_new'
+		} );
+		this.$detailsPanelTable.append( $('<tr>' ).append(
+			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
+			$( '<td>' ).append( revision.$element )
+		));
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addState = function() {
@@ -135,7 +152,7 @@
 				}
 			}
 		}
-		this.panel.$element.append( layout.$element );
+		this.headerPanel.addItems( [ layout ] );
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addActivities = function() {
@@ -269,12 +286,12 @@
 			label: mw.message( 'workflows-ui-overview-details-section-' + name ).text()
 		} );
 
-		this.panel.$element.append(
-			new OO.ui.HorizontalLayout( {
-				items: [ iconWidget, label ],
-				classes: [ 'overview-section-label' ]
-			} ).$element
-		);
+		this.sectionLayout = new OO.ui.HorizontalLayout( {
+			items: [ iconWidget, label ],
+			classes: [ 'overview-section-label' ]
+		} );
+
+		this.panel.$element.append( this.sectionLayout.$element );
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.noCurrentActivity = function() {
@@ -290,9 +307,9 @@
 		if ( !context || !context.hasOwnProperty( 'pageId' ) || !this.workflow.getContextPage() ) {
 			return;
 		}
-		this.addSection( 'page', 'article' );
+
 		var panel = new OO.ui.PanelLayout( {
-			padded: true, expanded: false,
+			expanded: false,
 			classes: [ 'overview-activity-layout' ]
 		} );
 
@@ -304,15 +321,11 @@
 			flags: 'progressive',
 			target: '_new'
 		} );
-		panel.$element.append( new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'workflows-ui-overview-details-page-context-page' ).text()
-					} ),
-					titleButton
-				]
-			} ).$element
-		);
+		var horizontalLayout =new OO.ui.HorizontalLayout( {
+			items: [
+				titleButton
+			]
+		} );
 
 		if ( context.hasOwnProperty( 'revision' ) ) {
 			var revisionButton = new OO.ui.ButtonWidget( {
@@ -321,18 +334,18 @@
 				href: title.getUrl( { oldid: context.revision } ),
 				target: '_new'
 			} );
-			panel.$element.append( new OO.ui.HorizontalLayout( {
-					items: [
-						new OO.ui.LabelWidget( {
-							label: mw.message( 'workflows-ui-overview-details-page-context-revision' ).text()
-						} ),
-						revisionButton
-					]
-				} ).$element
+			horizontalLayout.addItems( [
+					new OO.ui.LabelWidget( {
+						label: mw.message( 'workflows-ui-overview-details-page-context-revision' ).text()
+					} ),
+					revisionButton
+				]
 			);
 		}
-
-		this.panel.$element.append( panel.$element );
+		this.$detailsPanelTable.append( $('<tr>' ).append(
+			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
+			$( '<td>' ).append( horizontalLayout.$element )
+		));
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function( activity ) {
@@ -352,13 +365,7 @@
 		layout.$element.append( name.$element );
 
 		if ( activity instanceof workflows.object.UserInteractiveActivity ) {
-			var assignedUsersLayout = new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text()
-					} )
-				]
-			} );
+			var assignedUsersLayout = new OO.ui.HorizontalLayout();
 			var targetUsers = activity.targetUsers;
 			if ( !targetUsers ) {
 				assignedUsersLayout.$element.append( new OO.ui.LabelWidget( {
@@ -378,28 +385,38 @@
 					);
 				}
 			}
-			layout.$element.append( assignedUsersLayout.$element );
+			var $table = $('<table>').append( $('<colgroup>')
+				.append( $('<col span="1" style="width: 30%;">')
+				.append( $('<col span="1" style="width: 70%;">'))) );
+			layout.$element.append(  $table.append( $('<tr>' ).append(
+				$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text() ),
+				$( '<td>' ).append( assignedUsersLayout.$element )
+			) ) );
 
 			var dueDate = activity.getDescription().dueDate;
 			if ( dueDate ) {
 				var proximity = activity.getDescription().dueDateProximity;
 				var icon = new OO.ui.IconWidget( { icon: 'clock' } );
+				var labelDue = new OO.ui.LabelWidget( {
+					label: mw.message( "workflows-ui-overview-details-due-date-label" ).text()
+				} );
+
 				var label = new OO.ui.LabelWidget( {
-					title: mw.message( 'workflows-ui-overview-details-activity-due-date' ).text(),
-					label: dueDate
+					label: dueDate,
+					classes: [ 'proximity' ]
 				} );
 
 				var dueDateLayout = new OO.ui.HorizontalLayout( {
-					items: [ icon, label ],
+					items: [ labelDue, label ],
 					classes: [ 'proximity-layout' ]
 				} );
 				if ( typeof proximity === 'number' && proximity < 3 && proximity >= 0 ) {
-					dueDateLayout.$element.addClass( 'proximity-close' );
+					label.$element.addClass( 'proximity-close' );
 				}
 				if ( typeof proximity === 'number' && proximity < 0 ) {
-					dueDateLayout.$element.addClass( 'proximity-overdue' );
+					label.$element.addClass( 'proximity-overdue' );
 				}
-				layout.$element.append( dueDateLayout.$element );
+				this.sectionLayout.addItems( dueDateLayout );
 			}
 
 			if ( !$.isEmptyObject( activity.getHistory() ) ) {
