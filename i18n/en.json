@@ -211,5 +211,7 @@
 	"workflows-activity-error-no-revision": "No revision can be found for given title",
 	"workflows-activity-error-no-title": "Invalid title",
 	"workflows-activity-cannot-edit": "User \"{{GENDER:$1|$1}}\" cannot edit page \"$2\"",
-	"workflows-activity-set-template-params-cannot-save": "Save failed"
+	"workflows-activity-set-template-params-cannot-save": "Save failed",
+	"workflows-ui-overview-details-section-details": "Details",
+	"workflows-ui-overview-details-due-date-label": "Due on"
 }
