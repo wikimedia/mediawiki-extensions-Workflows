@@ -127,5 +127,6 @@
 	"workflows-ui-trigger-field-description": "설명",
 	"workflows-ui-trigger-field-workflow-picker": "시작할 워크플로",
 	"workflows-activity-editpage-error-no-title": "제목이 지정되지 않았습니다",
-	"workflows-activity-editpage-permissiondenied": "\"$1\" 사용자는 \"$2\" 문서를 편집할 권한이 없습니다"
+	"workflows-activity-editpage-permissiondenied": "\"$1\" 사용자는 \"$2\" 문서를 편집할 권한이 없습니다",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "승인"
 }
