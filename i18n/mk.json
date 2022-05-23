@@ -199,5 +199,21 @@
 	"workflows-ui-trigger-field-description": "Опис",
 	"workflows-ui-trigger-field-workflow-picker": "Кој работен тек да се отпочне",
 	"workflows-activity-editpage-error-no-title": "Нема внесено наслов",
-	"workflows-activity-editpage-permissiondenied": "Корисникот „$1“ нема дозвола да ја уредува страницата „$2“"
+	"workflows-activity-editpage-permissiondenied": "Корисникот „{{GENDER:$1|$1}}“ нема дозвола да ја уредува страницата „$2“",
+	"workflows-activity-user-feedback-name": "Корисничко мислење",
+	"workflows-activity-user-vote-name": "Кориснички глас",
+	"workflows-activity-group-feedback-name": "Групно мислење",
+	"workflows-activity-group-vote-name": "Групен глас",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Провери",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Одобри",
+	"workflows-ui-workflow-overview-step-name-user-vote": "Кориснички глас",
+	"workflows-ui-workflow-overview-step-name-user-feedback": "Корисничко мислење",
+	"workflows-ui-workflow-overview-step-name-group-feedback": "Групно мислење",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Барање за уредување",
+	"workflows-ui-workflow-overview-step-name-collect-data": "Собери податоци",
+	"workflows-activity-set-template-params-no-target": "Бараната целна предлошка не постои на укажаната страница",
+	"workflows-activity-error-no-revision": "Не најдов преработки за дадениот наслов",
+	"workflows-activity-error-no-title": "Неважечки наслов",
+	"workflows-activity-cannot-edit": "Корисникот „{{GENDER:$1|$1}}“ не може да ја уредува страницата „$2“",
+	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување"
 }

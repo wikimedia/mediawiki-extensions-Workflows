@@ -51,5 +51,7 @@
 	"workflows-action-edit-label": "Änneren",
 	"workflows-action-delete-label": "Läschen",
 	"workflows-ui-trigger-item-inactive": "$1 (inaktiv)",
-	"workflows-ui-trigger-field-description": "Beschreiwung"
+	"workflows-ui-trigger-field-description": "Beschreiwung",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Nokucken",
+	"workflows-activity-set-template-params-cannot-save": "Späicheren huet net funktionéiert"
 }

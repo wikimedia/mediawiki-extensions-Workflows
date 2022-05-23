@@ -7,5 +7,6 @@
 	},
 	"workflows-ui-starter-select-workflow": "فكر",
 	"workflows-notification-task-assign-email-body": "$1",
-	"workflows-triggers-type-move-label": "عند نقل الصفحة"
+	"workflows-triggers-type-move-label": "عند نقل الصفحة",
+	"workflows-activity-error-no-title": "عنوان غير صالح"
 }
