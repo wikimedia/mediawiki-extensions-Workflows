@@ -128,5 +128,8 @@
 	"workflows-ui-trigger-field-workflow-picker": "시작할 워크플로",
 	"workflows-activity-editpage-error-no-title": "제목이 지정되지 않았습니다",
 	"workflows-activity-editpage-permissiondenied": "\"$1\" 사용자는 \"$2\" 문서를 편집할 권한이 없습니다",
-	"workflows-ui-workflow-overview-step-name-user-vote-approval": "승인"
+	"workflows-activity-user-vote-name": "사용자 투표",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "승인",
+	"workflows-ui-workflow-overview-step-name-collect-data": "데이터 수집",
+	"workflows-activity-set-template-params-cannot-save": "저장 실패"
 }
