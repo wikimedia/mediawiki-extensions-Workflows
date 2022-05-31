@@ -33,14 +33,18 @@
 							} ).$element
 						);
 						this.$element.append( formObject.$element );
-						// Force page size to form size
-						this.$element.height(
-							formObject.$element.outerHeight() + this.workflowTitle.$element.outerHeight() +
-							this.workflowDesc.$element.outerHeight() + 40
-						);
+
 						formObject.connect( this, {
 							submit: 'startWorkflow',
-							validationFailed: 'validationFailed'
+							validationFailed: 'validationFailed',
+							initComplete: function() {
+								// Force page size to form size
+								this.$element.height(
+									formObject.$element.outerHeight() + this.workflowTitle.$element.outerHeight() +
+									this.workflowDesc.$element.outerHeight() + 40
+								);
+								this.emit( 'layoutChange' );
+							}
 						} );
 						this.emit( 'loaded', formObject );
 						this.form = formObject;
