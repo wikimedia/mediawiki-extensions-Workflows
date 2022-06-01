@@ -134,7 +134,7 @@
 
 	workflows.ui.panel.WorkflowList.prototype.drawGrid = function() {
 		var gridCfg = {
-			pageSize: 10,
+			pageSize: 25,
 			style: 'differentiate-rows',
 			border: 'horizontal',
 			columns: {
