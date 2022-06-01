@@ -83,8 +83,7 @@
 						// Will never happen
 						return;
 					}
-					this.remove( workflow.id + '_' + activity.getId() );
-					workflows.ui.addRunningWorkflowAlerts();
+					window.location.reload();
 				}.bind( this ) );
 			}.bind( this ) );
 		}
