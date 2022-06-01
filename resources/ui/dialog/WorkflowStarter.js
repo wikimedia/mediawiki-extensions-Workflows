@@ -95,14 +95,16 @@
 				page.initWorkflow( data.workflow, data.contextData, data.desc, data.initData );
 				page.connect( this, {
 				 	loaded: function( form ) {
-				 		this.popPending();
-						this.updateSize();
 						this.actions.setAbilities( { choose: false, start: true, back: true } );
 					},
 					fail: function() {
 				 		this.popPending();
 						this.updateSize();
 						this.actions.setAbilities( { choose: false, start: false, back: true } );
+					},
+					layoutChange: function() {
+						this.popPending();
+						this.updateSize();
 					}
 				} );
 				break;
