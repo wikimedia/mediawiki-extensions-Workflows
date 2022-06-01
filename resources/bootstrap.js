@@ -16,9 +16,7 @@ window.workflows = {
 					if ( !data ) {
 						return;
 					}
-					if ( data.result === true && data.workflow instanceof workflows.object.Workflow ) {
-						workflows.ui.alert.manager.addFromWorkflow( data.workflow );
-					}
+					window.location.reload();
 				} );
 			} );
 

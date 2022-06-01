@@ -6,6 +6,7 @@
 .workflows-ui-starter-wf-title-label {
 	font-size: 1.2em;
 	font-weight: bold;
+	display: block;
 }
 
 
@@ -13,4 +14,5 @@
 	margin-bottom: 10px;
 	font-size: 0.9em;
 	color: gray;
+	display: block;
 }
