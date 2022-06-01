@@ -153,7 +153,7 @@ class WorkflowNotifier implements Consumer {
 				return null;
 			}
 			return new TaskAssigned(
-				$this->getTargetUsers( $activity ),
+				$targetUsers,
 				$this->workflow->getContext()->getContextPage(),
 				$activity->getActivityDescriptor()->getActivityName()->parse()
 			);
