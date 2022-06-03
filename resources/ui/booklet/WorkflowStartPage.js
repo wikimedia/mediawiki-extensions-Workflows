@@ -33,19 +33,16 @@
 							} ).$element
 						);
 						this.$element.append( formObject.$element );
-
 						formObject.connect( this, {
 							submit: 'startWorkflow',
 							validationFailed: 'validationFailed',
 							initComplete: function() {
-								// Force page size to form size
-								this.$element.height(
-									formObject.$element.outerHeight() + this.workflowTitle.$element.outerHeight() +
-									this.workflowDesc.$element.outerHeight() + 40
-								);
-								this.emit( 'layoutChange' );
+								this.adjustSize( formObject );
 							}
 						} );
+
+						// Form might load before we get the change to register "initComplete" handler
+						this.adjustSize( formObject );
 						this.emit( 'loaded', formObject );
 						this.form = formObject;
 					}.bind( this ) );
@@ -57,6 +54,7 @@
 						this.workflowTitle.$element.outerHeight() + this.workflowDesc.$element.outerHeight() + 40
 					);
 					this.emit( 'loaded' );
+					this.emit( 'layoutChange' );
 				}
 			}.bind( this ) ).fail( function( error ) {
 				var message = ( error.hasOwnProperty( 'error' ) && error.error.hasOwnProperty( 'message' ) ) ?
@@ -73,6 +71,15 @@
 	workflows.ui.WorkflowStartPage.prototype.reset = function() {
 		this.$element.children().remove();
 		this.form = null;
+	};
+
+	workflows.ui.WorkflowStartPage.prototype.adjustSize = function( formObject ) {
+		// Force page size to form size
+		this.$element.height(
+			formObject.$element.outerHeight() + this.workflowTitle.$element.outerHeight() +
+			this.workflowDesc.$element.outerHeight() + 40
+		);
+		this.emit( 'layoutChange' );
 	};
 
 	workflows.ui.WorkflowStartPage.prototype.getForm = function() {
