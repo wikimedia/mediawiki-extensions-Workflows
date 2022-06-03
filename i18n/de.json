@@ -163,6 +163,7 @@
 	"workflows-activity-user-vote-name": "Benutzerabstimmung",
 	"workflows-activity-group-feedback-name": "Feedback",
 	"workflows-activity-group-vote-name": "Gruppenabstimmung",
+	"workflows-ui-workflow-overview-initial-data-title": "Ausgangsdaten",
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Begutachtung",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Freigabe",
 	"workflows-ui-workflow-overview-step-name-user-vote": "Benutzerabstimmung",
