@@ -22,13 +22,10 @@ class BPMNContent extends TextContent {
 			if ( $destTitle instanceof Title ) {
 				$output->addLink( $destTitle );
 				if ( $generateHtml ) {
-					$chain = $this->getRedirectChain();
-					if ( $chain ) {
-						$output->setText(
-							Article::getRedirectHeaderHtml( $title->getPageLanguage(), $chain, false )
-						);
-						$output->addModuleStyles( [ 'mediawiki.action.view.redirectPage' ] );
-					}
+					$output->setText(
+						Article::getRedirectHeaderHtml( $title->getPageLanguage(), $destTitle, false )
+					);
+					$output->addModuleStyles( [ 'mediawiki.action.view.redirectPage' ] );
 				}
 			}
 			return;
