@@ -39,6 +39,19 @@
 	"workflows-property-validator-required-error": "Wäert ass obligatoresch",
 	"workflows-collect-data-form-instructions": "Instruktiounen",
 	"workflows-ui-overview-details-raw-data-popup-value": "Wäert",
-	"workflows-ui-starter-action-done": "Fäerdeg",
-	"workflows-ui-workflow-overview-action-back": "Zréck"
+	"workflows-ui-starter-action-done": "Ufänken",
+	"workflows-ui-workflow-overview-action-back": "Zréck",
+	"workflows-triggers-type-manual-label": "Handbuch",
+	"workflows-ui-action-cancel": "Ofbriechen",
+	"workflows-ui-trigger-action-create": "Späicheren",
+	"workflows-ui-trigger-action-choose": "Virufueren",
+	"workflows-ui-trigger-action-delete": "Läschen",
+	"workflows-ui-trigger-field-name": "Numm",
+	"workflows-ui-trigger-field-active": "Aktiv",
+	"workflows-action-edit-label": "Änneren",
+	"workflows-action-delete-label": "Läschen",
+	"workflows-ui-trigger-item-inactive": "$1 (inaktiv)",
+	"workflows-ui-trigger-field-description": "Beschreiwung",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Nokucken",
+	"workflows-activity-set-template-params-cannot-save": "Späicheren huet net funktionéiert"
 }

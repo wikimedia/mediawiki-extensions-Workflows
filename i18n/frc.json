@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beunice"
+		]
+	},
+	"workflows-ui-starter-action-done": "Commencer",
+	"workflows-triggers-type-manual-label": "Manuel",
+	"workflows-ui-action-cancel": "Annuler",
+	"workflows-ui-trigger-action-create": "Sauver",
+	"workflows-ui-trigger-action-choose": "Continuer",
+	"workflows-ui-trigger-field-name": "Nom",
+	"workflows-action-edit-label": "Changer",
+	"workflows-ui-trigger-field-description": "Description"
+}

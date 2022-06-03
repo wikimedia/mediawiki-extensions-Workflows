@@ -1,8 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gwendal"
+			"Gwendal",
+			"Y-M D"
 		]
 	},
-	"workflows-ui-overview-details-raw-data-popup-prop": "Perzh"
+	"workflows-ui-overview-details-raw-data-popup-prop": "Perzh",
+	"workflows-ui-starter-action-done": "Kregiñ",
+	"workflows-triggers-type-manual-label": "Dre zorn",
+	"workflows-ui-action-cancel": "Nullañ",
+	"workflows-ui-trigger-action-create": "Enrollañ",
+	"workflows-ui-trigger-action-choose": "Kenderc'hel",
+	"workflows-ui-trigger-field-name": "Anv",
+	"workflows-ui-trigger-field-active": "Oberiant",
+	"workflows-action-edit-label": "Kemmañ",
+	"workflows-ui-trigger-field-description": "Deskrivadur",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Aprouiñ",
+	"workflows-activity-error-no-title": "Titl direizh"
 }

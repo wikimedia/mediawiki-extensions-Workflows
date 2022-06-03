@@ -197,7 +197,7 @@
 	"workflows-ui-trigger-field-description": "Description",
 	"workflows-ui-trigger-field-workflow-picker": "Workflow to start",
 	"workflows-activity-editpage-error-no-title": "No title provided",
-	"workflows-activity-editpage-permissiondenied": "User \"$1\" does not have permission to edit page \"$2\"",
+	"workflows-activity-editpage-permissiondenied": "User \"{{GENDER:$1|$1}}\" does not have permission to edit page \"$2\"",
 	"workflows-activity-user-feedback-name": "User feedback",
 	"workflows-activity-user-vote-name": "User vote",
 	"workflows-activity-group-feedback-name": "Group feedback",
@@ -208,5 +208,10 @@
 	"workflows-ui-workflow-overview-step-name-user-feedback": "User feedback",
 	"workflows-ui-workflow-overview-step-name-group-feedback": "Group feedback",
 	"workflows-ui-workflow-overview-step-name-edit-request": "Edit request",
-	"workflows-ui-workflow-overview-step-name-collect-data": "Collect data"
+	"workflows-ui-workflow-overview-step-name-collect-data": "Collect data",
+	"workflows-activity-set-template-params-no-target": "Defined target template does not exist on page specified",
+	"workflows-activity-error-no-revision": "No revision can be found for given title",
+	"workflows-activity-error-no-title": "Invalid title",
+	"workflows-activity-cannot-edit": "User \"{{GENDER:$1|$1}}\" cannot edit page \"$2\"",
+	"workflows-activity-set-template-params-cannot-save": "Save failed"
 }

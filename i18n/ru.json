@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Pacha Tchernof"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
@@ -17,6 +18,21 @@
 	"workflows-activity-history-vote-result-no": "Отклонено",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Свойство",
 	"workflows-ui-overview-details-raw-data-popup-value": "Значение",
-	"workflows-ui-starter-action-done": "Готово",
-	"workflows-ui-workflow-overview-action-back": "Назад"
+	"workflows-ui-starter-action-done": "Начать",
+	"workflows-ui-workflow-overview-action-back": "Назад",
+	"logentry-ext-workflows-editpage-edit": "Страниц отредактировано: $4",
+	"workflows-triggers-type-manual-label": "Руководство",
+	"workflows-ui-action-cancel": "Отмена",
+	"workflows-ui-trigger-action-create": "Сохранить",
+	"workflows-ui-trigger-action-choose": "Продолжить",
+	"workflows-ui-trigger-action-delete": "Удалить",
+	"workflows-ui-trigger-since-last-major-days": "Количество дней с последней большой версии",
+	"workflows-ui-trigger-field-active": "Активен",
+	"workflows-action-edit-label": "Изменить",
+	"workflows-action-delete-label": "Удалить",
+	"workflows-ui-trigger-item-inactive": "$1 (неактивен)",
+	"workflows-ui-trigger-field-description": "Описание",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Утвердить",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Отредактировать запрос",
+	"workflows-activity-error-no-revision": "Ни одной версии не найдено для указанного названия."
 }

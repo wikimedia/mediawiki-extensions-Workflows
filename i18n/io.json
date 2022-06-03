@@ -6,5 +6,8 @@
 	},
 	"workflows-ui-starter-action-done": "Facita",
 	"workflows-ui-workflow-overview-action-back": "Retroirar",
-	"workflows-ui-overview-details-action-reason": "Motivo"
+	"workflows-ui-overview-details-action-reason": "Motivo",
+	"workflows-ui-starter-action-cancel": "Nuligar",
+	"workflows-ui-task-completion-action-cancel": "Nuligar",
+	"workflows-ui-action-cancel": "Nuligar"
 }

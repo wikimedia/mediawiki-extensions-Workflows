@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"workflows-ui-starter-action-done": "開始",
+	"workflows-triggers-type-manual-label": "手動",
+	"workflows-ui-action-cancel": "取消",
+	"workflows-ui-trigger-action-create": "儲存",
+	"workflows-ui-trigger-action-choose": "繼續",
+	"workflows-ui-trigger-action-delete": "刪除",
+	"workflows-ui-trigger-field-name": "名稱",
+	"workflows-action-edit-label": "編輯",
+	"workflows-action-delete-label": "刪除",
+	"workflows-ui-trigger-field-description": "描述",
+	"workflows-activity-editpage-error-no-title": "未提供標題"
+}

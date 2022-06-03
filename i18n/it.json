@@ -28,6 +28,16 @@
 	"workflows-ui-overview-details-action-details-column": "vedi dettagli",
 	"workflows-collect-data-form-instructions": "Istruzioni",
 	"workflows-collect-data-form-username": "Utente",
-	"workflows-ui-starter-action-done": "Fatto",
-	"workflows-ui-workflow-overview-action-back": "Indietro"
+	"workflows-ui-starter-action-done": "Inizio",
+	"workflows-ui-workflow-overview-action-back": "Indietro",
+	"workflows-triggers-type-manual-label": "Manuale",
+	"workflows-ui-action-cancel": "Annulla",
+	"workflows-ui-trigger-action-create": "Salva",
+	"workflows-ui-trigger-action-choose": "Continua",
+	"workflows-ui-trigger-action-delete": "Cancella",
+	"workflows-ui-trigger-field-name": "Nome",
+	"workflows-action-edit-label": "Modifica",
+	"workflows-action-delete-label": "Cancella",
+	"workflows-ui-trigger-field-description": "Descrizione",
+	"workflows-activity-editpage-error-no-title": "Nessun titolo fornito"
 }
