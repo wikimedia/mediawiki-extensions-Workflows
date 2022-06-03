@@ -211,6 +211,7 @@
 	"workflows-activity-group-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|Group feedback}}",
 	"workflows-activity-group-vote-name": "Name of activity, which is used in notifications.\n{{Identical|Group vote}}",
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Name of workflow step, which is bind to activity.\n{{identical|Review}}",
+	"workflows-ui-workflow-overview-initial-data-title": "Label which \"hides\" workflow initial data in workflow details dialog",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Name of workflow step, which is bind to activity.",
 	"workflows-ui-workflow-overview-step-name-user-vote": "Name of workflow step, which is bind to activity.\n{{Identical|User vote}}",
 	"workflows-ui-workflow-overview-step-name-user-feedback": "Name of workflow step, which is bind to activity.\n{{Identical|User feedback}}",
