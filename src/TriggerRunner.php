@@ -29,16 +29,14 @@ class TriggerRunner {
 	 */
 	public function triggerAllOfType( $type, ?Title $title = null, $qualifyingData = [] ) {
 		$triggers = $this->repo->getActive( $type );
-
 		foreach ( $triggers as $trigger ) {
 			if ( in_array( $trigger->getId(), $this->triggered ) ) {
 				// Do not evaluate same trigger multiple times in one request
 				continue;
 			}
 			$this->triggered[] = $trigger->getId();
-
 			if ( $trigger instanceof IPageTrigger ) {
-				if ( $title === null && !$this->canRunWorkflowForTitle( $title ) ) {
+				if ( $title === null || !$this->canRunWorkflowForTitle( $title ) ) {
 					$this->logger->error( 'Page context trigger called without title', [
 						'trigger' => $trigger->getId(),
 						'action' => $type
