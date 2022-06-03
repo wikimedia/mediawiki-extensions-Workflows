@@ -1,16 +1,20 @@
 .overview-booklet {
 	.overview-title {
-		font-size: 1.3em !important;
+		font-weight: bold;
+		font-size: 1.1rem;
+		margin-bottom: 0;
 	}
 	.overview-desc {
 		color: grey;
 		font-size: 0.9em !important;
+		margin: 1rem 0;
 	}
 	.overview-state-layout {
-		position: absolute;
-		right: 10px;
-		top: -10px;
-		font-size: 1.3em;
+		float: right;
+		font-weight: bold;
+		label {
+			font-size: 1.1rem;
+		}
 		.workflow-state-active {
 			color: green;
 		}
@@ -23,27 +27,43 @@
 			}
 		}
 	}
+	.details-panel {
+		background-color: #f7f6f6;
+		> .oo-ui-labelWidget {
+			display: block;
+		}
+	}
+	table {
+		width: 100%;
+		font-size: 15px;
+		td {
+			height: 30px;
+			vertical-align: text-top;
+		}
+		.oo-ui-horizontalLayout > .oo-ui-widget {
+			margin-bottom: 0;
+		}
+	}
 	.overview-section-label {
-		font-size: 1.3em;
-		padding: 10px;
+		padding: 10px 0;
+		font-weight: bold;
+		text-decoration: underline;
+		margin-top: 20px;
 	}
 	.overview-activity-layout {
 		background-color: #f7f6f6;
 		position: relative;
-		.oo-ui-labelWidget.name {
-			font-size: 1.2em;
-		}
-		.proximity-layout {
-			position: absolute;
-			right: 10px;
-			top: 5px;
+	}
+	.proximity-layout {
+		float: right;
+		.proximity {
 			color: green;
-			&.proximity-close {
-				color: orangered;
-			}
-			&.proximity-overdue {
-				color: red;
-			}
+		}
+		.proximity-close {
+			color: orangered;
+		}
+		.proximity-overdue {
+			color: red;
 		}
 	}
 	.workflow-details-history {
@@ -57,8 +77,6 @@
 		}
 	}
 	.activity-data-raw-popup {
-		position: absolute;
-		right: 0;
-		top: 0;
+		float: right;
 	}
 }
