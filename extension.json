@@ -540,7 +540,8 @@
 		"ArticleDeleteComplete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
-		"PageSaveComplete": "triggerWorkflows"
+		"PageSaveComplete": "triggerWorkflows",
+		"SetupAfterCache": "registerNotifications"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -575,6 +576,10 @@
 		"triggerWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\TriggerWorkflows",
 			"services": [ "WorkflowTriggerRunner" ]
+		},
+		"registerNotifications": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\RegisterNotifications",
+			"services": [ "MWStakeNotificationsNotifier" ]
 		}
 	},
 	"ContentHandlers": {
