@@ -2,21 +2,22 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Notification;
 
+use Message;
 use MWStake\MediaWiki\Component\Notifications\BaseNotification;
 use Title;
 use User;
 
 class WorkflowEnded extends BaseNotification {
 
-	/** @var string */
-	protected $workflowName;
+	/** @var Message */
+	protected $workflowNameMsg;
 
 	/**
 	 * @param User $targetUser
-	 * @param string $workflowName Workflow name
+	 * @param Message $workflowNameMsg Workflow name
 	 * @param Title|null $title Target page title object
 	 */
-	public function __construct( User $targetUser, string $workflowName, ?Title $title ) {
+	public function __construct( User $targetUser, Message $workflowNameMsg, ?Title $title ) {
 		if ( !$title instanceof Title ) {
 			$title = Title::newMainPage();
 		}
@@ -26,7 +27,7 @@ class WorkflowEnded extends BaseNotification {
 			$title
 		);
 
-		$this->workflowName = $workflowName;
+		$this->workflowNameMsg = $workflowNameMsg;
 
 		$this->addAffectedUsers( [ $targetUser ] );
 	}
@@ -36,7 +37,7 @@ class WorkflowEnded extends BaseNotification {
 	 */
 	public function getParams() {
 		return parent::getParams() + [
-			'workflow-name' => $this->workflowName
+			'workflow-name' => $this->workflowNameMsg
 		];
 	}
 }

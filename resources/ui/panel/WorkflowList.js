@@ -90,12 +90,22 @@
 				if ( workflows[id].contextPage ) {
 					page = new mw.Title( workflows[id].contextPage );
 				}
+
+				var current = '-';
+				if ( workflows[id].state === 'running' ) {
+					for( var task in workflows[id].tasks ) {
+						if ( task === workflows[id].current[0] ) {
+							current = workflows[id].tasks[task].description.taskName;
+						}
+					}
+				}
+
 				this.data.push( {
 					id: id,
 					title: workflows[id].definition.title,
 					page: page ? page.getPrefixedText() : '',
 					page_link: page ? page.getUrl() : '',
-					current: workflows[id].state === 'running' ? workflows[id].current[0] : '-',
+					current: current,
 					state: mw.message( 'workflows-ui-overview-details-state-' + workflows[id].state ).text(),
 					notice: this.getNotice( workflows[id] ),
 					start: workflows[id].timestamps.start,
