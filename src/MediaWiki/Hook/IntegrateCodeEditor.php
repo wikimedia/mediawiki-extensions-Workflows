@@ -18,6 +18,11 @@ class IntegrateCodeEditor {
 			return false;
 		}
 
+		if ( $currentContentModel === 'workflow-triggers' ) {
+			$languageCode = 'json';
+			return false;
+		}
+
 		return true;
 	}
 }
