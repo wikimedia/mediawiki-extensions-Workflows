@@ -16,7 +16,6 @@ class DiscoverySkin implements BlueSpiceDiscoveryTemplateDataProviderAfterInit {
 		$registry->register( 'actions_secondary', 'ca-wf_start' );
 		$registry->unregister( 'toolbox', 'ca-wf_start' );
 
-		$registry->register( 'panel/details', 'ca-wf_view_for_page' );
 		$registry->unregister( 'actioncollection/actions', 'ca-wf_view_for_page' );
 	}
 }
