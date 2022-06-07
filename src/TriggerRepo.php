@@ -12,6 +12,7 @@ use MediaWiki\Storage\SlotRecord;
 use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
+use Title;
 use TitleFactory;
 use Wikimedia\ObjectFactory;
 use WikiPage;
@@ -230,6 +231,18 @@ class TriggerRepo {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Get trigger page title
+	 * @return Title|null
+	 */
+	public function getTitle(): ?Title {
+		$this->assertLoaded();
+		if ( !$this->wikipage ) {
+			return null;
+		}
+		return $this->wikipage->getTitle();
 	}
 
 	private function getPageUpdater() {
