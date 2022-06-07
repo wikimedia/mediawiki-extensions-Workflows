@@ -393,7 +393,8 @@
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
 		"ArticleDeleteComplete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
-		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage"
+		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
+		"SetupAfterCache": "registerNotifications"
 	},
 	"HookHandlers": {
 		"addTables": {
@@ -424,6 +425,10 @@
 		},
 		"common-user-interface": {
 			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\CommonUserInterface"
+		},
+		"registerNotifications": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\RegisterNotifications",
+			"services": [ "MWStakeNotificationsNotifier" ]
 		}
 	},
 	"ContentHandlers": {
