@@ -552,7 +552,8 @@
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddBootstrap"
 		},
 		"setContentModels": {
-			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\SetContentModels"
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\SetContentModels",
+			"services":  [ "WorkflowTriggerRepo" ]
 		},
 		"addActions": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddActions",
@@ -572,7 +573,8 @@
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\DiscoverySkin"
 		},
 		"common-user-interface": {
-			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\CommonUserInterface"
+			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\HookHandler\\CommonUserInterface",
+			"services": [ "SpecialPageFactory", "WorkflowTriggerRepo" ]
 		},
 		"triggerWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\TriggerWorkflows",

@@ -170,6 +170,7 @@
 	"workflows-ui-trigger-action-choose": "Continue",
 	"workflows-ui-trigger-editor-dialog-title": "Workflow trigger",
 	"workflows-ui-trigger-page-title": "Workflow triggers",
+	"workflows-ui-trigger-page-desc": "Allows definition of conditions for starting a workflow",
 	"workflows-ui-trigger-delete-dialog-title": "Delete trigger",
 	"workflows-ui-trigger-action-delete": "Delete",
 	"workflows-ui-trigger-delete-prompt": "Are you sure you want to delete trigger \"$1\"?",
