@@ -180,6 +180,7 @@
 	"workflows-ui-trigger-action-choose": "Process dialog action label\n{{identical|Continue}}",
 	"workflows-ui-trigger-editor-dialog-title": "Process dialog title",
 	"workflows-ui-trigger-page-title": "Workflow trigger management page title",
+	"workflows-ui-trigger-page-desc": "Workflow trigger management description",
 	"workflows-ui-trigger-delete-dialog-title": "Title for the delete trigger dialog",
 	"workflows-ui-trigger-action-delete": "Label for the delete action",
 	"workflows-ui-trigger-delete-prompt": "Confirmation prompt for deleting a trigger. \n$1 - trigger key(name)",
