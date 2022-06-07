@@ -125,7 +125,7 @@ class WorkflowNotifier implements Consumer {
 			if ( $initiator ) {
 				$notification = new WorkflowEnded(
 					$initiator,
-					$workflowName,
+					$workflowNameMsg,
 					$this->workflow->getContext()->getContextPage()
 				);
 				$this->notifier->notify( $notification );
