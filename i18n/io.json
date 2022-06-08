@@ -9,5 +9,6 @@
 	"workflows-ui-task-completion-action-cancel": "Nuligar",
 	"workflows-ui-workflow-overview-action-back": "Retroirar",
 	"workflows-ui-overview-details-action-reason": "Motivo",
-	"workflows-ui-action-cancel": "Nuligar"
+	"workflows-ui-action-cancel": "Nuligar",
+	"workflows-ui-trigger-action-create": "Konservez"
 }
