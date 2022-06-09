@@ -130,7 +130,7 @@
 	"workflows-ui-overview-details-state-autoabort-comment": "Workflow was automatically aborted!",
 	"workflows-auto-aborted-workflow-page-deleted": "Workflow was aborted because page it was related to was deleted",
 	"workflows-uto-body-field-instructions": "Instructions: $1",
-	"workflows-ui-overview-details-initiator": "Started by",
+	"workflows-ui-overview-details-initiator": "Started by:",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|initiated}} this workflow",
 	"workflows-ui-overview-details-action-details-column": "see details",
 	"workflows-exception-property-validation": "Validation failed for property \"$1\": $2",
