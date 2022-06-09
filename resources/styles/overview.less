@@ -1,25 +1,16 @@
 .overview-booklet {
-	.overview-title {
-		font-weight: bold;
-		font-size: 1.1rem;
-		margin-bottom: 0;
-	}
-	.overview-desc {
-		color: grey;
-		font-size: 0.9em !important;
-		margin: 1rem 0;
-	}
 	.overview-state-layout {
 		float: right;
 		font-weight: bold;
-		label {
-			font-size: 1.1rem;
-		}
+
 		.workflow-state-active {
-			color: green;
+			color: #47A65D;
+		}
+		.workflow-state-finished {
+			color: #747474;
 		}
 		.workflow-state-inactive {
-			color: red;
+			color: #A62E39;
 		}
 		.oo-ui-popupWidget-popup {
 			span {
@@ -37,8 +28,8 @@
 		width: 100%;
 		font-size: 15px;
 		td {
-			height: 30px;
-			vertical-align: text-top;
+			height: 36px;
+			vertical-align: middle;
 		}
 		.oo-ui-horizontalLayout > .oo-ui-widget {
 			margin-bottom: 0;
@@ -48,30 +39,33 @@
 		padding: 10px 0;
 		font-weight: bold;
 		text-decoration: underline;
-		margin-top: 20px;
 	}
 	.overview-activity-layout {
 		background-color: #f7f6f6;
 		position: relative;
+
+		table td {
+			vertical-align: text-top;
+		}
+
+		.oo-ui-buttonWidget {
+			margin-right: 0;
+		}
 	}
 	.proximity-layout {
 		float: right;
 		.proximity {
-			color: green;
+			color: #47A65D;
 		}
 		.proximity-close {
 			color: orangered;
 		}
 		.proximity-overdue {
-			color: red;
+			color: #A62E39;
 		}
 	}
 	.workflow-details-history {
-		.history-item {
-			font-size: 0.9rem;
-		}
 		.history-value {
-			font-size: 1rem;
 			font-weight: bold;
 			margin-left: 20px;
 		}
@@ -80,8 +74,7 @@
 		float: right;
 	}
 	.initial-data-raw-popup {
-		position: absolute;
-		right: 0;
+		float: right;
 	}
 }
 

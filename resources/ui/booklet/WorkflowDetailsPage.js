@@ -1,6 +1,6 @@
 ( function ( mw, $, wf ) {
 	workflows.ui.WorkflowDetailsPage = function( name, cfg ) {
-		workflows.ui.WorkflowDetailsPage .parent.call( this, name, cfg );
+		workflows.ui.WorkflowDetailsPage.parent.call( this, name, cfg );
 		this.panel = new OO.ui.PanelLayout( {
 			padded: false,
 			expanded: false
@@ -15,20 +15,9 @@
 		this.panel.$element.children().remove();
 
 		this.workflow = workflow;
-		this.addHeaderSection();
 		this.addDetailsSection();
 
 		this.addActivities();
-	};
-
-	workflows.ui.WorkflowDetailsPage.prototype.addHeaderSection = function() {
-		this.headerPanel = new OO.ui.HorizontalLayout( {
-			padded: true,
-			expanded: false
-		} );
-		this.panel.$element.append( this.headerPanel.$element );
-		this.addDefinition();
-		this.addState();
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addDetailsSection = function() {
@@ -46,6 +35,8 @@
 		this.addContextPage();
 		this.addInitiator();
 		this.addTimestamps();
+
+		this.addState();
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addDefinition = function() {
@@ -98,13 +89,9 @@
 			target: '_new'
 		} );
 
-		var initialData = this.getInitialData();
-		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
-
 		this.$detailsPanelTable.append( $('<tr>' ).append(
 			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
-			$( '<td>' ).append( revision.$element ),
-			$( '<td>' ).append( initialRawDataPopup.$element )
+			$( '<td>' ).append( revision.$element )
 		));
 	};
 
@@ -113,10 +100,18 @@
 		var label = new OO.ui.LabelWidget( {
 			label: mw.message( 'workflows-ui-overview-details-state-label' ).text()
 		} );
+
+		var stateClass = 'workflow-state-inactive';
+		if ( state === 'finished' ) {
+			stateClass = 'workflow-state-finished';
+		} else if ( state = 'running' ) {
+			stateClass = 'workflow-state-active';
+		}
 		var stateLabel = new OO.ui.LabelWidget( {
 			label: mw.message( 'workflows-ui-overview-details-state-' + state ).text(),
-			classes: state === 'running' ? [ 'workflow-state-active' ] : [ 'workflow-state-inactive' ]
+			classes: [ stateClass ]
 		} );
+
 		var layout = new OO.ui.HorizontalLayout( {
 			items: [ label, stateLabel ],
 			classes: [ 'overview-state-layout' ]
@@ -157,7 +152,7 @@
 				}
 			}
 		}
-		this.headerPanel.addItems( [ layout ] );
+		this.sectionLayout.addItems( [ layout ] );
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addActivities = function() {
@@ -317,11 +312,6 @@
 			return;
 		}
 
-		var panel = new OO.ui.PanelLayout( {
-			expanded: false,
-			classes: [ 'overview-activity-layout' ]
-		} );
-
 		var title = new mw.Title( this.workflow.getContextPage() );
 		var titleButton = new OO.ui.ButtonWidget( {
 			framed: false,
@@ -351,10 +341,14 @@
 				]
 			);
 		}
+		var initialData = this.getInitialData();
+		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
+
 		this.$detailsPanelTable.append( $('<tr>' ).append(
 			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
-			$( '<td>' ).append( horizontalLayout.$element )
-		));
+			$( '<td>' ).append( horizontalLayout.$element ),
+			$( '<td>' ).append( initialRawDataPopup.$element )
+		) );
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function( activity ) {
@@ -405,7 +399,6 @@
 			var dueDate = activity.getDescription().dueDate;
 			if ( dueDate ) {
 				var proximity = activity.getDescription().dueDateProximity;
-				var icon = new OO.ui.IconWidget( { icon: 'clock' } );
 				var labelDue = new OO.ui.LabelWidget( {
 					label: mw.message( "workflows-ui-overview-details-due-date-label" ).text()
 				} );
@@ -460,6 +453,10 @@
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.getTitle = function() {
+		if ( this.workflow ) {
+			var definition = this.workflow.getDefinition();
+			return definition.title;
+		}
 		return mw.message( 'workflows-ui-workflow-overview-dialog-title' ).text();
 	};
 
