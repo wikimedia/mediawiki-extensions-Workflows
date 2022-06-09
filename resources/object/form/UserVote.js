@@ -59,6 +59,7 @@
 				noLayout: true,
 				widget_label: mw.message( 'workflows-form-label-delegate-cancel' ).text(),
 				widget_framed: false,
+				widget_flags: 'progressive',
 				style: 'float: right;',
 				listeners: {
 					click: function() {
