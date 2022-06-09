@@ -174,5 +174,6 @@
 	"workflows-ui-workflow-overview-step-name-edit-request": "Bearbeitungsanfrage",
 	"workflows-ui-workflow-overview-step-name-collect-data": "Dateneingabe",
 	"workflows-ui-overview-details-section-details": "Details",
-	"workflows-ui-overview-details-due-date-label": "Fällig am"
+	"workflows-ui-overview-details-due-date-label": "Fällig am",
+	"workflows-ui-overview-details-section-assignee": "Zugewiesen an"
 }
