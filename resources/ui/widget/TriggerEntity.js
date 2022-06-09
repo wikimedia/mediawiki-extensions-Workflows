@@ -17,12 +17,8 @@
 
 		this.$element.append( new OO.ui.LabelWidget( {
 			label: typeDesc.label,
-			classes: [ 'trigger-type-label' ]
-		} ).$element );
-
-		this.$element.append( new OO.ui.LabelWidget( {
-			label: typeDesc.desc,
-			classes: [ 'trigger-type-desc' ]
+			classes: [ 'trigger-type-label' ],
+			title:  typeDesc.desc,
 		} ).$element );
 
 		if ( this.typeDesc.editor !== null ) {
