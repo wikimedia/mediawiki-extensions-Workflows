@@ -2,7 +2,7 @@
 	workflows.ui.widget.InitialRawDataPopup = function( data ) {
 
 		var cfg = {
-			label: mw.message( 'workflows-ui-workflow-overview-initial-data-title' ).text(),
+			icon: 'info',
 			title: mw.message( 'workflows-ui-overview-details-raw-data-popup-label' ).text(),
 			framed: false,
 			flags: [ 'progressive', 'primary' ],
