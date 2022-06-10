@@ -174,8 +174,9 @@ class BPMNDefinitionParser implements IDefinitionParser {
 			if ( empty( trim( $propertyName ) ) ) {
 				continue;
 			}
-			$properties[$propertyName] =
-				$this->getAttribute( $property, 'default' ) ?: (string)$property;
+			$properties[$propertyName] = $this->convertValue(
+				$this->getAttribute( $property, 'default' ) ?: (string)$property
+			);
 			if ( !empty( $this->getAttribute( $property, 'validation' ) ) ) {
 				$validators = $this->getAttribute( $property, 'validation' );
 				$validators = explode( ',', $validators );
@@ -359,6 +360,26 @@ class BPMNDefinitionParser implements IDefinitionParser {
 			$this->getAttribute( $child, 'name' ),
 			(array)$child->{"incoming"}
 		);
+	}
+
+	/**
+	 * Basic conversion to correct types
+	 *
+	 * @param string $value
+	 * @return string
+	 */
+	private function convertValue( $value ) {
+		if ( $value === '' ) {
+			return '';
+		}
+		if ( in_array( strtolower( $value ), [ 'true', 'false' ] ) ) {
+			return $value === 'true';
+		}
+		if ( is_numeric( $value ) ) {
+			return $value + 0;
+		}
+
+		return $value;
 	}
 
 }

@@ -1,6 +1,8 @@
 ( function ( mw, $ ) {
 
 	workflows.object.form.UserVote = function( cfg, activity ) {
+		var properties = activity.getProperties();
+		this.allowDelegation = properties.hasOwnProperty( 'allow_delegation' ) ? !!properties.allow_delegation : true;
 		workflows.object.form.UserVote.parent.call( this, cfg, activity );
 	};
 
@@ -33,6 +35,7 @@
 				widget_label: mw.message( 'workflows-form-label-delegate' ).text(),
 				widget_framed: false,
 				widget_flags: 'progressive',
+				hidden: !this.allowDelegation,
 				style: 'float: right;',
 				listeners: {
 					click: function() {

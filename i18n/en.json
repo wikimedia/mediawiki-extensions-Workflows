@@ -215,5 +215,6 @@
 	"workflows-activity-set-template-params-cannot-save": "Save failed",
 	"workflows-ui-overview-details-section-details": "Details",
 	"workflows-ui-overview-details-due-date-label": "Due on",
-	"workflows-ui-overview-details-section-assignee": "Assigned to"
+	"workflows-ui-overview-details-section-assignee": "Assigned to",
+	"workflows-user-vote-cannot-delegate": "Delegation of this task is not allowed by the task configuration"
 }
