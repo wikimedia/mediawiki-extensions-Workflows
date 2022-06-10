@@ -1,5 +1,6 @@
 window.workflows = {
 	api: {},
+	store: {},
 	ui: {
 		openWorkflowStarter: function( repos ) {
 			repos = repos || [];
@@ -188,14 +189,16 @@ window.workflows = {
 			active = typeof active === 'undefined' ? true : active;
 			return workflows.list.filtered( active, {}, fullDetail );
 		},
-		filtered: function( active, filterData, fullDetail ) {
+		filtered: function( active, filterData, fullDetail, offset, limit ) {
 			var dfd = $.Deferred();
 			mw.loader.using( [ "ext.workflows.api" ], function() {
 				var api = new workflows.api.Api();
 
-				api.getWorkflows( active, filterData, fullDetail ).done( function( workflows ) {
-					dfd.resolve( workflows );
-				} ).fail( function ( error ) {
+				api.getWorkflows( active, filterData, fullDetail, offset, limit ).done(
+					function( workflows ) {
+						dfd.resolve( workflows );
+					}
+				).fail( function ( error ) {
 					dfd.reject( error );
 				} );
 			} );
