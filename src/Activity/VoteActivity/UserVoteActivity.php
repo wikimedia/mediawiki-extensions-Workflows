@@ -16,6 +16,8 @@ use Message;
 use User;
 
 class UserVoteActivity extends GenericVoteActivity {
+	/** @var bool */
+	private $allowDelegation;
 
 	/**
 	 * @inheritDoc
@@ -34,8 +36,16 @@ class UserVoteActivity extends GenericVoteActivity {
 	 */
 	public function start( $data, WorkflowContext $context ) {
 		$this->setPrimaryData( $data, $context );
-
 		$this->logger->info( "User {$this->actor->getName()} is assigned to vote on {$this->targetPage->getText()}" );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function setSecondaryData( array $data, WorkflowContext $context ): void {
+		parent::setSecondaryData( $data, $context );
+		$this->allowDelegation = isset( $data['allow_delegation'] ) ?
+			(bool)$data['allow_delegation'] : true;
 	}
 
 	/**
@@ -57,6 +67,9 @@ class UserVoteActivity extends GenericVoteActivity {
 
 				break;
 			case ActionList::ACTION_DELEGATE:
+				if ( !$this->allowDelegation ) {
+					throw new WorkflowExecutionException( 'workflows-user-vote-cannot-delegate' );
+				}
 				$delegateToUser = User::newFromName( $data['delegate_to'] );
 
 				if ( !$delegateToUser instanceof User || !$delegateToUser->getId() ) {
