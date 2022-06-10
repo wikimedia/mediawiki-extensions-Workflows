@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Exception;
 use Exception;
 use MediaWiki\Extension\Workflows\Definition\IElement;
 use MediaWiki\Extension\Workflows\Definition\ITask;
+use Message;
 
 class WorkflowExecutionException extends Exception {
 	/** @var string */
@@ -30,6 +31,12 @@ class WorkflowExecutionException extends Exception {
 		$exceptionMessage = 'Workflow execution exception: %s';
 		if ( $this->element instanceof IElement ) {
 			$exceptionMessage = 'Workflow execution exception: %s, on element %s';
+		}
+
+		// A lot of the code already assumes this is happening...
+		$messageObject = Message::newFromKey( $this->message );
+		if ( $messageObject->exists() ) {
+			$this->message = $messageObject->text();
 		}
 
 		return sprintf(
