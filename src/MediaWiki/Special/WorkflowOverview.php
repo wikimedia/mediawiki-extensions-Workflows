@@ -7,7 +7,7 @@ use SpecialPage;
 
 class WorkflowOverview extends SpecialPage {
 	public function __construct() {
-		parent::__construct( 'WorkflowsOverview', 'workflows-admin' );
+		parent::__construct( 'WorkflowsOverview', 'workflows-view' );
 	}
 
 	public function execute( $subPage ) {

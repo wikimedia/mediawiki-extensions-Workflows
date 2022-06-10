@@ -340,7 +340,7 @@ final class Workflow {
 	 * @throws WorkflowExecutionException
 	 */
 	public function abort( $reason = null ) {
-		$this->assertActorCan( 'execute' );
+		$this->assertActorCan( 'admin' );
 		$this->assertWorkflowState( static::STATE_RUNNING );
 		$this->assertMembers( __METHOD__ );
 		$endDate = new DateTime();
@@ -386,7 +386,7 @@ final class Workflow {
 	 * @throws WorkflowExecutionException
 	 */
 	public function unAbort( $reason ) {
-		$this->assertActorCan( 'execute' );
+		$this->assertActorCan( 'admin' );
 		$this->assertWorkflowState( static::STATE_ABORTED );
 		$this->assertMembers( __METHOD__ );
 		$this->storage->recordEvent(

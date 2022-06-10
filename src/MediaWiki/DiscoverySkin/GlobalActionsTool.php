@@ -29,7 +29,7 @@ class GlobalActionsTool extends RestrictedTextLink {
 	 */
 	public function getPermissions(): array {
 		$permissions = [
-			'workflows-admin'
+			'workflows-view'
 		];
 		return $permissions;
 	}
