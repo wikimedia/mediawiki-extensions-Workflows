@@ -285,6 +285,7 @@
 		},
 		"ext.workflows.panel.overview": {
 			"scripts": [
+				"store/Workflows.js",
 				"ui/panel/WorkflowList.js"
 			],
 			"styles": [
