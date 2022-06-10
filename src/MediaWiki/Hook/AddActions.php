@@ -27,41 +27,41 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 	 */
 	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
 		$user = $sktemplate->getUser();
-		if ( !$this->permissionManager->userHasRight( $user, 'workflows-execute' ) ) {
-			return;
-		}
-
 		$title = $sktemplate->getTitle();
 		if ( !$title->exists() || $title->isSpecialPage() || !$title->isContentPage() ) {
 			return;
 		}
 
-		$links['actions']['wf_view_for_page'] = [
-			'text' => $sktemplate->getContext()->msg(
-				"workflows-ui-workflow-overview-dialog-title-list-page"
-			)->text(),
-			'href' => '#',
-			'class' => false,
-			'id' => 'ca-wf_view_for_page',
-			'position' => 12,
-		];
+		if ( $this->permissionManager->userHasRight( $user, 'workflows-view' ) ) {
+			$links['actions']['wf_view_for_page'] = [
+				'text' => $sktemplate->getContext()->msg(
+					"workflows-ui-workflow-overview-dialog-title-list-page"
+				)->text(),
+				'href' => '#',
+				'class' => false,
+				'id' => 'ca-wf_view_for_page',
+				'position' => 12,
+			];
+		}
 
-		/** @var TriggerRepo $triggerRepo */
-		$triggerRepo = MediaWikiServices::getInstance()->getService( 'WorkflowTriggerRepo' );
-		$triggers = $triggerRepo->getActive( 'manual' );
-		/** @var PageRelatedTrigger $trigger */
-		foreach ( $triggers as $trigger ) {
-			$trigger->setTitle( $title );
-			if ( $trigger->shouldTrigger() ) {
-				$sktemplate->getOutput()->addJsConfigVars( 'workflowsAllowed', $trigger->getAttributes() );
-				$links['actions']['wf_start'] = [
-					'text' => $sktemplate->getContext()->msg( "workflows-ui-action-start" )->text(),
-					'href' => '#',
-					'class' => false,
-					'id' => 'ca-wf-start',
-					'position' => 10,
-				];
-				return;
+		if ( $this->permissionManager->userHasRight( $user, 'workflows-execute' ) ) {
+			/** @var TriggerRepo $triggerRepo */
+			$triggerRepo = MediaWikiServices::getInstance()->getService( 'WorkflowTriggerRepo' );
+			$triggers = $triggerRepo->getActive( 'manual' );
+			/** @var PageRelatedTrigger $trigger */
+			foreach ( $triggers as $trigger ) {
+				$trigger->setTitle( $title );
+				if ( $trigger->shouldTrigger() ) {
+					$sktemplate->getOutput()->addJsConfigVars( 'workflowsAllowed', $trigger->getAttributes() );
+					$links['actions']['wf_start'] = [
+						'text' => $sktemplate->getContext()->msg( "workflows-ui-action-start" )->text(),
+						'href' => '#',
+						'class' => false,
+						'id' => 'ca-wf-start',
+						'position' => 10,
+					];
+					return;
+				}
 			}
 		}
 	}
