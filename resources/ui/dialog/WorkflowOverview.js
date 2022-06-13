@@ -70,13 +70,18 @@
 			if ( this.mode ) {
 				this.actions.setMode( this.mode );
 			}
+
+			if ( this.booklet ) {
+				var page = this.booklet.getCurrentPage();
+				this.title.setLabel( page.getTitle() );
+			}
 		}, this );
 	};
 
 	workflows.ui.dialog.WorkflowOverview.prototype.initialize = function () {
 		workflows.ui.dialog.WorkflowOverview.super.prototype.initialize.apply( this, arguments );
-
 		this.pushPending();
+
 		mw.loader.using( 'ext.workflows.dialog.overview', function() {
 			this.booklet = new workflows.ui.WorkflowOverviewBooklet( {
 				outlined: false,
@@ -145,6 +150,8 @@
 				break;
 			case 'details':
 				page.init( this.workflow );
+				this.title.setLabel( page.getTitle() );
+
 				this.setSize( 'large' );
 				var mode = this.workflow.getState();
 				if ( mode !== 'running' && mode !== 'aborted' ) {
