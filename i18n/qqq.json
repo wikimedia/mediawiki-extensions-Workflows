@@ -227,5 +227,6 @@
 	"workflows-ui-overview-details-section-details": "Label for section workflow details in dialog workflows details page",
 	"workflows-ui-overview-details-due-date-label": "Label for due date of current task in a workflow",
 	"workflows-ui-overview-details-section-assignee": "Label for current assigned user in a workflow",
-	"workflows-user-vote-cannot-delegate": "Error message when user tries to delegate a task that does not allow delegation"
+	"workflows-user-vote-cannot-delegate": "Error message when user tries to delegate a task that does not allow delegation",
+	"workflows-ui-overview-details-section-expired": "Label for the section showing expired activities"
 }
