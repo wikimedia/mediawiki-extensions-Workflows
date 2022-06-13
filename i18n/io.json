@@ -9,5 +9,8 @@
 	"workflows-ui-overview-details-action-reason": "Motivo",
 	"workflows-ui-starter-action-cancel": "Nuligar",
 	"workflows-ui-task-completion-action-cancel": "Nuligar",
-	"workflows-ui-action-cancel": "Nuligar"
+	"workflows-ui-action-cancel": "Nuligar",
+	"workflows-form-placeholder-comment": "Komento",
+	"workflows-form-instructions-comment": "Komento",
+	"workflows-ui-trigger-action-create": "Konservez"
 }

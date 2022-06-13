@@ -224,5 +224,8 @@
 	"workflows-activity-error-no-revision": "Generic error message when no valid revision can be found",
 	"workflows-activity-error-no-title": "Generic error message when no title can be found",
 	"workflows-activity-cannot-edit": "Generic error message when user cannot edit a page.\n$1 - username\n$2 - title",
-	"workflows-activity-set-template-params-cannot-save": "Error message when update template cannot be saved"
+	"workflows-activity-set-template-params-cannot-save": "Error message when update template cannot be saved",
+	"workflows-ui-workflow-overview-initial-data-title": "Label which \"hides\" workflow initial data in workflow details dialog",
+	"workflows-ui-overview-details-section-details": "Label for section workflow details in dialog workflows details page",
+	"workflows-ui-overview-details-due-date-label": "Label for due date of current task in a workflow"
 }
