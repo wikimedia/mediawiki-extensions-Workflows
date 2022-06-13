@@ -249,9 +249,21 @@ class TriggerRepo {
 	 * @throws MWException
 	 */
 	private function persistContent( PageUpdater $updater ) {
-		return $updater->saveRevision(
-				CommentStoreComment::newUnsavedComment( 'Update' )
-			) instanceof RevisionRecord;
+		$revision = $updater->saveRevision(
+			CommentStoreComment::newUnsavedComment( 'Update' )
+		);
+
+		if ( !( $revision instanceof RevisionRecord ) ) {
+			$status = $updater->getStatus();
+			$first = count( $status->getErrors() ) > 0 ? $status->getErrors()[0] : null;
+
+			// Do not consider a null-edit a failure
+			return is_array( $first ) &&
+				isset( $first['message'] ) &&
+				$first['message'] === 'edit-no-change';
+		}
+
+		return true;
 	}
 
 	/**
