@@ -286,6 +286,11 @@
 		var iconWidget = new OO.ui.IconWidget( {
 			icon: icon
 		} );
+		// workflows-ui-overview-details-section-page
+		// workflows-ui-overview-details-section-details
+		// workflows-ui-overview-details-section-expired
+		// workflows-ui-overview-details-section-activity
+		// workflows-ui-overview-details-section-past
 		var label = new OO.ui.LabelWidget( {
 			label: mw.message( 'workflows-ui-overview-details-section-' + name ).text()
 		} );
