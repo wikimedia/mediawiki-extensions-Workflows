@@ -91,27 +91,18 @@
 					page = new mw.Title( workflows[id].contextPage );
 				}
 
-				var current = '-';
-				if ( workflows[id].state === 'running' ) {
-					for( var task in workflows[id].tasks ) {
-						if ( task === workflows[id].current[0] ) {
-							current = workflows[id].tasks[task].description.taskName;
-						}
-					}
-				}
-
 				this.data.push( {
 					id: id,
 					title: workflows[id].definition.title,
 					page: page ? page.getPrefixedText() : '',
 					page_link: page ? page.getUrl() : '',
-					current: current,
-					state: mw.message( 'workflows-ui-overview-details-state-' + workflows[id].state ).text(),
+					assignee: this.getAssignee( workflows[id] ),
+					state: this.getState( workflows[id].state ),
 					notice: this.getNotice( workflows[id] ),
 					start: workflows[id].timestamps.start,
-					startFormatted: workflows[id].timestamps.startFormatted,
+					startDate: workflows[id].timestamps.startDate,
 					last: workflows[id].timestamps.last,
-					lastFormatted: workflows[id].timestamps.lastFormatted,
+					lastDate: workflows[id].timestamps.lastDate,
 				} );
 			}
 			this.emit( 'loaded', this.data );
@@ -123,6 +114,26 @@
 		}.bind( this ) );
 
 		return dfd.promise();
+	};
+
+	workflows.ui.panel.WorkflowList.prototype.getAssignee = function( workflow ) {
+		if ( workflow.current[0] !== 'TheEnd' ) {
+			var task = workflow.tasks[ workflow.current ];
+			if ( task.properties.assigned_user ) {
+				return task.properties.assigned_user;
+			}
+			if ( task.properties.assigned_group ) {
+				return task.properties.assigned_group;
+			}
+		}
+		return '-';
+	};
+
+	workflows.ui.panel.WorkflowList.prototype.getState = function( state ) {
+		return new OO.ui.LabelWidget( {
+			title: mw.message( 'workflows-ui-overview-details-state-' + state ).text(),
+			classes: [ 'workflow-state', 'workflow-state-icon-' + state ]
+		} ).$element;
 	};
 
 	workflows.ui.panel.WorkflowList.prototype.getNotice = function( workflow ) {
@@ -161,28 +172,28 @@
 					type: "url",
 					urlProperty: 'page_link'
 				},
-				current: {
-					headerText: mw.message( 'workflows-ui-overview-details-section-activity' ).text(),
+				assignee: {
+					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
 					type: "text"
 				},
 				state: {
-					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text(),
-					type: "text"
+					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text()
 				},
 				start: {
 					headerText: mw.message( 'workflows-ui-overview-details-start-time-column' ).text(),
 					type: "date",
-					display: "startFormatted"
+					display: "startDate"
 				},
 				last: {
 					headerText: mw.message( 'workflows-ui-overview-details-last-time-column' ).text(),
 					type: "date",
-					display: "lastFormatted"
+					display: "lastDate"
 				},
 				detailsAction: {
 					type: "action",
 					actionId: 'details',
-					label: mw.message( 'workflows-ui-overview-details-action-details-column' ).text()
+					title: mw.message( 'workflows-ui-overview-details-action-details-column' ).text(),
+					icon: 'infoFilled'
 				}
 			},
 			data: this.data

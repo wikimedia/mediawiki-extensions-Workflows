@@ -214,5 +214,6 @@
 	"workflows-activity-cannot-edit": "User \"{{GENDER:$1|$1}}\" cannot edit page \"$2\"",
 	"workflows-activity-set-template-params-cannot-save": "Save failed",
 	"workflows-ui-overview-details-section-details": "Details",
-	"workflows-ui-overview-details-due-date-label": "Due on"
+	"workflows-ui-overview-details-due-date-label": "Due on",
+	"workflows-ui-overview-details-section-assignee": "Assigned to"
 }

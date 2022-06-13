@@ -289,6 +289,9 @@
 			"scripts": [
 				"ui/panel/WorkflowList.js"
 			],
+			"styles": [
+				"styles/special-overview-grid.less"
+			],
 			"messages": [
 				"workflows-ui-overview-details-start-time-column",
 				"workflows-ui-overview-details-last-time-column",
@@ -302,11 +305,13 @@
 				"workflows-ui-overview-details-workflow-type-label",
 				"workflows-ui-overview-grid-filter-state-all",
 				"workflows-ui-overview-grid-filter-state-active",
-				"workflows-error-generic"
+				"workflows-error-generic",
+				"workflows-ui-overview-details-section-assignee"
 			],
 			"dependencies": [
 				"ext.oOJSPlus.data",
-				"oojs-ui.styles.icons-alerts"
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-accessibility"
 			]
 		},
 		"ext.workflows.dialog.overview": {
