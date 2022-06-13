@@ -26,7 +26,7 @@ class TriggerWorkflows implements PageSaveCompleteHook {
 			return true;
 		}
 		$type = 'edit';
-		if ( $flags === EDIT_NEW ) {
+		if ( $flags & EDIT_NEW ) {
 			$type = 'create';
 		}
 		$this->runner->triggerAllOfType( $type, $wikiPage->getTitle(), [
