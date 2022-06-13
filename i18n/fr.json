@@ -71,7 +71,7 @@
 	"workflows-form-edit-request-submit-to-continue": "Une fois que vous avez terminé la modification, cliquer sur « Soumettre » pour marquer la tâche comme terminée",
 	"workflows-ui-alert-activity-edit-request": "On vous a demandé de modifier cette page",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Voir les détails",
-	"workflows-activity-edit-request-name": "Modifier la demande",
+	"workflows-activity-edit-request-name": "Demande de modification",
 	"workflows-uto-activity-edit-request-header": "Modification de page demandée",
 	"echo-category-title-workflow-cat": "Notifications du flux de travail",
 	"workflows-pref-tooltip-notification-workflow-cat": "Me notifier des événements sur les flux de travail qui me concernent",
@@ -207,6 +207,7 @@
 	"workflows-activity-user-vote-name": "Vote d’utilisateur",
 	"workflows-activity-group-feedback-name": "Avis de groupe",
 	"workflows-activity-group-vote-name": "Vote de groupe",
+	"workflows-ui-workflow-overview-initial-data-title": "Données initiales",
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Relecture",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Approbation",
 	"workflows-ui-workflow-overview-step-name-user-vote": "Vote d’utilisateur",
@@ -218,5 +219,7 @@
 	"workflows-activity-error-no-revision": "Aucune révision trouvée pour le titre donné",
 	"workflows-activity-error-no-title": "Titre non valide",
 	"workflows-activity-cannot-edit": "L’utilisat{{GENDER:$1|eur|rice}} « $1 » ne peut pas modifier la page « $2 »",
-	"workflows-activity-set-template-params-cannot-save": "La publication a échoué"
+	"workflows-activity-set-template-params-cannot-save": "La publication a échoué",
+	"workflows-ui-overview-details-section-details": "Détails",
+	"workflows-ui-overview-details-due-date-label": "Dû le"
 }

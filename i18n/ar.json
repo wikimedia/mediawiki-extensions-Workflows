@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Ulhvulgv",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Asma"
 		]
 	},
 	"workflows-ui-starter-select-workflow": "فكر",
 	"workflows-notification-task-assign-email-body": "$1",
 	"workflows-triggers-type-move-label": "عند نقل الصفحة",
-	"workflows-activity-error-no-title": "عنوان غير صالح"
+	"workflows-activity-error-no-title": "عنوان غير صالح",
+	"workflows-ui-overview-details-section-details": "تفاصيل"
 }

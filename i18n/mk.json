@@ -204,6 +204,7 @@
 	"workflows-activity-user-vote-name": "Кориснички глас",
 	"workflows-activity-group-feedback-name": "Групно мислење",
 	"workflows-activity-group-vote-name": "Групен глас",
+	"workflows-ui-workflow-overview-initial-data-title": "Првични податоци",
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Провери",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Одобри",
 	"workflows-ui-workflow-overview-step-name-user-vote": "Кориснички глас",
@@ -215,5 +216,7 @@
 	"workflows-activity-error-no-revision": "Не најдов преработки за дадениот наслов",
 	"workflows-activity-error-no-title": "Неважечки наслов",
 	"workflows-activity-cannot-edit": "Корисникот „{{GENDER:$1|$1}}“ не може да ја уредува страницата „$2“",
-	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување"
+	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување",
+	"workflows-ui-overview-details-section-details": "Подробно",
+	"workflows-ui-overview-details-due-date-label": "Рок"
 }
