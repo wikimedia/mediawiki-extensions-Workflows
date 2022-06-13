@@ -16,7 +16,7 @@ class Extension {
 		$notifier->registerNotificationCategory( 'workflow-cat', [
 			'priority' => 3,
 			'tooltip' => "workflows-pref-tooltip-notification-workflow-cat",
-			'no-dismiss' => [ 'email' ],
+			'no-dismiss' => [ 'web' ],
 		] );
 
 		$notifier->registerNotification(
