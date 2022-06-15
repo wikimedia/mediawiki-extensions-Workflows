@@ -94,7 +94,7 @@ return [
 			$services->getService( 'WorkflowLogger' ),
 			$services->getObjectFactory(),
 			// Hardcoded pagename
-			'Mediawiki:WorkflowTriggers',
+			'MediaWiki:WorkflowTriggers',
 			$registry
 		);
 	},
