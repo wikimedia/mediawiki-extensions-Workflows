@@ -104,7 +104,7 @@
 		var stateClass = 'workflow-state-inactive';
 		if ( state === 'finished' ) {
 			stateClass = 'workflow-state-finished';
-		} else if ( state = 'running' ) {
+		} else if ( state === 'running' ) {
 			stateClass = 'workflow-state-active';
 		}
 		var stateLabel = new OO.ui.LabelWidget( {
