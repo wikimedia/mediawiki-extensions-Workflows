@@ -53,7 +53,7 @@
 
 		this.$detailsPanelTable.append( $('<tr>' ).append(
 			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-start-time', '' ).text() ),
-			$( '<td>' ).append( timestamps.startFormatted  )
+			$( '<td>' ).append( timestamps.startDateAndTime  )
 		));
 
 		var messageKey = '';
@@ -67,7 +67,7 @@
 				messageKey,
 				''
 			) ),
-			$( '<td>' ).append( timestamps.lastFormatted  )
+			$( '<td>' ).append( timestamps.lastDateAndTime  )
 		));
 	};
 
@@ -320,11 +320,15 @@
 			flags: 'progressive',
 			target: '_new'
 		} );
-		var horizontalLayout =new OO.ui.HorizontalLayout( {
-			items: [
-				titleButton
-			]
-		} );
+
+		var initialData = this.getInitialData();
+		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
+
+		this.$detailsPanelTable.append( $('<tr>' ).append(
+			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
+			$( '<td>' ).append( titleButton.$element ),
+			$( '<td>' ).append( initialRawDataPopup.$element )
+		) );
 
 		if ( context.hasOwnProperty( 'revision' ) ) {
 			var revisionButton = new OO.ui.ButtonWidget( {
@@ -333,22 +337,11 @@
 				href: title.getUrl( { oldid: context.revision } ),
 				target: '_new'
 			} );
-			horizontalLayout.addItems( [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'workflows-ui-overview-details-page-context-revision' ).text()
-					} ),
-					revisionButton
-				]
-			);
+			this.$detailsPanelTable.append( $('<tr>' ).append(
+				$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-revision' ).text() ),
+				$( '<td>' ).append( revisionButton.$element )
+			) );
 		}
-		var initialData = this.getInitialData();
-		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
-
-		this.$detailsPanelTable.append( $('<tr>' ).append(
-			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
-			$( '<td>' ).append( horizontalLayout.$element ),
-			$( '<td>' ).append( initialRawDataPopup.$element )
-		) );
 	};
 
 	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function( activity ) {
