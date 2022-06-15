@@ -9,15 +9,35 @@
 		this.defaultFilter = cfg.filter || {};
 		workflows.ui.panel.WorkflowList.parent.call( this, cfg );
 		this.data = [];
-		this.filterData = {};
+		this.filterData = $.extend(
+			true, { active: 1 }, this.filterData, this.defaultFilter
+		);
 
+		this.store = new workflows.store.Workflows( {
+			pageSize: 25,
+			filterData: this.filterData
+		} );
+		this.store.connect( this, {
+			loadFailed: function() {
+				this.emit( 'loadFailed' );
+			},
+			loading: function() {
+				this.emit( 'loadStarted' );
+			}
+		} );
+		this.grid = this.makeGrid();
+		this.grid.connect( this, {
+			datasetChange: function() {
+				this.emit( 'loaded' );
+			}
+		} );
 		var headerLayout = new OO.ui.HorizontalLayout( {
 			items: this.getFilterLayouts()
 		} );
 
 		this.$element.append( headerLayout.$element );
-		this.$grid = $( '<div>' );
 		this.$element.append( this.$grid );
+
 	};
 
 	OO.inheritClass( workflows.ui.panel.WorkflowList, OO.ui.PanelLayout );
@@ -33,16 +53,15 @@
 					data: 1,
 					label: mw.message( 'workflows-ui-overview-grid-filter-state-active' ).text(),
 				} )
-			],
-			disabled: true
+			]
 		} );
 
+		this.activeFilter.selectItemByData( 1 );
 		this.activeFilter.connect( this, {
 			select: function( item ) {
 				this.filterChanged( { active: item.getData() } );
 			}
 		} );
-		this.activeFilter.selectItemByData( 1 );
 
 		return [
 			this.activeFilter
@@ -59,10 +78,10 @@
 		);
 		this.setFiltersDisabled( true );
 		this.$element.find( '.oo-ui-messageWidget' ).remove();
-		this.emit( 'loadStarted' );
-		this.load().done( function() {
+		this.setFiltersDisabled( false );
+		this.store.filter( this.filterData ).done( function() {
 			this.setFiltersDisabled( false );
-			this.drawGrid();
+			this.grid.paginator.init();
 		}.bind( this ) ).fail( function( error ) {
 			this.setFiltersDisabled( false );
 			this.$element.prepend( new OO.ui.MessageWidget( {
@@ -72,90 +91,12 @@
 		}.bind( this ) );
 	};
 
-	workflows.ui.panel.WorkflowList.prototype.load = function() {
-		this.data = [];
-		var dfd = $.Deferred(),
-			active = this.filterData.active || false;
-		delete( this.filterData.active );
-		wf.list.filtered( active, this.filterData, true ).done( function( response ) {
-			if ( !response.hasOwnProperty( 'workflows' ) ) {
-				return;
-			}
-			var workflows = response.workflows;
-			for ( var id in workflows ) {
-				if ( !workflows.hasOwnProperty( id ) ) {
-					continue;
-				}
-				var page = null;
-				if ( workflows[id].contextPage ) {
-					page = new mw.Title( workflows[id].contextPage );
-				}
 
-				this.data.push( {
-					id: id,
-					title: workflows[id].definition.title,
-					page: page ? page.getPrefixedText() : '',
-					page_link: page ? page.getUrl() : '',
-					assignee: this.getAssignee( workflows[id] ),
-					state: this.getState( workflows[id].state ),
-					notice: this.getNotice( workflows[id] ),
-					start: workflows[id].timestamps.start,
-					startDate: workflows[id].timestamps.startDate,
-					last: workflows[id].timestamps.last,
-					lastDate: workflows[id].timestamps.lastDate,
-				} );
-			}
-			this.emit( 'loaded', this.data );
-			dfd.resolve( this.data );
-		}.bind( this ) )
-		.fail( function( response ) {
-			this.emit( 'loadFailed', response );
-			dfd.reject( response.error.message || false );
-		}.bind( this ) );
+	workflows.ui.panel.WorkflowList.prototype.makeGrid = function() {
+		this.$grid = $( '<div>' );
 
-		return dfd.promise();
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.getAssignee = function( workflow ) {
-		if ( workflow.current[0] !== 'TheEnd' ) {
-			var task = workflow.tasks[ workflow.current ];
-			if ( task.properties.assigned_user ) {
-				return task.properties.assigned_user;
-			}
-			if ( task.properties.assigned_group ) {
-				return task.properties.assigned_group;
-			}
-		}
-		return '-';
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.getState = function( state ) {
-		return new OO.ui.LabelWidget( {
-			title: mw.message( 'workflows-ui-overview-details-state-' + state ).text(),
-			classes: [ 'workflow-state', 'workflow-state-icon-' + state ]
-		} ).$element;
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.getNotice = function( workflow ) {
-		// Return "warning" or "error"
-		if ( this.isAutoAbort( workflow ) ) {
-			return 'error';
-		}
-		return '';
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.isAutoAbort = function( workflow ) {
-		var message = workflow.stateMessage;
-		if ( typeof message === 'object' ) {
-			return message.isAuto;
-		}
-
-		return false;
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.drawGrid = function() {
 		var gridCfg = {
-			pageSize: 25,
+			deletable: false,
 			style: 'differentiate-rows',
 			border: 'horizontal',
 			columns: {
@@ -174,7 +115,13 @@
 				},
 				assignee: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
-					type: "text"
+					type: "text",
+					valueParser: function( value, row ) {
+						if ( typeof value === 'string' ) {
+							return value;
+						}
+						return value.join( ', ' );
+					}
 				},
 				state: {
 					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text()
@@ -196,11 +143,11 @@
 					icon: 'infoFilled'
 				}
 			},
-			data: this.data
+			store: this.store
 		};
 
-		var voGrid = new OOJSPlus.ui.data.GridWidget( gridCfg );
-		voGrid.connect( this, {
+		var grid = new OOJSPlus.ui.data.GridWidget( gridCfg );
+		grid.connect( this, {
 			action: function( action, row ) {
 				if ( action !== 'details' ) {
 					return;
@@ -208,8 +155,9 @@
 				this.emit( 'selected', row.id );
 			}
 		} );
-		this.$grid.html( voGrid.$element );
+		this.$grid.html( grid.$element );
 
 		this.emit( 'gridRendered' );
+		return grid;
 	};
 } )( mediaWiki, jQuery, workflows );

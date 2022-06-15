@@ -22,15 +22,6 @@ $( function() {
 	}
 
 	panel.connect( this, {
-		loadStarted: function() {
-			setLoading( true );
-		},
-		loaded: function() {
-			setLoading( false );
-		},
-		loadFailed: function() {
-			setLoading( false );
-		},
 		selected: function( id ) {
 			setLoading( true );
 			workflows.getWorkflow( id ).done( function( workflow ) {
