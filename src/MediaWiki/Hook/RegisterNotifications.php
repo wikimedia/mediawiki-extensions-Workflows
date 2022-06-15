@@ -63,7 +63,7 @@ class RegisterNotifications implements SetupAfterCacheHook {
 				'email-subject-message' => 'workflows-notification-ended-email-sub',
 				'email-subject-params' => [ 'title', 'workflow-name' ],
 				'email-body-message' => 'workflows-notification-ended-email-body',
-				'email-body-params' => [ 'title' ],
+				'email-body-params' => [ 'title', 'workflow-name' ],
 			]
 		);
 
