@@ -4,7 +4,7 @@
 
 	OO.initClass( workflows.api.Api );
 
-	workflows.api.Api.prototype.getWorkflows = function( active, filterData, fullDetails ) {
+	workflows.api.Api.prototype.getWorkflows = function( active, filterData, fullDetails, offset, limit ) {
 		filterData = filterData || {};
 		if ( typeof active !== 'undefined' ) {
 			active = active ? 1 : 0;
@@ -12,7 +12,9 @@
 		return this.get( 'list', {
 			active: active,
 			filterData: JSON.stringify( filterData ),
-			fullDetails: fullDetails ? 1 : 0
+			fullDetails: fullDetails ? 1 : 0,
+			offset: offset,
+			limit: limit
 		} );
 	};
 
