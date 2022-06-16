@@ -177,6 +177,7 @@
 	"workflows-ui-trigger-action-choose": "Continuer",
 	"workflows-ui-trigger-editor-dialog-title": "Déclencheur de flux de travail",
 	"workflows-ui-trigger-page-title": "Déclencheurs de flux de travail",
+	"workflows-ui-trigger-page-desc": "Permet la définition de conditions pour démarrer un flux de travail.",
 	"workflows-ui-trigger-delete-dialog-title": "Supprimer un déclencheur",
 	"workflows-ui-trigger-action-delete": "Supprimer",
 	"workflows-ui-trigger-delete-prompt": "Voulez-vous réellement supprimer le déclencheur « $1 » ?",
