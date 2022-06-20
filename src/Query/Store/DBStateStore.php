@@ -27,6 +27,8 @@ final class DBStateStore implements WorkflowStateStore {
 	private $inserted = [];
 	/** @var array */
 	private $conditions = [];
+	/** @var array */
+	private $options = [];
 
 	/**
 	 * @param ILoadBalancer $loadBalancer
@@ -71,17 +73,21 @@ final class DBStateStore implements WorkflowStateStore {
 	/**
 	 * @inheritDoc
 	 */
-	public function complexQuery( $filter ): array {
-		$ids = $this->query();
+	public function complexQuery( $filter, $returnModel = false ): array {
+		$ids = $this->query( $returnModel );
 		$workSet = [];
-		foreach ( $ids as $id ) {
-			$workSet[] = $this->getModel( $id );
+		if ( $returnModel ) {
+			$workSet = $ids;
+		} else {
+			foreach ( $ids as $id ) {
+				$workSet[] = $this->getModel( $id );
+			}
 		}
 
 		$filtered = [];
 		foreach ( $workSet as $model ) {
 			if ( $this->matchesFilter( $model, $filter ) ) {
-				$filtered[] = $model->getWorkflowId();
+				$filtered[] = $returnModel ? $model : $model->getWorkflowId();
 			}
 		}
 
@@ -91,23 +97,29 @@ final class DBStateStore implements WorkflowStateStore {
 	/**
 	 * @inheritDoc
 	 */
-	public function query(): array {
+	public function query( $returnModel = false ): array {
 		$db = $this->lb->getConnection( DB_REPLICA );
 		$res = $db->select(
 			static::TABLE,
 			[ 'wfs_workflow_id' ],
 			$this->conditions,
-			__METHOD__
+			__METHOD__,
+			$this->options
 		);
 
-		$ids = [];
+		$return = [];
 		foreach ( $res as $row ) {
-			$ids[] = WorkflowId::fromString( $row->wfs_workflow_id );
+			$id = WorkflowId::fromString( $row->wfs_workflow_id );
+			if ( $returnModel ) {
+				$return[] = $this->getModel( $id );
+			} else {
+				$return[] = $id;
+			}
 		}
 
 		// reset conditions
 		$this->conditions = [];
-		return $ids;
+		return $return;
 	}
 
 	/**
@@ -230,22 +242,63 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @return bool
 	 */
 	private function matchesFilter( $model, $filter ) {
-		$payload = $model->getPayload();
-
-		foreach ( $filter as $key => $value ) {
-			if ( !isset( $payload[$key] ) ) {
-				continue;
-			}
-			foreach ( $value as $valueKey => $valueItem ) {
-				if ( !isset( $payload[$key][$valueKey] ) ) {
-					continue;
-				}
-				if ( $payload[$key][$valueKey] !== $valueItem ) {
-					return false;
-				}
+		foreach ( $filter as $field => $filterData ) {
+			switch ( $field ) {
+				case 'context':
+					if ( !$this->matchContextFilter( $model->getPayload(), $filterData ) ) {
+						return false;
+					}
+					break;
+				case 'state':
+					if ( !$this->matchState( $model->getState(), $filterData ) ) {
+						return false;
+					}
+					break;
 			}
 		}
 
 		return true;
+	}
+
+	/**
+	 * @param array $payload
+	 * @param array $filterData
+	 * @return bool
+	 */
+	private function matchContextFilter( array $payload, array $filterData ) {
+		foreach ( $filterData as $valueKey => $valueItem ) {
+			if ( !isset( $payload['context'][$valueKey] ) ) {
+				continue;
+			}
+			if ( $payload['context'][$valueKey] !== $valueItem ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * @param string $state
+	 * @param array $filterData
+	 * @return bool
+	 */
+	private function matchState( string $state, array $filterData ) {
+		switch ( $filterData['type'] ) {
+			case 'string':
+				$value = mb_strtolower( $state );
+				$test = mb_strtolower( $filterData['value'] );
+				switch ( $filterData['operator'] ) {
+					case 'ct':
+						return strpos( $value, $test ) !== false;
+					case 'eq':
+					default:
+						return $value === $test;
+				}
+			case 'list':
+				return in_array( $state, $filterData['value'] );
+		}
+
+		return false;
 	}
 }

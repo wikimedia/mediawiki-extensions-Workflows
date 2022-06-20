@@ -127,6 +127,7 @@
 						this.popPending();
 					},
 					gridRendered: function() {
+						this.popPending();
 						this.updateSize();
 					},
 					selected: function( id ) {

@@ -2,13 +2,14 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
-use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
+use MediaWiki\Extension\Workflows\Data\Store;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
-use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Rest\Handler;
-use MediaWiki\Rest\HttpException;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
+use TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ListHandler extends Handler {
@@ -18,19 +19,28 @@ class ListHandler extends Handler {
 	private $workflowFactory;
 	/** @var WorkflowSerializer */
 	private $workflowSerializer;
+	/** @var TitleFactory */
+	private $titleFactory;
+	/** @var LinkRenderer */
+	private $linkRenderer;
 
 	/**
 	 * @param WorkflowFactory $factory
 	 * @param WorkflowStateStore $stateStore
 	 * @param WorkflowSerializer $workflowSerializer
+	 * @param TitleFactory $titleFactory
+	 * @param LinkRenderer $linkRenderer
 	 */
 	public function __construct(
 		WorkflowFactory $factory, WorkflowStateStore $stateStore,
-		WorkflowSerializer $workflowSerializer
+		WorkflowSerializer $workflowSerializer, TitleFactory $titleFactory,
+		LinkRenderer $linkRenderer
 	) {
 		$this->stateStore = $stateStore;
 		$this->workflowFactory = $factory;
 		$this->workflowSerializer = $workflowSerializer;
+		$this->titleFactory = $titleFactory;
+		$this->linkRenderer = $linkRenderer;
 	}
 
 	/**
@@ -38,92 +48,63 @@ class ListHandler extends Handler {
 	 */
 	public function execute() {
 		$start = microtime( true );
-		try {
-			$ids = $this->getFilteredIds();
-			$trimmed = $this->trim( $ids );
-			if ( $this->retrieveFullDetails() ) {
-				$workflows = [];
-				foreach ( $trimmed as $id ) {
-					$workflows[$id->toString()] = $this->getSerializedWorkflow( $id );
-				}
-			} else {
-				$workflows = array_map( static function ( WorkflowId $id ) {
-					return $id->toString();
-				}, $trimmed );
-			}
-			$end = microtime( true );
-		} catch ( WorkflowExecutionException $ex ) {
-			throw new HttpException( $ex->getMessage() );
-		}
-		$total = count( $ids );
+
+		$readerParams = new ReaderParams( [
+			'start' => $this->getOffset(),
+			'limit' => $this->getLimit(),
+			'filter' => $this->getFilter(),
+			'sort' => $this->getSort()
+		] );
+
+		$store = new Store(
+			$this->stateStore, $this->workflowFactory,
+			$this->titleFactory, $this->linkRenderer
+		);
+		$resultSet = $store->getReader()->read( $readerParams );
+		$end = microtime( true );
+
 		return $this->getResponseFactory()->createJson( [
-			'workflows' => $workflows,
+			'workflows' => $resultSet->getRecords(),
 			'offset' => $this->getOffset(),
 			'limit' => $this->getLimit(),
-			'total' => $total,
+			'total' => $resultSet->getTotal(),
 			'took' => $end - $start
 		] );
 	}
 
-	protected function getFilteredIds() {
-		$activeFilter = $this->activeFilter();
-		$constraints = $this->getFilterData();
-
-		if ( $activeFilter ) {
-			$this->stateStore->active();
-		} else {
-			$this->stateStore->all();
-		}
-		if ( $constraints ) {
-			$ids = $this->stateStore->complexQuery( $constraints );
-		} else {
-			$ids = $this->stateStore->query();
-		}
-
-		return $ids;
-	}
-
-	private function trim( $ids ) {
-		return array_slice( $ids, $this->getOffset(), $this->getLimit() );
-	}
-
-	private function getOffset() {
+	/**
+	 * @return int
+	 */
+	private function getOffset(): int {
 		return (int)$this->getValidatedParams()['offset'];
 	}
 
-	private function getLimit() {
+	/**
+	 * @return int
+	 */
+	private function getLimit(): int {
 		return (int)$this->getValidatedParams()['limit'];
 	}
 
-	private function retrieveFullDetails() {
-		return (bool)$this->getValidatedParams()['fullDetails'];
-	}
-
 	/**
-	 * Retrieve active only?
-	 *
-	 * @return bool|null if filter not present
-	 */
-	private function activeFilter() {
-		$validated = $this->getValidatedParams();
-		if ( is_array( $validated ) && isset( $validated['active'] ) ) {
-			return (bool)$validated['active'];
-		}
-
-		return null;
-	}
-
-	/**
-	 * Get filter constraints
-	 *
 	 * @return array
 	 */
-	private function getFilterData() {
+	private function getFilter(): array {
 		$validated = $this->getValidatedParams();
-		if ( is_array( $validated ) && isset( $validated['filterData'] ) ) {
-			return json_decode( $validated['filterData'], 1 );
+		if ( is_array( $validated ) && isset( $validated['filter'] ) ) {
+			return json_decode( $validated['filter'], 1 );
 		}
+		return [];
+	}
 
+	/**
+	 * @return array
+	 */
+	private function getSort(): array {
+		$validated = $this->getValidatedParams();
+		if ( is_array( $validated ) && isset( $validated['sort'] ) ) {
+			return json_decode( $validated['sort'], 1 );
+		}
 		return [];
 	}
 
@@ -132,11 +113,7 @@ class ListHandler extends Handler {
 	 */
 	public function getParamSettings() {
 		return [
-			'active' => [
-				static::PARAM_SOURCE => 'query',
-				ParamValidator::PARAM_REQUIRED => false,
-			],
-			'filterData' => [
+			'filter' => [
 				static::PARAM_SOURCE => 'query',
 				ParamValidator::PARAM_REQUIRED => false
 			],
@@ -145,25 +122,15 @@ class ListHandler extends Handler {
 				ParamValidator::PARAM_REQUIRED => false,
 				ParamValidator::PARAM_DEFAULT => 25
 			],
-			'offset' => [
+			'sort' => [
 				static::PARAM_SOURCE => 'query',
-				ParamValidator::PARAM_REQUIRED => false,
-				ParamValidator::PARAM_DEFAULT => 0
+				ParamValidator::PARAM_REQUIRED => false
 			],
-			'fullDetails' => [
+			'offset' => [
 				static::PARAM_SOURCE => 'query',
 				ParamValidator::PARAM_REQUIRED => false,
 				ParamValidator::PARAM_DEFAULT => 0
 			]
 		];
-	}
-
-	/**
-	 * @param WorkflowId $id
-	 * @return mixed
-	 */
-	private function getSerializedWorkflow( $id ) {
-		$workflow = $this->workflowFactory->getWorkflow( $id );
-		return $this->workflowSerializer->serialize( $workflow );
 	}
 }

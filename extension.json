@@ -290,9 +290,6 @@
 				"store/Workflows.js",
 				"ui/panel/WorkflowList.js"
 			],
-			"styles": [
-				"styles/special-overview-grid.less"
-			],
 			"messages": [
 				"workflows-ui-overview-details-start-time-column",
 				"workflows-ui-overview-details-last-time-column",
@@ -618,7 +615,9 @@
 			"services": [
 				"WorkflowFactory",
 				"WorkflowsStateStore",
-				"WorkflowSerializer"
+				"WorkflowSerializer",
+				"TitleFactory",
+				"LinkRenderer"
 			]
 		},
 		{

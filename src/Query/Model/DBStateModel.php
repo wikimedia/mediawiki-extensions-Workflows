@@ -6,8 +6,10 @@ use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\Event;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskCompleted;
+use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAborted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowEnded;
+use MediaWiki\Extension\Workflows\Storage\Event\WorkflowInitialized;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowUnAborted;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventClassInflector;
@@ -75,6 +77,13 @@ final class DBStateModel implements WorkflowStateModel {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getState(): string {
+		return $this->state;
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getPayload(): array {
@@ -100,6 +109,9 @@ final class DBStateModel implements WorkflowStateModel {
 	 */
 	public function handleEvent( Event $event ) {
 		$this->lastEvent = get_class( $event );
+		if ( $event instanceof WorkflowInitialized ) {
+			$this->payload['definition'] = $event->getDefinitionSource();
+		}
 		if ( $event instanceof WorkflowStarted ) {
 			$this->state = Workflow::STATE_RUNNING;
 			$this->initiator = $event->getActor()->getId();
@@ -108,6 +120,8 @@ final class DBStateModel implements WorkflowStateModel {
 				$this->pageAffected = $context['pageId'];
 			}
 			$this->payload['context'] = $context;
+		}
+		if ( $event instanceof TaskStarted ) {
 		}
 		if ( $event instanceof WorkflowAborted ) {
 			$this->state = Workflow::STATE_ABORTED;
