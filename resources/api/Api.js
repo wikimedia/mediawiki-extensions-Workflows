@@ -1,21 +1,18 @@
 ( function( mw, $ ) {
 	workflows.api.Api = function() {
+		this.currentRequests = {};
 	};
 
 	OO.initClass( workflows.api.Api );
 
-	workflows.api.Api.prototype.getWorkflows = function( active, filterData, fullDetails, offset, limit ) {
-		filterData = filterData || {};
-		if ( typeof active !== 'undefined' ) {
-			active = active ? 1 : 0;
+	workflows.api.Api.prototype.getWorkflows = function( params ) {
+		if ( params.hasOwnProperty( 'filter' ) ) {
+			params.filter = JSON.stringify( params.filter );
 		}
-		return this.get( 'list', {
-			active: active,
-			filterData: JSON.stringify( filterData ),
-			fullDetails: fullDetails ? 1 : 0,
-			offset: offset,
-			limit: limit
-		} );
+		if ( params.hasOwnProperty( 'sort' ) ) {
+			params.sort = JSON.stringify( params.sort );
+		}
+		return this.get( 'list', params );
 	};
 
 	workflows.api.Api.prototype.getWorkflow = function( id ) {
@@ -47,26 +44,33 @@
 		data = data || {};
 		var dfd = $.Deferred();
 
-		$.ajax( {
+		this.currentRequests[path] = $.ajax( {
 			method: method,
 			url: this.makeUrl( path ),
 			data: data,
 			contentType: "application/json",
-			dataType: 'json'
+			dataType: 'json',
+			beforeSend: function() {
+				if ( this.currentRequests.hasOwnProperty( path ) ) {
+					this.currentRequests[path].abort();
+				}
+			}.bind( this )
 		} ).done( function( response ) {
+			delete( this.currentRequests[path] );
 			if ( response.success === false ) {
 				dfd.reject();
 				return;
 			}
 			dfd.resolve( response );
-		} ).fail( function( jgXHR, type, status ) {
+		}.bind( this ) ).fail( function( jgXHR, type, status ) {
+			delete( this.currentRequests[path] );
 			if ( type === 'error' ) {
 				dfd.reject( {
 					error: jgXHR.responseJSON || jgXHR.responseText
 				} );
 			}
 			dfd.reject( { type: type, status: status } );
-		} );
+		}.bind( this ) );
 
 		return dfd.promise();
 	};
