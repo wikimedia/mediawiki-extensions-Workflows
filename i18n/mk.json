@@ -134,7 +134,7 @@
 	"workflows-ui-overview-details-state-autoabort-comment": "Работниот тек е автоматски напуштен!",
 	"workflows-auto-aborted-workflow-page-deleted": "Работниот тек е напуштен бидејќи страницата поврзана со него е избришана",
 	"workflows-uto-body-field-instructions": "Напатствија: $1",
-	"workflows-ui-overview-details-initiator": "Започнато од",
+	"workflows-ui-overview-details-initiator": "Започнато од:",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|го започна}} овој работен тек",
 	"workflows-ui-overview-details-action-details-column": "погл. подробно",
 	"workflows-exception-property-validation": "Не успеа заверката за својството „$1“: $2",
@@ -174,6 +174,7 @@
 	"workflows-ui-trigger-action-choose": "Продолжи",
 	"workflows-ui-trigger-editor-dialog-title": "Покревач на работен тек",
 	"workflows-ui-trigger-page-title": "Покревачи на работни текови",
+	"workflows-ui-trigger-page-desc": "Овозможува определување на услови за отпочнување на работен тек",
 	"workflows-ui-trigger-delete-dialog-title": "Избриши покревач",
 	"workflows-ui-trigger-action-delete": "Избриши",
 	"workflows-ui-trigger-delete-prompt": "Дали сигурно сакате да го избришете покревачот „$1“?",
@@ -218,5 +219,7 @@
 	"workflows-activity-cannot-edit": "Корисникот „{{GENDER:$1|$1}}“ не може да ја уредува страницата „$2“",
 	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување",
 	"workflows-ui-overview-details-section-details": "Подробно",
-	"workflows-ui-overview-details-due-date-label": "Рок"
+	"workflows-ui-overview-details-due-date-label": "Рок",
+	"workflows-ui-overview-details-section-assignee": "Доделено на",
+	"workflows-user-vote-cannot-delegate": "Доделувањето на оваа задача не е допуштено од поставеноста на задачите"
 }

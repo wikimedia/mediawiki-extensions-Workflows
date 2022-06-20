@@ -37,7 +37,7 @@
 	"workflows-form-instructions-comment": "Bemierkung",
 	"workflows-error-generic": "Et ass e Feeler geschitt",
 	"workflows-uto-body-field-instructions": "Instruktiounen: $1",
-	"workflows-ui-overview-details-initiator": "Ugefaange vum",
+	"workflows-ui-overview-details-initiator": "Ugefaange vum:",
 	"workflows-property-validator-required-error": "Wäert ass obligatoresch",
 	"workflows-collect-data-form-instructions": "Instruktiounen",
 	"workflows-ui-overview-details-raw-data-popup-value": "Wäert",
