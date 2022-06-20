@@ -10,7 +10,9 @@
 		if ( this.type === 'page' ) {
 			listCfg.filter = {
 				context: {
-					pageId: workflows.context.getWorkflowContext().pageId
+					field: 'context',
+					type: 'string',
+					value: { pageId: workflows.context.getWorkflowContext().pageId }
 				}
 			};
 			this.title = 'Workflows related to this page';

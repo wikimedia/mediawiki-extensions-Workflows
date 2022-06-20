@@ -4,93 +4,45 @@
 			padded: true,
 			expanded: false
 		}, cfg || {} );
+		this.isLoading = false;
 
 		this.singleClickSelect = cfg.singleClickSelect || false;
 		this.defaultFilter = cfg.filter || {};
 		workflows.ui.panel.WorkflowList.parent.call( this, cfg );
 		this.data = [];
 		this.filterData = $.extend(
-			true, { active: 1 }, this.filterData, this.defaultFilter
+			{ state: { type: 'list', operator: 'in', value: [ 'running' ] } }, this.defaultFilter
 		);
 
 		this.store = new workflows.store.Workflows( {
-			pageSize: 25,
-			filterData: this.filterData
+			pageSize: 10,
+			filter: this.filterData
 		} );
 		this.store.connect( this, {
 			loadFailed: function() {
 				this.emit( 'loadFailed' );
 			},
 			loading: function() {
+				if ( this.isLoading ) {
+					return;
+				}
+				this.isLoading = true;
 				this.emit( 'loadStarted' );
 			}
 		} );
 		this.grid = this.makeGrid();
 		this.grid.connect( this, {
 			datasetChange: function() {
+				this.isLoading = false;
 				this.emit( 'loaded' );
 			}
 		} );
-		var headerLayout = new OO.ui.HorizontalLayout( {
-			items: this.getFilterLayouts()
-		} );
 
-		this.$element.append( headerLayout.$element );
 		this.$element.append( this.$grid );
 
 	};
 
 	OO.inheritClass( workflows.ui.panel.WorkflowList, OO.ui.PanelLayout );
-
-	workflows.ui.panel.WorkflowList.prototype.getFilterLayouts = function() {
-		this.activeFilter = new OO.ui.ButtonSelectWidget( {
-			items: [
-				new OO.ui.ButtonOptionWidget( {
-					data: 0,
-					label: mw.message( 'workflows-ui-overview-grid-filter-state-all' ).text(),
-				} ),
-				new OO.ui.ButtonOptionWidget( {
-					data: 1,
-					label: mw.message( 'workflows-ui-overview-grid-filter-state-active' ).text(),
-				} )
-			]
-		} );
-
-		this.activeFilter.selectItemByData( 1 );
-		this.activeFilter.connect( this, {
-			select: function( item ) {
-				this.filterChanged( { active: item.getData() } );
-			}
-		} );
-
-		return [
-			this.activeFilter
-		];
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.setFiltersDisabled = function( disabled ) {
-		this.activeFilter.setDisabled( disabled );
-	};
-
-	workflows.ui.panel.WorkflowList.prototype.filterChanged = function( data ) {
-		this.filterData = $.extend(
-			true, {}, this.filterData, data, this.defaultFilter
-		);
-		this.setFiltersDisabled( true );
-		this.$element.find( '.oo-ui-messageWidget' ).remove();
-		this.setFiltersDisabled( false );
-		this.store.filter( this.filterData ).done( function() {
-			this.setFiltersDisabled( false );
-			this.grid.paginator.init();
-		}.bind( this ) ).fail( function( error ) {
-			this.setFiltersDisabled( false );
-			this.$element.prepend( new OO.ui.MessageWidget( {
-				type: 'error',
-				label: error || mw.message( "workflows-error-generic" ).text()
-			} ).$element.css( 'margin-bottom', '20px' ) );
-		}.bind( this ) );
-	};
-
 
 	workflows.ui.panel.WorkflowList.prototype.makeGrid = function() {
 		this.$grid = $( '<div>' );
@@ -100,41 +52,78 @@
 			style: 'differentiate-rows',
 			border: 'horizontal',
 			columns: {
-				notice: {
+				has_notice: {
 					type: "icon",
 					width: 35
 				},
 				title: {
 					headerText: mw.message( 'workflows-ui-overview-details-workflow-type-label' ).text(),
-					type: "text"
+					type: "text",
+					filter: {
+						type: 'text'
+					},
+					sortable: true
 				},
-				page: {
+				page_prefixed_text: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-page' ).text(),
 					type: "url",
-					urlProperty: 'page_link'
+					urlProperty: "page_link",
+					valueParser: function( val ) {
+						// Truncate long titles
+						return val.length > 35 ? val.substr( 0, 34 ) + '...' : val;
+					},
+					sortable: true,
+					filter: {
+						type: 'text'
+					}
 				},
 				assignee: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
 					type: "text",
-					valueParser: function( value, row ) {
-						if ( typeof value === 'string' ) {
-							return value;
+					valueParser: function( val, row ) {
+						var $layout = $( '<div>' );
+						for ( var i = 0; i < val.length; i++ ) {
+							if ( i > 2 ) {
+								$layout.append( '...' );
+								return new OO.ui.HtmlSnippet( $layout );
+							}
+							$layout.append( $( val[i] ).css( { display: 'block' } ) );
 						}
-						return value.join( ', ' );
+						return new OO.ui.HtmlSnippet( $layout );
 					}
 				},
 				state: {
-					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text()
+					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text(),
+					valueParser: function( value, row ) {
+						if ( typeof value !== 'string' ) {
+							return value;
+						}
+						return new OO.ui.LabelWidget( {
+							title: row.state_label,
+							classes: [ 'workflow-state', 'workflow-state-icon-' + value ]
+						} ).$element;
+					},
+					filter: {
+						type: 'list',
+						list: [
+							{ data: 'running', label: mw.message( 'workflows-ui-overview-details-state-running' ).text() },
+							{ data: 'aborted', label: mw.message( 'workflows-ui-overview-details-state-aborted' ).text() },
+							{ data: 'finished', label: mw.message( 'workflows-ui-overview-details-state-finished' ).text() }
+						],
+						closePopupOnChange: true
+					},
+					width: 90,
+					sortable: true
 				},
-				start: {
+				start_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-start-time-column' ).text(),
 					type: "date",
-					display: "startDate"
+					display: "start_formatted"
 				},
-				last: {
+				last_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-last-time-column' ).text(),
 					type: "date",
-					display: "lastDate"
+					display: "last_formatted"
 				},
 				detailsAction: {
 					type: "action",

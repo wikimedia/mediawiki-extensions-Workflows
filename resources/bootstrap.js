@@ -60,8 +60,15 @@ window.workflows = {
 			return dfd.promise();
 		},
 		addRunningWorkflowAlerts: async function() {
-			var response = await workflows.list.filtered( true, {
-				context: workflows.context.getWorkflowContext()
+			var response = await workflows.list.filtered( {
+				filter: {
+					context: {
+						field: 'context',
+						type: 'string',
+						value: workflows.context.getWorkflowContext()
+					},
+					active: { type: 'boolean', operator: 'eq', value: true }
+				}
 			} );
 			if ( !response.hasOwnProperty( 'workflows' ) ) {
 				console.error( 'Cannot load running workflows' );
@@ -69,7 +76,7 @@ window.workflows = {
 			}
 
 			for ( var i = 0; i < response.workflows.length; i++ ) {
-				var workflow = await workflows.getWorkflow( response.workflows[i] );
+				var workflow = await workflows.getWorkflow( response.workflows[i].id );
 				workflows.ui.alert.manager.addFromWorkflow( workflow );
 			}
 		},
@@ -93,13 +100,38 @@ window.workflows = {
 			}
 			var dfd = $.Deferred();
 			mw.loader.using( [ "ext.workflows.api", "ext.workflows.objects" ], function() {
-				var api = new workflows.api.Api();
-				callback.call( this, api, data, dfd );
+				workflows._internal._getApi().done( function( api ) {
+					callback.call( this, api, data, dfd );
+				} );
 			} );
 
 			return dfd.promise();
 		},
-		userCan: {}
+		userCan: {},
+		_api: {
+			promise: null,
+			api: null
+		},
+		_getApi: function() {
+			// Get API Singleton
+			if ( workflows._internal._api.promise ) {
+				return workflows._internal._api.promise;
+			}
+
+			var dfd = $.Deferred();
+			if ( !workflows._internal._api.api ) {
+				mw.loader.using( [ "ext.workflows.api" ], function() {
+					workflows._internal._api.api = new workflows.api.Api();
+					workflows._internal._api.promise = null;
+					dfd.resolve( workflows._internal._api.api );
+				} );
+				workflows._internal._api.promise = dfd.promise();
+				return workflows._internal._api.promise;
+			} else {
+				dfd.resolve( workflows._internal._api.api );
+			}
+			return dfd.promise();
+		}
 	},
 	context: {
 		/* Basic context to be passed to the workflow when starting */
@@ -126,22 +158,19 @@ window.workflows = {
 	initiate: {
 		listAvailableTypes: function() {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.getDefinitions().done( function( definitions ) {
 					dfd.resolve( definitions );
 				} ).fail( function ( error ) {
 					dfd.reject( error );
 				} );
 			} );
+
 			return dfd.promise();
 		},
 		getDefinitionDetails: function( repo, definition ) {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.getDefinitionDetails( repo, definition ).done( function( data ) {
 					dfd.resolve( data );
 				} ).fail( function ( error ) {
@@ -182,19 +211,37 @@ window.workflows = {
 		}
 	},
 	list: {
-		all: function( fullDetail ) {
-			return workflows.list.filtered( undefined, {}, fullDetail );
+		all: function( params ) {
+			return workflows.list.filtered(params );
 		},
-		active: function( active, fullDetail ) {
-			active = typeof active === 'undefined' ? true : active;
-			return workflows.list.filtered( active, {}, fullDetail );
+		active: function( params ) {
+			params.filter = params.filter || {};
+			params.filter.state = { type: 'list', operator: 'in', value: [ 'running' ] };
+			return workflows.list.filtered( params );
 		},
-		filtered: function( active, filterData, fullDetail, offset, limit ) {
-			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
+		filtered: function( params ) {
+			function serialize( data, fieldProperty ) {
+				fieldProperty = fieldProperty || 'field';
+				var res = [];
+				for ( var key in data ) {
+					if ( !data.hasOwnProperty( key ) ) {
+						continue;
+					}
+					if ( data[key] ) {
+						var objectData = typeof data[key].getValue === 'function' ? data[key].getValue() : data[key];
+						var serialized = {};
+						serialized[fieldProperty] = key;
+						res.push( $.extend( serialized, objectData ) );
+					}
+				}
 
-				api.getWorkflows( active, filterData, fullDetail, offset, limit ).done(
+				return res;
+			}
+			params.filter = serialize( params.filter );
+			params.sort = serialize( params.sort, 'property' );
+			var dfd = $.Deferred();
+			workflows._internal._getApi().done( function( api ) {
+				api.getWorkflows( params ).done(
 					function( workflows ) {
 						dfd.resolve( workflows );
 					}
@@ -207,19 +254,21 @@ window.workflows = {
 	},
 	getWorkflow: function ( id ) {
 		var dfd = $.Deferred();
-		mw.loader.using( [ "ext.workflows.api", "ext.workflows.objects" ], function() {
-			var api = new workflows.api.Api();
+		mw.loader.using( [ "ext.workflows.objects" ], function() {
 			if ( !id ) {
 				dfd.reject( 'Invalid ID' );
-			}
-			var workflow = new workflows.object.Workflow( id, api );
-			workflow.load()
-				.done( function() {
-					dfd.resolve( workflow );
-				} )
-				.fail( function ( error ) {
-					dfd.reject( error );
+			} else {
+				workflows._internal._getApi().done( function( api ) {
+					var workflow = new workflows.object.Workflow( id, api );
+					workflow.load()
+					.done( function () {
+						dfd.resolve( workflow );
+					} )
+					.fail( function ( error ) {
+						dfd.reject( error );
+					} );
 				} );
+			}
 		} );
 
 		return dfd.promise();
@@ -249,9 +298,7 @@ window.workflows = {
 	triggers: {
 		getAvailableTypes: function() {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.getTriggerTypes().done( function( data ) {
 					dfd.resolve( data );
 				} ).fail( function ( error ) {
@@ -265,9 +312,7 @@ window.workflows = {
 		},
 		get: function( key ) {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.getTriggers( key ).done( function( data ) {
 					dfd.resolve( data );
 				} ).fail( function ( error ) {
@@ -278,9 +323,7 @@ window.workflows = {
 		},
 		persist: function( triggers ) {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.persistTriggers( triggers ).done( function() {
 					dfd.resolve();
 				} ).fail( function ( error ) {
@@ -291,9 +334,7 @@ window.workflows = {
 		},
 		delete: function( key ) {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.deleteTrigger( key ).done( function() {
 					dfd.resolve();
 				} ).fail( function ( error ) {
@@ -304,9 +345,7 @@ window.workflows = {
 		},
 		getManualTriggersForPage: function( page ) {
 			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api" ], function() {
-				var api = new workflows.api.Api();
-
+			workflows._internal._getApi().done( function( api ) {
 				api.getManualTriggersForPage( page ).done( function( data ) {
 					dfd.resolve( data );
 				} ).fail( function ( error ) {

@@ -18,6 +18,11 @@ interface WorkflowStateModel {
 	public function getPayload(): array;
 
 	/**
+	 * @return string
+	 */
+	public function getState(): string;
+
+	/**
 	 * @return array
 	 */
 	public function serialize(): array;

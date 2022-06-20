@@ -601,7 +601,6 @@ final class Workflow {
 			$this->storage->recordEvent(
 				TaskStarted::newFromData(
 					$task->getId(), $this->getActor(),
-
 					$this->activityManager->getActivityProperties( $activity )
 				)
 			);
