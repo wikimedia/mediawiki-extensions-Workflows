@@ -7,8 +7,10 @@
 	"workflows-ui-starter-action-done": "Facita",
 	"workflows-ui-starter-action-cancel": "Nuligar",
 	"workflows-ui-task-completion-action-cancel": "Nuligar",
+	"workflows-form-placeholder-comment": "Komento",
 	"workflows-ui-workflow-overview-action-back": "Retroirar",
 	"workflows-ui-overview-details-action-reason": "Motivo",
+	"workflows-form-instructions-comment": "Komento",
 	"workflows-ui-action-cancel": "Nuligar",
 	"workflows-ui-trigger-action-create": "Konservez"
 }

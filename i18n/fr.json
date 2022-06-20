@@ -137,7 +137,7 @@
 	"workflows-ui-overview-details-state-autoabort-comment": "Le flux de travail a été interrompu automatiquement !",
 	"workflows-auto-aborted-workflow-page-deleted": "Le flux de travail a été interrompu parce que la page à laquelle il était lié a été supprimée",
 	"workflows-uto-body-field-instructions": "Instructions : $1",
-	"workflows-ui-overview-details-initiator": "Lancé par",
+	"workflows-ui-overview-details-initiator": "Lancé par :",
 	"workflows-uto-activity-body-initiator": "{{GENDER:$1|}}$2 a initialisé ce flux de travail",
 	"workflows-ui-overview-details-action-details-column": "voir les détails",
 	"workflows-exception-property-validation": "La validation a échoué pour la propriété « $1 » : $2",
@@ -177,6 +177,7 @@
 	"workflows-ui-trigger-action-choose": "Continuer",
 	"workflows-ui-trigger-editor-dialog-title": "Déclencheur de flux de travail",
 	"workflows-ui-trigger-page-title": "Déclencheurs de flux de travail",
+	"workflows-ui-trigger-page-desc": "Permet la définition de conditions pour démarrer un flux de travail.",
 	"workflows-ui-trigger-delete-dialog-title": "Supprimer un déclencheur",
 	"workflows-ui-trigger-action-delete": "Supprimer",
 	"workflows-ui-trigger-delete-prompt": "Voulez-vous réellement supprimer le déclencheur « $1 » ?",
@@ -221,5 +222,7 @@
 	"workflows-activity-cannot-edit": "L’utilisat{{GENDER:$1|eur|rice}} « $1 » ne peut pas modifier la page « $2 »",
 	"workflows-activity-set-template-params-cannot-save": "La publication a échoué",
 	"workflows-ui-overview-details-section-details": "Détails",
-	"workflows-ui-overview-details-due-date-label": "Dû le"
+	"workflows-ui-overview-details-due-date-label": "Dû le",
+	"workflows-ui-overview-details-section-assignee": "Affecté à",
+	"workflows-user-vote-cannot-delegate": "La délégation de cette tâche n’est pas autorisée par la configuration de la tâche"
 }

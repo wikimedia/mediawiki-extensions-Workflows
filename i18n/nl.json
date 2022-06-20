@@ -3,7 +3,8 @@
 		"authors": [
 			"Mainframe98",
 			"Robin van der Vliet",
-			"Vistaus"
+			"Vistaus",
+			"Dnlweijers"
 		]
 	},
 	"workflows-ui-starter-action-cancel": "Annuleren",
@@ -27,8 +28,9 @@
 	"workflows-ui-overview-grid-filter-state-active": "Actief",
 	"workflows-error-generic": "Er is een fout opgetreden",
 	"workflows-uto-body-field-instructions": "Instructies: $1",
-	"workflows-ui-overview-details-initiator": "Gestart door",
+	"workflows-ui-overview-details-initiator": "Gestart door:",
 	"workflows-ui-workflow-overview-initial-data-title": "Eerste gegevens",
 	"workflows-ui-overview-details-section-details": "Details",
-	"workflows-ui-overview-details-due-date-label": "Verloopt op"
+	"workflows-ui-overview-details-due-date-label": "Verloopt op",
+	"workflows-ui-overview-details-section-assignee": "Toegewezen aan"
 }
