@@ -224,5 +224,6 @@
 	"workflows-ui-overview-details-section-details": "Détails",
 	"workflows-ui-overview-details-due-date-label": "Dû le",
 	"workflows-ui-overview-details-section-assignee": "Affecté à",
-	"workflows-user-vote-cannot-delegate": "La délégation de cette tâche n’est pas autorisée par la configuration de la tâche"
+	"workflows-user-vote-cannot-delegate": "La délégation de cette tâche n’est pas autorisée par la configuration de la tâche",
+	"workflows-ui-overview-details-section-expired": "Activités ayant expiré"
 }
