@@ -221,5 +221,6 @@
 	"workflows-ui-overview-details-section-details": "Подробно",
 	"workflows-ui-overview-details-due-date-label": "Рок",
 	"workflows-ui-overview-details-section-assignee": "Доделено на",
-	"workflows-user-vote-cannot-delegate": "Доделувањето на оваа задача не е допуштено од поставеноста на задачите"
+	"workflows-user-vote-cannot-delegate": "Доделувањето на оваа задача не е допуштено од поставеноста на задачите",
+	"workflows-ui-overview-details-section-expired": "Истечени активности"
 }
