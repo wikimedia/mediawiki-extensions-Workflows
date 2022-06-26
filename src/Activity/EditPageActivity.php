@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserFactory;
@@ -66,7 +67,12 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 		$this->processData( $data );
 
 		// No service for this yet?
-		$wikiPage = WikiPage::factory( $this->title );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
+		} else {
+			$wikiPage = WikiPage::factory( $this->title );
+		}
 		$updater = $wikiPage->newPageUpdater( $this->user );
 
 		$content = $wikiPage->getContent( SlotRecord::MAIN );

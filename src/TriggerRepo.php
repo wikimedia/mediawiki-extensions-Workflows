@@ -6,6 +6,7 @@ use CommentStoreComment;
 use Content;
 use FormatJson;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdater;
@@ -288,8 +289,12 @@ class TriggerRepo {
 			$this->logger->error( 'Cannot load triggers from page ' . $this->page );
 		}
 
-		// No WikiPageFactory service yet :(
-		$this->wikipage = WikiPage::factory( $title );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$this->wikipage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		} else {
+			$this->wikipage = WikiPage::factory( $title );
+		}
 	}
 
 	/**
