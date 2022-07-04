@@ -6,6 +6,7 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Valitse",
+	"workflows-ui-starter-action-done": "Aloita",
 	"workflows-ui-starter-action-back": "Valitse toinen",
 	"workflows-ui-starter-action-cancel": "Peruuta",
 	"workflows-ui-alert-action-complete": "Suorita tehtävä",
@@ -25,6 +26,7 @@
 	"workflows-ui-workflow-overview-action-abort": "Keskeytä",
 	"workflows-ui-workflow-overview-action-restore": "Palauta",
 	"workflows-ui-workflow-overview-action-cancel": "Sulje",
+	"workflows-ui-workflow-overview-action-back": "Takaisin",
 	"workflows-ui-overview-details-state-label": "Tila:",
 	"workflows-ui-overview-details-state-column": "Tila",
 	"workflows-ui-overview-details-state-not_started": "Ei aloitettu",
@@ -56,7 +58,5 @@
 	"workflows-activity-history-vote-result-no": "Hylätty",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Ominaisuus",
 	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
-	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
-	"workflows-ui-starter-action-done": "Valmis",
-	"workflows-ui-workflow-overview-action-back": "Takaisin"
+	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot"
 }
