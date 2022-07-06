@@ -14,7 +14,8 @@
 
 		cfg.popup = {
 			$content: this.getContent(),
-			padded: true
+			padded: true,
+			classes: [ 'workflow-data-popup' ]
 		};
 
 		workflows.ui.widget.ActivityRawDataPopup.parent.call( this, cfg );
