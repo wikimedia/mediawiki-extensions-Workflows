@@ -51,8 +51,8 @@
 			<bpmn:property name="recipient" default="{{{CollectData.reportrecipient}}}"/>
 			<bpmn:property name="subject">{{int:workflows-default-user-feedback-report-subject|{{FULLPAGENAME}}}}</bpmn:property>
 			<bpmn:property name="body">{{int:workflows-default-user-feedback-body|
-{{#timel:D j, Y (H:i T)|{{{start_date}}} }}|
-{{#timel:D j, Y (H:i T)|{{LOCALTIMESTAMP}} }}|
+{{#timel:Y-m-d (H:i T)|{{{start_date}}} }}|
+{{#timel:Y-m-d (H:i T)|{{LOCALTIMESTAMP}} }}|
 {{FULLPAGENAME}}|
 {{REVISIONID}}|
 {{{CollectData.username}}}|
