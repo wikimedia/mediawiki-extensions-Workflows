@@ -52,7 +52,7 @@
 		var timestamps = this.workflow.getTimestamps();
 
 		this.$detailsPanelTable.append( $('<tr>' ).append(
-			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-start-time', '' ).text() ),
+			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-start-time', '' ).text() ),
 			$( '<td>' ).append( timestamps.startDateAndTime  )
 		));
 
@@ -63,7 +63,7 @@
 			messageKey = 'workflows-ui-overview-details-end-time';
 		}
 		this.$detailsPanelTable.append( $('<tr>' ).append(
-			$( '<td>' ).text( mw.message(
+			$( '<th>' ).text( mw.message(
 				messageKey,
 				''
 			) ),
@@ -90,7 +90,7 @@
 		} );
 
 		this.$detailsPanelTable.append( $('<tr>' ).append(
-			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
+			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
 			$( '<td>' ).append( revision.$element )
 		));
 	};
@@ -330,7 +330,7 @@
 		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
 
 		this.$detailsPanelTable.append( $('<tr>' ).append(
-			$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
+			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
 			$( '<td>' ).append( titleButton.$element ),
 			$( '<td>' ).append( initialRawDataPopup.$element )
 		) );
@@ -343,7 +343,7 @@
 				target: '_new'
 			} );
 			this.$detailsPanelTable.append( $('<tr>' ).append(
-				$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-page-context-revision' ).text() ),
+				$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-page-context-revision' ).text() ),
 				$( '<td>' ).append( revisionButton.$element )
 			) );
 		}
@@ -390,7 +390,7 @@
 				.append( $('<col span="1" style="width: 30%;">')
 				.append( $('<col span="1" style="width: 70%;">'))) );
 			layout.$element.append(  $table.append( $('<tr>' ).append(
-				$( '<td>' ).text( mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text() ),
+				$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text() ),
 				$( '<td>' ).append( assignedUsersLayout.$element )
 			) ) );
 

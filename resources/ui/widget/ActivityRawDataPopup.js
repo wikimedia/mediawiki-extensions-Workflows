@@ -35,7 +35,7 @@
 
 	workflows.ui.widget.ActivityRawDataPopup.prototype.getContent = function() {
 		var $table = $( '<table>' ).addClass( this.getTableClass() ).append(
-			$( '<tr>' ).append(
+			$( '<tr class="popup-table-header">' ).append(
 				$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-raw-data-popup-prop' ).text() ),
 				$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-raw-data-popup-value' ).text() )
 			)
@@ -47,7 +47,7 @@
 			}
 			$table.append(
 				$( '<tr>' ).append(
-					$( '<td>' ).text( prop ),
+					$( '<th>' ).text( prop ),
 					$( '<td>' ).text( this.data[prop] )
 				)
 			);
