@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
 use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
+use User;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
 	/** @var WorkflowFactory */
@@ -85,6 +86,9 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			}
 			$users = $workflow->getActivityManager()->getTargetUsersForActivity( $activity, true );
 			foreach ( $users as $user ) {
+				if ( !( $user instanceof User ) ) {
+					continue;
+				}
 				if ( in_array( $user->getId(), $usedIds ) ) {
 					continue;
 				}
