@@ -157,10 +157,11 @@
 							} );
 						}.bind( this ) ).fail( function() {
 							this.popPending();
+							dfd.resolve();
 						}.bind( this ) );
-					}.bind( this ) ).fail( function( error ) {
+					}.bind( this ) ).fail( function() {
 						this.popPending();
-						dfd.reject( error );
+						dfd.resolve();
 					}.bind( this ) );
 					return dfd.promise();
 				}
@@ -209,3 +210,4 @@
 	};
 
 } )( mediaWiki, jQuery, workflows );
+

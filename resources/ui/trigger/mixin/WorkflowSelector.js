@@ -1,7 +1,7 @@
 workflows.ui.trigger.mixin.WorkflowSelector = function( cfg ) {
 	this.definition = null;
 	this.repository = null;
-
+	this.validateInitializer = true;
 };
 
 OO.initClass( workflows.ui.trigger.mixin.WorkflowSelector );
@@ -15,7 +15,9 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 	.done( function( activity ) {
 		this.pickerLayout.$element.find( '.oojsplus-ui-expandable-panel' ).remove();
 		if ( activity ) {
-			activity.getForm( { buttons: [], properties: this.value.initData || {} } ).done( function( formObject ) {
+			activity.getForm( {
+				buttons: [], properties: this.value.initData || {}
+			} ).done( function( formObject ) {
 				if ( formObject ) {
 					this.initializer = formObject;
 					formObject.$element.css( { 'padding-top': '0' } );
@@ -32,6 +34,15 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 							padded: false
 						} ).$element
 					);
+					if ( !this.validateInitializer ) {
+						var inputs = formObject.form.getItems()['inputs'] || {};
+						for ( var key in inputs ) {
+							if ( !inputs.hasOwnProperty( key ) ) {
+								continue;
+							}
+							inputs[key].setRequired( false );
+						}
+					}
 					formObject.connect( this, {
 						submit: 'storeFormValue'
 					} );

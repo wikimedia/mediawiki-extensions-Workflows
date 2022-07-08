@@ -27,9 +27,15 @@
 
 		this.getValidity().done( function() {
 			if ( this.initializer ) {
-				this.initializer.submit();
+				this.initializer.form.validateForm().done( function() {
+					this.initializer.submit();
+					dfd.resolve( this.generateData() );
+				}.bind( this ) ).fail( function() {
+					dfd.reject();
+				} );
+			} else {
+				dfd.resolve( this.generateData() );
 			}
-			dfd.resolve( this.generateData() );
 		}.bind( this ) ).fail( function() {
 			dfd.reject();
 		} );
