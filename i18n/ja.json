@@ -31,5 +31,7 @@
 	"workflows-ui-workflow-overview-step-name-user-feedback": "利用者フィードバック",
 	"workflows-ui-workflow-overview-step-name-edit-request": "編集リクエスト",
 	"workflows-activity-error-no-title": "無効なタイトル",
-	"workflows-activity-set-template-params-cannot-save": "保存に失敗しました"
+	"workflows-activity-set-template-params-cannot-save": "保存に失敗しました",
+	"workflows-ui-workflow-overview-initial-data-title": "初期データ",
+	"workflows-ui-overview-details-section-details": "詳細"
 }

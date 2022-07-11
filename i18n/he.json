@@ -54,7 +54,7 @@
 	"workflows-form-instructions-comment": "הערה",
 	"workflows-error-generic": "אירעה שגיאה",
 	"workflows-uto-body-field-instructions": "הנחיות: $1",
-	"workflows-ui-overview-details-initiator": "נפתח על־ידי",
+	"workflows-ui-overview-details-initiator": "נפתח על־ידי:",
 	"workflows-ui-overview-details-action-details-column": "הצגת פרטים",
 	"workflows-exception-property-validation": "נכשל אימות מאפיין \"$1\", שגיאה: $2",
 	"workflows-property-validator-valid-user-error": "המשתמש \"$1\" אינו תקין",

@@ -71,7 +71,7 @@
 	"workflows-form-edit-request-submit-to-continue": "Une fois que vous avez terminé la modification, cliquer sur « Soumettre » pour marquer la tâche comme terminée",
 	"workflows-ui-alert-activity-edit-request": "On vous a demandé de modifier cette page",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Voir les détails",
-	"workflows-activity-edit-request-name": "Modifier la demande",
+	"workflows-activity-edit-request-name": "Demande de modification",
 	"workflows-uto-activity-edit-request-header": "Modification de page demandée",
 	"echo-category-title-workflow-cat": "Notifications du flux de travail",
 	"workflows-pref-tooltip-notification-workflow-cat": "Me notifier des événements sur les flux de travail qui me concernent",
@@ -137,7 +137,7 @@
 	"workflows-ui-overview-details-state-autoabort-comment": "Le flux de travail a été interrompu automatiquement !",
 	"workflows-auto-aborted-workflow-page-deleted": "Le flux de travail a été interrompu parce que la page à laquelle il était lié a été supprimée",
 	"workflows-uto-body-field-instructions": "Instructions : $1",
-	"workflows-ui-overview-details-initiator": "Lancé par",
+	"workflows-ui-overview-details-initiator": "Lancé par :",
 	"workflows-uto-activity-body-initiator": "{{GENDER:$1|}}$2 a initialisé ce flux de travail",
 	"workflows-ui-overview-details-action-details-column": "voir les détails",
 	"workflows-exception-property-validation": "La validation a échoué pour la propriété « $1 » : $2",
@@ -218,5 +218,12 @@
 	"workflows-activity-error-no-revision": "Aucune révision trouvée pour le titre donné",
 	"workflows-activity-error-no-title": "Titre non valide",
 	"workflows-activity-cannot-edit": "L’utilisat{{GENDER:$1|eur|rice}} « $1 » ne peut pas modifier la page « $2 »",
-	"workflows-activity-set-template-params-cannot-save": "La publication a échoué"
+	"workflows-activity-set-template-params-cannot-save": "La publication a échoué",
+	"workflows-ui-trigger-page-desc": "Permet la définition de conditions pour démarrer un flux de travail.",
+	"workflows-ui-workflow-overview-initial-data-title": "Données initiales",
+	"workflows-ui-overview-details-section-details": "Détails",
+	"workflows-ui-overview-details-due-date-label": "Dû le",
+	"workflows-ui-overview-details-section-assignee": "Affecté à",
+	"workflows-user-vote-cannot-delegate": "La délégation de cette tâche n’est pas autorisée par la configuration de la tâche",
+	"workflows-ui-overview-details-section-expired": "Activités ayant expiré"
 }

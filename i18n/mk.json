@@ -134,7 +134,7 @@
 	"workflows-ui-overview-details-state-autoabort-comment": "Работниот тек е автоматски напуштен!",
 	"workflows-auto-aborted-workflow-page-deleted": "Работниот тек е напуштен бидејќи страницата поврзана со него е избришана",
 	"workflows-uto-body-field-instructions": "Напатствија: $1",
-	"workflows-ui-overview-details-initiator": "Започнато од",
+	"workflows-ui-overview-details-initiator": "Започнато од:",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|го започна}} овој работен тек",
 	"workflows-ui-overview-details-action-details-column": "погл. подробно",
 	"workflows-exception-property-validation": "Не успеа заверката за својството „$1“: $2",
@@ -215,5 +215,12 @@
 	"workflows-activity-error-no-revision": "Не најдов преработки за дадениот наслов",
 	"workflows-activity-error-no-title": "Неважечки наслов",
 	"workflows-activity-cannot-edit": "Корисникот „{{GENDER:$1|$1}}“ не може да ја уредува страницата „$2“",
-	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување"
+	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување",
+	"workflows-ui-trigger-page-desc": "Овозможува определување на услови за отпочнување на работен тек",
+	"workflows-ui-workflow-overview-initial-data-title": "Првични податоци",
+	"workflows-ui-overview-details-section-details": "Подробно",
+	"workflows-ui-overview-details-due-date-label": "Рок",
+	"workflows-ui-overview-details-section-assignee": "Доделено на",
+	"workflows-user-vote-cannot-delegate": "Доделувањето на оваа задача не е допуштено од поставеноста на задачите",
+	"workflows-ui-overview-details-section-expired": "Истечени активности"
 }

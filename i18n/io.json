@@ -9,5 +9,10 @@
 	"workflows-ui-task-completion-action-cancel": "Nuligar",
 	"workflows-ui-workflow-overview-action-back": "Retroirar",
 	"workflows-ui-overview-details-action-reason": "Motivo",
-	"workflows-ui-action-cancel": "Nuligar"
+	"workflows-ui-action-cancel": "Nuligar",
+	"workflows-form-placeholder-comment": "Komento",
+	"workflows-ui-overview-details-state-label": "Stando:",
+	"workflows-ui-overview-details-state-column": "Stando",
+	"workflows-form-instructions-comment": "Komento",
+	"workflows-ui-trigger-action-create": "Konservez"
 }

@@ -12,5 +12,6 @@
 	"workflows-collect-data-form-instructions": "Talimatlar",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Nitelik",
 	"workflows-ui-overview-details-raw-data-popup-value": "Değer",
-	"workflows-ui-overview-details-raw-data-popup-label": "Nitelik değerleri"
+	"workflows-ui-overview-details-raw-data-popup-label": "Nitelik değerleri",
+	"workflows-ui-overview-details-initiator": "Başlatan:"
 }

@@ -34,5 +34,6 @@
 	"workflows-ui-trigger-field-description": "Описание",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Утвердить",
 	"workflows-ui-workflow-overview-step-name-edit-request": "Отредактировать запрос",
-	"workflows-activity-error-no-revision": "Ни одной версии не найдено для указанного названия."
+	"workflows-activity-error-no-revision": "Ни одной версии не найдено для указанного названия.",
+	"workflows-ui-overview-details-section-assignee": "Назначено на"
 }
