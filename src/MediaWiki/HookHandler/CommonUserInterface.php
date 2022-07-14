@@ -40,7 +40,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 							'text' => Message::newFromKey( 'workflowsoverview' ),
 							'title' => Message::newFromKey( 'workflows-desc' ),
 							'aria-label' => Message::newFromKey( 'workflowsoverview' ),
-							'permissions' => [ 'workflows-admin' ]
+							'permissions' => [ 'workflows-view' ]
 						] );
 					}
 				]
