@@ -7,5 +7,7 @@
 	"workflows-ui-starter-action-choose": "Vaʹlljed",
 	"workflows-ui-overview-details-page-context-page": "Seidd",
 	"workflows-ui-overview-details-raw-data-popup-value": "Ärvv",
-	"workflows-ui-trigger-action-create": "Ruõkk"
+	"workflows-ui-trigger-action-create": "Ruõkk",
+	"workflows-ui-trigger-action-delete": "Jaukkâd",
+	"workflows-action-delete-label": "Jaukkâd"
 }
