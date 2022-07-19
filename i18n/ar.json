@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Asma",
+			"BAB ZAA",
 			"Ulhvulgv",
-			"محمد أحمد عبد الفتاح",
-			"Asma"
+			"محمد أحمد عبد الفتاح"
 		]
 	},
-	"workflows-ui-starter-select-workflow": "فكر",
-	"workflows-notification-task-assign-email-body": "$1",
+	"workflows-ui-starter-select-workflow": "حدد سير العمل",
+	"workflows-notification-task-assign-email-body": "الرجاء زيارة هذه الصفحة لإكمال المهمة \"$1\" التي تم تكليفك بها",
 	"workflows-triggers-type-move-label": "عند نقل الصفحة",
 	"workflows-activity-error-no-title": "عنوان غير صالح",
 	"workflows-ui-overview-details-section-details": "تفاصيل"
