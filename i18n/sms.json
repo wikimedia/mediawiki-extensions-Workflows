@@ -7,5 +7,16 @@
 	"workflows-ui-starter-action-choose": "Vaʹlljed",
 	"workflows-ui-overview-details-page-context-page": "Seidd",
 	"workflows-ui-overview-details-raw-data-popup-value": "Ärvv",
-	"workflows-ui-trigger-action-create": "Ruõkk"
+	"workflows-ui-trigger-action-create": "Ruõkk",
+	"workflows-ui-task-completion-action-complete": "Vuõlttâd",
+	"workflows-uto-activity-group_vote": "Joukkjiõnn",
+	"workflows-uto-activity-group_feedback": "Joukkmaacctõs",
+	"workflows-form-placeholder-comment": "Kommeʹntt",
+	"workflows-form-instructions-comment": "Kommeʹntt",
+	"workflows-collect-data-form-groupname": "Joukk",
+	"workflows-ui-trigger-action-delete": "Jaukkâd",
+	"workflows-action-delete-label": "Jaukkâd",
+	"workflows-activity-group-feedback-name": "Joukkmaacctõs",
+	"workflows-activity-group-vote-name": "Joukkjiõnn",
+	"workflows-ui-workflow-overview-step-name-group-feedback": "Joukkmaacctõs"
 }
