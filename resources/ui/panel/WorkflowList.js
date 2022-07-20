@@ -99,6 +99,7 @@
 							return value;
 						}
 						return new OO.ui.LabelWidget( {
+							label: row.state_label,
 							title: row.state_label,
 							classes: [ 'workflow-state', 'workflow-state-icon-' + value ]
 						} ).$element;
