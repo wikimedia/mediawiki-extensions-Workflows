@@ -693,9 +693,10 @@
 			]
 		},
 		{
-			"path": "/workflow/triggers/manual/{page}",
+			"path": "/workflow/triggers/of_type/{key}",
 			"method": "GET",
-			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveManualTriggersForPageHandler",
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveTriggersHandler",
+			"args": [ true ],
 			"services": [
 				"WorkflowTriggerRepo", "TitleFactory"
 			]

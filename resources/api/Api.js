@@ -128,6 +128,6 @@
 	};
 
 	workflows.api.Api.prototype.getManualTriggersForPage = function ( page ) {
-		return this.get( 'triggers/manual/{0}'.format( page ) );
+		return this.get( 'triggers/of_type/manual', { page: page } );
 	};
 } )( mediaWiki, jQuery );
