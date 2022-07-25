@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
 use MediaWiki\Extension\Workflows\MediaWiki\Maintenance\CreateDefaultTriggersPage;
+use MediaWiki\Extension\Workflows\MediaWiki\Maintenance\UpdateWorkflowState;
 use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
 
 class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
@@ -20,6 +21,10 @@ class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
 
 		$updater->addPostDatabaseUpdateMaintenance(
 			CreateDefaultTriggersPage::class
+		);
+
+		$updater->addPostDatabaseUpdateMaintenance(
+			UpdateWorkflowState::class
 		);
 
 		return true;
