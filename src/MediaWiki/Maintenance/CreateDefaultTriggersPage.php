@@ -28,14 +28,16 @@ class CreateDefaultTriggersPage extends LoggedUpdateMaintenance {
 		if ( $title->exists() ) {
 			$this->output( "...Page '{$title->getPrefixedDBkey()}' already exists\n" );
 		} else {
-			$this->createPage( $title, $repo );
+			return $this->createPage( $title, $repo );
 		}
+		return true;
 	}
 
 	/**
 	 * @param Title $title
 	 * @param TriggerRepo $triggerRepo
 	 * @throws MWException
+	 * @return bool
 	 */
 	private function createPage( Title $title, TriggerRepo $triggerRepo ) {
 		$this->output( "...Creating page '{$title->getPrefixedDBkey()}'..." );
@@ -55,7 +57,9 @@ class CreateDefaultTriggersPage extends LoggedUpdateMaintenance {
 			$this->output( "done.\n" );
 		} else {
 			$this->output( "error.\n" );
+			return false;
 		}
+		return true;
 	}
 
 	/**
