@@ -218,5 +218,22 @@
 	"workflows-ui-overview-details-due-date-label": "Due on",
 	"workflows-ui-overview-details-section-assignee": "Assigned to",
 	"workflows-user-vote-cannot-delegate": "Delegation of this task is not allowed by the task configuration",
-	"workflows-ui-overview-details-section-expired": "Expired activities"
+	"workflows-ui-overview-details-section-expired": "Expired activities",
+	"workflows-activity-property-reportrecipient": "Report recipient",
+	"workflows-activity-property-instructions": "Instructions",
+	"workflows-activity-property-username": "Username",
+	"workflows-activity-property-due_date": "Due date",
+	"workflows-activity-property-groupname": "Group name",
+	"workflows-activity-property-usernameEditor": "Editor",
+	"workflows-activity-property-instructionsEditor": "Editor instructions",
+	"workflows-activity-property-usernameReviewer": "Reviewer",
+	"workflows-activity-property-instructionsReviewer": "Reviewer instructions",
+	"workflows-activity-property-usernameApprover": "Approver",
+	"workflows-activity-property-instructionsApprover": "Approver instructions",
+	"workflows-activity-property-vote": "Vote",
+	"workflows-activity-property-comment": "Comment",
+	"workflows-activity-property-delegate_to": "Delegate to",
+	"workflows-activity-property-delegate_comment": "Delegate comment",
+	"workflows-activity-property-assigned_user": "Assigned user",
+	"workflows-activity-property-action": "Action"
 }

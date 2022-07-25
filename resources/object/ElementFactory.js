@@ -18,7 +18,8 @@
 				return new workflows.object.UserInteractiveActivity(
 					this.getElementData( [
 						'userInteractionModule', 'properties', 'status',
-						'isInitializer', 'targetUsers', 'description', 'history'
+						'isInitializer', 'targetUsers', 'description', 'history',
+						'displayData'
 					] ), this.workflow
 				);
 			} else {
