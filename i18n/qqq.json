@@ -228,5 +228,22 @@
 	"workflows-ui-overview-details-due-date-label": "Label for due date of current task in a workflow",
 	"workflows-ui-overview-details-section-assignee": "Label for current assigned user in a workflow",
 	"workflows-user-vote-cannot-delegate": "Error message when user tries to delegate a task that does not allow delegation",
-	"workflows-ui-overview-details-section-expired": "Label for the section showing expired activities"
+	"workflows-ui-overview-details-section-expired": "Label for the section showing expired activities",
+	"workflows-activity-property-reportrecipient": "Label for activity property name",
+	"workflows-activity-property-instructions": "Label for activity property name",
+	"workflows-activity-property-username": "Label for activity property name\n{{Identical|Username}}",
+	"workflows-activity-property-due_date": "Label for activity property name\n{{Identical|Due date}}",
+	"workflows-activity-property-groupname": "Label for activity property name\n{{Identical|Group name}}",
+	"workflows-activity-property-usernameEditor": "Label for activity property name\n{{Identical|Editor}}",
+	"workflows-activity-property-instructionsEditor": "Label for activity property name",
+	"workflows-activity-property-usernameReviewer": "Label for activity property name\n{{Identical|Reviewer}}",
+	"workflows-activity-property-instructionsReviewer": "Label for activity property name",
+	"workflows-activity-property-usernameApprover": "Label for activity property name\n{{Identical|Approver}}",
+	"workflows-activity-property-instructionsApprover": "Label for activity property name",
+	"workflows-activity-property-vote": "Label for activity property name. This property is responsible for vote result. For example, \"yes\" or \"no\"\n{{Identical|Vote}}",
+	"workflows-activity-property-comment": "Label for activity property name\n{{Identical|Comment}}",
+	"workflows-activity-property-delegate_to": "Label for activity property name",
+	"workflows-activity-property-delegate_comment": "Label for activity property name",
+	"workflows-activity-property-assigned_user": "Label for activity property name",
+	"workflows-activity-property-action": "Label for activity property name"
 }

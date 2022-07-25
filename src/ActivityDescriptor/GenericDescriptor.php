@@ -66,6 +66,27 @@ class GenericDescriptor implements IActivityDescriptor {
 	/**
 	 * @inheritDoc
 	 */
+	public function getLocalizedProperties( array $properties ): array {
+		$propertiesTranslated = [];
+
+		foreach ( $properties as $propertyKey => $value ) {
+			$propertyMessage = Message::newFromKey( 'workflows-activity-property-' . $propertyKey );
+
+			if ( $propertyMessage->exists() ) {
+				$propertyTitle = $propertyMessage->text();
+			} else {
+				$propertyTitle = $propertyKey;
+			}
+
+			$propertiesTranslated[$propertyTitle] = $value;
+		}
+
+		return $propertiesTranslated;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getAlertText(): Message {
 		return Message::newFromKey( 'workflows-ui-alert-running-workflow-user-task' );
 	}

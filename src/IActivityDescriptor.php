@@ -52,6 +52,18 @@ interface IActivityDescriptor extends JsonSerializable {
 	public function getTaskName(): Message;
 
 	/**
+	 * Gets in an array of activity properties and translates them.
+	 * If for some properties necessary messages does not exist - they will not be translated.
+	 *
+	 * @param array $properties Array with activity properties, which can be got here
+	 * 		{@link \MediaWiki\Extension\Workflows\ActivityManager::getActivityPublicProperties()}.
+	 *
+	 * @return array Array with translated properties, where key is translated property name
+	 * 		and value is property value
+	 */
+	public function getLocalizedProperties( array $properties ): array;
+
+	/**
 	 * Get UI-friendly due date
 	 *
 	 * @return string|null if
