@@ -529,7 +529,7 @@
 		"remoteExtPath": "Workflows/resources"
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
+		"LoadExtensionSchemaUpdates": [ "runDatabaseUpdates" ],
 		"BeforePageDisplay": "addBootstrap",
 		"ContentHandlerDefaultModelFor": "setContentModels",
 		"SkinTemplateNavigation::Universal": "addActions",
