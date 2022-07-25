@@ -194,11 +194,13 @@
 				continue;
 			}
 
+			var localizedProperties = activity.getDisplayData().localizedProperties || {};
+
 			var name = new OO.ui.LabelWidget( {
 					label: activity.description.taskName,
 					classes: [ 'name' ]
 				} ),
-				rawData = new workflows.ui.widget.ActivityRawDataPopup( activity.getProperties() ),
+				rawData = new workflows.ui.widget.ActivityRawDataPopup( localizedProperties ),
 				layout = new OO.ui.PanelLayout( {
 					expanded: false,
 					padded: true,
@@ -443,7 +445,7 @@
 			var activity = activities[i];
 
 			if ( activity.initializer ) {
-				return activity.getProperties();
+				return activity.getDisplayData().localizedProperties || {};
 			}
 		}
 

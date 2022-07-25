@@ -10,6 +10,7 @@
 		this.alertMessage = this.description.alertMessage || '';
 		this.completeButtonMessage = this.description.completeButtonMessage || '';
 		this.userInteractionModule = new workflows.object.UserInteractionModule( cfg.userInteractionModule );
+		this.displayData = cfg.displayData || {};
 	};
 
 	OO.inheritClass( workflows.object.UserInteractiveActivity, workflows.object.Activity );
@@ -95,6 +96,10 @@
 
 	workflows.object.UserInteractiveActivity.prototype.getHistory = function() {
 		return this.history;
+	};
+
+	workflows.object.UserInteractiveActivity.prototype.getDisplayData = function() {
+		return this.displayData;
 	};
 
 	workflows.object.UserInteractiveActivity.prototype.complete = function( data ) {

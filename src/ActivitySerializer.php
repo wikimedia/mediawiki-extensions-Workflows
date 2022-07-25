@@ -40,6 +40,9 @@ class ActivitySerializer {
 			}
 
 			$data['description'] = $activity->getActivityDescriptor()->jsonSerialize();
+			$data['displayData'] = [
+				'localizedProperties' => $activity->getActivityDescriptor()->getLocalizedProperties( $properties )
+			];
 			$data['history'] = $activity->getActivityDescriptor()
 				->getHistoryReport( $this->workflow );
 		}
