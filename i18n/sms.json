@@ -18,5 +18,8 @@
 	"workflows-collect-data-form-groupname": "Joukk",
 	"workflows-activity-group-feedback-name": "Joukkmaacctõs",
 	"workflows-activity-group-vote-name": "Joukkjiõnn",
-	"workflows-ui-workflow-overview-step-name-group-feedback": "Joukkmaacctõs"
+	"workflows-ui-workflow-overview-step-name-group-feedback": "Joukkmaacctõs",
+	"workflows-form-label-vote-widget-approve": "Priim",
+	"workflows-ui-overview-details-action-reason": "Mäinn",
+	"workflows-collect-data-form-username": "Õõʹnni"
 }
