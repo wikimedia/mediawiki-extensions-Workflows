@@ -225,5 +225,22 @@
 	"workflows-ui-overview-details-due-date-label": "Dû le",
 	"workflows-ui-overview-details-section-assignee": "Affecté à",
 	"workflows-user-vote-cannot-delegate": "La délégation de cette tâche n’est pas autorisée par la configuration de la tâche",
-	"workflows-ui-overview-details-section-expired": "Activités ayant expiré"
+	"workflows-ui-overview-details-section-expired": "Activités ayant expiré",
+	"workflows-activity-property-reportrecipient": "Destinataire du rapport",
+	"workflows-activity-property-instructions": "Instructions",
+	"workflows-activity-property-username": "Nom d’utilisateur",
+	"workflows-activity-property-due_date": "Date d’échéance",
+	"workflows-activity-property-groupname": "Nom du groupe",
+	"workflows-activity-property-usernameEditor": "Rédacteur",
+	"workflows-activity-property-instructionsEditor": "Instructions pour les rédacteurs",
+	"workflows-activity-property-usernameReviewer": "Relecteur",
+	"workflows-activity-property-instructionsReviewer": "Instructions pour les relecteurs",
+	"workflows-activity-property-usernameApprover": "Approbateur",
+	"workflows-activity-property-instructionsApprover": "Instructions pour les approbateurs",
+	"workflows-activity-property-vote": "Vote",
+	"workflows-activity-property-comment": "Commentaire",
+	"workflows-activity-property-delegate_to": "Déléguer à",
+	"workflows-activity-property-delegate_comment": "Commentaire du délégué",
+	"workflows-activity-property-assigned_user": "Utilisateur affecté",
+	"workflows-activity-property-action": "Action"
 }
