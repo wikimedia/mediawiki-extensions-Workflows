@@ -11,5 +11,21 @@
 	"workflows-activity-history-vote-result-no": "برگشت‌خورده",
 	"workflows-ui-overview-details-raw-data-popup-prop": "ویژگی",
 	"workflows-ui-overview-details-raw-data-popup-value": "مقدار",
-	"workflows-ui-overview-details-raw-data-popup-label": "مقدارهای ویژگی"
+	"workflows-ui-overview-details-raw-data-popup-label": "مقدارهای ویژگی",
+	"workflows-activity-property-instructions": "دستورالعمل",
+	"workflows-activity-property-username": "نام کاربری",
+	"workflows-activity-property-due_date": "موعد مقرر",
+	"workflows-activity-property-groupname": "نام گروه",
+	"workflows-activity-property-usernameEditor": "ویرایشگر",
+	"workflows-activity-property-instructionsEditor": "دستورالعمل ویرایشگر",
+	"workflows-activity-property-usernameReviewer": "بازبینی‌کننده",
+	"workflows-activity-property-instructionsReviewer": "دستورالعمل بازبینی‌کننده",
+	"workflows-activity-property-usernameApprover": "تأییدکننده",
+	"workflows-activity-property-instructionsApprover": "دستورالعمل تأییدکننده",
+	"workflows-activity-property-vote": "رأی",
+	"workflows-activity-property-comment": "نظر",
+	"workflows-activity-property-delegate_to": "تفویض به",
+	"workflows-activity-property-delegate_comment": "تفویض نظر",
+	"workflows-activity-property-assigned_user": "کار اختصاص‌یافته",
+	"workflows-activity-property-action": "عمل"
 }
