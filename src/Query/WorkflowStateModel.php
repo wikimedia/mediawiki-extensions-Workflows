@@ -20,6 +20,11 @@ interface WorkflowStateModel {
 	/**
 	 * @return string
 	 */
+	public function getTouched(): string;
+
+	/**
+	 * @return string
+	 */
 	public function getState(): string;
 
 	/**
