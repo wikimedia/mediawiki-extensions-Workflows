@@ -33,5 +33,14 @@
 	"workflows-ui-workflow-overview-step-name-edit-request": "編集リクエスト",
 	"workflows-activity-error-no-title": "無効なタイトル",
 	"workflows-activity-set-template-params-cannot-save": "保存に失敗しました",
-	"workflows-ui-overview-details-section-details": "詳細"
+	"workflows-ui-overview-details-section-details": "詳細",
+	"workflows-activity-property-instructions": "手順",
+	"workflows-activity-property-username": "利用者名",
+	"workflows-activity-property-due_date": "期日",
+	"workflows-activity-property-groupname": "グループ名",
+	"workflows-activity-property-usernameReviewer": "査読者",
+	"workflows-activity-property-vote": "投票",
+	"workflows-activity-property-comment": "コメント",
+	"workflows-activity-property-assigned_user": "割り当てられたユーザー",
+	"workflows-activity-property-action": "操作"
 }
