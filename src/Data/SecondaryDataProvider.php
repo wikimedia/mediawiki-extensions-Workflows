@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Data;
 
+use DateTime;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
@@ -47,18 +48,23 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			$dataSet->set( Record::ASSIGNEE, $this->getAssignee( $workflow ) );
 			$dataSet->set( Record::STATE_LABEL, $this->getStateLabel( $workflow->getCurrentState() ) );
 
-			$startTs = $workflow->getContext()->getStartDate()->format( 'YmdHis' );
-			$dataSet->set( Record::START_TS, $startTs );
-			$dataSet->set(
-				Record::START_FORMATTED,
-				$this->context->getLanguage()->userDate( $startTs, $this->context->getUser() )
-			);
+			$startDate = $workflow->getContext()->getStartDate();
+			if ( $startDate instanceof DateTime ) {
+				$startTs = $workflow->getContext()->getStartDate()->format( 'YmdHis' );
+				$dataSet->set( Record::START_TS, $startTs );
+				$dataSet->set(
+					Record::START_FORMATTED,
+					$this->context->getLanguage()->userDate( $startTs, $this->context->getUser() )
+				);
+			}
 
-			$dataSet->set( Record::LAST_TS, $startTs );
-			$dataSet->set(
-				Record::LAST_FORMATTED,
-				$this->context->getLanguage()->userDate( $startTs, $this->context->getUser() )
-			);
+			$touchedTs = $dataSet->get( Record::LAST_TS );
+			if ( $touchedTs ) {
+				$dataSet->set(
+					Record::LAST_FORMATTED,
+					$this->context->getLanguage()->userDate( $touchedTs, $this->context->getUser() )
+				);
+			}
 
 			$dataSet->set( Record::HAS_NOTICE, $workflow->getStateMessage() !== '' );
 		}

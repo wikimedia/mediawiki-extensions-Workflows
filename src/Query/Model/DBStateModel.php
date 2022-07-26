@@ -91,6 +91,13 @@ final class DBStateModel implements WorkflowStateModel {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getTouched(): string {
+		return $this->touched;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function serialize(): array {
