@@ -39,5 +39,12 @@
 	"workflows-action-edit-label": "Modifica",
 	"workflows-action-delete-label": "Cancella",
 	"workflows-ui-trigger-field-description": "Descrizione",
-	"workflows-activity-editpage-error-no-title": "Nessun titolo fornito"
+	"workflows-activity-editpage-error-no-title": "Nessun titolo fornito",
+	"workflows-activity-property-instructions": "Istruzioni",
+	"workflows-activity-property-username": "Nome utente",
+	"workflows-activity-property-due_date": "Scadenza",
+	"workflows-activity-property-groupname": "Nome gruppo",
+	"workflows-activity-property-usernameApprover": "Approvatore",
+	"workflows-activity-property-vote": "Vota",
+	"workflows-activity-property-action": "Azione"
 }

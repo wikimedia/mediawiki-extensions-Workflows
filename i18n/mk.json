@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Vlad5250"
 		]
 	},
 	"workflows-desc": "Овозможува определување и извршување на разни работни текови на викито",
@@ -222,5 +223,22 @@
 	"workflows-ui-overview-details-due-date-label": "Рок",
 	"workflows-ui-overview-details-section-assignee": "Доделено на",
 	"workflows-user-vote-cannot-delegate": "Доделувањето на оваа задача не е допуштено од поставеноста на задачите",
-	"workflows-ui-overview-details-section-expired": "Истечени активности"
+	"workflows-ui-overview-details-section-expired": "Истечени активности",
+	"workflows-activity-property-reportrecipient": "Примач на извештајот",
+	"workflows-activity-property-instructions": "Напатствија",
+	"workflows-activity-property-username": "Корисничко име",
+	"workflows-activity-property-due_date": "Рок",
+	"workflows-activity-property-groupname": "Име на групата",
+	"workflows-activity-property-usernameEditor": "Уредник",
+	"workflows-activity-property-instructionsEditor": "Напатствија за уредникот",
+	"workflows-activity-property-usernameReviewer": "Проверувач",
+	"workflows-activity-property-instructionsReviewer": "Напатствија за проверувачот",
+	"workflows-activity-property-usernameApprover": "Одобрувач",
+	"workflows-activity-property-instructionsApprover": "Напатствија за одобрувачот",
+	"workflows-activity-property-vote": "Гласај",
+	"workflows-activity-property-comment": "Коментар",
+	"workflows-activity-property-delegate_to": "Додели на",
+	"workflows-activity-property-delegate_comment": "Додели коментар",
+	"workflows-activity-property-assigned_user": "Доделен корисник",
+	"workflows-activity-property-action": "Дејство"
 }
