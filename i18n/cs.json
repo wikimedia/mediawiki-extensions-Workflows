@@ -1,8 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fraxinus.cs",
 			"Kendo13"
 		]
 	},
-	"workflows-collect-data-form-instructions": "Instrukce"
+	"workflows-collect-data-form-instructions": "Instrukce",
+	"workflows-activity-property-reportrecipient": "Příjemce zprávy",
+	"workflows-activity-property-instructions": "Instrukce",
+	"workflows-activity-property-username": "Uživatelské jméno",
+	"workflows-activity-property-due_date": "Termín do",
+	"workflows-activity-property-groupname": "Název skupiny",
+	"workflows-activity-property-usernameEditor": "Editor",
+	"workflows-activity-property-instructionsEditor": "Pokyny pro redaktora",
+	"workflows-activity-property-usernameReviewer": "Posuzovatel",
+	"workflows-activity-property-instructionsReviewer": "Pokyny pro posuzovatele",
+	"workflows-activity-property-usernameApprover": "Schvalovatel",
+	"workflows-activity-property-instructionsApprover": "Pokyny pro schvalovatele",
+	"workflows-activity-property-vote": "Hlasovat",
+	"workflows-activity-property-comment": "Komentář",
+	"workflows-activity-property-delegate_to": "Delegovat do",
+	"workflows-activity-property-delegate_comment": "Komentář delegáta",
+	"workflows-activity-property-assigned_user": "Přiřazený uživatel",
+	"workflows-activity-property-action": "Akce"
 }

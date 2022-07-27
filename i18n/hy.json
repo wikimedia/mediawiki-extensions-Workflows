@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Ընտրել",
@@ -26,5 +27,14 @@
 	"workflows-ui-trigger-action-delete": "Ջնջել",
 	"workflows-action-edit-label": "Խմբագրել",
 	"workflows-action-delete-label": "Ջնջել",
-	"workflows-ui-trigger-field-description": "Նկարագրություն"
+	"workflows-ui-trigger-field-description": "Նկարագրություն",
+	"workflows-activity-property-instructions": "Հրահանգներ",
+	"workflows-activity-property-username": "Օգտանուն",
+	"workflows-activity-property-due_date": "Վերջնաժամկետ",
+	"workflows-activity-property-groupname": "Խմբի անվանումը",
+	"workflows-activity-property-usernameEditor": "Խմբագիր",
+	"workflows-activity-property-instructionsApprover": "Հաստատող հրահանգներ",
+	"workflows-activity-property-comment": "Մեկնաբանություն",
+	"workflows-activity-property-assigned_user": "Նշանակված մասնակից",
+	"workflows-activity-property-action": "Գործողություն"
 }

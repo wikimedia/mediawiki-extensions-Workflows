@@ -225,5 +225,19 @@
 	"workflows-ui-overview-details-due-date-label": "Fällig am",
 	"workflows-ui-overview-details-section-assignee": "Zugewiesen an",
 	"workflows-user-vote-cannot-delegate": "Die Übertragung dieser Aufgabe wird durch die Einstellungen nicht zugelassen",
-	"workflows-ui-overview-details-section-expired": "Abgelaufene Aufgaben"
+	"workflows-ui-overview-details-section-expired": "Abgelaufene Aufgaben",
+	"workflows-activity-property-instructions": "Anweisungen",
+	"workflows-activity-property-username": "Benutzername",
+	"workflows-activity-property-due_date": "Fälligkeitsdatum",
+	"workflows-activity-property-groupname": "Gruppenname",
+	"workflows-activity-property-usernameEditor": "Bearbeiter",
+	"workflows-activity-property-instructionsEditor": "Anweisungen für Bearbeiter",
+	"workflows-activity-property-usernameReviewer": "Begutachter",
+	"workflows-activity-property-instructionsReviewer": "Anweisungen für Begutachter",
+	"workflows-activity-property-vote": "Abstimmen",
+	"workflows-activity-property-comment": "Kommentar",
+	"workflows-activity-property-delegate_to": "Weitergeben an",
+	"workflows-activity-property-delegate_comment": "Kommentar zur Weitergabe",
+	"workflows-activity-property-assigned_user": "Zugewiesener Benutzer",
+	"workflows-activity-property-action": "Aktion"
 }
