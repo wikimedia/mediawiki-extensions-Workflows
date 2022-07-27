@@ -131,5 +131,10 @@
 	"workflows-activity-user-vote-name": "사용자 투표",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "승인",
 	"workflows-ui-workflow-overview-step-name-collect-data": "데이터 수집",
-	"workflows-activity-set-template-params-cannot-save": "저장 실패"
+	"workflows-activity-set-template-params-cannot-save": "저장 실패",
+	"workflows-activity-property-username": "사용자 이름",
+	"workflows-activity-property-groupname": "그룹 이름",
+	"workflows-activity-property-usernameApprover": "승인자",
+	"workflows-activity-property-vote": "투표",
+	"workflows-activity-property-assigned_user": "할당된 사용자"
 }
