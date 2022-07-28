@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"MthulisiNcube"
 		]
 	},
-	"workflows-activity-property-instructions": "milayidzo",
-	"workflows-activity-property-username": "zina linohingisiwa",
-	"workflows-activity-property-groupname": "zina legubungano",
-	"workflows-activity-property-instructionsApprover": "milayidzo yavumigwa",
-	"workflows-activity-property-comment": "longa nkumbulo",
-	"workflows-activity-property-assigned_user": "n'hingi wahalugwa"
+	"workflows-activity-property-instructions": "Milayidzo",
+	"workflows-activity-property-username": "Zina linohingisiwa",
+	"workflows-activity-property-groupname": "Zina legubungano",
+	"workflows-activity-property-instructionsApprover": "Milayidzo yavumigwa",
+	"workflows-activity-property-comment": "Longa nkumbulo",
+	"workflows-activity-property-assigned_user": "N'hingi wahalugwa"
 }
