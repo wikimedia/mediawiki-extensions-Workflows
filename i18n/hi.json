@@ -14,5 +14,7 @@
 	"workflows-ui-trigger-field-active": "सक्रिय",
 	"workflows-action-edit-label": "संपादित करें",
 	"workflows-action-delete-label": "हटाएँ",
-	"workflows-ui-trigger-field-description": "विवरण"
+	"workflows-ui-trigger-field-description": "विवरण",
+	"workflows-activity-property-username": "सदस्यनाम",
+	"workflows-activity-property-comment": "टिप्पणी"
 }
