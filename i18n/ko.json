@@ -136,5 +136,7 @@
 	"workflows-activity-property-groupname": "그룹 이름",
 	"workflows-activity-property-usernameApprover": "승인자",
 	"workflows-activity-property-vote": "투표",
-	"workflows-activity-property-assigned_user": "할당된 사용자"
+	"workflows-activity-property-assigned_user": "할당된 사용자",
+	"workflows-activity-property-instructions": "지침",
+	"workflows-activity-property-instructionsApprover": "승인자 지침"
 }
