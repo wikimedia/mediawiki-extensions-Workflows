@@ -4,5 +4,20 @@
 			"TayfunEt."
 		]
 	},
-	"workflows-activity-property-username": "Ulanyjy ady"
+	"workflows-activity-property-reportrecipient": "Alyjyny hasabat beriň",
+	"workflows-activity-property-instructions": "Görkezmeler",
+	"workflows-activity-property-username": "Ulanyjy ady",
+	"workflows-activity-property-due_date": "Berlen senesi",
+	"workflows-activity-property-groupname": "Toparyň ady",
+	"workflows-activity-property-usernameEditor": "Redaktor",
+	"workflows-activity-property-instructionsEditor": "Redaktor görkezmeleri",
+	"workflows-activity-property-usernameReviewer": "Gözden geçiriji",
+	"workflows-activity-property-instructionsReviewer": "Synçynyň görkezmeleri",
+	"workflows-activity-property-usernameApprover": "Tassyklaýjy",
+	"workflows-activity-property-instructionsApprover": "Tassyklama görkezmeleri",
+	"workflows-activity-property-vote": "Ses beriň",
+	"workflows-activity-property-comment": "Teswir",
+	"workflows-activity-property-delegate_to": "Delegasiýa",
+	"workflows-activity-property-assigned_user": "Bellenen ulanyjy",
+	"workflows-activity-property-action": "Hereket"
 }

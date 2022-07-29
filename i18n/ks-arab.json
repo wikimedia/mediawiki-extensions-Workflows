@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tajamul9"
+		]
+	},
+	"workflows-activity-property-instructions": "ہِدایٲژٕ",
+	"workflows-activity-property-username": "رُکُن ناو:",
+	"workflows-activity-property-groupname": "گُرپ ناو",
+	"workflows-activity-property-usernameEditor": "اؠڈِٹَر",
+	"workflows-activity-property-usernameApprover": "مَنظوٗری دِنہٕ وول",
+	"workflows-activity-property-instructionsApprover": "منظوٗری دِنہٕ وٲلی ہِدایٲژٕ",
+	"workflows-activity-property-vote": "ووٹ",
+	"workflows-activity-property-comment": "تبصُر",
+	"workflows-activity-property-assigned_user": "معیٲنہٕ صٲرف",
+	"workflows-activity-property-action": "عَملہٕ"
+}
