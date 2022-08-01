@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bada Kaji"
+		]
+	},
+	"workflows-activity-property-username": "प्रयोगकर्ता",
+	"workflows-activity-property-usernameEditor": "सम्पादक",
+	"workflows-activity-property-vote": "मतदान",
+	"workflows-activity-property-comment": "टिप्पणी",
+	"workflows-activity-property-action": "कार्य"
+}
