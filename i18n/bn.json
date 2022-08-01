@@ -1,8 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
+			"আজিজ",
 			"আফতাবুজ্জামান"
 		]
 	},
-	"workflows-ui-workflow-overview-action-back": "পিছনে"
+	"workflows-ui-workflow-overview-action-back": "পিছনে",
+	"workflows-activity-property-instructions": "নির্দেশাবলী",
+	"workflows-activity-property-username": "ব্যবহারকারী নাম",
+	"workflows-activity-property-due_date": "শেষের তারিখ",
+	"workflows-activity-property-groupname": "গোষ্ঠীর নাম",
+	"workflows-activity-property-usernameEditor": "সম্পাদক",
+	"workflows-activity-property-instructionsEditor": "সম্পাদক নির্দেশাবলী",
+	"workflows-activity-property-usernameReviewer": "পর্যালোচক",
+	"workflows-activity-property-instructionsReviewer": "পর্যালোচক নির্দেশাবলী",
+	"workflows-activity-property-usernameApprover": "অনুমোদনকারী",
+	"workflows-activity-property-instructionsApprover": "অনুমোদনকারী নির্দেশাবলী",
+	"workflows-activity-property-vote": "ভোট",
+	"workflows-activity-property-comment": "মন্তব্য",
+	"workflows-activity-property-delegate_to": "প্রতিনিধি",
+	"workflows-activity-property-delegate_comment": "প্রতিনিধি মন্তব্য",
+	"workflows-activity-property-action": "কার্য"
 }
