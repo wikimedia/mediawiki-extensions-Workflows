@@ -1,9 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"No Sleep till Krupki"
 		]
 	},
 	"workflows-ui-trigger-action-create": "Захаваць",
-	"workflows-action-delete-label": "Выдаліць"
+	"workflows-action-delete-label": "Выдаліць",
+	"workflows-activity-property-instructions": "Інструкцыя",
+	"workflows-activity-property-username": "Імя ўдзельніка",
+	"workflows-activity-property-groupname": "Назва групы",
+	"workflows-activity-property-usernameEditor": "Рэдактар",
+	"workflows-activity-property-action": "Дзеянне"
 }

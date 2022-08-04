@@ -35,5 +35,10 @@
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Утвердить",
 	"workflows-ui-workflow-overview-step-name-edit-request": "Отредактировать запрос",
 	"workflows-activity-error-no-revision": "Ни одной версии не найдено для указанного названия.",
-	"workflows-ui-overview-details-section-assignee": "Назначено на"
+	"workflows-ui-overview-details-section-assignee": "Назначено на",
+	"workflows-activity-property-username": "Имя участника",
+	"workflows-activity-property-groupname": "Название группы",
+	"workflows-activity-property-usernameEditor": "Редактор",
+	"workflows-activity-property-comment": "Комментарий",
+	"workflows-activity-property-action": "Действие"
 }
