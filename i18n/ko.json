@@ -138,5 +138,9 @@
 	"workflows-activity-property-vote": "투표",
 	"workflows-activity-property-assigned_user": "할당된 사용자",
 	"workflows-activity-property-instructions": "지침",
-	"workflows-activity-property-instructionsApprover": "승인자 지침"
+	"workflows-activity-property-instructionsApprover": "승인자 지침",
+	"workflows-activity-property-due_date": "기한",
+	"workflows-activity-property-usernameEditor": "편집자",
+	"workflows-activity-property-instructionsEditor": "편집자 지침",
+	"workflows-activity-property-usernameReviewer": "검토자"
 }
