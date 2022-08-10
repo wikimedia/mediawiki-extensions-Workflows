@@ -8,5 +8,6 @@
 	"workflows-ui-task-completion-action-cancel": "Prekliči",
 	"workflows-ui-overview-details-action-reason": "Razlog",
 	"workflows-ui-overview-grid-filter-state-all": "Vse",
-	"workflows-ui-action-cancel": "Prekliči"
+	"workflows-ui-action-cancel": "Prekliči",
+	"workflows-ui-starter-action-done": "Začni"
 }
