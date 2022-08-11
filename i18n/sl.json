@@ -9,5 +9,9 @@
 	"workflows-ui-overview-details-action-reason": "Razlog",
 	"workflows-ui-overview-grid-filter-state-all": "Vse",
 	"workflows-ui-action-cancel": "Prekliči",
-	"workflows-ui-starter-action-done": "Začni"
+	"workflows-ui-starter-action-done": "Začni",
+	"workflows-ui-workflow-overview-action-cancel": "Zapri",
+	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
+	"workflows-collect-data-form-groupname": "Skupina",
+	"workflows-ui-trigger-field-name": "Ime"
 }
