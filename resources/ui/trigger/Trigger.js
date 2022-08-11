@@ -160,7 +160,7 @@
 
 	workflows.ui.trigger.Trigger.prototype.generateTriggerId = function( name, type ) {
 		var key = name.toLowerCase().replace( ' ', '-' ).trim();
-		return 'trigger-{0}-{1}'.format( key, type );
+		return 'trigger-' + key + '-' + type;
 	};
 
 	workflows.ui.trigger.Trigger.prototype.getValue = function() {
