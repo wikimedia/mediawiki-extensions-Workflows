@@ -16,7 +16,7 @@
 	};
 
 	workflows.api.Api.prototype.getWorkflow = function( id ) {
-		return this.get( 'retrieve/{0}'.format( id ) );
+		return this.get( 'retrieve/' + id );
 	};
 
 	workflows.api.Api.prototype.get = function( path, params ) {
@@ -79,11 +79,11 @@
 		if ( path.charAt( 0 )  === '/' ) {
 			path = path.substring( 1 );
 		}
-		return mw.util.wikiScript( 'rest' ) + '/workflow/{0}'.format( path );
+		return mw.util.wikiScript( 'rest' ) + '/workflow/' + path;
 	};
 
 	workflows.api.Api.prototype.completeTask = function ( id, taskId, data ) {
-		return this.post( 'complete_task/{0}/{1}'.format( id, taskId ), data );
+		return this.post( 'complete_task/' + id + '/' + taskId, data );
 	};
 
 	workflows.api.Api.prototype.getDefinitions = function () {
@@ -91,28 +91,28 @@
 	};
 
 	workflows.api.Api.prototype.getDefinitionDetails = function ( repo, definition ) {
-		return this.get( 'definition/details/{0}/{1}'.format( repo, definition ) );
+		return this.get( 'definition/details/' + repo + '/' + definition );
 	};
 
 	workflows.api.Api.prototype.startWorkflow = function ( repository, type, data ) {
-		return this.post( 'start/{0}/{1}'.format( repository, type ), data );
+		return this.post( 'start/' + repository + '/' + type, data );
 	};
 
 	workflows.api.Api.prototype.dryStartWorkflow = function ( repository, type, data ) {
-		return this.post( 'dry_start/{0}/{1}'.format( repository, type ), data );
+		return this.post( 'dry_start/' +  repository + '/' + type, data );
 	};
 
 	workflows.api.Api.prototype.abort = function ( id, reason ) {
-		return this.post( 'abort/{0}'.format( id ), { reason: reason } );
+		return this.post( 'abort/' + id, { reason: reason } );
 	};
 
 	workflows.api.Api.prototype.restore = function ( id, reason ) {
-		return this.post( 'restore/{0}'.format( id ), { reason: reason } );
+		return this.post( 'restore/'  + id, { reason: reason } );
 	};
 
 	workflows.api.Api.prototype.getTriggers = function ( key ) {
 		key = key || '*';
-		return this.get( 'triggers/{0}'.format( key ) );
+		return this.get( 'triggers/' + key );
 	};
 
 	workflows.api.Api.prototype.persistTriggers = function ( data ) {
@@ -120,7 +120,7 @@
 	};
 
 	workflows.api.Api.prototype.deleteTrigger = function ( key ) {
-		return this.delete( 'triggers/{0}'.format( key ) );
+		return this.delete( 'triggers/' + key );
 	};
 
 	workflows.api.Api.prototype.getTriggerTypes = function () {
