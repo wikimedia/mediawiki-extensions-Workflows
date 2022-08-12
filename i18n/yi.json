@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pacha Tchernof"
+		]
+	},
+	"workflows-ui-starter-action-cancel": "אַנולירן",
+	"workflows-ui-task-completion-action-cancel": "אַנולירן",
+	"workflows-ui-action-cancel": "אַנולירן"
+}
