@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kareyac"
+		]
+	},
+	"workflows-activity-property-username": "Потребителско име",
+	"workflows-activity-property-usernameEditor": "Редактор",
+	"workflows-activity-property-comment": "Коментар",
+	"workflows-activity-property-action": "Действие"
+}
