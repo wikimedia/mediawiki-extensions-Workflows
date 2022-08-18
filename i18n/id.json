@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ekirahardian"
+			"Ekirahardian",
+			"Veracious"
 		]
 	},
 	"workflows-ui-task-completion-action-complete": "Kirim",
@@ -14,5 +15,13 @@
 	"workflows-ui-overview-details-workflow-type-label": "Tipe",
 	"workflows-ui-overview-grid-filter-state-all": "Semua",
 	"workflows-form-instructions-comment": "Komentar",
-	"workflows-error-generic": "Terjadi galat"
+	"workflows-error-generic": "Terjadi galat",
+	"workflows-activity-property-username": "Nama pengguna",
+	"workflows-activity-property-usernameEditor": "Penyunting",
+	"workflows-activity-property-usernameReviewer": "Peninjau",
+	"workflows-activity-property-usernameApprover": "Penyetuju",
+	"workflows-activity-property-vote": "Berikan suara",
+	"workflows-activity-property-comment": "Komentar",
+	"workflows-activity-property-delegate_to": "Delegasikan ke",
+	"workflows-activity-property-action": "Tindakan"
 }
