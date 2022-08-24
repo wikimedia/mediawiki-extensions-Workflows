@@ -23,7 +23,7 @@
 		"mwstake/mediawiki-component-notifications": "~2",
 		"mwstake/mediawiki-component-runjobstrigger": "~2",
 		"mwstake/mediawiki-component-alertbanners": "~2",
-		"mwstake/mediawiki-component-wikitext": "~3",
+		"mwstake/mediawiki-component-wikitext": "~4",
 		"mwstake/mediawiki-component-datastore": "~1"
 	},
 	"require-dev": {
