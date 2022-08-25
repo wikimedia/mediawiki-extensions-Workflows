@@ -239,5 +239,9 @@
 	"workflows-activity-property-delegate_to": "Weitergeben an",
 	"workflows-activity-property-delegate_comment": "Kommentar zur Weitergabe",
 	"workflows-activity-property-assigned_user": "Zugewiesener Benutzer",
-	"workflows-activity-property-action": "Aktion"
+	"workflows-activity-property-action": "Aktion",
+	"workflows-ui-trigger-page-title": "Workflow-Triggers",
+	"workflows-activity-property-reportrecipient": "Empfänger des Berichts",
+	"workflows-activity-property-usernameApprover": "Freigebender",
+	"workflows-activity-property-instructionsApprover": "Anweisungen für Freigebenden"
 }
