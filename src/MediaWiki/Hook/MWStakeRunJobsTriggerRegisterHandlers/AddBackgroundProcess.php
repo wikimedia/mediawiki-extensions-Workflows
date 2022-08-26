@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\Hook\MWStakeRunJobsTriggerRegi
 
 use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\ProcessTimeBasedTriggers;
 use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\ProcessWorkflows;
+use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\SendDueDateProximityNotifications;
 
 class AddBackgroundProcess {
 
@@ -23,6 +24,13 @@ class AddBackgroundProcess {
 		$handlers[ProcessTimeBasedTriggers::HANDLER_KEY] = [
 			'class' => ProcessTimeBasedTriggers::class,
 			'services' => [ 'WorkflowTriggerRunner' ]
+		];
+		$handlers[SendDueDateProximityNotifications::HANDLER_KEY] = [
+			'class' => SendDueDateProximityNotifications::class,
+			'services' => [
+				'WorkflowEventRepository', 'DefinitionRepositoryFactory',
+				'MWStakeNotificationsNotifier'
+			]
 		];
 
 		return true;

@@ -2,13 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
 
-use DateTime;
 use Exception;
-use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\DueDateProximity;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
-use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use MWStake\MediaWiki\Component\RunJobsTrigger\IHandler;
@@ -19,26 +15,17 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Status;
 
-final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
+class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 
 	public const HANDLER_KEY = 'ext-workflows-process-workflows';
 
-	/**
-	 *
-	 * @var WorkflowEventRepository
-	 */
-	private $workflowRepo;
+	/** @var WorkflowEventRepository */
+	protected $workflowRepo;
 
-	/**
-	 *
-	 * @var DefinitionRepositoryFactory
-	 */
-	private $definitionRepositoryFactory;
+	/** @var DefinitionRepositoryFactory */
+	protected $definitionRepositoryFactory;
 
-	/**
-	 *
-	 * @var LoggerInterface
-	 */
+	/** @var LoggerInterface|null */
 	protected $logger = null;
 	/** @var INotifier */
 	protected $notifier;
@@ -77,24 +64,7 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 					continue;
 				}
 
-				// Next part checks for due dates
-				$current = $workflow->current();
-				foreach ( $current as $element ) {
-					if ( !$element instanceof ITask ) {
-						continue;
-					}
-					$activity = $workflow->getActivityForTask( $element );
-					if ( !$activity instanceof UserInteractiveActivity ) {
-						continue;
-					}
-					if ( $this->dueDateClose( $activity ) ) {
-						$this->notifyDueDateProximity( $activity, $workflow );
-					}
-					if ( $this->dueDateReached( $activity ) ) {
-						$workflow->expireActivity( $activity );
-						$workflow->persist( $this->workflowRepo );
-					}
-				}
+				$this->processWorkflow( $workflow );
 			} catch ( Exception $ex ) {
 				return Status::newFatal( $ex->getMessage() );
 			}
@@ -127,47 +97,15 @@ final class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 		$this->logger = $logger;
 	}
 
-	private function dueDateReached( UserInteractiveActivity $activity ) {
-		$dueDate = $activity->getDueDate();
-		if ( !$dueDate instanceof DateTime ) {
-			return false;
-		}
-
-		$now = new DateTime( "now" );
-		// Dont know how else to get DT with today's date only
-		$now = new DateTime( $now->format( 'd-m-Y' ) );
-
-		return $dueDate < $now;
-	}
-
 	/**
-	 * @param UserInteractiveActivity $activity
-	 * @return bool
+	 * Do any processing on the workflow
+	 * Stub in this class, to be implemented in subclasses
+	 *
+	 * @param Workflow $workflow
+	 *
+	 * @return void
 	 */
-	private function dueDateClose( UserInteractiveActivity $activity ) {
-		$dueDate = $activity->getDueDate();
-		if ( !$dueDate instanceof DateTime ) {
-			return false;
-		}
-
-		$now = new DateTime( "now" );
-		if ( $dueDate->diff( $now )->days < 2 ) {
-			return true;
-		}
-
-		return false;
-	}
-
-	private function notifyDueDateProximity(
-		UserInteractiveActivity $activity, Workflow $workflow
-	) {
-		$this->notifier->notify(
-			new DueDateProximity(
-				$workflow->getContext()->getInitiator(),
-				$workflow->getActivityManager()->getTargetUsersForActivity( $activity ),
-				$workflow->getContext()->getContextPage(),
-				$activity->getActivityDescriptor()->getActivityName()
-			)
-		);
+	protected function processWorkflow( Workflow $workflow ) {
+		// STUB
 	}
 }
