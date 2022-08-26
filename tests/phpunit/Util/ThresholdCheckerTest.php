@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Workflows\Tests\Util;
 
 use Exception;
-use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use PHPUnit\Framework\TestCase;
 
@@ -22,14 +21,14 @@ class ThresholdCheckerTest extends TestCase {
 		$thresholdData, $checkData, $checkDataKey,
 		$groupUserCount, $hasReached, $invalidData
 	) {
-		$groupDataProviderMock = $this->createMock( GroupDataProvider::class );
-		$groupDataProviderMock->method( 'getNumberOfUsersInGroup' )->willReturn( $groupUserCount );
 		if ( $invalidData ) {
 			$this->expectException( Exception::class );
 		}
 
-		$checker = new ThresholdChecker( $thresholdData, $groupDataProviderMock );
-		$this->assertSame( $hasReached, $checker->hasReachedThresholds( $checkData, 'dummy', $checkDataKey ) );
+		$checker = new ThresholdChecker( $thresholdData );
+		$this->assertSame( $hasReached, $checker->hasReachedThresholds(
+			$checkData, $groupUserCount, $checkDataKey
+		) );
 	}
 
 	/**

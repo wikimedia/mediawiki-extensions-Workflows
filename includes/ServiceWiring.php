@@ -10,7 +10,6 @@ use MediaWiki\Extension\Workflows\Storage\MessageRepository\WorkflowMessageRepos
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
-use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
 use MediaWiki\Logger\LoggerFactory;
@@ -68,12 +67,6 @@ return [
 
 	'WorkflowUtilGroupDataProvider' => static function ( MediaWikiServices $services ) {
 		return new GroupDataProvider();
-	},
-
-	'WorkflowUtilThresholdCheckerFactory' => static function ( MediaWikiServices $services ) {
-		return new ThresholdCheckerFactory(
-			$services->getService( 'WorkflowUtilGroupDataProvider' )
-		);
 	},
 
 	'WorkflowsStateStore' => static function ( MediaWikiServices $services ) {

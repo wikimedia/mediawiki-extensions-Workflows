@@ -46,7 +46,7 @@
 					},
 					"group_vote": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\VoteActivity\\GroupVoteActivity",
-						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider", "WorkflowUtilThresholdCheckerFactory" ]
+						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider" ]
 					},
 					"user_feedback": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\UserFeedbackActivity",
@@ -54,7 +54,7 @@
 					},
 					"group_feedback": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\GroupFeedbackActivity",
-						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider", "WorkflowUtilThresholdCheckerFactory" ]
+						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider" ]
 					},
 					"send_mail": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\SendMail\\SendMailActivity",

@@ -38,7 +38,12 @@ class GroupFeedbackDescriptor extends FeedbackDescriptor {
 			return [];
 		}
 
+		if ( empty( $rd['users_feedbacks'] ) ) {
+			return $history;
+		}
 		$feedbacks = $rd['users_feedbacks'];
+		$feedbacks = is_array( $feedbacks ) ?
+			$feedbacks : json_decode( $rd['users_feedbacks'], 1 );
 		foreach ( $feedbacks as $feedback ) {
 			$history[$feedback['userName']] = $this->stripComment( $feedback['feedback'] );
 		}
