@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows\Data;
 
-use DateTime;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
@@ -48,13 +47,11 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			$dataSet->set( Record::ASSIGNEE, $this->getAssignee( $workflow ) );
 			$dataSet->set( Record::STATE_LABEL, $this->getStateLabel( $workflow->getCurrentState() ) );
 
-			$startDate = $workflow->getContext()->getStartDate();
-			if ( $startDate instanceof DateTime ) {
-				$startTs = $workflow->getContext()->getStartDate()->format( 'YmdHis' );
-				$dataSet->set( Record::START_TS, $startTs );
+			$startedTs = $dataSet->get( Record::START_TS );
+			if ( $startedTs ) {
 				$dataSet->set(
 					Record::START_FORMATTED,
-					$this->context->getLanguage()->userDate( $startTs, $this->context->getUser() )
+					$this->context->getLanguage()->userDate( $startedTs, $this->context->getUser() )
 				);
 			}
 

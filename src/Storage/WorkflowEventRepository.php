@@ -91,7 +91,9 @@ class WorkflowEventRepository implements AggregateRootRepository {
 		$messages = $this->messages->retrieveAll( $aggregateRootId );
 
 		foreach ( $messages as $message ) {
-			yield $message->event();
+			$event = $message->event();
+			$event->setTimeOfRecording( $message->timeOfRecording() );
+			yield $event;
 		}
 
 		return $messages->getReturn();

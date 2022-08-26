@@ -19,6 +19,12 @@ class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
 			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_state.sql'
 		);
 
+		$updater->addExtensionField(
+			'workflows_state',
+			'wfs_started',
+			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_state_start_patch.sql'
+		);
+
 		$updater->addPostDatabaseUpdateMaintenance(
 			CreateDefaultTriggersPage::class
 		);
