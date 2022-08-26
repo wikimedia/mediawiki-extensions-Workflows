@@ -21,7 +21,7 @@
 		var dfd = $.Deferred(),
 			modules = [];
 
-		if ( $.isArray( this.userInteractionModule.getModules() ) ) {
+		if ( Array.isArray( this.userInteractionModule.getModules() ) ) {
 			modules = this.userInteractionModule.getModules();
 		}
 
