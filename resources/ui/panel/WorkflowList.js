@@ -119,12 +119,14 @@
 				start_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-start-time-column' ).text(),
 					type: "date",
-					display: "start_formatted"
+					display: "start_formatted",
+					sortable: true
 				},
 				last_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-last-time-column' ).text(),
 					type: "date",
-					display: "last_formatted"
+					display: "last_formatted",
+					sortable: true
 				},
 				detailsAction: {
 					type: "action",

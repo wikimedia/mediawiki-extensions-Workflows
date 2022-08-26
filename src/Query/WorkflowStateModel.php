@@ -25,6 +25,11 @@ interface WorkflowStateModel {
 	/**
 	 * @return string
 	 */
+	public function getStarted(): string;
+
+	/**
+	 * @return string
+	 */
 	public function getState(): string;
 
 	/**
