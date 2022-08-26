@@ -8,9 +8,12 @@ class ThresholdChecker {
 	/** @var Threshold[] */
 	private $thresholds;
 
-	public function __construct(
-		array $thresholds, GroupDataProvider $groupDataProvider
-	) {
+	/**
+	 * @param array $thresholds
+	 *
+	 * @throws Exception
+	 */
+	public function __construct( array $thresholds ) {
 		if ( empty( $thresholds ) ) {
 			throw new Exception( 'No thresholds available' );
 		}
@@ -19,24 +22,24 @@ class ThresholdChecker {
 			$thresholds = [ $thresholds ];
 		}
 		foreach ( $thresholds as $thresholdData ) {
-			$this->thresholds[] = new Threshold( $thresholdData, $groupDataProvider );
+			$this->thresholds[] = new Threshold( $thresholdData );
 		}
 	}
 
 	/**
 	 * @param array $data
-	 * @param string $groupName
+	 * @param int $userCount
 	 * @param string|null $keyToCheck Key that contains threshold name, or null if just count is required
 	 * @return bool
 	 * @throws Exception
 	 */
-	public function hasReachedThresholds( array $data, string $groupName, ?string $keyToCheck = null ): bool {
+	public function hasReachedThresholds( array $data, int $userCount, ?string $keyToCheck = null ): bool {
 		$canBeReached = false;
 		foreach ( $this->thresholds as $threshold ) {
-			if ( $threshold->isReached( $data, $groupName, $keyToCheck ) ) {
+			if ( $threshold->isReached( $data, $userCount, $keyToCheck ) ) {
 				return true;
 			}
-			if ( $threshold->canBeReached( $data, $groupName, $keyToCheck ) ) {
+			if ( $threshold->canBeReached( $data, $userCount, $keyToCheck ) ) {
 				$canBeReached = true;
 			}
 		}

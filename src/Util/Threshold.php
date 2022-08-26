@@ -15,20 +15,10 @@ class Threshold {
 	private $delayedException;
 
 	/**
-	 * Group data provider for gathering group data like users amount etc.
-	 *
-	 * @var GroupDataProvider
-	 */
-	private $groupDataProvider;
-
-	/**
 	 * @param array $thresholdData
-	 * @param GroupDataProvider $groupDataProvider
 	 * @throws Exception
 	 */
-	public function __construct(
-		array $thresholdData, GroupDataProvider $groupDataProvider
-	) {
+	public function __construct( array $thresholdData ) {
 		foreach ( [ 'type', 'value', 'unit' ] as $dataKey ) {
 			if ( isset( $thresholdData[$dataKey] ) ) {
 				$this->$dataKey = $thresholdData[$dataKey];
@@ -37,25 +27,22 @@ class Threshold {
 				break;
 			}
 		}
-		$this->groupDataProvider = $groupDataProvider;
 	}
 
 	/**
 	 * @param array $data
-	 * @param string $groupName
+	 * @param int $userCount
 	 * @param string|null $keyToCheck Key in data items to check, or null if only counting
 	 * @return bool
 	 * @throws Exception
 	 */
-	public function isReached( array $data, string $groupName, ?string $keyToCheck = null ): bool {
+	public function isReached( array $data, int $userCount, ?string $keyToCheck = null ): bool {
 		$this->assertNoException();
 		list( $total, $count ) = $this->getProcessedAndFulfilled( $data, $keyToCheck );
 
 		switch ( $this->unit ) {
 			case 'percent':
-				return $this->isPercentReached(
-					$count, $this->groupDataProvider->getNumberOfUsersInGroup( $groupName )
-				);
+				return $this->isPercentReached( $count, $userCount );
 			case 'user':
 				return $this->isUserCountReached( $count );
 			default:
@@ -65,11 +52,11 @@ class Threshold {
 
 	/**
 	 * @param array $data
-	 * @param string $groupName
+	 * @param int $userCount
 	 * @param string|null $keyToCheck
 	 * @return bool
 	 */
-	public function canBeReached( array $data, string $groupName, ?string $keyToCheck = null ): bool {
+	public function canBeReached( array $data, int $userCount, ?string $keyToCheck = null ): bool {
 		$this->assertNoException();
 		if ( $this->unit !== 'user' ) {
 			return true;
@@ -77,8 +64,7 @@ class Threshold {
 		list( $totalCompleted, $fulfilled ) = $this->getProcessedAndFulfilled( $data, $keyToCheck );
 
 		$needed = (int)$this->value;
-		$totalUsers = $this->groupDataProvider->getNumberOfUsersInGroup( $groupName );
-		$available = $totalUsers - $totalCompleted;
+		$available = $userCount - $totalCompleted;
 
 		return $needed - $fulfilled <= $available;
 	}
