@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Workflows\Query\Model;
 
+use EventSauce\EventSourcing\PointInTime;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\Event;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskCompleted;
-use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAborted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowEnded;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowInitialized;
@@ -27,6 +27,8 @@ final class DBStateModel implements WorkflowStateModel {
 	/** @var int|null */
 	private $initiator;
 	/** @var string */
+	private $started;
+	/** @var string */
 	private $touched;
 	/** @var array */
 	private $payload;
@@ -36,6 +38,7 @@ final class DBStateModel implements WorkflowStateModel {
 			WorkflowId::fromString( $row->wfs_workflow_id ),
 			$row->wfs_state,
 			$row->wfs_last_event,
+			$row->wfs_started,
 			(int)$row->wfs_initiator,
 			$row->wfs_touched,
 			$row->wfs_payload
@@ -46,12 +49,13 @@ final class DBStateModel implements WorkflowStateModel {
 	 * @param WorkflowId $workflowId
 	 * @param string $state
 	 * @param string $lastEvent
+	 * @param string $started
 	 * @param null $initiator
 	 * @param string|null $touched
 	 * @param string|array|null $payload
 	 */
 	public function __construct(
-		WorkflowId $workflowId, $state, $lastEvent,
+		WorkflowId $workflowId, $state, $lastEvent, $started,
 		$initiator = null, $touched = null, $payload = []
 	) {
 		$this->inflector = new WorkflowEventClassInflector();
@@ -60,6 +64,7 @@ final class DBStateModel implements WorkflowStateModel {
 		$this->state = $state;
 		$this->lastEvent = $lastEvent !== null ? $this->inflector->typeToClassName( $lastEvent ) : null;
 		$this->initiator = $initiator;
+		$this->started = $started;
 		$this->touched = $touched;
 		if ( is_string( $payload ) ) {
 			$payload = json_decode( $payload, 1 );
@@ -98,6 +103,13 @@ final class DBStateModel implements WorkflowStateModel {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getStarted(): string {
+		return $this->started;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function serialize(): array {
@@ -106,8 +118,9 @@ final class DBStateModel implements WorkflowStateModel {
 			'wfs_state' => $this->state,
 			'wfs_last_event' => $this->inflector->classNameToType( $this->lastEvent ),
 			'wfs_initiator' => $this->initiator ? $this->initiator : null,
+			'wfs_started' => $this->started,
 			'wfs_touched' => $this->touched,
-			'wfs_payload' => json_encode( $this->payload )
+			'wfs_payload' => json_encode( $this->payload ),
 		];
 	}
 
@@ -118,6 +131,9 @@ final class DBStateModel implements WorkflowStateModel {
 		$this->lastEvent = get_class( $event );
 		if ( $event instanceof WorkflowInitialized ) {
 			$this->payload['definition'] = $event->getDefinitionSource();
+			if ( $event->getTimeOfRecording() instanceof PointInTime ) {
+				$this->started = $event->getTimeOfRecording()->dateTime()->format( 'YmdHis' );
+			}
 		}
 		if ( $event instanceof WorkflowStarted ) {
 			$this->state = Workflow::STATE_RUNNING;
@@ -127,8 +143,6 @@ final class DBStateModel implements WorkflowStateModel {
 				$this->pageAffected = $context['pageId'];
 			}
 			$this->payload['context'] = $context;
-		}
-		if ( $event instanceof TaskStarted ) {
 		}
 		if ( $event instanceof WorkflowAborted ) {
 			$this->state = Workflow::STATE_ABORTED;
@@ -143,6 +157,8 @@ final class DBStateModel implements WorkflowStateModel {
 			$this->payload[$event->getElementId()] = $event->getData();
 		}
 
-		$this->touched = \MWTimestamp::now( TS_MW );
+		if ( $event->getTimeOfRecording() instanceof PointInTime ) {
+			$this->touched = $event->getTimeOfRecording()->dateTime()->format( 'YmdHis' );
+		}
 	}
 }
