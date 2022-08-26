@@ -13,7 +13,6 @@ use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
-use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use User;
@@ -25,12 +24,8 @@ class GroupVoteActivity extends GenericVoteActivity {
 	 */
 	protected $activityKey = 'group-vote';
 
-	/**
-	 * Group name to vote
-	 *
-	 * @var string
-	 */
-	private $groupName;
+	/** @var array */
+	private $initialAssignedUsers = [];
 
 	/**
 	 * Array with users votes data, has such structure:
@@ -58,26 +53,15 @@ class GroupVoteActivity extends GenericVoteActivity {
 	 */
 	private $groupDataProvider;
 
-	/** @var ThresholdChecker */
-	private $thresholdChecker;
-
 	/**
 	 * @inheritDoc
 	 */
 	public function __construct(
-		INotifier $notifier, GroupDataProvider $groupDataProvider,
-		ThresholdCheckerFactory $factory, ITask $task
+		INotifier $notifier, GroupDataProvider $groupDataProvider, ITask $task
 	) {
 		parent::__construct( $notifier, $task );
 
 		$this->groupDataProvider = $groupDataProvider;
-		try {
-			$this->thresholdChecker = $factory->makeThresholdChecker(
-				$this->getExtensionElementData( 'threshold' )
-			);
-		} catch ( Exception $ex ) {
-			throw new NonRecoverableWorkflowExecutionException( $ex->getMessage(), $this->task );
-		}
 	}
 
 	/**
@@ -119,8 +103,23 @@ class GroupVoteActivity extends GenericVoteActivity {
 		parent::setSecondaryData( $data, $context );
 
 		$errorMessages = [];
-		$this->usersVoted = !empty( $data['users_voted'] ) ? $data['users_voted'] : [];
+		$this->usersVoted = $this->parseUsersVoted( $data['users_voted'] );
 		$this->handleErrors( $errorMessages );
+	}
+
+	/**
+	 * @param array $data
+	 *
+	 * @return void
+	 */
+	protected function setInitialAssignedUsers( array $data ): void {
+		if ( isset( $data['assigned_group'] ) && !empty( $data['assigned_group'] ) ) {
+			$this->initialAssignedUsers = array_values(
+				$this->groupDataProvider->getUsersInGroup( $data['assigned_group'] )
+			);
+		} elseif ( isset( $data['assigned_users'] ) && !empty( $data['assigned_users'] ) ) {
+			$this->initialAssignedUsers = explode( ',', $data['assigned_users'] );
+		}
 	}
 
 	/**
@@ -131,16 +130,10 @@ class GroupVoteActivity extends GenericVoteActivity {
 
 		$errorMessages = [];
 
-		if ( !empty( $data['assigned_group'] ) ) {
-			$this->groupName = $data['assigned_group'];
-
-			if ( $this->groupDataProvider->getNumberOfUsersInGroup( $this->groupName ) === 0 ) {
-				// workflows-group-vote-group-no-users
-				$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
-			}
-		} else {
-			// workflows-group-vote-group-empty
-			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-empty';
+		$this->setInitialAssignedUsers( $data );
+		if ( count( $this->initialAssignedUsers ) === 0 ) {
+			// workflows-group-vote-group-no-users
+			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
 		}
 
 		$this->handleErrors( $errorMessages );
@@ -163,15 +156,20 @@ class GroupVoteActivity extends GenericVoteActivity {
 		$this->saveUserVote( $this->actor->getName(), $vote, $comment );
 
 		// Update data to be returned
-		$data['users_voted'] = $this->getUserVotes();
+		$data['users_voted'] = json_encode( $this->getUserVotes() );
 
 		// We need to reset comment field for next users
 		$data['comment'] = '';
 
 		try {
-			if (
-				!$this->thresholdChecker->hasReachedThresholds( $this->usersVoted, $this->groupName, 'vote' )
-			) {
+			$checker = new ThresholdChecker(
+				$this->getExtensionElementData( 'threshold' )
+			);
+
+			$reached = $checker->hasReachedThresholds(
+				$this->usersVoted, count( $this->initialAssignedUsers ), 'vote'
+			);
+			if ( !$reached ) {
 				// No thresholds reached yet
 				return new ExecutionStatus( IActivity::STATUS_LOOP_COMPLETE, $data );
 			}
@@ -184,12 +182,27 @@ class GroupVoteActivity extends GenericVoteActivity {
 	}
 
 	/**
+	 * @param string|array $raw
+	 *
+	 * @return array|mixed
+	 */
+	private function parseUsersVoted( $raw ): array {
+		if ( empty( $raw ) ) {
+			return [];
+		}
+		if ( is_array( $raw ) ) {
+			return $raw;
+		}
+		return json_decode( $raw, 1 );
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTargetUsers( array $properties ): ?array {
-		$groupName = $properties['assigned_group'];
-		$usernames = array_values( $this->groupDataProvider->getUsersInGroup( $groupName ) );
-		$voted = $properties['users_voted'];
+		$this->setInitialAssignedUsers( $properties );
+		$usernames = $this->initialAssignedUsers;
+		$voted = $this->parseUsersVoted( $properties['users_voted'] );
 		if ( !is_array( $voted ) ) {
 			$voted = [];
 		}

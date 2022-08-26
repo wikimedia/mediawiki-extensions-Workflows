@@ -42,8 +42,12 @@ class GroupVoteDescriptor extends FeedbackDescriptor {
 			'yes' => Message::newFromKey( 'workflows-activity-history-vote-result-yes' )->text(),
 			'no' => Message::newFromKey( 'workflows-activity-history-vote-result-no' )->text()
 		];
-
+		if ( empty( $rd['users_votes'] ) ) {
+			return $history;
+		}
 		$usersVoted = $rd['users_voted'];
+		$usersVoted = is_array( $usersVoted ) ?
+			$usersVoted : json_decode( $usersVoted, 1 );
 		foreach ( $usersVoted as $userVoted ) {
 			$voteResult = $voteResults[$userVoted['vote']];
 			$history[$userVoted['userName']] = $voteResult . ': ' . $this->stripComment( $userVoted['comment'] );
