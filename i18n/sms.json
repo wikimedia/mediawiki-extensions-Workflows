@@ -5,7 +5,9 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Vaʹlljed",
+	"workflows-ui-starter-action-cancel": "Jõõsk",
 	"workflows-ui-task-completion-action-complete": "Vuõlttâd",
+	"workflows-ui-task-completion-action-cancel": "Jõõsk",
 	"workflows-uto-activity-group_vote": "Joukkjiõnn",
 	"workflows-uto-activity-group_feedback": "Joukkmaacctõs",
 	"workflows-form-placeholder-comment": "Kommeʹntt",
@@ -18,6 +20,7 @@
 	"workflows-collect-data-form-groupname": "Joukk",
 	"workflows-collect-data-form-username": "Õõʹnni",
 	"workflows-ui-overview-details-raw-data-popup-value": "Ärvv",
+	"workflows-ui-action-cancel": "Jõõsk",
 	"workflows-ui-trigger-action-create": "Ruõkk",
 	"workflows-ui-trigger-action-delete": "Jaukkâd",
 	"workflows-action-edit-label": "Muuʹtt",
@@ -25,6 +28,7 @@
 	"workflows-activity-group-feedback-name": "Joukkmaacctõs",
 	"workflows-activity-group-vote-name": "Joukkjiõnn",
 	"workflows-ui-workflow-overview-step-name-group-feedback": "Joukkmaacctõs",
+	"workflows-activity-set-template-params-cannot-save": "Ruõkkmõš ij oʹnnstam",
 	"workflows-ui-overview-details-section-details": "Teâđ",
 	"workflows-activity-property-username": "Õõʹnninõmm"
 }
