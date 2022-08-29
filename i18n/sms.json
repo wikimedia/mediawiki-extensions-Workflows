@@ -26,5 +26,9 @@
 	"workflows-action-edit-label": "Muuʹtt",
 	"workflows-activity-property-username": "Õõʹnninõmm",
 	"workflows-property-validator-required-error": "Ärvv lij pääkklaž.",
-	"workflows-ui-overview-details-section-details": "Teâđ"
+	"workflows-ui-overview-details-section-details": "Teâđ",
+	"workflows-ui-starter-action-cancel": "Jõõsk",
+	"workflows-ui-task-completion-action-cancel": "Jõõsk",
+	"workflows-ui-action-cancel": "Jõõsk",
+	"workflows-activity-set-template-params-cannot-save": "Ruõkkmõš ij oʹnnstam"
 }
