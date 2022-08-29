@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Olve Utne"
+		]
+	},
+	"workflows-form-placeholder-comment": "Målgedibme",
+	"workflows-form-instructions-comment": "Målgedibme",
+	"workflows-ui-trigger-field-description": "Gåvådibme",
+	"workflows-activity-property-comment": "Målgedibme"
+}
