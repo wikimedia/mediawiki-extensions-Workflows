@@ -6,7 +6,7 @@
 			title: mw.message( 'workflows-ui-overview-details-raw-data-popup-label' ).text(),
 			framed: false,
 			flags: [ 'progressive', 'primary' ],
-			$overlay: true,
+			$overlay: false
 		};
 
 		workflows.ui.widget.InitialRawDataPopup.parent.call( this, data, cfg );

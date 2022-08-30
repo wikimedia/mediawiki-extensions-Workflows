@@ -6,8 +6,8 @@
 			cfg = {
 				icon: 'info',
 				title: mw.message('workflows-ui-overview-details-raw-data-popup-label').text(),
-				framed: false,
-				$overlay: true,
+				framed: true,
+				$overlay: false,
 				flags: [ 'progressive' ]
 			};
 		}
@@ -20,6 +20,7 @@
 
 		workflows.ui.widget.ActivityRawDataPopup.parent.call( this, cfg );
 
+		this.$element.children()[1].tabIndex = 0;
 		this.$element.addClass( this.getPopupClass() );
 	};
 
