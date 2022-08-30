@@ -30,5 +30,7 @@
 	"workflows-ui-starter-action-cancel": "Jõõsk",
 	"workflows-ui-task-completion-action-cancel": "Jõõsk",
 	"workflows-ui-action-cancel": "Jõõsk",
-	"workflows-activity-set-template-params-cannot-save": "Ruõkkmõš ij oʹnnstam"
+	"workflows-activity-set-template-params-cannot-save": "Ruõkkmõš ij oʹnnstam",
+	"workflows-ui-overview-details-state-label": "Status:",
+	"workflows-ui-overview-details-state-column": "Status"
 }
