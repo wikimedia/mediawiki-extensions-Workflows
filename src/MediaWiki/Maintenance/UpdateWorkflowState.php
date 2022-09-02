@@ -36,6 +36,6 @@ class UpdateWorkflowState extends LoggedUpdateMaintenance {
 	 * @inheritDoc
 	 */
 	protected function getUpdateKey() {
-		return 'workflow-state-store-update';
+		return 'workflow-state-store-update-add-start';
 	}
 }
