@@ -10,7 +10,6 @@ use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
-use MediaWiki\Extension\Workflows\Util\ThresholdCheckerFactory;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWikiIntegrationTestCase;
@@ -124,14 +123,16 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 			[],
 			[
 				'threshold' => [
-					'accept' => [
+					[
+						'type' => 'yes',
 						'value' => 50,
 						'unit' => 'percent'
 					],
-					'decline' => [
+					[
+						'type' => 'no',
 						'value' => 1,
 						'unit' => 'user'
-					]
+					],
 				]
 			],
 			true
@@ -173,13 +174,9 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 			[ 'custom_test_group', $filledGroupUsers ]
 		] );
 
-		$thresholdCheckerFactoryMock = $this->createMock( ThresholdCheckerFactory::class );
-		$thresholdCheckerFactoryMock->method( 'makeThresholdChecker' )->willReturn( $this->thresholdCheckerMock );
-
 		$activity = new GroupVoteActivity(
 			$this->notifier,
 			$groupDataProviderMock,
-			$thresholdCheckerFactoryMock,
 			$this->task
 		);
 		$activity->setSpecialLogLogger( $this->specialLogLogger );
