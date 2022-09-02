@@ -74,7 +74,7 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				Record::STATE => $model->getState(),
 				Record::LAST_TS => $model->getTouched(),
 				Record::LAST_FORMATTED => '',
-				Record::START_TS => '',
+				Record::START_TS => $model->getStarted(),
 				Record::START_FORMATTED => '',
 			] );
 		}

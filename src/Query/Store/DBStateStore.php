@@ -127,7 +127,9 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @param Message $message
 	 */
 	public function handle( Message $message ) {
-		$this->processEvent( $message->event(), $message->aggregateRootId() );
+		$event = $message->event();
+		$event->setTimeOfRecording( $message->timeOfRecording() );
+		$this->processEvent( $event, $message->aggregateRootId() );
 	}
 
 	/**
@@ -177,7 +179,7 @@ final class DBStateStore implements WorkflowStateStore {
 		);
 
 		if ( !$res ) {
-			return new DBStateModel( $id, Workflow::STATE_NOT_STARTED, null );
+			return new DBStateModel( $id, Workflow::STATE_NOT_STARTED, null, '' );
 		}
 
 		$this->inserted[] = $id;
