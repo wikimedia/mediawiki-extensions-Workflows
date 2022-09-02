@@ -375,6 +375,7 @@ final class ActivityManager {
 		$context = DataPreprocessorContext::newFromWorkflowContext(
 			$this->workflow->getContext()
 		);
+
 		return $this->preprocessor->preprocess(
 			$values,
 			$this->workflow->getContext()->flatSerialize(),
