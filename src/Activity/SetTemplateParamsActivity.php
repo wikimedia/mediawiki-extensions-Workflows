@@ -84,7 +84,7 @@ class SetTemplateParamsActivity extends GenericActivity {
 			);
 		}
 		$parser = $this->parserFactory->newRevisionParser( $revision );
-		$templates = $parser->parse( 'transclusion' );
+		$templates = $parser->parse();
 
 		if ( empty( $templates ) || !isset( $templates[$this->templateIndex] ) ) {
 			throw new WorkflowExecutionException(
