@@ -12,6 +12,7 @@ use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\MediaWikiServices;
 use Message;
 use User;
 
@@ -70,7 +71,8 @@ class UserVoteActivity extends GenericVoteActivity {
 				if ( !$this->allowDelegation ) {
 					throw new WorkflowExecutionException( 'workflows-user-vote-cannot-delegate' );
 				}
-				$delegateToUser = User::newFromName( $data['delegate_to'] );
+				$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+				$delegateToUser = $userFactory->newFromName( $data['delegate_to'] );
 
 				if ( !$delegateToUser instanceof User || !$delegateToUser->getId() ) {
 					$errorMessage = Message::newFromKey( 'workflows-delegate-user-invalid' )->text();
@@ -99,7 +101,7 @@ class UserVoteActivity extends GenericVoteActivity {
 					$this->owner,
 					$this->getActivityDescriptor()->getActivityName()->parse(),
 					$data['comment'] ?? '',
-					User::newFromName( $delegateToUsername )
+					$delegateToUser
 				);
 				$assignNotification = new TaskAssigned(
 					[ $delegateToUser ],
