@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Notification;
 
+use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\Notifications\BaseNotification;
 use SpecialPage;
 use Title;
@@ -20,7 +21,7 @@ class DueDateProximity extends BaseNotification {
 	public function __construct( $agent, $assigned, $title, $activity ) {
 		$agent = $agent ?? User::newSystemUser( 'Mediawiki default' );
 		$assigned = array_map( static function ( $username ) {
-			return User::newFromName( $username );
+			return MediaWikiServices::getInstance()->getUserFactory()->newFromName( $username );
 		}, $assigned );
 		$assigned = array_filter( $assigned, static function ( User $user ) {
 			return $user->isRegistered();
