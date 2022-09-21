@@ -13,5 +13,6 @@
 	"workflows-ui-workflow-overview-action-cancel": "Zapri",
 	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
 	"workflows-collect-data-form-groupname": "Skupina",
-	"workflows-ui-trigger-field-name": "Ime"
+	"workflows-ui-trigger-field-name": "Ime",
+	"workflows-collect-data-form-username": "Uporabnik"
 }
