@@ -12,6 +12,7 @@
 	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
 	"workflows-ui-overview-grid-filter-state-all": "Vse",
 	"workflows-collect-data-form-groupname": "Skupina",
+	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-field-name": "Ime"
 }
