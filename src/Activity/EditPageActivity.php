@@ -17,7 +17,6 @@ use Message;
 use Title;
 use TitleFactory;
 use User;
-use WikiPage;
 use WikitextContent;
 
 class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {
@@ -66,13 +65,8 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$this->processData( $data );
 
-		// No service for this yet?
-		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-			// MW 1.36+
-			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
-		} else {
-			$wikiPage = WikiPage::factory( $this->title );
-		}
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()
+			->newFromTitle( $this->title );
 		$updater = $wikiPage->newPageUpdater( $this->user );
 
 		$content = $wikiPage->getContent( SlotRecord::MAIN );
@@ -84,6 +78,7 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 		}
 		$text = '';
 		if ( $this->title->exists() && $this->mode !== static::MODE_REPLACE ) {
+			/** @var WikitextContent $content */
 			$text = $content->getText();
 		}
 
