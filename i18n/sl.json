@@ -14,5 +14,6 @@
 	"workflows-collect-data-form-groupname": "Skupina",
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-ui-action-cancel": "Prekliči",
+	"workflows-ui-trigger-action-create": "Shrani",
 	"workflows-ui-trigger-field-name": "Ime"
 }
