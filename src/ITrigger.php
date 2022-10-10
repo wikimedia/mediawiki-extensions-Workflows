@@ -18,12 +18,14 @@ interface ITrigger extends JsonSerializable {
 	public function getId(): string;
 
 	/**
+	 * TODO: Since BS5, make this return a Message object
 	 * Trigger name
 	 * @return string
 	 */
 	public function getName(): string;
 
 	/**
+	 * TODO: Since BS5, make this return a Message object
 	 * @return string
 	 */
 	public function getDescription(): string;

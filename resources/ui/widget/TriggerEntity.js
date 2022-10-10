@@ -6,9 +6,9 @@
 		this.data = data;
 		this.typeDesc = typeDesc;
 
-		var nameLabel = this.data.name;
+		var nameLabel = this.data.name_parsed;
 		if ( !this.data.active ) {
-			nameLabel = mw.message( 'workflows-ui-trigger-item-inactive', this.data.name ).text();
+			nameLabel = mw.message( 'workflows-ui-trigger-item-inactive', this.data.name_parsed ).text();
 		}
 		this.$element.append( new OO.ui.LabelWidget( {
 			label: nameLabel,
