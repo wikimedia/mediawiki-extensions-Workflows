@@ -15,5 +15,6 @@
 	"workflows-collect-data-form-groupname": "Skupina",
 	"workflows-ui-trigger-field-name": "Ime",
 	"workflows-collect-data-form-username": "Uporabnik",
-	"workflows-ui-trigger-action-create": "Shrani"
+	"workflows-ui-trigger-action-create": "Shrani",
+	"workflows-action-edit-label": "Uredi"
 }
