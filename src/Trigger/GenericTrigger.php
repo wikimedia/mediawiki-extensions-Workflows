@@ -12,6 +12,7 @@ use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\MediaWikiServices;
+use Message;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Title;
@@ -123,7 +124,7 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	 * @inheritDoc
 	 */
 	public function getDescription(): string {
-		return $this->description ?? '';
+		return $this->description;
 	}
 
 	/**
@@ -272,7 +273,9 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 		$data = [
 			'type' => $this->getType(),
 			'name' => $this->getName(),
+			'name_parsed' => $this->tryGetTranslation( $this->getName() ),
 			'description' => $this->getDescription(),
+			'description_parsed' => $this->tryGetTranslation( $this->getDescription() ),
 			'active' => $this->active,
 			'definition' => $this->definition,
 			'repository' => $this->repo,
@@ -392,5 +395,24 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 		}
 
 		return $res;
+	}
+
+	/**
+	 * Check if key is a message key and parse it if it is.
+	 * @param string $text
+	 *
+	 * @return string
+	 */
+	private function tryGetTranslation( string $text ): string {
+		if ( empty( $text ) ) {
+			return '';
+		}
+
+		$msg = Message::newFromKey( $text );
+		if ( !$msg->exists() ) {
+			return $text;
+		}
+
+		return $msg->text();
 	}
 }
