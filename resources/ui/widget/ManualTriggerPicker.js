@@ -26,19 +26,19 @@
 							repository: triggers[key].repository,
 							definition: triggers[key].definition
 						},
-						desc: triggers[key].description || '',
+						desc: triggers[key].description_parsed || '',
 						contextData: triggers[key].contextData || {},
 						initData: triggers[key].initData || {}
 					},
-					label: triggers[key].name
+					label: triggers[key].name_parsed
 				} );
-				if ( triggers[key].hasOwnProperty( 'description' ) ) {
+				if ( triggers[key].hasOwnProperty( 'description_parsed' ) ) {
 					$( '<span>' )
 					.css( {
 						'font-size': '0.9em',
 						'color': 'grey'
 					} )
-					.html( triggers[key].description ).insertAfter( option.$label );
+					.html( triggers[key].description_parsed ).insertAfter( option.$label );
 				}
 				menuItems.push( option );
 			}

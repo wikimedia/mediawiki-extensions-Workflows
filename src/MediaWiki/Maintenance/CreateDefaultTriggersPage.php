@@ -3,7 +3,9 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Maintenance;
 
 use CommentStoreComment;
+use Exception;
 use LoggedUpdateMaintenance;
+use MediaWiki\Extension\Workflows\Definition\Repository\FileRepository;
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
@@ -11,10 +13,13 @@ use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use Message;
 use MWException;
 use Title;
 use User;
 use WikiPage;
+
+require_once dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) . '/maintenance/Maintenance.php';
 
 class CreateDefaultTriggersPage extends LoggedUpdateMaintenance {
 	/**
@@ -81,22 +86,70 @@ class CreateDefaultTriggersPage extends LoggedUpdateMaintenance {
 			$repository = $repositoryFactory->getRepository( $key );
 			$definitions = $repository->getAllKeys();
 			foreach ( $definitions as $definition ) {
+				$name = $this->getTriggerName( $repository, $definition );
+				$description = $this->getTriggerDescription( $repository, $definition );
 				$title = $repository->getDefinitionDisplayTitle( $definition );
 				$triggerKey = $triggerRepo->generateTriggerKey( $title, 'manual' );
-				$triggers[$triggerKey] = new PageRelatedTrigger(
+				$trigger = new PageRelatedTrigger(
 					MediaWikiServices::getInstance()->getTitleFactory(),
 					$triggerKey,
-					$repository->getDefinitionDisplayTitle( $definition ),
-					$repository->getDefinitionDescription( $definition ),
+					$name,
+					$description,
 					'manual',
 					$definition,
 					$key,
 					[], [], [],
 					true
 				);
+				$triggerData = $trigger->jsonSerialize();
+				// We do not want this in the default content
+				unset( $triggerData['name_parsed'] );
+				unset( $triggerData['description_parsed'] );
+				$triggers[$triggerKey] = $triggerData;
 			}
 		}
 
 		return new TriggerDefinitionContent( json_encode( $triggers ) );
 	}
+
+	/**
+	 * @param IDefinitionRepository $repository
+	 * @param string $definition
+	 *
+	 * @return string
+	 * @throws Exception
+	 */
+	private function getTriggerName( IDefinitionRepository $repository, $definition ): string {
+		if ( !( $repository instanceof FileRepository ) ) {
+			return $repository->getDefinitionDisplayTitle( $definition );
+		}
+		$msg = Message::newFromKey( "workflows-workflow-file-definition-$definition-title" );
+		if ( $msg->exists() ) {
+			return $msg->getKey();
+		}
+
+		return $repository->getDefinitionDisplayTitle( $definition );
+	}
+
+	/**
+	 * @param IDefinitionRepository $repository
+	 * @param string $definition
+	 *
+	 * @return string
+	 * @throws Exception
+	 */
+	private function getTriggerDescription( IDefinitionRepository $repository, $definition ): string {
+		if ( !( $repository instanceof FileRepository ) ) {
+			return $repository->getDefinitionDescription( $definition );
+		}
+		$msg = Message::newFromKey( "workflows-workflow-file-definition-$definition-desc" );
+		if ( $msg->exists() ) {
+			return $msg->getKey();
+		}
+
+		return $repository->getDefinitionDescription( $definition );
+	}
 }
+
+$maintClass = CreateDefaultTriggersPage::class;
+require_once RUN_MAINTENANCE_IF_MAIN;

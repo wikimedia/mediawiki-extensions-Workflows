@@ -3,6 +3,7 @@
 		workflows.ui.dialog.TriggerEditor.super.call( this, cfg );
 		this.triggerData = cfg.triggerData || null;
 		this.allData = cfg.allData || {};
+		this.adaptDataForEditor();
 	};
 
 	OO.inheritClass( workflows.ui.dialog.TriggerEditor, OO.ui.ProcessDialog );
@@ -25,6 +26,20 @@
 			flags: 'safe', modes: [ 'triggerTypeSelection', 'triggerDetails' ]
 		}
 	];
+
+	workflows.ui.dialog.TriggerEditor.prototype.adaptDataForEditor = function() {
+		for ( var triggerId in this.allData ) {
+			if ( !this.allData.hasOwnProperty( triggerId ) ) {
+				continue;
+			}
+			delete( this.allData[triggerId].name_parsed );
+			delete ( this.allData[triggerId].description_parsed );
+		}
+		if ( this.triggerData !== null ) {
+			delete( this.triggerData.name_parsed );
+			delete ( this.triggerData.description_parsed );
+		}
+	};
 
 	workflows.ui.dialog.TriggerEditor.prototype.getReadyProcess = function( data ) {
 		return workflows.ui.dialog.TriggerEditor.parent.prototype.getReadyProcess.call( this, data )
