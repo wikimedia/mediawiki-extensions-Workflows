@@ -15,5 +15,6 @@
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-action-create": "Shrani",
-	"workflows-ui-trigger-field-name": "Ime"
+	"workflows-ui-trigger-field-name": "Ime",
+	"workflows-action-edit-label": "Uredi"
 }
