@@ -16,5 +16,6 @@
 	"workflows-ui-trigger-field-name": "Ime",
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-ui-trigger-action-create": "Shrani",
-	"workflows-action-edit-label": "Uredi"
+	"workflows-action-edit-label": "Uredi",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost"
 }
