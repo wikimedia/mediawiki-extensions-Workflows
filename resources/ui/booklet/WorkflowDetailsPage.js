@@ -76,22 +76,13 @@
 		if ( !initiator ) {
 			return;
 		}
-		var title = mw.Title.makeTitle( 2, initiator );
-		if ( !title ) {
-			return;
-		}
-
-		var revision = new OO.ui.ButtonWidget( {
-			label: initiator,
-			href: title.getUrl(),
-			framed: false,
-			flags: 'progressive',
-			target: '_new'
+		var userWidget = new OOJSPlus.ui.widget.UserWidget( {
+			user_name: initiator,  showLink: true
 		} );
 
 		this.$detailsPanelTable.append( $('<tr>' ).append(
 			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
-			$( '<td>' ).append( revision.$element )
+			$( '<td>' ).append( userWidget.$element )
 		));
 	};
 
@@ -376,16 +367,10 @@
 				} ).$element );
 			} else {
 				for ( var i = 0; i < targetUsers.length; i++ ) {
-					var userPage = new mw.Title( 'User:' +  targetUsers[i].charAt(0).toUpperCase() + targetUsers[i].slice(1) );
-					assignedUsersLayout.$element.append(
-						new OO.ui.ButtonWidget( {
-							framed: false,
-							label: userPage.getMainText(),
-							href: userPage.getUrl(),
-							flags: 'progressive',
-							target: '_new'
-						} ).$element
-					);
+					var userWidget = new OOJSPlus.ui.widget.UserWidget( {
+						user_name: targetUsers[i],  showLink: true
+					} );
+					assignedUsersLayout.$element.append( userWidget.$element );
 				}
 			}
 			var $table = $('<table>').append( $('<colgroup>')

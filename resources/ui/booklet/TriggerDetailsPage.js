@@ -43,7 +43,6 @@
 			this.editorWidget = editor;
 			this.emit( 'loaded' );
 		}.bind( this ) );
-
 	};
 
 	workflows.ui.TriggerDetailsPage.prototype.getTitle = function() {
