@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"EdoAug"
 		]
 	},
-	"workflows-ui-starter-action-done": "Ferdig",
+	"workflows-ui-starter-action-done": "Start",
 	"workflows-ui-workflow-overview-action-back": "Tilbake",
 	"workflows-activity-history-vote-result-yes": "Godkjent",
 	"workflows-activity-history-vote-result-no": "Avvist"
