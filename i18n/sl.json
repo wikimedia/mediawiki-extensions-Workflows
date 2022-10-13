@@ -17,5 +17,6 @@
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-ui-trigger-action-create": "Shrani",
 	"workflows-action-edit-label": "Uredi",
-	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost"
+	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost",
+	"workflows-ui-task-completion-action-complete": "Pošlji"
 }
