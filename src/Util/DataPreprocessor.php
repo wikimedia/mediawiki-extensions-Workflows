@@ -55,7 +55,7 @@ class DataPreprocessor {
 		$this->requestContext->setTitle( $contextTitle );
 		$this->requestContext->setUser( $contextUser );
 
-		$this->parser->setTitle( $contextTitle );
+		$this->parser->setPage( $contextTitle );
 		$this->parser->setUser( $contextUser );
 
 		$parserOptions = ParserOptions::newFromUser( $contextUser );
