@@ -102,7 +102,7 @@ class UserVoteActivity extends GenericVoteActivity {
 					User::newFromName( $delegateToUsername )
 				);
 				$assignNotification = new TaskAssigned(
-					User::newFromName( $delegateToUsername ),
+					[ $delegateToUser ],
 					$this->targetPage,
 					$this->getActivityDescriptor()->getActivityName()->parse()
 				);
