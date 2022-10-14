@@ -210,7 +210,10 @@ final class ActivityManager {
 		$activityTarget = $activity->getTargetUsers( $properties );
 		if ( $activityTarget === null ) {
 			if ( isset( $properties['assigned_user'] ) ) {
-				return explode( ',', $properties['assigned_user'] );
+				// explode and trim to handle comma-separated lists
+				$activityTarget = array_map(
+					'trim', explode( ',', $properties['assigned_user'] )
+				);
 			} else {
 				return null;
 			}
