@@ -77,5 +77,8 @@
 	"workflows-triggers-type-create-label": "בעת יצירת דף",
 	"workflows-triggers-type-move-label": "בעת העברת דף",
 	"workflows-ui-action-cancel": "ביטול",
-	"workflows-action-edit-label": "עריכה"
+	"workflows-ui-trigger-action-create": "שמירה",
+	"workflows-action-edit-label": "עריכה",
+	"workflows-action-delete-label": "מחיקה",
+	"workflows-activity-set-template-params-cannot-save": "השמירה נכשלה"
 }
