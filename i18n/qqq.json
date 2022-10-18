@@ -159,8 +159,6 @@
 	"workflows-collect-data-form-username": "Label in a form\n{{identical|User}}",
 	"workflows-collect-data-form-reportrecipient": "Label for the workflow form field",
 	"workflows-notification-feedback-task-assign-web-body": "Wiki notification in case of feedback task assigned to some user.\n$1 - Activity name\n$2 - Page name\n$3 - Initiator of workflow\n$4 - Instructions for feedback",
-	"workflows-activity-history-vote-result-yes": "approuvé",
-	"workflows-activity-history-vote-result-no": "refusé",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Label for the table column in activity raw data popup\n\n{{Identical|Property}}",
 	"workflows-ui-overview-details-raw-data-popup-value": "Label for the table column in activity raw data popup\n\n{{Identical|Value}}",
 	"workflows-ui-overview-details-raw-data-popup-label": "Title for the activity raw data popup",
