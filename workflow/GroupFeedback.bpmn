@@ -25,7 +25,7 @@
 			<bpmn:property name="groupname"/>
 			<bpmn:property name="instructions"/>
 			<bpmn:property name="reportrecipient" validation="email-recipient"/>
-			<bpmn:property name="due_date"/>
+			<bpmn:property name="due_date">{{CURRENTTIMESTAMP}}</bpmn:property>
 			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
 			<bpmn:outgoing>FromCollectDataToGroupFeedback</bpmn:outgoing>
 		</bpmn:userTask>
@@ -36,7 +36,7 @@
 				<wf:type>group_feedback</wf:type>
 				<wf:threshold>
 					<wf:type>complete</wf:type>
-					<wf:value>3</wf:value>
+					<wf:value>2</wf:value>
 					<wf:unit>user</wf:unit>
 				</wf:threshold>
 			</bpmn:extensionElements>
