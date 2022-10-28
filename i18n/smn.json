@@ -12,5 +12,7 @@
 	"workflows-ui-overview-grid-filter-state-all": "Puoh",
 	"workflows-ui-starter-action-cancel": "Jooskâ",
 	"workflows-ui-task-completion-action-cancel": "Jooskâ",
-	"workflows-ui-action-cancel": "Jooskâ"
+	"workflows-ui-action-cancel": "Jooskâ",
+	"workflows-ui-trigger-action-delete": "Siho",
+	"workflows-action-delete-label": "Siho"
 }
