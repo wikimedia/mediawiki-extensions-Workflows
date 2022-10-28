@@ -6,7 +6,7 @@
 			cfg = {
 				icon: 'info',
 				title: mw.message('workflows-ui-overview-details-raw-data-popup-label').text(),
-				framed: true,
+				framed: false,
 				$overlay: false,
 				flags: [ 'progressive' ]
 			};
