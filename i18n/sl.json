@@ -20,5 +20,6 @@
 	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost",
 	"workflows-ui-task-completion-action-complete": "Pošlji",
 	"workflows-form-placeholder-comment": "Komentar",
-	"workflows-form-instructions-comment": "Komentar"
+	"workflows-form-instructions-comment": "Komentar",
+	"workflows-ui-overview-details-page-context-page": "Stran"
 }
