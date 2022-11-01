@@ -14,5 +14,6 @@
 	"workflows-ui-task-completion-action-cancel": "Jooskâ",
 	"workflows-ui-action-cancel": "Jooskâ",
 	"workflows-ui-trigger-action-delete": "Siho",
-	"workflows-action-delete-label": "Siho"
+	"workflows-action-delete-label": "Siho",
+	"workflows-ui-trigger-action-create": "Vuorkkii"
 }
