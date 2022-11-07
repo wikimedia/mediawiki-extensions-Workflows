@@ -33,5 +33,6 @@
 	"workflows-activity-set-template-params-cannot-save": "Ruõkkmõš ij oʹnnstam",
 	"workflows-ui-overview-details-state-label": "Status:",
 	"workflows-ui-overview-details-state-column": "Status",
-	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Priim"
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Priim",
+	"workflows-ui-overview-grid-filter-state-all": "Puk"
 }
