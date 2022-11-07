@@ -21,5 +21,7 @@
 	"workflows-ui-task-completion-action-complete": "Pošlji",
 	"workflows-form-placeholder-comment": "Komentar",
 	"workflows-form-instructions-comment": "Komentar",
-	"workflows-ui-overview-details-page-context-page": "Stran"
+	"workflows-ui-overview-details-page-context-page": "Stran",
+	"workflows-ui-starter-action-choose": "Izberite",
+	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost"
 }
