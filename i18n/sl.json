@@ -4,6 +4,7 @@
 			"Eleassar"
 		]
 	},
+	"workflows-ui-starter-action-choose": "Izberite",
 	"workflows-ui-starter-action-done": "Začni",
 	"workflows-ui-starter-action-cancel": "Prekliči",
 	"workflows-ui-task-completion-action-complete": "Pošlji",
@@ -18,6 +19,7 @@
 	"workflows-collect-data-form-groupname": "Skupina",
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost",
+	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost",
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-action-create": "Shrani",
 	"workflows-ui-trigger-field-name": "Ime",
