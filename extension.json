@@ -72,7 +72,7 @@
 					},
 					"set_template_param": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\SetTemplateParamsActivity",
-						"services": [ "MWStakeWikitextParserFactory", "TitleFactory", "RevisionStore", "UserFactory", "PermissionManager" ]
+						"services": [ "WikitextParserFactory", "TitleFactory", "RevisionStore", "UserFactory", "PermissionManager" ]
 					}
 				},
 				"DecisionRegistry": {}
