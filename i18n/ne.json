@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Bada Kaji",
-			"बडा काजी"
+			"बडा काजी",
+			"पर्वत सुबेदी"
 		]
 	},
 	"workflows-ui-workflow-overview-action-abort": "रद्द गर्नुहोस्",
+	"workflows-ui-trigger-action-delete": "मेट्ने",
+	"workflows-action-delete-label": "मेट्ने",
 	"workflows-activity-property-username": "प्रयोगकर्ता",
 	"workflows-activity-property-usernameEditor": "सम्पादक",
 	"workflows-activity-property-vote": "मतदान",
