@@ -168,8 +168,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 				// No thresholds reached yet
 				return new ExecutionStatus( IActivity::STATUS_LOOP_COMPLETE, $data );
 			}
-		}
-		catch ( Exception $e ) {
+		} catch ( Exception $e ) {
 			throw new NonRecoverableWorkflowExecutionException( $e->getMessage(), $this->task );
 		}
 
