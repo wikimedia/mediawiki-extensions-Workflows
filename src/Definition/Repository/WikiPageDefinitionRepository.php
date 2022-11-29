@@ -7,6 +7,7 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
 use MediaWiki\Revision\RevisionStore;
+use Message;
 use Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -146,10 +147,18 @@ class WikiPageDefinitionRepository implements IDefinitionRepository {
 	}
 
 	public function getDefinitionDisplayTitle( $definition ): string {
+		$message = Message::newFromKey( "workflows-wikipage-definition-$definition-title" );
+		if ( $message->exists() ) {
+			return $message->text();
+		}
 		return $definition;
 	}
 
 	public function getDefinitionDescription( $definition ): string {
+		$message = Message::newFromKey( "workflows-wikipage-definition-$definition-desc" );
+		if ( $message->exists() ) {
+			return $message->text();
+		}
 		return '';
 	}
 }
