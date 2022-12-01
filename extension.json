@@ -3,9 +3,9 @@
 	"version": "1.1",
 	"license-name": "GPL-3.0-only",
 	"author": [
-		"[http://www.hallowelt.com Hallo Welt! GmbH]"
+		"[https://www.hallowelt.com Hallo Welt! GmbH]"
 	],
-	"url": "http://www.hallowelt.com",
+	"url": "https://www.hallowelt.com",
 	"descriptionmsg": "workflows-desc",
 	"requires": {
 		"MediaWiki": ">= 1.35.0",
