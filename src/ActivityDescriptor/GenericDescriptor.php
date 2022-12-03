@@ -134,7 +134,7 @@ class GenericDescriptor implements IActivityDescriptor {
 		return new Message( 'workflows-ui-alert-action-complete' );
 	}
 
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		return [
 			'name' => $this->getActivityName()->text(),
 			'taskName' => $this->getTaskName()->text(),

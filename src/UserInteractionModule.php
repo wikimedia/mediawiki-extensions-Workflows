@@ -47,7 +47,7 @@ class UserInteractionModule implements JsonSerializable {
 	/**
 	 * @return array
 	 */
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		return [
 			'modules' => $this->moduleNames,
 			'callback' => $this->callback,

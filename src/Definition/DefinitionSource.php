@@ -72,7 +72,7 @@ class DefinitionSource implements JsonSerializable {
 	/**
 	 * @return array
 	 */
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		return [
 			'repositoryKey' => $this->repositoryKey,
 			'name' => $this->name,
