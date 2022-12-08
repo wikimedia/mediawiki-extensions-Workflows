@@ -1,8 +1,43 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nieszczarda2"
+			"Nieszczarda2",
+			"Vlad5250"
 		]
 	},
-	"workflows-collect-data-form-instructions": "Інструкцыі"
+	"workflows-ui-starter-action-cancel": "Скасаваць",
+	"workflows-ui-task-completion-action-complete": "Даслаць",
+	"workflows-ui-task-completion-action-cancel": "Скасаваць",
+	"workflows-form-placeholder-comment": "Камэнтар",
+	"workflows-ui-overview-details-action-reason": "Прычына",
+	"workflows-ui-overview-details-page-context-revision": "Вэрсія",
+	"workflows-ui-overview-details-page-context-page": "Старонка",
+	"workflows-ui-overview-details-workflow-type-label": "Тып",
+	"workflows-ui-overview-grid-filter-state-all": "Усе",
+	"workflows-ui-overview-grid-filter-state-active": "Актыўны",
+	"workflows-form-instructions-comment": "Камэнтар",
+	"workflows-error-generic": "Адбылася памылка",
+	"workflows-uto-body-field-instructions": "Інструкцыі: $1",
+	"workflows-collect-data-form-groupname": "Група",
+	"workflows-collect-data-form-instructions": "Інструкцыі",
+	"workflows-collect-data-form-username": "Удзельнік",
+	"workflows-ui-action-cancel": "Скасаваць",
+	"workflows-ui-trigger-action-create": "Захаваць",
+	"workflows-ui-trigger-action-choose": "Працягнуць",
+	"workflows-ui-trigger-action-delete": "Выдаліць",
+	"workflows-ui-trigger-field-name": "Назва",
+	"workflows-ui-trigger-field-active": "Актыўны",
+	"workflows-action-edit-label": "Рэдагаваць",
+	"workflows-action-delete-label": "Выдаліць",
+	"workflows-ui-trigger-field-description": "Апісаньне",
+	"workflows-ui-overview-details-section-details": "Падрабязнасьці",
+	"workflows-activity-property-instructions": "Інструкцыі",
+	"workflows-activity-property-username": "Імя ўдзельніка",
+	"workflows-activity-property-groupname": "Назва групы",
+	"workflows-activity-property-usernameEditor": "Рэдактар",
+	"workflows-activity-property-usernameReviewer": "Рэцэнзэнт",
+	"workflows-activity-property-instructionsReviewer": "Інструкцыі рэцэнзэнта",
+	"workflows-activity-property-vote": "Голас",
+	"workflows-activity-property-comment": "Камэнтар",
+	"workflows-activity-property-action": "Дзеяньне"
 }

@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"workflows-desc": "Omogućuje definisanje i izvršavanje različitih radnih procesa na wikiju",
+	"workflows-ui-starter-select-workflow": "Izaberi radni proces",
+	"workflows-ui-starter-init-note": "Ispunite potrebne podatke za pokretanje",
+	"workflows-ui-starter-dialog-title": "Pokreni radni proces",
+	"workflows-ui-starter-action-start": "Pokreni radni proces",
+	"workflows-ui-starter-action-done": "Početak",
+	"workflows-ui-starter-action-cancel": "Otkaži",
+	"workflows-ui-starter-init-form-fail": "Obrazac za pokretanje nije moguće dohvatiti",
+	"workflows-ui-action-start": "Pokreni radni proces",
+	"log-name-ext-workflows": "Radni procesi",
+	"workflows-ui-task-completion-action-complete": "Pošalji",
+	"workflows-ui-task-completion-action-cancel": "Otkaži",
+	"workflows-form-placeholder-comment": "Komentar"
+}
