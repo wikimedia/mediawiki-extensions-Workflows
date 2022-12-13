@@ -2,14 +2,10 @@
 
 namespace MediaWiki\Extension\Workflows\Data;
 
-use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
-use MediaWiki\Extension\Workflows\UserInteractiveActivity;
-use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
 use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
-use User;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
 	/** @var WorkflowFactory */
@@ -44,7 +40,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			$id = $dataSet->get( Record::ID );
 			$workflow = $this->workflowFactory->getWorkflow( $id );
 			$dataSet->set( Record::ID, $id->toString() );
-			$dataSet->set( Record::ASSIGNEE, $this->getAssignee( $workflow ) );
+			$dataSet->set( Record::ASSIGNEE, $this->formatAssignee( $dataSet->get( Record::ASSIGNEE ) ) );
 			$dataSet->set( Record::STATE_LABEL, $this->getStateLabel( $workflow->getCurrentState() ) );
 
 			$startedTs = $dataSet->get( Record::START_TS );
@@ -69,40 +65,20 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 		return $dataSets;
 	}
 
-	/**
-	 * @param Workflow $workflow
-	 * @return array
-	 * @throws WorkflowExecutionException
-	 */
-	private function getAssignee( Workflow $workflow ): array {
-		if ( $workflow->getCurrentState() !== Workflow::STATE_RUNNING ) {
-			return [];
-		}
-		$current = $workflow->current();
-
-		$assigned = [];
-		$usedIds = [];
-		foreach ( $current as $task ) {
-			$activity = $workflow->getActivityForTask( $task );
-			if ( !( $activity instanceof UserInteractiveActivity ) ) {
-				continue;
-			}
-			$users = $workflow->getActivityManager()->getTargetUsersForActivity( $activity, true );
-			foreach ( $users as $user ) {
-				if ( !( $user instanceof User ) ) {
-					continue;
-				}
-				if ( in_array( $user->getId(), $usedIds ) ) {
-					continue;
-				}
-				$usedIds[] = $user->getId();
-				$assigned[] = $this->linkRenderer->makeLink(
+	private function formatAssignee( $assignees ) {
+		$res = [];
+		foreach ( $assignees as $assignee ) {
+			$bits = explode( '#', $assignee );
+			$username = array_shift( $bits );
+			// TODO: Service
+			$user = \User::newFromName( $username );
+			if ( $user instanceof \User ) {
+				$res[] = $this->linkRenderer->makeLink(
 					$user->getUserPage(), $user->getRealName() ?: $user->getName()
 				);
 			}
 		}
-
-		return $assigned;
+		return $res;
 	}
 
 	/**
