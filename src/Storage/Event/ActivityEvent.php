@@ -42,10 +42,10 @@ class ActivityEvent extends Event {
 		$data = parent::decodePayloadData( $payload );
 
 		return [
-			$data['id'],
-			static::elementIdFromPayload( $payload ),
-			static::actorFromPayload( $payload ),
-			$payload['data'],
+			'id' => $data['id'],
+			'elementId' => static::elementIdFromPayload( $payload ),
+			'actor' => static::actorFromPayload( $payload ),
+			'data' => $payload['data'],
 		];
 	}
 }

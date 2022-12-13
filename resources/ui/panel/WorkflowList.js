@@ -90,7 +90,11 @@
 							$layout.append( $( val[i] ).css( { display: 'block' } ) );
 						}
 						return new OO.ui.HtmlSnippet( $layout );
-					}
+					},
+					filter: {
+						type: 'user',
+						closePopupOnChange: true
+					},
 				},
 				state: {
 					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text(),

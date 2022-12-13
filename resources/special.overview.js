@@ -1,6 +1,6 @@
 $( function() {
 	var $container = $( '#workflows-overview' );
-		if ( $container.length === 0 ) {
+	if ( $container.length === 0 ) {
 		return;
 	}
 	var $loader = $( '#workflows-overview-loader' );
