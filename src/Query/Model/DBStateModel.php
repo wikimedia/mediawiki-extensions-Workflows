@@ -7,6 +7,8 @@ use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\Event;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskCompleted;
+use MediaWiki\Extension\Workflows\Storage\Event\TaskLoopCompleted;
+use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowAborted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowEnded;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowInitialized;
@@ -31,6 +33,8 @@ final class DBStateModel implements WorkflowStateModel {
 	/** @var string */
 	private $touched;
 	/** @var array */
+	private $assignees = [];
+	/** @var array */
 	private $payload;
 
 	public static function newFromRow( $row ) {
@@ -40,6 +44,7 @@ final class DBStateModel implements WorkflowStateModel {
 			$row->wfs_last_event,
 			$row->wfs_started,
 			(int)$row->wfs_initiator,
+			explode( '|', $row->wfs_assignees ),
 			$row->wfs_touched,
 			$row->wfs_payload
 		);
@@ -51,12 +56,13 @@ final class DBStateModel implements WorkflowStateModel {
 	 * @param string $lastEvent
 	 * @param string $started
 	 * @param null $initiator
+	 * @param array $assignees
 	 * @param string|null $touched
 	 * @param string|array|null $payload
 	 */
 	public function __construct(
 		WorkflowId $workflowId, $state, $lastEvent, $started,
-		$initiator = null, $touched = null, $payload = []
+		$initiator = null, $assignees = [], $touched = null, $payload = []
 	) {
 		$this->inflector = new WorkflowEventClassInflector();
 
@@ -64,6 +70,7 @@ final class DBStateModel implements WorkflowStateModel {
 		$this->state = $state;
 		$this->lastEvent = $lastEvent !== null ? $this->inflector->typeToClassName( $lastEvent ) : null;
 		$this->initiator = $initiator;
+		$this->assignees = $assignees;
 		$this->started = $started;
 		$this->touched = $touched;
 		if ( is_string( $payload ) ) {
@@ -102,6 +109,10 @@ final class DBStateModel implements WorkflowStateModel {
 		return $this->touched;
 	}
 
+	public function getAssignees(): array {
+		return $this->assignees;
+	}
+
 	/**
 	 * @return string
 	 */
@@ -117,7 +128,8 @@ final class DBStateModel implements WorkflowStateModel {
 			'wfs_workflow_id' => $this->workflowId->toString(),
 			'wfs_state' => $this->state,
 			'wfs_last_event' => $this->inflector->classNameToType( $this->lastEvent ),
-			'wfs_initiator' => $this->initiator ? $this->initiator : null,
+			'wfs_initiator' => $this->initiator ?? null,
+			'wfs_assignees' => implode( '|', $this->assignees ),
 			'wfs_started' => $this->started,
 			'wfs_touched' => $this->touched,
 			'wfs_payload' => json_encode( $this->payload ),
@@ -144,7 +156,12 @@ final class DBStateModel implements WorkflowStateModel {
 			}
 			$this->payload['context'] = $context;
 		}
+		if ( $event instanceof TaskStarted || $event instanceof TaskLoopCompleted ) {
+			$this->assignees = $event->getAssignees();
+		}
 		if ( $event instanceof WorkflowAborted ) {
+			// TODO: this is not very nice, as may lead to invalid filter results, look into it
+			// not resetting assignees here, as they will could be used again if un-aborted
 			$this->state = Workflow::STATE_ABORTED;
 		}
 		if ( $event instanceof WorkflowUnAborted ) {
@@ -152,8 +169,11 @@ final class DBStateModel implements WorkflowStateModel {
 		}
 		if ( $event instanceof WorkflowEnded ) {
 			$this->state = Workflow::STATE_FINISHED;
+			$this->assignees = [];
 		}
 		if ( $event instanceof TaskCompleted ) {
+			// Reset assignees, let new activity set a new set of assignees, if any
+			$this->assignees = [];
 			$this->payload[$event->getElementId()] = $event->getData();
 		}
 

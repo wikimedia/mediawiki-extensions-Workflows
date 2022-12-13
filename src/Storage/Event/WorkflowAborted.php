@@ -66,10 +66,10 @@ class WorkflowAborted extends Event {
 		}
 
 		return [
-			$data['id'],
-			static::actorFromPayload( $payload ),
-			$date,
-			$payload['reason'],
+			'id' => $data['id'],
+			'actor' => static::actorFromPayload( $payload ),
+			'date' => $date,
+			'reason' => $payload['reason'],
 		];
 	}
 }
