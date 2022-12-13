@@ -269,7 +269,8 @@
 				"workflows-ui-workflow-overview-action-back"
 			],
 			"dependencies": [
-				"oojs-ui"
+				"oojs-ui",
+				"ext.workflows.bootstrap"
 			]
 		},
 		"ext.workflows.special.overview": {

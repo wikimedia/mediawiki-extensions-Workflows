@@ -600,7 +600,7 @@ final class Workflow {
 
 			$this->storage->recordEvent(
 				TaskStarted::newFromData(
-					$task->getId(), $this->getActor(),
+					$task->getId(), $this->getAssignees( $activity ), $this->getActor(),
 					$this->activityManager->getActivityProperties( $activity )
 				)
 			);
@@ -629,7 +629,7 @@ final class Workflow {
 		) {
 			$this->storage->recordEvent(
 				TaskLoopCompleted::newFromData(
-					$task->getId(), $this->getActor(),
+					$task->getId(), $this->getAssignees( $activity ), $this->getActor(),
 					$this->activityManager->getActivityProperties( $activity )
 				)
 			);
@@ -1246,5 +1246,22 @@ final class Workflow {
 	 */
 	public function getStateMessage() {
 		return $this->stateMessage;
+	}
+
+	/**
+	 * @param IActivity $activity
+	 *
+	 * @return array
+	 * @throws WorkflowExecutionException
+	 */
+	private function getAssignees( IActivity $activity ): array {
+		if ( !( $activity instanceof UserInteractiveActivity ) ) {
+			return [];
+		}
+		$assigneesFromActivity = $this->activityManager->getTargetUsersForActivity( $activity );
+		if ( $assigneesFromActivity !== null ) {
+			return $assigneesFromActivity;
+		}
+		return [];
 	}
 }
