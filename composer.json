@@ -24,7 +24,8 @@
 		"mwstake/mediawiki-component-runjobstrigger": "~2",
 		"mwstake/mediawiki-component-alertbanners": "~2",
 		"mwstake/mediawiki-component-wikitext": "~6",
-		"mwstake/mediawiki-component-datastore": "~1"
+		"mwstake/mediawiki-component-datastore": "~1",
+		"mwstake/mediawiki-component-commonwebapis": "~2"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "39.0.0",

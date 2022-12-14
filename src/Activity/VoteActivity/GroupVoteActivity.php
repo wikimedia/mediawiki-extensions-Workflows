@@ -57,6 +57,9 @@ class GroupVoteActivity extends GenericVoteActivity {
 	/** @var UserFactory */
 	private $userFactory;
 
+	/** @var ThresholdChecker|null */
+	private $thresholdChecker = null;
+
 	/**
 	 * @inheritDoc
 	 */
@@ -140,6 +143,11 @@ class GroupVoteActivity extends GenericVoteActivity {
 			// workflows-group-vote-group-no-users
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
 		}
+		try {
+			$this->thresholdChecker = new ThresholdChecker( $this->getThresholdData( $data ) );
+		} catch ( Exception $e ) {
+			$errorMessages[] = $e->getMessage();
+		}
 
 		$this->handleErrors( $errorMessages );
 	}
@@ -167,11 +175,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 		$data['comment'] = '';
 
 		try {
-			$checker = new ThresholdChecker(
-				$this->getExtensionElementData( 'threshold' )
-			);
-
-			$reached = $checker->hasReachedThresholds(
+			$reached = $this->thresholdChecker->hasReachedThresholds(
 				$this->usersVoted, count( $this->initialAssignedUsers ), 'vote'
 			);
 			if ( !$reached ) {
@@ -239,5 +243,29 @@ class GroupVoteActivity extends GenericVoteActivity {
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
 		return new GroupVoteDescriptor( $this, $this->logger );
+	}
+
+	/**
+	 * @param array $data
+	 *
+	 * @return array
+	 */
+	private function getThresholdData( array $data ): array {
+		// Expect $data['threshold_yes_unit'] and $data['threshold_yes_value'] to be set, also for "no"
+		$thresholdData = [];
+		foreach ( [ 'yes', 'no' ] as $vote ) {
+			$unit = $data['threshold_' . $vote . '_unit'] ?? null;
+			$value = $data['threshold_' . $vote . '_value'] ?? null;
+			if ( $unit === null || $value === null ) {
+				throw new Exception( 'workflows-group-vote-thresholds-invalid' );
+			}
+			$thresholdData[] = [
+				'type' => $vote,
+				'unit' => $unit,
+				'value' => $value
+			];
+		}
+
+		return $thresholdData;
 	}
 }

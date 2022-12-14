@@ -237,5 +237,12 @@
 	"workflows-activity-property-assigned_user": "Assigned user",
 	"workflows-activity-property-action": "Action",
 	"workflows-ui-overview-details-activity-assigned-users-more": "and {{PLURAL:$1|one more|$1 more}}",
-	"workflows-ui-trigger-field-conditions": "Conditions"
+	"workflows-ui-trigger-field-conditions": "Conditions",
+	"workflows-group-vote-threshold-invalid": "Invalid or missing threshold data",
+	"workflows-collect-data-form-threshold-unit": "Threshold unit",
+	"workflows-collect-data-form-threshold-value": "Threshold value",
+	"workflows-collect-data-form-threshold-unit-user": "Absolute number of users",
+	"workflows-collect-data-form-threshold-unit-percent": "Percentage of users in the group",
+	"workflows-ui-group-threshold-hint-user": "This group currently has {{PLURAL:$1|one user|$1 users}}",
+	"workflows-ui-group-threshold-hint-percent": "This group currently has {{PLURAL:$1|one user|$1 users}}. Participation of at least {{PLURAL:$2|one user|$2 users}} will be required to complete this workflow"
 }
