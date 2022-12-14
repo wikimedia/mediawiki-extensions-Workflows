@@ -11,6 +11,8 @@
 	"workflows-ui-task-completion-action-cancel": "Prekliči",
 	"workflows-form-placeholder-comment": "Komentar",
 	"workflows-ui-workflow-overview-action-cancel": "Zapri",
+	"workflows-ui-overview-details-state-label": "Stanje:",
+	"workflows-ui-overview-details-state-column": "Stanje",
 	"workflows-ui-overview-details-action-reason": "Razlog",
 	"workflows-ui-overview-details-page-context-page": "Stran",
 	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
