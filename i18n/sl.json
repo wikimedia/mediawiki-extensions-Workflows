@@ -23,5 +23,7 @@
 	"workflows-form-instructions-comment": "Komentar",
 	"workflows-ui-overview-details-page-context-page": "Stran",
 	"workflows-ui-starter-action-choose": "Izberite",
-	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost"
+	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost",
+	"workflows-ui-overview-details-state-label": "Stanje:",
+	"workflows-ui-overview-details-state-column": "Stanje"
 }
