@@ -51,6 +51,8 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 	private $groupDataProvider;
 	/** @var array */
 	private $initialAssignedUsers = [];
+	/** @var ThresholdChecker|null */
+	private $thresholdChecker = null;
 
 	/**
 	 * @inheritDoc
@@ -123,6 +125,12 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 			$errorMessages[] = 'workflows-' . $this->activityKey . '-group-no-users';
 		}
 
+		try {
+			$this->thresholdChecker = new ThresholdChecker( $this->getThresholdData( $data ) );
+		} catch ( Exception $e ) {
+			$errorMessages[] = $e->getMessage();
+		}
+
 		$this->handleErrors( $errorMessages );
 	}
 
@@ -158,10 +166,8 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 		$data['comment'] = '';
 
 		try {
-			$checker = new ThresholdChecker(
-				$this->getExtensionElementData( 'threshold' )
-			);
-			$reached = $checker->hasReachedThresholds(
+
+			$reached = $this->thresholdChecker->hasReachedThresholds(
 				$this->getUsersFeedbacks(), count( $this->initialAssignedUsers )
 			);
 			if ( !$reached ) {
@@ -221,5 +227,23 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
 		return new GroupFeedbackDescriptor( $this, $this->logger );
+	}
+
+	/**
+	 * @param array $data
+	 *
+	 * @return array
+	 * @throws Exception
+	 */
+	private function getThresholdData( array $data ): array {
+		if ( !isset( $data['threshold_unit'] ) || !isset( $data['threshold_value'] ) ) {
+			throw new Exception( 'workflows-group-vote-threshold-invalid' );
+		}
+
+		return [
+			'type' => 'complete',
+			'value' => (int)$data['threshold_value'],
+			'unit' => $data['threshold_unit'],
+		];
 	}
 }
