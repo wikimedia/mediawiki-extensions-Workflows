@@ -203,7 +203,7 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @throws Exception
 	 */
 	private function updateModel( DBStateModel $model ) {
-		$db = $this->lb->getConnection( DB_MASTER );
+		$db = $this->lb->getConnection( DB_PRIMARY );
 		$res = $db->update(
 			static::TABLE,
 			$model->serialize(),
@@ -223,7 +223,7 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @throws Exception
 	 */
 	private function insertModel( DBStateModel $model ) {
-		$db = $this->lb->getConnection( DB_MASTER );
+		$db = $this->lb->getConnection( DB_PRIMARY );
 		$res = $db->insert(
 			static::TABLE,
 			$model->serialize(),

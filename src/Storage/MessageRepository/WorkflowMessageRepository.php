@@ -52,7 +52,7 @@ class WorkflowMessageRepository implements MessageRepository {
 			$values[] = $this->getMessageData( $message );
 		}
 
-		$db = $this->lb->getConnection( DB_MASTER );
+		$db = $this->lb->getConnection( DB_PRIMARY );
 		$res = $db->insert(
 			$this->tableName,
 			$values,
