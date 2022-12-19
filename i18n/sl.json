@@ -25,5 +25,7 @@
 	"workflows-ui-starter-action-choose": "Izberite",
 	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost",
 	"workflows-ui-overview-details-state-label": "Stanje:",
-	"workflows-ui-overview-details-state-column": "Stanje"
+	"workflows-ui-overview-details-state-column": "Stanje",
+	"workflows-activity-edit-request-name": "Ureditev zahtevka",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Ureditev zahtevka"
 }
