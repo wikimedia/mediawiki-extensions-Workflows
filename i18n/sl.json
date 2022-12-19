@@ -10,6 +10,7 @@
 	"workflows-ui-task-completion-action-complete": "Pošlji",
 	"workflows-ui-task-completion-action-cancel": "Prekliči",
 	"workflows-form-placeholder-comment": "Komentar",
+	"workflows-activity-edit-request-name": "Ureditev zahtevka",
 	"workflows-ui-workflow-overview-action-cancel": "Zapri",
 	"workflows-ui-overview-details-state-label": "Stanje:",
 	"workflows-ui-overview-details-state-column": "Stanje",
@@ -25,5 +26,6 @@
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-action-create": "Shrani",
 	"workflows-ui-trigger-field-name": "Ime",
-	"workflows-action-edit-label": "Uredi"
+	"workflows-action-edit-label": "Uredi",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Ureditev zahtevka"
 }
