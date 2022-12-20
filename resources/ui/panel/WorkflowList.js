@@ -50,7 +50,6 @@
 		var gridCfg = {
 			deletable: false,
 			style: 'differentiate-rows',
-			border: 'horizontal',
 			columns: {
 				has_notice: {
 					type: "icon",
