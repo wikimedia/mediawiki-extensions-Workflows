@@ -23,7 +23,7 @@
 	"logentry-ext-workflows-uservote-yes": "User vote: $1 {{GENDER:$2|voted}} 'yes' on page $3",
 	"logentry-ext-workflows-uservote-no": "User vote: $1 {{GENDER:$2|voted}} 'no' on page $3",
 	"logentry-ext-workflows-uservote-delegate": "User vote: $1 {{GENDER:$2|delegated}} the vote on page $3 to [[User:$4|$4]]",
-	"logentry-ext-workflows-sendmail-send": "Send mail: Mail with subject '$4' send",
+	"logentry-ext-workflows-sendmail-send": "Send mail: Mail with subject '$4' sent",
 	"logentry-ext-workflows-groupvote-yes": "Group vote: $1 {{GENDER:$2|voted}} 'yes' on page $3",
 	"logentry-ext-workflows-groupvote-no": "Group vote: $1 {{GENDER:$2|voted}} 'no' on page $3",
 	"logentry-ext-workflows-userfeedback": "User $1 {{GENDER:$2|gave feedback}} on page $3",
