@@ -16,5 +16,18 @@
 	"log-name-ext-workflows": "Radni procesi",
 	"workflows-ui-task-completion-action-complete": "Pošalji",
 	"workflows-ui-task-completion-action-cancel": "Otkaži",
-	"workflows-form-placeholder-comment": "Komentar"
+	"workflows-form-placeholder-comment": "Komentar",
+	"log-description-ext-workflows": "Ovaj dnevnik sadrži informacije o svim vrstama aktivnosti koje provodi [[mw:Extension:Workflows]]",
+	"workflows-activity-edit-request-name": "Uredi zahtjev",
+	"workflows-ui-workflow-overview-action-abort": "Prekini",
+	"workflows-ui-workflow-overview-action-restore": "Obnovi",
+	"workflows-ui-workflow-overview-action-cancel": "Zatvori",
+	"workflows-ui-workflow-overview-action-back": "Nazad",
+	"workflows-ui-overview-details-action-reason": "Razlog",
+	"workflows-ui-overview-details-page-context-revision": "Izmjena",
+	"workflows-ui-overview-details-page-context-page": "Stranica",
+	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
+	"workflows-ui-overview-grid-filter-state-all": "Sve",
+	"workflows-ui-overview-grid-filter-state-active": "Aktivne",
+	"workflows-form-instructions-comment": "Komentar"
 }
