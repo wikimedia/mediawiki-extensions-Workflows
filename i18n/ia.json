@@ -83,5 +83,7 @@
 	"workflows-notification-task-assign-email-body": "Per favor visita iste pagina pro facer le carga \"$1\" que te ha essite assignate",
 	"workflows-notification-user-vote-delegate-web": "$1 te ha {{GENDER:$1|delegate}} le carga $3",
 	"workflows-notification-user-vote-delegate-email-sub": "$1 te ha {{GENDER:$1|delegate}} le carga $3 sur le pagina $2",
-	"workflows-notification-user-vote-delegate-email-body": "Le usator $1 ha {{GENDER:$1|delegate}} le activitate $3 sur le pagina $2 con commento:\n$4"
+	"workflows-notification-user-vote-delegate-email-body": "Le usator $1 ha {{GENDER:$1|delegate}} le activitate $3 sur le pagina $2 con commento:\n$4",
+	"workflows-notification-ended-web": "Fluxo de labor concludite: \"$2\" pro le pagina \"$1\"",
+	"workflows-notification-ended-email-sub": "Fluxo de labor \"$2\" sur pagina \"$1\" concludite"
 }
