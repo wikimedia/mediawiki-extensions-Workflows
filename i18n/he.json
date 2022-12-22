@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"HumansCanWinElves",
+			"Xnet1234",
 			"YaronSh",
 			"מקף"
 		]
@@ -80,5 +81,6 @@
 	"workflows-action-edit-label": "עריכה",
 	"workflows-ui-trigger-action-create": "שמירה",
 	"workflows-action-delete-label": "מחיקה",
-	"workflows-activity-set-template-params-cannot-save": "השמירה נכשלה"
+	"workflows-activity-set-template-params-cannot-save": "השמירה נכשלה",
+	"logentry-ext-workflows-sendmail-send": "שלח דוא\"ל: נשלח דוא\"ל עם הנושא '$4'"
 }
