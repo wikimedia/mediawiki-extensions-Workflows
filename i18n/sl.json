@@ -7,6 +7,7 @@
 	"workflows-ui-starter-action-choose": "Izberite",
 	"workflows-ui-starter-action-done": "Začni",
 	"workflows-ui-starter-action-cancel": "Prekliči",
+	"logentry-ext-workflows-sendmail-send": "Pošiljanje e-pošte: E-pismo z zadevo »$4« poslano",
 	"workflows-ui-task-completion-action-complete": "Pošlji",
 	"workflows-ui-task-completion-action-cancel": "Prekliči",
 	"workflows-form-placeholder-comment": "Komentar",

@@ -23,11 +23,17 @@
 	"workflows-ui-workflow-overview-action-restore": "Obnovi",
 	"workflows-ui-workflow-overview-action-cancel": "Zatvori",
 	"workflows-ui-workflow-overview-action-back": "Nazad",
+	"workflows-ui-overview-details-activity-automatic": "Automatski zadatak. Obrada u pozadini...",
+	"workflows-ui-overview-details-action-abort-note": "Prekid tijeka rada odmah će zaustaviti sve tekuće zadatke. Jeste li sigurni da želite prekinuti?",
+	"workflows-ui-overview-details-action-restore-note": "Ako se obnovi, tijek rada nastavit će iz stanja u kojem je prekinut. Jeste li sigurni da želite obnoviti ovaj tijek rada?",
 	"workflows-ui-overview-details-action-reason": "Razlog",
 	"workflows-ui-overview-details-page-context-revision": "Izmjena",
 	"workflows-ui-overview-details-page-context-page": "Stranica",
 	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
 	"workflows-ui-overview-grid-filter-state-all": "Sve",
 	"workflows-ui-overview-grid-filter-state-active": "Aktivne",
-	"workflows-form-instructions-comment": "Komentar"
+	"workflows-form-instructions-comment": "Komentar",
+	"workflows-collect-data-form-groupname": "Grupa",
+	"workflows-collect-data-form-instructions": "Uputstva",
+	"workflows-collect-data-form-username": "Korisnik"
 }
