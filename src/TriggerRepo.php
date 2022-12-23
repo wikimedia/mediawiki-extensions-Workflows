@@ -288,13 +288,8 @@ class TriggerRepo {
 		if ( !$title->exists() ) {
 			$this->logger->error( 'Cannot load triggers from page ' . $this->page );
 		}
-
-		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-			// MW 1.36+
-			$this->wikipage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-		} else {
-			$this->wikipage = WikiPage::factory( $title );
-		}
+		$this->wikipage = MediaWikiServices::getInstance()->getWikiPageFactory()
+			->newFromTitle( $title );
 	}
 
 	/**
