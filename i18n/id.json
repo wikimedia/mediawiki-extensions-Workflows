@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Agam Riyandana",
 			"Ekirahardian",
 			"Veracious"
 		]
 	},
+	"logentry-ext-workflows-sendmail-send": "Kirim surat: Surat dengan subjek ' $4 ' terkirim",
 	"workflows-ui-task-completion-action-complete": "Kirim",
 	"workflows-ui-task-completion-action-cancel": "Batal",
 	"workflows-form-placeholder-comment": "Komentar",
