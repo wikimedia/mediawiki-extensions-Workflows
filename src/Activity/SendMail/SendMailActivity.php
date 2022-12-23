@@ -11,6 +11,7 @@ use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Mail\IEmailer;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Title;
 use User;
@@ -74,7 +75,7 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 				// Very basic check for email address
 				return new MailAddress( $to );
 			}
-			$toUser = User::newFromName( $to );
+			$toUser = MediaWikiServices::getInstance()->getUserFactory()->newFromName( $to );
 			if ( $toUser instanceof User && $toUser->isRegistered() && $toUser->isEmailConfirmed() ) {
 				return MailAddress::newFromUser( $toUser );
 			}
