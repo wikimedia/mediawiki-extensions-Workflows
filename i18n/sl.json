@@ -25,7 +25,9 @@
 	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost",
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-action-create": "Shrani",
+	"workflows-ui-triggers-error-persist-fail": "Sprožilca ni bilo mogoče shraniti",
 	"workflows-ui-trigger-field-name": "Ime",
 	"workflows-action-edit-label": "Uredi",
-	"workflows-ui-workflow-overview-step-name-edit-request": "Ureditev zahtevka"
+	"workflows-ui-workflow-overview-step-name-edit-request": "Ureditev zahtevka",
+	"workflows-activity-set-template-params-cannot-save": "Shranjevanje ni uspelo"
 }
