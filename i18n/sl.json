@@ -30,5 +30,6 @@
 	"workflows-ui-workflow-overview-step-name-edit-request": "Ureditev zahtevka",
 	"logentry-ext-workflows-sendmail-send": "Pošiljanje e-pošte: E-pismo z zadevo »$4« poslano",
 	"workflows-ui-triggers-error-persist-fail": "Sprožilca ni bilo mogoče shraniti",
-	"workflows-activity-set-template-params-cannot-save": "Shranjevanje ni uspelo"
+	"workflows-activity-set-template-params-cannot-save": "Shranjevanje ni uspelo",
+	"workflows-uto-body-field-instructions": "Navodila: $1"
 }
