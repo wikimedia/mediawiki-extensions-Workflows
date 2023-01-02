@@ -5,5 +5,8 @@
 		]
 	},
 	"workflows-ui-trigger-action-create": "Vurke",
-	"workflows-ui-overview-details-state-running": "Jođus"
+	"workflows-ui-overview-details-state-running": "Jođus",
+	"workflows-ui-trigger-action-delete": "Sihko",
+	"workflows-action-delete-label": "Sihko",
+	"workflows-ui-trigger-field-description": "Govvádus"
 }

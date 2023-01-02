@@ -31,5 +31,16 @@
 	"logentry-ext-workflows-sendmail-send": "Pošiljanje e-pošte: E-pismo z zadevo »$4« poslano",
 	"workflows-ui-triggers-error-persist-fail": "Sprožilca ni bilo mogoče shraniti",
 	"workflows-activity-set-template-params-cannot-save": "Shranjevanje ni uspelo",
-	"workflows-uto-body-field-instructions": "Navodila: $1"
+	"workflows-uto-body-field-instructions": "Navodila: $1",
+	"workflows-uto-activity-user_vote": "Uporabniško glasovanje",
+	"workflows-uto-activity-user_feedback": "Povratne informacije uporabnikov",
+	"workflows-group-vote-action-invalid": "Dejanje je neveljavno ali ni določeno",
+	"workflows-user-vote-action-invalid": "Dejanje je neveljavno ali ni določeno",
+	"workflows-error-generic": "Prišlo je do napake",
+	"workflows-property-validator-valid-title-error": "»$1« ni veljaven naslov",
+	"workflows-activity-user-vote-name": "Uporabniško glasovanje",
+	"workflows-ui-workflow-overview-step-name-user-vote": "Uporabniško glasovanje",
+	"workflows-ui-workflow-overview-step-name-user-feedback": "Povratne informacije uporabnikov",
+	"workflows-activity-set-template-params-no-target": "Določena ciljna predloga ne obstaja na navedeni strani",
+	"workflows-activity-property-assigned_user": "Dodeljeni uporabnik"
 }
