@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MITO",
-			"Rönttönen"
+			"Rönttönen",
+			"Yupik"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Valitse",
@@ -58,5 +59,6 @@
 	"workflows-activity-history-vote-result-no": "Hylätty",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Ominaisuus",
 	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
-	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot"
+	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
+	"workflows-ui-trigger-field-description": "Kuvaus"
 }
