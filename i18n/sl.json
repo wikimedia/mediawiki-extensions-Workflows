@@ -44,5 +44,9 @@
 	"workflows-activity-set-template-params-no-target": "Določena ciljna predloga ne obstaja na navedeni strani",
 	"workflows-activity-property-assigned_user": "Dodeljeni uporabnik",
 	"workflows-ui-overview-details-state-running": "Aktivno",
-	"workflows-ui-overview-grid-filter-state-active": "Aktivni"
+	"workflows-ui-overview-grid-filter-state-active": "Aktivni",
+	"workflows-triggers-type-time-label": "Na podlagi časa",
+	"workflows-ui-triggers-add-button": "Dodaj nov sprožilec",
+	"workflows-activity-editpage-error-no-title": "Naslov ni naveden",
+	"workflows-activity-error-no-title": "Neveljaven naslov"
 }
