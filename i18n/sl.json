@@ -27,6 +27,8 @@
 	"workflows-ui-overview-grid-filter-state-active": "Aktivni",
 	"workflows-form-instructions-comment": "Komentar",
 	"workflows-error-generic": "Prišlo je do napake",
+	"workflows-ui-overview-details-state-autoabort-comment": "Delovni tok je bil samodejno prekinjen!",
+	"workflows-auto-aborted-workflow-page-deleted": "Delovni tok je bil prekinjen, ker je bila izbrisana stran, s katero je bil povezan.",
 	"workflows-uto-body-field-instructions": "Navodila: $1",
 	"workflows-property-validator-valid-title-error": "»$1« ni veljaven naslov",
 	"workflows-collect-data-form-groupname": "Skupina",
