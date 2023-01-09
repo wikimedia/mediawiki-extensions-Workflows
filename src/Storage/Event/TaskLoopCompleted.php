@@ -2,5 +2,5 @@
 
 namespace MediaWiki\Extension\Workflows\Storage\Event;
 
-final class TaskLoopCompleted extends ActivityEvent {
+final class TaskLoopCompleted extends TaskWithAssignees {
 }

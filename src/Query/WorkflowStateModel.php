@@ -23,6 +23,12 @@ interface WorkflowStateModel {
 	public function getTouched(): string;
 
 	/**
+	 *
+	 * @return array
+	 */
+	public function getAssignees(): array;
+
+	/**
 	 * @return string
 	 */
 	public function getStarted(): string;

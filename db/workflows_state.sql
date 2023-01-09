@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/workflows_state (
     `wfs_state` VARCHAR( 255 ) NOT NULL,
     `wfs_last_event` VARCHAR( 255 ) NOT NULL,
     `wfs_initiator` INT NULL,
+    `wfs_assignees` TEXT NULL,
     `wfs_touched` VARCHAR(15) NULL,
+    `wfs_started` VARCHAR(15) NULL,
     `wfs_payload` TEXT NULL
 ) /*$wgDBTableOptions*/;
