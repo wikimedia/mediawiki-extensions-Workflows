@@ -25,5 +25,6 @@
 	"workflows-activity-property-comment": "Komentar",
 	"workflows-activity-property-delegate_to": "Delegasikan ke",
 	"workflows-activity-property-action": "Tindakan",
-	"logentry-ext-workflows-sendmail-send": "Kirim surat: Surat dengan subjek ' $4 ' terkirim"
+	"logentry-ext-workflows-sendmail-send": "Kirim surat: Surat dengan subjek ' $4 ' terkirim",
+	"workflows-ui-trigger-action-create": "Simpan"
 }

@@ -6,5 +6,6 @@
 		]
 	},
 	"workflows-activity-property-username": "İştirokəkə nom:",
-	"workflows-activity-property-comment": "Şərh"
+	"workflows-activity-property-comment": "Şərh",
+	"workflows-ui-task-completion-action-complete": "Təğdim"
 }

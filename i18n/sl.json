@@ -48,5 +48,7 @@
 	"workflows-triggers-type-time-label": "Na podlagi časa",
 	"workflows-ui-triggers-add-button": "Dodaj nov sprožilec",
 	"workflows-activity-editpage-error-no-title": "Naslov ni naveden",
-	"workflows-activity-error-no-title": "Neveljaven naslov"
+	"workflows-activity-error-no-title": "Neveljaven naslov",
+	"workflows-ui-overview-details-state-autoabort-comment": "Delovni tok je bil samodejno prekinjen!",
+	"workflows-auto-aborted-workflow-page-deleted": "Delovni tok je bil prekinjen, ker je bila izbrisana stran, s katero je bil povezan."
 }
