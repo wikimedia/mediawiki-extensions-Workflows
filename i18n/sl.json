@@ -42,6 +42,7 @@
 	"workflows-ui-triggers-add-button": "Dodaj nov sprožilec",
 	"workflows-ui-trigger-field-name": "Ime",
 	"workflows-action-edit-label": "Uredi",
+	"workflows-ui-trigger-field-description": "Opis",
 	"workflows-activity-editpage-error-no-title": "Naslov ni naveden",
 	"workflows-activity-user-vote-name": "Uporabniško glasovanje",
 	"workflows-ui-workflow-overview-step-name-user-vote": "Uporabniško glasovanje",
