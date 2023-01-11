@@ -51,5 +51,10 @@
 	"workflows-activity-error-no-title": "Neveljaven naslov",
 	"workflows-ui-overview-details-state-autoabort-comment": "Delovni tok je bil samodejno prekinjen!",
 	"workflows-auto-aborted-workflow-page-deleted": "Delovni tok je bil prekinjen, ker je bila izbrisana stran, s katero je bil povezan.",
-	"workflows-ui-trigger-field-description": "Opis"
+	"workflows-ui-trigger-field-description": "Opis",
+	"workflows-form-label-delegate-comment": "Komentar delegiranja",
+	"workflows-form-instructions-loading-text": "Navodila se nalagajo ...",
+	"workflows-ui-overview-details-activity-automatic": "Samodejno opravilo. Obdelujem v ozadju ...",
+	"workflows-activity-property-comment": "Komentar",
+	"workflows-activity-property-delegate_comment": "Komentar delegata"
 }
