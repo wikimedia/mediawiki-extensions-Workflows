@@ -15,11 +15,14 @@
 	"workflows-form-placeholder-comment": "Komentar",
 	"workflows-group-vote-action-invalid": "Dejanje je neveljavno ali ni določeno",
 	"workflows-user-vote-action-invalid": "Dejanje je neveljavno ali ni določeno",
+	"workflows-form-label-delegate-comment": "Komentar delegiranja",
+	"workflows-form-instructions-loading-text": "Navodila se nalagajo ...",
 	"workflows-activity-edit-request-name": "Ureditev zahtevka",
 	"workflows-ui-workflow-overview-action-cancel": "Zapri",
 	"workflows-ui-overview-details-state-label": "Stanje:",
 	"workflows-ui-overview-details-state-column": "Stanje",
 	"workflows-ui-overview-details-state-running": "Aktivno",
+	"workflows-ui-overview-details-activity-automatic": "Samodejno opravilo. Obdelujem v ozadju ...",
 	"workflows-ui-overview-details-action-reason": "Razlog",
 	"workflows-ui-overview-details-page-context-page": "Stran",
 	"workflows-ui-overview-details-workflow-type-label": "Vrsta",
@@ -51,5 +54,7 @@
 	"workflows-activity-set-template-params-no-target": "Določena ciljna predloga ne obstaja na navedeni strani",
 	"workflows-activity-error-no-title": "Neveljaven naslov",
 	"workflows-activity-set-template-params-cannot-save": "Shranjevanje ni uspelo",
+	"workflows-activity-property-comment": "Komentar",
+	"workflows-activity-property-delegate_comment": "Komentar delegata",
 	"workflows-activity-property-assigned_user": "Dodeljeni uporabnik"
 }
