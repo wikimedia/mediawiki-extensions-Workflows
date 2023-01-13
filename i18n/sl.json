@@ -56,5 +56,6 @@
 	"workflows-form-instructions-loading-text": "Navodila se nalagajo ...",
 	"workflows-ui-overview-details-activity-automatic": "Samodejno opravilo. Obdelujem v ozadju ...",
 	"workflows-activity-property-comment": "Komentar",
-	"workflows-activity-property-delegate_comment": "Komentar delegata"
+	"workflows-activity-property-delegate_comment": "Komentar delegata",
+	"workflows-activity-history-vote-result-yes": "Odobren"
 }
