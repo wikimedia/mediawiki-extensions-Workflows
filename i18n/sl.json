@@ -36,6 +36,7 @@
 	"workflows-property-validator-valid-title-error": "»$1« ni veljaven naslov",
 	"workflows-collect-data-form-groupname": "Skupina",
 	"workflows-collect-data-form-username": "Uporabnik",
+	"workflows-activity-history-vote-result-yes": "Odobren",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost",
 	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost",
 	"workflows-triggers-type-time-label": "Na podlagi časa",
