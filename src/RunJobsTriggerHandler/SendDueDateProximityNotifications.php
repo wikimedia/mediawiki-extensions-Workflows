@@ -31,10 +31,6 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 			if ( $this->dueDateClose( $activity ) ) {
 				$this->notifyDueDateProximity( $activity, $workflow );
 			}
-			if ( $this->dueDateReached( $activity ) ) {
-				$workflow->expireActivity( $activity );
-				$workflow->persist( $this->workflowRepo );
-			}
 		}
 	}
 
@@ -44,19 +40,6 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 	 */
 	public function getInterval() {
 		return new OnceADay();
-	}
-
-	private function dueDateReached( UserInteractiveActivity $activity ) {
-		$dueDate = $activity->getDueDate();
-		if ( !$dueDate instanceof DateTime ) {
-			return false;
-		}
-
-		$now = new DateTime( "now" );
-		// Dont know how else to get DT with today's date only
-		$now = new DateTime( $now->format( 'd-m-Y' ) );
-
-		return $dueDate < $now;
 	}
 
 	/**
