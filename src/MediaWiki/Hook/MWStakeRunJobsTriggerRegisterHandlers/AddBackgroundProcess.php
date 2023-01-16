@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook\MWStakeRunJobsTriggerRegisterHandlers;
 
+use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\AbortExpired;
 use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\ProcessTimeBasedTriggers;
 use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\ProcessWorkflows;
 use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\SendDueDateProximityNotifications;
@@ -30,6 +31,12 @@ class AddBackgroundProcess {
 			'services' => [
 				'WorkflowEventRepository', 'DefinitionRepositoryFactory',
 				'MWStakeNotificationsNotifier'
+			]
+		];
+		$handlers[AbortExpired::HANDLER_KEY] = [
+			'class' => AbortExpired::class,
+			'services' => [
+				'WorkflowEventRepository', 'DefinitionRepositoryFactory', 'MWStakeNotificationsNotifier'
 			]
 		];
 
