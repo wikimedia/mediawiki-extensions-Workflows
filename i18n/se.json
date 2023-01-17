@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kimberli Mäkäräinen (WMNO)",
 			"Yupik"
 		]
 	},
+	"workflows-ui-workflow-overview-action-cancel": "Gidde",
 	"workflows-ui-overview-details-state-running": "Jođus",
 	"workflows-ui-trigger-action-create": "Vurke",
 	"workflows-ui-trigger-action-delete": "Sihko",
