@@ -57,5 +57,6 @@
 	"workflows-ui-overview-details-activity-automatic": "Samodejno opravilo. Obdelujem v ozadju ...",
 	"workflows-activity-property-comment": "Komentar",
 	"workflows-activity-property-delegate_comment": "Komentar delegata",
-	"workflows-activity-history-vote-result-yes": "Odobren"
+	"workflows-activity-history-vote-result-yes": "Odobren",
+	"workflows-ui-overview-details-last-time-column": "Zadnja aktivnost dne"
 }

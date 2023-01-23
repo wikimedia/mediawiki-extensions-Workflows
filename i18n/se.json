@@ -10,5 +10,7 @@
 	"workflows-ui-trigger-action-delete": "Sihko",
 	"workflows-action-delete-label": "Sihko",
 	"workflows-ui-trigger-field-description": "Govvádus",
-	"workflows-ui-workflow-overview-action-cancel": "Gidde"
+	"workflows-ui-workflow-overview-action-cancel": "Gidde",
+	"workflows-ui-starter-action-choose": "Vállje",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Iešvuohta"
 }
