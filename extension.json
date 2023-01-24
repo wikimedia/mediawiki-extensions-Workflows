@@ -360,7 +360,8 @@
 				"workflows-ui-overview-details-section-details",
 				"workflows-ui-overview-details-due-date-label",
 				"workflows-ui-workflow-overview-initial-data-title",
-				"workflows-ui-overview-details-section-expired"
+				"workflows-ui-overview-details-section-expired",
+				"workflows-ui-overview-details-activity-assigned-users-more"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-moderation",
