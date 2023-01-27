@@ -16,5 +16,6 @@
 	"workflows-ui-trigger-action-delete": "Siho",
 	"workflows-action-delete-label": "Siho",
 	"workflows-ui-trigger-action-create": "Vuorkkii",
-	"workflows-ui-trigger-field-description": "Kuvvim"
+	"workflows-ui-trigger-field-description": "Kuvvim",
+	"workflows-activity-set-template-params-cannot-save": "Vuorkkim ij luhostum"
 }
