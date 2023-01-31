@@ -37,7 +37,7 @@ Only workflows from this list will be listed in the list when starting the workf
         "definition": "user-approval",
         "repository": "workflow-file",
         "initData": {
-            "username": "Dsavuljesku",
+            "username": "WikiSysop",
             "instructions": "Do this thing!"
         },
         "rules": {
@@ -57,14 +57,19 @@ Only workflows from this list will be listed in the list when starting the workf
             }
         }
     },
-	// Trigger `user-approval` from `workflow-file` repo 3 days after last major edit
-    "since-major": {
-        "type": "since-last-major",
+	// Time based trigger, relying on an `{{#ask}}` query to get the list of pages
+    "two-days-after-dummytimeprop": {
+        "type": "time-smw-prop",
         "definition": "user-approval",
         "repository": "workflow-file",
-        "days": 3,
+        "rules": {
+            "include": {
+                "pages": "{{#ask:[[DummyTimeProp::>={{#time:Y-m-d|+2 days}}]][[DummyTimeProp::<{{#time:Y-m-d|{{#time:Y-m-d|+2 days}}+1 days}}]]|format=plainlist|link=none|sep={{!}}}}"
+            },
+            "exclude": []
+        },
         "initData": {
-            "username": "Dsavuljesku",
+            "username": "WikiSysop",
             "instructions": "Do this thing!"
         }
     },
