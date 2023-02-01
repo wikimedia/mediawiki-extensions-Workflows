@@ -184,16 +184,23 @@ class GroupVoteActivity extends GenericVoteActivity {
 	/**
 	 * @param string|array $raw
 	 *
-	 * @return array|mixed
+	 * @return array
 	 */
 	private function parseUsersVoted( $raw ): array {
 		if ( empty( $raw ) ) {
 			return [];
 		}
+
 		if ( is_array( $raw ) ) {
 			return $raw;
 		}
-		return json_decode( $raw, 1 );
+
+		$decodedValue = json_decode( $raw, true );
+		if ( !is_array( $decodedValue ) ) {
+			return [];
+		}
+
+		return $decodedValue;
 	}
 
 	/**
@@ -202,11 +209,8 @@ class GroupVoteActivity extends GenericVoteActivity {
 	public function getTargetUsers( array $properties ): ?array {
 		$this->setInitialAssignedUsers( $properties );
 		$usernames = $this->initialAssignedUsers;
-		$voted = $this->parseUsersVoted( $properties['users_voted'] );
-		if ( !is_array( $voted ) ) {
-			$voted = [];
-		}
-		$voted = array_column( $voted, 'userName' );
+		$parsedVoted = $this->parseUsersVoted( $properties['users_voted'] );
+		$voted = array_column( $parsedVoted, 'userName' );
 
 		return array_values( array_filter( $usernames, static function ( $username ) use ( $voted ) {
 			return !in_array( $username, $voted );
