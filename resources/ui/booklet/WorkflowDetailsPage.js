@@ -366,12 +366,7 @@
 					label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-none' ).text()
 				} ).$element );
 			} else {
-				for ( var i = 0; i < targetUsers.length; i++ ) {
-					var userWidget = new OOJSPlus.ui.widget.UserWidget( {
-						user_name: targetUsers[i],  showLink: true
-					} );
-					assignedUsersLayout.$element.append( userWidget.$element );
-				}
+				this.appendTargetUsers( targetUsers, assignedUsersLayout );
 			}
 			var $table = $('<table>').append( $('<colgroup>')
 				.append( $('<col span="1" style="width: 30%;">')
@@ -449,5 +444,64 @@
 		return this.workflow.getState() === 'aborted' &&
 			typeof this.workflow.getStateMessage() === 'object' &&
 			this.workflow.getStateMessage().type === 'duedate';
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.appendTargetUsers = function( users, layout ) {
+		var displayUsers = users,
+			moreUsers = []
+		if ( users.length > 3 ) {
+			displayUsers = users.slice( 0, 3 );
+			moreUsers = users.slice( 3 );
+		}
+		for ( var i = 0; i < displayUsers.length; i++ ) {
+			var userWidget = new OOJSPlus.ui.widget.UserWidget( {
+				user_name: displayUsers[i],  showLink: true, showRawUsername: false,
+				classes: [ 'workflow-details-user-widget' ]
+			} );
+			userWidget.$element.css( 'display', 'block' );
+			layout.$element.append( userWidget.$element );
+		}
+		if ( moreUsers.length > 0 ) {
+			var $popupContent = this.getMoreUsersPopup( moreUsers ),
+				popup = new OO.ui.PopupButtonWidget( {
+					framed: false,
+					label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-more', moreUsers.length ).text(),
+					popup: {
+						$content: $popupContent,
+						height: this.getTrueDimensions( $popupContent ).height + 20,
+						padded: true,
+						align: 'forwards',
+						autoFlip: true
+ 					}
+				} );
+			popup.popup.connect( this, {
+				ready: function() {
+					popup.popup.$body.css( 'height', '100%' );
+				}
+			} );
+			layout.$element.append( popup.$element );
+		}
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.getMoreUsersPopup = function( users ) {
+		var $panel = $( '<div>' ).addClass( 'workflow-details-more-users-popup' );
+		for ( var i = 0; i < users.length; i++ ) {
+			var userWidget = new OOJSPlus.ui.widget.UserWidget( {
+				user_name: users[i],  showLink: true, showRawUsername: false,
+				classes: [ 'workflow-details-user-widget' ]
+			} );
+			$panel.append( userWidget.$element );
+		}
+		$panel.css( 'height', '100%' );
+		return $panel;
+	};
+
+	workflows.ui.WorkflowDetailsPage.prototype.getTrueDimensions = function( $item ) {
+		$( 'body' ).append( $item );
+		var height = $item.outerHeight(),
+			width = $item.outerWidth();
+		$item.remove();
+
+		return { height: height, width: width };
 	};
 } )( mediaWiki, jQuery, workflows );

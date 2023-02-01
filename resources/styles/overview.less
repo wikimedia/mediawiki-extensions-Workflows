@@ -79,21 +79,25 @@
 	.initial-data-raw-popup {
 		float: right;
 	}
-	.oojsplus-user-widget .user-username {
-		display: none;
-	}
 }
 
 .activity-data-table {
-	width: 100%;
-	border-spacing: 0 5px;
-	border-collapse: separate;
+	/* This is shown in a popup, cannot be much wider */
+	max-width: 370px;
+	width: auto;
 	.popup-table-header th {
 		font-weight: bold;
+		padding-left: 10px;
 	}
-	tr > th {
+	tr > th, tr > td {
 		font-weight: normal;
+		padding-left: 10px;
 	}
+	tr:nth-child(1) {
+		background-color: transparent;
+		border-bottom: 1px solid #c2c2c2;
+	}
+
 }
 
 .workflow-data-popup .oo-ui-popupWidget-body-padded > :first-child {
@@ -131,4 +135,7 @@
 
 .workflow-state-icon-running {
 	background-color: #47A65D;
+}
+.workflow-details-user-widget {
+	display: block;
 }
