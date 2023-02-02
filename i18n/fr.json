@@ -242,5 +242,6 @@
 	"workflows-activity-property-delegate_to": "Déléguer à",
 	"workflows-activity-property-delegate_comment": "Commentaire du délégué",
 	"workflows-activity-property-assigned_user": "Utilisateur affecté",
-	"workflows-activity-property-action": "Action"
+	"workflows-activity-property-action": "Action",
+	"workflows-ui-overview-details-activity-assigned-users-more": "et {{PLURAL:$1|un autre| $1 autres}}"
 }
