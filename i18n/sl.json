@@ -60,5 +60,7 @@
 	"workflows-activity-history-vote-result-yes": "Odobren",
 	"workflows-ui-overview-details-last-time-column": "Zadnja aktivnost dne",
 	"workflows-uto-activity-group_vote": "Skupinski glas",
-	"workflows-activity-group-vote-name": "Skupinski glas"
+	"workflows-activity-group-vote-name": "Skupinski glas",
+	"workflows-activity-property-due_date": "Datum zapadlosti",
+	"workflows-ui-overview-details-activity-assigned-users-more": "in {{PLURAL:$1|še en|še $1}}"
 }

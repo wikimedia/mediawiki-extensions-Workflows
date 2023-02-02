@@ -243,5 +243,6 @@
 	"workflows-ui-trigger-page-title": "Workflow-Triggers",
 	"workflows-activity-property-reportrecipient": "Empfänger des Berichts",
 	"workflows-activity-property-usernameApprover": "Freigebender",
-	"workflows-activity-property-instructionsApprover": "Anweisungen für Freigebenden"
+	"workflows-activity-property-instructionsApprover": "Anweisungen für Freigebenden",
+	"workflows-ui-overview-details-activity-assigned-users-more": "und {{PLURAL:$1|ein weiterer|$1 weitere}}"
 }
