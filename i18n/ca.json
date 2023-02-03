@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robertgarrigos"
+		]
+	},
+	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1| un més| $1 més}}"
+}
