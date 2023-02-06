@@ -12,7 +12,10 @@
 	"workflows-ui-overview-details-state-label": "Stando:",
 	"workflows-ui-overview-details-state-column": "Stando",
 	"workflows-ui-overview-details-action-reason": "Motivo",
+	"workflows-ui-overview-details-workflow-type-label": "Tipo",
+	"workflows-ui-overview-grid-filter-state-all": "Omni",
 	"workflows-form-instructions-comment": "Komento",
+	"workflows-collect-data-form-username": "Uzero",
 	"workflows-ui-action-cancel": "Nuligar",
 	"workflows-ui-trigger-action-create": "Konservez",
 	"workflows-ui-trigger-field-name": "Nomo"

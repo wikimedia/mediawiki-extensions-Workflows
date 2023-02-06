@@ -4,6 +4,7 @@
 			"Ahmetlii",
 			"Can",
 			"Hedda",
+			"Rapsar",
 			"SaldırganSincap"
 		]
 	},
@@ -72,7 +73,7 @@
 	"workflows-ui-alert-activity-edit-request": "Bu sayfayı düzenlemeniz istendi",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Ayrıntıları bakın",
 	"workflows-activity-edit-request-name": "İsteği düzenle",
-	"workflows-uto-activity-edit-request-header": "Sayfa düzenleme istendi",
+	"workflows-uto-activity-edit-request-header": "Sayfa değişikliği talep edildi",
 	"echo-category-title-workflow-cat": "İş akışı bildirimleri",
 	"workflows-pref-tooltip-notification-workflow-cat": "İlişkili olduğum iş akışlarındaki olaylar hakkında beni bilgilendir",
 	"workflows-notification-user-vote-accept-web": "$1, $2 sayfasını {{GENDER:$1|kabul etti}}",
@@ -197,7 +198,7 @@
 	"workflows-trigger-ui-condition-exclude-editType": "Yalnızca büyük düzenlemelerde başlatın",
 	"workflows-ui-trigger-field-name": "Ad",
 	"workflows-ui-trigger-field-active": "Etkin",
-	"workflows-action-edit-label": "Düzenle",
+	"workflows-action-edit-label": "Değiştir",
 	"workflows-action-delete-label": "Sil",
 	"workflows-ui-trigger-item-inactive": "$1 (etkin değil)",
 	"workflows-ui-trigger-field-description": "Açıklama",
