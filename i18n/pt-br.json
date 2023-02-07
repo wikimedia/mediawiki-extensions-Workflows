@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardoaddad"
+			"Eduardoaddad",
+			"Mello25"
 		]
 	},
 	"workflows-ui-task-completion-action-cancel": "Cancelar",
@@ -10,5 +11,6 @@
 	"workflows-ui-overview-details-state-label": "Estado:",
 	"workflows-ui-overview-details-action-reason": "Motivo",
 	"workflows-ui-overview-details-page-context-page": "Página",
-	"workflows-collect-data-form-username": "Usuário"
+	"workflows-collect-data-form-username": "Usuário",
+	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|mais um|$1 mais}}"
 }

@@ -57,7 +57,9 @@
 	"workflows-activity-set-template-params-no-target": "Določena ciljna predloga ne obstaja na navedeni strani",
 	"workflows-activity-error-no-title": "Neveljaven naslov",
 	"workflows-activity-set-template-params-cannot-save": "Shranjevanje ni uspelo",
+	"workflows-activity-property-due_date": "Datum zapadlosti",
 	"workflows-activity-property-comment": "Komentar",
 	"workflows-activity-property-delegate_comment": "Komentar delegata",
-	"workflows-activity-property-assigned_user": "Dodeljeni uporabnik"
+	"workflows-activity-property-assigned_user": "Dodeljeni uporabnik",
+	"workflows-ui-overview-details-activity-assigned-users-more": "in {{PLURAL:$1|še en|še $1}}"
 }

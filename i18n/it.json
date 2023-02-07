@@ -46,5 +46,6 @@
 	"workflows-activity-property-groupname": "Nome gruppo",
 	"workflows-activity-property-usernameApprover": "Approvatore",
 	"workflows-activity-property-vote": "Vota",
-	"workflows-activity-property-action": "Azione"
+	"workflows-activity-property-action": "Azione",
+	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|un altro|$1 altri}}"
 }

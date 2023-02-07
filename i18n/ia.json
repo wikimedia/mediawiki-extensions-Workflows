@@ -238,5 +238,6 @@
 	"workflows-activity-property-delegate_to": "Delegar a",
 	"workflows-activity-property-delegate_comment": "Delegar commento",
 	"workflows-activity-property-assigned_user": "Usator assignate",
-	"workflows-activity-property-action": "Action"
+	"workflows-activity-property-action": "Action",
+	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|un altere|$1 alteres}}"
 }

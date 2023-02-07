@@ -4,7 +4,8 @@
 			"Dnlweijers",
 			"Mainframe98",
 			"Robin van der Vliet",
-			"Vistaus"
+			"Vistaus",
+			"McDutchie"
 		]
 	},
 	"workflows-ui-starter-action-cancel": "Annuleren",
@@ -32,5 +33,6 @@
 	"workflows-ui-workflow-overview-initial-data-title": "Eerste gegevens",
 	"workflows-ui-overview-details-section-details": "Details",
 	"workflows-ui-overview-details-due-date-label": "Verloopt op",
-	"workflows-ui-overview-details-section-assignee": "Toegewezen aan"
+	"workflows-ui-overview-details-section-assignee": "Toegewezen aan",
+	"workflows-ui-overview-details-activity-assigned-users-more": "en nog {{PLURAL:$1|een|$1}}"
 }
