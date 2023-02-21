@@ -62,5 +62,10 @@
 	"workflows-uto-activity-group_vote": "Skupinski glas",
 	"workflows-activity-group-vote-name": "Skupinski glas",
 	"workflows-activity-property-due_date": "Datum zapadlosti",
-	"workflows-ui-overview-details-activity-assigned-users-more": "in {{PLURAL:$1|še en|še $1}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "in {{PLURAL:$1|še en|še $1}}",
+	"workflows-ui-alert-activity-edit-request": "Zaprošeni ste bili, da uredite to stran",
+	"workflows-ui-overview-details-no-current-activity": "Ni najdenih čakajočih opravil",
+	"workflows-property-validator-required-error": "Vrednost je obvezna",
+	"workflows-ui-workflow-overview-initial-data-title": "Začetni podatki",
+	"workflows-ui-workflow-overview-step-name-collect-data": "Pridobivanje podatkov"
 }

@@ -3,5 +3,6 @@
 		"authors": []
 	},
 	"workflows-ui-trigger-action-create": "Sačuvaj",
-	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Odobri"
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Odobri",
+	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1|još jedan|još $1}}"
 }
