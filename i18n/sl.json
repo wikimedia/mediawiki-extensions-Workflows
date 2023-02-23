@@ -67,5 +67,6 @@
 	"workflows-ui-overview-details-no-current-activity": "Ni najdenih čakajočih opravil",
 	"workflows-property-validator-required-error": "Vrednost je obvezna",
 	"workflows-ui-workflow-overview-initial-data-title": "Začetni podatki",
-	"workflows-ui-workflow-overview-step-name-collect-data": "Pridobivanje podatkov"
+	"workflows-ui-workflow-overview-step-name-collect-data": "Pridobivanje podatkov",
+	"workflows-triggers-type-move-label": "Ob prestavitvi strani"
 }
