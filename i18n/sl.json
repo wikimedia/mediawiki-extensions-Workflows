@@ -44,6 +44,7 @@
 	"workflows-activity-history-vote-result-yes": "Odobren",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Lastnost",
 	"workflows-ui-overview-details-raw-data-popup-value": "Vrednost",
+	"workflows-triggers-type-move-label": "Ob prestavitvi strani",
 	"workflows-triggers-type-time-label": "Na podlagi časa",
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-action-create": "Shrani",
