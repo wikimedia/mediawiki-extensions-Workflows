@@ -7,5 +7,7 @@
 	"workflows-ui-starter-action-cancel": "אַנולירן",
 	"workflows-ui-task-completion-action-cancel": "אַנולירן",
 	"workflows-ui-action-cancel": "אַנולירן",
-	"workflows-ui-overview-details-page-context-page": "בלאַט"
+	"workflows-ui-overview-details-page-context-page": "בלאַט",
+	"workflows-ui-overview-grid-filter-state-all": "אַלע",
+	"workflows-collect-data-form-groupname": "גרופּע"
 }
