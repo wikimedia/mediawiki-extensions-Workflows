@@ -4,9 +4,11 @@
 			"Eleassar"
 		]
 	},
+	"workflows-ui-starter-error-generic": "Ni mogoče začeti delovnega toka",
 	"workflows-ui-starter-action-choose": "Izberite",
 	"workflows-ui-starter-action-done": "Začni",
 	"workflows-ui-starter-action-cancel": "Prekliči",
+	"workflows-ui-starter-init-form-fail": "Inicializacijskega obrazca ni mogoče pridobiti",
 	"workflows-ui-task-completion-action-complete": "Pošlji",
 	"workflows-ui-task-completion-action-cancel": "Prekliči",
 	"workflows-uto-activity-user_vote": "Uporabniško glasovanje",
