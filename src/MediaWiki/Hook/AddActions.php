@@ -57,7 +57,7 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 						'text' => $sktemplate->getContext()->msg( "workflows-ui-action-start" )->text(),
 						'href' => '#',
 						'class' => false,
-						'id' => 'ca-wf-start',
+						'id' => 'ca-wf_start',
 						'position' => 10,
 					];
 					return;
