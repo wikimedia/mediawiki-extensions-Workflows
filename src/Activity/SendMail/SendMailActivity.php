@@ -65,12 +65,12 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$to = $data['recipient'];
 		if ( empty( $to ) ) {
+			$this->logger->debug( 'No recipient given, skipping mail.', $data );
 			return new ExecutionStatus( static::STATUS_COMPLETE );
 		}
-		if ( !is_array( $to ) ) {
-			$to = [ $to ];
-		}
+		$to = explode( '|', $to );
 		$to = array_map( static function ( $to ) {
+			$to = trim( $to );
 			if ( strpos( $to, '@' ) !== false ) {
 				// Very basic check for email address
 				return new MailAddress( $to );

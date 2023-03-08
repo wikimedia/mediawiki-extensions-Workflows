@@ -76,6 +76,21 @@ class SendMailActivityTest extends MediaWikiIntegrationTestCase {
 						"* 2021-07-09, 12:00 - Lorem ipsum\n" .
 						"* 2021-07-09, 14:00 - Dolor sit amet",
 				]
+			],
+			'ERM31686' => [
+				'data' => [
+					'recipient' => 'someone1@example.com|someone2@example.com|Not#A#Valid#Mail#Address#Or#User|]]',
+					'subject' => 'Mutiple recipients',
+					'body' => 'Hello World'
+				],
+				'expectedMail' => [
+					'recipient' => [
+						new MailAddress( 'someone1@example.com' ),
+						new MailAddress( 'someone2@example.com' )
+					],
+					'subject' => 'Mutiple recipients',
+					'body' => 'Hello World'
+				]
 			]
 		];
 	}
