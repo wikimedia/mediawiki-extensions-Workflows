@@ -12,6 +12,7 @@ use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Extension\Workflows\WorkflowContextMutable;
+use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
 use Message;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
@@ -174,9 +175,15 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 			[ 'custom_test_group', $filledGroupUsers ]
 		] );
 
+		$userFactoryMock = $this->createMock( UserFactory::class );
+		$userFactoryMock->method( 'newFromName' )->willReturnCallback( static function ( $name ) {
+			return $name;
+		} );
+
 		$activity = new GroupVoteActivity(
 			$this->notifier,
 			$groupDataProviderMock,
+			$userFactoryMock,
 			$this->task
 		);
 		$activity->setSpecialLogLogger( $this->specialLogLogger );

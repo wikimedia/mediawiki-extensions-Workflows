@@ -14,6 +14,7 @@ use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\Notifications\INotifier;
 use User;
 
@@ -53,15 +54,19 @@ class GroupVoteActivity extends GenericVoteActivity {
 	 */
 	private $groupDataProvider;
 
+	/** @var UserFactory */
+	private $userFactory;
+
 	/**
 	 * @inheritDoc
 	 */
 	public function __construct(
-		INotifier $notifier, GroupDataProvider $groupDataProvider, ITask $task
+		INotifier $notifier, GroupDataProvider $groupDataProvider, UserFactory $userFactory, ITask $task
 	) {
 		parent::__construct( $notifier, $task );
 
 		$this->groupDataProvider = $groupDataProvider;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -156,7 +161,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 		$this->saveUserVote( $this->actor->getName(), $vote, $comment );
 
 		// Update data to be returned
-		$data['users_voted'] = json_encode( $this->getUserVotes() );
+		$data['users_voted'] = $this->getUserVotes();
 
 		// We need to reset comment field for next users
 		$data['comment'] = '';
@@ -212,8 +217,10 @@ class GroupVoteActivity extends GenericVoteActivity {
 		$parsedVoted = $this->parseUsersVoted( $properties['users_voted'] );
 		$voted = array_column( $parsedVoted, 'userName' );
 
-		return array_values( array_filter( $usernames, static function ( $username ) use ( $voted ) {
-			return !in_array( $username, $voted );
+		$userFactory = $this->userFactory;
+		return array_values( array_filter( $usernames, static function ( $username ) use ( $voted, $userFactory ) {
+			$user = $userFactory->newFromName( $username );
+			return !in_array( $user->getName(), $voted );
 		} ) );
 	}
 
