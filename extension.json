@@ -46,7 +46,7 @@
 					},
 					"group_vote": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\VoteActivity\\GroupVoteActivity",
-						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider" ]
+						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider", "UserFactory" ]
 					},
 					"user_feedback": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\UserFeedbackActivity",

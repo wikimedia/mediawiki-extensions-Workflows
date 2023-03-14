@@ -64,6 +64,14 @@ class DataPreprocessor {
 
 		$preprocessed = [];
 		foreach ( $data as $dataKey => $dataValue ) {
+			if ( is_array( $dataValue ) ) {
+				// This can only happen when parsing values that come OUT of the activity
+				// Input from the XML can never be an array
+				// We assume that activity will not output an array of values that need processing,
+				// so we just pass them through to be flattened for the next activity
+				$preprocessed[$dataKey] = $dataValue;
+				continue;
+			}
 			$frame = $this->parser->getPreprocessor()->newCustomFrame( $contextData );
 			$preprocessed[$dataKey] = $this->parser->preprocess(
 				$dataValue,
