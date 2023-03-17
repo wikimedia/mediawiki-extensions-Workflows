@@ -1,6 +1,11 @@
 window.workflows = {
 	api: {},
 	store: {},
+	editor: {
+		property: {},
+		inspector: {},
+		element: {}
+	},
 	ui: {
 		openWorkflowStarter: function( repos ) {
 			repos = repos || [];
@@ -414,7 +419,7 @@ window.workflows = {
 	}
 };
 
-$( function() {
+function maybeAddAlerts() {
 	if (
 		mw.config.get( 'wgNamespaceNumber' ) < 0 ||
 		!mw.config.get( 'wgRevisionId' ) ||
@@ -435,4 +440,32 @@ $( function() {
 		workflows.ui.alert.manager = new workflows.ui.alert.Manager();
 		workflows.ui.addRunningWorkflowAlerts();
 	} );
+}
+
+function maybeAddEditor() {
+	var $c = $( '#workflows-editor-panel' );
+	if ( $c.length === 0 ) {
+		return;
+	}
+
+	var action = $c.data( 'action' );
+	if ( action === 'edit' ) {
+		mw.loader.using( mw.config.get( 'workflowPluginModules' ) ).done( function() {
+			mw.loader.using( [ 'ext.workflows.editor' ] ).done( function() {
+				var editor = new workflows.ui.widget.BpmnEditor( $c.data() );
+				$c.html( editor.$element );
+			} );
+		} );
+
+	} else {
+		mw.loader.using( [ 'ext.workflows.viewer' ] ).done( function() {
+			var viewer = new workflows.ui.widget.BpmnViewer( $c.data() );
+			$c.html( viewer.$element );
+		} );
+	}
+}
+
+$( function() {
+	maybeAddAlerts();
+	maybeAddEditor();
 } );

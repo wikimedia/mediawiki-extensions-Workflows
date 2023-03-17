@@ -142,7 +142,10 @@
 					"module": "ext.workflows.trigger.editors",
 					"class": "workflows.ui.trigger.Manual"
 				}
-			}
+			},
+			"EditorPluginModules": [
+				"ext.workflows.editor.customElements"
+			]
 		},
 		"BlueSpiceDiscovery": {
 			"AttentionIndicatorRegistry": {
@@ -537,6 +540,115 @@
 			"scripts": [
 				"triggerEditor.js"
 			]
+		},
+		"ext.workflows.editor.bpmn-js.viewer": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ResourceModule\\BpmnJSViewer"
+		},
+		"ext.workflows.editor.bpmn-js.modeler": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ResourceModule\\BpmnJSModeler"
+		},
+		"ext.workflows.editor": {
+			"scripts": [
+				"ui/editor/util.js",
+				"ui/editor/schema.js",
+				"ui/editor/CustomMenu.js",
+				"ui/editor/BpmnEditor.js"
+			],
+			"styles": [
+				"ui/editor/editor.less"
+			],
+			"dependencies": [
+				"ext.workflows.editor.bpmn-js.modeler",
+				"oojs-ui",
+				"oojs-ui.styles.icons-movement"
+			],
+			"messages": [
+				"workflows-editor-editor-field-summary",
+				"workflows-editor-editor-button-save",
+				"workflows-editor-editor-button-cancel",
+				"workflows-ui-editor-inspector-process-title"
+			]
+		},
+		"ext.workflows.editor.customElements": {
+			"scripts": [
+				"ui/editor/inspector/ActivityInspector.js",
+				"ui/editor/inspector/CustomFormInspector.js",
+				"ui/editor/inspector/ProcessInspector.js",
+				"ui/editor/inspector/GatewayInspector.js",
+				"ui/editor/registerCustomElements.js"
+			],
+			"styles": [
+				"ui/editor/customElements.css"
+			],
+			"messages": [
+				"workflows-activity-property-reportrecipient",
+				"workflows-activity-property-instructions",
+				"workflows-activity-property-username",
+				"workflows-activity-property-due_date",
+				"workflows-activity-property-groupname",
+				"workflows-uto-activity-custom_form",
+				"workflows-uto-activity-user_vote",
+				"workflows-ui-editor-inspector-activity-title",
+				"workflows-ui-editor-inspector-properties",
+				"workflows-ui-editor-inspector-properties-additional",
+				"workflows-ui-editor-inspector-properties-additional-name",
+				"workflows-ui-editor-inspector-properties-additional-value",
+				"workflows-ui-editor-inspector-activity-custom-form-title",
+				"workflows-ui-editor-inspector-activity-custom-form-form-to-use",
+				"workflows-ui-editor-inspector-activity-custom-form-form-type",
+				"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki",
+				"workflows-ui-editor-inspector-activity-custom-form-form-type-backend",
+				"workflows-ui-editor-inspector-activity-custom-form-form-module",
+				"workflows-ui-editor-inspector-activity-custom-form-form-title",
+				"workflows-ui-editor-inspector-activity-custom-form-form-class",
+				"workflows-ui-editor-inspector-activity-initializer",
+				"workflows-ui-editor-inspector-activity-section-initializer",
+				"workflows-ui-editor-inspector-gateway-title",
+				"workflows-ui-editor-inspector-gateway-notice",
+				"workflows-ui-editor-inspector-name",
+				"workflows-ui-editor-inspector-process-title",
+				"workflows-ui-editor-inspector-process-bind-to-revision",
+				"workflows-ui-editor-inspector-process-name"
+			],
+			"dependencies": [
+				"ext.workflows.editor.inspector.bootstrap",
+				"ext.workflows.editor.customElements.bootstrap"
+			]
+		},
+		"ext.workflows.editor.customElements.bootstrap": {
+			"scripts": [
+				"ui/editor/customElement/CustomElement.js",
+				"ui/editor/customElement/WorkflowActivityElement.js",
+				"ui/editor/customElement/Registry.js"
+			]
+		},
+		"ext.workflows.editor.inspector.bootstrap": {
+			"scripts": [
+				"ui/editor/inspector/Inspector.js",
+				"ui/editor/inspector/Registry.js",
+				"ui/editor/inspector/InspectorDialog.js"
+			],
+			"messages": [
+				"workflows-editor-editor-button-save",
+				"workflows-editor-editor-button-cancel"
+			],
+			"dependencies": [
+				"oojs-ui",
+				"ext.forms.standalone"
+			]
+		},
+		"ext.workflows.viewer": {
+			"scripts": [
+				"ui/editor/BpmnViewer.js"
+			],
+			"dependencies": [
+				"ext.workflows.editor.bpmn-js.viewer",
+				"oojs-ui"
+			],
+			"messages": [
+				"workflows-editor-viewer-section-diagram",
+				"workflows-editor-viewer-section-xml"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -751,6 +863,9 @@
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-email-workflow-cat": 1
+	},
+	"Actions": {
+		"editxml": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Action\\EditDiagramXmlAction"
 	},
 	"manifest_version": 2,
 	"load_composer_autoloader": true

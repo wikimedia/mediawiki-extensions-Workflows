@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use SkinTemplate;
 
 class AddActions implements SkinTemplateNavigation__UniversalHook {
 	/** @var PermissionManager */
@@ -22,12 +23,15 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 	}
 
 	/**
-	 * @param \SkinTemplate $sktemplate
+	 * @param SkinTemplate $sktemplate
 	 * @param array &$links
 	 */
 	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
 		$user = $sktemplate->getUser();
 		$title = $sktemplate->getTitle();
+		if ( $title->exists() && $title->getContentModel() === 'BPMN' ) {
+			$this->addEditXmlAction( $sktemplate, $links );
+		}
 		if ( !$title->exists() || $title->isSpecialPage() || !$title->isContentPage() ) {
 			return;
 		}
@@ -64,5 +68,23 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 				}
 			}
 		}
+	}
+
+	/**
+	 * @param SkinTemplate $sktemplate
+	 * @param array &$links
+	 *
+	 * @return void
+	 */
+	private function addEditXmlAction( SkinTemplate $sktemplate, array &$links ) {
+		if ( !isset( $links['views']['edit'] ) ) {
+			return;
+		}
+		$links['views']['edit']['text'] = $sktemplate->msg( 'workflows-ui-action-edit' )->plain();
+		$links['views']['edit']['title'] = $sktemplate->msg( 'workflows-ui-action-edit' )->plain();
+		$links['views']['editxml'] = $links['views']['edit'];
+		$links['views']['editxml']['text'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->plain();
+		$links['views']['editxml']['title'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->plain();
+		$links['views']['editxml']['href'] = $sktemplate->getTitle()->getLinkURL( [ 'action' => 'editxml' ] );
 	}
 }

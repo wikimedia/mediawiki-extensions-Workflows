@@ -1,0 +1,6 @@
+.activity-icon.activity-user-vote:before {
+	 content: '🗳';
+}
+.activity-icon.activity-custom-form:before {
+	 content: '🖹';
+}

@@ -75,7 +75,6 @@ class SetTemplateParamsActivity extends GenericActivity {
 	 */
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$this->assertData( $data );
-
 		$revision = $this->revisionStore->getRevisionByTitle( $this->title );
 		if ( !( $revision instanceof RevisionRecord ) ) {
 			throw new WorkflowExecutionException(
@@ -85,23 +84,25 @@ class SetTemplateParamsActivity extends GenericActivity {
 		}
 		$parser = $this->parserFactory->newRevisionParser( $revision );
 		$templates = $parser->parse();
+		$templates = array_filter( $templates, static function ( $node ) {
+			return $node instanceof Transclusion;
+		} );
 
 		if ( empty( $templates ) || !isset( $templates[$this->templateIndex] ) ) {
 			throw new WorkflowExecutionException(
 				Message::newFromKey( 'workflows-activity-set-template-params-no-target' )->text()
 			);
 		}
-
 		/** @var Transclusion $node */
 		$node = $templates[$this->templateIndex];
 		$node->setParam( $this->templateParamIndex, $this->value );
-
 		$parser->replaceNode( $node );
 		$rev = $parser->saveRevision( $this->user, $this->comment, $this->isMinor ? EDIT_MINOR : 0 );
 		if ( !( $rev instanceof RevisionRecord ) ) {
-			throw new WorkflowExecutionException(
-				Message::newFromKey( 'workflows-activity-set-template-params-cannot-save' )->text()
+			$this->logger->error(
+				'Workflows: SetTemplateParamsActivity: Failed to save revision, potential error or no change'
 			);
+			$rev = $revision;
 		}
 		return new ExecutionStatus( Activity::STATUS_COMPLETE, [
 			'revisionId' => $rev->getId(),
@@ -123,6 +124,7 @@ class SetTemplateParamsActivity extends GenericActivity {
 		if ( isset( $data['user'] ) ) {
 			$this->user = $this->userFactory->newFromName( $data['user'] );
 			if ( $this->user && !$this->permissionManager->userCan( 'edit', $this->user, $this->title ) ) {
+				error_log( 'User ' . $this->user->getName() . ' cannot edit ' . $this->title->getPrefixedText() );
 				throw new WorkflowExecutionException(
 					Message::newFromKey( 'workflows-activity-cannot-edit' )
 						->params( $this->user->getName(), $this->title->getPrefixedText() )->text(),
