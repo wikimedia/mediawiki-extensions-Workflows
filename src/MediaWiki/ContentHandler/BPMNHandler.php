@@ -5,8 +5,9 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\ContentHandler;
 use Article;
 use Content;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramAction;
+use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramXmlAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\BPMNContent;
-use MediaWiki\MediaWikiServices;
 use ParserOutput;
 use TextContentHandler;
 use Title;
@@ -32,6 +33,13 @@ class BPMNHandler extends TextContentHandler {
 		return false;
 	}
 
+	public function getActionOverrides() {
+		return [
+			'edit' => EditDiagramAction::class,
+			'editxml' => EditDiagramXmlAction::class,
+		];
+	}
+
 	protected function fillParserOutput(
 		Content $content,
 		ContentParseParams $cpoParams,
@@ -43,9 +51,9 @@ class BPMNHandler extends TextContentHandler {
 			$destTitle = $content->getRedirectTarget();
 			if ( $destTitle instanceof Title ) {
 				$output->addLink( $destTitle );
-				if ( $cpoParams->generateHtml ) {
+				if ( $cpoParams->getGenerateHtml() ) {
 					$output->setText(
-						Article::getRedirectHeaderHtml( $title->getPageLanguage(), $destTitle, false )
+						Article::getRedirectHeaderHtml( $title->getPageLanguage(), $destTitle )
 					);
 					$output->addModuleStyles( [ 'mediawiki.action.view.redirectPage' ] );
 				}
@@ -53,9 +61,10 @@ class BPMNHandler extends TextContentHandler {
 			return;
 		}
 
-		$output = MediaWikiServices::getInstance()->getParser()->parse(
-			"<syntaxhighlight lang=\"xml\">" . $content->getTextForSummary() . "</syntaxhighlight>",
-			$title, $cpoParams->getParserOptions()
-		);
+		$output->setText( \Html::element( 'div', [
+			'id' => 'workflows-editor-panel',
+			'action' => 'view',
+			'data-xml' => $content->getText()
+		] ) );
 	}
 }

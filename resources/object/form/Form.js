@@ -70,7 +70,7 @@
 		return this.activity.getName();
 	};
 
-	mw.ext.forms.standalone.Form.prototype.onDataSubmitted = function( data, summary ) {
+	workflows.object.form.Form.prototype.onDataSubmitted = function( data, summary ) {
 		this.emit( 'submit', data, summary );
 	};
 
