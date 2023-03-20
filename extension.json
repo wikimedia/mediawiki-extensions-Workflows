@@ -619,7 +619,8 @@
 				"WorkflowsStateStore",
 				"WorkflowSerializer",
 				"TitleFactory",
-				"LinkRenderer"
+				"LinkRenderer",
+				"UserFactory"
 			]
 		},
 		{
