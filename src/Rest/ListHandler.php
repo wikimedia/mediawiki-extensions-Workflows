@@ -8,6 +8,7 @@ use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Rest\Handler;
+use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 use TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -23,6 +24,8 @@ class ListHandler extends Handler {
 	private $titleFactory;
 	/** @var LinkRenderer */
 	private $linkRenderer;
+	/** @var UserFactory */
+	private $userFactory;
 
 	/**
 	 * @param WorkflowFactory $factory
@@ -30,17 +33,19 @@ class ListHandler extends Handler {
 	 * @param WorkflowSerializer $workflowSerializer
 	 * @param TitleFactory $titleFactory
 	 * @param LinkRenderer $linkRenderer
+	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
 		WorkflowFactory $factory, WorkflowStateStore $stateStore,
 		WorkflowSerializer $workflowSerializer, TitleFactory $titleFactory,
-		LinkRenderer $linkRenderer
+		LinkRenderer $linkRenderer, UserFactory $userFactory
 	) {
 		$this->stateStore = $stateStore;
 		$this->workflowFactory = $factory;
 		$this->workflowSerializer = $workflowSerializer;
 		$this->titleFactory = $titleFactory;
 		$this->linkRenderer = $linkRenderer;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -58,7 +63,7 @@ class ListHandler extends Handler {
 
 		$store = new Store(
 			$this->stateStore, $this->workflowFactory,
-			$this->titleFactory, $this->linkRenderer
+			$this->titleFactory, $this->linkRenderer, $this->userFactory
 		);
 		$resultSet = $store->getReader()->read( $readerParams );
 		$end = microtime( true );

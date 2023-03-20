@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Data;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
@@ -12,16 +13,22 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 	private $workflowFactory;
 	/** @var LinkRenderer */
 	private $linkRenderer;
+	/** @var UserFactory */
+	private $userFactory;
 	/** @var \RequestContext|null */
 	private $context;
 
 	/**
 	 * @param WorkflowFactory $workflowFactory
 	 * @param LinkRenderer $linkRenderer
+	 * @param UserFactory $userFactory
 	 */
-	public function __construct( WorkflowFactory $workflowFactory, LinkRenderer $linkRenderer ) {
+	public function __construct(
+		WorkflowFactory $workflowFactory, LinkRenderer $linkRenderer, UserFactory $userFactory
+	) {
 		$this->workflowFactory = $workflowFactory;
 		$this->linkRenderer = $linkRenderer;
+		$this->userFactory = $userFactory;
 		$this->context = \RequestContext::getMain();
 	}
 
@@ -70,8 +77,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 		foreach ( $assignees as $assignee ) {
 			$bits = explode( '#', $assignee );
 			$username = array_shift( $bits );
-			// TODO: Service
-			$user = \User::newFromName( $username );
+			$user = $this->userFactory->newFromName( $username );
 			if ( $user instanceof \User ) {
 				$res[] = $this->linkRenderer->makeLink(
 					$user->getUserPage(), $user->getRealName() ?: $user->getName()

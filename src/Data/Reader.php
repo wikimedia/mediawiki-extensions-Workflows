@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Data;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 use TitleFactory;
 
@@ -17,22 +18,26 @@ class Reader extends \MWStake\MediaWiki\Component\DataStore\Reader {
 	private $titleFactory;
 	/** @var LinkRenderer */
 	private $linkRenderer;
+	/** @var UserFactory */
+	private $userFactory;
 
 	/**
 	 * @param WorkflowStateStore $stateStore
 	 * @param WorkflowFactory $wfFactory
 	 * @param TitleFactory $titleFactory
 	 * @param LinkRenderer $linkRenderer
+	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
 		WorkflowStateStore $stateStore, WorkflowFactory $wfFactory,
-		TitleFactory $titleFactory, LinkRenderer $linkRenderer
+		TitleFactory $titleFactory, LinkRenderer $linkRenderer, UserFactory $userFactory
 	) {
 		parent::__construct();
 		$this->stateStore = $stateStore;
 		$this->workflowFactory = $wfFactory;
 		$this->titleFactory = $titleFactory;
 		$this->linkRenderer = $linkRenderer;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -54,6 +59,6 @@ class Reader extends \MWStake\MediaWiki\Component\DataStore\Reader {
 	 * @return SecondaryDataProvider
 	 */
 	protected function makeSecondaryDataProvider() {
-		return new SecondaryDataProvider( $this->workflowFactory, $this->linkRenderer );
+		return new SecondaryDataProvider( $this->workflowFactory, $this->linkRenderer, $this->userFactory );
 	}
 }
