@@ -49,6 +49,7 @@
 	"workflows-triggers-type-time-label": "Na podlagi časa",
 	"workflows-ui-action-cancel": "Prekliči",
 	"workflows-ui-trigger-action-create": "Shrani",
+	"workflows-ui-triggers-error-delete-fail": "Izbris sprožilca ni uspel",
 	"workflows-ui-triggers-error-persist-fail": "Sprožilca ni bilo mogoče shraniti",
 	"workflows-ui-triggers-add-button": "Dodaj nov sprožilec",
 	"workflows-ui-trigger-field-name": "Ime",
