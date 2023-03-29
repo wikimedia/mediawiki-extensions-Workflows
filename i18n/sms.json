@@ -35,5 +35,6 @@
 	"workflows-ui-overview-details-state-column": "Status",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Priim",
 	"workflows-ui-overview-grid-filter-state-all": "Puk",
-	"workflows-ui-trigger-field-description": "Deskriptt"
+	"workflows-ui-trigger-field-description": "Deskriptt",
+	"workflows-activity-property-comment": "Kommeʹntt"
 }
