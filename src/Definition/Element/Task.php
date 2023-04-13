@@ -70,7 +70,7 @@ class Task extends Element implements ITask {
 	/**
 	 * @return array
 	 */
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		return array_merge( parent::jsonSerialize(), [
 			'properties' => $this->dataProperties,
 			'dataInputAssociation' => $this->dataInputAssociations,

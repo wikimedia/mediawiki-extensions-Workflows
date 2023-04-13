@@ -269,7 +269,7 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	/**
 	 * @return array
 	 */
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		$data = [
 			'type' => $this->getType(),
 			'name' => $this->getName(),
