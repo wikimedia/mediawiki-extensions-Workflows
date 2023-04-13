@@ -236,5 +236,6 @@
 	"workflows-activity-property-delegate_comment": "Delegate comment",
 	"workflows-activity-property-assigned_user": "Assigned user",
 	"workflows-activity-property-action": "Action",
-	"workflows-ui-overview-details-activity-assigned-users-more": "and {{PLURAL:$1|one more|$1 more}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "and {{PLURAL:$1|one more|$1 more}}",
+	"workflows-ui-trigger-field-conditions": "Conditions"
 }

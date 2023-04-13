@@ -4,6 +4,7 @@
 		this.$overlay = cfg.$overlay || null;
 		OO.EventEmitter.call( this );
 		this.value = data || {};
+		this.alienConditions = { include: {}, exclude: {} };
 		this.conditionWidgets = { include: {}, exclude: {} };
 	};
 
@@ -50,8 +51,7 @@
 			$panel = $( '<div>' );
 		this.conditionsPanel = new OOJSPlus.ui.widget.ExpandablePanel( {
 			$content: $panel,
-			// TODO: i18n
-			label: 'Conditions',
+			label: mw.message( 'workflows-ui-trigger-field-conditions' ).text(),
 			collapsed: true,
 			expanded: false,
 			padded: false
@@ -76,6 +76,9 @@
 			}
 			var widget = this.getConditionWidget( key, type );
 			if ( !widget ) {
+				// Could not find a widget for this condition, consider it an alien condition
+				// and store it so that it can be preserved when saving
+				this.alienConditions[type][key] = config[key];
 				continue;
 			}
 			this.conditionWidgets[type][key] = widget;
@@ -121,8 +124,13 @@
 
 	workflows.ui.trigger.Trigger.prototype.getConditionValue = function() {
 		return {
-			include: this.getConditionGroupValue( this.conditionWidgets.include || {}, 'include' ),
-			exclude: this.getConditionGroupValue( this.conditionWidgets.exclude || {}, 'exclude' ),
+			include: $.extend(
+				this.alienConditions.include,
+				this.getConditionGroupValue( this.conditionWidgets.include || {}, 'include' )
+			),
+			exclude: $.extend(
+				this.alienConditions.exclude, this.getConditionGroupValue( this.conditionWidgets.exclude || {}, 'exclude' )
+			),
 		};
 	};
 
