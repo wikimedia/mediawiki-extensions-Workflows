@@ -460,7 +460,8 @@
 				"workflows-ui-trigger-field-name",
 				"workflows-ui-trigger-field-active",
 				"workflows-ui-trigger-field-description",
-				"workflows-ui-trigger-field-workflow-picker"
+				"workflows-ui-trigger-field-workflow-picker",
+				"workflows-ui-trigger-field-conditions"
 			],
 			"dependencies": [
 				"ext.workflows.ui.workflowpicker",
