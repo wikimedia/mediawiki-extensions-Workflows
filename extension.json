@@ -181,6 +181,7 @@
 			"scripts": [
 				"object/Element.js",
 				"object/Activity.js",
+				"object/DescribedActivity.js",
 				"object/UserInteractionModule.js",
 				"object/UserInteractiveActivity.js",
 				"object/ElementFactory.js",

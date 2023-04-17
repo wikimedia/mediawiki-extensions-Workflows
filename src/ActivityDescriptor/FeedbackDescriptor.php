@@ -10,7 +10,7 @@ use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Notifications\INotification;
 
-class FeedbackDescriptor extends GenericDescriptor {
+class FeedbackDescriptor extends GenericUIActivityDescriptor {
 
 	/**
 	 * Maximum user comment length to be displayed

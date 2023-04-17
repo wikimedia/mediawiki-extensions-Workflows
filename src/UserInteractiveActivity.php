@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows;
 
 use DateTime;
 
-interface UserInteractiveActivity extends IActivity {
+interface UserInteractiveActivity extends IActivity, IDescribedActivity {
 	/**
 	 * Returns name of the RL module that contains
 	 * @return UserInteractionModule
@@ -40,11 +40,4 @@ interface UserInteractiveActivity extends IActivity {
 	 * @return DateTime|null if does not expire
 	 */
 	public function getDueDate(): ?DateTime;
-
-	/**
-	 * Used for presenting the activity on the UI
-	 *
-	 * @return IActivityDescriptor
-	 */
-	public function getActivityDescriptor(): IActivityDescriptor;
 }

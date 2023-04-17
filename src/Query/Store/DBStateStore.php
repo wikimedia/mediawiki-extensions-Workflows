@@ -268,16 +268,17 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @return bool
 	 */
 	private function matchContextFilter( array $payload, array $filterData ) {
-		foreach ( $filterData as $valueKey => $valueItem ) {
-			if ( !isset( $payload['context'][$valueKey] ) ) {
-				continue;
-			}
-			if ( $payload['context'][$valueKey] !== $valueItem ) {
+		// All fields in the filter that exist in context must match
+		// If context has fields that are not in the filter, they are ignored, and vice versa
+		$matches = false;
+		foreach ( array_intersect( array_keys( $payload['context'] ?? [] ), array_keys( $filterData ) ) as $key ) {
+			$matches = true;
+			if ( $payload['context'][$key] !== $filterData[$key] ) {
 				return false;
 			}
 		}
 
-		return true;
+		return $matches;
 	}
 
 	/**

@@ -173,7 +173,7 @@
 			if ( !current.hasOwnProperty( name ) ) {
 				continue;
 			}
-			this.addActivity( current[name] );
+			this.addActivity( current[name], name );
 		}
 	};
 
@@ -188,7 +188,7 @@
 			var localizedProperties = activity.getDisplayData().localizedProperties || {};
 
 			var name = new OO.ui.LabelWidget( {
-					label: activity.description.taskName,
+					label: activity.getDescription().taskName,
 					classes: [ 'name' ]
 				} ),
 				rawData = new workflows.ui.widget.ActivityRawDataPopup( localizedProperties ),
@@ -218,7 +218,7 @@
 			if ( task.state !== workflows.state.activity.COMPLETE ) {
 				continue;
 			}
-			if ( !task instanceof workflows.object.UserInteractiveActivity )  {
+			if ( !task instanceof workflows.object.DescribedActivity )  {
 				continue;
 			}
 			if ( typeof task.getHistory !== 'function' ) {
@@ -342,12 +342,13 @@
 		}
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function( activity ) {
+	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function( activity, rawName ) {
 		if ( !activity instanceof workflows.object.Activity ) {
 			return;
 		}
+		var isDescribed = activity instanceof workflows.object.DescribedActivity;
 		var name = new OO.ui.LabelWidget( {
-				label: activity.description.taskName,
+				label: isDescribed ? activity.getDescription().taskName : rawName,
 				classes: [ 'name' ]
 			} ),
 			layout = new OO.ui.PanelLayout( {
@@ -358,47 +359,49 @@
 
 		layout.$element.append( name.$element );
 
-		if ( activity instanceof workflows.object.UserInteractiveActivity ) {
-			var assignedUsersLayout = new OO.ui.HorizontalLayout();
-			var targetUsers = activity.targetUsers;
-			if ( !targetUsers ) {
-				assignedUsersLayout.$element.append( new OO.ui.LabelWidget( {
-					label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-none' ).text()
-				} ).$element );
-			} else {
-				this.appendTargetUsers( targetUsers, assignedUsersLayout );
-			}
-			var $table = $('<table>').append( $('<colgroup>')
+		if ( isDescribed ) {
+			if ( activity instanceof workflows.object.UserInteractiveActivity ) {
+				var assignedUsersLayout = new OO.ui.HorizontalLayout();
+				var targetUsers = activity.targetUsers;
+				if ( !targetUsers ) {
+					assignedUsersLayout.$element.append( new OO.ui.LabelWidget( {
+						label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-none' ).text()
+					} ).$element );
+				} else {
+					this.appendTargetUsers( targetUsers, assignedUsersLayout );
+				}
+				var $table = $('<table>').append( $('<colgroup>')
 				.append( $('<col span="1" style="width: 30%;">')
 				.append( $('<col span="1" style="width: 70%;">'))) );
-			layout.$element.append(  $table.append( $('<tr>' ).append(
-				$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text() ),
-				$( '<td>' ).append( assignedUsersLayout.$element )
-			) ) );
+				layout.$element.append(  $table.append( $('<tr>' ).append(
+					$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text() ),
+					$( '<td>' ).append( assignedUsersLayout.$element )
+				) ) );
 
-			var dueDate = activity.getDescription().dueDate;
-			if ( dueDate ) {
-				var proximity = activity.getDescription().dueDateProximity;
-				var labelDue = new OO.ui.LabelWidget( {
-					label: mw.message( "workflows-ui-overview-details-due-date-label" ).text()
-				} );
+				var dueDate = activity.getDescription().dueDate;
+				if ( dueDate ) {
+					var proximity = activity.getDescription().dueDateProximity;
+					var labelDue = new OO.ui.LabelWidget( {
+						label: mw.message( "workflows-ui-overview-details-due-date-label" ).text()
+					} );
 
-				var label = new OO.ui.LabelWidget( {
-					label: dueDate,
-					classes: [ 'proximity' ]
-				} );
+					var label = new OO.ui.LabelWidget( {
+						label: dueDate,
+						classes: [ 'proximity' ]
+					} );
 
-				var dueDateLayout = new OO.ui.HorizontalLayout( {
-					items: [ labelDue, label ],
-					classes: [ 'proximity-layout' ]
-				} );
-				if ( typeof proximity === 'number' && proximity < 3 && proximity >= 0 ) {
-					label.$element.addClass( 'proximity-close' );
+					var dueDateLayout = new OO.ui.HorizontalLayout( {
+						items: [ labelDue, label ],
+						classes: [ 'proximity-layout' ]
+					} );
+					if ( typeof proximity === 'number' && proximity < 3 && proximity >= 0 ) {
+						label.$element.addClass( 'proximity-close' );
+					}
+					if ( typeof proximity === 'number' && proximity < 0 ) {
+						label.$element.addClass( 'proximity-overdue' );
+					}
+					this.sectionLayout.addItems( dueDateLayout );
 				}
-				if ( typeof proximity === 'number' && proximity < 0 ) {
-					label.$element.addClass( 'proximity-overdue' );
-				}
-				this.sectionLayout.addItems( dueDateLayout );
 			}
 
 			if ( !$.isEmptyObject( activity.getHistory() ) ) {

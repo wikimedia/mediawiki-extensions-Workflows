@@ -4,16 +4,12 @@
 
 		this.initializer = cfg.isInitializer || false;
 		this.targetUsers = cfg.targetUsers || [];
-		this.description = cfg.description || {};
-		this.name = cfg.description.name || this.id;
-		this.history = cfg.history || {};
-		this.alertMessage = this.description.alertMessage || '';
 		this.completeButtonMessage = this.description.completeButtonMessage || '';
+		this.alertMessage = this.description.alertMessage || '';
 		this.userInteractionModule = new workflows.object.UserInteractionModule( cfg.userInteractionModule );
-		this.displayData = cfg.displayData || {};
 	};
 
-	OO.inheritClass( workflows.object.UserInteractiveActivity, workflows.object.Activity );
+	OO.inheritClass( workflows.object.UserInteractiveActivity, workflows.object.DescribedActivity );
 
 	workflows.object.UserInteractiveActivity.prototype.getForm = function( formCfg ) {
 		formCfg = formCfg || {};
@@ -67,6 +63,10 @@
 		return this.initializer;
 	};
 
+	workflows.object.UserInteractiveActivity.prototype.getAlertMessage = function() {
+		return this.alertMessage;
+	};
+
 	workflows.object.UserInteractiveActivity.prototype.callbackFromString = function( callback ) {
 		var parts = callback.split( '.' );
 		var func = window[parts[0]];
@@ -77,29 +77,12 @@
 		return func;
 	};
 
-	workflows.object.UserInteractiveActivity.prototype.getDescription = function() {
-		return this.description;
-	};
-
-
 	workflows.object.UserInteractiveActivity.prototype.isUserTargeted = function( username ) {
 		return this.targetUsers.length === 0 || this.targetUsers.indexOf( username ) !== -1;
 	};
 
-	workflows.object.UserInteractiveActivity.prototype.getAlertMessage = function() {
-		return this.alertMessage;
-	};
-
 	workflows.object.UserInteractiveActivity.prototype.getCompleteButtonMessage = function() {
 		return this.completeButtonMessage;
-	};
-
-	workflows.object.UserInteractiveActivity.prototype.getHistory = function() {
-		return this.history;
-	};
-
-	workflows.object.UserInteractiveActivity.prototype.getDisplayData = function() {
-		return this.displayData;
 	};
 
 	workflows.object.UserInteractiveActivity.prototype.complete = function( data ) {
