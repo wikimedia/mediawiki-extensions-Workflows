@@ -38,7 +38,8 @@ class ActivitySerializer {
 			} catch ( WorkflowExecutionException $exception ) {
 				$data['targetUsers'] = [];
 			}
-
+		}
+		if ( $activity instanceof IDescribedActivity ) {
 			$data['description'] = $activity->getActivityDescriptor()->jsonSerialize();
 			$data['displayData'] = [
 				'localizedProperties' => $activity->getActivityDescriptor()->getLocalizedProperties( $properties )

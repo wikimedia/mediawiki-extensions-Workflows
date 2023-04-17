@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Workflows\Query;
 
 use EventSauce\EventSourcing\Consumer;
-use MediaWiki\Extension\Workflows\Storage\Event\Event;
 use MediaWiki\Extension\Workflows\Storage\ReplayConsumer;
 use User;
 
@@ -20,7 +19,7 @@ interface WorkflowStateStore extends ReplayConsumer, Consumer {
 	public function active(): WorkflowStateStore;
 
 	/**
-	 * @param Event $event
+	 * @param string $event
 	 * @return WorkflowStateStore
 	 */
 	public function onEvent( $event ): WorkflowStateStore;

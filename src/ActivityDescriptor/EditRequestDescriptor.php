@@ -7,7 +7,7 @@ use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\EditRequestActiv
 use MediaWiki\Extension\Workflows\Workflow;
 use Message;
 
-class EditRequestDescriptor extends GenericDescriptor {
+class EditRequestDescriptor extends GenericUIActivityDescriptor {
 	/**
 	 * @return Message
 	 */
