@@ -137,10 +137,26 @@ final class DBStateStore implements WorkflowStateStore {
 	 *
 	 * @param Event $event
 	 * @param WorkflowId $id
+	 *
 	 * @return mixed|void
+	 * @throws Exception
 	 */
 	public function handleReplayEvent( $event, WorkflowId $id ) {
 		$this->processEvent( $event, $id );
+	}
+
+	/**
+	 * @param array $ids
+	 *
+	 * @return array
+	 */
+	public function modelsFromIds( array $ids ): array {
+		$this->conditions = [
+			'wfs_workflow_id' => array_map( static function ( WorkflowId $id ) {
+				return $id->toString();
+			}, $ids )
+		];
+		return $this->query( true );
 	}
 
 	/**
