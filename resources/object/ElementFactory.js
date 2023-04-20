@@ -22,6 +22,12 @@
 						'displayData'
 					] ), this.workflow
 				);
+			} else if ( elementData.isDescribed ) {
+				return new workflows.object.DescribedActivity(
+					this.getElementData( [
+						'properties', 'status', 'description', 'history', 'displayData'
+					] ), this.workflow
+				);
 			} else {
 				return new workflows.object.Activity(
 					this.getElementData( [ 'properties', 'status' ] ), this.workflow

@@ -26,6 +26,7 @@ class ActivitySerializer {
 			'status' => $activityManager->getActivityStatus( $activity ),
 			'properties' => $properties,
 			'isUserInteractive' => $activity instanceof UserInteractiveActivity,
+			'isDescribed' => $activity instanceof IDescribedActivity,
 			'isInitializer' => $activity instanceof UserInteractiveActivity && $activity->isInitializer(),
 		];
 		if ( $activity instanceof UserInteractiveActivity ) {
