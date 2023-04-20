@@ -203,7 +203,7 @@
 			this.panel.$element.append(
 				layout.$element
 			);
-			var historyWidget = this.getActivityHistory( activity, false );
+			var historyWidget = this.getActivityHistory( activity );
 			if ( historyWidget ) {
 				layout.$element.append( historyWidget.$element );
 			}
@@ -230,8 +230,7 @@
 		return activities;
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function( activity, includeHeader ) {
-		includeHeader = includeHeader || false;
+	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function( activity ) {
 		var history = activity.getHistory() || {};
 
 		if (
@@ -245,13 +244,6 @@
 			expanded: false,
 			classes: [ 'workflow-details-history' ]
 		} );
-		if ( includeHeader ) {
-			historyPanel.$element.append(
-				new OO.ui.LabelWidget( {
-					label: 'History'
-				} ).$element
-			);
-		}
 		for ( var key in history ) {
 			if ( !history.hasOwnProperty( key ) ) {
 				continue;
@@ -405,7 +397,7 @@
 			}
 
 			if ( !$.isEmptyObject( activity.getHistory() ) ) {
-				var historyWidget = this.getActivityHistory( activity, true );
+				var historyWidget = this.getActivityHistory( activity );
 				if ( historyWidget ) {
 					layout.$element.append( historyWidget.$element );
 				}
