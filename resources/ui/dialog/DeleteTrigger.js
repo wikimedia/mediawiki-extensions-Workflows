@@ -39,6 +39,11 @@
 		this.updateSize();
 	};
 
+	workflows.ui.dialog.DeleteTrigger.prototype.hideErrors = function() {
+		workflows.ui.dialog.DeleteTrigger.parent.prototype.hideErrors.call( this );
+		this.close();
+	};
+
 	workflows.ui.dialog.DeleteTrigger.prototype.getActionProcess = function ( action ) {
 		return workflows.ui.dialog.DeleteTrigger.parent.prototype.getActionProcess.call( this, action ).next(
 			function() {
