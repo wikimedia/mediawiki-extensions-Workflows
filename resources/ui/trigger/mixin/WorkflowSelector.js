@@ -2,6 +2,7 @@ workflows.ui.trigger.mixin.WorkflowSelector = function( cfg ) {
 	this.definition = null;
 	this.repository = null;
 	this.validateInitializer = true;
+	this.$overlay = cfg.$overlay || null;
 };
 
 OO.initClass( workflows.ui.trigger.mixin.WorkflowSelector );
@@ -61,7 +62,7 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 
 workflows.ui.trigger.mixin.WorkflowSelector.prototype.initWorkflowPicker = function() {
 	this.picker = new workflows.ui.WorkflowPickerWidget( {
-		required: true, $overlay: true, checkAllowed: false, value: {
+		required: true, $overlay: this.$overlay, checkAllowed: false, value: {
 			repo: this.value.repository || '',
 			workflow: this.value.definition || ''
 		}
