@@ -139,6 +139,11 @@
 		this.updateSize();
 	};
 
+	workflows.ui.dialog.TriggerEditor.prototype.hideErrors = function() {
+		workflows.ui.dialog.TriggerEditor.parent.prototype.hideErrors.call( this );
+		this.close();
+	};
+
 	workflows.ui.dialog.TriggerEditor.prototype.getActionProcess = function ( action ) {
 		return workflows.ui.dialog.TriggerEditor.parent.prototype.getActionProcess.call( this, action ).next(
 			function() {
