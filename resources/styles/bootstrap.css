@@ -1,8 +1,3 @@
-.oo-ui-defaultOverlay .oo-ui-menuSelectWidget {
-	/** Make sure menu is on top in a dialog */
-	z-index: 99999;
-}
-
 .workflows-ui-starter-wf-title-label {
 	font-size: 1.2em;
 	font-weight: bold;

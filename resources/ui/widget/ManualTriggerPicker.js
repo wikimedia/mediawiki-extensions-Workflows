@@ -1,7 +1,6 @@
 ( function ( mw, $, wf ) {
 	workflows.ui.widget.ManualTriggerPicker = function( cfg ) {
 		cfg.label = mw.message( 'workflows-ui-starter-select-workflow' ).text();
-		cfg.$overlay = true;
 		workflows.ui.widget.ManualTriggerPicker.parent.call( this, cfg );
 		this.value = cfg.value || {};
 
