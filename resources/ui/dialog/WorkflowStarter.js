@@ -57,7 +57,8 @@
 			repos: this.repos,
 			outlined: false,
 			showMenu: false,
-			expanded: true
+			expanded: true,
+			$overlay: this.$overlay
 		} );
 		this.switchPanel( 'wfSelection' );
 

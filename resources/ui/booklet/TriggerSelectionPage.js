@@ -7,7 +7,7 @@
 			expanded: false
 		} );
 		this.selectWidget = new OO.ui.DropdownWidget( {
-			$overlay: true
+			$overlay: cfg.$overlay
 		} );
 		this.panel.$element.append( this.selectWidget.$element );
 
