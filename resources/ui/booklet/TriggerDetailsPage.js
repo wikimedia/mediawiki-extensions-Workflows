@@ -2,6 +2,7 @@
 	workflows.ui.TriggerDetailsPage = function( name, cfg ) {
 		workflows.ui.TriggerDetailsPage.parent.call( this, name, cfg );
 
+		this.$overlay = cfg.$overlay;
 		this.panel = new OO.ui.PanelLayout( {
 			padded: true,
 			expanded: false
@@ -78,10 +79,10 @@
 
 			if ( cls ) {
 				func = workflows.util.callbackFromString( cls );
-				editor = new func( this.value );
+				editor = new func( this.value, { $overlay: this.$overlay } );
 			} else if ( cb ) {
 				func = workflows.util.callbackFromString( cb );
-				editor = func( this.value );
+				editor = func( this.value, { $overlay: this.$overlay } );
 			}
 			if ( editor instanceof workflows.ui.trigger.Trigger ){
 				dfd.resolve( editor );

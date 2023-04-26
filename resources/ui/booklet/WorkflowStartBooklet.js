@@ -3,6 +3,7 @@
 		workflows.ui.WorkflowStartBooklet.parent.call( this, cfg );
 
 		this.repos = cfg.repos;
+		this.$overlay = cfg.$overlay;
 
 		this.makePages();
 	};
@@ -12,7 +13,8 @@
 	workflows.ui.WorkflowStartBooklet.prototype.makePages = function() {
 		this.pages = {
 			wfSelection: new workflows.ui.WorkflowSelectionPage( 'wfSelection',{
-				repos: this.repos
+				repos: this.repos,
+				$overlay: this.$overlay
 			} ),
 			init: new workflows.ui.WorkflowStartPage( 'init' )
 		};

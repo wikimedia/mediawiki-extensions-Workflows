@@ -4,7 +4,9 @@
 
 		this.value = null;
 		this.panel = new OO.ui.PanelLayout();
-		this.picker = new workflows.ui.widget.ManualTriggerPicker( {} );
+		this.picker = new workflows.ui.widget.ManualTriggerPicker( {
+			$overlay: cfg.$overlay
+		} );
 		this.picker.connect( this, {
 			error: function( error ) {
 				this.emit( 'error', error );

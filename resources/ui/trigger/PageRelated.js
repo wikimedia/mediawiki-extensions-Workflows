@@ -1,7 +1,7 @@
 ( function ( mw, $ ) {
-	workflows.ui.trigger.PageRelated = function( data ) {
-		workflows.ui.trigger.PageRelated.parent.call( this, data );
-		workflows.ui.trigger.mixin.WorkflowSelector.call( this );
+	workflows.ui.trigger.PageRelated = function( data, cfg ) {
+		workflows.ui.trigger.PageRelated.parent.call( this, data, cfg );
+		workflows.ui.trigger.mixin.WorkflowSelector.call( this, cfg );
 	};
 
 	OO.inheritClass( workflows.ui.trigger.PageRelated,workflows.ui.trigger.Trigger );

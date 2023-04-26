@@ -1,5 +1,7 @@
 ( function ( mw, $ ) {
-	workflows.ui.trigger.Trigger = function( data ) {
+	workflows.ui.trigger.Trigger = function( data, cfg ) {
+		cfg = cfg || {};
+		this.$overlay = cfg.$overlay || null;
 		OO.EventEmitter.call( this );
 		this.value = data || {};
 		this.conditionWidgets = { include: {}, exclude: {} };
@@ -101,12 +103,12 @@
 					}
 				);
 				return new mw.widgets.NamespacesMultiselectWidget( {
-					$overlay: true,
+					$overlay: this.$overlay,
 					selected: value
 				} );
 			case 'category':
 				return new OOJSPlus.ui.widget.CategoryMultiSelectWidget( {
-					$overlay: true,
+					$overlay: this.$overlay,
 					selected: workflows.util.getDeepValue( this.value, 'rules.' + type + '.category' ) || []
 				} );
 			case 'editType':

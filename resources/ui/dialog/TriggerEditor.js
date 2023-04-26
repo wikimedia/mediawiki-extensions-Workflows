@@ -73,7 +73,8 @@
 			triggerData: this.triggerData,
 			outlined: false,
 			showMenu: false,
-			expanded: true
+			expanded: true,
+			$overlay: this.$overlay
 		} );
 
 		this.$body.append( this.booklet.$element );
