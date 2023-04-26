@@ -57,7 +57,7 @@
 							this.activity.complete( data ).done( function ( task ) {
 								this.close( { result: true } );
 							}.bind( this ) ).fail( function ( error ) {
-								dfd.reject( new OO.ui.Error( error ) );
+								dfd.reject( new OO.ui.Error( error, { recoverable: false } ) );
 							} );
 						},
 						validationFailed: function() {
@@ -79,6 +79,11 @@
 	workflows.ui.dialog.TaskCompletion.prototype.showErrors = function( errors ) {
 		workflows.ui.dialog.TaskCompletion.parent.prototype.showErrors.call( this, errors );
 		this.updateSize();
+	};
+
+	workflows.ui.dialog.TaskCompletion.prototype.hideErrors = function() {
+		workflows.ui.dialog.TaskCompletion.parent.prototype.hideErrors.call( this );
+		this.close( { result: false } );
 	};
 
 	workflows.ui.dialog.TaskCompletion.prototype.getBodyHeight = function () {
