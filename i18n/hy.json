@@ -36,5 +36,6 @@
 	"workflows-activity-property-instructionsApprover": "Հաստատող հրահանգներ",
 	"workflows-activity-property-comment": "Մեկնաբանություն",
 	"workflows-activity-property-assigned_user": "Նշանակված մասնակից",
-	"workflows-activity-property-action": "Գործողություն"
+	"workflows-activity-property-action": "Գործողություն",
+	"workflows-ui-trigger-field-conditions": "Պայմաններ"
 }
