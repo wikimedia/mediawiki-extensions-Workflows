@@ -71,5 +71,6 @@
 	"workflows-triggers-type-move-label": "Ob prestavitvi strani",
 	"workflows-ui-starter-error-generic": "Ni mogoče začeti delovnega toka",
 	"workflows-ui-starter-init-form-fail": "Inicializacijskega obrazca ni mogoče pridobiti",
-	"workflows-ui-triggers-error-delete-fail": "Izbris sprožilca ni uspel"
+	"workflows-ui-triggers-error-delete-fail": "Izbris sprožilca ni uspel",
+	"workflows-ui-trigger-field-conditions": "Pogoji"
 }
