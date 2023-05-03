@@ -7,5 +7,6 @@
 	},
 	"workflows-ui-trigger-action-create": "Сачувај",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Одобри",
-	"workflows-ui-overview-details-activity-assigned-users-more": "и {{PLURAL:$1|још један|још $1}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "и {{PLURAL:$1|још један|још $1}}",
+	"workflows-ui-trigger-field-conditions": "Услови"
 }
