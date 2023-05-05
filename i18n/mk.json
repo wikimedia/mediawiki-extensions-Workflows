@@ -241,5 +241,6 @@
 	"workflows-activity-property-delegate_comment": "Додели коментар",
 	"workflows-activity-property-assigned_user": "Доделен корисник",
 	"workflows-activity-property-action": "Дејство",
-	"workflows-ui-overview-details-activity-assigned-users-more": "и {{PLURAL:$1|уште еден|уште $1}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "и {{PLURAL:$1|уште еден|уште $1}}",
+	"workflows-ui-trigger-field-conditions": "Услови"
 }
