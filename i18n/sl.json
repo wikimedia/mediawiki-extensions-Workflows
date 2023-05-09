@@ -70,5 +70,6 @@
 	"workflows-activity-property-comment": "Komentar",
 	"workflows-activity-property-delegate_comment": "Komentar delegata",
 	"workflows-activity-property-assigned_user": "Dodeljeni uporabnik",
-	"workflows-ui-overview-details-activity-assigned-users-more": "in {{PLURAL:$1|še en|še $1}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "in {{PLURAL:$1|še en|še $1}}",
+	"workflows-ui-trigger-field-conditions": "Pogoji"
 }

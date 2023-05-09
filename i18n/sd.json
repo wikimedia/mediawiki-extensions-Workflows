@@ -5,8 +5,15 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "چونڊيو",
+	"workflows-uto-activity-user_vote": "واپرائيندڙَ جو ووٽ",
+	"workflows-uto-activity-group_vote": "گروھ ووٽ",
 	"workflows-ui-overview-details-page-context-revision": "ورجاءُ",
 	"workflows-ui-overview-grid-filter-state-all": "سڀ",
 	"workflows-collect-data-form-groupname": "گروھ",
-	"workflows-ui-trigger-action-create": "سانڍيو"
+	"workflows-ui-trigger-action-create": "سانڍيو",
+	"workflows-ui-trigger-field-name": "نالو",
+	"workflows-activity-user-vote-name": "واپرائيندڙَ جو ووٽ",
+	"workflows-activity-group-vote-name": "گروھ ووٽ",
+	"workflows-ui-workflow-overview-step-name-user-vote": "واپرائيندڙَ جو ووٽ",
+	"workflows-activity-property-vote": "ووٽ ڏيو"
 }
