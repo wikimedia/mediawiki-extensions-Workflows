@@ -19,7 +19,7 @@
 			{
 				name: 'vote',
 				noLayout: true,
-				type: 'vote_widget',
+				type: 'wf_vote',
 				required: true
 			},
 			{

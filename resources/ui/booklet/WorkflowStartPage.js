@@ -38,6 +38,9 @@
 							validationFailed: 'validationFailed',
 							initComplete: function() {
 								this.adjustSize( formObject );
+							},
+							layoutChange: function() {
+								this.adjustSize( formObject );
 							}
 						} );
 

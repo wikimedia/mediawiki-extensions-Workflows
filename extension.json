@@ -431,17 +431,26 @@
 		},
 		"ext.workflows.activity.collectdata.forms": {
 			"scripts": [
+				"object/form/formelement/GroupThresholdValue.js",
+				"ui/widget/GroupThresholdValue.js",
 				"object/form/GroupCollectDataForm.js",
 				"object/form/UserCollectDataForm.js"
 			],
 			"dependencies": [
-				"ext.oOJSPlus.formelements"
+				"ext.oOJSPlus.formelements",
+				"ext.mws.commonwebapis"
 			],
 			"messages": [
 				"workflows-collect-data-form-username",
 				"workflows-collect-data-form-instructions",
 				"workflows-collect-data-form-reportrecipient",
-				"workflows-collect-data-form-groupname"
+				"workflows-collect-data-form-groupname",
+				"workflows-collect-data-form-threshold-unit",
+				"workflows-collect-data-form-threshold-value",
+				"workflows-collect-data-form-threshold-unit-user",
+				"workflows-collect-data-form-threshold-unit-percent",
+				"workflows-ui-group-threshold-hint-user",
+				"workflows-ui-group-threshold-hint-percent"
 			]
 		},
 		"ext.workflows.uto.styles": {

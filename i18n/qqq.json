@@ -248,5 +248,10 @@
 	"workflows-activity-property-assigned_user": "Label for activity property name",
 	"workflows-activity-property-action": "Label for activity property name",
 	"workflows-ui-overview-details-activity-assigned-users-more": "label for the button that shows more assigned users, more than what could be shown in the initial view, in a workflow details dialog.\n$1 - number of users",
-	"workflows-ui-trigger-field-conditions": "Field label\n\n{{Identical|Condition}}"
+	"workflows-ui-trigger-field-conditions": "Field label\n\n{{Identical|Condition}}",
+	"workflows-group-vote-threshold-invalid": "Error message when group activity threshold is invalid",
+	"workflows-collect-data-form-threshold-unit": "Form field label",
+	"workflows-collect-data-form-threshold-value": "Form field label",
+	"workflows-collect-data-form-threshold-unit-user": "Dropdown option label: require absolute number of users",
+	"workflows-collect-data-form-threshold-unit-percent": "Dropdown option label: require certain percentage of users in a group"
 }
