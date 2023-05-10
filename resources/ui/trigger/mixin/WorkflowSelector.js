@@ -14,10 +14,12 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 		revision: -1
 	} )
 	.done( function( activity ) {
+		var data = $.isEmptyObject( this.value.initData ) || this.value.initData.length === 0 ?
+			activity.properties : this.value.initData;
 		this.pickerLayout.$element.find( '.oojsplus-ui-expandable-panel' ).remove();
 		if ( activity ) {
 			activity.getForm( {
-				buttons: [], properties: this.value.initData || {}
+				buttons: [], properties: data
 			} ).done( function( formObject ) {
 				if ( formObject ) {
 					this.initializer = formObject;
@@ -41,7 +43,9 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 							if ( !inputs.hasOwnProperty( key ) ) {
 								continue;
 							}
-							inputs[key].setRequired( false );
+							if ( typeof inputs[key].setRequired === 'function' ) {
+								inputs[key].setRequired( false );
+							}
 						}
 					}
 					formObject.connect( this, {

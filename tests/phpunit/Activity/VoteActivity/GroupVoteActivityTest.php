@@ -104,6 +104,14 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 	 */
 	private $thresholdCheckerMock;
 
+	/** @var array */
+	private $thresholdProperties = [
+		'threshold_yes_value' => 50,
+		'threshold_no_value' => 1,
+		'threshold_yes_unit' => 'percent',
+		'threshold_no_unit' => 'user',
+	];
+
 	/**
 	 * Sets all necessary data in properties for further testing
 	 */
@@ -119,23 +127,10 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 				'vote' => '',
 				'comment' => '',
 				'group_to_vote' => '',
-			],
+			] + $this->thresholdProperties,
 			[],
 			[],
-			[
-				'threshold' => [
-					[
-						'type' => 'yes',
-						'value' => 50,
-						'unit' => 'percent'
-					],
-					[
-						'type' => 'no',
-						'value' => 1,
-						'unit' => 'user'
-					],
-				]
-			],
+			[],
 			true
 		);
 
@@ -223,7 +218,7 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$data = [
 			'assigned_group' => 'test_empty_group',
-		];
+		] + $this->thresholdProperties;
 
 		$activity->execute( $data, $this->workflowContext );
 	}
@@ -260,7 +255,7 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 			'comment' => 'Really great article!',
 			'assigned_group' => 'custom_test_group',
 			'users_voted' => ''
-		];
+		] + $this->thresholdProperties;
 
 		// Users are notified and first vote is processed
 		$payload = $activity->execute( $data, $this->workflowContext );
@@ -310,7 +305,7 @@ class GroupVoteActivityTest extends MediaWikiIntegrationTestCase {
 			'comment' => 'Really great article!',
 			'assigned_group' => 'custom_test_group',
 			'users_voted' => ''
-		];
+		] + $this->thresholdProperties;
 
 		// First vote is processed
 		$payload = $activity->execute( $data, $this->workflowContext );

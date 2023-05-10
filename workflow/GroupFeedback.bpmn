@@ -26,6 +26,8 @@
 			<bpmn:property name="instructions"/>
 			<bpmn:property name="reportrecipient" validation="email-recipient"/>
 			<bpmn:property name="due_date">{{CURRENTTIMESTAMP}}</bpmn:property>
+			<bpmn:property name="threshold_unit">user</bpmn:property>
+			<bpmn:property name="threshold_value">2</bpmn:property>
 			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
 			<bpmn:outgoing>FromCollectDataToGroupFeedback</bpmn:outgoing>
 		</bpmn:userTask>
@@ -34,17 +36,14 @@
 		<bpmn:userTask id="GroupFeedback" name="group-feedback">
 			<bpmn:extensionElements>
 				<wf:type>group_feedback</wf:type>
-				<wf:threshold>
-					<wf:type>complete</wf:type>
-					<wf:value>2</wf:value>
-					<wf:unit>user</wf:unit>
-				</wf:threshold>
 			</bpmn:extensionElements>
 			<bpmn:property name="assigned_group">{{{CollectData.groupname}}}</bpmn:property>
 			<bpmn:property name="instructions">{{{CollectData.instructions}}}</bpmn:property>
 			<bpmn:property name="comment"/>
 			<bpmn:property name="users_feedbacks"/>
 			<bpmn:property name="due_date">{{#time:YmdHis|{{{CollectData.due_date}}} + 7days}}</bpmn:property>
+			<bpmn:property name="threshold_unit">{{{CollectData.threshold_unit}}}</bpmn:property>
+			<bpmn:property name="threshold_value">{{{CollectData.threshold_value}}}</bpmn:property>
 			<bpmn:incoming>FromCollectDataToGroupFeedback</bpmn:incoming>
 			<bpmn:outgoing>FromGroupFeedbackToSendMail</bpmn:outgoing>
 			<bpmn:standardLoopCharacteristics/>
