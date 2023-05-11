@@ -40,5 +40,6 @@
 	"workflows-activity-property-groupname": "Название группы",
 	"workflows-activity-property-usernameEditor": "Редактор",
 	"workflows-activity-property-comment": "Комментарий",
-	"workflows-activity-property-action": "Действие"
+	"workflows-activity-property-action": "Действие",
+	"workflows-ui-trigger-field-conditions": "Условия"
 }

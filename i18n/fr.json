@@ -244,5 +244,12 @@
 	"workflows-activity-property-assigned_user": "Utilisateur affecté",
 	"workflows-activity-property-action": "Action",
 	"workflows-ui-overview-details-activity-assigned-users-more": "et {{PLURAL:$1|un autre| $1 autres}}",
-	"workflows-ui-trigger-field-conditions": "Conditions"
+	"workflows-ui-trigger-field-conditions": "Conditions",
+	"workflows-group-vote-threshold-invalid": "Données de seuil non valides ou manquantes",
+	"workflows-collect-data-form-threshold-unit": "Unité de seuil",
+	"workflows-collect-data-form-threshold-value": "Valeur de seuil",
+	"workflows-collect-data-form-threshold-unit-user": "Nombre absolu d’utilisateurs",
+	"workflows-collect-data-form-threshold-unit-percent": "Pourcentage d’utilisateurs dans le groupe",
+	"workflows-ui-group-threshold-hint-user": "Ce groupe compte actuellement {{PLURAL:$1|un|$1}} utilisateur{{PLURAL:$1||s}}.",
+	"workflows-ui-group-threshold-hint-percent": "Ce groupe compte actuellement {{PLURAL:$1|un|$1}} utilisateur{{PLURAL:$1||s}}. La participation d’au moins {{PLURAL:$2|un|$2}} utilisateur{{PLURAL:$2||s}} est nécessaire pour compléter ce flux de travail."
 }
