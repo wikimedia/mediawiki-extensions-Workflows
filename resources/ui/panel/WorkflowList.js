@@ -50,6 +50,7 @@
 		var gridCfg = {
 			deletable: false,
 			style: 'differentiate-rows',
+			exportable: true,
 			columns: {
 				has_notice: {
 					type: "icon",
@@ -138,7 +139,99 @@
 					icon: 'infoFilled'
 				}
 			},
-			store: this.store
+			store: this.store,
+			provideExportData: function() {
+				var dfd = $.Deferred(),
+					store = new workflows.store.Workflows( {
+						pageSize: -1,
+						sorter: {
+							page_prefixed_text: {
+								direction: 'ASC'
+							}
+						}
+					} );
+				store.load().done( function( response ) {
+					var $table = $( '<table>' ),
+						$row = $( '<tr>' ),
+						$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-workflow-type-label' ).text()
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-section-page' ).text()
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-section-assignee' ).text()
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-state-column' ).text(),
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-start-time-column' ).text()
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-last-time-column' ).text()
+					);
+					$row.append( $cell );
+
+					$table.append( $row );
+
+					for ( var id in response ) {
+						if ( !response.hasOwnProperty( id ) ) {
+							continue;
+						}
+						var record =response[id];
+						$row = $( '<tr>' );
+
+						$cell = $( '<td>' );
+						$cell.append( record.title );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.page_prefixed_text );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.assignee.join( ',' ) );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.state );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.start_ts );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.last_ts );
+						$row.append( $cell );
+
+						$table.append( $row );
+					}
+
+					dfd.resolve( '<table>' + $table.html() + '</table>' );
+				} ).fail( function() {
+					dfd.reject( 'Failed to load data' );
+				} );
+
+				return dfd.promise();
+			}
 		};
 
 		var grid = new OOJSPlus.ui.data.GridWidget( gridCfg );
