@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adriendelucca",
 			"Gwendal",
 			"Y-M D"
 		]
@@ -16,5 +17,6 @@
 	"workflows-action-edit-label": "Kemmañ",
 	"workflows-ui-trigger-field-description": "Deskrivadur",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Aprouiñ",
-	"workflows-activity-error-no-title": "Titl direizh"
+	"workflows-activity-error-no-title": "Titl direizh",
+	"workflows-ui-trigger-field-conditions": "Divizoù"
 }
