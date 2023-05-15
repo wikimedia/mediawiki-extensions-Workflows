@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"Justman10000",
 			"Mschlindwein",
 			"Osnard",
 			"Talex42",
@@ -245,5 +246,12 @@
 	"workflows-activity-property-assigned_user": "Zugewiesener Benutzer",
 	"workflows-activity-property-action": "Aktion",
 	"workflows-ui-overview-details-activity-assigned-users-more": "und {{PLURAL:$1|ein weiterer|$1 weitere}}",
-	"workflows-ui-trigger-field-conditions": "Bedingungen"
+	"workflows-ui-trigger-field-conditions": "Bedingungen",
+	"workflows-group-vote-threshold-invalid": "Ungültige oder fehlende Schwellenwertdaten",
+	"workflows-collect-data-form-threshold-unit": "Schwellenwert Einheit",
+	"workflows-collect-data-form-threshold-value": "Schwellenwert",
+	"workflows-collect-data-form-threshold-unit-user": "Absolute Anzahl von Nutzern",
+	"workflows-collect-data-form-threshold-unit-percent": "Prozentsatz der Nutzer in der Gruppe",
+	"workflows-ui-group-threshold-hint-user": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}",
+	"workflows-ui-group-threshold-hint-percent": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}. Die Teilnahme von mindestens {{PLURAL:$2|einem Benutzer|$2 Benutzer}} ist erforderlich, um diesen Workflow abzuschließen"
 }

@@ -48,5 +48,8 @@
 	"workflows-activity-property-vote": "Vota",
 	"workflows-activity-property-action": "Azione",
 	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|un altro|$1 altri}}",
-	"workflows-ui-trigger-field-conditions": "Condizioni"
+	"workflows-ui-trigger-field-conditions": "Condizioni",
+	"workflows-collect-data-form-threshold-unit": "Unità di soglia",
+	"workflows-collect-data-form-threshold-value": "Valore di soglia",
+	"workflows-collect-data-form-threshold-unit-user": "Numero assoluto di utenti"
 }

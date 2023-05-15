@@ -242,5 +242,12 @@
 	"workflows-activity-property-assigned_user": "Доделен корисник",
 	"workflows-activity-property-action": "Дејство",
 	"workflows-ui-overview-details-activity-assigned-users-more": "и {{PLURAL:$1|уште еден|уште $1}}",
-	"workflows-ui-trigger-field-conditions": "Услови"
+	"workflows-ui-trigger-field-conditions": "Услови",
+	"workflows-group-vote-threshold-invalid": "Неважечки или отсустни податоци за праг",
+	"workflows-collect-data-form-threshold-unit": "Единица на прагот",
+	"workflows-collect-data-form-threshold-value": "Вредност на прагот",
+	"workflows-collect-data-form-threshold-unit-user": "Апсолутен број на корисници",
+	"workflows-collect-data-form-threshold-unit-percent": "Постоток на корисници во групата",
+	"workflows-ui-group-threshold-hint-user": "Оваа група моментално има {{PLURAL:$1|еден корисник|$1 корисници}}",
+	"workflows-ui-group-threshold-hint-percent": "Оваа група моментално има {{PLURAL:$1|еден корисник|$1 корисници}}. Завршувањето на овој работен тек бара учество на барем {{PLURAL:$2|еден корисник|$2 корисници}}"
 }

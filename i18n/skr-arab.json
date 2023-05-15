@@ -6,5 +6,6 @@
 	},
 	"workflows-ui-starter-action-done": "تھی ڳیا",
 	"workflows-ui-workflow-overview-action-back": "پچھوں",
-	"workflows-ui-overview-details-activity-assigned-users-more": "تے {{PLURAL:$1|ہک ٻئی|$1 ٻیاں}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "تے {{PLURAL:$1|ہک ٻئی|$1 ٻیاں}}",
+	"workflows-ui-trigger-field-conditions": "شرطاں"
 }
