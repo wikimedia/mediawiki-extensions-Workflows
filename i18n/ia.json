@@ -240,5 +240,12 @@
 	"workflows-activity-property-assigned_user": "Usator assignate",
 	"workflows-activity-property-action": "Action",
 	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|un altere|$1 alteres}}",
-	"workflows-ui-trigger-field-conditions": "Conditiones"
+	"workflows-ui-trigger-field-conditions": "Conditiones",
+	"workflows-group-vote-threshold-invalid": "Datos de limine non valide o mancante",
+	"workflows-collect-data-form-threshold-unit": "Unitate de limine",
+	"workflows-collect-data-form-threshold-value": "Valor de limine",
+	"workflows-collect-data-form-threshold-unit-user": "Numero absolute de usatores",
+	"workflows-collect-data-form-threshold-unit-percent": "Percentage de usatores in le gruppo",
+	"workflows-ui-group-threshold-hint-user": "Iste gruppo ha actualmente $1 usator{{PLURAL:$1||es}}",
+	"workflows-ui-group-threshold-hint-percent": "Iste gruppo ha actualmente $1 usator{{PLURAL:$1||es}}. Le participation de al minus $2 usator{{PLURAL:$2||es}} es necessari pro finalisar iste processo"
 }

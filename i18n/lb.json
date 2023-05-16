@@ -55,5 +55,6 @@
 	"workflows-ui-trigger-field-description": "Beschreiwung",
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Nokucken",
 	"workflows-activity-set-template-params-cannot-save": "Späicheren huet net funktionéiert",
-	"workflows-ui-overview-details-activity-assigned-users-more": "an {{PLURAL:$1|nach ee méi|nach $1 méi}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "an {{PLURAL:$1|nach ee méi|nach $1 méi}}",
+	"workflows-ui-group-threshold-hint-user": "Dëse Grupp huet de Moment {{PLURAL:$1|ee Benotzer|$1 Benotzer}}"
 }

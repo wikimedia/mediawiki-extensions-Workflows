@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MathXplore"
+			"MathXplore",
+			"Shirayuki"
 		]
 	},
 	"workflows-ui-starter-action-done": "開始",
@@ -41,6 +42,6 @@
 	"workflows-activity-property-usernameReviewer": "査読者",
 	"workflows-activity-property-vote": "投票",
 	"workflows-activity-property-comment": "コメント",
-	"workflows-activity-property-assigned_user": "割り当てられたユーザー",
+	"workflows-activity-property-assigned_user": "割り当てられた利用者",
 	"workflows-activity-property-action": "操作"
 }
