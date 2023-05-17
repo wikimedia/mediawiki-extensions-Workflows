@@ -7,5 +7,7 @@
 	"workflows-ui-starter-action-done": "تھی ڳیا",
 	"workflows-ui-workflow-overview-action-back": "پچھوں",
 	"workflows-ui-overview-details-activity-assigned-users-more": "تے {{PLURAL:$1|ہک ٻئی|$1 ٻیاں}}",
-	"workflows-ui-trigger-field-conditions": "شرطاں"
+	"workflows-ui-trigger-field-conditions": "شرطاں",
+	"workflows-collect-data-form-threshold-unit": "حد دی اکائی",
+	"workflows-collect-data-form-threshold-value": "حد دی مقدار"
 }
