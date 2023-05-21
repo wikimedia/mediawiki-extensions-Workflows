@@ -70,7 +70,7 @@ class EditPageActivityTest extends MediaWikiIntegrationTestCase {
 	 *
 	 * @return array
 	 */
-	public function provideCompleteItemData() {
+	public static function provideCompleteItemData() {
 		return [
 			'test1' => [
 				'data' => [

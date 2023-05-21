@@ -26,7 +26,7 @@ class DataPreprocessorTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expectedData, $outputData );
 	}
 
-	public function providePreprocessTestData() {
+	public static function providePreprocessTestData() {
 		return [
 			'test1' => [
 				'context' => [

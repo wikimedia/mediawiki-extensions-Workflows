@@ -34,7 +34,7 @@ class ThresholdCheckerTest extends TestCase {
 	/**
 	 * @return array[]
 	 */
-	public function provideThresholdsData(): array {
+	public static function provideThresholdsData(): array {
 		return [
 			'not-reached' => [
 				[

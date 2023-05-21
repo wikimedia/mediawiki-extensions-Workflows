@@ -8,14 +8,20 @@ use TitleFactory;
 
 class PageRelatedTriggerTest extends TestCase {
 	/**
-	 * @param \Title $title
 	 * @param array $rules
 	 * @param array $qualifyingData
 	 * @param bool $shouldTrigger
 	 * @dataProvider provideTriggerData
 	 * @covers \MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger::shouldTrigger
 	 */
-	public function testShouldTrigger( $title, $rules, $qualifyingData, $shouldTrigger ) {
+	public function testShouldTrigger( $rules, $qualifyingData, $shouldTrigger ) {
+		$title = $this->createMock( \Title::class );
+		$title->method( 'getNamespace' )->willReturn( 0 );
+		$title->method( 'getPrefixedDBkey' )->willReturn( 'PageA' );
+		$title->method( 'getParentCategories' )->willReturn( [
+			'Category:Test' => 1,
+			'Category:Dummy' => 2
+		] );
 		$titleFactoryMock = $this->createMock( TitleFactory::class );
 		$titleFactoryMock->method( 'newFromText' )->willReturnCallback( static function ( $pagename ){
 			return \Title::newFromDBkey( $pagename );
@@ -33,17 +39,9 @@ class PageRelatedTriggerTest extends TestCase {
 		$this->assertSame( $shouldTrigger, $trigger->shouldTrigger( $qualifyingData ) );
 	}
 
-	public function provideTriggerData() {
-		$title = $this->createMock( \Title::class );
-		$title->method( 'getNamespace' )->willReturn( 0 );
-		$title->method( 'getPrefixedDBkey' )->willReturn( 'PageA' );
-		$title->method( 'getParentCategories' )->willReturn( [
-			'Category:Test' => 1,
-			'Category:Dummy' => 2
-		] );
+	public static function provideTriggerData() {
 		return [
 			'in-included-ns' => [
-				$title,
 				[
 					'include' => [
 						'namespace' => [ 0, 12 ]
@@ -53,7 +51,6 @@ class PageRelatedTriggerTest extends TestCase {
 				true
 			],
 			'not-in-included-ns' => [
-				$title,
 				[
 					'include' => [
 						'namespace' => 12
@@ -63,7 +60,6 @@ class PageRelatedTriggerTest extends TestCase {
 				false
 			],
 			'included-ns-but-excluded-cat' => [
-				$title,
 				[
 					'include' => [
 						'namespace' => 12
@@ -76,7 +72,6 @@ class PageRelatedTriggerTest extends TestCase {
 				false
 			],
 			'in-category' => [
-				$title,
 				[
 					'include' => [
 						'namespace' => [ 12 ],
@@ -87,7 +82,6 @@ class PageRelatedTriggerTest extends TestCase {
 				true
 			],
 			'first-included-then-excluded' => [
-				$title,
 				[
 					'include' => [
 						'namespace' => 0
@@ -100,7 +94,6 @@ class PageRelatedTriggerTest extends TestCase {
 				false
 			],
 			'minor-edit' => [
-				$title,
 				[
 					'include' => [
 						'editType' => 'major'
@@ -112,7 +105,6 @@ class PageRelatedTriggerTest extends TestCase {
 				false
 			],
 			'page-list-contains' => [
-				$title,
 				[
 					'include' => [
 						'pages' => 'PageA|PageB'
@@ -122,7 +114,6 @@ class PageRelatedTriggerTest extends TestCase {
 				true
 			],
 			'page-list-does-not-contain' => [
-				$title,
 				[
 					'include' => [
 						'pages' => 'PageC'

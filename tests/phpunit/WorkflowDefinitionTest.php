@@ -31,7 +31,7 @@ class WorkflowDefinitionTest extends TestCase {
 		);
 	}
 
-	public function provideProcessObjects() {
+	public static function provideProcessObjects() {
 		$process = new WorkflowDefinition(
 			'test',
 			new DefinitionSource( 'dummyRepo', 'dummyDef', 1 ),

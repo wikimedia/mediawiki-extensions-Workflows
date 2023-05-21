@@ -23,7 +23,7 @@ class DataFlattenerTest extends TestCase {
 		$this->assertEquals( $expectedOutput, $output );
 	}
 
-	public function provideFlattenTestData() {
+	public static function provideFlattenTestData() {
 		return [
 			'test1' => [
 				'input' => [
