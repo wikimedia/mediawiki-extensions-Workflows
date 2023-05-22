@@ -43,5 +43,9 @@
 	"workflows-activity-property-vote": "投票",
 	"workflows-activity-property-comment": "コメント",
 	"workflows-activity-property-assigned_user": "割り当てられた利用者",
-	"workflows-activity-property-action": "操作"
+	"workflows-activity-property-action": "操作",
+	"action-workflows-view": "ワークフロー項目の閲覧",
+	"right-workflows-view": "ワークフロー項目を閲覧",
+	"action-workflows-admin": "ワークフローの管理",
+	"right-workflows-admin": "ワークフローを管理"
 }
