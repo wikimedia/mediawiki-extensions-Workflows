@@ -143,5 +143,6 @@
 	"workflows-activity-property-usernameApprover": "승인자",
 	"workflows-activity-property-instructionsApprover": "승인자 지침",
 	"workflows-activity-property-vote": "투표",
-	"workflows-activity-property-assigned_user": "할당된 사용자"
+	"workflows-activity-property-assigned_user": "할당된 사용자",
+	"workflows-ui-trigger-field-conditions": "조건"
 }
