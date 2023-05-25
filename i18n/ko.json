@@ -143,5 +143,6 @@
 	"workflows-activity-property-usernameEditor": "편집자",
 	"workflows-activity-property-instructionsEditor": "편집자 지침",
 	"workflows-activity-property-usernameReviewer": "검토자",
-	"workflows-activity-property-instructionsReviewer": "검토자 지침"
+	"workflows-activity-property-instructionsReviewer": "검토자 지침",
+	"workflows-ui-trigger-field-conditions": "조건"
 }
