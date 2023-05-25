@@ -5,6 +5,10 @@
 			"Shirayuki"
 		]
 	},
+	"action-workflows-view": "ワークフロー項目の閲覧",
+	"right-workflows-view": "ワークフロー項目を閲覧",
+	"action-workflows-admin": "ワークフローの管理",
+	"right-workflows-admin": "ワークフローを管理",
 	"workflows-ui-starter-action-done": "開始",
 	"workflows-ui-workflow-overview-action-back": "戻る",
 	"workflows-ui-overview-details-raw-data-popup-prop": "プロパティ",
