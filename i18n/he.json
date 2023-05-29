@@ -166,5 +166,6 @@
 	"workflows-activity-property-delegate_to": "להאציל למשתמש",
 	"workflows-activity-property-delegate_comment": "הערת האצלה",
 	"workflows-activity-property-assigned_user": "המשתמש שהוקצה",
-	"workflows-activity-property-action": "פעולה"
+	"workflows-activity-property-action": "פעולה",
+	"workflows-ui-trigger-field-description": "תיאור"
 }
