@@ -127,6 +127,7 @@
 	"workflows-ui-trigger-field-name": "שם",
 	"workflows-action-edit-label": "עריכה",
 	"workflows-action-delete-label": "מחיקה",
+	"workflows-ui-trigger-field-description": "תיאור",
 	"workflows-activity-user-feedback-name": "משוב מהמשתמש",
 	"workflows-activity-user-vote-name": "הצבעת משתמש",
 	"workflows-activity-group-feedback-name": "משוב קבוצתי",
