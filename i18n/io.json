@@ -19,5 +19,6 @@
 	"workflows-ui-overview-details-workflow-type-label": "Tipo",
 	"workflows-ui-overview-grid-filter-state-all": "Omni",
 	"workflows-collect-data-form-username": "Uzero",
-	"workflows-ui-task-completion-action-complete": "Sendar"
+	"workflows-ui-task-completion-action-complete": "Sendar",
+	"workflows-ui-workflow-overview-action-cancel": "Klozar"
 }
