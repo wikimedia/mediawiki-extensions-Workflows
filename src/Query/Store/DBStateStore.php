@@ -151,6 +151,9 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @return array
 	 */
 	public function modelsFromIds( array $ids ): array {
+		if ( empty( $ids ) ) {
+			return [];
+		}
 		$this->conditions = [
 			'wfs_workflow_id' => array_map( static function ( WorkflowId $id ) {
 				return $id->toString();
