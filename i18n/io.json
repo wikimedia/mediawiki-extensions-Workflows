@@ -9,6 +9,7 @@
 	"workflows-ui-task-completion-action-complete": "Sendar",
 	"workflows-ui-task-completion-action-cancel": "Nuligar",
 	"workflows-form-placeholder-comment": "Komento",
+	"workflows-ui-workflow-overview-action-cancel": "Klozar",
 	"workflows-ui-workflow-overview-action-back": "Retroirar",
 	"workflows-ui-overview-details-state-label": "Stando:",
 	"workflows-ui-overview-details-state-column": "Stando",
