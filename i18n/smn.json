@@ -8,14 +8,17 @@
 	"workflows-ui-starter-action-choose": "Valjii",
 	"workflows-ui-starter-action-cancel": "Jooskâ",
 	"workflows-ui-task-completion-action-cancel": "Jooskâ",
+	"workflows-form-placeholder-comment": "Komment",
 	"workflows-ui-overview-details-action-reason": "Suijâ",
 	"workflows-ui-overview-details-page-context-page": "Sijđo",
 	"workflows-ui-overview-grid-filter-state-all": "Puoh",
+	"workflows-form-instructions-comment": "Komment",
 	"workflows-collect-data-form-username": "Kevttee",
 	"workflows-ui-action-cancel": "Jooskâ",
 	"workflows-ui-trigger-action-create": "Vuorkkii",
 	"workflows-ui-trigger-action-delete": "Siho",
 	"workflows-action-delete-label": "Siho",
 	"workflows-ui-trigger-field-description": "Kuvvim",
-	"workflows-activity-set-template-params-cannot-save": "Vuorkkim ij luhostum"
+	"workflows-activity-set-template-params-cannot-save": "Vuorkkim ij luhostum",
+	"workflows-activity-property-comment": "Komment"
 }

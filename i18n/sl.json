@@ -19,6 +19,7 @@
 	"workflows-group-vote-action-invalid": "Dejanje je neveljavno ali ni določeno",
 	"workflows-user-vote-action-invalid": "Dejanje je neveljavno ali ni določeno",
 	"workflows-form-label-delegate-comment": "Komentar delegiranja",
+	"workflows-form-label-vote-widget-decline": "Odkloni",
 	"workflows-form-instructions-loading-text": "Navodila se nalagajo ...",
 	"workflows-ui-alert-activity-edit-request": "Zaprošeni ste bili, da uredite to stran",
 	"workflows-activity-edit-request-name": "Ureditev zahtevka",
