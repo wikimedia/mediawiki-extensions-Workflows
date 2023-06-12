@@ -61,6 +61,7 @@
 	"workflows-activity-user-vote-name": "Uporabniško glasovanje",
 	"workflows-activity-group-vote-name": "Skupinski glas",
 	"workflows-ui-workflow-overview-initial-data-title": "Začetni podatki",
+	"workflows-ui-workflow-overview-step-name-user-vote-review": "Pregled",
 	"workflows-ui-workflow-overview-step-name-user-vote": "Uporabniško glasovanje",
 	"workflows-ui-workflow-overview-step-name-user-feedback": "Povratne informacije uporabnikov",
 	"workflows-ui-workflow-overview-step-name-edit-request": "Ureditev zahtevka",
