@@ -3,7 +3,8 @@
 		"authors": [
 			"MITO",
 			"Rönttönen",
-			"Yupik"
+			"Yupik",
+			"Pyscowicz"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Valitse",
@@ -60,5 +61,6 @@
 	"workflows-ui-overview-details-raw-data-popup-prop": "Ominaisuus",
 	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
 	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
+	"workflows-ui-action-cancel": "Peruuta",
 	"workflows-ui-trigger-field-description": "Kuvaus"
 }
