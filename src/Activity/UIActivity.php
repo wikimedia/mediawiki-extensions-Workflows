@@ -25,14 +25,14 @@ class UIActivity extends GenericActivity implements UserInteractiveActivity {
 		$definitionForm = $this->getDefinitionFormModule();
 		if ( $definitionForm instanceof UserInteractionModule ) {
 			$this->logger->debug( 'Using `DefinitionForm`: {json}', [
-				'json' => $definitionForm->jsonSerialize()
+				'json' => json_encode( $definitionForm->jsonSerialize() )
 			] );
 			return $definitionForm;
 		}
 		$localForm = $this->getLocalFormModule();
 		if ( $localForm instanceof UserInteractionModule ) {
 			$this->logger->debug( 'Using `LocalForm`: {json}', [
-				'json' => $localForm->jsonSerialize()
+				'json' => json_encode( $localForm->jsonSerialize() )
 			] );
 			return $localForm;
 		}
