@@ -22,7 +22,7 @@ class TaskAssigned extends BaseNotification {
 		}
 		parent::__construct(
 			'workflows-task-assign',
-			User::newSystemUser( 'Mediawiki default' ),
+			User::newSystemUser( 'MediaWiki default' ),
 			$title
 		);
 

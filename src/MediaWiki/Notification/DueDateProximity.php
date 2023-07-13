@@ -19,7 +19,7 @@ class DueDateProximity extends BaseNotification {
 	 * @param string $activity
 	 */
 	public function __construct( $agent, $assigned, $title, $activity ) {
-		$agent = $agent ?? User::newSystemUser( 'Mediawiki default' );
+		$agent = $agent ?? User::newSystemUser( 'MediaWiki default' );
 		$assigned = array_map( static function ( $username ) {
 			return MediaWikiServices::getInstance()->getUserFactory()->newFromName( $username );
 		}, $assigned );
