@@ -25,7 +25,7 @@ class FeedbackTaskAssigned extends BaseNotification {
 	public function __construct( $targetUsers, $title, $activity, $initiator, string $instructions ) {
 		parent::__construct(
 			'workflows-feedback-task-assign',
-			User::newSystemUser( 'Mediawiki default' ),
+			User::newSystemUser( 'MediaWiki default' ),
 			$title
 		);
 
