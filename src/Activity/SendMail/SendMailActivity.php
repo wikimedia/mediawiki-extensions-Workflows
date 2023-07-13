@@ -35,7 +35,7 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 	public function __construct( IEmailer $emailer, Config $config, ITask $task ) {
 		parent::__construct( $task );
 
-		$this->logActor = User::newSystemUser( 'MediaWiki default' );
+		$this->logActor = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
 		$this->emailer = $emailer;
 		$this->fromAddress = new MailAddress(
 			$config->get( 'NoReplyAddress' )
