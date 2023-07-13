@@ -31,13 +31,14 @@ class ActivitySerializer {
 		];
 		if ( $activity instanceof UserInteractiveActivity ) {
 			$data['userInteractionModule'] = $activity->getUserInteractionModule();
+			$data['targetUsers'] = [];
 			try {
 				$targetUsers = $activityManager->getTargetUsersForActivity( $activity );
 				if ( $targetUsers !== null ) {
 					$data['targetUsers'] = $targetUsers;
 				}
 			} catch ( WorkflowExecutionException $exception ) {
-				$data['targetUsers'] = [];
+				// TODO: log
 			}
 		}
 		if ( $activity instanceof IDescribedActivity ) {
