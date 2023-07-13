@@ -61,7 +61,7 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 	public function __construct( INotifier $notifier, ITask $task ) {
 		parent::__construct( $task );
 
-		$this->logActor = User::newSystemUser( 'Mediawiki default' );
+		$this->logActor = User::newSystemUser( 'MediaWiki default' );
 		$this->notifier = $notifier;
 	}
 

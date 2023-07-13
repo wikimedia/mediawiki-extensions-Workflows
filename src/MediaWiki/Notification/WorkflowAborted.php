@@ -25,7 +25,7 @@ class WorkflowAborted extends BaseNotification {
 		}
 		parent::__construct(
 			'workflows-aborted',
-			User::newSystemUser( 'Mediawiki default' ),
+			User::newSystemUser( 'MediaWiki default' ),
 			$title
 		);
 		if ( !is_array( $targetUsers ) ) {

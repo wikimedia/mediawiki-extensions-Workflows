@@ -23,7 +23,7 @@ class WorkflowEnded extends BaseNotification {
 		}
 		parent::__construct(
 			'workflows-ended',
-			User::newSystemUser( 'Mediawiki default' ),
+			User::newSystemUser( 'MediaWiki default' ),
 			$title
 		);
 
