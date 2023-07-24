@@ -21,5 +21,6 @@
 	"workflows-collect-data-form-username": "Uzero",
 	"workflows-ui-task-completion-action-complete": "Sendar",
 	"workflows-ui-workflow-overview-action-cancel": "Klozar",
-	"workflows-action-edit-label": "Redaktar"
+	"workflows-action-edit-label": "Redaktar",
+	"workflows-ui-workflow-overview-action-abort": "Interuptar"
 }

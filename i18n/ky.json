@@ -9,5 +9,6 @@
 	"workflows-ui-overview-details-page-context-page": "Барак",
 	"workflows-collect-data-form-username": "Колдонуучу",
 	"workflows-ui-action-cancel": "Жокко чыгаруу",
-	"workflows-ui-trigger-action-create": "Сактоо"
+	"workflows-ui-trigger-action-create": "Сактоо",
+	"workflows-ui-workflow-overview-action-cancel": "Жабуу"
 }
