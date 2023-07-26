@@ -10,5 +10,6 @@
 	"workflows-collect-data-form-username": "Колдонуучу",
 	"workflows-ui-action-cancel": "Жокко чыгаруу",
 	"workflows-ui-trigger-action-create": "Сактоо",
-	"workflows-ui-workflow-overview-action-cancel": "Жабуу"
+	"workflows-ui-workflow-overview-action-cancel": "Жабуу",
+	"workflows-ui-overview-details-action-reason": "Себеп"
 }
