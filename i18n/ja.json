@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MathXplore",
-			"Shirayuki"
+			"Shirayuki",
+			"春春眠眠"
 		]
 	},
 	"workflows-ui-starter-action-done": "開始",
@@ -47,5 +48,6 @@
 	"action-workflows-view": "ワークフロー項目の閲覧",
 	"right-workflows-view": "ワークフロー項目を閲覧",
 	"action-workflows-admin": "ワークフローの管理",
-	"right-workflows-admin": "ワークフローを管理"
+	"right-workflows-admin": "ワークフローを管理",
+	"workflows-activity-editpage-permissiondenied": "利用者\"{{GENDER:$1|$1}}\"はページ\"$2\"を編集する権限がありません"
 }
