@@ -130,7 +130,7 @@ class SetTemplateParamsActivity extends GenericActivity {
 				);
 			}
 		} else {
-			$this->user = User::newSystemUser( 'MediaWiki default' );
+			$this->user = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
 		}
 
 		$this->templateIndex = (int)( $data['template-index'] ?? -1 );

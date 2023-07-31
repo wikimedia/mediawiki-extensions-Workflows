@@ -51,7 +51,7 @@ class DataPreprocessorContext {
 		}
 
 		if ( $this->user === null ) {
-			$this->user = User::newSystemUser( 'MediaWiki default' );
+			$this->user = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
 		}
 	}
 

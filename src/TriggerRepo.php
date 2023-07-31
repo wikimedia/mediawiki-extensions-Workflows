@@ -247,7 +247,7 @@ class TriggerRepo {
 	}
 
 	private function getPageUpdater() {
-		return $this->wikipage->newPageUpdater( \User::newSystemUser( 'MediaWiki default' ) );
+		return $this->wikipage->newPageUpdater( \User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] ) );
 	}
 
 	/**
