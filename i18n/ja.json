@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MathXplore",
-			"Shirayuki"
+			"Shirayuki",
+			"春春眠眠"
 		]
 	},
 	"action-workflows-view": "ワークフロー項目の閲覧",
@@ -28,6 +29,7 @@
 	"workflows-action-delete-label": "削除",
 	"workflows-ui-trigger-field-description": "説明",
 	"workflows-activity-editpage-error-no-title": "タイトルが与えられていません。",
+	"workflows-activity-editpage-permissiondenied": "利用者\"{{GENDER:$1|$1}}\"はページ\"$2\"を編集する権限がありません",
 	"workflows-activity-user-feedback-name": "利用者フィードバック",
 	"workflows-activity-user-vote-name": "利用者投票",
 	"workflows-ui-workflow-overview-initial-data-title": "初期データ",
