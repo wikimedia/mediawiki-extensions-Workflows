@@ -15,5 +15,6 @@
 	"workflows-ui-workflow-overview-action-abort": "Жокко чыгаруу",
 	"workflows-collect-data-form-groupname": "Топ",
 	"workflows-ui-starter-action-done": "Баштоо",
-	"workflows-uto-body-field-instructions": "Нускамалар: $1"
+	"workflows-uto-body-field-instructions": "Нускамалар: $1",
+	"workflows-action-edit-label": "Түзөтүү"
 }
