@@ -15,5 +15,6 @@
 	"workflows-collect-data-form-groupname": "Топ",
 	"workflows-collect-data-form-username": "Колдонуучу",
 	"workflows-ui-action-cancel": "Жокко чыгаруу",
-	"workflows-ui-trigger-action-create": "Сактоо"
+	"workflows-ui-trigger-action-create": "Сактоо",
+	"workflows-action-edit-label": "Түзөтүү"
 }
