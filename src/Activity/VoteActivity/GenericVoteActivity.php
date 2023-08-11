@@ -28,6 +28,10 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 			if ( in_array( $data['action'], ActionList::allActions() ) ) {
 				$this->action = $data['action'];
 			} else {
+				$this->logger->debug(
+					"{$context->getWorkflowId()->toString()}: " .
+					"Invalid action '{$data['action']}'"
+				);
 				// workflows-group-vote-action-invalid
 				// workflows-user-vote-action-invalid
 				$errorMessages[] = 'workflows-' . $this->activityKey . '-action-invalid';

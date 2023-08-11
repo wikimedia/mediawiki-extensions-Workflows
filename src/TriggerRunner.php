@@ -28,12 +28,14 @@ class TriggerRunner {
 	 * @param array $qualifyingData
 	 */
 	public function triggerAllOfType( $type, ?Title $title = null, $qualifyingData = [] ) {
+		$this->logger->debug( "Triggering workflows for $type" );
 		$triggers = $this->repo->getActive( $type );
 		foreach ( $triggers as $trigger ) {
 			if ( in_array( $trigger->getId(), $this->triggered ) ) {
 				// Do not evaluate same trigger multiple times in one request
 				continue;
 			}
+			$this->logger->debug( "Evaluating trigger {$trigger->getId()}" );
 			$this->triggered[] = $trigger->getId();
 			if ( $trigger instanceof IPageTrigger ) {
 				if ( $title === null || !$this->canRunWorkflowForTitle( $title ) ) {
@@ -43,9 +45,15 @@ class TriggerRunner {
 					] );
 					continue;
 				}
+				$this->logger->debug( "Page context trigger called with title {$title->getPrefixedText()}" );
 				$trigger->setTitle( $title );
 			}
 
+			$this->logger->debug( "Evaluating trigger {$trigger->getId()}", [
+				'trigger' => $trigger->getId(),
+				'action' => $type,
+				'qualifyingData' => $qualifyingData
+			] );
 			if ( $trigger->shouldTrigger( $qualifyingData ) ) {
 				$res = $trigger->trigger();
 				$logContext = [
@@ -57,6 +65,8 @@ class TriggerRunner {
 				} else {
 					$this->logger->error( 'Could not start a workflow based on a trigger', $logContext );
 				}
+			} else {
+				$this->logger->debug( "Trigger did not qualify" );
 			}
 		}
 	}
