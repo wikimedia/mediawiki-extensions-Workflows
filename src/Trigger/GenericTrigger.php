@@ -173,6 +173,12 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	 * @throws \MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException
 	 */
 	protected function startWorkflow( $repo, $definition, $contextData = [], $initData = null ): string {
+		$this->logger->debug( 'Starting workflow', [
+			'repository' => $repo,
+			'definition' => $definition,
+			'contextData' => $contextData,
+			'initData' => $initData
+		] );
 		$workflow = $this->workflowFactory->newEmpty( $definition, $repo );
 		if ( $this->isAutomatic() ) {
 			$workflow->markAsBotProcess();
@@ -334,6 +340,10 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 					break;
 				case 'pages':
 					$pages = $this->processPagesRule( $value, $title );
+					$this->logger->debug( 'Pages rule processed', [
+						'pages' => $pages,
+						'rule' => $value
+					] );
 					foreach ( $pages as $allowedTitle ) {
 						if ( $allowedTitle->getPrefixedDBkey() === $title->getPrefixedDBkey() ) {
 							return true;
@@ -351,6 +361,12 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	 * @return bool
 	 */
 	public function appliesToPage( Title $title, $qualifyingData = [] ): bool {
+		$this->logger->debug( 'Checking if trigger applies to page', [
+			'trigger' => $this->getId(),
+			'title' => $title->getPrefixedText(),
+			'qualifyingData' => $qualifyingData,
+			'rules' => $this->rules
+		] );
 		if ( isset( $this->rules['include'] ) && !empty( $this->rules['include'] ) ) {
 			$included = $this->titleFits( $title, $this->rules['include'], $qualifyingData );
 		} else {
