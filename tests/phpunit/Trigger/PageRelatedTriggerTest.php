@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\Tests;
 
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 use TitleFactory;
 
 class PageRelatedTriggerTest extends TestCase {
@@ -36,6 +37,7 @@ class PageRelatedTriggerTest extends TestCase {
 			$rules
 		);
 		$trigger->setTitle( $title );
+		$trigger->setLogger( $this->createMock( LoggerInterface::class ) );
 		$this->assertSame( $shouldTrigger, $trigger->shouldTrigger( $qualifyingData ) );
 	}
 
