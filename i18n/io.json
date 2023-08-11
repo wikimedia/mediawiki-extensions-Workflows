@@ -22,5 +22,6 @@
 	"workflows-ui-task-completion-action-complete": "Sendar",
 	"workflows-ui-workflow-overview-action-cancel": "Klozar",
 	"workflows-action-edit-label": "Redaktar",
-	"workflows-ui-workflow-overview-action-abort": "Interuptar"
+	"workflows-ui-workflow-overview-action-abort": "Interuptar",
+	"workflows-ui-overview-details-raw-data-popup-prop": "Atributo"
 }
