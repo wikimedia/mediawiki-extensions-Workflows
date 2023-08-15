@@ -10,7 +10,7 @@ use Monolog\Logger;
 /**
  * Class TriggerRepoTest
  * @package MediaWiki\Extension\Workflows\Tests
- * @group database
+ * @group Database
  */
 class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
