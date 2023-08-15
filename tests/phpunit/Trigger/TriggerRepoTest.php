@@ -91,11 +91,4 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 			$objectFactory, 'MediaWiki:WorkflowTriggers', $registry
 		);
 	}
-
-	/**
-	 * @return bool
-	 */
-	public function needsDB() {
-		return true;
-	}
 }
