@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
-			"Beta16"
+			"Beta16",
+			"ZioNicco"
 		]
 	},
 	"workflows-ui-starter-action-done": "Inizio",
@@ -51,5 +52,6 @@
 	"workflows-ui-trigger-field-conditions": "Condizioni",
 	"workflows-collect-data-form-threshold-unit": "Unità di soglia",
 	"workflows-collect-data-form-threshold-value": "Valore di soglia",
-	"workflows-collect-data-form-threshold-unit-user": "Numero assoluto di utenti"
+	"workflows-collect-data-form-threshold-unit-user": "Numero assoluto di utenti",
+	"workflows-property-validator-email-recipient-error": "Il valore \"$1\" non è un indirizzo email valido o un utente con un indirizzo email impostato"
 }
