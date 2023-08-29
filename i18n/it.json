@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
-			"Beta16"
+			"Beta16",
+			"ZioNicco"
 		]
 	},
 	"workflows-ui-starter-action-done": "Inizio",
@@ -28,6 +29,7 @@
 	"workflows-form-instructions-comment": "Commenta",
 	"workflows-uto-body-field-instructions": "Istruzioni: $1",
 	"workflows-ui-overview-details-action-details-column": "vedi dettagli",
+	"workflows-property-validator-email-recipient-error": "Il valore \"$1\" non è un indirizzo email valido o un utente con un indirizzo email impostato",
 	"workflows-collect-data-form-instructions": "Istruzioni",
 	"workflows-collect-data-form-username": "Utente",
 	"workflows-triggers-type-manual-label": "Manuale",
