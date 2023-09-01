@@ -77,7 +77,7 @@
 			return;
 		}
 		var userWidget = new OOJSPlus.ui.widget.UserWidget( {
-			user_name: initiator,  showLink: true
+			user_name: initiator,  showLink: true, showRawUsername: false
 		} );
 
 		this.$detailsPanelTable.append( $('<tr>' ).append(
