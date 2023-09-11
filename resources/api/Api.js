@@ -29,11 +29,6 @@
 		return this.ajax( path, JSON.stringify( { data: params } ), 'POST' );
 	};
 
-	workflows.api.Api.prototype.put = function( path, params ) {
-		params = params || {};
-		return this.ajax( path, JSON.stringify( { data: params } ), 'PUT' );
-	};
-
 	workflows.api.Api.prototype.delete = function( path, params ) {
 		params = params || {};
 		return this.ajax( path, JSON.stringify( { data: params } ), 'DELETE' );
@@ -116,7 +111,7 @@
 	};
 
 	workflows.api.Api.prototype.persistTriggers = function ( data ) {
-		return this.put( 'triggers', data );
+		return this.post( 'triggers', data );
 	};
 
 	workflows.api.Api.prototype.deleteTrigger = function ( key ) {
