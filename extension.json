@@ -725,7 +725,7 @@
 		},
 		{
 			"path": "/workflow/triggers",
-			"method": "PUT",
+			"method": "POST",
 			"class": "MediaWiki\\Extension\\Workflows\\Rest\\PersistTriggersHandler",
 			"services": [
 				"WorkflowTriggerRepo", "PermissionManager"
