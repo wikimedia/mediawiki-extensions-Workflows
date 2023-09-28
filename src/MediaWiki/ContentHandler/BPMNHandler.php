@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\ContentHandler;
 
-use Article;
 use MediaWiki\Content\Content;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Content\TextContentHandler;
@@ -10,6 +9,7 @@ use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramXmlAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\BPMNContent;
 use MediaWiki\Html\Html;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 
@@ -52,9 +52,13 @@ class BPMNHandler extends TextContentHandler {
 			$destTitle = $content->getRedirectTarget();
 			if ( $destTitle instanceof Title ) {
 				$output->addLink( $destTitle );
-				if ( $cpoParams->getGenerateHtml() ) {
-					$output->setRawText(
-						Article::getRedirectHeaderHtml( $title->getPageLanguage(), $destTitle )
+				if ( $cpoParams->generateHtml ) {
+					$output->setText( '' );
+					$output->setRedirectHeader(
+						MediaWikiServices::getInstance()->getLinkRenderer()
+						->makeRedirectHeader(
+							$title->getPageLanguage(), $destTitle, false
+						)
 					);
 					$output->addModuleStyles( [ 'mediawiki.action.view.redirectPage' ] );
 				}
