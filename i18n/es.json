@@ -3,10 +3,13 @@
 		"authors": [
 			"Fitoschido",
 			"Josuert",
-			"MarcoAurelio"
+			"MarcoAurelio",
+			"No se"
 		]
 	},
 	"workflows-ui-starter-action-done": "Iniciar",
+	"workflows-ui-task-completion-action-complete": "Enviar",
+	"workflows-ui-overview-details-page-context-page": "Página",
 	"workflows-triggers-type-edit-label": "Al editar",
 	"workflows-triggers-type-create-label": "En la creación de la página",
 	"workflows-triggers-type-manual-label": "Manual",
