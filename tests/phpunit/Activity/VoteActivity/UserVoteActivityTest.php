@@ -10,6 +10,7 @@ use MediaWiki\Extension\Workflows\Definition\Element\Task;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Logger\GenericSpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
+use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWikiIntegrationTestCase;
@@ -127,6 +128,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 		$mutableContext->setActor( $this->actor );
 		$mutableContext->setInitiator( $this->owner );
 		$mutableContext->setDefinitionContext( $definitionContext );
+		$mutableContext->setWorkflowId( $this->createMock( WorkflowId::class ) );
 
 		$this->workflowContext = new WorkflowContext( $mutableContext );
 
