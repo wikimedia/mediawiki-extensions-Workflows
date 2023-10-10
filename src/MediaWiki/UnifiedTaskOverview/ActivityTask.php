@@ -6,7 +6,9 @@ use Exception;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\MediaWikiServices;
 use Message;
+use PageProps;
 use RawMessage;
 use Title;
 
@@ -20,6 +22,9 @@ class ActivityTask implements ITaskDescriptor {
 	/** @var Revision|null */
 	protected $revision = null;
 
+	/** @var PageProps */
+	private PageProps $pageProps;
+
 	/**
 	 * @param UserInteractiveActivity $activity
 	 * @param Workflow $workflow
@@ -27,6 +32,7 @@ class ActivityTask implements ITaskDescriptor {
 	public function __construct( UserInteractiveActivity $activity, Workflow $workflow ) {
 		$this->activity = $activity;
 		$this->workflow = $workflow;
+		$this->pageProps = MediaWikiServices::getInstance()->getPageProps();
 
 		$this->trySetTitle();
 	}
@@ -61,7 +67,16 @@ class ActivityTask implements ITaskDescriptor {
 	 * @return Message
 	 */
 	public function getHeader(): Message {
-		return new RawMessage( $this->title ? $this->title->getPrefixedText() : '' );
+		if ( !$this->title ) {
+			return new RawMessage( '' );
+		}
+
+		$displayTitleProperties = $this->pageProps->getProperties( $this->title, 'displaytitle' );
+		if ( count( $displayTitleProperties ) === 1 ) {
+			$displayTitle = $displayTitleProperties[$this->title->getArticleID()];
+		}
+
+		return new RawMessage( $displayTitle ?? $this->title->getSubpageText() );
 	}
 
 	/**
