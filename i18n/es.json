@@ -9,6 +9,7 @@
 	},
 	"workflows-ui-starter-action-done": "Iniciar",
 	"workflows-ui-task-completion-action-complete": "Enviar",
+	"workflows-ui-overview-details-action-reason": "Razón",
 	"workflows-ui-overview-details-page-context-page": "Página",
 	"workflows-triggers-type-edit-label": "Al editar",
 	"workflows-triggers-type-create-label": "En la creación de la página",
