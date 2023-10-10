@@ -30,5 +30,6 @@
 	"workflows-ui-group-threshold-hint-percent": "Este grupo cuenta actualmente con {{PLURAL:$1|un usuario|$1 usuarios}}. Se requiere la participación de al menos {{PLURAL:$2|un usuario|$1 usuarios}} para completar este flujo de trabajo",
 	"workflows-ui-trigger-field-conditions": "Condiciones",
 	"workflows-ui-task-completion-action-complete": "Enviar",
-	"workflows-ui-overview-details-page-context-page": "Página"
+	"workflows-ui-overview-details-page-context-page": "Página",
+	"workflows-ui-overview-details-action-reason": "Razón"
 }
