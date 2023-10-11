@@ -30,7 +30,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 	public function onMWStakeCommonUIRegisterSkinSlotComponents( $registry ): void {
 		$specialOverview = $this->spf->getTitleForAlias( 'WorkflowsOverview' );
 		$registry->register(
-			'GlobalActionsTools',
+			'GlobalActionsOverview',
 			[
 				'bs-special-workflows' => [
 					'factory' => static function () use ( $specialOverview ) {
@@ -52,7 +52,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 			return;
 		}
 		$registry->register(
-			'GlobalActionsTools',
+			'GlobalActionsEditing',
 			[
 				'bs-workflow-triggers' => [
 					'factory' => static function () use ( $triggerPage ) {
