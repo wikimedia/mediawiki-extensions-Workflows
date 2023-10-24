@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Patriot Kur",
-			"Patriot Kor"
+			"Patriot Kor",
+			"Гусейн"
 		]
 	},
 	"workflows-ui-task-completion-action-complete": "Təğdim",
-	"workflows-activity-property-username": "İştirokəkə nom:",
+	"workflows-activity-property-username": "Ištirokəkə nom",
 	"workflows-activity-property-comment": "Şərh"
 }
