@@ -1,4 +1,4 @@
-# SetTemplateParams Activity
+# GroupVote Activity
 
 Key: `group_vote`
 Type: manual, mutli-user interaction required
@@ -17,8 +17,10 @@ Example:
 			<!-- for internal use only, do not set -->
 			<bpmn:property name="users_voted"/>
 			<bpmn:property name="due_date">20221201101010</bpmn:property>
-			<bpmn:property name="threshold_unit">user</bpmn:property>
-			<bpmn:property name="threshold_value">2</bpmn:property>
+			<bpmn:property name="threshold_yes_unit">user</bpmn:property>
+			<bpmn:property name="threshold_yes_value">2</bpmn:property>
+			<bpmn:property name="threshold_no_unit">user</bpmn:property>
+			<bpmn:property name="threshold_no_value">2</bpmn:property>
       ...
 
     </bpmn:task>
