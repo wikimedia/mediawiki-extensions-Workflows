@@ -1,4 +1,4 @@
-# SetTemplateParams Activity
+# GroupFeedback Activity
 
 Key: `group_feedback`
 Type: manual, mutli-user interaction required
