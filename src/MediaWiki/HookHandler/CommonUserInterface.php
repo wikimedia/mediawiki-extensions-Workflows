@@ -29,44 +29,49 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 	 */
 	public function onMWStakeCommonUIRegisterSkinSlotComponents( $registry ): void {
 		$specialOverview = $this->spf->getTitleForAlias( 'WorkflowsOverview' );
-		$registry->register(
-			'GlobalActionsOverview',
-			[
-				'bs-special-workflows' => [
-					'factory' => static function () use ( $specialOverview ) {
-						return new RestrictedTextLink( [
-							'id' => 'ga-bs-workflows',
-							'href' => $specialOverview->getLocalURL(),
-							'text' => Message::newFromKey( 'workflowsoverview' ),
-							'title' => Message::newFromKey( 'workflows-desc' ),
-							'aria-label' => Message::newFromKey( 'workflowsoverview' ),
-							'permissions' => [ 'workflows-view' ]
-						] );
-					}
-				]
+		$overviewEntry = [
+			'bs-special-workflows' => [
+				'factory' => static function () use ( $specialOverview ) {
+					return new RestrictedTextLink( [
+						'id' => 'ga-bs-workflows',
+						'href' => $specialOverview->getLocalURL(),
+						'text' => Message::newFromKey( 'workflows-global-action-overview' ),
+						'title' => Message::newFromKey( 'workflows-global-action-overview-desc' ),
+						'aria-label' => Message::newFromKey( 'workflows-global-action-overview' ),
+						'permissions' => [ 'workflows-view' ]
+					] );
+				}
 			]
-		);
+		];
+		// BlueSpiceDiscovery 4.4
+		$registry->register( 'GlobalActionsOverview', $overviewEntry );
+
+		// BlueSpiceDiscovery 4.3 b/c
+		$registry->register( 'GlobalActionsTools', $overviewEntry );
 
 		$triggerPage = $this->triggerRepo->getTitle();
 		if ( !( $triggerPage instanceof Title ) ) {
 			return;
 		}
-		$registry->register(
-			'GlobalActionsEditing',
-			[
-				'bs-workflow-triggers' => [
-					'factory' => static function () use ( $triggerPage ) {
-						return new RestrictedTextLink( [
-							'id' => 'bs-workflow-triggers',
-							'href' => $triggerPage->getLocalURL(),
-							'text' => Message::newFromKey( 'workflows-ui-trigger-page-title' ),
-							'title' => Message::newFromKey( 'workflows-ui-trigger-page-desc' ),
-							'aria-label' => Message::newFromKey( 'workflows-ui-trigger-page-title' ),
-							'permissions' => [ 'workflows-admin' ]
-						] );
-					}
-				]
+		$triggersEntry = [
+			'bs-workflow-triggers' => [
+				'factory' => static function () use ( $triggerPage ) {
+					return new RestrictedTextLink( [
+						'id' => 'bs-workflow-triggers',
+						'href' => $triggerPage->getLocalURL(),
+						'text' => Message::newFromKey( 'workflows-ui-trigger-page-title' ),
+						'title' => Message::newFromKey( 'workflows-ui-trigger-page-desc' ),
+						'aria-label' => Message::newFromKey( 'workflows-ui-trigger-page-title' ),
+						'permissions' => [ 'workflows-admin' ]
+					] );
+				}
 			]
-		);
+		];
+
+		// BlueSpiceDiscovery 4.4
+		$registry->register( 'GlobalActionsEditing', $triggersEntry );
+
+		// BlueSpiceDiscovery 4.3 b/c
+		$registry->register( 'GlobalActionsTools', $triggersEntry );
 	}
 }
