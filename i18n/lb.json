@@ -56,5 +56,14 @@
 	"workflows-ui-workflow-overview-step-name-user-vote-review": "Nokucken",
 	"workflows-activity-set-template-params-cannot-save": "Späicheren huet net funktionéiert",
 	"workflows-ui-overview-details-activity-assigned-users-more": "an {{PLURAL:$1|nach ee méi|nach $1 méi}}",
-	"workflows-ui-group-threshold-hint-user": "Dëse Grupp huet de Moment {{PLURAL:$1|ee Benotzer|$1 Benotzer}}"
+	"workflows-ui-group-threshold-hint-user": "Dëse Grupp huet de Moment {{PLURAL:$1|ee Benotzer|$1 Benotzer}}",
+	"workflows-editor-viewer-section-diagram": "Diagramm",
+	"workflows-editor-editor-field-summary": "Resumé",
+	"workflows-editor-editor-button-save": "Späicheren",
+	"workflows-editor-editor-button-cancel": "Ofbriechen",
+	"workflows-ui-action-editxml": "XML änneren",
+	"workflows-ui-editor-inspector-properties": "Eegenschaften",
+	"workflows-ui-editor-inspector-properties-additional-name": "Numm",
+	"workflows-ui-editor-inspector-properties-additional-value": "Wäert",
+	"workflows-ui-editor-inspector-name": "Numm"
 }

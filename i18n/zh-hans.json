@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Googology",
 			"GraceL",
 			"GuoPC",
 			"Interestinghe",
@@ -22,5 +23,16 @@
 	"workflows-ui-overview-details-action-abort-note": "放弃一个工作流将立即停止所有在进行的任务。你确定你想放弃这个工作流吗？",
 	"workflows-ui-overview-details-page-context-page": "页面",
 	"workflows-collect-data-form-instructions": "说明",
-	"workflows-activity-property-username": "用户名"
+	"workflows-activity-property-username": "用户名",
+	"workflows-editor-viewer-section-diagram": "图表",
+	"workflows-ui-editor-inspector-activity-title": "活动属性",
+	"workflows-ui-editor-inspector-properties": "属性",
+	"workflows-ui-editor-inspector-properties-additional": "添加新属性",
+	"workflows-ui-editor-inspector-properties-additional-name": "名称",
+	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "使用表单",
+	"workflows-ui-editor-inspector-activity-custom-form-form-type": "表单类型",
+	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "wiki上的表单",
+	"workflows-ui-editor-inspector-activity-custom-form-form-title": "表单标题",
+	"workflows-ui-editor-inspector-process-bind-to-revision": "前往修订版本",
+	"workflows-ui-editor-inspector-process-name": "进程名称"
 }
