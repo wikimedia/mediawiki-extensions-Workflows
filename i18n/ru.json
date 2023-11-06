@@ -41,5 +41,8 @@
 	"workflows-activity-property-usernameEditor": "Редактор",
 	"workflows-activity-property-comment": "Комментарий",
 	"workflows-activity-property-action": "Действие",
-	"workflows-ui-trigger-field-conditions": "Условия"
+	"workflows-ui-trigger-field-conditions": "Условия",
+	"workflows-editor-viewer-section-diagram": "Диаграмма",
+	"workflows-editor-editor-button-save": "Сохранить",
+	"workflows-editor-editor-button-cancel": "Отмена"
 }
