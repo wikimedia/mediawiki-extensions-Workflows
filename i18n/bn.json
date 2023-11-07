@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"আজিজ",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"Borhan"
 		]
 	},
 	"workflows-ui-workflow-overview-action-back": "পিছনে",
@@ -20,5 +21,19 @@
 	"workflows-activity-property-comment": "মন্তব্য",
 	"workflows-activity-property-delegate_to": "প্রতিনিধি",
 	"workflows-activity-property-delegate_comment": "প্রতিনিধি মন্তব্য",
-	"workflows-activity-property-action": "কার্য"
+	"workflows-activity-property-action": "কার্য",
+	"workflows-editor-title": "$1 সম্পাদনা করছেন",
+	"workflows-editor-viewer-section-diagram": "ডায়াগ্রাম",
+	"workflows-editor-editor-field-summary": "সারাংশ",
+	"workflows-editor-editor-button-save": "সংরক্ষণ করুন",
+	"workflows-editor-editor-button-cancel": "বাতিল করুন",
+	"workflows-ui-action-editxml": "এক্সএমএল সম্পাদনা করুন",
+	"workflows-ui-editor-inspector-activity-title": "কার্যকলাপের বৈশিষ্ট্য",
+	"workflows-ui-editor-inspector-properties": "বৈশিষ্ট্য",
+	"workflows-ui-editor-inspector-properties-additional": "একটি নতুন বৈশিষ্ট্য যোগ করুন",
+	"workflows-ui-editor-inspector-properties-additional-name": "নাম",
+	"workflows-ui-editor-inspector-properties-additional-value": "মান",
+	"workflows-ui-editor-inspector-name": "নাম",
+	"workflows-ui-editor-inspector-process-title": "প্রক্রিয়া পরিদর্শন করুন",
+	"workflows-ui-editor-inspector-process-name": "প্রক্রিয়ার নাম"
 }

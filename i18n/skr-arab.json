@@ -9,5 +9,12 @@
 	"workflows-ui-overview-details-activity-assigned-users-more": "تے {{PLURAL:$1|ہک ٻئی|$1 ٻیاں}}",
 	"workflows-ui-trigger-field-conditions": "شرطاں",
 	"workflows-collect-data-form-threshold-unit": "حد دی اکائی",
-	"workflows-collect-data-form-threshold-value": "حد دی مقدار"
+	"workflows-collect-data-form-threshold-value": "حد دی مقدار",
+	"workflows-editor-editor-field-summary": "خلاصہ",
+	"workflows-editor-editor-button-save": "بچاؤ",
+	"workflows-editor-editor-button-cancel": "منسوخ",
+	"workflows-ui-editor-inspector-properties": "خصوصیات",
+	"workflows-ui-editor-inspector-properties-additional-name": "ناں",
+	"workflows-ui-editor-inspector-properties-additional-value": "قدر",
+	"workflows-ui-editor-inspector-name": "ناں"
 }
