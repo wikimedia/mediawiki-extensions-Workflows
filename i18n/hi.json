@@ -16,5 +16,6 @@
 	"workflows-action-delete-label": "हटाएँ",
 	"workflows-ui-trigger-field-description": "विवरण",
 	"workflows-activity-property-username": "सदस्यनाम",
-	"workflows-activity-property-comment": "टिप्पणी"
+	"workflows-activity-property-comment": "टिप्पणी",
+	"workflows-ui-editor-inspector-properties-additional-name": "नाम"
 }
