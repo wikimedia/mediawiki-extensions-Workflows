@@ -27,5 +27,6 @@
 	"workflows-activity-property-delegate_to": "تفویض به",
 	"workflows-activity-property-delegate_comment": "تفویض نظر",
 	"workflows-activity-property-assigned_user": "کار اختصاص‌یافته",
-	"workflows-activity-property-action": "عمل"
+	"workflows-activity-property-action": "عمل",
+	"workflows-editor-title": "در حال ویرایش $1"
 }
