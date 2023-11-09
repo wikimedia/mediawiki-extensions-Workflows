@@ -14,5 +14,12 @@
 	"workflows-action-edit-label": "編輯",
 	"workflows-action-delete-label": "刪除",
 	"workflows-ui-trigger-field-description": "描述",
-	"workflows-activity-editpage-error-no-title": "未提供標題"
+	"workflows-activity-editpage-error-no-title": "未提供標題",
+	"workflows-editor-viewer-section-diagram": "圖表",
+	"workflows-ui-editor-inspector-properties": "屬性",
+	"workflows-ui-editor-inspector-properties-additional": "新增屬性",
+	"workflows-ui-editor-inspector-properties-additional-name": "名稱",
+	"workflows-ui-editor-inspector-activity-custom-form-form-type": "表單類型",
+	"workflows-ui-editor-inspector-activity-custom-form-form-title": "表單標題",
+	"workflows-ui-editor-inspector-process-name": "程序名稱"
 }
