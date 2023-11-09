@@ -13,6 +13,8 @@
 	},
 	"workflows-desc": "{{desc|name=Workflows}}",
 	"workflowsoverview": "Vue générale des flux de travail",
+	"workflows-global-action-overview": "Label for a link to [[Special:Workflows_overview]]",
+	"workflows-global-action-overview-desc": "Tooltip for a link to [[Special:Workflows_overview]]",
 	"action-workflows-view": "{{doc-action|workflows-view}}",
 	"right-workflows-view": "{{doc-right|workflows-view}}",
 	"action-workflows-execute": "{{doc-action|workflows-execute}}",

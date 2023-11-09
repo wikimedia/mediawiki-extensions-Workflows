@@ -1,6 +1,8 @@
 {
 	"workflows-desc": "Allows to define and execute various workflows on the wiki",
 	"workflowsoverview": "Workflows overview",
+	"workflows-global-action-overview": "Workflows",
+	"workflows-global-action-overview-desc": "Overview of all workflows",
 	"action-workflows-view": "view workflow items",
 	"right-workflows-view": "View workflow items",
 	"action-workflows-execute": "initiate and advance workflows",
