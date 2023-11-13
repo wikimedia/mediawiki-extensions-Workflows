@@ -17,5 +17,8 @@
 	"workflows-ui-trigger-field-description": "विवरण",
 	"workflows-activity-property-username": "सदस्यनाम",
 	"workflows-activity-property-comment": "टिप्पणी",
-	"workflows-ui-editor-inspector-properties-additional-name": "नाम"
+	"workflows-ui-editor-inspector-properties-additional-name": "नाम",
+	"workflows-editor-editor-button-save": "सहेजें",
+	"workflows-ui-editor-inspector-properties": "गुणधर्म",
+	"workflows-ui-editor-inspector-name": "नाम"
 }
