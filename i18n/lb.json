@@ -62,7 +62,9 @@
 	"workflows-editor-editor-button-save": "Späicheren",
 	"workflows-editor-editor-button-cancel": "Ofbriechen",
 	"workflows-ui-action-editxml": "XML änneren",
+	"workflows-ui-action-edit": "Diagramm änneren",
 	"workflows-ui-editor-inspector-properties": "Eegenschaften",
+	"workflows-ui-editor-inspector-properties-additional": "Eng nei Eegenschaft derbäisetzen",
 	"workflows-ui-editor-inspector-properties-additional-name": "Numm",
 	"workflows-ui-editor-inspector-properties-additional-value": "Wäert",
 	"workflows-ui-editor-inspector-name": "Numm"
