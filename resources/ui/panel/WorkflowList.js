@@ -62,7 +62,8 @@
 					filter: {
 						type: 'text'
 					},
-					sortable: true
+					sortable: true,
+					autoClosePopup: true
 				},
 				page_prefixed_text: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-page' ).text(),
@@ -75,7 +76,8 @@
 					sortable: true,
 					filter: {
 						type: 'text'
-					}
+					},
+					autoClosePopup: true
 				},
 				assignee: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
@@ -95,6 +97,7 @@
 						type: 'user',
 						closePopupOnChange: true
 					},
+					autoClosePopup: true
 				},
 				state: {
 					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text(),
@@ -118,7 +121,8 @@
 						closePopupOnChange: true
 					},
 					width: 90,
-					sortable: true
+					sortable: true,
+					autoClosePopup: true
 				},
 				start_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-start-time-column' ).text(),
