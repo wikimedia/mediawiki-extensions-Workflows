@@ -255,5 +255,7 @@
 	"workflows-collect-data-form-threshold-unit-user": "Absolute Anzahl von Nutzern",
 	"workflows-collect-data-form-threshold-unit-percent": "Prozentsatz der Nutzer in der Gruppe",
 	"workflows-ui-group-threshold-hint-user": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}",
-	"workflows-ui-group-threshold-hint-percent": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}. Die Teilnahme von mindestens {{PLURAL:$2|einem Benutzer|$2 Benutzer}} ist erforderlich, um diesen Workflow abzuschließen"
+	"workflows-ui-group-threshold-hint-percent": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}. Die Teilnahme von mindestens {{PLURAL:$2|einem Benutzer|$2 Benutzer}} ist erforderlich, um diesen Workflow abzuschließen",
+	"workflows-global-action-overview": "Workflows",
+	"workflows-global-action-overview-desc": "Übersicht über alle Workflows"
 }

@@ -283,5 +283,7 @@
 	"workflows-ui-editor-inspector-name": "Field label",
 	"workflows-ui-editor-inspector-process-title": "Inspector title",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Field label",
-	"workflows-ui-editor-inspector-process-name": "Field label"
+	"workflows-ui-editor-inspector-process-name": "Field label",
+	"workflows-global-action-overview": "Label for a link to [[Special:Workflows_overview]]",
+	"workflows-global-action-overview-desc": "Tooltip for a link to [[Special:Workflows_overview]]"
 }

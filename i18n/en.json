@@ -273,5 +273,7 @@
 	"workflows-ui-editor-inspector-name": "Name",
 	"workflows-ui-editor-inspector-process-title": "Inspect process",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Bind to revision",
-	"workflows-ui-editor-inspector-process-name": "Process name"
+	"workflows-ui-editor-inspector-process-name": "Process name",
+	"workflows-global-action-overview": "Workflows",
+	"workflows-global-action-overview-desc": "Overview of all workflows"
 }
