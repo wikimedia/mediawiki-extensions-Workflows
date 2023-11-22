@@ -10,6 +10,8 @@
 	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
 	"workflowsoverview": "Workflows Übersicht",
+	"workflows-global-action-overview": "Workflows",
+	"workflows-global-action-overview-desc": "Übersicht über alle Workflows",
 	"action-workflows-view": "Workflow-Elemente zu betrachten",
 	"right-workflows-view": "Workflow-Elemente betrachten",
 	"action-workflows-execute": "Workflows auszuführen",

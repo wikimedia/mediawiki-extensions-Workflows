@@ -35,9 +35,9 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 					return new RestrictedTextLink( [
 						'id' => 'ga-bs-workflows',
 						'href' => $specialOverview->getLocalURL(),
-						'text' => Message::newFromKey( 'workflowsoverview' ),
-						'title' => Message::newFromKey( 'workflows-desc' ),
-						'aria-label' => Message::newFromKey( 'workflowsoverview' ),
+						'text' => Message::newFromKey( 'workflows-global-action-overview' ),
+						'title' => Message::newFromKey( 'workflows-global-action-overview-desc' ),
+						'aria-label' => Message::newFromKey( 'workflows-global-action-overview' ),
 						'permissions' => [ 'workflows-view' ]
 					] );
 				}
