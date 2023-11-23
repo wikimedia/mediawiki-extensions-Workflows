@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saimawnkham"
+		]
+	},
+	"workflows-ui-starter-action-cancel": "ယုၵ်ႉလိူၵ်ႈ",
+	"workflows-ui-task-completion-action-cancel": "ယုၵ်ႉလိူၵ်ႈ",
+	"workflows-ui-action-cancel": "ယုၵ်ႉလိူၵ်ႈ",
+	"workflows-ui-trigger-field-description": "ၶေႃႈသပ်းလႅင်း"
+}

@@ -1,18 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik",
-			"Kimberli Mäkäräinen (WMNO)"
+			"Kimberli Mäkäräinen (WMNO)",
+			"Yupik"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Vállje",
-	"workflows-ui-starter-action-cancel": "Šluhtte",
-	"workflows-ui-task-completion-action-cancel": "Šluhtte",
+	"workflows-ui-starter-action-cancel": "Gaskkalduhte",
+	"workflows-ui-task-completion-action-cancel": "Gaskkalduhte",
 	"workflows-ui-workflow-overview-action-cancel": "Gidde",
 	"workflows-ui-overview-details-state-running": "Jođus",
 	"workflows-collect-data-form-username": "Geavaheaddji",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Iešvuohta",
-	"workflows-ui-action-cancel": "Šluhtte",
+	"workflows-ui-action-cancel": "Gaskkalduhte",
 	"workflows-ui-trigger-action-create": "Vurke",
 	"workflows-ui-trigger-action-delete": "Sihko",
 	"workflows-action-delete-label": "Sihko",

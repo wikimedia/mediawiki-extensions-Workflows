@@ -15,5 +15,6 @@
 	"workflows-ui-overview-grid-filter-state-all": "အားလုံး",
 	"workflows-error-generic": "အမှားတစ်ခု ဖြစ်ပွားခဲ့ပါသည်",
 	"workflows-collect-data-form-groupname": "အုပ်စု",
-	"workflows-collect-data-form-username": "အသုံးပြုသူ"
+	"workflows-collect-data-form-username": "အသုံးပြုသူ",
+	"workflows-ui-trigger-field-conditions": "အခြေနေများ"
 }

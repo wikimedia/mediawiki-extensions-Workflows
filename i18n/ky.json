@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bosogo"
+		]
+	},
+	"workflows-ui-starter-action-done": "Баштоо",
+	"workflows-ui-starter-action-cancel": "Жокко чыгаруу",
+	"workflows-ui-task-completion-action-cancel": "Жокко чыгаруу",
+	"workflows-ui-workflow-overview-action-abort": "Жокко чыгаруу",
+	"workflows-ui-workflow-overview-action-cancel": "Жабуу",
+	"workflows-ui-overview-details-action-reason": "Себеп",
+	"workflows-ui-overview-details-page-context-page": "Барак",
+	"workflows-uto-body-field-instructions": "Нускамалар: $1",
+	"workflows-collect-data-form-groupname": "Топ",
+	"workflows-collect-data-form-username": "Колдонуучу",
+	"workflows-ui-action-cancel": "Жокко чыгаруу",
+	"workflows-ui-trigger-action-create": "Сактоо",
+	"workflows-action-edit-label": "Түзөтүү"
+}
