@@ -10,6 +10,8 @@
 	},
 	"workflows-desc": "אפשרות להגדיר ולבצע זרימות עבודה שונות בוויקי",
 	"workflowsoverview": "סקירת זרימות עבודה",
+	"workflows-global-action-overview": "זרימות עבודה",
+	"workflows-global-action-overview-desc": "סקירה כללית של כל זרימות העבודה",
 	"action-workflows-view": "לצפות בפריטי זרימות עבודה",
 	"right-workflows-view": "צפייה בפריטי זרימות עבודה",
 	"action-workflows-execute": "להתחיל ולקדם זרימות עבודה",
