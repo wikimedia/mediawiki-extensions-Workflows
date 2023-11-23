@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Josuert"
+			"Fitoschido",
+			"Josuert",
+			"MarcoAurelio",
+			"No se"
 		]
 	},
 	"workflows-ui-starter-action-done": "Iniciar",
@@ -21,5 +24,11 @@
 	"workflows-action-edit-label": "Editar",
 	"workflows-action-delete-label": "Eliminar",
 	"workflows-ui-trigger-item-inactive": "$1 (inactivo)",
-	"workflows-ui-trigger-field-description": "Descripción"
+	"workflows-ui-trigger-field-description": "Descripción",
+	"workflows-ui-task-completion-action-complete": "Enviar",
+	"workflows-ui-overview-details-action-reason": "Razón",
+	"workflows-ui-overview-details-page-context-page": "Página",
+	"workflows-ui-trigger-field-conditions": "Condiciones",
+	"workflows-ui-group-threshold-hint-user": "Este grupo cuenta actualmente con {{PLURAL:$1|un usuario|$1 usuarios}}",
+	"workflows-ui-group-threshold-hint-percent": "Este grupo cuenta actualmente con {{PLURAL:$1|un usuario|$1 usuarios}}. Se requiere la participación de al menos {{PLURAL:$2|un usuario|$1 usuarios}} para completar este flujo de trabajo"
 }

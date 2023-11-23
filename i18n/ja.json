@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"MathXplore"
+			"MathXplore",
+			"Shirayuki",
+			"春春眠眠"
 		]
 	},
 	"workflows-ui-starter-action-done": "開始",
@@ -41,6 +43,11 @@
 	"workflows-activity-property-usernameReviewer": "査読者",
 	"workflows-activity-property-vote": "投票",
 	"workflows-activity-property-comment": "コメント",
-	"workflows-activity-property-assigned_user": "割り当てられたユーザー",
-	"workflows-activity-property-action": "操作"
+	"workflows-activity-property-assigned_user": "割り当てられた利用者",
+	"workflows-activity-property-action": "操作",
+	"action-workflows-view": "ワークフロー項目の閲覧",
+	"right-workflows-view": "ワークフロー項目を閲覧",
+	"action-workflows-admin": "ワークフローの管理",
+	"right-workflows-admin": "ワークフローを管理",
+	"workflows-activity-editpage-permissiondenied": "利用者\"{{GENDER:$1|$1}}\"はページ\"$2\"を編集する権限がありません"
 }

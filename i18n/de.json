@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"Justman10000",
 			"Mschlindwein",
 			"Osnard",
 			"Talex42",
@@ -34,7 +35,7 @@
 	"logentry-ext-workflows-uservote-yes": "Benutzerabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'ja'",
 	"logentry-ext-workflows-uservote-no": "Benutzerabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
 	"logentry-ext-workflows-uservote-delegate": "Benutzerabstimmung: $1 {{GENDER:$2|übertrug seine|übertrug ihre|übertrug seine}} Stimme für Seite $3 an [[User:$4|$4]]",
-	"logentry-ext-workflows-sendmail-send": "Mail senden: Mail mit Betreff '$4' senden",
+	"logentry-ext-workflows-sendmail-send": "Mail senden: Mail mit Betreff „$4“ gesendet",
 	"logentry-ext-workflows-groupvote-yes": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'ja'",
 	"logentry-ext-workflows-groupvote-no": "Gruppenabstimmung: $1 {{GENDER:$2|stimmte}} auf Seite $3 mit 'nein'",
 	"logentry-ext-workflows-userfeedback": "Benutzer $1 {{GENDER:$2|hat}} Feedback auf der Seite $3 gegeben",
@@ -246,5 +247,13 @@
 	"workflows-activity-property-delegate_comment": "Kommentar zur Weitergabe",
 	"workflows-activity-property-assigned_user": "Zugewiesener Benutzer",
 	"workflows-activity-property-action": "Aktion",
-	"workflows-ui-overview-details-activity-assigned-users-more": "und {{PLURAL:$1|ein weiterer|$1 weitere}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "und {{PLURAL:$1|ein weiterer|$1 weitere}}",
+	"workflows-ui-trigger-field-conditions": "Bedingungen",
+	"workflows-group-vote-threshold-invalid": "Ungültige oder fehlende Schwellenwertdaten",
+	"workflows-collect-data-form-threshold-unit": "Schwellenwert Einheit",
+	"workflows-collect-data-form-threshold-value": "Schwellenwert",
+	"workflows-collect-data-form-threshold-unit-user": "Absolute Anzahl von Nutzern",
+	"workflows-collect-data-form-threshold-unit-percent": "Prozentsatz der Nutzer in der Gruppe",
+	"workflows-ui-group-threshold-hint-user": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}",
+	"workflows-ui-group-threshold-hint-percent": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}. Die Teilnahme von mindestens {{PLURAL:$2|einem Benutzer|$2 Benutzer}} ist erforderlich, um diesen Workflow abzuschließen"
 }

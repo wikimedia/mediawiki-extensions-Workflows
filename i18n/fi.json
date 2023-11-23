@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"MITO",
+			"Pyscowicz",
 			"Rönttönen",
 			"Yupik"
 		]
@@ -60,5 +61,6 @@
 	"workflows-ui-overview-details-raw-data-popup-prop": "Ominaisuus",
 	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
 	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
-	"workflows-ui-trigger-field-description": "Kuvaus"
+	"workflows-ui-trigger-field-description": "Kuvaus",
+	"workflows-ui-action-cancel": "Peruuta"
 }
