@@ -80,5 +80,6 @@
 	"workflows-collect-data-form-threshold-unit-user": "Absolutno število uporabnikov",
 	"workflows-collect-data-form-threshold-unit-percent": "Odstotek uporabnikov v skupini",
 	"workflows-ui-group-threshold-hint-user": "Ta skupina ima trenutno {{PLURAL:$1|enega uporabnika|$1 uporabnika|$1 uporabnike|$1 uporabnikov}}",
-	"workflows-ui-group-threshold-hint-percent": "Ta skupina ima trenutno {{PLURAL:$1|enega uporabnika|$1 uporabnika|$1 uporabnike|$1 uporabnikov}}. Za dokončanje tega delovnega toka je potrebna udeležba vsaj {{PLURAL:$2|enega uporabnika|$2 uporabnikov}}."
+	"workflows-ui-group-threshold-hint-percent": "Ta skupina ima trenutno {{PLURAL:$1|enega uporabnika|$1 uporabnika|$1 uporabnike|$1 uporabnikov}}. Za dokončanje tega delovnega toka je potrebna udeležba vsaj {{PLURAL:$2|enega uporabnika|$2 uporabnikov}}.",
+	"logentry-ext-workflows-sendmail-send": "Pošiljanje e-pošte: E-pismo z zadevo »$4« poslano"
 }

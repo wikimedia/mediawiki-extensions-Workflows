@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Keo010122",
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"Nguyenphutrong2"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Chọn",
@@ -31,5 +32,6 @@
 	"workflows-collect-data-form-groupname": "Nhóm",
 	"workflows-collect-data-form-username": "Người dùng",
 	"workflows-activity-history-vote-result-yes": "Chấp nhận",
-	"workflows-activity-history-vote-result-no": "Từ chối"
+	"workflows-activity-history-vote-result-no": "Từ chối",
+	"logentry-ext-workflows-sendmail-send": "Gửi thư: Đã gửi thư có chủ đề ' $4 '"
 }

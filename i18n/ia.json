@@ -276,5 +276,6 @@
 	"workflows-ui-editor-inspector-name": "Nomine",
 	"workflows-ui-editor-inspector-process-title": "Inspectar processo",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Ligar al version",
-	"workflows-ui-editor-inspector-process-name": "Nomine del processo"
+	"workflows-ui-editor-inspector-process-name": "Nomine del processo",
+	"logentry-ext-workflows-sendmail-send": "Invio de e-mail: Message con subjecto '$4' inviate"
 }

@@ -29,7 +29,7 @@
 	"logentry-ext-workflows-uservote-yes": "Кориснички глас: $1 {{GENDER:$2|гласаше}} „да“ на страницата $3",
 	"logentry-ext-workflows-uservote-no": "Кориснички глас: $1 {{GENDER:$2|гласаше}} „не“ на страницата $3",
 	"logentry-ext-workflows-uservote-delegate": "Кориснички глас: $1 {{GENDER:$2|му}} го додели гласот на страницата $3 на [[User:$4|$4]]",
-	"logentry-ext-workflows-sendmail-send": "Испрати е-пошта: Порака со наслов „$4“",
+	"logentry-ext-workflows-sendmail-send": "Испрати е-пошта: Испратена порака со наслов „$4“",
 	"logentry-ext-workflows-groupvote-yes": "Групен глас: $1 {{GENDER:$2|гласано}} „да“ на страницата $3",
 	"logentry-ext-workflows-groupvote-no": "Групен глас: $1 {{GENDER:$2|гласано}} „не“ на страницата $3",
 	"logentry-ext-workflows-userfeedback": "Корисникот $1 {{GENDER:$2|даде мислење}} на страницата $3",

@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Agam Riyandana",
 			"Ekirahardian",
-			"Veracious",
-			"Agam Riyandana"
+			"Veracious"
 		]
 	},
 	"workflows-ui-task-completion-action-complete": "Kirim",
@@ -25,5 +25,6 @@
 	"workflows-activity-property-vote": "Berikan suara",
 	"workflows-activity-property-comment": "Komentar",
 	"workflows-activity-property-delegate_to": "Delegasikan ke",
-	"workflows-activity-property-action": "Tindakan"
+	"workflows-activity-property-action": "Tindakan",
+	"logentry-ext-workflows-sendmail-send": "Kirim surat: Surat dengan subjek ' $4 ' terkirim"
 }

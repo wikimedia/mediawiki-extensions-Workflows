@@ -3,9 +3,9 @@
 		"authors": [
 			"Amire80",
 			"HumansCanWinElves",
+			"Xnet1234",
 			"YaronSh",
-			"מקף",
-			"Xnet1234"
+			"מקף"
 		]
 	},
 	"workflows-desc": "אפשרות להגדיר ולבצע זרימות עבודה שונות בוויקי",
@@ -280,5 +280,8 @@
 	"workflows-ui-editor-inspector-name": "שם",
 	"workflows-ui-editor-inspector-process-title": "בדיקת תהליך",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "לכרוך לגרסה",
-	"workflows-ui-editor-inspector-process-name": "שם התהליך"
+	"workflows-ui-editor-inspector-process-name": "שם התהליך",
+	"workflows-global-action-overview": "זרימות עבודה",
+	"workflows-global-action-overview-desc": "סקירה כללית של כל זרימות העבודה",
+	"logentry-ext-workflows-sendmail-send": "שליחת דוא\"ל: נשלח דוא\"ל עם הנושא \"$4\""
 }

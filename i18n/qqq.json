@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
+			"Caden000",
 			"Cantons-de-l'Est",
+			"McDutchie",
 			"Raymond",
 			"Robby",
 			"Umherirrender",
-			"Verdy p",
-			"McDutchie"
+			"Verdy p"
 		]
 	},
 	"workflows-desc": "{{desc|name=Workflows}}",
@@ -285,6 +286,4 @@
 	"workflows-ui-editor-inspector-process-title": "Inspector title",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Field label",
 	"workflows-ui-editor-inspector-process-name": "Field label"
-
-
 }
