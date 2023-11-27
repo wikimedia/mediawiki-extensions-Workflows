@@ -277,5 +277,7 @@
 	"workflows-ui-editor-inspector-process-title": "Inspectar processo",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Ligar al version",
 	"workflows-ui-editor-inspector-process-name": "Nomine del processo",
-	"logentry-ext-workflows-sendmail-send": "Invio de e-mail: Message con subjecto '$4' inviate"
+	"logentry-ext-workflows-sendmail-send": "Invio de e-mail: Message con subjecto '$4' inviate",
+	"workflows-global-action-overview": "Fluxos de travalio",
+	"workflows-global-action-overview-desc": "Vista general de tote le fluxos de travalio"
 }
