@@ -6,6 +6,8 @@
 	},
 	"workflows-desc": "Permitte definir e executar varie fluxos de travalio sur le wiki",
 	"workflowsoverview": "Vista general de fluxos de travalio",
+	"workflows-global-action-overview": "Fluxos de travalio",
+	"workflows-global-action-overview-desc": "Vista general de tote le fluxos de travalio",
 	"action-workflows-view": "vider elementos de fluxo de travalio",
 	"right-workflows-view": "Vider elementos de fluxo de travalio",
 	"action-workflows-execute": "initiar e avantiar fluxos de travalio",

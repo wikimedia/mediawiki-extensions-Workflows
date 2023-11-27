@@ -7,6 +7,8 @@
 	},
 	"workflows-desc": "Овозможува определување и извршување на разни работни текови на викито",
 	"workflowsoverview": "Преглед на Работни текови",
+	"workflows-global-action-overview": "Работни текови",
+	"workflows-global-action-overview-desc": "Преглед на сите работни текови",
 	"action-workflows-view": "преглед на ставки во работните текови",
 	"right-workflows-view": "Преглед на ставки во работните текови",
 	"action-workflows-execute": "отпочнување на работни текови",
