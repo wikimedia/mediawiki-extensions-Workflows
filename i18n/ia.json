@@ -277,5 +277,7 @@
 	"workflows-ui-editor-inspector-name": "Nomine",
 	"workflows-ui-editor-inspector-process-title": "Inspectar processo",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Ligar al version",
-	"workflows-ui-editor-inspector-process-name": "Nomine del processo"
+	"workflows-ui-editor-inspector-process-name": "Nomine del processo",
+	"workflows-global-action-overview": "Fluxos de travalio",
+	"workflows-global-action-overview-desc": "Vista general de tote le fluxos de travalio"
 }

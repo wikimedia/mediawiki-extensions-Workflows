@@ -278,5 +278,7 @@
 	"workflows-ui-editor-inspector-name": "Назив",
 	"workflows-ui-editor-inspector-process-title": "Провери процес",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Сврзи за преработка",
-	"workflows-ui-editor-inspector-process-name": "Име на процесот"
+	"workflows-ui-editor-inspector-process-name": "Име на процесот",
+	"workflows-global-action-overview": "Работни текови",
+	"workflows-global-action-overview-desc": "Преглед на сите работни текови"
 }
