@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Caiofernandes",
 			"Hamilton Abreu"
 		]
 	},
@@ -240,5 +241,7 @@
 	"workflows-activity-property-delegate_comment": "Comentário da delegação",
 	"workflows-activity-property-assigned_user": "Utilizador atribuído",
 	"workflows-activity-property-action": "Ação",
-	"workflows-ui-overview-details-activity-assigned-users-more": "e mais {{PLURAL:$1|um|$1}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "e mais {{PLURAL:$1|um|$1}}",
+	"workflows-global-action-overview": "Fluxos de trabalho",
+	"workflows-global-action-overview-desc": "Visão geral de todos os fluxos de trabalho"
 }
