@@ -14,6 +14,9 @@ final class AbortExpired extends ProcessWorkflows {
 
 	public const HANDLER_KEY = 'ext-workflows-abort-expired';
 
+	/** @var AutoAborter */
+	protected $autoAborter;
+
 	/**
 	 * @inheritDoc
 	 */
