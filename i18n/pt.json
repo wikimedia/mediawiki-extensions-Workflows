@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Caiofernandes",
 			"Hamilton Abreu"
 		]
 	},
 	"workflows-desc": "Permite definir e executar vários fluxos de trabalho na wiki",
 	"workflowsoverview": "Visão geral dos fluxos de trabalho",
+	"workflows-global-action-overview": "Fluxos de trabalho",
+	"workflows-global-action-overview-desc": "Visão geral de todos os fluxos de trabalho",
 	"action-workflows-view": "ver elementos do fluxo de trabalho",
 	"right-workflows-view": "Ver elementos do fluxo de trabalho",
 	"action-workflows-execute": "iniciar e fazer avançar fluxos de trabalho",
