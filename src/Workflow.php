@@ -217,7 +217,7 @@ final class Workflow {
 	 */
 	public function markAsBotProcess() {
 		$this->isBotProcess = true;
-		$this->privateContext->setRunningAsBot( true );
+		$this->getPrivateContext()->markAsBotProcess( true );
 	}
 
 	/**
