@@ -4,6 +4,8 @@
 			"Eleassar"
 		]
 	},
+	"workflows-global-action-overview": "Delovni tokovi",
+	"workflows-global-action-overview-desc": "Pregled vseh delovnih tokov",
 	"workflows-ui-starter-error-generic": "Ni mogoče začeti delovnega toka",
 	"workflows-ui-starter-action-choose": "Izberite",
 	"workflows-ui-starter-action-done": "Začni",
