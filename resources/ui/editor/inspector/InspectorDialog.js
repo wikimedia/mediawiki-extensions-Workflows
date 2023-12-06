@@ -5,6 +5,8 @@ workflows.editor.inspector.InspectorDialog = function( element, cfg ) {
 
 	this.element = element;
 	this.inspector = cfg.inspector;
+
+	this.inspector.dialog = this;
 };
 
 OO.inheritClass( workflows.editor.inspector.InspectorDialog, OO.ui.ProcessDialog );
