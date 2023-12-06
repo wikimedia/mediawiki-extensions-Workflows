@@ -537,6 +537,177 @@
 			"scripts": [
 				"triggerEditor.js"
 			]
+		},
+		"ext.workflows.editor.bpmn-js.viewer": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ResourceModule\\BpmnJSViewer"
+		},
+		"ext.workflows.editor.bpmn-js.modeler": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\ResourceModule\\BpmnJSModeler"
+		},
+		"ext.workflows.editor": {
+			"scripts": [
+				"ui/editor/util.js",
+				"ui/editor/schema.js",
+				"ui/editor/CustomMenu.js",
+				"ui/editor/BpmnEditor.js"
+			],
+			"styles": [
+				"ui/editor/editor.less"
+			],
+			"dependencies": [
+				"ext.workflows.editor.bpmn-js.modeler",
+				"oojs-ui",
+				"oojs-ui.styles.icons-movement"
+			],
+			"messages": [
+				"workflows-editor-editor-field-summary",
+				"workflows-editor-editor-button-save",
+				"workflows-editor-editor-button-cancel",
+				"workflows-ui-editor-inspector-process-title"
+			]
+		},
+		"ext.workflows.editor.customElements": {
+			"scripts": [
+				"ui/editor/inspector/CustomFormInspector.js",
+				"ui/editor/inspector/activityInspector/SendMailInspector.js",
+				"ui/editor/inspector/activityInspector/UserFeedbackInspector.js",
+				"ui/editor/inspector/activityInspector/UserVoteInspector.js",
+				"ui/editor/inspector/activityInspector/GroupFeedbackInspector.js",
+				"ui/editor/inspector/activityInspector/GroupVoteInspector.js",
+				"ui/editor/inspector/activityInspector/EditPageInspector.js",
+				"ui/editor/inspector/activityInspector/EditRequestInspector.js",
+				"ui/editor/inspector/activityInspector/SetTemplateParamInspector.js",
+				"ui/editor/inspector/ProcessInspector.js",
+				"ui/editor/inspector/GatewayInspector.js",
+				"ui/editor/registerCustomElements.js"
+			],
+			"styles": [
+				"ui/editor/customElements.css"
+			],
+			"messages": [
+				"workflows-activity-property-reportrecipient",
+				"workflows-activity-property-instructions",
+				"workflows-activity-property-username",
+				"workflows-activity-property-due_date",
+				"workflows-activity-property-groupname",
+				"workflows-uto-activity-custom_form",
+				"workflows-uto-activity-user_vote",
+				"workflows-ui-editor-inspector-activity-title",
+				"workflows-ui-editor-inspector-properties",
+				"workflows-ui-editor-inspector-properties-additional",
+				"workflows-ui-editor-inspector-properties-additional-name",
+				"workflows-ui-editor-inspector-properties-additional-value",
+				"workflows-ui-editor-inspector-activity-custom-form-title",
+				"workflows-ui-editor-inspector-activity-custom-form-form-to-use",
+				"workflows-ui-editor-inspector-activity-custom-form-form-type",
+				"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki",
+				"workflows-ui-editor-inspector-activity-custom-form-form-type-backend",
+				"workflows-ui-editor-inspector-activity-custom-form-form-module",
+				"workflows-ui-editor-inspector-activity-custom-form-form-title",
+				"workflows-ui-editor-inspector-activity-custom-form-form-class",
+				"workflows-ui-editor-inspector-activity-initializer",
+				"workflows-ui-editor-inspector-activity-section-initializer",
+				"workflows-ui-editor-inspector-gateway-title",
+				"workflows-ui-editor-inspector-gateway-notice",
+				"workflows-ui-editor-inspector-name",
+				"workflows-ui-editor-inspector-process-title",
+				"workflows-ui-editor-inspector-process-bind-to-revision",
+				"workflows-ui-editor-inspector-process-name",
+				"workflows-ui-editor-inspector-activity-send-mail-title",
+				"workflows-ui-editor-inspector-activity-send-mail-property-recipient",
+				"workflows-ui-editor-inspector-activity-send-mail-property-subject",
+				"workflows-ui-editor-inspector-activity-send-mail-property-body",
+				"workflows-ui-editor-inspector-activity-user-feedback-title",
+				"workflows-ui-editor-inspector-activity-user-activity-property-assigned_user",
+				"workflows-ui-editor-inspector-activity-user-activity-property-instructions",
+				"workflows-ui-editor-inspector-activity-user-activity-property-due_date",
+				"workflows-ui-editor-inspector-activity-edit-page-title",
+				"workflows-ui-editor-inspector-activity-edit-page-property-title",
+				"workflows-ui-editor-inspector-activity-edit-page-property-user",
+				"workflows-ui-editor-inspector-activity-edit-page-property-user-help",
+				"workflows-ui-editor-inspector-activity-edit-page-property-content",
+				"workflows-ui-editor-inspector-activity-edit-page-property-minor",
+				"workflows-ui-editor-inspector-activity-edit-page-property-mode",
+				"workflows-ui-editor-inspector-activity-edit-page-property-mode-prepend",
+				"workflows-ui-editor-inspector-activity-edit-page-property-mode-append",
+				"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace",
+				"workflows-ui-editor-inspector-activity-edit-request-title",
+				"workflows-ui-editor-inspector-activity-user-vote-title",
+				"workflows-ui-editor-inspector-activity-set-template-param-title",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-user",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-user-help",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-title",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-template_index",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-template_param",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-value",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-minor",
+				"workflows-ui-editor-inspector-activity-set-template-param-property-comment",
+				"workflows-ui-editor-inspector-activity-group-feedback-title",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-assignment-type",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-assignment-type-user-list-assignment",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-assignment-type-group-assignment",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-assigned_users",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-assigned_group",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-threshold_unit",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-threshold_unit-help",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-threshold_unit-user",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-threshold_unit-percent",
+				"workflows-ui-editor-inspector-activity-group-feedback-property-threshold_value",
+				"workflows-ui-editor-inspector-activity-group-vote-title",
+				"workflows-ui-editor-inspector-activity-group-vote-property-assignment-type",
+				"workflows-ui-editor-inspector-activity-group-vote-property-assignment-type-user-list-assignment",
+				"workflows-ui-editor-inspector-activity-group-vote-property-assignment-type-group-assignment",
+				"workflows-ui-editor-inspector-activity-group-vote-property-assigned_users",
+				"workflows-ui-editor-inspector-activity-group-vote-property-assigned_group",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_unit-user",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_unit-percent",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_unit",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_unit-help",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help",
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value"
+			],
+			"dependencies": [
+				"ext.workflows.editor.inspector.bootstrap",
+				"ext.workflows.editor.customElements.bootstrap"
+			]
+		},
+		"ext.workflows.editor.customElements.bootstrap": {
+			"scripts": [
+				"ui/editor/customElement/CustomElement.js",
+				"ui/editor/customElement/WorkflowActivityElement.js",
+				"ui/editor/customElement/Registry.js"
+			]
+		},
+		"ext.workflows.editor.inspector.bootstrap": {
+			"scripts": [
+				"ui/editor/inspector/Inspector.js",
+				"ui/editor/inspector/Registry.js",
+				"ui/editor/inspector/InspectorDialog.js",
+				"ui/editor/inspector/ActivityInspector.js"
+			],
+			"messages": [
+				"workflows-editor-editor-button-save",
+				"workflows-editor-editor-button-cancel"
+			],
+			"dependencies": [
+				"oojs-ui",
+				"ext.forms.standalone"
+			]
+		},
+		"ext.workflows.viewer": {
+			"scripts": [
+				"ui/editor/BpmnViewer.js"
+			],
+			"dependencies": [
+				"ext.workflows.editor.bpmn-js.viewer",
+				"oojs-ui"
+			],
+			"messages": [
+				"workflows-editor-viewer-section-diagram",
+				"workflows-editor-viewer-section-xml"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
