@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\Activity;
 
 use DateTime;
 use MediaWiki\Extension\Forms\DefinitionManager;
-use MediaWiki\Extension\Workflows\ActivityDescriptor\GenericDescriptor;
+use MediaWiki\Extension\Workflows\ActivityDescriptor\GenericUIActivityDescriptor;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
@@ -152,6 +152,6 @@ class UIActivity extends GenericActivity implements UserInteractiveActivity {
 	 * @inheritDoc
 	 */
 	public function getActivityDescriptor(): IActivityDescriptor {
-		return new GenericDescriptor( $this, $this->logger );
+		return new GenericUIActivityDescriptor( $this, $this->logger );
 	}
 }
