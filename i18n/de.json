@@ -3,6 +3,7 @@
 		"authors": [
 			"Brettchenweber",
 			"Justman10000",
+			"McDutchie",
 			"Mschlindwein",
 			"Osnard",
 			"Talex42",
@@ -237,7 +238,7 @@
 	"workflows-activity-property-instructionsEditor": "Anweisungen für Bearbeiter",
 	"workflows-activity-property-usernameReviewer": "Begutachter",
 	"workflows-activity-property-instructionsReviewer": "Anweisungen für Begutachter",
-	"workflows-activity-property-vote": "Abstimmen",
+	"workflows-activity-property-vote": "Stimme",
 	"workflows-activity-property-comment": "Kommentar",
 	"workflows-activity-property-delegate_to": "Weitergeben an",
 	"workflows-activity-property-delegate_comment": "Kommentar zur Weitergabe",

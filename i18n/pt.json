@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Caiofernandes",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"McDutchie"
 		]
 	},
 	"workflows-desc": "Permite definir e executar vários fluxos de trabalho na wiki",
@@ -69,7 +70,7 @@
 	"workflows-form-edit-request-submit-to-continue": "Quando terminar de editar, clique em \"Enviar\" para marcar a tarefa como concluída",
 	"workflows-ui-alert-activity-edit-request": "Foi-lhe pedido para editar esta página",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Ver detalhes",
-	"workflows-activity-edit-request-name": "Editar pedido",
+	"workflows-activity-edit-request-name": "Pedido de edição",
 	"workflows-uto-activity-edit-request-header": "Edição de página pedida",
 	"echo-category-title-workflow-cat": "Notificações de fluxos de trabalho",
 	"workflows-pref-tooltip-notification-workflow-cat": "Notificar-me sobre eventos em fluxos de trabalho com que estou relacionado",
@@ -212,7 +213,7 @@
 	"workflows-ui-workflow-overview-step-name-user-vote": "Voto de utilizador",
 	"workflows-ui-workflow-overview-step-name-user-feedback": "Comentário de utilizador",
 	"workflows-ui-workflow-overview-step-name-group-feedback": "Comentário de grupo",
-	"workflows-ui-workflow-overview-step-name-edit-request": "Editar pedido",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Pedido de edição",
 	"workflows-ui-workflow-overview-step-name-collect-data": "Coligir dados",
 	"workflows-activity-set-template-params-no-target": "A predefinição de destino definida não existe na página especificada",
 	"workflows-activity-error-no-revision": "Não existe nenhuma revisão para o título fornecido",
