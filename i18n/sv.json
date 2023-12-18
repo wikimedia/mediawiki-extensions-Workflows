@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sabelöga"
+			"Sabelöga",
+			"McDutchie"
 		]
 	},
 	"workflows-desc": "Tillåter definiering och utövning av diverse arbetsflöden på wikin",
@@ -45,8 +46,6 @@
 	"workflows-group-vote-group-empty": "Gruppnamn som ska rösta har inte angetts",
 	"workflows-group-vote-group-no-users": "Specificerad grupp som ska rösta har inte angetts",
 	"workflows-group-vote-target-title-invalid": "Aktivitetsmåltiteln är ogiltig eller har inte angetts",
-	"workflows-group-vote-owner-invalid": "Aktivitetsägaren är ogiltig eller har inte angetts",
-	"workflows-group-vote-actor-invalid": "Aktivitetsaktören är ogiltig eller har inte angetts",
 	"workflows-group-vote-action-invalid": "Åtgärden är ogiltig eller har inte angetts",
 	"workflows-user-vote-target-title-invalid": "Aktivitetsmåltiteln är ogiltig eller har inte angetts",
 	"workflows-user-vote-owner-invalid": "Aktivitetsägaren är ogiltig eller har inte angetts",
@@ -66,7 +65,7 @@
 	"workflows-form-edit-request-submit-to-continue": "När du har redigerat färdigt klickar du på \"Skicka in\" för att markera uppgiften som slutförd",
 	"workflows-ui-alert-activity-edit-request": "Du har begärts redigera denna sida",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Visa detaljer",
-	"workflows-activity-edit-request-name": "Redigera begäran",
+	"workflows-activity-edit-request-name": "Redigeringsbegäran",
 	"workflows-uto-activity-edit-request-header": "Sidredigering begärdes",
 	"echo-category-title-workflow-cat": "Arbetsflödesaviseringar",
 	"workflows-pref-tooltip-notification-workflow-cat": "Meddela mig om händelser på arbetsflöden som rör mig",
@@ -132,5 +131,6 @@
 	"workflows-auto-aborted-workflow-page-deleted": "Arbetsflödet avbröts för att den berörda sidan raderades",
 	"workflows-uto-body-field-instructions": "Instruktioner: $1",
 	"workflows-ui-overview-details-initiator": "Inleddes av",
-	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde"
+	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Redigeringsbegäran"
 }
