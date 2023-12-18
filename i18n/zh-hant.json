@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"SunAfterRain",
 			"Winston Sung"
 		]
 	},
@@ -21,5 +22,6 @@
 	"workflows-ui-editor-inspector-properties-additional-name": "名稱",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type": "表單類型",
 	"workflows-ui-editor-inspector-activity-custom-form-form-title": "表單標題",
-	"workflows-ui-editor-inspector-process-name": "程序名稱"
+	"workflows-ui-editor-inspector-process-name": "程序名稱",
+	"action-workflows-admin": "管理工作流"
 }
