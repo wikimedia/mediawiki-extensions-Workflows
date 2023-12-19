@@ -13,6 +13,9 @@ final class ProcessTimeBasedTriggers implements IHandler {
 
 	public const HANDLER_KEY = 'ext-workflows-process-time-based-triggers';
 
+	/** @var NullLogger */
+	protected $logger;
+
 	/** @var TriggerRunner */
 	protected $triggerRunner;
 
