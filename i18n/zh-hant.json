@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"SunAfterRain"
 		]
 	},
+	"action-workflows-admin": "管理工作流",
 	"workflows-ui-starter-action-done": "開始",
 	"workflows-triggers-type-manual-label": "手動",
 	"workflows-ui-action-cancel": "取消",
