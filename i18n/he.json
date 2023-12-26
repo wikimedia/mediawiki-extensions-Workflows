@@ -140,7 +140,7 @@
 	"workflows-ui-overview-details-initiator": "נפתח על־ידי:",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|התחיל|התחילה}} את זרימת העבודה הזאת",
 	"workflows-ui-overview-details-action-details-column": "הצגת פרטים",
-	"workflows-exception-property-validation": "נכשל אימות מאפיין \"$1\", שגיאה: $2",
+	"workflows-exception-property-validation": "נכשלה בדיקת תקינות המאפיין \"$1\", שגיאה: $2",
 	"workflows-property-validator-valid-user-error": "המשתמש \"$1\" אינו תקין",
 	"workflows-property-validator-valid-title-error": "\"$1\" אינה כותרת תקינה",
 	"workflows-property-validator-required-error": "נדרש ערך",
