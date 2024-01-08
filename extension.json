@@ -10,8 +10,8 @@
 	"requires": {
 		"MediaWiki": ">= 1.39.0",
 		"extensions": {
-			"Forms": "*",
-			"OOJSPlus": "*"
+			"Forms": ">= 1.2.0",
+			"OOJSPlus": ">= 2.0.0"
 		}
 	},
 	"attributes": {
