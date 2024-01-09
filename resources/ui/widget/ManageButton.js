@@ -20,7 +20,7 @@
 
 	workflows.ui.widget.ManageButton.prototype.appendButton = function( role ) {
 		var button = new OO.ui.ButtonWidget( {
-			icon: 'settings',
+			icon: 'info',
 			framed: false,
 			data: {
 				role: role
