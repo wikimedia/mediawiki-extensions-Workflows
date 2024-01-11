@@ -25,7 +25,7 @@ abstract class Activity implements IActivity, LoggerAwareInterface {
 	 *
 	 * @param LoggerInterface $logger Logger object
 	 */
-	public function setLogger( LoggerInterface $logger ) {
+	public function setLogger( LoggerInterface $logger ): void {
 		$this->logger = $logger;
 	}
 
