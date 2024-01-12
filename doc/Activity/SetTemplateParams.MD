@@ -18,6 +18,7 @@ Example:
 		<!-- New value to set -->
 		<bpmn:property name="value" default="Super edited param"/>
 		<bpmn:property name="minor" default="0"/>
+		<bpmn:property name="comment" default="Edited template param"/>
 
 		<!-- Output properties -->
 		<bpmn:property name="revisionId"/>
