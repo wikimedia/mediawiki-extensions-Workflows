@@ -151,9 +151,6 @@ final class DBStateModel implements WorkflowStateModel {
 			$this->state = Workflow::STATE_RUNNING;
 			$this->initiator = $event->getActor()->getId();
 			$context = $event->getContextData();
-			if ( isset( $context['pageId'] ) ) {
-				$this->pageAffected = $context['pageId'];
-			}
 			$this->payload['context'] = $context;
 		}
 		if ( $event instanceof TaskStarted || $event instanceof TaskLoopCompleted ) {
