@@ -13,5 +13,10 @@
 	"workflows-editor-editor-button-save": "Сачувај",
 	"workflows-editor-editor-button-cancel": "Откажи",
 	"workflows-ui-editor-inspector-properties": "Својства",
-	"workflows-ui-editor-inspector-properties-additional": "Додај ново својство"
+	"workflows-ui-editor-inspector-properties-additional": "Додај ново својство",
+	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Прималац",
+	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Тема",
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Текст",
+	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Крајњи рок",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Мања измена?"
 }
