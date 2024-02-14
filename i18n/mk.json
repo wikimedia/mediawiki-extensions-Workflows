@@ -280,5 +280,14 @@
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Сврзи за преработка",
 	"workflows-ui-editor-inspector-process-name": "Име на процесот",
 	"workflows-global-action-overview": "Работни текови",
-	"workflows-global-action-overview-desc": "Преглед на сите работни текови"
+	"workflows-global-action-overview-desc": "Преглед на сите работни текови",
+	"workflows-ui-editor-inspector-activity-send-mail-title": "Активност: испратена е-пошта",
+	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Примач",
+	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Наслов",
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Содржина",
+	"workflows-ui-editor-inspector-activity-user-feedback-title": "Активност: Дадени мислења",
+	"workflows-ui-editor-inspector-activity-user-activity-property-assigned_user": "Доделен корисник",
+	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Напатствија",
+	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Рок",
+	"workflows-ui-editor-inspector-activity-edit-page-title": "Активност: уредување викистраници"
 }
