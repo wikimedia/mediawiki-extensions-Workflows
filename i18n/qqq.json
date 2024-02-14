@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
+			"Amire80",
 			"Caden000",
 			"Cantons-de-l'Est",
 			"McDutchie",
@@ -289,7 +290,7 @@
 	"workflows-ui-editor-inspector-activity-send-mail-title": "Inspector title",
 	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Field label",
 	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Field label",
-	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Field label",
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Field label. Refers to email body.",
 	"workflows-ui-editor-inspector-activity-user-feedback-title": "User feedback activity",
 	"workflows-ui-editor-inspector-activity-user-activity-property-assigned_user": "Field label",
 	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Field label",
