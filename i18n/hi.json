@@ -20,5 +20,11 @@
 	"workflows-editor-editor-button-save": "सहेजें",
 	"workflows-ui-editor-inspector-properties": "गुणधर्म",
 	"workflows-ui-editor-inspector-properties-additional-name": "नाम",
-	"workflows-ui-editor-inspector-name": "नाम"
+	"workflows-ui-editor-inspector-name": "नाम",
+	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "विषय",
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "मुख्यभाग",
+	"workflows-ui-editor-inspector-activity-edit-page-property-user": "सदस्य",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace": "बदलें",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "सदस्य",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "टिप्पणी"
 }
