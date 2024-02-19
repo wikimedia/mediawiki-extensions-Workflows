@@ -4,6 +4,7 @@
 			"Ajeje Brazorf",
 			"Gomoko",
 			"Paraboule",
+			"SleaY",
 			"Verdy p"
 		]
 	},
@@ -251,5 +252,10 @@
 	"workflows-collect-data-form-threshold-unit-user": "Nombre absolu d’utilisateurs",
 	"workflows-collect-data-form-threshold-unit-percent": "Pourcentage d’utilisateurs dans le groupe",
 	"workflows-ui-group-threshold-hint-user": "Ce groupe compte actuellement {{PLURAL:$1|un|$1}} utilisateur{{PLURAL:$1||s}}.",
-	"workflows-ui-group-threshold-hint-percent": "Ce groupe compte actuellement {{PLURAL:$1|un|$1}} utilisateur{{PLURAL:$1||s}}. La participation d’au moins {{PLURAL:$2|un|$2}} utilisateur{{PLURAL:$2||s}} est nécessaire pour compléter ce flux de travail."
+	"workflows-ui-group-threshold-hint-percent": "Ce groupe compte actuellement {{PLURAL:$1|un|$1}} utilisateur{{PLURAL:$1||s}}. La participation d’au moins {{PLURAL:$2|un|$2}} utilisateur{{PLURAL:$2||s}} est nécessaire pour compléter ce flux de travail.",
+	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Sujet",
+	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Utilisateur",
+	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Contenu",
+	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "Modification mineure ?",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Utilisateur"
 }
