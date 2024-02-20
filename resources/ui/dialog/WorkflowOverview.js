@@ -131,6 +131,7 @@
 						this.updateSize();
 					},
 					selected: function( id ) {
+						page.panel.disconnect( this );
 						this.pushPending();
 						workflows.getWorkflow( id ).done( function( workflow ) {
 							this.workflow = workflow;
