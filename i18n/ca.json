@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lluis Cat",
 			"Robertgarrigos"
 		]
 	},
-	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1| un més| $1 més}}"
+	"workflows-activity-set-template-params-cannot-save": "No s'ha pogut desar",
+	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1| un més| $1 més}}",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Usuari"
 }
