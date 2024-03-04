@@ -248,16 +248,11 @@
 			if ( !history.hasOwnProperty( key ) ) {
 				continue;
 			}
-
-			var userWidget = new OOJSPlus.ui.widget.UserWidget( {
-				user_name: key,  showLink: true, showRawUsername: false
-			} );
-
 			historyPanel.$element.append(
 				new OO.ui.HorizontalLayout( {
 					items: [
 						new OO.ui.LabelWidget( {
-							label: userWidget.$element,
+							label: key,
 							classes: [ 'history-item' ]
 						} ),
 						new OO.ui.LabelWidget( {
