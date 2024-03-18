@@ -101,7 +101,7 @@ class TriggerRepo {
 	 */
 	public function getActive( $type ): array {
 		$this->assertLoaded();
-		return array_filter( $this->getAllOfType( $type ),  static function ( $trigger ) {
+		return array_filter( $this->getAllOfType( $type ), static function ( $trigger ) {
 			return $trigger->isActive();
 		} );
 	}
