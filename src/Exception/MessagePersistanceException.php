@@ -14,6 +14,6 @@ class MessagePersistanceException extends Exception {
 		parent::__construct(
 			"Failed to insert message in {repo} message repository", [
 			'repo' => get_class( $repo )
-		] );
+			] );
 	}
 }

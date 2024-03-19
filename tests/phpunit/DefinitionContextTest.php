@@ -25,8 +25,8 @@ class DefinitionContextTest extends TestCase {
 		];
 		$context = new DefinitionContext( $data );
 
-		$this->assertCount(
-			count( $data ), $context->getItemKeys(),
+		$this->assertSameSize(
+			$data, $context->getItemKeys(),
 			'Context must have the same number of keys as it is passed'
 		);
 

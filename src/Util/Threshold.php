@@ -38,7 +38,7 @@ class Threshold {
 	 */
 	public function isReached( array $data, int $userCount, ?string $keyToCheck = null ): bool {
 		$this->assertNoException();
-		list( $total, $count ) = $this->getProcessedAndFulfilled( $data, $keyToCheck );
+		[ $total, $count ] = $this->getProcessedAndFulfilled( $data, $keyToCheck );
 
 		switch ( $this->unit ) {
 			case 'percent':
@@ -61,7 +61,7 @@ class Threshold {
 		if ( $this->unit !== 'user' ) {
 			return true;
 		}
-		list( $totalCompleted, $fulfilled ) = $this->getProcessedAndFulfilled( $data, $keyToCheck );
+		[ $totalCompleted, $fulfilled ] = $this->getProcessedAndFulfilled( $data, $keyToCheck );
 
 		$needed = (int)$this->value;
 		$available = $userCount - $totalCompleted;

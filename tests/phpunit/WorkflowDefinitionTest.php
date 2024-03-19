@@ -15,9 +15,9 @@ use PHPUnit\Framework\TestCase;
  */
 class WorkflowDefinitionTest extends TestCase {
 	/**
-	 * @covers WorkflowDefinition::addElement()
-	 * @covers WorkflowDefinition::getElements()
-	 * @covers WorkflowDefinition::getElementById()
+	 * @covers \MediaWiki\Extension\Workflows\Definition\WorkflowDefinition::addElement()
+	 * @covers \MediaWiki\Extension\Workflows\Definition\WorkflowDefinition::getElements()
+	 * @covers \MediaWiki\Extension\Workflows\Definition\WorkflowDefinition::getElementById()
 	 * @dataProvider provideProcessObjects
 	 */
 	public function testAddElement( WorkflowDefinition $process ) {
