@@ -4,12 +4,12 @@ namespace MediaWiki\Extension\Workflows\Activity\VoteActivity;
 
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\Action\ActionList;
-use MediaWiki\Extension\Workflows\Activity\VoteActivity\Notification\VoteDelegate;
 use MediaWiki\Extension\Workflows\ActivityDescriptor\UserVoteDescriptor;
+use MediaWiki\Extension\Workflows\Event\TaskAssignedEvent;
+use MediaWiki\Extension\Workflows\Event\VoteDelegateEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\MediaWikiServices;
@@ -95,22 +95,19 @@ class UserVoteActivity extends GenericVoteActivity {
 					]
 				);
 
-				$delegateNotification = new VoteDelegate(
+				$this->getNotifier()->emit( new VoteDelegateEvent(
 					$this->actor,
 					$this->targetPage,
+					$delegateToUser,
 					$this->owner,
 					$this->getActivityDescriptor()->getActivityName()->parse(),
-					$data['comment'] ?? '',
-					$delegateToUser
-				);
-				$assignNotification = new TaskAssigned(
-					[ $delegateToUser ],
+					$data['comment'] ?? ''
+				) );
+				$this->getNotifier()->emit( new TaskAssignedEvent(
 					$this->targetPage,
+					[ $delegateToUser ],
 					$this->getActivityDescriptor()->getActivityName()->parse()
-				);
-
-				$this->getNotifier()->notify( $delegateNotification );
-				$this->getNotifier()->notify( $assignNotification );
+				) );
 
 				$data['action'] = ActionList::ACTION_VOTE;
 				return new ExecutionStatus\IntermediateExecutionStatus( $data );

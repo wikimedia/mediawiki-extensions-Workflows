@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Workflows;
 use JsonSerializable;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use Message;
-use MWStake\MediaWiki\Component\Notifications\INotification;
+use MWStake\MediaWiki\Component\Events\INotificationEvent;
 
 interface IActivityDescriptor extends JsonSerializable {
 
@@ -52,9 +52,9 @@ interface IActivityDescriptor extends JsonSerializable {
 	/**
 	 * @param ActivityEvent $event
 	 * @param Workflow $workflow
-	 * @return INotification|null
+	 * @return INotificationEvent|null
 	 */
-	public function getNotificationFor( ActivityEvent $event, Workflow $workflow ): ?INotification;
+	public function getNotificationFor( ActivityEvent $event, Workflow $workflow ): ?INotificationEvent;
 
 	/**
 	 * Return user-formatted data that was a result of the activity
