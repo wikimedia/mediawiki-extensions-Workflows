@@ -9,7 +9,7 @@ use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use Message;
-use MWStake\MediaWiki\Component\Notifications\INotification;
+use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use Psr\Log\LoggerInterface;
 use RequestContext;
 
@@ -97,7 +97,7 @@ class GenericDescriptor implements IActivityDescriptor {
 	 */
 	public function getNotificationFor(
 		ActivityEvent $event, Workflow $workflow
-	): ?INotification {
+	): ?INotificationEvent {
 		return null;
 	}
 

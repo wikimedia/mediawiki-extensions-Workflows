@@ -11,7 +11,6 @@ use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use Message;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
 use Title;
 use User;
 
@@ -51,18 +50,14 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 	protected $action;
 	/** @var ISpecialLogLogger */
 	private $specialLogLogger;
-	/** @var INotifier */
-	private $notifier;
 
 	/**
-	 * @param INotifier $notifier
 	 * @param ITask $task
 	 */
-	public function __construct( INotifier $notifier, ITask $task ) {
+	public function __construct( ITask $task ) {
 		parent::__construct( $task );
 
 		$this->logActor = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
-		$this->notifier = $notifier;
 	}
 
 	/**
@@ -77,13 +72,6 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 	 */
 	public function getSpecialLogLogger(): ISpecialLogLogger {
 		return $this->specialLogLogger;
-	}
-
-	/**
-	 * @return INotifier
-	 */
-	protected function getNotifier(): INotifier {
-		return $this->notifier;
 	}
 
 	/**

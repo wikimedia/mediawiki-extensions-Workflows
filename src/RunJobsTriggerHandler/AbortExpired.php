@@ -7,7 +7,7 @@ use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFact
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Util\AutoAborter;
 use MediaWiki\Extension\Workflows\Workflow;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
+use MWStake\MediaWiki\Component\Events\Notifier;
 use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
 
 final class AbortExpired extends ProcessWorkflows {
@@ -22,7 +22,7 @@ final class AbortExpired extends ProcessWorkflows {
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		INotifier $notifier
+		Notifier $notifier
 	) {
 		parent::__construct( $workflowRepo, $definitionRepositoryFactory, $notifier );
 		$this->autoAborter = new AutoAborter( $workflowRepo );

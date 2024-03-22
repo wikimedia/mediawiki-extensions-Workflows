@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Workflows\Activity\FeedbackActivity;
 
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
-use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackNotification;
 use MediaWiki\Extension\Workflows\ActivityDescriptor\UserFeedbackDescriptor;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
@@ -42,16 +41,6 @@ class UserFeedbackActivity extends GenericFeedbackActivity {
 		$feedback = $data['comment'] ?? '';
 
 		$this->logToSpecialLog( 'userfeedback', $feedback );
-
-		$notification = new FeedbackNotification(
-			$this->actor,
-			$this->targetPage,
-			$this->owner,
-			$this->getActivityDescriptor()->getActivityName()->parse(),
-			$feedback
-		);
-
-		$this->getNotifier()->notify( $notification );
 
 		return new ExecutionStatus( IActivity::STATUS_COMPLETE, $data );
 	}

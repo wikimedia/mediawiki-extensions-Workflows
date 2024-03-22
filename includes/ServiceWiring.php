@@ -11,6 +11,7 @@ use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
+use MediaWiki\Extension\Workflows\WorkflowNotifierFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -30,7 +31,9 @@ return [
 		);
 
 		$instance = new WorkflowEventRepository( $messageRepository );
-		// Register state store with repo, so we get notified about events
+		// Register state store with repo, so we get
+		//
+		// ed about events
 		$stateStore = $services->getService( 'WorkflowsStateStore' );
 		$instance->addConsumerToDispatcher( $stateStore );
 
@@ -112,5 +115,12 @@ return [
 			$services->getService( 'PropertyValidatorFactory' ),
 			$services->getUserFactory()
 		);
+	},
+	'WorkflowsNotifierFactory' => static function ( MediaWikiServices $services ) {
+		$notifier = $services->getService( 'MWStake.Notifier' );
+		$activityManagerFactory = $services->get( 'WorkflowsActivityManagerFactory' );
+		$activityManager = $activityManagerFactory->newActivityManager();
+
+		return new WorkflowNotifierFactory( $notifier, $activityManager );
 	},
 ];

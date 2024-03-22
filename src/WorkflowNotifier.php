@@ -5,14 +5,16 @@ namespace MediaWiki\Extension\Workflows;
 use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\Message;
 use MediaWiki\Extension\Workflows\Definition\ITask;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\TaskAssigned;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowAborted;
-use MediaWiki\Extension\Workflows\MediaWiki\Notification\WorkflowEnded;
+use MediaWiki\Extension\Workflows\Event\TaskAssignedEvent;
+use MediaWiki\Extension\Workflows\Event\WorkflowAbortedEvent;
+use MediaWiki\Extension\Workflows\Event\WorkflowEndedEvent;
+use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use Message as MWMessage;
-use MWStake\MediaWiki\Component\Notifications\INotification;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
+use MWStake\MediaWiki\Component\Events\BotAgent;
+use MWStake\MediaWiki\Component\Events\INotificationEvent;
+use MWStake\MediaWiki\Component\Events\Notifier;
 use RawMessage;
 
 /**
@@ -23,7 +25,7 @@ use RawMessage;
  * this class deals only with generic workflows notifications
  */
 class WorkflowNotifier implements Consumer {
-	/** @var INotifier */
+	/** @var Notifier */
 	private $notifier;
 	/** @var ActivityManager */
 	private $activityManager;
@@ -31,12 +33,12 @@ class WorkflowNotifier implements Consumer {
 	private $workflow;
 
 	/**
-	 * @param INotifier $notifier
+	 * @param Notifier $notifier
 	 * @param ActivityManager $activityManager
 	 * @param Workflow $workflow
 	 */
 	public function __construct(
-		INotifier $notifier, ActivityManager $activityManager, Workflow $workflow
+		Notifier $notifier, ActivityManager $activityManager, Workflow $workflow
 	) {
 		$this->notifier = $notifier;
 		$this->activityManager = $activityManager;
@@ -46,6 +48,7 @@ class WorkflowNotifier implements Consumer {
 	/**
 	 * @param Message $message
 	 * @return void
+	 * @throws WorkflowExecutionException
 	 */
 	public function handle( Message $message ) {
 		if ( $message->aggregateRootId() !== $this->workflow->getStorage()->aggregateRootId() ) {
@@ -60,7 +63,6 @@ class WorkflowNotifier implements Consumer {
 		if ( !$workflowNameMsg->exists() ) {
 			$workflowNameMsg = RawMessage::newFromKey( $workflowName );
 		}
-
 		if ( $event instanceof ActivityEvent ) {
 			$task = $this->workflow->getTaskFromId( $event->getElementId() );
 			$activity = $this->activityManager->getActivityForTask( $task );
@@ -73,22 +75,19 @@ class WorkflowNotifier implements Consumer {
 		if ( $event instanceof Storage\Event\WorkflowAborted ) {
 			$reason = $event->getReason();
 			if ( is_array( $reason ) ) {
-				if ( isset( $reason['message'] ) ) {
-					$reason = $reason['message'];
-				} else {
-					$reason = '';
-				}
+				$reason = $reason['message'] ?? '';
 			}
 			$initiator = $this->workflow->getContext()->getInitiator();
 			if ( $initiator ) {
 				// Notify initiator of workflow
-				$notification = new WorkflowAborted(
-					$initiator,
-					$workflowNameMsg,
+				$notification = new WorkflowAbortedEvent(
+					new BotAgent(),
 					$this->workflow->getContext()->getContextPage(),
+					[ $initiator ],
+					$workflowNameMsg,
 					$reason
 				);
-				$this->notifier->notify( $notification );
+				$this->notifier->emit( $notification );
 			}
 
 			// Get all current workflow elements
@@ -106,14 +105,15 @@ class WorkflowNotifier implements Consumer {
 						$targetUsers = $this->activityManager->getTargetUsersForActivity( $activity, true );
 						if ( !empty( $targetUsers ) ) {
 							// Notify participants
-							$notification = new WorkflowAborted(
+							$notification = new WorkflowAbortedEvent(
+								new BotAgent(),
+								$this->workflow->getContext()->getContextPage(),
 								$targetUsers,
 								$workflowNameMsg,
-								$this->workflow->getContext()->getContextPage(),
 								$reason
 							);
 
-							$this->notifier->notify( $notification );
+							$this->notifier->emit( $notification );
 						}
 					}
 				}
@@ -123,33 +123,45 @@ class WorkflowNotifier implements Consumer {
 		if ( $event instanceof Storage\Event\WorkflowEnded ) {
 			$initiator = $this->workflow->getContext()->getInitiator();
 			if ( $initiator ) {
-				$notification = new WorkflowEnded(
-					$initiator,
-					$workflowNameMsg,
-					$this->workflow->getContext()->getContextPage()
+				$notification = new WorkflowEndedEvent(
+					$this->workflow->getContext()->getContextPage(),
+					[ $initiator ],
+					$workflowNameMsg
 				);
-				$this->notifier->notify( $notification );
+				$this->notifier->emit( $notification );
 			}
 		}
 	}
 
+	/**
+	 * @param UserInteractiveActivity $activity
+	 * @param ActivityEvent $event
+	 * @return void
+	 * @throws WorkflowExecutionException
+	 */
 	private function notifyAboutEvent( UserInteractiveActivity $activity, ActivityEvent $event ) {
 		if ( $event instanceof TaskStarted ) {
 			$notification = $this->getNotificationFor( $activity, $event );
-			if ( $notification instanceof INotification ) {
-				$this->notifier->notify( $notification );
+			if ( $notification instanceof INotificationEvent ) {
+				$this->notifier->emit( $notification );
 			}
 		}
 	}
 
+	/**
+	 * @param UserInteractiveActivity $activity
+	 * @param ActivityEvent $event
+	 * @return INotificationEvent|null
+	 * @throws WorkflowExecutionException
+	 */
 	private function getNotificationFor(
 		UserInteractiveActivity $activity, ActivityEvent $event
-	) {
+	): ?INotificationEvent {
 		$notification = $activity->getActivityDescriptor()->getNotificationFor(
 			$event, $this->workflow
 		);
 
-		if ( $notification instanceof INotification ) {
+		if ( $notification instanceof INotificationEvent ) {
 			return $notification;
 		}
 		if ( $event instanceof TaskStarted ) {
@@ -157,9 +169,9 @@ class WorkflowNotifier implements Consumer {
 			if ( empty( $targetUsers ) ) {
 				return null;
 			}
-			return new TaskAssigned(
-				$targetUsers,
+			return new TaskAssignedEvent(
 				$this->workflow->getContext()->getContextPage(),
+				$targetUsers,
 				$activity->getActivityDescriptor()->getActivityName()->parse()
 			);
 		}

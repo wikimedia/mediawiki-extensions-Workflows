@@ -15,7 +15,7 @@ use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\User\UserFactory;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
+use MWStake\MediaWiki\Component\Events\Notifier;
 use User;
 
 class GroupVoteActivity extends GenericVoteActivity {
@@ -64,7 +64,7 @@ class GroupVoteActivity extends GenericVoteActivity {
 	 * @inheritDoc
 	 */
 	public function __construct(
-		INotifier $notifier, GroupDataProvider $groupDataProvider, UserFactory $userFactory, ITask $task
+		Notifier $notifier, GroupDataProvider $groupDataProvider, UserFactory $userFactory, ITask $task
 	) {
 		parent::__construct( $notifier, $task );
 

@@ -4,13 +4,28 @@ namespace MediaWiki\Extension\Workflows\Activity\VoteActivity;
 
 use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\GenericFeedbackActivity;
 use MediaWiki\Extension\Workflows\Activity\VoteActivity\Action\ActionList;
-use MediaWiki\Extension\Workflows\Activity\VoteActivity\Notification\VoteAccept;
-use MediaWiki\Extension\Workflows\Activity\VoteActivity\Notification\VoteDeny;
+use MediaWiki\Extension\Workflows\Definition\ITask;
+use MediaWiki\Extension\Workflows\Event\VoteEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use Message;
+use MWStake\MediaWiki\Component\Events\Notifier;
 
 abstract class GenericVoteActivity extends GenericFeedbackActivity {
+
+	/**
+	 * @var Notifier
+	 */
+	private $notifier;
+
+	/**
+	 * @param Notifier $notifier
+	 * @param ITask $task
+	 */
+	public function __construct( Notifier $notifier, ITask $task ) {
+		parent::__construct( $task );
+		$this->notifier = $notifier;
+	}
 
 	/**
 	 * Sets data, necessary for vote processing.
@@ -38,6 +53,13 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 				$this->handleErrors( $errorMessages );
 			}
 		}
+	}
+
+	/**
+	 * @return Notifier
+	 */
+	protected function getNotifier(): Notifier {
+		return $this->notifier;
 	}
 
 	/**
@@ -69,15 +91,14 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 
 		$this->logToSpecialLog( $action, $comment );
 
-		$notification = new VoteAccept(
+		$this->getNotifier()->emit( new VoteEvent(
 			$this->actor,
 			$this->targetPage,
 			$this->owner,
 			$this->getActivityDescriptor()->getActivityName()->parse(),
-			$comment
-		);
-
-		$this->getNotifier()->notify( $notification );
+			$comment,
+			'yes'
+		) );
 	}
 
 	/**
@@ -90,15 +111,14 @@ abstract class GenericVoteActivity extends GenericFeedbackActivity {
 
 		$this->logToSpecialLog( $action, $comment );
 
-		$notification = new VoteDeny(
+		$this->getNotifier()->emit( new VoteEvent(
 			$this->actor,
 			$this->targetPage,
 			$this->owner,
 			$this->getActivityDescriptor()->getActivityName()->parse(),
-			$comment
-		);
-
-		$this->getNotifier()->notify( $notification );
+			$comment,
+			'no'
+		) );
 	}
 
 	/**

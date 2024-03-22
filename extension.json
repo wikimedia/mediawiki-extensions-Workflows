@@ -42,19 +42,18 @@
 				"ActivityRegistry": {
 					"user_vote": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\VoteActivity\\UserVoteActivity",
-						"services": [ "MWStakeNotificationsNotifier" ]
+						"services": [ "MWStake.Notifier" ]
 					},
 					"group_vote": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\VoteActivity\\GroupVoteActivity",
-						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider", "UserFactory" ]
+						"services": [ "MWStake.Notifier", "WorkflowUtilGroupDataProvider", "UserFactory" ]
 					},
 					"user_feedback": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\UserFeedbackActivity",
-						"services": [ "MWStakeNotificationsNotifier" ]
+						"services": [ "WorkflowUtilGroupDataProvider" ]
 					},
 					"group_feedback": {
-						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\GroupFeedbackActivity",
-						"services": [ "MWStakeNotificationsNotifier", "WorkflowUtilGroupDataProvider" ]
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\GroupFeedbackActivity"
 					},
 					"send_mail": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\SendMail\\SendMailActivity",
@@ -156,6 +155,52 @@
 			"AttentionIndicatorCollectionRegistry": [
 				"workflows"
 			]
+		},
+		"Notifications": {
+			"Events": {
+				"workflows-event-task-assigned": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\TaskAssignedEvent"
+					},
+					"buckets": [ "personal" ]
+				},
+				"workflows-event-task-due-date-proximity": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\DueDateProximityEvent"
+					},
+					"buckets": [ "personal" ]
+				},
+				"workflows-event-workflow-ended": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\WorkflowEndedEvent"
+					},
+					"buckets": [ "personal" ]
+				},
+				"workflows-event-workflow-aborted": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\WorkflowAbortedEvent"
+					},
+					"buckets": [ "personal" ]
+				},
+				"workflows-event-vote": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\VoteEvent"
+					},
+					"buckets": [ "personal" ]
+				},
+				"workflows-event-vote-delegate": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\VoteDelegateEvent"
+					},
+					"buckets": [ "personal" ]
+				},
+				"workflows-event-feedback-task-assigned": {
+					"spec": {
+						"class": "MediaWiki\\Extension\\Workflows\\Event\\FeedbackTaskAssignedEvent"
+					},
+					"buckets": [ "personal" ]
+				}
+			}
 		}
 	},
 	"callback": "MediaWiki\\Extension\\Workflows\\Extension::register",
@@ -738,8 +783,7 @@
 		"PageDeleteComplete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
-		"PageSaveComplete": "triggerWorkflows",
-		"SetupAfterCache": "registerNotifications"
+		"PageSaveComplete": "triggerWorkflows"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -776,10 +820,6 @@
 		"triggerWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\TriggerWorkflows",
 			"services": [ "WorkflowTriggerRunner", "WorkflowLogger" ]
-		},
-		"registerNotifications": {
-			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\RegisterNotifications",
-			"services": [ "MWStakeNotificationsNotifier" ]
 		}
 	},
 	"ContentHandlers": {
