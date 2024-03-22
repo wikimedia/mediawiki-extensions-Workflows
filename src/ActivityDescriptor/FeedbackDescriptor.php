@@ -3,12 +3,12 @@
 namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
-use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackTaskAssigned;
+use MediaWiki\Extension\Workflows\Event\FeedbackTaskAssignedEvent;
 use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\InstructedActivity;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\Extension\Workflows\Workflow;
-use MWStake\MediaWiki\Component\Notifications\INotification;
+use MWStake\MediaWiki\Component\Events\INotificationEvent;
 
 class FeedbackDescriptor extends GenericUIActivityDescriptor {
 
@@ -42,15 +42,15 @@ class FeedbackDescriptor extends GenericUIActivityDescriptor {
 	/**
 	 * @inheritDoc
 	 */
-	public function getNotificationFor( ActivityEvent $event, Workflow $workflow ): ?INotification {
+	public function getNotificationFor( ActivityEvent $event, Workflow $workflow ): ?INotificationEvent {
 		if ( $event instanceof TaskStarted ) {
 			$validUsers = $workflow->getActivityManager()->getTargetUsersForActivity( $this->activity, true ) ?? [];
 
-			return new FeedbackTaskAssigned(
-				$validUsers,
-				$workflow->getContext()->getContextPage(),
-				$this->getActivityName(),
+			return new FeedbackTaskAssignedEvent(
 				$workflow->getContext()->getInitiator(),
+				$workflow->getContext()->getContextPage(),
+				$validUsers,
+				$this->getActivityName(),
 				$workflow->getActivityManager()->getActivityProperties( $this->activity )['instructions']
 			);
 		}

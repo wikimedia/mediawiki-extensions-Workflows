@@ -15,7 +15,7 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWikiIntegrationTestCase;
 use Message;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
+use MWStake\MediaWiki\Component\Events\Notifier;
 use TitleFactory;
 use User;
 
@@ -42,7 +42,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * Notifier mock object
 	 *
-	 * @var INotifier
+	 * @var Notifier
 	 */
 	private $notifier;
 
@@ -100,9 +100,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$this->specialLogLogger = $this->createMock( GenericSpecialLogLogger::class );
-
-		$this->notifier = $this->createMock( INotifier::class );
-
+		$this->notifier = $this->createMock( Notifier::class );
 		$this->actor = $this->getTestUser( [ 'actor' ] )->getUser();
 		$this->owner = $this->getTestUser( [ 'owner' ] )->getUser();
 
@@ -145,7 +143,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 		$this->setData();
 
 		$this->specialLogLogger->expects( $this->atLeastOnce() )->method( 'addEntry' );
-		$this->notifier->expects( $this->atLeastOnce() )->method( 'notify' );
+		$this->notifier->expects( $this->atLeastOnce() )->method( 'emit' );
 
 		$activity = $this->prepareActivity();
 
@@ -172,7 +170,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 		$this->setData();
 
 		$this->specialLogLogger->expects( $this->atLeastOnce() )->method( 'addEntry' );
-		$this->notifier->expects( $this->atLeastOnce() )->method( 'notify' );
+		$this->notifier->expects( $this->atLeastOnce() )->method( 'emit' );
 
 		$activity = $this->prepareActivity();
 
@@ -202,7 +200,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$this->setData();
 
-		$this->notifier->expects( $this->never() )->method( 'notify' );
+		$this->notifier->expects( $this->never() )->method( 'emit' );
 
 		$activity = $this->prepareActivity();
 
@@ -228,7 +226,7 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 		$this->setData();
 
 		$this->specialLogLogger->expects( $this->never() )->method( 'addEntry' );
-		$this->notifier->expects( $this->never() )->method( 'notify' );
+		$this->notifier->expects( $this->never() )->method( 'emit' );
 
 		$activity = $this->prepareActivity();
 

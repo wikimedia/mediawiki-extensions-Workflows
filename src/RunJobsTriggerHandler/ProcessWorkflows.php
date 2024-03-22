@@ -6,7 +6,7 @@ use Exception;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Workflow;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
+use MWStake\MediaWiki\Component\Events\Notifier;
 use MWStake\MediaWiki\Component\RunJobsTrigger\IHandler;
 use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
 use MWStake\MediaWiki\Component\RunJobsTrigger\Interval\OnceEveryHour;
@@ -27,18 +27,19 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 
 	/** @var LoggerInterface|null */
 	protected $logger = null;
-	/** @var INotifier */
+
+	/** @var Notifier */
 	protected $notifier;
 
 	/**
 	 *
 	 * @param WorkflowEventRepository $workflowRepo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
-	 * @param INotifier $notifier
+	 * @param Notifier $notifier
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		INotifier $notifier
+		Notifier $notifier
 	) {
 		$this->workflowRepo = $workflowRepo;
 		$this->definitionRepositoryFactory = $definitionRepositoryFactory;

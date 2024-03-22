@@ -115,11 +115,8 @@ final class Workflow {
 			$services->getPermissionManager(),
 			$services->getTitleFactory()
 		);
-		$workflowNotifier = new WorkflowNotifier(
-			$services->getService( 'MWStakeNotificationsNotifier' ),
-			$activityManager,
-			$instance
-		);
+		$workflowNotifierFactory = $services->getService( 'WorkflowsNotifierFactory' );
+		$workflowNotifier = $workflowNotifierFactory->createNotifier( $instance, $activityManager );
 		/** @var WorkflowEventRepository $eventRepo */
 		$eventRepo = $services->getService( 'WorkflowEventRepository' );
 		$eventRepo->addConsumerToDispatcher( $workflowNotifier );
@@ -163,11 +160,8 @@ final class Workflow {
 			$services->getPermissionManager(),
 			$services->getTitleFactory()
 		);
-		$workflowNotifier = new WorkflowNotifier(
-			$services->getService( 'MWStakeNotificationsNotifier' ),
-			$activityManager,
-			$instance
-		);
+		$workflowNotifierFactory = $services->getService( 'WorkflowsNotifierFactory' );
+		$workflowNotifier = $workflowNotifierFactory->createNotifier( $instance, $activityManager );
 		$repo->addConsumerToDispatcher( $workflowNotifier );
 
 		$repo->setWorkflowForReplay( $instance, $definitionRepositoryFactory );

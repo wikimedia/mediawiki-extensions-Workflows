@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Workflows\Activity\FeedbackActivity;
 
 use Exception;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
-use MediaWiki\Extension\Workflows\Activity\FeedbackActivity\Notification\FeedbackNotification;
 use MediaWiki\Extension\Workflows\ActivityDescriptor\GroupFeedbackDescriptor;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\NonRecoverableWorkflowExecutionException;
@@ -15,7 +14,6 @@ use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\WorkflowContext;
-use MWStake\MediaWiki\Component\Notifications\INotifier;
 use User;
 
 class GroupFeedbackActivity extends GenericFeedbackActivity {
@@ -58,9 +56,9 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 	 * @inheritDoc
 	 */
 	public function __construct(
-		INotifier $notifier, GroupDataProvider $groupDataProvider, ITask $task
+		GroupDataProvider $groupDataProvider, ITask $task
 	) {
-		parent::__construct( $notifier, $task );
+		parent::__construct( $task );
 		$this->groupDataProvider = $groupDataProvider;
 	}
 
@@ -149,16 +147,6 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 		$this->saveFeedback( $this->actor->getName(), $feedback );
 
 		$this->logToSpecialLog( 'groupfeedback', $feedback );
-
-		$notification = new FeedbackNotification(
-			$this->actor,
-			$this->targetPage,
-			$this->owner,
-			$this->getActivityDescriptor()->getActivityName()->parse(),
-			$feedback
-		);
-
-		$this->getNotifier()->notify( $notification );
 
 		$data['users_feedbacks'] = json_encode( $this->getUsersFeedbacks() );
 
