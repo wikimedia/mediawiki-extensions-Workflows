@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anterdc99",
 			"Googology",
 			"GraceL",
 			"GuoPC",
@@ -29,10 +30,10 @@
 	"workflows-ui-editor-inspector-properties": "属性",
 	"workflows-ui-editor-inspector-properties-additional": "添加新属性",
 	"workflows-ui-editor-inspector-properties-additional-name": "名称",
-	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "使用表单",
+	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "要使用的表单",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type": "表单类型",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "wiki上的表单",
 	"workflows-ui-editor-inspector-activity-custom-form-form-title": "表单标题",
-	"workflows-ui-editor-inspector-process-bind-to-revision": "前往修订版本",
+	"workflows-ui-editor-inspector-process-bind-to-revision": "绑定修订版本",
 	"workflows-ui-editor-inspector-process-name": "进程名称"
 }
