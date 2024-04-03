@@ -473,7 +473,15 @@
 				"workflows-ui-trigger-field-active",
 				"workflows-ui-trigger-field-description",
 				"workflows-ui-trigger-field-workflow-picker",
-				"workflows-ui-trigger-field-conditions"
+				"workflows-ui-trigger-field-conditions",
+				"workflows-workflow-file-definition-group-feedback-title",
+				"workflows-workflow-file-definition-group-feedback-desc",
+				"workflows-workflow-file-definition-user-approval-title",
+				"workflows-workflow-file-definition-user-approval-desc",
+				"workflows-workflow-file-definition-user-feedback-title",
+				"workflows-workflow-file-definition-user-feedback-desc",
+				"workflows-workflow-file-definition-document-control-title",
+				"workflows-workflow-file-definition-document-control-desc"
 			],
 			"dependencies": [
 				"ext.workflows.ui.workflowpicker",
