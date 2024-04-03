@@ -329,5 +329,13 @@
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value": "Threshold value (for positive votes)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit": "Threshold unit (for negative votes)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help": "To determine when to finish activity depending on amount/percentage of voted users",
-	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Threshold value (for negative votes)"
+	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Threshold value (for negative votes)",
+	"workflows-workflow-file-definition-group-feedback-title": "Group Feedback",
+	"workflows-workflow-file-definition-group-feedback-desc": "Ask a group of users for feedback while reviewing a page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-workflow-file-definition-user-approval-title": "Single user approval",
+	"workflows-workflow-file-definition-user-approval-desc": "Ask a user for reviewing and approving a page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-workflow-file-definition-user-feedback-title": "Single user feedback",
+	"workflows-workflow-file-definition-user-feedback-desc": "Ask a user for feedback while reviewing a page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-workflow-file-definition-document-control-title": "Expert document control",
+	"workflows-workflow-file-definition-document-control-desc": "Ask one user to edit a page and another expert user to review those changes. Then ask a third user to accept and publish the page. Once this is done, an email notification is sent to the specified recipient."
 }

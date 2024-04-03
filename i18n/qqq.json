@@ -336,5 +336,13 @@
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value": "Field label",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit": "Field label",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help": "Field help label",
-	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Field label"
+	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Field label",
+	"workflows-workflow-file-definition-group-feedback-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-group-feedback-desc": "Description for an option in a select dropdown",
+	"workflows-workflow-file-definition-user-approval-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-user-approval-desc": "Description for an option in a select dropdown",
+	"workflows-workflow-file-definition-user-feedback-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-user-feedback-desc": "Description for an option in a select dropdown",
+	"workflows-workflow-file-definition-document-control-title": "Label in a select dropdown",
+	"workflows-workflow-file-definition-document-control-desc": "Description for an option in a select dropdown"
 }

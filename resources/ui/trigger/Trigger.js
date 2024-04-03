@@ -17,8 +17,14 @@
 		if ( !this.value.hasOwnProperty( 'active' ) ) {
 			this.value.active = true;
 		}
-		this.name = new OO.ui.TextInputWidget( { required: true, value: this.value.name || '' } );
-		this.description = new OO.ui.MultilineTextInputWidget( { value: this.value.description || '' , rows: 2 } );
+		this.name = new OO.ui.TextInputWidget( {
+			required: true,
+			value: mw.message( this.value.name ).text() || ''
+		} );
+		this.description = new OO.ui.MultilineTextInputWidget( {
+			value: mw.message( this.value.description ).text() || '',
+			rows: 2
+		} );
 		this.active = new OO.ui.CheckboxInputWidget( { selected: this.value.active } );
 
 		return [
