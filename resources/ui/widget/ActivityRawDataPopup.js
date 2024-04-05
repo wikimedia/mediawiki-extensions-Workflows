@@ -18,7 +18,7 @@
 			height: popupContent.height + 30,
 			width: popupContent.width + 30,
 			padded: false,
-			autoFlip: false,
+			autoFlip: true,
 			classes: [ 'workflow-data-popup' ]
 		} );
 
