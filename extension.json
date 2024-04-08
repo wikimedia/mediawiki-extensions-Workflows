@@ -725,7 +725,7 @@
 		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
 		"MWStakeRunJobsTriggerRegisterHandlers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\MWStakeRunJobsTriggerRegisterHandlers\\AddBackgroundProcess::callback",
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
-		"ArticleDeleteComplete": "abortWorkflows",
+		"PageDeleteComplete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
 		"PageSaveComplete": "triggerWorkflows",
