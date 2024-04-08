@@ -2,12 +2,17 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
+use ManualLogEntry;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
-use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
+use MediaWiki\Page\Hook\PageDeleteCompleteHook;
+use MediaWiki\Page\ProperPageIdentity;
+use MediaWiki\Permissions\Authority;
+use MediaWiki\Revision\RevisionRecord;
 
-class AbortWorkflowsOnDelete implements ArticleDeleteCompleteHook {
+class AbortWorkflowsOnDelete implements PageDeleteCompleteHook {
+
 	/** @var WorkflowFactory */
 	private $workflowFactory;
 	/** @var WorkflowStateStore */
@@ -20,11 +25,17 @@ class AbortWorkflowsOnDelete implements ArticleDeleteCompleteHook {
 		$this->stateStore = $stateStore;
 	}
 
-	public function onArticleDeleteComplete(
-		$wikiPage, $user, $reason, $id, $content, $logEntry, $archivedRevisionCount
+	public function onPageDeleteComplete(
+		ProperPageIdentity $page,
+		Authority $deleter,
+		string $reason,
+		int $pageID,
+		RevisionRecord $deletedRev,
+		ManualLogEntry $logEntry,
+		int $archivedRevisionCount
 	) {
 		$active = $this->stateStore->active()->complexQuery( [
-			'context' => [ 'pageId' => $wikiPage->getTitle()->getArticleID() ]
+			'context' => [ 'pageId' => $pageID ]
 		] );
 		/** @var WorkflowId $workflow */
 		foreach ( $active as $workflowId ) {
