@@ -14,5 +14,13 @@
 	"workflows-activity-error-no-title": "عنوان غير صالح",
 	"workflows-ui-overview-details-section-details": "تفاصيل",
 	"workflows-activity-property-instructions": "تعليمات",
-	"workflows-ui-trigger-field-conditions": "شروط"
+	"workflows-ui-trigger-field-conditions": "شروط",
+	"workflows-workflow-file-definition-group-feedback-title": "ملاحظات المجموعة",
+	"workflows-workflow-file-definition-group-feedback-desc": "اطلب من مجموعة من المستخدمين الحصول على تعليقات أثناء مراجعة الصفحة. بمجرد القيام بذلك ، يتم إرسال إشعار بالبريد الإلكتروني إلى المستلم المحدد.",
+	"workflows-workflow-file-definition-user-approval-title": "موافقة مستخدم واحد",
+	"workflows-workflow-file-definition-user-approval-desc": "اطلب من المستخدم مراجعة الصفحة والموافقة عليها. بمجرد القيام بذلك ، يتم إرسال إشعار بالبريد الإلكتروني إلى المستلم المحدد.",
+	"workflows-workflow-file-definition-user-feedback-title": "ملاحظات المستخدم الفردي",
+	"workflows-workflow-file-definition-user-feedback-desc": "اطلب من المستخدم الحصول على تعليقات أثناء مراجعة الصفحة. بمجرد القيام بذلك ، يتم إرسال إشعار بالبريد الإلكتروني إلى المستلم المحدد.",
+	"workflows-workflow-file-definition-document-control-title": "خبير مراقبة الوثائق",
+	"workflows-workflow-file-definition-document-control-desc": "اطلب من أحد المستخدمين تحرير صفحة ومستخدم خبير آخر لمراجعة هذه التغييرات. ثم اطلب من مستخدم ثالث قبول الصفحة ونشرها. بمجرد القيام بذلك ، يتم إرسال إشعار بالبريد الإلكتروني إلى المستلم المحدد."
 }

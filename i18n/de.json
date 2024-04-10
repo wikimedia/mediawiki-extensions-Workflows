@@ -256,5 +256,13 @@
 	"workflows-collect-data-form-threshold-unit-user": "Absolute Anzahl von Nutzern",
 	"workflows-collect-data-form-threshold-unit-percent": "Prozentsatz der Nutzer in der Gruppe",
 	"workflows-ui-group-threshold-hint-user": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}",
-	"workflows-ui-group-threshold-hint-percent": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}. Die Teilnahme von mindestens {{PLURAL:$2|einem Benutzer|$2 Benutzer}} ist erforderlich, um diesen Workflow abzuschließen"
+	"workflows-ui-group-threshold-hint-percent": "Diese Gruppe hat derzeit {{PLURAL:$1|einen Benutzer|$1 Benutzer}}. Die Teilnahme von mindestens {{PLURAL:$2|einem Benutzer|$2 Benutzer}} ist erforderlich, um diesen Workflow abzuschließen",
+	"workflows-workflow-file-definition-group-feedback-title": "Gruppen-Feedback",
+	"workflows-workflow-file-definition-group-feedback-desc": "Bitte eine Gruppe von Benutzern um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-workflow-file-definition-user-approval-title": "Freigabe",
+	"workflows-workflow-file-definition-user-approval-desc": "Bitte einen Benutzer diese Seite freizugeben. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-workflow-file-definition-user-feedback-title": "Feedback",
+	"workflows-workflow-file-definition-user-feedback-desc": "Bitte einen Benutzer um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-workflow-file-definition-document-control-title": "Qualitätsgesicherte Bearbeitung",
+	"workflows-workflow-file-definition-document-control-desc": "Bitte einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt."
 }

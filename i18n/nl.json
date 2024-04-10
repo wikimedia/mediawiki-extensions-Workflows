@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DiGro",
 			"Dnlweijers",
 			"Mainframe98",
 			"McDutchie",
@@ -283,5 +284,13 @@
 	"workflows-ui-editor-inspector-name": "Naam",
 	"workflows-ui-editor-inspector-process-title": "Proces inspecteren",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Aan versie binden",
-	"workflows-ui-editor-inspector-process-name": "Procesnaam"
+	"workflows-ui-editor-inspector-process-name": "Procesnaam",
+	"workflows-workflow-file-definition-group-feedback-title": "Groepsfeedback",
+	"workflows-workflow-file-definition-group-feedback-desc": "Een groep gebruikers om feedback vragen bij het beoordelen van een pagina. Zodra dit klaar is wordt een e-mailbericht naar de opgegeven ontvanger gestuurd.",
+	"workflows-workflow-file-definition-user-approval-title": "Goedkeuring door één gebruiker",
+	"workflows-workflow-file-definition-user-approval-desc": "Een gebruiker vragen om een pagina te beoordelen en goed te keuren. Zodra dit klaar is wordt een e-mailbericht naar de opgegeven ontvanger gestuurd.",
+	"workflows-workflow-file-definition-user-feedback-title": "Feedback van één gebruiker",
+	"workflows-workflow-file-definition-user-feedback-desc": "Een gebruiker om feedback vragen tijdens het beoordelen van een pagina. Zodra dit klaar is wordt een e-mailbericht naar de opgegeven ontvanger gestuurd.",
+	"workflows-workflow-file-definition-document-control-title": "Documentcontrole door expert",
+	"workflows-workflow-file-definition-document-control-desc": "Vraag een gebruiker de pagina te bewerken en vraag dan een andere expert-gebruiker om de wijzigingen na te kijken. Vraag dan een derde gebruiker om de pagina te accepteren en te publiceren. Als dit eenmaal is gedaan zal een e-mailnotificatie worden verzonden aan de gespecificeerde ontvanger."
 }

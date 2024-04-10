@@ -6,6 +6,9 @@
 			"GraceL",
 			"GuoPC",
 			"Interestinghe",
+			"LittlePaw365",
+			"Nervie",
+			"Qiyue2001",
 			"Stang",
 			"Wzl19371"
 		]
@@ -35,5 +38,13 @@
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "wiki上的表单",
 	"workflows-ui-editor-inspector-activity-custom-form-form-title": "表单标题",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "绑定修订版本",
-	"workflows-ui-editor-inspector-process-name": "进程名称"
+	"workflows-ui-editor-inspector-process-name": "进程名称",
+	"workflows-workflow-file-definition-group-feedback-title": "群组反馈",
+	"workflows-workflow-file-definition-group-feedback-desc": "当巡查一个页面时向一组用户询问反馈意见。完成此操作后，特定接收人将会收到电子邮件通知。",
+	"workflows-workflow-file-definition-user-approval-title": "单用户核准",
+	"workflows-workflow-file-definition-user-approval-desc": "让一名用户巡查并核准一个页面。完成此操作后，特定接收人将会收到电子邮件通知。",
+	"workflows-workflow-file-definition-user-feedback-title": "单个用户反馈",
+	"workflows-workflow-file-definition-user-feedback-desc": "当巡查一个页面时向一名用户询问反馈意见。完成此操作后，特定接收人将会收到电子邮件通知。",
+	"workflows-workflow-file-definition-document-control-title": "专家文档控制",
+	"workflows-workflow-file-definition-document-control-desc": "请一位用户编辑页面，并请另一位专家用户复核这些更改。然后请第三个用户接受并发布该页面。完成此操作后，一封电子邮件通知将发送给指定的收件人。"
 }

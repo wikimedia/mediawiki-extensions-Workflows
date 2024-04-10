@@ -11,5 +11,9 @@
 	"workflows-notification-user-vote-delegate-web": "$1 hat die Aufgabe $3 an Sie {{GENDER: $1| weitergegeben}}",
 	"workflows-notification-user-vote-delegate-email-sub": "$1 hat die Aufgabe $3 auf Seite $2 an Sie {{GENDER:$1 | weitergegeben}}",
 	"workflows-ui-overview-details-action-abort-note": "Einen Workflow abzubrechen wird sofort alle laufenden Aufgaben beenden. Sind Sie sicher, dass Sie diesen Workflow abbrechen möchten?",
-	"workflows-ui-overview-details-action-restore-note": "Die Wiederherstellung eines Workflows setzt den Workflow in dem Zustand fort, in dem er abgebrochen wurde. Sind Sie sicher, dass Sie diesen Workflow wiederherstellen möchten?"
+	"workflows-ui-overview-details-action-restore-note": "Die Wiederherstellung eines Workflows setzt den Workflow in dem Zustand fort, in dem er abgebrochen wurde. Sind Sie sicher, dass Sie diesen Workflow wiederherstellen möchten?",
+	"workflows-workflow-file-definition-group-feedback-desc": "Bitten Sie eine Gruppe von Benutzern um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-workflow-file-definition-user-approval-desc": "Bitten Sie einen Benutzer diese Seite freizugeben. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-workflow-file-definition-user-feedback-desc": "Bitten Sie einen Benutzer um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-workflow-file-definition-document-control-desc": "Bitten Sie einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt."
 }

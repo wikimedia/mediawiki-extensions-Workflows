@@ -333,5 +333,13 @@
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value": "Valor de limine (pro votos positive)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit": "Unitate de limine (pro votos negative)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help": "Pro determinar quando finir le activitate dependente del quantitate/percentage de usatores votate",
-	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Valor de limine (pro votos negative)"
+	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Valor de limine (pro votos negative)",
+	"workflows-workflow-file-definition-group-feedback-title": "Commentarios de gruppo",
+	"workflows-workflow-file-definition-group-feedback-desc": "Demandar a un gruppo de usatores un retroaction durante que illes revide un pagina. Quando isto es facite, un notification per e-mail es inviate al destinatario specificate.",
+	"workflows-workflow-file-definition-user-approval-title": "Approbation per un usator singule",
+	"workflows-workflow-file-definition-user-approval-desc": "Demandar a un usator de revider e approbar un pagina. Quando isto es facite, un notification per e-mail es inviate al destinatario specificate.",
+	"workflows-workflow-file-definition-user-feedback-title": "Commentarios de un usator singule",
+	"workflows-workflow-file-definition-user-feedback-desc": "Demandar a un usator un retroaction durante que revide un pagina. Quando isto es facite, un notification per e-mail es inviate al destinatario specificate.",
+	"workflows-workflow-file-definition-document-control-title": "Controlo del documento per un experto",
+	"workflows-workflow-file-definition-document-control-desc": "Demandar a un usator de modificar un pagina e a un altere usator experte de revider le modificationes. Alora demandar a un tertie usator de acceptar e publicar le pagina. Un vice facite, un notification in e-mail se invia al destinatario specificate."
 }

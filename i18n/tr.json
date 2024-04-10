@@ -243,5 +243,11 @@
 	"workflows-activity-property-delegate_to": "Şu kişiye devret:",
 	"workflows-activity-property-delegate_comment": "Devir yorumu",
 	"workflows-activity-property-assigned_user": "Atanan kullanıcı",
-	"workflows-activity-property-action": "İşlem"
+	"workflows-activity-property-action": "İşlem",
+	"workflows-workflow-file-definition-group-feedback-title": "Grup Geribildirimi",
+	"workflows-workflow-file-definition-group-feedback-desc": "Bir sayfayı incelerken bir grup kullanıcıdan geri bildirim isteyin. Bu yapıldıktan sonra, belirtilen alıcıya bir e-posta bildirimi gönderilir.",
+	"workflows-workflow-file-definition-user-approval-title": "Tek kullanıcı onayı",
+	"workflows-workflow-file-definition-user-approval-desc": "Bir kullanıcıdan bir sayfayı incelemesini ve onaylamasını isteyin. Bu yapıldıktan sonra, belirtilen alıcıya bir e-posta bildirimi gönderilir.",
+	"workflows-workflow-file-definition-user-feedback-title": "Tek kullanıcı geri bildirimi",
+	"workflows-workflow-file-definition-user-feedback-desc": "Bir sayfayı incelerken bir kullanıcıdan geri bildirim isteyin. Bu yapıldıktan sonra, belirtilen alıcıya bir e-posta bildirimi gönderilir."
 }

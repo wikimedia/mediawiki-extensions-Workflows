@@ -75,5 +75,6 @@
 	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Inhalt",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace": "Ersetzen",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Benotzer",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "Parameterwäert"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "Parameterwäert",
+	"workflows-workflow-file-definition-user-feedback-title": "Benotzer-Feedback"
 }
