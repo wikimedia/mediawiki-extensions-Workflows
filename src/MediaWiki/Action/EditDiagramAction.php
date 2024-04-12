@@ -44,7 +44,7 @@ class EditDiagramAction extends EditAction {
 			'id' => 'workflows-editor-panel',
 			'data-action' => 'edit',
 			'data-xml' => $content->getText(),
-			'data-revid' => $out->getTitle()->getLatestRevID(),
+			'data-revid' => $out->getTitle() ? $out->getTitle()->getLatestRevID() : '',
 			'data-token' => $out->getRequest()->getSession()->getToken()->toString(),
 			'data-unicode_check' => UnicodeConstraint::VALID_UNICODE,
 			'style' => 'height: 1000px; width: 100%'
