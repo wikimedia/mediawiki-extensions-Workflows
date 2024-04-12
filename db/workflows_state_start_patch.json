@@ -1,0 +1,113 @@
+{
+	"before": {
+		"name": "workflows_state",
+		"columns": [
+			{
+				"name": "wfs_workflow_id",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "wfs_state",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "wfs_last_event",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "wfs_initiator",
+				"type": "integer",
+				"options": {
+					"notnull": false
+				}
+			},
+			{
+				"name": "wfs_touched",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": false
+				}
+			},
+			{
+				"name": "wfe_payload",
+				"type": "text",
+				"options": {
+					"notnull": false
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [ "wfs_workflow_id" ]
+	},
+	"after": {
+		"name": "workflows_state",
+		"columns": [
+			{
+				"name": "wfs_workflow_id",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "wfs_state",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "wfs_last_event",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "wfs_initiator",
+				"type": "integer",
+				"options": {
+					"notnull": false
+				}
+			},
+			{
+				"name": "wfs_touched",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": false
+				}
+			},
+			{
+				"name": "wfs_started",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": false
+				}
+			},
+			{
+				"name": "wfe_payload",
+				"type": "text",
+				"options": {
+					"notnull": false
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [ "wfs_workflow_id" ]
+	}
+}
