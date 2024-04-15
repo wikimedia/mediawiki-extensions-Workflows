@@ -4,7 +4,9 @@
 			"Fitoschido",
 			"Josuert",
 			"MarcoAurelio",
-			"No se"
+			"No se",
+			"Agusbou2015",
+			"DiegoAmbrocio"
 		]
 	},
 	"workflows-ui-starter-action-done": "Iniciar",
@@ -30,5 +32,13 @@
 	"workflows-ui-trigger-field-description": "Descripción",
 	"workflows-ui-trigger-field-conditions": "Condiciones",
 	"workflows-ui-group-threshold-hint-user": "Este grupo cuenta actualmente con {{PLURAL:$1|un usuario|$1 usuarios}}",
-	"workflows-ui-group-threshold-hint-percent": "Este grupo cuenta actualmente con {{PLURAL:$1|un usuario|$1 usuarios}}. Se requiere la participación de al menos {{PLURAL:$2|un usuario|$1 usuarios}} para completar este flujo de trabajo"
+	"workflows-ui-group-threshold-hint-percent": "Este grupo cuenta actualmente con {{PLURAL:$1|un usuario|$1 usuarios}}. Se requiere la participación de al menos {{PLURAL:$2|un usuario|$1 usuarios}} para completar este flujo de trabajo",
+	"workflows-workflow-file-definition-group-feedback-title": "Comentarios del grupo",
+	"workflows-workflow-file-definition-group-feedback-desc": "Solicitar comentarios a un grupo de usuarios mientras se revisa una página. Una vez hecho, se enviará una notificación por correo electrónico al destinatario especificado.",
+	"workflows-workflow-file-definition-user-approval-title": "Aprobación por un único usuario",
+	"workflows-workflow-file-definition-user-approval-desc": "Pide a un usuario que revise y apruebe una página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado.",
+	"workflows-workflow-file-definition-user-feedback-title": "Comentarios de un solo usuario",
+	"workflows-workflow-file-definition-user-feedback-desc": "Pida a un usuario que le dé su opinión mientras revisa una página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado.",
+	"workflows-workflow-file-definition-document-control-title": "Control de documentos por parte de expertos",
+	"workflows-workflow-file-definition-document-control-desc": "Pide a un usuario que edite una página y a otro usuario experto que revise esos cambios. A continuación, pida a un tercer usuario que acepte y publique la página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado."
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kareyac",
-			"Pacha Tchernof"
+			"Pacha Tchernof",
+			"Gulka.nik"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
@@ -44,5 +45,12 @@
 	"workflows-ui-trigger-field-conditions": "Условия",
 	"workflows-editor-viewer-section-diagram": "Диаграмма",
 	"workflows-editor-editor-button-save": "Сохранить",
-	"workflows-editor-editor-button-cancel": "Отмена"
+	"workflows-editor-editor-button-cancel": "Отмена",
+	"workflows-workflow-file-definition-group-feedback-title": "Группа Отзывов",
+	"workflows-workflow-file-definition-group-feedback-desc": "Попросите группу пользователей оставить отзыв во время просмотра страницы. Как только это будет сделано, указанному получателю будет отправлено уведомление по электронной почте.",
+	"workflows-workflow-file-definition-user-approval-title": "Личное одобрение пользователя",
+	"workflows-workflow-file-definition-user-approval-desc": "Попросите пользователя просмотреть и одобрить страницу. Как только это будет сделано, указанному получателю будет отправлено уведомление по электронной почте.",
+	"workflows-workflow-file-definition-user-feedback-title": "Личный отзыв пользователя",
+	"workflows-workflow-file-definition-user-feedback-desc": "Попросите пользователя оставить отзыв во время просмотра страницы. Как только это будет сделано, указанному получателю будет отправлено уведомление по электронной почте.",
+	"workflows-workflow-file-definition-document-control-title": "Экспертный контроль документов"
 }

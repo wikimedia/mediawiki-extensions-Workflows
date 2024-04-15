@@ -3,7 +3,8 @@
 		"authors": [
 			"MathXplore",
 			"Shirayuki",
-			"春春眠眠"
+			"春春眠眠",
+			"背番号4のエース"
 		]
 	},
 	"action-workflows-view": "ワークフロー項目の閲覧",
@@ -49,5 +50,13 @@
 	"workflows-activity-property-vote": "投票",
 	"workflows-activity-property-comment": "コメント",
 	"workflows-activity-property-assigned_user": "割り当てられた利用者",
-	"workflows-activity-property-action": "操作"
+	"workflows-activity-property-action": "操作",
+	"workflows-workflow-file-definition-group-feedback-title": "グループのフィードバック",
+	"workflows-workflow-file-definition-group-feedback-desc": "ページをレビューしながら、利用者のグループにフィードバックを求めます。これが完了すると、メール通知が指定された受信者に送信されます。",
+	"workflows-workflow-file-definition-user-approval-title": "単一利用者の承認",
+	"workflows-workflow-file-definition-user-approval-desc": "ページのレビューと承認を利用者に依頼します。これが完了すると、メール通知が指定された受信者に送信されます。",
+	"workflows-workflow-file-definition-user-feedback-title": "単一利用者のフィードバック",
+	"workflows-workflow-file-definition-user-feedback-desc": "ページをレビューしながら、利用者のグループにフィードバックを求めます。これが完了すると、メール通知が指定された受信者に送信されます。",
+	"workflows-workflow-file-definition-document-control-title": "エキスパート文書管理",
+	"workflows-workflow-file-definition-document-control-desc": "1 人の利用者にページの編集を依頼し、別のエキスパート利用者にそれらの変更のレビューを依頼します。次に、3 番目の利用者にページを承認して公開するよう依頼します。これが完了すると、メール通知が指定された受信者に送信されます。"
 }

@@ -144,5 +144,8 @@
 	"workflows-activity-property-instructionsApprover": "승인자 지침",
 	"workflows-activity-property-vote": "투표",
 	"workflows-activity-property-assigned_user": "할당된 사용자",
-	"workflows-ui-trigger-field-conditions": "조건"
+	"workflows-ui-trigger-field-conditions": "조건",
+	"workflows-workflow-file-definition-group-feedback-title": "그룹 피드백",
+	"workflows-workflow-file-definition-user-approval-title": "단일 사용자 승인",
+	"workflows-workflow-file-definition-user-feedback-title": "단일 사용자 피드백"
 }

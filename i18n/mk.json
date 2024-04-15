@@ -7,6 +7,8 @@
 	},
 	"workflows-desc": "Овозможува определување и извршување на разни работни текови на викито",
 	"workflowsoverview": "Преглед на Работни текови",
+	"workflows-global-action-overview": "Работни текови",
+	"workflows-global-action-overview-desc": "Преглед на сите работни текови",
 	"action-workflows-view": "преглед на ставки во работните текови",
 	"right-workflows-view": "Преглед на ставки во работните текови",
 	"action-workflows-execute": "отпочнување на работни текови",
@@ -279,8 +281,6 @@
 	"workflows-ui-editor-inspector-process-title": "Провери процес",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Сврзи за преработка",
 	"workflows-ui-editor-inspector-process-name": "Име на процесот",
-	"workflows-global-action-overview": "Работни текови",
-	"workflows-global-action-overview-desc": "Преглед на сите работни текови",
 	"workflows-ui-editor-inspector-activity-send-mail-title": "Активност: испратена е-пошта",
 	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Примач",
 	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Наслов",
@@ -334,5 +334,13 @@
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value": "Вредност на прагот (за гласови „за“)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit": "Единица на прагот (за гласови „против“)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help": "За да се одреди кога да заврши активноста зависно од износот/постотокот на гласани корисници",
-	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Вредност на прагот (за гласови „против“)"
+	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Вредност на прагот (за гласови „против“)",
+	"workflows-workflow-file-definition-group-feedback-title": "Групно мислење",
+	"workflows-workflow-file-definition-group-feedback-desc": "Побарајте мислење од група корисници додека се прегледува страница. Штом ова ќе се направи, укажаниот примач ќе добие известување по е-пошта.",
+	"workflows-workflow-file-definition-user-approval-title": "Одобрување од еден корисник",
+	"workflows-workflow-file-definition-user-approval-desc": "Побарајте од корисник да прегледа и одобри страница. Штом ова ќе се направи, укажаниот примач ќе добие известување по е-пошта.",
+	"workflows-workflow-file-definition-user-feedback-title": "Мислење од еден корисник",
+	"workflows-workflow-file-definition-user-feedback-desc": "Побарајте мислење од еден корисник додека се прегледува страница. Штом ова ќе се направи, укажаниот примач ќе добие известување по е-пошта.",
+	"workflows-workflow-file-definition-document-control-title": "Стручна контрола на документи",
+	"workflows-workflow-file-definition-document-control-desc": "Побарајте од корисник да уреди страница и друг стручен корисник да ги прегледа тие промени. Потоа побарајте од трет корисник да ја прифати и објави страницата. Штом ова ќе се направи, укажаниот примач ќе добие известување по е-пошта."
 }

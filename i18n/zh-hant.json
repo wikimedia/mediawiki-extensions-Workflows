@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"SunAfterRain",
-			"Winston Sung"
+			"Winston Sung",
+			"Kly",
+			"Madeleinemcc"
 		]
 	},
+	"action-workflows-admin": "管理工作流",
 	"workflows-ui-starter-action-done": "開始",
 	"workflows-triggers-type-manual-label": "手動",
 	"workflows-ui-action-cancel": "取消",
@@ -23,5 +26,10 @@
 	"workflows-ui-editor-inspector-activity-custom-form-form-type": "表單類型",
 	"workflows-ui-editor-inspector-activity-custom-form-form-title": "表單標題",
 	"workflows-ui-editor-inspector-process-name": "程序名稱",
-	"action-workflows-admin": "管理工作流"
+	"workflows-workflow-file-definition-group-feedback-title": "群組回饋",
+	"workflows-workflow-file-definition-group-feedback-desc": "當巡查一個頁面時向一組使用者詢問反饋意見。 完成此操作后，特定接收人將會收到電子郵件通知。",
+	"workflows-workflow-file-definition-user-approval-title": "單用戶許可",
+	"workflows-workflow-file-definition-user-approval-desc": "讓一名使用者巡查並核准一個頁面。 完成此操作后，特定接收人將會收到電子郵件通知。",
+	"workflows-workflow-file-definition-user-feedback-title": "使用者回饋",
+	"workflows-workflow-file-definition-document-control-title": "專家文件控制"
 }

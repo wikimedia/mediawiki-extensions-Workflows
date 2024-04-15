@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Jeeputer",
-			"Mohammad ebz"
+			"Mohammad ebz",
+			"LordProfo"
 		]
 	},
 	"workflows-uto-activity-user_feedback": "بازخورد کاربر",
@@ -28,5 +29,11 @@
 	"workflows-activity-property-delegate_comment": "تفویض نظر",
 	"workflows-activity-property-assigned_user": "کار اختصاص‌یافته",
 	"workflows-activity-property-action": "عمل",
-	"workflows-editor-title": "در حال ویرایش $1"
+	"workflows-editor-title": "در حال ویرایش $1",
+	"workflows-workflow-file-definition-group-feedback-title": "بازخورد گروهی",
+	"workflows-workflow-file-definition-group-feedback-desc": "از گروهی از کاربران بخواهید تا هنگام بازبینی یک صفحه، بازخورد دهند. هرگاه رأی‌گیری تمام شود، از طریق دریافت یک ایمیل پیرامون نتایج رأی‌گیری آگاه خواهید شد.",
+	"workflows-workflow-file-definition-user-approval-title": "تأیید تک کاربر",
+	"workflows-workflow-file-definition-user-approval-desc": "از یک کاربر بخواهید تا یک صفحه را بازبینی و تأیید کند. به محض انجام این کار، اعلانی از طریق ایمیل برای گیرندهٔ مشخص‌شده ارسال خواهد شد.",
+	"workflows-workflow-file-definition-user-feedback-title": "بازخورد تک کاربر",
+	"workflows-workflow-file-definition-user-feedback-desc": "از یک کاربر بخواهید تا هنگام بازبینی یک صفحه، بازخورد دهد. هرگاه رأی‌گیری تمام شود، از طریق دریافت یک ایمیل پیرامون نتیجهٔ رأی‌گیری آگاه خواهید شد."
 }

@@ -257,5 +257,13 @@
 	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Utilisateur",
 	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Contenu",
 	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "Modification mineure ?",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Utilisateur"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Utilisateur",
+	"workflows-workflow-file-definition-group-feedback-title": "Avis du groupe",
+	"workflows-workflow-file-definition-group-feedback-desc": "Demander à un groupe d’utilisateurs un avis en relisant une page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié.",
+	"workflows-workflow-file-definition-user-approval-title": "Approbation utilisateur unique",
+	"workflows-workflow-file-definition-user-approval-desc": "Demander à un utilisateur de relire et approuver une page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié.",
+	"workflows-workflow-file-definition-user-feedback-title": "Avis d’un seul utilisateur",
+	"workflows-workflow-file-definition-user-feedback-desc": "Demander à un utilisateur son avis en relisant une page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié.",
+	"workflows-workflow-file-definition-document-control-title": "Contrôle de document par un expert",
+	"workflows-workflow-file-definition-document-control-desc": "Demander à un utilisateur de modifier une page et à un autre utilisateur expert de relire ces modifications. Puis demander à un troisième utilisateur d’accepter et de publier la page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié."
 }

@@ -29,5 +29,12 @@
 	"workflows-notification-feedback-task-assign-web-body": "Tirad in pee de: \"$3\", Istruzzion: \"$4\"",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Proprietà",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valor",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valor de la proprietà"
+	"workflows-ui-overview-details-raw-data-popup-label": "Valor de la proprietà",
+	"workflows-workflow-file-definition-group-feedback-desc": "Ciamegh on giudizzi a on grup de utent intanta che te see 'dree a revisionà ona pagina. Quand che i utent i havarànn espress el so giudizzi, on messagg de posta eletronica de notifica el sarà manda a l'adress specificad.",
+	"workflows-workflow-file-definition-user-approval-title": "Aprovazzion d'on sol utent",
+	"workflows-workflow-file-definition-user-approval-desc": "Ciamegh a on utent de vardà e aprovà la pagina. Quand che l'havarà fad, on messagg de posta eletrnica de notifica el sarà mandad a l'adresss specificad.",
+	"workflows-workflow-file-definition-user-feedback-title": "Giudizzi d'on sol utent",
+	"workflows-workflow-file-definition-user-feedback-desc": "Ciamegh on giudizzi a on grup de utent intanta che te see 'dree a revisionà ona pagina. Quand che l'utent l'havarà espress el so giudizzi, on messagg de posta eletronica de notifica el sarà mandad a l'adress specificad.",
+	"workflows-workflow-file-definition-document-control-title": "Controll espert di document",
+	"workflows-workflow-file-definition-document-control-desc": "Caimegh a on utent de modificà ona pagina e a on alter utent prategh del metser de dàgh on ogida a queste modifeghe chì. Donca cimaegh a on terz utent de acetà e meter foeura la pagina. Ona volta che i l'havarann fornid, el sarà mandad on messagg de posta eletronica a l'adress specificad."
 }
