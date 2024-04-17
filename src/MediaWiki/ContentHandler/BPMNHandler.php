@@ -54,7 +54,7 @@ class BPMNHandler extends TextContentHandler {
 		}
 
 		$output = MediaWikiServices::getInstance()->getParser()->parse(
-			"<syntaxhighlight lang=\"xml\">" . $content->getTextForSummary() . "</syntaxhighlight>",
+			"<syntaxhighlight lang=\"xml\">" . $content->getText() . "</syntaxhighlight>",
 			$title, $cpoParams->getParserOptions()
 		);
 	}
