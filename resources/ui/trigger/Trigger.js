@@ -17,12 +17,20 @@
 		if ( !this.value.hasOwnProperty( 'active' ) ) {
 			this.value.active = true;
 		}
+		var name = this.value.name || '';
+		if ( name && mw.message( name ).exists() ) {
+			name = mw.message( name ).text();
+		}
 		this.name = new OO.ui.TextInputWidget( {
 			required: true,
-			value: mw.message( this.value.name ).text() || ''
+			value: name
 		} );
+		var description = this.value.description || '';
+		if ( description && mw.message( description ).exists() ) {
+			description = mw.message( description ).text();
+		}
 		this.description = new OO.ui.MultilineTextInputWidget( {
-			value: mw.message( this.value.description ).text() || '',
+			value: description,
 			rows: 2
 		} );
 		this.active = new OO.ui.CheckboxInputWidget( { selected: this.value.active } );
