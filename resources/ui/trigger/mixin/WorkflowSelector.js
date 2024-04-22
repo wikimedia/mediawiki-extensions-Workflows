@@ -1,4 +1,5 @@
 workflows.ui.trigger.mixin.WorkflowSelector = function( cfg ) {
+	cfg = cfg || {};
 	this.definition = null;
 	this.repository = null;
 	this.validateInitializer = true;
