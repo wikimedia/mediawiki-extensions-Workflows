@@ -29,10 +29,13 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
 		$user = $sktemplate->getUser();
 		$title = $sktemplate->getTitle();
-		if ( $title->exists() && $title->getContentModel() === 'BPMN' ) {
+		if ( $title && !$title->exists() ) {
+			return;
+		}
+		if ( $title->getContentModel() === 'BPMN' ) {
 			$this->addEditXmlAction( $sktemplate, $links );
 		}
-		if ( !$title->exists() || $title->isSpecialPage() || !$title->isContentPage() ) {
+		if ( $title->isSpecialPage() || !$title->isContentPage() ) {
 			return;
 		}
 
