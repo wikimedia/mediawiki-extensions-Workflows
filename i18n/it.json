@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Beta16",
+			"GpieroMW",
 			"ZioNicco"
 		]
 	},
@@ -51,8 +52,8 @@
 	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|un altro|$1 altri}}",
 	"workflows-ui-trigger-field-conditions": "Condizioni",
 	"workflows-uto-activity-custom_form": "Modulo personalizzato",
-	"workflows-property-validator-email-recipient-error": "Il valore \"$1\" non è un indirizzo email valido o un utente con un indirizzo email impostato",
-	"workflows-collect-data-form-threshold-unit": "Unità di soglia",
+	"workflows-property-validator-email-recipient-error": "Il valore \"$1\" non \u00e8 un indirizzo email valido o un utente con un indirizzo email impostato",
+	"workflows-collect-data-form-threshold-unit": "Unit\u00e0 di soglia",
 	"workflows-collect-data-form-threshold-value": "Valore di soglia",
 	"workflows-collect-data-form-threshold-unit-user": "Numero assoluto di utenti",
 	"workflows-editor-viewer-section-diagram": "Diagramma",
@@ -60,9 +61,9 @@
 	"workflows-editor-editor-button-cancel": "Annulla",
 	"workflows-ui-action-editxml": "Modifica XML",
 	"workflows-ui-action-edit": "Modifica diagramma",
-	"workflows-ui-editor-inspector-activity-title": "Proprietà dell'attività",
-	"workflows-ui-editor-inspector-properties": "Proprietà",
-	"workflows-ui-editor-inspector-properties-additional": "Aggiungi una nuova proprietà",
+	"workflows-ui-editor-inspector-activity-title": "Propriet\u00e0 dell'attivit\u00e0",
+	"workflows-ui-editor-inspector-properties": "Propriet\u00e0",
+	"workflows-ui-editor-inspector-properties-additional": "Aggiungi una nuova propriet\u00e0",
 	"workflows-ui-editor-inspector-properties-additional-name": "Nome",
 	"workflows-ui-editor-inspector-properties-additional-value": "Valore",
 	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "Modulo da utilizzare",
@@ -72,5 +73,8 @@
 	"workflows-ui-editor-inspector-activity-initializer": "Utilizza come inizializzatore",
 	"workflows-ui-editor-inspector-activity-section-initializer": "Inizializzatore",
 	"workflows-ui-editor-inspector-name": "Nome",
-	"workflows-ui-editor-inspector-process-name": "Nome del processo"
+	"workflows-ui-editor-inspector-process-name": "Nome del processo",
+	"workflows-workflow-file-definition-user-approval-title": "Approvazione utente singolo",
+	"workflows-workflow-file-definition-user-approval-desc": "Chiedi a un utente di rivedere e approvare una pagina. Una volta eseguita questa operazione, viene inviata una notifica e-mail al destinatario specificato.",
+	"workflows-workflow-file-definition-user-feedback-desc": "Chiedi un feedback ad un utente mentre revisiona una pagina. Una volta fatta questo, invia una notifica per posta elettronica al destinatario specificato."
 }

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ата"
+		]
+	},
+	"workflows-workflow-file-definition-group-feedback-title": "Груповий відгук",
+	"workflows-workflow-file-definition-group-feedback-desc": "Попросіть групу користувачів про відгук під час перегляду сторінки. Після цього, вказаному отримувачу буде відправлено сповіщення електронним листом.",
+	"workflows-workflow-file-definition-user-approval-title": "Схвалення одного користувача",
+	"workflows-workflow-file-definition-user-approval-desc": "Попросіть користувача переглянути та схвалити сторінку. Після цього, вказаному отримувачу буде відправлено сповіщення електронним листом.",
+	"workflows-workflow-file-definition-user-feedback-title": "Відгук одного користувача",
+	"workflows-workflow-file-definition-user-feedback-desc": "Попросіть користувача про відгук під час перегляду сторінки. Після цього, вказаному отримувачу буде відправлено сповіщення електронним листом.",
+	"workflows-workflow-file-definition-document-control-title": "Експертний контроль документа",
+	"workflows-workflow-file-definition-document-control-desc": "Попросіть одного користувача поредагувати сторінку й іншого користувача-експерта переглянути ці зміни. Далі попросіть третього користувача прийняти й опублікувати сторінку. Після цього, вказаному отримувачу буде відправлено сповіщення електронним листом."
+}

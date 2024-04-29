@@ -2,11 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"EdoAug",
-			"Jon Harald Søby"
+			"Jon Harald S\u00f8by"
 		]
 	},
 	"workflows-ui-starter-action-done": "Start",
 	"workflows-ui-workflow-overview-action-back": "Tilbake",
 	"workflows-activity-history-vote-result-yes": "Godkjent",
-	"workflows-activity-history-vote-result-no": "Avvist"
+	"workflows-activity-history-vote-result-no": "Avvist",
+	"workflows-workflow-file-definition-group-feedback-title": "Gruppetilbakemelding",
+	"workflows-workflow-file-definition-group-feedback-desc": "Sp\u00f8r en gruppe med brukere om tilbakemeldinger n\u00e5r du gjennomg\u00e5r en side. Et e-postvarsel blir sendt til angitt mottaker n\u00e5r det er gjort.",
+	"workflows-workflow-file-definition-user-approval-title": "Enkeltbrukergodkjenning",
+	"workflows-workflow-file-definition-user-approval-desc": "Sp\u00f8r en bruker om \u00e5 gjennomg\u00e5 og godkjenne en side. Et e-postvarsel blir sendt til angitt mottaker n\u00e5r det er gjort.",
+	"workflows-workflow-file-definition-user-feedback-title": "Enkeltbrukertilbakemeldinger",
+	"workflows-workflow-file-definition-user-feedback-desc": "Sp\u00f8r en bruker om tilbakemeldinger n\u00e5r du gjennomg\u00e5r en side. Et e-postvarsel blir sendt til angitt mottaker n\u00e5r det er gjort.",
+	"workflows-workflow-file-definition-document-control-title": "Ekspertsdokumentkontroll",
+	"workflows-workflow-file-definition-document-control-desc": "Sp\u00f8r en bruker om \u00e5 redigere en side og en annen ekspertbruker om \u00e5 gjennomg\u00e5 endringene. Sp\u00f8r s\u00e5 en tredje bruker om \u00e5 godkjenne og publisere siden. Et e-postvarsel blir sendt til angitt mottaker n\u00e5r det er gjort."
 }
