@@ -5,7 +5,7 @@
 			"Robertgarrigos"
 		]
 	},
-	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1| un més| $1 més}}",
+	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1| un m\u00e9s| $1 m\u00e9s}}",
 	"workflows-activity-set-template-params-cannot-save": "No s'ha pogut desar",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Usuari"
 }
