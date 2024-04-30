@@ -7,19 +7,19 @@
 		]
 	},
 	"workflows-ui-task-completion-action-cancel": "Cancelar",
-	"workflows-form-placeholder-comment": "Coment\u00e1rio",
+	"workflows-form-placeholder-comment": "Comentário",
 	"workflows-ui-workflow-overview-action-cancel": "Fechar",
 	"workflows-ui-overview-details-state-label": "Estado:",
 	"workflows-ui-overview-details-action-reason": "Motivo",
-	"workflows-ui-overview-details-page-context-page": "P\u00e1gina",
-	"workflows-collect-data-form-username": "Usu\u00e1rio",
+	"workflows-ui-overview-details-page-context-page": "Página",
+	"workflows-collect-data-form-username": "Usuário",
 	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|mais um|$1 mais}}",
 	"workflows-workflow-file-definition-group-feedback-title": "Feedback do grupo",
-	"workflows-workflow-file-definition-group-feedback-desc": "Pe\u00e7a feedback a um grupo de usu\u00e1rios enquanto revisa uma p\u00e1gina. Feito isso, uma notifica\u00e7\u00e3o por e-mail \u00e9 enviada ao destinat\u00e1rio especificado.",
-	"workflows-workflow-file-definition-user-approval-title": "Aprova\u00e7\u00e3o de usu\u00e1rio \u00fanico",
-	"workflows-workflow-file-definition-user-approval-desc": "Pe\u00e7a a um usu\u00e1rio para revisar e aprovar uma p\u00e1gina. Feito isso, uma notifica\u00e7\u00e3o por e-mail \u00e9 enviada ao destinat\u00e1rio especificado.",
-	"workflows-workflow-file-definition-user-feedback-title": "Feedback de usu\u00e1rio \u00fanico",
-	"workflows-workflow-file-definition-user-feedback-desc": "Pe\u00e7a feedback a um usu\u00e1rio enquanto revisa uma p\u00e1gina. Feito isso, uma notifica\u00e7\u00e3o por e-mail \u00e9 enviada ao destinat\u00e1rio especificado.",
+	"workflows-workflow-file-definition-group-feedback-desc": "Peça feedback a um grupo de usuários enquanto revisa uma página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
+	"workflows-workflow-file-definition-user-approval-title": "Aprovação de usuário único",
+	"workflows-workflow-file-definition-user-approval-desc": "Peça a um usuário para revisar e aprovar uma página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
+	"workflows-workflow-file-definition-user-feedback-title": "Feedback de usuário único",
+	"workflows-workflow-file-definition-user-feedback-desc": "Peça feedback a um usuário enquanto revisa uma página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
 	"workflows-workflow-file-definition-document-control-title": "Controle especializado de documentos",
-	"workflows-workflow-file-definition-document-control-desc": "Pe\u00e7a a um usu\u00e1rio para editar uma p\u00e1gina e a outro usu\u00e1rio especialista para revisar essas altera\u00e7\u00f5es. Em seguida, pe\u00e7a a um terceiro usu\u00e1rio para aceitar e publicar a p\u00e1gina. Feito isso, uma notifica\u00e7\u00e3o por e-mail \u00e9 enviada ao destinat\u00e1rio especificado."
+	"workflows-workflow-file-definition-document-control-desc": "Peça a um usuário para editar uma página e a outro usuário especialista para revisar essas alterações. Em seguida, peça a um terceiro usuário para aceitar e publicar a página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado."
 }
