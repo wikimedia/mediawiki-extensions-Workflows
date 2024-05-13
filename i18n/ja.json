@@ -4,7 +4,8 @@
 			"MathXplore",
 			"Shirayuki",
 			"春春眠眠",
-			"背番号4のエース"
+			"背番号4のエース",
+			"Chqaz"
 		]
 	},
 	"action-workflows-view": "ワークフロー項目の閲覧",
@@ -13,6 +14,7 @@
 	"right-workflows-admin": "ワークフローを管理",
 	"workflows-ui-starter-action-done": "開始",
 	"workflows-ui-workflow-overview-action-back": "戻る",
+	"workflows-collect-data-form-groupname": "グループ",
 	"workflows-ui-overview-details-raw-data-popup-prop": "プロパティ",
 	"workflows-ui-overview-details-raw-data-popup-value": "値",
 	"workflows-triggers-type-manual-label": "マニュアル",
