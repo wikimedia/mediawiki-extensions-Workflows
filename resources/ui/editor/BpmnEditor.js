@@ -72,6 +72,17 @@ workflows.ui.widget.BpmnEditor.prototype.initDiagram = async function( config ) 
 	}.bind( this ) );
 
 	try {
+
+		if ( config.xml === '' ) {
+			config.xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+				'<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wf="http://hallowelt.com/schema/bpmn/wf" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1vrglfw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.7.1">\n' +
+				'  <bpmn:process id="Process_1ifcgca" isExecutable="false" />\n' +
+				'  <bpmndi:BPMNDiagram id="BPMNDiagram_1">\n' +
+				'    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ifcgca" />\n' +
+				'  </bpmndi:BPMNDiagram>\n' +
+				'</bpmn:definitions>';
+		}
+
 		await this.editor.importXML( config.xml );
 	} catch ( err ) {
 		new OO.ui.MessageWidget( { type: 'error', label: err } ).$element.insertBefore( this.$element );
