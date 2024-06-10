@@ -337,5 +337,7 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Single user feedback",
 	"workflows-workflow-file-definition-user-feedback-desc": "Ask a user for feedback while reviewing a page. Once this is done, an email notification is sent to the specified recipient.",
 	"workflows-workflow-file-definition-document-control-title": "Expert document control",
-	"workflows-workflow-file-definition-document-control-desc": "Ask one user to edit a page and another expert user to review those changes. Then ask a third user to accept and publish the page. Once this is done, an email notification is sent to the specified recipient."
+	"workflows-workflow-file-definition-document-control-desc": "Ask one user to edit a page and another expert user to review those changes. Then ask a third user to accept and publish the page. Once this is done, an email notification is sent to the specified recipient.",
+	"workflows-ui-editor-inspector-id": "ID",
+	"workflows-ui-editor-inspector-id-help": "Must be unique for each diagram element. Can contain only such symbols: [a-zA-Z0-9_]"
 }
