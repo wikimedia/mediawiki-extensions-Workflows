@@ -677,7 +677,9 @@
 				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value",
 				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit",
 				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help",
-				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value"
+				"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value",
+				"workflows-ui-editor-inspector-id",
+				"workflows-ui-editor-inspector-id-help"
 			],
 			"dependencies": [
 				"ext.workflows.editor.inspector.bootstrap",

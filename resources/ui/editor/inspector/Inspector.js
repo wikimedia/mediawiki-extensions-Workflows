@@ -2,6 +2,8 @@ workflows.editor.inspector.Inspector = function( element, dialog ) {
 	this.dialog = dialog;
 	this.element = element;
 
+	this.initialId = '';
+
 	this.elementData = {
 		name: this.getElementName(),
 		id: this.getElementId(),
@@ -28,11 +30,57 @@ workflows.editor.inspector.Inspector.prototype.getForm = function() {
 };
 
 workflows.editor.inspector.Inspector.prototype.getDefaultItems = function() {
+	// Need that to get access to inspector object inside of validation function
+	var inspectorObj = this;
+
 	return [
 		{
 			type: 'text',
 			name: 'name',
-			label: mw.message( 'workflows-ui-editor-inspector-name' ).text()
+			label: mw.message( 'workflows-ui-editor-inspector-name' ).text(),
+			listeners: {
+				change: function( val ) {
+					if ( val !== '' ) {
+						var id = val.replaceAll( /\W/g, '' );
+
+						// ID equals to the one which element currently has, nothing to do
+						if ( id === inspectorObj.initialId ) {
+							return;
+						}
+
+						var elements = workflows.editor.modeler.get('elementRegistry')._elements;
+
+						// If expected element ID is "Element" and there is already other element with such ID
+						// Then change it to "Element_1"
+						if ( elements.hasOwnProperty( id ) ) {
+							var i = 1;
+
+							// But it could be that there is already "Element_1" existing
+							// So increment the counter after we'll get yet not existing ID
+							while( true ) {
+								var possibleId = id + '_' + i;
+
+								if ( !elements.hasOwnProperty( possibleId ) ) {
+									id = possibleId;
+
+									break;
+								}
+
+								i++;
+							}
+						}
+
+						this.items.inputs.id.setValue( id );
+					}
+				}
+			}
+		},
+		{
+			type: 'text',
+			name: 'id',
+			label: mw.message( 'workflows-ui-editor-inspector-id' ).text(),
+			help: mw.message( 'workflows-ui-editor-inspector-id-help' ).text(),
+			widget_disabled: true
 		}
 	];
 };
@@ -42,10 +90,14 @@ workflows.editor.inspector.Inspector.prototype.getItems = function() {
 };
 
 workflows.editor.inspector.Inspector.prototype.getElementData = function() {
-    return this.elementData;
+	return this.elementData;
 };
 
 workflows.editor.inspector.Inspector.prototype.convertDataForForm = function( data ) {
+	if ( this.initialId === '' && data.id !== '' ) {
+		this.initialId = data.id;
+	}
+
 	data.properties = this.getPropertiesKeyValue();
 	return data;
 };
@@ -123,6 +175,7 @@ workflows.editor.inspector.Inspector.prototype.updateModel = function( data ) {
 
 workflows.editor.inspector.Inspector.prototype.updateElementData = function( data ) {
 	this.element.businessObject.set( 'name', data.name );
+	this.element.businessObject.set( 'id', data.id );
 	workflows.editor.modeler.get( 'modeling' ).updateProperties( this.element, { name: data.name } );
 };
 
