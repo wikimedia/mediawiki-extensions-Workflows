@@ -346,5 +346,5 @@
 	"workflows-workflow-file-definition-document-control-title": "Label in a select dropdown",
 	"workflows-workflow-file-definition-document-control-desc": "Description for an option in a select dropdown",
 	"workflows-ui-editor-inspector-id": "Field label",
-	"workflows-ui-editor-inspector-id-help": "Field help label"
+	"workflows-ui-editor-inspector-id-help": "Field help label. Describes an ID."
 }

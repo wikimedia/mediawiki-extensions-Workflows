@@ -345,5 +345,7 @@
 	"workflows-workflow-file-definition-user-feedback-title": "משוב ממשתמש יחיד",
 	"workflows-workflow-file-definition-user-feedback-desc": "לבקש ממשתמש משוב בעת סקירת דף. לאחר שהדבר נעשה, נשלחת הודעת דוא\"ל לנמען שצוין.",
 	"workflows-workflow-file-definition-document-control-title": "ביקורת מסמך על־ידי מומחה",
-	"workflows-workflow-file-definition-document-control-desc": "לבקש ממשתמש אחד לערוך דף וממשתמש מומחה אחר לבדוק את השינויים האלה. לאחר מכן לבקש ממשתמש שלישי לקבל ולפרסם את הדף. לאחר שהדבר נעשה, נשלחת הודעת דוא\"ל לנמען שצוין."
+	"workflows-workflow-file-definition-document-control-desc": "לבקש ממשתמש אחד לערוך דף וממשתמש מומחה אחר לבדוק את השינויים האלה. לאחר מכן לבקש ממשתמש שלישי לקבל ולפרסם את הדף. לאחר שהדבר נעשה, נשלחת הודעת דוא\"ל לנמען שצוין.",
+	"workflows-ui-editor-inspector-id": "מזהה",
+	"workflows-ui-editor-inspector-id-help": "חייב להיות ייחודי עבור כל רכיב התרשים. יכול להכיל רק סמלים כאלה: [a-zA-Z0-9_]"
 }
