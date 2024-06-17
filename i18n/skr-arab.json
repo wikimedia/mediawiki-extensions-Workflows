@@ -4,6 +4,7 @@
 			"Saraiki"
 		]
 	},
+	"workflows-global-action-overview": "کم دی چال",
 	"workflows-ui-starter-action-done": "تھی ڳیا",
 	"workflows-ui-workflow-overview-action-back": "پچھوں",
 	"workflows-ui-overview-details-activity-assigned-users-more": "تے {{PLURAL:$1|ہک ٻئی|$1 ٻیاں}}",
@@ -17,5 +18,5 @@
 	"workflows-ui-editor-inspector-properties-additional-name": "ناں",
 	"workflows-ui-editor-inspector-properties-additional-value": "قدر",
 	"workflows-ui-editor-inspector-name": "ناں",
-	"workflows-global-action-overview": "کم دی چال"
+	"workflows-ui-editor-inspector-id": "آئی ڈی"
 }

@@ -138,7 +138,8 @@
 	"workflows-collect-data-form-groupname": "Label in a form\n{{identical|Group}}",
 	"workflows-collect-data-form-instructions": "Label in a form",
 	"workflows-collect-data-form-username": "Label in a form\n{{identical|User}}",
-	"workflows-collect-data-form-reportrecipient": "Label for the workflow form field", "workflows-activity-history-vote-result-yes": "approuvé",
+	"workflows-collect-data-form-reportrecipient": "Label for the workflow form field",
+	"workflows-activity-history-vote-result-yes": "approuvé",
 	"workflows-activity-history-vote-result-no": "refusé",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Label for the table column in activity raw data popup\n\n{{Identical|Property}}",
 	"workflows-ui-overview-details-raw-data-popup-value": "Label for the table column in activity raw data popup\n\n{{Identical|Value}}",
@@ -347,5 +348,5 @@
 	"workflows-event-feedback-task-assigned": "Notification message when feedback task has been assigned, with instructions\n$1 - page full url\n$2 - page display text\n$3 - task type\n$4 - instructions",
 	"workflows-event-feedback-task-assigned-no-instructions": "Notification message when feedback task has been assigned\n$1 - page full url\n$2 - page display text\n$3 - task type",
 	"workflows-ui-editor-inspector-id": "Field label",
-	"workflows-ui-editor-inspector-id-help": "Field help label"
+	"workflows-ui-editor-inspector-id-help": "Field help label. Describes an ID."
 }
