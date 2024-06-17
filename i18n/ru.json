@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dirruw'o",
 			"Gulka.nik",
 			"Kareyac",
 			"Pacha Tchernof"
@@ -52,5 +53,6 @@
 	"workflows-workflow-file-definition-user-approval-desc": "Попросите пользователя просмотреть и одобрить страницу. Как только это будет сделано, указанному получателю будет отправлено уведомление по электронной почте.",
 	"workflows-workflow-file-definition-user-feedback-title": "Личный отзыв пользователя",
 	"workflows-workflow-file-definition-user-feedback-desc": "Попросите пользователя оставить отзыв во время просмотра страницы. Как только это будет сделано, указанному получателю будет отправлено уведомление по электронной почте.",
-	"workflows-workflow-file-definition-document-control-title": "Экспертный контроль документов"
+	"workflows-workflow-file-definition-document-control-title": "Экспертный контроль документов",
+	"workflows-ui-editor-inspector-id": "Идентфикатор"
 }
