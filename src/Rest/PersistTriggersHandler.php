@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Workflows\Rest;
 
 use MediaWiki\Rest\HttpException;
-use MediaWiki\Rest\Validator\JsonBodyValidator;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class PersistTriggersHandler extends TriggerHandler {
@@ -23,19 +22,12 @@ class PersistTriggersHandler extends TriggerHandler {
 		] );
 	}
 
-	/**
-	 * @param string $contentType
-	 * @return JsonBodyValidator
-	 */
-	public function getBodyValidator( $contentType ) {
-		if ( $contentType === 'application/json' ) {
-			return new JsonBodyValidator( [
-				'data' => [
-					static::PARAM_SOURCE => 'body',
-					ParamValidator::PARAM_REQUIRED => true,
-				]
-			] );
-		}
-		throw new HttpException( 'Content must be of type application/json', 400 );
+	public function getBodyParamSettings(): array {
+		return [
+			'data' => [
+				static::PARAM_SOURCE => 'body',
+				ParamValidator::PARAM_REQUIRED => true,
+			]
+		];
 	}
 }
