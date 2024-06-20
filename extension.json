@@ -49,8 +49,7 @@
 						"services": [ "MWStake.Notifier", "WorkflowUtilGroupDataProvider", "UserFactory" ]
 					},
 					"user_feedback": {
-						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\UserFeedbackActivity",
-						"services": [ "WorkflowUtilGroupDataProvider" ]
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\UserFeedbackActivity"
 					},
 					"group_feedback": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\FeedbackActivity\\GroupFeedbackActivity",
