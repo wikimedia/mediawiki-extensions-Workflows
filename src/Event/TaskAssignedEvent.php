@@ -89,7 +89,7 @@ class TaskAssignedEvent extends TitleEvent {
 	/**
 	 * @return string
 	 */
-	protected function getActivity(): string {
+	public function getActivity(): string {
 		return $this->activity;
 	}
 }
