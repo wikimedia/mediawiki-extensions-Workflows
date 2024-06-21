@@ -324,6 +324,13 @@
 	"workflows-workflow-file-definition-document-control-desc": "לבקש ממשתמש אחד לערוך דף וממשתמש מומחה אחר לבדוק את השינויים האלה. לאחר מכן לבקש ממשתמש שלישי לקבל ולפרסם את הדף. לאחר שהדבר נעשה, נשלחת הודעת דוא\"ל לנמען שצוין.",
 	"workflows-event-task-assigned-bot": "הוקצתה לך המשימה $2 בדף $1",
 	"workflows-event-task-assigned-key-desc": "הוקצתה משימת זרימת עבודה",
+	"workflows-event-task-assigned-links-message": "נא לבקר בדף בקישור הבא כדי להשלים את המשימה",
+	"workflows-event-task-due-date-proximity-key-desc": "משימת זרימת העבודה עומדת לפוג",
+	"workflows-event-task-due-data-proximity": "משימת ה{{GRAMMAR:תחילית|$2}} שלך $1 צריכה להסתיים בקרוב. ברגע שתאריך היעד חלף, זרימת העבודה מופסקת אוטומטית",
+	"workflows-event-task-due-date-proximity-links-message": "נא לבקר בדף בקישור הבא כדי לצפות במשימות שלך",
+	"workflows-event-workflow-ended-key-desc": "זרימת העבודה הסתיימה",
+	"workflows-event-workflow-ended": "זרימת העבודה \"$2\" בדף \"$1\" הושלמה",
+	"workflows-event-workflow-aborted-key-desc": "זרימת העבודה בוטלה",
 	"workflows-ui-editor-inspector-id": "מזהה",
 	"workflows-ui-editor-inspector-id-help": "חייב להיות ייחודי עבור כל רכיב התרשים. יכול להכיל רק סמלים כאלה: [a-zA-Z0-9_]"
 }
