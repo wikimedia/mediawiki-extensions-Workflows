@@ -337,5 +337,7 @@
 	"workflows-event-feedback-task-assigned": "{{GENDER:$1|assigned}} $3 task to you on page $2, with instructions: $4",
 	"workflows-event-feedback-task-assigned-no-instructions": "{{GENDER:$1|assigned}} $3 task to you on page $2",
 	"workflows-ui-editor-inspector-id": "ID",
-	"workflows-ui-editor-inspector-id-help": "Must be unique for each diagram element. Can contain only such symbols: [a-zA-Z0-9_]"
+	"workflows-ui-editor-inspector-id-help": "Must be unique for each diagram element. Can contain only such symbols: [a-zA-Z0-9_]",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-index-help": "Indexed from 0. Non-existing templates are counted as links, so they do not add into this list.",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help": "Parameters inside the template can be specified by their name, or the index in case of non-named parameters. Index for non-named parameters starts at 1 (not 0!), as to be consistent with how template parameters are accessed in the template itself."
 }
