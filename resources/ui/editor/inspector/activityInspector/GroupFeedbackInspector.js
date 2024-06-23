@@ -114,6 +114,11 @@ workflows.editor.inspector.GroupFeedbackInspector.prototype.convertDataForForm =
 		data.properties.assigned_users = data.properties.assigned_users.split( ',' );
 	}
 
+	// First element "" could appear if we try to split empty string by ","
+	if ( data.properties.assigned_users[0] === '' ) {
+		data.properties.assigned_users.shift();
+	}
+
 	return data;
 };
 

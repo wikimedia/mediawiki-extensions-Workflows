@@ -30,15 +30,16 @@ workflows.editor.inspector.SetTemplateParamInspector.prototype.getItems = functi
 			type: 'number',
 			name: 'properties.template-index',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-template_index' ).text(),
+			help: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-template-index-help' ).text(),
 			required: true,
 			min: 0
 		},
 		{
-			type: 'number',
+			type: 'text',
 			name: 'properties.template-param',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-template_param' ).text(),
-			required: true,
-			min: 0
+			help: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help' ).text(),
+			required: true
 		},
 		{
 			type: 'text',
