@@ -23,6 +23,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Workflows\Workflow
+ * @group Database
  */
 class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
 	/** @var TestDefinitionRepository */
