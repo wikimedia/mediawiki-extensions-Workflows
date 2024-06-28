@@ -37,12 +37,12 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 			}
 		},
 		{
-			type: 'user_picker',
+			type: 'user_multiselect',
 			name: 'properties.assigned_users',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_users' ).text()
 		},
 		{
-			type: 'user_picker',
+			type: 'group_picker',
 			name: 'properties.assigned_group',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_group' ).text(),
 			hidden: true
@@ -144,6 +144,11 @@ workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = fun
 		!Array.isArray( data.properties.assigned_users )
 	) {
 		data.properties.assigned_users = data.properties.assigned_users.split( ',' );
+	}
+
+	// First element "" could appear if we try to split empty string by ","
+	if ( data.properties.assigned_users[0] === '' ) {
+		data.properties.assigned_users.shift();
 	}
 
 	return data;

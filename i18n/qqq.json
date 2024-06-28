@@ -348,5 +348,7 @@
 	"workflows-event-feedback-task-assigned": "Notification message when feedback task has been assigned, with instructions\n* $1 - user name for GENDER\n* $2 - page display text\n* $3 - task type\n* $4 - instructions",
 	"workflows-event-feedback-task-assigned-no-instructions": "Notification message when feedback task has been assigned\n* $1 - user name for GENDER\n* $2 - page display text\n* $3 - task type",
 	"workflows-ui-editor-inspector-id": "Field label",
-	"workflows-ui-editor-inspector-id-help": "Field help label. Describes an ID."
+	"workflows-ui-editor-inspector-id-help": "Field help label. Describes an ID.",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-index-help": "Field help label",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help": "Field help label"
 }
