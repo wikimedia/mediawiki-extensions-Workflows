@@ -81,5 +81,7 @@ workflows.editor.inspector.ProcessInspector.prototype.preprocessDataForModelUpda
 	data.extensionElements = data.extensionElements || {};
 	data.extensionElements['wf:Context'] = data.extensionElements['wf:Context'] || {};
 	data.extensionElements['wf:Context']['wf:ContextItem'] = items;
+	// Do not allow editing ID, user never needs to do it, and its dangerous
+	data.id = this.initialId;
 	return data;
 };

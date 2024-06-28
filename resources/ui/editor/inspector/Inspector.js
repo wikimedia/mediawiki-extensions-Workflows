@@ -174,9 +174,14 @@ workflows.editor.inspector.Inspector.prototype.updateModel = function( data ) {
 };
 
 workflows.editor.inspector.Inspector.prototype.updateElementData = function( data ) {
-	this.element.businessObject.set( 'name', data.name );
+	if ( data.name ) {
+		this.element.businessObject.set( 'name', data.name );
+	}
 	this.element.businessObject.set( 'id', data.id );
-	workflows.editor.modeler.get( 'modeling' ).updateProperties( this.element, { name: data.name } );
+	if ( this.element.businessObject.$type !== 'bpmn:Process' ) {
+		// Process has no visual representation, do not update view
+		workflows.editor.modeler.get( 'modeling' ).updateProperties( this.element, { name: data.name } );
+	}
 };
 
 workflows.editor.inspector.Inspector.prototype.updateExtensionElements = function( data ) {
