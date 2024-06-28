@@ -603,6 +603,10 @@
 		"ext.workflows.editor": {
 			"scripts": [
 				"ui/editor/util.js",
+				"ui/editor/dialog/SaveDialog.js",
+				"ui/editor/toolbar/SaveTool.js",
+				"ui/editor/toolbar/CancelTool.js",
+				"ui/editor/toolbar/ProcessContextTool.js",
 				"ui/editor/schema.js",
 				"ui/editor/CustomMenu.js",
 				"ui/editor/BpmnEditor.js"
@@ -613,13 +617,17 @@
 			"dependencies": [
 				"ext.workflows.editor.bpmn-js.modeler",
 				"oojs-ui",
-				"oojs-ui.styles.icons-movement"
+				"oojs-ui.styles.icons-movement",
+				"oojs-ui.styles.icons-layout"
 			],
 			"messages": [
 				"workflows-editor-editor-field-summary",
 				"workflows-editor-editor-button-save",
 				"workflows-editor-editor-button-cancel",
-				"workflows-ui-editor-inspector-process-title"
+				"workflows-ui-editor-inspector-process-title",
+				"workflows-editor-editor-dialog-save-title",
+				"workflows-editor-editor-dialog-save-action-save",
+				"workflows-editor-editor-dialog-save-action-cancel"
 			]
 		},
 		"ext.workflows.editor.customElements": {
