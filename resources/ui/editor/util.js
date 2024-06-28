@@ -236,3 +236,6 @@ workflows.editor.util = {
 		}
 	}
 };
+
+workflows.editor.toolFactory = new OO.ui.ToolFactory();
+workflows.editor.toolGroupFactory = new OO.ui.ToolGroupFactory();

@@ -18,7 +18,8 @@ workflows.editor.inspector.UserVoteInspector.prototype.getItems = function() {
 			type: 'user_picker',
 			name: 'properties.assigned_user',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-assigned_user' ).text(),
-			required: true
+			required: true,
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'text',

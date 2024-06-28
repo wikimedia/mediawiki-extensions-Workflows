@@ -4,7 +4,9 @@ window.workflows = {
 	editor: {
 		property: {},
 		inspector: {},
-		element: {}
+		element: {},
+		tool: {},
+		dialog: {}
 	},
 	ui: {
 		openWorkflowStarter: function( repos ) {
@@ -449,7 +451,7 @@ function maybeAddEditor() {
 	}
 
 	var action = $c.data( 'action' );
-	if ( action === 'edit' ) {
+	if ( action === 'edit' || action === 'create' ) {
 		mw.loader.using( mw.config.get( 'workflowPluginModules' ) ).done( function() {
 			mw.loader.using( [ 'ext.workflows.editor' ] ).done( function() {
 				var editor = new workflows.ui.widget.BpmnEditor( $c.data() );

@@ -9,7 +9,9 @@
 	vertical-align: -.125em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	content: "\2800" !important;
 }
+
 .activity-icon::before {
 	background-repeat: no-repeat;
 	background-size: 20px;

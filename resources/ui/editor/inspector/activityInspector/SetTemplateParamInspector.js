@@ -19,12 +19,14 @@ workflows.editor.inspector.SetTemplateParamInspector.prototype.getItems = functi
 			name: 'properties.user',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-user' ).text(),
 			help: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-user-help' ).text(),
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'title',
 			name: 'properties.title',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-title' ).text(),
-			required: true
+			required: true,
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'number',

@@ -40,7 +40,8 @@ workflows.editor.inspector.GroupFeedbackInspector.prototype.getItems = function(
 			type: 'user_multiselect',
 			name: 'properties.assigned_users',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-feedback-property-assigned_users' ).text(),
-			required: true
+			required: true,
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'group_picker',
@@ -81,7 +82,8 @@ workflows.editor.inspector.GroupFeedbackInspector.prototype.getItems = function(
 						item.setStep( 5 );
 					}
 				}
-			}
+			},
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'number',

@@ -100,6 +100,9 @@ workflows.editor.inspector.CustomFormInspector.prototype.convertDataForForm = fu
 	data = workflows.editor.inspector.CustomFormInspector.parent.prototype.convertDataForForm.call( this, data );
 	if ( data.extensionElements.hasOwnProperty( 'wf:Form' ) ) {
 		data.formType = 'on-wiki';
+		if ( data.extensionElements.hasOwnProperty( 'wf:Form' ) ) {
+			data.extensionElements['wf:Form'] = data.extensionElements['wf:Form'] + '.form';
+		}
 	} else {
 		data.formType = 'backend';
 	}
@@ -108,6 +111,10 @@ workflows.editor.inspector.CustomFormInspector.prototype.convertDataForForm = fu
 
 workflows.editor.inspector.CustomFormInspector.prototype.preprocessDataForModelUpdate = function( data ) {
 	if ( data.formType === 'on-wiki' ) {
+		var formName = data['extensionElements']['wf:Form'];
+		// Strip .form from the form name
+		formName = formName.replace( /\.form$/, '' );
+		data['extensionElements']['wf:Form'] = formName;
 		delete ( data['extensionElements']['wf:FormModule'] );
 	}
 	if ( data.formType === 'backend' ) {
