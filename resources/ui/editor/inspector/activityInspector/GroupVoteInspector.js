@@ -39,13 +39,15 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 		{
 			type: 'user_multiselect',
 			name: 'properties.assigned_users',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_users' ).text()
+			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_users' ).text(),
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'group_picker',
 			name: 'properties.assigned_group',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_group' ).text(),
-			hidden: true
+			hidden: true,
+			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'text',

@@ -45,6 +45,7 @@ workflows.editor.inspector.EditPageInspector.prototype.getItems = function() {
 				{ data: 'append', label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-mode-append' ).text() },
 				{ data: 'replace', label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-mode-replace' ).text() }
 			],
+			widget_$overlay: this.dialog.$overlay
 		}
 	];
 };

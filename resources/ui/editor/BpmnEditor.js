@@ -10,21 +10,35 @@ workflows.ui.widget.BpmnEditor = function( config ) {
 	this.$diagram = $( '<div>' ).addClass( 'diagram' ).css( 'height', '700px' );
 	this.$diagram.insertBefore( this.fieldset.$element );
 
-	var inspectProcessButton = new OO.ui.ButtonWidget( {
-		label: mw.message( 'workflows-ui-editor-inspector-process-title' ).text(),
-		classes: [ 'workflows-editor-inspect-process-button' ]
-	} );
-	this.$diagram.append( inspectProcessButton.$element );
 	this.initDiagram( config );
-	inspectProcessButton.connect( this, { click: 'inspectProcess' } );
 };
 
 OO.inheritClass( workflows.ui.widget.BpmnEditor, OO.ui.FormLayout );
 
 workflows.ui.widget.BpmnEditor.prototype.initItems = function( config ) {
 	this.text = new OO.ui.HiddenInputWidget( { name: 'wpTextbox1', id: 'wpTextbox1' } );
+	this.summary = new OO.ui.HiddenInputWidget( { name: 'wpSummary', id: 'wpSummary'} );
+	this.toolbar = new OO.ui.Toolbar( workflows.editor.toolFactory, workflows.editor.toolGroupFactory );
+	this.toolbar.setup( [
+		{
+			type: 'list',
+			align: 'after',
+			icon: 'menu',
+			indicator: null,
+			include: [ 'inspectProcess' ]
+		},
+		{
+			align: 'after',
+			type: 'bar',
+			include: [ 'cancel', 'save' ]
+		},
+
+	] );
+	this.toolbar.connect( this, {
+		editProcessContext: 'inspectProcess',
+		save: 'openSaveDialog'
+	} );
 	this.fieldset = new OO.ui.FieldsetLayout( {
-		classes: [ 'workflows-editor-save-layout' ],
 		items: [
 			new OO.ui.HiddenInputWidget( { name: 'format', value: 'application/xml' } ),
 			new OO.ui.HiddenInputWidget( { name: 'parentRevId', value: config.revid } ),
@@ -34,29 +48,11 @@ workflows.ui.widget.BpmnEditor.prototype.initItems = function( config ) {
 			// whatever...
 			new OO.ui.HiddenInputWidget( { name: 'wpUltimateParam', value: 1 } ),
 			this.text,
-			new OO.ui.FieldLayout( new OO.ui.TextInputWidget( { name: 'wpSummary', id: 'wpSummary'} ), {
-				label: mw.message( 'workflows-editor-editor-field-summary' ).text(),
-				align: 'top'
-			} ),
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.ButtonInputWidget( {
-						label: mw.message( 'workflows-editor-editor-button-save' ).text(),
-						type: 'submit',
-						flags: [ 'primary', 'progressive' ],
-					} ),
-					new OO.ui.ButtonWidget( {
-						label: mw.message( 'workflows-editor-editor-button-cancel' ).text(),
-						href: mw.util.getUrl( mw.config.get( 'wgPageName' ) ),
-						flags: [ 'destructive' ],
-						framed: false
-					} )
-				]
-			} )
+			this.summary,
 		]
 	} );
 
-	return [ this.fieldset ];
+	return [ this.toolbar, this.fieldset ];
 };
 
 workflows.ui.widget.BpmnEditor.prototype.initDiagram = async function( config ) {
@@ -72,35 +68,21 @@ workflows.ui.widget.BpmnEditor.prototype.initDiagram = async function( config ) 
 	}.bind( this ) );
 
 	try {
-
-		if ( config.xml === '' ) {
-			config.xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
-				'<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wf="http://hallowelt.com/schema/bpmn/wf" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1vrglfw" targetNamespace="http://bpmn.io/schema/bpmn">\n' +
-				'	<bpmn:process id="Process_1ifcgca" isExecutable="false">\n' +
-				'		<bpmn:extensionElements>\n' +
-				'			<wf:context>\n' +
-				'				<wf:contextItem name="pageId"/>\n' +
-				'				<wf:contextItem name="revision"/>\n' +
-				'			</wf:context>\n' +
-				'		</bpmn:extensionElements>\n' +
-				'	</bpmn:process>\n' +
-				'	<bpmndi:BPMNDiagram id="BPMNDiagram_1">\n' +
-				'		<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ifcgca" />\n' +
-				'	</bpmndi:BPMNDiagram>\n' +
-				'</bpmn:definitions>';
-		}
-
 		await this.editor.importXML( config.xml );
 	} catch ( err ) {
 		new OO.ui.MessageWidget( { type: 'error', label: err } ).$element.insertBefore( this.$element );
 	}
 };
 
-workflows.ui.widget.BpmnEditor.prototype.onFormSubmit = function () {
+workflows.ui.widget.BpmnEditor.prototype.prepForSubmit = function () {
+	var dfd = $.Deferred();
 	this.editor.saveXML( { format: true }, function ( err, xml ) {
 		this.text.$element.val( xml );
 		workflows.ui.widget.BpmnEditor.parent.prototype.onFormSubmit.call( this );
+		dfd.resolve();
 	}.bind( this ) );
+
+	return dfd.promise();
 
 };
 
@@ -119,16 +101,33 @@ workflows.ui.widget.BpmnEditor.prototype.openInspector = function ( element ) {
 	if ( !inspector ) {
 		return;
 	}
+	this.openDialog( new workflows.editor.inspector.InspectorDialog( element, { inspector: inspector } ) ).then(
+		function( data ) {
+			windowManager.destroy();
+		}
+	);
+};
+
+workflows.ui.widget.BpmnEditor.prototype.openDialog = function ( dialog, then ) {
 	var windowManager = new OO.ui.WindowManager();
 	$( document.body ).append( windowManager.$element );
-	var dialog = new workflows.editor.inspector.InspectorDialog( element, { inspector: inspector } );
 	windowManager.addWindows( [ dialog ] );
-	windowManager.openWindow( dialog ).closed.then( function( data ) {
-		windowManager.removeWindows( [ dialog ] );
-		windowManager.destroy();
-	}.bind( this ) );
+	return windowManager.openWindow( dialog ).closed;
 };
 
 workflows.ui.widget.BpmnEditor.prototype.inspectProcess = function () {
 	this.openInspector( this.editor.get( 'canvas' ).getRootElement() );
+};
+
+workflows.ui.widget.BpmnEditor.prototype.openSaveDialog = function () {
+	this.openDialog( new workflows.editor.dialog.SaveDialog( {} ) ).then(
+		function( data ) {
+			if ( data.action === 'save' ) {
+				this.summary.$element.val( data.summary );
+				this.prepForSubmit().done( function () {
+					this.$element.submit();
+				}.bind( this ) );
+			}
+		}.bind( this )
+	);
 };
