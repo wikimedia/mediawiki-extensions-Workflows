@@ -3,6 +3,7 @@
 		"authors": [
 			"DiGro",
 			"Dnlweijers",
+			"HanV",
 			"Mainframe98",
 			"McDutchie",
 			"Robin van der Vliet",
@@ -259,7 +260,7 @@
 	"workflows-ui-editor-inspector-gateway-title": "Gateway",
 	"workflows-ui-editor-inspector-gateway-notice": "De gateway evalueert de waarde van de hier opgegeven eigenschap en kiest op basis van deze waarde de volgende activiteit. Om op te geven welk pad moet worden gevolgd, labelt u de paden met de verwachte waarden van de eigenschap",
 	"workflows-ui-editor-inspector-name": "Naam",
-	"workflows-ui-editor-inspector-process-title": "Proces inspecteren",
+	"workflows-ui-editor-inspector-process-title": "Procescontext bewerken",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Aan versie binden",
 	"workflows-ui-editor-inspector-process-name": "Procesnaam",
 	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Inhoud",
