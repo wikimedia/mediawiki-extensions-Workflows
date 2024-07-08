@@ -73,8 +73,12 @@
 	"workflows-ui-editor-inspector-activity-initializer": "Utilizza come inizializzatore",
 	"workflows-ui-editor-inspector-activity-section-initializer": "Inizializzatore",
 	"workflows-ui-editor-inspector-name": "Nome",
+	"workflows-ui-editor-inspector-process-title": "Modifica il contesto del processo",
 	"workflows-ui-editor-inspector-process-name": "Nome del processo",
 	"workflows-workflow-file-definition-user-approval-title": "Approvazione utente singolo",
 	"workflows-workflow-file-definition-user-approval-desc": "Chiedi a un utente di rivedere e approvare una pagina. Una volta eseguita questa operazione, viene inviata una notifica e-mail al destinatario specificato.",
-	"workflows-workflow-file-definition-user-feedback-desc": "Chiedi un feedback ad un utente mentre revisiona una pagina. Una volta fatta questo, invia una notifica per posta elettronica al destinatario specificato."
+	"workflows-workflow-file-definition-user-feedback-desc": "Chiedi un feedback ad un utente mentre revisiona una pagina. Una volta fatta questo, invia una notifica per posta elettronica al destinatario specificato.",
+	"workflows-editor-editor-dialog-save-title": "Salva diagramma",
+	"workflows-editor-editor-dialog-save-action-save": "Salva",
+	"workflows-editor-editor-dialog-save-action-cancel": "Annulla"
 }

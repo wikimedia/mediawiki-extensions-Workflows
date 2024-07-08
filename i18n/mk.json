@@ -343,5 +343,7 @@
 	"workflows-event-feedback-task-assigned": "{{GENDER:$1|ви додели}} задача $3 на страницата $2, со напатствијата: $4",
 	"workflows-event-feedback-task-assigned-no-instructions": "{{GENDER:$1|ви додели}} задача $3 на страницата $2",
 	"workflows-ui-editor-inspector-id": "Назнака",
-	"workflows-ui-editor-inspector-id-help": "Мора да биде единствена за секој елемент на дијаграмот. Може да содржи само вакви знаци: [a-zA-Z0-9_]"
+	"workflows-ui-editor-inspector-id-help": "Мора да биде единствена за секој елемент на дијаграмот. Може да содржи само вакви знаци: [a-zA-Z0-9_]",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-index-help": "Индексирано од 0. Непостоечките предлошки се бројат како врски, за да не фигурираат на списоков.",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help": "Параметрите во предлошката можат да се укажат по име, или индексот во случај на неименувани параметри. Индексот за неименувани параметри почнува со 1 (не со 0!) за да биде доследен на начинот на којшто се доаѓа до параметрите во самата предлошка."
 }
