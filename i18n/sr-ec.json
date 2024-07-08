@@ -20,5 +20,7 @@
 	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Упутства",
 	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Крајњи рок",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Мања измена?",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Коментар"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Коментар",
+	"workflows-editor-editor-dialog-save-action-save": "Сачувај",
+	"workflows-editor-editor-dialog-save-action-cancel": "Откажи"
 }

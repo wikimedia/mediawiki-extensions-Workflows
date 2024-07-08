@@ -254,7 +254,7 @@
 	"workflows-ui-editor-inspector-gateway-title": "Порта",
 	"workflows-ui-editor-inspector-gateway-notice": "ПОртата ќе ја процени вредноста на тука даденото својство и ќе ја избере следната активност во зависност од вредноста. За да укажете по која патека да оди, означете ги патеките со очекуваните вредности на својството.",
 	"workflows-ui-editor-inspector-name": "Назив",
-	"workflows-ui-editor-inspector-process-title": "Провери процес",
+	"workflows-ui-editor-inspector-process-title": "Измена на контекстот на процесот",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Сврзи за преработка",
 	"workflows-ui-editor-inspector-process-name": "Име на процесот",
 	"workflows-ui-editor-inspector-activity-send-mail-title": "Активност: испратена е-пошта",
@@ -345,5 +345,9 @@
 	"workflows-ui-editor-inspector-id": "Назнака",
 	"workflows-ui-editor-inspector-id-help": "Мора да биде единствена за секој елемент на дијаграмот. Може да содржи само вакви знаци: [a-zA-Z0-9_]",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template-index-help": "Индексирано од 0. Непостоечките предлошки се бројат како врски, за да не фигурираат на списоков.",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help": "Параметрите во предлошката можат да се укажат по име, или индексот во случај на неименувани параметри. Индексот за неименувани параметри почнува со 1 (не со 0!) за да биде доследен на начинот на којшто се доаѓа до параметрите во самата предлошка."
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help": "Параметрите во предлошката можат да се укажат по име, или индексот во случај на неименувани параметри. Индексот за неименувани параметри почнува со 1 (не со 0!) за да биде доследен на начинот на којшто се доаѓа до параметрите во самата предлошка.",
+	"workflows-editor-default-xml-not-found": "Не ја пронајдов стандардната XML-дефиниција. Не можам да создадам нови дијаграми",
+	"workflows-editor-editor-dialog-save-title": "Зачувај дијаграм",
+	"workflows-editor-editor-dialog-save-action-save": "Зачувај",
+	"workflows-editor-editor-dialog-save-action-cancel": "Откажи"
 }

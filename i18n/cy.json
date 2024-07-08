@@ -4,5 +4,7 @@
 			"Afalau"
 		]
 	},
-	"workflows-ui-editor-inspector-id": "ID"
+	"workflows-ui-editor-inspector-id": "ID",
+	"workflows-editor-editor-dialog-save-action-save": "Cadw",
+	"workflows-editor-editor-dialog-save-action-cancel": "Canslo"
 }
