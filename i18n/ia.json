@@ -342,5 +342,11 @@
 	"workflows-event-feedback-task-assigned": "te {{GENDER:$1|ha assignate}} un carga $3 sur le pagina $2, con instructiones: $4",
 	"workflows-event-feedback-task-assigned-no-instructions": "te {{GENDER:$1|ha assignate}} un carga $3 sur le pagina $2",
 	"workflows-ui-editor-inspector-id": "ID",
-	"workflows-ui-editor-inspector-id-help": "Debe esser unic pro cata elemento del diagramma. Pote continer solo tal characteres: [a-zA-Z0-9_]"
+	"workflows-ui-editor-inspector-id-help": "Debe esser unic pro cata elemento del diagramma. Pote continer solo tal characteres: [a-zA-Z0-9_]",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-index-help": "Indexate desde 0. Patronos non existente es contate como ligamines, de maniera que illos non es addite a iste lista.",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template-param-help": "Le parametros intra le patrono pote esser specificate per nomine, o per indice in caso de parametros sin nomine. Le indice pro parametros sin nomine comencia a 1 (non 0!) pro esser consistente con le maniera de accesso de parametros in le patrono mesme.",
+	"workflows-editor-default-xml-not-found": "Le definition XML standard non ha essite trovate, de maniera que non es possibile crear nove diagrammas",
+	"workflows-editor-editor-dialog-save-title": "Salveguardar diagramma",
+	"workflows-editor-editor-dialog-save-action-save": "Salveguardar",
+	"workflows-editor-editor-dialog-save-action-cancel": "Cancellar"
 }
