@@ -241,5 +241,8 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Feedback",
 	"workflows-workflow-file-definition-user-feedback-desc": "Bitte einen Benutzer um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
 	"workflows-workflow-file-definition-document-control-title": "Qualitätsgesicherte Bearbeitung",
-	"workflows-workflow-file-definition-document-control-desc": "Bitte einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt."
+	"workflows-workflow-file-definition-document-control-desc": "Bitte einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-editor-editor-dialog-save-title": "Diagramm speichern",
+	"workflows-editor-editor-dialog-save-action-save": "Speichern",
+	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen"
 }
