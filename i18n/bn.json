@@ -6,6 +6,7 @@
 			"আফতাবুজ্জামান"
 		]
 	},
+	"workflows-global-action-overview": "কর্মপ্রবাহ",
 	"workflows-ui-workflow-overview-action-back": "পিছনে",
 	"workflows-activity-property-instructions": "নির্দেশাবলী",
 	"workflows-activity-property-username": "ব্যবহারকারী নাম",
@@ -36,5 +37,5 @@
 	"workflows-ui-editor-inspector-name": "নাম",
 	"workflows-ui-editor-inspector-process-title": "প্রক্রিয়া পরিদর্শন করুন",
 	"workflows-ui-editor-inspector-process-name": "প্রক্রিয়ার নাম",
-	"workflows-global-action-overview": "কর্মপ্রবাহ"
+	"workflows-editor-editor-dialog-save-action-save": "সংরক্ষণ করুন"
 }
