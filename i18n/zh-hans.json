@@ -51,5 +51,6 @@
 	"workflows-workflow-file-definition-user-feedback-title": "单个用户反馈",
 	"workflows-workflow-file-definition-user-feedback-desc": "当巡查一个页面时向一名用户询问反馈意见。完成此操作后，特定接收人将会收到电子邮件通知。",
 	"workflows-workflow-file-definition-document-control-title": "专家文档控制",
-	"workflows-workflow-file-definition-document-control-desc": "请一位用户编辑页面，并请另一位专家用户复核这些更改。然后请第三个用户接受并发布该页面。完成此操作后，一封电子邮件通知将发送给指定的收件人。"
+	"workflows-workflow-file-definition-document-control-desc": "请一位用户编辑页面，并请另一位专家用户复核这些更改。然后请第三个用户接受并发布该页面。完成此操作后，一封电子邮件通知将发送给指定的收件人。",
+	"workflows-ui-starter-action-choose": "选择"
 }

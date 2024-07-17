@@ -265,5 +265,7 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Avis d’un seul utilisateur",
 	"workflows-workflow-file-definition-user-feedback-desc": "Demander à un utilisateur son avis en relisant une page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié.",
 	"workflows-workflow-file-definition-document-control-title": "Contrôle de document par un expert",
-	"workflows-workflow-file-definition-document-control-desc": "Demander à un utilisateur de modifier une page et à un autre utilisateur expert de relire ces modifications. Puis demander à un troisième utilisateur d’accepter et de publier la page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié."
+	"workflows-workflow-file-definition-document-control-desc": "Demander à un utilisateur de modifier une page et à un autre utilisateur expert de relire ces modifications. Puis demander à un troisième utilisateur d’accepter et de publier la page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié.",
+	"workflows-event-task-due-date-proximity-links-message": "Veuillez visiter la page au lien suivant pour voir vos tâches",
+	"workflows-ui-editor-inspector-id": "ID"
 }

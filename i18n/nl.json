@@ -3,9 +3,11 @@
 		"authors": [
 			"DiGro",
 			"Dnlweijers",
+			"HanV",
 			"Mainframe98",
 			"McDutchie",
 			"Robin van der Vliet",
+			"Romaine",
 			"Vistaus"
 		]
 	},
@@ -282,7 +284,7 @@
 	"workflows-ui-editor-inspector-gateway-title": "Gateway",
 	"workflows-ui-editor-inspector-gateway-notice": "De gateway evalueert de waarde van de hier opgegeven eigenschap en kiest op basis van deze waarde de volgende activiteit. Om op te geven welk pad moet worden gevolgd, labelt u de paden met de verwachte waarden van de eigenschap",
 	"workflows-ui-editor-inspector-name": "Naam",
-	"workflows-ui-editor-inspector-process-title": "Proces inspecteren",
+	"workflows-ui-editor-inspector-process-title": "Procescontext bewerken",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Aan versie binden",
 	"workflows-ui-editor-inspector-process-name": "Procesnaam",
 	"workflows-workflow-file-definition-group-feedback-title": "Groepsfeedback",
@@ -292,5 +294,11 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Feedback van één gebruiker",
 	"workflows-workflow-file-definition-user-feedback-desc": "Een gebruiker om feedback vragen tijdens het beoordelen van een pagina. Zodra dit klaar is wordt een e-mailbericht naar de opgegeven ontvanger gestuurd.",
 	"workflows-workflow-file-definition-document-control-title": "Documentcontrole door expert",
-	"workflows-workflow-file-definition-document-control-desc": "Vraag een gebruiker de pagina te bewerken en vraag dan een andere expert-gebruiker om de wijzigingen na te kijken. Vraag dan een derde gebruiker om de pagina te accepteren en te publiceren. Als dit eenmaal is gedaan zal een e-mailnotificatie worden verzonden aan de gespecificeerde ontvanger."
+	"workflows-workflow-file-definition-document-control-desc": "Vraag een gebruiker de pagina te bewerken en vraag dan een andere expert-gebruiker om de wijzigingen na te kijken. Vraag dan een derde gebruiker om de pagina te accepteren en te publiceren. Als dit eenmaal is gedaan zal een e-mailnotificatie worden verzonden aan de gespecificeerde ontvanger.",
+	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Inhoud",
+	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "Kleine aanpassing?",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Gebruiker",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template_param": "Parameterindex",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Kleine aanpassing?",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Opmerking"
 }

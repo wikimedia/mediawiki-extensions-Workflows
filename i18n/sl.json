@@ -92,5 +92,10 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Mnenje posameznega uporabnika",
 	"workflows-workflow-file-definition-user-feedback-desc": "Med pregledovanjem strani prosite posameznega uporabnika za mnenje. Ko je to storjeno, se navedenemu prejemniku pošlje e-poštno obvestilo.",
 	"workflows-workflow-file-definition-document-control-title": "Strokovni pregled dokumenta",
-	"workflows-workflow-file-definition-document-control-desc": "Prosite urejevalca, da uredi stran, strokovnjaka pa, naj pregleda te spremembe. Nato prosite tretjega uporabnika, da stran sprejme in objavi. Ko je to storjeno, se navedenemu prejemniku pošlje e-poštno obvestilo."
+	"workflows-workflow-file-definition-document-control-desc": "Prosite urejevalca, da uredi stran, strokovnjaka pa, naj pregleda te spremembe. Nato prosite tretjega uporabnika, da stran sprejme in objavi. Ko je to storjeno, se navedenemu prejemniku pošlje e-poštno obvestilo.",
+	"workflows-ui-editor-inspector-process-title": "Urejanje konteksta procesa",
+	"workflows-editor-default-xml-not-found": "Privzete definicije XML ni bilo mogoče najti; novih diagramov ni mogoče ustvariti.",
+	"workflows-editor-editor-dialog-save-title": "Shrani diagram",
+	"workflows-editor-editor-dialog-save-action-save": "Shrani",
+	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči"
 }
