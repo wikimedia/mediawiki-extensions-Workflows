@@ -6,6 +6,7 @@
 			"McDutchie",
 			"Mschlindwein",
 			"Osnard",
+			"TMg",
 			"Talex42",
 			"Umlaut"
 		]
@@ -149,7 +150,7 @@
 	"workflows-property-validator-valid-user-error": "Benutzer \"$1\" ist kein gültiger Benutzer",
 	"workflows-property-validator-valid-title-error": "\"$1\" ist kein gültiger Titel",
 	"workflows-property-validator-required-error": "Wert ist erforderlich",
-	"workflows-property-validator-valid-task-executor-error": "Benutzer \"$1\" {{GENDER:$1| hat keine Berechtigungen}} die zugewiesene Aufgabe abzuschließen",
+	"workflows-property-validator-valid-task-executor-error": "{{GENDER:$1|Benutzer|Benutzerin}} \"$1\" hat keine Berechtigungen, die zugewiesene Aufgabe abzuschließen",
 	"workflows-property-validator-email-recipient-error": "Wert “$1” ist keine gültige Email-Adresse oder kein Benutzer mit einer gültigen Email-Adresse",
 	"workflows-ui-overview-details-section-past": "Vergangene Aktivitäten",
 	"workflows-default-user-feedback-report-subject": "Die Begutachtung \"User feedback\" auf der Seite \"$1\" ist abgeschlossen",
@@ -264,5 +265,8 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Feedback",
 	"workflows-workflow-file-definition-user-feedback-desc": "Bitte einen Benutzer um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
 	"workflows-workflow-file-definition-document-control-title": "Qualitätsgesicherte Bearbeitung",
-	"workflows-workflow-file-definition-document-control-desc": "Bitte einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt."
+	"workflows-workflow-file-definition-document-control-desc": "Bitte einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-editor-editor-dialog-save-title": "Diagramm speichern",
+	"workflows-editor-editor-dialog-save-action-save": "Speichern",
+	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen"
 }

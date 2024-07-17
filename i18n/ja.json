@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chqaz",
 			"MathXplore",
 			"Shirayuki",
 			"春春眠眠",
@@ -58,5 +59,6 @@
 	"workflows-workflow-file-definition-user-feedback-title": "単一利用者のフィードバック",
 	"workflows-workflow-file-definition-user-feedback-desc": "ページをレビューしながら、利用者のグループにフィードバックを求めます。これが完了すると、メール通知が指定された受信者に送信されます。",
 	"workflows-workflow-file-definition-document-control-title": "エキスパート文書管理",
-	"workflows-workflow-file-definition-document-control-desc": "1 人の利用者にページの編集を依頼し、別のエキスパート利用者にそれらの変更のレビューを依頼します。次に、3 番目の利用者にページを承認して公開するよう依頼します。これが完了すると、メール通知が指定された受信者に送信されます。"
+	"workflows-workflow-file-definition-document-control-desc": "1 人の利用者にページの編集を依頼し、別のエキスパート利用者にそれらの変更のレビューを依頼します。次に、3 番目の利用者にページを承認して公開するよう依頼します。これが完了すると、メール通知が指定された受信者に送信されます。",
+	"workflows-collect-data-form-groupname": "グループ"
 }

@@ -37,5 +37,7 @@
 	"workflows-activity-property-comment": "Մեկնաբանություն",
 	"workflows-activity-property-assigned_user": "Նշանակված մասնակից",
 	"workflows-activity-property-action": "Գործողություն",
-	"workflows-ui-trigger-field-conditions": "Պայմաններ"
+	"workflows-ui-trigger-field-conditions": "Պայմաններ",
+	"workflows-editor-editor-dialog-save-action-save": "Հիշել",
+	"workflows-editor-editor-dialog-save-action-cancel": "Չեղարկել"
 }
