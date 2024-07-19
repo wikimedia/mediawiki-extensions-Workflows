@@ -120,6 +120,12 @@ class TriggerRepo {
 	 */
 	private function load( $content = null ) {
 		$this->triggers = [];
+		// Avoid errors during initial install, when
+		// `MediaWiki:WorkflowTriggers` does not exist yet
+		if ( defined( 'MEDIAWIKI_INSTALL' ) || defined( 'MW_UPDATER' ) ) {
+			$this->loaded = true;
+			return;
+		}
 		if ( $content === null ) {
 			$this->setWikipage();
 			if ( $this->wikipage ) {
