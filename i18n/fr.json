@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Gomoko",
+			"MacOS Weed",
 			"Paraboule",
 			"SleaY",
 			"Verdy p"
@@ -44,7 +45,7 @@
 	"workflows-ui-task-completion-dialog-title": "Terminer une activité",
 	"workflows-ui-task-completion-action-complete": "Soumettre",
 	"workflows-ui-task-completion-action-cancel": "Annuler",
-	"workflows-uto-activity-custom_form": "Requête personnalisée",
+	"workflows-uto-activity-custom_form": "Formulaire personnalisé",
 	"workflows-uto-activity-user_vote": "Vote d’utilisateur",
 	"workflows-uto-activity-group_vote": "Vote de groupe",
 	"workflows-uto-activity-user_feedback": "Avis d’utilisateur",
