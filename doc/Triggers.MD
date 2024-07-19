@@ -1,7 +1,7 @@
 # Trigger management
 
 Workflows can be triggered on different conditions, by defining a `trigger`. Those are defined on a wiki page
-( default: `MediaWiki:WorkflowTriggers.json` )
+( default: `MediaWiki:WorkflowTriggers` )
 
 ## Format
 Triggers are kept in JSON format, in an object, where key is the unique name of the trigger, and value is the definition of the trigger.
