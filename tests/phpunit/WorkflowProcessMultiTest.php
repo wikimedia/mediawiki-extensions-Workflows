@@ -9,6 +9,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Workflows\Workflow
+ * @group Database
  */
 class WorkflowProcessMultiTest extends MediaWikiIntegrationTestCase {
 	/** @var TestDefinitionRepository */
