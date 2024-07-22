@@ -1,19 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mschlindwein"
+			"Mschlindwein",
+			"Vhoesl"
 		]
 	},
 	"workflows-form-delegate-header-comment": "Diese Aufgabe wurde von Benutzer $1 an Sie weitergegeben, mit dem Kommentar: $2",
 	"workflows-ui-alert-activity-edit-request": "Sie wurden aufgefordert, diese Seite zu bearbeiten",
-	"workflows-notification-task-assign-email-sub": "Ihnen wurde die Aufgabe auf $1 zugewiesen",
-	"workflows-notification-task-assign-email-body": "Bitte besuchen Sie diese Seite um die \"$1\" Aufgabe abzuschließen, die Ihnen zugewiesen wurde",
-	"workflows-notification-user-vote-delegate-web": "$1 hat die Aufgabe $3 an Sie {{GENDER: $1| weitergegeben}}",
-	"workflows-notification-user-vote-delegate-email-sub": "$1 hat die Aufgabe $3 auf Seite $2 an Sie {{GENDER:$1 | weitergegeben}}",
 	"workflows-ui-overview-details-action-abort-note": "Einen Workflow abzubrechen wird sofort alle laufenden Aufgaben beenden. Sind Sie sicher, dass Sie diesen Workflow abbrechen möchten?",
 	"workflows-ui-overview-details-action-restore-note": "Die Wiederherstellung eines Workflows setzt den Workflow in dem Zustand fort, in dem er abgebrochen wurde. Sind Sie sicher, dass Sie diesen Workflow wiederherstellen möchten?",
 	"workflows-workflow-file-definition-group-feedback-desc": "Bitten Sie eine Gruppe von Benutzern um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
 	"workflows-workflow-file-definition-user-approval-desc": "Bitten Sie einen Benutzer diese Seite freizugeben. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
 	"workflows-workflow-file-definition-user-feedback-desc": "Bitten Sie einen Benutzer um Feedback zu dieser Seite. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
-	"workflows-workflow-file-definition-document-control-desc": "Bitten Sie einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt."
+	"workflows-workflow-file-definition-document-control-desc": "Bitten Sie einen Benutzer eine Bearbeitung durchzuführen. Ein weiterer Benutzer muss die Änderung als Experte bestätigen und durch einen Hauptverantwortlichen freigeben lassen. Das Ergebnis wird per Mail an einen anzugebenden Empfänger geschickt.",
+	"workflows-event-task-assigned-bot": "Ihnen wurde die Aufgabe $2 auf Seite $1 zugewiesen",
+	"workflows-event-task-assigned-links-message": "Bitte besuchen Sie die Seite unter dem folgenden Link, um die Aufgabe zu erledigen",
+	"workflows-event-task-due-data-proximity": "Ihre Aufgabe $2 auf Seite $1 ist bald fällig. Sobald das Fälligkeitsdatum überschritten ist, wird der Workflow automatisch abgebrochen",
+	"workflows-event-task-due-date-proximity-links-message": "Bitte besuchen Sie die Seite unter dem folgenden Link, um Ihre Aufgaben zu sehen",
+	"workflows-event-feedback-task-assigned": "{{GENDER:$1|hat}} Ihnen die Aufgabe $3 auf Seite $2 mit der folgenden Anweisung zugewiesen: $4",
+	"workflows-event-feedback-task-assigned-no-instructions": "{{GENDER:$1|hat}} Ihnen die Aufgabe $3 auf Seite $2 zugewiesen"
 }
