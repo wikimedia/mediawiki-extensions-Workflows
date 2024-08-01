@@ -21,10 +21,10 @@
 			}
 		}.bind( this ) );
 
-		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repository, this.workflowSource.definition, this.startData )
+		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repository, this.workflowSource.definition, this.startData, initData )
 			.done( function( activity ) {
 				if ( activity ) {
-					activity.getForm( { buttons: [], properties: initData } ).done( function( formObject ) {
+					activity.getForm( { buttons: [] } ).done( function( formObject ) {
 						this.$element.append( this.workflowTitle.$element );
 						this.$element.append( this.workflowDesc.$element );
 						this.$element.append(
