@@ -93,7 +93,7 @@
 		return this.post( 'start/' + repository + '/' + type, data );
 	};
 
-	workflows.api.Api.prototype.dryStartWorkflow = function ( repository, type, data ) {
+	workflows.api.Api.prototype.dryStartWorkflow = function ( repository, type, data, initData ) {
 		return this.post( 'dry_start/' +  repository + '/' + type, data );
 	};
 

@@ -99,11 +99,14 @@ window.workflows = {
 		form: {}
 	},
 	_internal: {
-		_withStartContext: function ( data, callback ) {
+		_withStartContext: function ( data, callback, initData ) {
 			if ( !data.hasOwnProperty( 'startData' ) ) {
 				data = {
 					startData: data
 				};
+			}
+			if ( initData && !data.hasOwnProperty( 'initData' ) ) {
+				data.initData = initData;
 			}
 			var dfd = $.Deferred();
 			mw.loader.using( [ "ext.workflows.api", "ext.workflows.objects" ], function() {
@@ -200,7 +203,7 @@ window.workflows = {
 				} );
 			} );
 		},
-		dryStartWorkflowOfType: function( repository, type, data ) {
+		dryStartWorkflowOfType: function( repository, type, data, initData ) {
 			return workflows._internal._withStartContext( data, function( api, data, dfd ) {
 				api.dryStartWorkflow( repository, type, data ).done( function( response ) {
 					if ( response.initializer !== null ) {
@@ -214,7 +217,7 @@ window.workflows = {
 				} ).fail( function ( error ) {
 					dfd.reject( error );
 				} );
-			} );
+			}, initData );
 		}
 	},
 	list: {

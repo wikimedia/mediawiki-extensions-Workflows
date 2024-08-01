@@ -84,12 +84,20 @@ final class ActivityManager {
 	 * @throws WorkflowExecutionException
 	 */
 	public function startActivity( IActivity $activity ) {
+		return $this->startActivityWithAdditionalData( $activity, [] );
+	}
+
+	/**
+	 * @param IActivity $activity
+	 * @param array $data
+	 * @return true
+	 * @throws WorkflowExecutionException
+	 */
+	public function startActivityWithAdditionalData( IActivity $activity, array $data ) {
+		$properties = array_merge( $this->getActivityProperties( $activity ), $data );
 		$this->assertMembers( $activity );
 		// Process (parse) activity properties before starting
-		$this->setActivityProperties(
-			$activity,
-			$this->parseValues( $this->getActivityProperties( $activity ) )
-		);
+		$this->setActivityProperties( $activity, $this->parseValues( $properties ) );
 		$activity->start(
 			$this->getActivityProperties( $activity ), $this->workflow->getContext()
 		);
