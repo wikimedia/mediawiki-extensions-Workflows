@@ -8,6 +8,7 @@
 			"Osnard",
 			"TMg",
 			"Talex42",
+			"TomatoCake",
 			"Umlaut",
 			"Vhoesl"
 		]
@@ -274,7 +275,7 @@
 	"workflows-event-task-due-data-proximity": "Deine Aufgabe $2 auf Seite $1 ist bald fällig. Sobald das Fälligkeitsdatum überschritten ist, wird der Workflow automatisch abgebrochen",
 	"workflows-event-task-due-date-proximity-links-message": "Bitte besuche die Seite unter dem folgenden Link, um deine Aufgaben zu sehen",
 	"workflows-event-workflow-ended-key-desc": "Workflow abgeschlossen",
-	"workflows-event-workflow-ended": "Der Workflow \"$2\" auf Seite $1 wurde abgeschlossen",
+	"workflows-event-workflow-ended": "Der Workflow „$2“ auf Seite $1 wurde abgeschlossen",
 	"workflows-event-workflow-aborted-key-desc": "Workflow abgebrochen",
 	"workflows-event-workflow-aborted": "{{GENDER:$1|hat}} den Workflow \"$3\" auf Seite $2 abgebrochen. Grund: $4",
 	"workflows-event-workflow-aborted-no-reason": "{{GENDER:$1|hat}} den Workflow \"$3\" auf Seite $2 abgebrochen",
