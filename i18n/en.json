@@ -343,5 +343,6 @@
 	"workflows-editor-default-xml-not-found": "Default XML definition not found, cannot create new diagrams",
 	"workflows-editor-editor-dialog-save-title": "Save diagram",
 	"workflows-editor-editor-dialog-save-action-save": "Save",
-	"workflows-editor-editor-dialog-save-action-cancel": "Cancel"
+	"workflows-editor-editor-dialog-save-action-cancel": "Cancel",
+	"workflows-ui-overview-details-has-notice-label": "Has notice?"
 }
