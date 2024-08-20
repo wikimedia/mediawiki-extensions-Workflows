@@ -53,6 +53,8 @@
 			exportable: true,
 			columns: {
 				has_notice: {
+					headerText: mw.message( 'workflows-ui-overview-details-has-notice-label' ).text(),
+					invisibleLabel: true,
 					type: "icon",
 					width: 35
 				},
