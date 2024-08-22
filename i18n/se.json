@@ -8,6 +8,7 @@
 	"workflows-ui-starter-action-choose": "Vállje",
 	"workflows-ui-starter-action-cancel": "Gaskkalduhte",
 	"workflows-ui-task-completion-action-cancel": "Gaskkalduhte",
+	"workflows-form-placeholder-comment": "Kommentára",
 	"workflows-ui-workflow-overview-action-cancel": "Gidde",
 	"workflows-ui-overview-details-state-running": "Jođus",
 	"workflows-collect-data-form-username": "Geavaheaddji",
@@ -18,5 +19,6 @@
 	"workflows-action-delete-label": "Sihko",
 	"workflows-ui-trigger-field-description": "Govvádus",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Geavaheaddji",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Geavaheaddji"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Geavaheaddji",
+	"workflows-editor-editor-dialog-save-action-save": "Vurke"
 }
