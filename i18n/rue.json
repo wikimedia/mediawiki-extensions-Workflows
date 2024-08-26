@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gramo Džukić",
-			"Gramo6"
+			"Gramo6",
+			"Constraque"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Убрати",
@@ -20,5 +21,6 @@
 	"workflows-form-instructions-comment": "Коментарь",
 	"workflows-ui-overview-details-initiator": "Заложив",
 	"workflows-ui-overview-details-action-details-column": "побзерати детайлы",
-	"workflows-collect-data-form-groupname": "Ґрупа"
+	"workflows-collect-data-form-groupname": "Ґрупа",
+	"workflows-ui-overview-details-has-notice-label": "Ці вы хоць увідїли?"
 }
