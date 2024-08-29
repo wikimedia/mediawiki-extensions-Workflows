@@ -392,7 +392,7 @@
 					if ( typeof proximity === 'number' && proximity < 0 ) {
 						label.$element.addClass( 'proximity-overdue' );
 					}
-					this.sectionLayout.addItems( dueDateLayout );
+					this.sectionLayout.addItems( [ dueDateLayout ] );
 				}
 			}
 
