@@ -7,10 +7,11 @@ use MediaWiki\User\UserIdentity;
 use Message;
 use MWStake\MediaWiki\Component\Events\BotAgent;
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
+use MWStake\MediaWiki\Component\Events\PriorityEvent;
 use MWStake\MediaWiki\Component\Events\TitleEvent;
 use Title;
 
-class WorkflowEndedEvent extends TitleEvent {
+class WorkflowEndedEvent extends TitleEvent implements PriorityEvent {
 
 	/** @var array */
 	private $targetUsers;

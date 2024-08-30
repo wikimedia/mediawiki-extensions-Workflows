@@ -6,10 +6,11 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use Message;
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
+use MWStake\MediaWiki\Component\Events\PriorityEvent;
 use MWStake\MediaWiki\Component\Events\TitleEvent;
 use Title;
 
-class VoteEvent extends TitleEvent {
+class VoteEvent extends TitleEvent implements PriorityEvent {
 	/** @var string */
 	private $activity;
 
