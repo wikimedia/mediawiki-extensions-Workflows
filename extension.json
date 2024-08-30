@@ -156,7 +156,7 @@
 				"workflows"
 			]
 		},
-		"Notifications": {
+		"NotifyMe": {
 			"Events": {
 				"workflows-event-task-assigned": {
 					"spec": {
