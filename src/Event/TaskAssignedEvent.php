@@ -7,10 +7,11 @@ use MediaWiki\User\UserIdentity;
 use Message;
 use MWStake\MediaWiki\Component\Events\BotAgent;
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
+use MWStake\MediaWiki\Component\Events\PriorityEvent;
 use MWStake\MediaWiki\Component\Events\TitleEvent;
 use Title;
 
-class TaskAssignedEvent extends TitleEvent {
+class TaskAssignedEvent extends TitleEvent implements PriorityEvent {
 	/** @var string */
 	private $activity;
 
