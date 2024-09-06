@@ -25,7 +25,7 @@
 			<bpmn:property name="username" validation="existing-user"/>
 			<bpmn:property name="instructions"/>
 			<bpmn:property name="reportrecipient" validation="email-recipient"/>
-			<bpmn:property name="due_date"/>
+			<bpmn:property name="due_date">{{#time:YmdHis|now + 7days}}</bpmn:property>
 			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
 			<bpmn:outgoing>FromCollectDataToUserFeedback</bpmn:outgoing>
 		</bpmn:userTask>
@@ -38,7 +38,7 @@
 			<bpmn:property name="assigned_user">{{{CollectData.username}}}</bpmn:property>
 			<bpmn:property name="instructions">{{{CollectData.instructions}}}</bpmn:property>
 			<bpmn:property name="comment"/>
-			<bpmn:property name="due_date">{{#time:YmdHis|{{{CollectData.due_date}}} + 7days}}</bpmn:property>
+			<bpmn:property name="due_date">{{{CollectData.due_date}}}</bpmn:property>
 			<bpmn:incoming>FromCollectDataToUserFeedback</bpmn:incoming>
 			<bpmn:outgoing>FromUserFeedbackToSendMail</bpmn:outgoing>
 		</bpmn:userTask>
