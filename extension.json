@@ -156,7 +156,7 @@
 				"workflows"
 			]
 		},
-		"Notifications": {
+		"NotifyMe": {
 			"Events": {
 				"workflows-event-task-assigned": {
 					"spec": {
@@ -354,7 +354,8 @@
 				"workflows-ui-overview-grid-filter-state-all",
 				"workflows-ui-overview-grid-filter-state-active",
 				"workflows-error-generic",
-				"workflows-ui-overview-details-section-assignee"
+				"workflows-ui-overview-details-section-assignee",
+				"workflows-ui-overview-details-has-notice-label"
 			],
 			"dependencies": [
 				"ext.oOJSPlus.data",
@@ -783,7 +784,7 @@
 		"remoteExtPath": "Workflows/resources"
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": [ "runDatabaseUpdates" ],
+		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
 		"BeforePageDisplay": "addBootstrap",
 		"ContentHandlerDefaultModelFor": "setContentModels",
 		"SkinTemplateNavigation::Universal": "addActions",

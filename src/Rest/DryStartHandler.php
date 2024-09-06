@@ -18,6 +18,12 @@ class DryStartHandler extends StartHandler {
 		$engine->start( $this->getBodyData( 'startData' ), true );
 		$initializer = $this->getInitializer( $engine );
 		if ( $initializer ) {
+			$initData = $this->getBodyData( 'initData', null );
+			if ( $initData ) {
+				$engine->getActivityManager()->startActivityWithAdditionalData( $initializer, $initData );
+			} else {
+				$engine->getActivityManager()->startActivity( $initializer );
+			}
 			$serializer = new ActivitySerializer( $engine );
 			$initializer = $serializer->serialize( $initializer );
 		}

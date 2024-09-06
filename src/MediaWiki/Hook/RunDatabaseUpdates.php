@@ -9,27 +9,33 @@ use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
 
 class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function onLoadExtensionSchemaUpdates( $updater ) {
+		$dbType = $updater->getDB()->getType();
+		$dir = dirname( __DIR__, 3 );
+
 		$updater->addExtensionTable(
-			'workflow_event',
-			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_event.sql'
+			'workflows_event',
+			"$dir/db/$dbType/workflows_event.sql"
 		);
 
 		$updater->addExtensionTable(
 			'workflows_state',
-			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_state.sql'
+			"$dir/db/$dbType/workflows_state.sql"
 		);
 
 		$updater->addExtensionField(
 			'workflows_state',
 			'wfs_started',
-			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_state_start_patch.sql'
+			"$dir/db/$dbType/workflows_state_start_patch.sql"
 		);
 
 		$updater->addExtensionField(
 			'workflows_state',
 			'wfs_assignees',
-			dirname( dirname( dirname( __DIR__ ) ) ) . '/db/workflows_state_assignees_patch.sql'
+			"$dir/db/$dbType/workflows_state_assignees_patch.sql"
 		);
 
 		$updater->addPostDatabaseUpdateMaintenance(
@@ -43,7 +49,5 @@ class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
 		$updater->addPostDatabaseUpdateMaintenance(
 			UpdateLegacyAssignees::class
 		);
-
-		return true;
 	}
 }
