@@ -376,5 +376,6 @@
 	"workflows-editor-default-xml-not-found": "הגדרת ברירת המחדל של XML לא נמצאה, לא ניתן ליצור תרשימים חדשים",
 	"workflows-editor-editor-dialog-save-title": "שמירת תרשים",
 	"workflows-editor-editor-dialog-save-action-save": "שמירה",
-	"workflows-editor-editor-dialog-save-action-cancel": "ביטול"
+	"workflows-editor-editor-dialog-save-action-cancel": "ביטול",
+	"workflows-ui-overview-details-has-notice-label": "יש הודעה?"
 }

@@ -276,7 +276,7 @@
 	"workflows-ui-editor-inspector-activity-initializer": "Користи како започнувач",
 	"workflows-ui-editor-inspector-activity-section-initializer": "Започнувач",
 	"workflows-ui-editor-inspector-gateway-title": "Порта",
-	"workflows-ui-editor-inspector-gateway-notice": "ПОртата ќе ја процени вредноста на тука даденото својство и ќе ја избере следната активност во зависност од вредноста. За да укажете по која патека да оди, означете ги патеките со очекуваните вредности на својството.",
+	"workflows-ui-editor-inspector-gateway-notice": "Портата ќе ја процени вредноста на тука даденото својство и ќе ја избере следната активност во зависност од вредноста. За да укажете по која патека да оди, означете ги патеките со очекуваните вредности на својството.",
 	"workflows-ui-editor-inspector-name": "Назив",
 	"workflows-ui-editor-inspector-process-title": "Измена на контекстот на процесот",
 	"workflows-ui-editor-inspector-process-bind-to-revision": "Сврзи за преработка",
@@ -373,5 +373,6 @@
 	"workflows-editor-default-xml-not-found": "Не ја пронајдов стандардната XML-дефиниција. Не можам да создадам нови дијаграми",
 	"workflows-editor-editor-dialog-save-title": "Зачувај дијаграм",
 	"workflows-editor-editor-dialog-save-action-save": "Зачувај",
-	"workflows-editor-editor-dialog-save-action-cancel": "Откажи"
+	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
+	"workflows-ui-overview-details-has-notice-label": "Има напомена?"
 }
