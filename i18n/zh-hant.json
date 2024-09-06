@@ -218,5 +218,21 @@
 	"workflows-editor-default-xml-not-found": "找不到預設的 XML 定義，無法建立新圖表",
 	"workflows-editor-editor-dialog-save-title": "儲存圖表",
 	"workflows-editor-editor-dialog-save-action-save": "儲存",
-	"workflows-editor-editor-dialog-save-action-cancel": "取消"
+	"workflows-editor-editor-dialog-save-action-cancel": "取消",
+	"workflows-form-label-vote-widget-approve": "同意",
+	"workflows-form-label-vote-widget-decline": "拒絕",
+	"workflows-form-delegate-header": "使用者$1委託了此任務給您",
+	"workflows-ui-overview-details-activity-automatic": "自動任務。在背景處理中…",
+	"workflows-activity-history-vote-result-yes": "已同意",
+	"workflows-activity-history-vote-result-no": "已拒絕",
+	"workflows-ui-workflow-overview-step-name-user-vote-approval": "同意",
+	"workflows-activity-set-template-params-no-target": "定義目標模板不存在指定的頁面上",
+	"workflows-activity-property-usernameApprover": "同意者",
+	"workflows-editor-title": "正在編輯$1",
+	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "要使用的表單",
+	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "收件者",
+	"workflows-ui-editor-inspector-activity-edit-page-property-content": "內容",
+	"workflows-ui-editor-inspector-activity-group-feedback-property-assignment-type-group-assignment": "群組分配",
+	"workflows-ui-editor-inspector-activity-group-vote-property-assignment-type": "分配類型",
+	"workflows-event-vote-key-desc": "使用者已在工作流程任務上投票"
 }

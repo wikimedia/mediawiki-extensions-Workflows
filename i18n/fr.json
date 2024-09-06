@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Gomoko",
+			"MacOS Weed",
 			"Paraboule",
 			"SleaY",
 			"Verdy p"
@@ -44,7 +45,7 @@
 	"workflows-ui-task-completion-dialog-title": "Terminer une activité",
 	"workflows-ui-task-completion-action-complete": "Soumettre",
 	"workflows-ui-task-completion-action-cancel": "Annuler",
-	"workflows-uto-activity-custom_form": "Requête personnalisée",
+	"workflows-uto-activity-custom_form": "Formulaire personnalisé",
 	"workflows-uto-activity-user_vote": "Vote d’utilisateur",
 	"workflows-uto-activity-group_vote": "Vote de groupe",
 	"workflows-uto-activity-user_feedback": "Avis d’utilisateur",
@@ -267,5 +268,11 @@
 	"workflows-workflow-file-definition-document-control-title": "Contrôle de document par un expert",
 	"workflows-workflow-file-definition-document-control-desc": "Demander à un utilisateur de modifier une page et à un autre utilisateur expert de relire ces modifications. Puis demander à un troisième utilisateur d’accepter et de publier la page. Une fois ceci fait, une notification par courriel est envoyée au destinataire spécifié.",
 	"workflows-event-task-due-date-proximity-links-message": "Veuillez visiter la page au lien suivant pour voir vos tâches",
-	"workflows-ui-editor-inspector-id": "ID"
+	"workflows-ui-editor-inspector-id": "ID",
+	"workflows-editor-editor-field-summary": "Résumé",
+	"workflows-editor-editor-button-save": "Enregistrer",
+	"workflows-editor-editor-button-cancel": "Annuler",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace": "Remplacer",
+	"workflows-editor-editor-dialog-save-action-save": "Enregistrer",
+	"workflows-editor-editor-dialog-save-action-cancel": "Annuler"
 }
