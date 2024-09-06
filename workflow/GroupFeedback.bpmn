@@ -25,7 +25,7 @@
 			<bpmn:property name="groupname"/>
 			<bpmn:property name="instructions"/>
 			<bpmn:property name="reportrecipient" validation="email-recipient"/>
-			<bpmn:property name="due_date">{{CURRENTTIMESTAMP}}</bpmn:property>
+			<bpmn:property name="due_date">{{#time:YmdHis|now + 7days}}</bpmn:property>
 			<bpmn:property name="threshold_unit">user</bpmn:property>
 			<bpmn:property name="threshold_value">2</bpmn:property>
 			<bpmn:incoming>FromTheStartToCollectData</bpmn:incoming>
@@ -41,7 +41,7 @@
 			<bpmn:property name="instructions">{{{CollectData.instructions}}}</bpmn:property>
 			<bpmn:property name="comment"/>
 			<bpmn:property name="users_feedbacks"/>
-			<bpmn:property name="due_date">{{#time:YmdHis|{{{CollectData.due_date}}} + 7days}}</bpmn:property>
+			<bpmn:property name="due_date">{{{CollectData.due_date}}}</bpmn:property>
 			<bpmn:property name="threshold_unit">{{{CollectData.threshold_unit}}}</bpmn:property>
 			<bpmn:property name="threshold_value">{{{CollectData.threshold_value}}}</bpmn:property>
 			<bpmn:incoming>FromCollectDataToGroupFeedback</bpmn:incoming>
