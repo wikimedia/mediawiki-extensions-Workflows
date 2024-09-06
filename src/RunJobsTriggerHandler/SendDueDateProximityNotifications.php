@@ -26,6 +26,9 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 		}
 		// Next part checks for due dates
 		$current = $workflow->current();
+		if ( !$current ) {
+			return;
+		}
 		foreach ( $current as $element ) {
 			if ( !$element instanceof ITask ) {
 				continue;
@@ -78,7 +81,7 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 		$this->notifier->emit(
 			new DueDateProximityEvent(
 				$workflow->getContext()->getContextPage(),
-				$workflow->getActivityManager()->getTargetUsersForActivity( $activity ),
+				$workflow->getActivityManager()->getTargetUsersForActivity( $activity, true ),
 				$activity->getActivityDescriptor()->getActivityName(),
 				$workflow->getContext()->getInitiator()
 			)
