@@ -41,7 +41,7 @@
 				}
 			},
 			{
-				"name": "wfe_payload",
+				"name": "wfs_payload",
 				"type": "text",
 				"options": {
 					"notnull": false
@@ -100,7 +100,7 @@
 				}
 			},
 			{
-				"name": "wfe_payload",
+				"name": "wfs_payload",
 				"type": "text",
 				"options": {
 					"notnull": false
