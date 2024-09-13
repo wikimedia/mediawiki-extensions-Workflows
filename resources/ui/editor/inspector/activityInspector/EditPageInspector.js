@@ -15,13 +15,12 @@ workflows.editor.inspector.EditPageInspector.prototype.getItems = function() {
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
 		},
 		{
-			type: 'title',
+			type: 'text',
 			name: 'properties.title',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-title' ).text(),
-			required: true
 		},
 		{
-			type: 'user_picker',
+			type: 'text',
 			name: 'properties.user',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-user' ).text(),
 			help: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-user-help' ).text(),
