@@ -10,6 +10,6 @@ CREATE TABLE workflows_state (
   wfs_assignees TEXT DEFAULT NULL,
   wfs_touched TIMESTAMPTZ DEFAULT NULL,
   wfs_started TIMESTAMPTZ DEFAULT NULL,
-  wfe_payload TEXT DEFAULT NULL,
+  wfs_payload TEXT DEFAULT NULL,
   PRIMARY KEY(wfs_workflow_id)
 );
