@@ -10,6 +10,6 @@ CREATE TABLE /*_*/workflows_state (
   wfs_assignees LONGTEXT DEFAULT NULL,
   wfs_touched BINARY(14) DEFAULT NULL,
   wfs_started BINARY(14) DEFAULT NULL,
-  wfe_payload LONGTEXT DEFAULT NULL,
+  wfs_payload LONGTEXT DEFAULT NULL,
   PRIMARY KEY(wfs_workflow_id)
 ) /*$wgDBTableOptions*/;

@@ -10,6 +10,6 @@ CREATE TABLE /*_*/workflows_state (
   wfs_assignees CLOB DEFAULT NULL,
   wfs_touched BLOB DEFAULT NULL,
   wfs_started BLOB DEFAULT NULL,
-  wfe_payload CLOB DEFAULT NULL,
+  wfs_payload CLOB DEFAULT NULL,
   PRIMARY KEY(wfs_workflow_id)
 );
