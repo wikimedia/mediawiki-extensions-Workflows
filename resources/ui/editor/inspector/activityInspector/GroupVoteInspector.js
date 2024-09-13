@@ -37,17 +37,15 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 			}
 		},
 		{
-			type: 'user_multiselect',
+			type: 'text',
 			name: 'properties.assigned_users',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_users' ).text(),
-			widget_$overlay: this.dialog.$overlay
+			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_users' ).text()
 		},
 		{
-			type: 'group_picker',
+			type: 'text',
 			name: 'properties.assigned_group',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assigned_group' ).text(),
-			hidden: true,
-			widget_$overlay: this.dialog.$overlay
+			hidden: true
 		},
 		{
 			type: 'text',
@@ -55,10 +53,9 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-instructions' ).text()
 		},
 		{
-			type: 'date',
+			type: 'text',
 			name: 'properties.due_date',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text(),
-			required: true
+			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text()
 		},
 		{
 			type: 'dropdown',
@@ -157,13 +154,14 @@ workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = fun
 };
 
 workflows.editor.inspector.GroupVoteInspector.prototype.preprocessDataForModelUpdate = function( data ) {
+	data = workflows.editor.inspector.GroupVoteInspector.parent.prototype.preprocessDataForModelUpdate.call( this, data );
 	if ( data.assignmentType === 'user-list' ) {
 		delete ( data['properties']['assigned_group'] );
 	}
 	if ( data.assignmentType === 'group' ) {
 		delete ( data['properties']['assigned_users'] );
 	}
-	return workflows.editor.inspector.GroupVoteInspector.parent.prototype.preprocessDataForModelUpdate.call( this, data );
+	return data;
 };
 
 workflows.editor.inspector.Registry.register( 'group_vote', workflows.editor.inspector.GroupVoteInspector );

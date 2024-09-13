@@ -16,30 +16,31 @@ workflows.editor.inspector.ActivityInspector.prototype.getItems = function() {
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
 		}
 	];
-	for ( var propertyName in this.elementData.properties ) {
-		if ( !this.elementData.properties.hasOwnProperty( propertyName ) ) {
-			continue;
-		}
-		if ( this.getNonEditableProperties().indexOf( propertyName ) === -1 ) {
-			items.push( this.getPropertyField( propertyName ) );
-		}
-	}
+
 	items.push( {
 		type: 'multiplier',
-		name: 'additionalProperties',
+		name: 'propertiesManual',
 		noLayout: true,
 		addNewLabel: mw.message( 'workflows-ui-editor-inspector-properties-additional' ).text(),
-		style: 'border-top: 1px solid #ddd; margin-top: 10px;',
-		returnType: 'object',
-		returnKey: 'propertyName',
-		base: [ {
+
+		wrapInHorizontal: true,
+		style: 'padding-left: 40px',
+		base: [{
+			type: 'label',
+			widget_label: mw.message( 'workflows-ui-editor-inspector-properties-additional-name' ).text(),
+		},{
 			type: 'text',
 			name: 'propertyName',
-			label: mw.message( 'workflows-ui-editor-inspector-properties-additional-name' ).text()
+			noLayout: true,
+			style: 'width: 40%'
+		}, {
+			type: 'label',
+			widget_label: mw.message( 'workflows-ui-editor-inspector-properties-additional-value' ).text(),
 		}, {
 			type: 'text',
 			name: 'propertyValue',
-			label: mw.message( 'workflows-ui-editor-inspector-properties-additional-value' ).text()
+			noLayout: true,
+			style: 'width: 40%'
 		} ],
 		listeners: {
 			change: function() {
@@ -50,14 +51,6 @@ workflows.editor.inspector.ActivityInspector.prototype.getItems = function() {
 	return items;
 };
 
-workflows.editor.inspector.ActivityInspector.prototype.getPropertyField = function( propertyName ) {
-	return {
-		type: 'text',
-		name: 'properties.' + propertyName,
-		label: this.getPropertyLabel( propertyName ),
-	};
-};
-
 workflows.editor.inspector.ActivityInspector.prototype.getPropertyLabel = function( propertyName ) {
 	var msg = mw.message( 'workflows-activity-property-' + propertyName );
 	if ( msg.exists() ) {
@@ -66,18 +59,34 @@ workflows.editor.inspector.ActivityInspector.prototype.getPropertyLabel = functi
 	return propertyName;
 };
 
-workflows.editor.inspector.ActivityInspector.prototype.preprocessDataForModelUpdate = function( data ) {
-	data.properties = data.properties || {};
-	for ( var additionalProperty in data.additionalProperties ) {
-		if ( !data.additionalProperties.hasOwnProperty( additionalProperty ) ) {
+workflows.editor.inspector.ActivityInspector.prototype.convertDataForForm = function( data ) {
+	data = workflows.editor.inspector.ActivityInspector.parent.prototype.convertDataForForm.call( this, data );
+	var properties = [];
+	for ( var propertyKey in data.properties ) {
+		if ( !data.properties.hasOwnProperty( propertyKey ) ) {
 			continue;
 		}
-		if ( data.properties.hasOwnProperty( additionalProperty ) ) {
-			continue;
-		}
-		data.properties[additionalProperty] = data.additionalProperties[additionalProperty].propertyValue;
+		properties.push( {
+			propertyName: propertyKey,
+			propertyValue: data.properties[propertyKey]
+		} );
 	}
+	data.propertiesManual = properties;
 
+	return data;
+};
+
+workflows.editor.inspector.ActivityInspector.prototype.preprocessDataForModelUpdate = function( data ) {
+	data = workflows.editor.inspector.ActivityInspector.parent.prototype.preprocessDataForModelUpdate.call( this, data );
+	data.properties = data.properties || {};
+	var processedProperties = {};
+	if ( data.hasOwnProperty( 'propertiesManual' ) ) {
+		for ( var i = 0; i < data.propertiesManual.length; i++ ) {
+			processedProperties[data.propertiesManual[i].propertyName] = data.propertiesManual[i].propertyValue;
+		}
+
+	}
+	data.properties = $.extend( data.properties, processedProperties );
 	return data;
 };
 

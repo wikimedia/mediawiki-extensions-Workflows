@@ -15,11 +15,9 @@ workflows.editor.inspector.UserVoteInspector.prototype.getItems = function() {
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
 		},
 		{
-			type: 'user_picker',
+			type: 'text',
 			name: 'properties.assigned_user',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-assigned_user' ).text(),
-			required: true,
-			widget_$overlay: this.dialog.$overlay
 		},
 		{
 			type: 'text',
@@ -27,11 +25,9 @@ workflows.editor.inspector.UserVoteInspector.prototype.getItems = function() {
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-instructions' ).text()
 		},
 		{
-			type: 'date',
+			type: 'text',
 			name: 'properties.due_date',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text(),
-			widget_$overlay: this.dialog.$overlay,
-			required: true
 		},
 		{
 			type: 'text',
