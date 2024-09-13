@@ -37,17 +37,14 @@ workflows.editor.inspector.GroupFeedbackInspector.prototype.getItems = function(
 			}
 		},
 		{
-			type: 'user_multiselect',
+			type: 'text',
 			name: 'properties.assigned_users',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-feedback-property-assigned_users' ).text(),
-			required: true,
-			widget_$overlay: this.dialog.$overlay
 		},
 		{
-			type: 'group_picker',
+			type: 'text',
 			name: 'properties.assigned_group',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-group-feedback-property-assigned_group' ).text(),
-			widget_$overlay: this.dialog.$overlay,
 			hidden: true
 		},
 		{
@@ -56,11 +53,9 @@ workflows.editor.inspector.GroupFeedbackInspector.prototype.getItems = function(
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-instructions' ).text()
 		},
 		{
-			type: 'date',
+			type: 'text',
 			name: 'properties.due_date',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text(),
-			widget_$overlay: this.dialog.$overlay,
-			required: true
 		},
 		{
 			type: 'dropdown',
