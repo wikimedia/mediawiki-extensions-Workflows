@@ -141,7 +141,9 @@
 				detailsAction: {
 					type: "action",
 					actionId: 'details',
+					headerText: mw.message( 'workflows-ui-overview-details-action-details-column' ).text(),
 					title: mw.message( 'workflows-ui-overview-details-action-details-column' ).text(),
+					invisibleHeader: true,
 					icon: 'infoFilled'
 				}
 			},
