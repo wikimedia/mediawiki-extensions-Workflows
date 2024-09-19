@@ -38,6 +38,12 @@ class RunDatabaseUpdates implements LoadExtensionSchemaUpdatesHook {
 			"$dir/db/$dbType/workflows_state_assignees_patch.sql"
 		);
 
+		$updater->dropExtensionField(
+			'workflows_state',
+			'wfe_payload',
+			"$dir/db/$dbType/workflows_state_column_name_patch.sql"
+		);
+
 		$updater->addPostDatabaseUpdateMaintenance(
 			CreateDefaultTriggersPage::class
 		);
