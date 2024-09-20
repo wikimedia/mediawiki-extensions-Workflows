@@ -47,6 +47,9 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 							if ( typeof inputs[key].setRequired === 'function' ) {
 								inputs[key].setRequired( false );
 							}
+							if ( typeof inputs[key].setValidation === 'function' ) {
+								inputs[key].setValidation( null );
+							}
 						}
 					}
 					formObject.connect( this, {
