@@ -16,6 +16,7 @@ use MWStake\MediaWiki\Component\Events\BotAgent;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use MWStake\MediaWiki\Component\Events\Notifier;
 use RawMessage;
+use Throwable;
 
 /**
  * Class responsible for sending out notifications
@@ -51,6 +52,13 @@ class WorkflowNotifier implements Consumer {
 	 * @throws WorkflowExecutionException
 	 */
 	public function handle( Message $message ) {
+		try {
+			$storage = $this->workflow->getStorage();
+		} catch ( Throwable $e ) {
+			// Workflow not found
+			return;
+		}
+
 		if ( $message->aggregateRootId() !== $this->workflow->getStorage()->aggregateRootId() ) {
 			// Not a message for us
 			return;
