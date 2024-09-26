@@ -9,6 +9,7 @@
 		this.activity = activity || {};
 		this.action = activity.getState() === workflows.state.activity.COMPLETE ? 'view' : 'edit';
 		this.moduleData = cfg.moduleData || {};
+		this.$overlay = cfg.$overlay || true;
 
 		var formConfig = {};
 		if ( this.moduleData.hasOwnProperty( 'definitionJSON' ) ) {

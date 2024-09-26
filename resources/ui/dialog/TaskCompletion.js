@@ -32,7 +32,7 @@
 			expanded: true,
 			padded: true
 		} );
-		this.activity.getForm( { buttons: [] } ).done( function( form ) {
+		this.activity.getForm( { buttons: [], $overlay: this.$overlay } ).done( function( form ) {
 			this.form = form;
 			this.form.getForm().connect( this, {
 				layoutChange: function() {
