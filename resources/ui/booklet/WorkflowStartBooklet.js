@@ -16,7 +16,9 @@
 				repos: this.repos,
 				$overlay: this.$overlay
 			} ),
-			init: new workflows.ui.WorkflowStartPage( 'init' )
+			init: new workflows.ui.WorkflowStartPage( 'init', {
+				$overlay: this.$overlay
+			} )
 		};
 
 		this.addPages( Object.values( this.pages ) );

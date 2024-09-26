@@ -2,6 +2,7 @@
 	workflows.ui.WorkflowStartPage = function( name, cfg ) {
 		workflows.ui.WorkflowStartPage.parent.call( this, name, cfg );
 		this.form = null;
+		this.$overlay = cfg.$overlay || true;
 	};
 
 	OO.inheritClass( workflows.ui.WorkflowStartPage, OO.ui.PageLayout );
@@ -24,7 +25,7 @@
 		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repository, this.workflowSource.definition, this.startData, initData )
 			.done( function( activity ) {
 				if ( activity ) {
-					activity.getForm( { buttons: [] } ).done( function( formObject ) {
+					activity.getForm( { buttons: [], $overlay: this.$overlay } ).done( function( formObject ) {
 						this.$element.append( this.workflowTitle.$element );
 						this.$element.append( this.workflowDesc.$element );
 						this.$element.append(
