@@ -82,6 +82,8 @@ final class Workflow {
 	private $permissionManager;
 	/** @var User|null */
 	private $actor = null;
+	/** @var null */
+	private $operatingActor = null;
 	/** @var WorkflowContext */
 	private $publicContext = null;
 	/** @var WorkflowContextMutable */
@@ -227,6 +229,7 @@ final class Workflow {
 	 * @param User $user
 	 */
 	public function setActor( User $user ) {
+		$this->operatingActor = $user;
 		$this->actor = $user;
 		$this->getPrivateContext()->setActor( $user );
 	}
@@ -490,6 +493,11 @@ final class Workflow {
 		return $this->completedTasks;
 	}
 
+	/**
+	 * @param ITask $task
+	 * @return IActivity
+	 * @throws PermissionsError
+	 */
 	public function getActivityForTask( ITask $task ) {
 		$this->assertMembers( __METHOD__ );
 		$this->assertActorCan( 'view' );
@@ -1048,8 +1056,10 @@ final class Workflow {
 		if ( $this->runsAsBotProcess() ) {
 			return;
 		}
-		if ( !$this->actor instanceof User ) {
-			return;
+		$right = "workflows-$action";
+		$actor = $this->operatingActor ?? RequestContext::getMain()->getUser();
+		if ( !( $actor instanceof User ) ) {
+			throw new PermissionsError( $right );
 		}
 		if ( $this->state === self::STATE_RUNNING ) {
 			$initiator = $this->getContext()->getInitiator();
@@ -1058,14 +1068,14 @@ final class Workflow {
 				return;
 			}
 		}
-		$right = "workflows-$action";
+
 		if ( $task instanceof ITask ) {
 			$extElements = $task->getExtensionElements();
 			if ( isset( $extElements['permission' ] ) ) {
 				$right = $extElements['permission'];
 			}
 		}
-		if ( !$this->permissionManager->userHasRight( $this->getActor(), $right ) ) {
+		if ( !$this->permissionManager->userHasRight( $actor, $right ) ) {
 			throw new PermissionsError( $right );
 		}
 	}
