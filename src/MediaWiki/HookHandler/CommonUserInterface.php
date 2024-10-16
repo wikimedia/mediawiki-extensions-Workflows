@@ -34,6 +34,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 				'factory' => static function () use ( $specialOverview ) {
 					return new RestrictedTextLink( [
 						'id' => 'ga-bs-workflows',
+						'role' => 'menuitem',
 						'href' => $specialOverview->getLocalURL(),
 						'text' => Message::newFromKey( 'workflows-global-action-overview' ),
 						'title' => Message::newFromKey( 'workflows-global-action-overview-desc' ),
@@ -58,6 +59,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 				'factory' => static function () use ( $triggerPage ) {
 					return new RestrictedTextLink( [
 						'id' => 'bs-workflow-triggers',
+						'role' => 'menuitem',
 						'href' => $triggerPage->getLocalURL(),
 						'text' => Message::newFromKey( 'workflows-ui-trigger-page-title' ),
 						'title' => Message::newFromKey( 'workflows-ui-trigger-page-desc' ),
