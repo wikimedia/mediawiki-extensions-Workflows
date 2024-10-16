@@ -44,6 +44,8 @@ use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use PermissionsError;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use RequestContext;
 use TitleFactory;
 use User;
@@ -105,20 +107,14 @@ final class Workflow {
 	 * @param string $definitionId
 	 * @param IDefinitionRepository $definitionRepository
 	 * @return self
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
 	 */
 	public static function newEmpty( $definitionId, $definitionRepository ) {
+		$instance = self::create();
 		$services = MediaWikiServices::getInstance();
-
-		$activityManagerFactory = $services->get( 'WorkflowsActivityManagerFactory' );
-		$activityManager = $activityManagerFactory->newActivityManager();
-		$instance = new self (
-			$services->getService( 'WorkflowLogicObjectFactory' ),
-			$activityManager,
-			$services->getPermissionManager(),
-			$services->getTitleFactory()
-		);
 		$workflowNotifierFactory = $services->getService( 'WorkflowsNotifierFactory' );
-		$workflowNotifier = $workflowNotifierFactory->createNotifier( $instance, $activityManager );
+		$workflowNotifier = $workflowNotifierFactory->createNotifier( $instance, $instance->getActivityManager() );
 		/** @var WorkflowEventRepository $eventRepo */
 		$eventRepo = $services->getService( 'WorkflowEventRepository' );
 		$eventRepo->addConsumerToDispatcher( $workflowNotifier );
@@ -140,6 +136,26 @@ final class Workflow {
 	}
 
 	/**
+	 * To be called when instantiating workflows from a job or similar process
+	 * Forces the actor to a system user
+	 * @param WorkflowId $id
+	 * @param WorkflowEventRepository $repo
+	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
+	 * @return Workflow
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 * @throws WorkflowExecutionException
+	 */
+	public static function newFromInstanceIDForBot(
+		WorkflowId $id, WorkflowEventRepository $repo,
+		DefinitionRepositoryFactory $definitionRepositoryFactory
+	) {
+		$instance = self::create();
+		$actor = User::newSystemUser( 'Mediawiki default', [ 'steal' => true ] );
+		return self::setup( $id, $repo, $definitionRepositoryFactory, $instance, $actor );
+	}
+
+	/**
 	 * Get engine from storage, use when loading an existing process
 	 * Resulting engine will already be at the point that was last saved
 	 *
@@ -147,23 +163,37 @@ final class Workflow {
 	 * @param WorkflowEventRepository $repo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
 	 * @return self
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
 	 * @throws WorkflowExecutionException
 	 */
 	public static function newFromInstanceID(
 		WorkflowId $id, WorkflowEventRepository $repo,
 		DefinitionRepositoryFactory $definitionRepositoryFactory
 	) {
+		$instance = self::create();
+		return self::setup( $id, $repo, $definitionRepositoryFactory, $instance );
+	}
+
+	/**
+	 * @param WorkflowId $id
+	 * @param WorkflowEventRepository $repo
+	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
+	 * @param Workflow $instance
+	 * @param User|null $actor
+	 * @return Workflow
+	 * @throws WorkflowExecutionException
+	 */
+	private static function setup(
+		WorkflowId $id, WorkflowEventRepository $repo, DefinitionRepositoryFactory $definitionRepositoryFactory,
+		Workflow $instance, ?User $actor = null
+	): Workflow {
 		$services = MediaWikiServices::getInstance();
-		$activityManagerFactory = $services->get( 'WorkflowsActivityManagerFactory' );
-		$activityManager = $activityManagerFactory->newActivityManager();
-		$instance = new self(
-			$services->getService( 'WorkflowLogicObjectFactory' ),
-			$activityManager,
-			$services->getPermissionManager(),
-			$services->getTitleFactory()
-		);
+		if ( $actor ) {
+			$instance->setActor( $actor );
+		}
 		$workflowNotifierFactory = $services->getService( 'WorkflowsNotifierFactory' );
-		$workflowNotifier = $workflowNotifierFactory->createNotifier( $instance, $activityManager );
+		$workflowNotifier = $workflowNotifierFactory->createNotifier( $instance, $instance->getActivityManager() );
 		$repo->addConsumerToDispatcher( $workflowNotifier );
 
 		$repo->setWorkflowForReplay( $instance, $definitionRepositoryFactory );
@@ -178,7 +208,7 @@ final class Workflow {
 		// Check if current process should be continued
 		if ( $instance->actionFlags & self::_CONTINUE_EXECUTION_FLAG ) {
 			$first = null;
-			if ( $instance->current && !empty( $instance->current ) ) {
+			if ( !empty( $instance->current ) ) {
 				$first = $instance->current( array_keys( $instance->current )[0] );
 			}
 			$instance->continueExecution( $first );
@@ -187,6 +217,23 @@ final class Workflow {
 			$instance->persist( $repo );
 		}
 		return $instance;
+	}
+
+	/**
+	 * @return self
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 */
+	private static function create() {
+		$services = MediaWikiServices::getInstance();
+		$activityManagerFactory = $services->get( 'WorkflowsActivityManagerFactory' );
+		$activityManager = $activityManagerFactory->newActivityManager();
+		return new self(
+			$services->getService( 'WorkflowLogicObjectFactory' ),
+			$activityManager,
+			$services->getPermissionManager(),
+			$services->getTitleFactory()
+		);
 	}
 
 	/**

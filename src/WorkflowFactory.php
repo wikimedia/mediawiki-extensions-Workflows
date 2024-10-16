@@ -5,8 +5,11 @@ namespace MediaWiki\Extension\Workflows;
 use EventSauce\EventSourcing\AggregateRootId;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
+use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class WorkflowFactory {
 	/** @var WorkflowEventRepository */
@@ -38,6 +41,20 @@ class WorkflowFactory {
 	): Workflow {
 		return Workflow::newFromInstanceID(
 			$aggregateRootId, $this->eventRepo, $this->definitionRepositoryFactory
+		);
+	}
+
+	/**
+	 * No permission checks, for bot or internal use only
+	 * @param WorkflowId $workflowId
+	 * @return Workflow
+	 * @throws WorkflowExecutionException
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 */
+	public function getWorkflowForBot( WorkflowId $workflowId ): Workflow {
+		return Workflow::newFromInstanceIDForBot(
+			$workflowId, $this->eventRepo, $this->definitionRepositoryFactory
 		);
 	}
 
