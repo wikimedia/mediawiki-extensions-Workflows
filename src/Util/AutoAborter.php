@@ -34,6 +34,9 @@ class AutoAborter {
 		}
 		// Next part checks for due dates
 		$current = $workflow->current();
+		if ( !$current ) {
+			return false;
+		}
 		foreach ( $current as $element ) {
 			if ( !$element instanceof ITask ) {
 				continue;
