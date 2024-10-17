@@ -195,7 +195,7 @@
 	"workflows-ui-workflow-overview-step-name-user-vote": "Name of workflow step, which is bind to activity.\n{{Identical|User vote}}",
 	"workflows-ui-workflow-overview-step-name-user-feedback": "Name of workflow step, which is bind to activity.\n{{Identical|User feedback}}",
 	"workflows-ui-workflow-overview-step-name-group-feedback": "Name of workflow step, which is bound to activity.\n{{Identical|Group feedback}}",
-	"workflows-ui-workflow-overview-step-name-edit-request": "Name of workflow step, which is bind to activity.\n{{Identical|Edit request}}",
+	"workflows-ui-workflow-overview-step-name-edit-request": "Name of workflow step, which is bind to activity. '''The message means “a request to edit”, not “edit the request”!'''\n{{Identical|Edit request}}",
 	"workflows-ui-workflow-overview-step-name-collect-data": "Name of workflow step, which is bind to activity.\n{{Identical|Collect data}}",
 	"workflows-activity-set-template-params-no-target": "Error message when template that was requested cannot be found on the page",
 	"workflows-activity-error-no-revision": "Generic error message when no valid revision can be found",
