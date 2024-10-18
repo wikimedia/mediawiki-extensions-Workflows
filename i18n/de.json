@@ -317,5 +317,12 @@
 	"workflows-event-vote-delegate": "{{GENDER:$1|hat}} die Abstimmung zur Workflow-Aufgabe \"$3\" auf Seite $2 an $5 mit dem folgenden Kommentar delegiert: $4",
 	"workflows-event-vote-delegate-no-comment": "{{GENDER:$1|hat}} die Abstimmung zur Workflow-Aufgabe \"$3\" auf Seite $2 an $4 delegiert",
 	"workflows-event-feedback-task-assigned": "{{GENDER:$1|hat}} dir die Aufgabe $3 auf Seite $2 mit der folgenden Anweisung zugewiesen: $4",
-	"workflows-event-feedback-task-assigned-no-instructions": "{{GENDER:$1|hat}} dir die Aufgabe $3 auf Seite $2 zugewiesen"
+	"workflows-event-feedback-task-assigned-no-instructions": "{{GENDER:$1|hat}} dir die Aufgabe $3 auf Seite $2 zugewiesen",
+	"workflows-ui-editor-inspector-name": "Name",
+	"workflows-ui-editor-inspector-process-title": "Prozesskontext bearbeiten",
+	"workflows-ui-editor-inspector-process-name": "Prozessname",
+	"workflows-ui-editor-inspector-activity-send-mail-title": "Aktivität „E-Mail senden“",
+	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Empfänger",
+	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Betreff",
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Inhalt"
 }
