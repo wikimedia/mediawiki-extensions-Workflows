@@ -7,8 +7,8 @@
 		]
 	},
 	"workflows-ui-starter-action-choose": "Убрати",
-	"workflows-ui-starter-action-cancel": "Зрушыти",
-	"workflows-ui-task-completion-action-cancel": "Зрушыти",
+	"workflows-ui-starter-action-cancel": "Зрушити",
+	"workflows-ui-task-completion-action-cancel": "Зрушити",
 	"workflows-form-placeholder-comment": "Коментарь",
 	"workflows-form-label-vote-widget-decline": "Удхылити",
 	"workflows-ui-workflow-overview-action-cancel": "Заперти",

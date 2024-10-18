@@ -23,5 +23,6 @@
 	"workflows-ui-action-cancel": "Nuligar",
 	"workflows-ui-trigger-action-create": "Konservez",
 	"workflows-ui-trigger-field-name": "Nomo",
-	"workflows-action-edit-label": "Redaktar"
+	"workflows-action-edit-label": "Redaktar",
+	"workflows-ui-overview-details-raw-data-popup-value": "Valoro"
 }

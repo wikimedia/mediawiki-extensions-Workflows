@@ -372,5 +372,6 @@
 	"workflows-editor-default-xml-not-found": "Le definition XML standard non ha essite trovate, de maniera que non es possibile crear nove diagrammas",
 	"workflows-editor-editor-dialog-save-title": "Salveguardar diagramma",
 	"workflows-editor-editor-dialog-save-action-save": "Salveguardar",
-	"workflows-editor-editor-dialog-save-action-cancel": "Cancellar"
+	"workflows-editor-editor-dialog-save-action-cancel": "Cancellar",
+	"workflows-ui-overview-details-has-notice-label": "Ha nota?"
 }
