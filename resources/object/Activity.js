@@ -3,6 +3,7 @@
 		workflows.object.Activity.parent.call( this, cfg, workflow );
 
 		this.properties = cfg.properties || {};
+		this.rawProperties = cfg.rawProperties || {};
 		this.state = cfg.status;
 	};
 
@@ -10,6 +11,10 @@
 
 	workflows.object.Activity.prototype.getProperties = function() {
 		return this.properties;
+	};
+
+	workflows.object.Activity.prototype.getRawProperties = function() {
+		return this.rawProperties;
 	};
 
 	/**
