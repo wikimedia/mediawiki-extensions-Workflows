@@ -344,5 +344,6 @@
 	"workflows-editor-editor-dialog-save-title": "Save diagram",
 	"workflows-editor-editor-dialog-save-action-save": "Save",
 	"workflows-editor-editor-dialog-save-action-cancel": "Cancel",
-	"workflows-ui-overview-details-has-notice-label": "Has notice?"
+	"workflows-ui-overview-details-has-notice-label": "Has notice?",
+	"workflows-ui-trigger-type-label": "Trigger type"
 }

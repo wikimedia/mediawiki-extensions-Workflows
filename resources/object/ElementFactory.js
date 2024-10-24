@@ -19,18 +19,18 @@
 					this.getElementData( [
 						'userInteractionModule', 'properties', 'status',
 						'isInitializer', 'targetUsers', 'description', 'history',
-						'displayData'
+						'displayData', 'rawProperties'
 					] ), this.workflow
 				);
 			} else if ( elementData.isDescribed ) {
 				return new workflows.object.DescribedActivity(
 					this.getElementData( [
-						'properties', 'status', 'description', 'history', 'displayData'
+						'properties', 'status', 'description', 'history', 'displayData', 'rawProperties'
 					] ), this.workflow
 				);
 			} else {
 				return new workflows.object.Activity(
-					this.getElementData( [ 'properties', 'status' ] ), this.workflow
+					this.getElementData( [ 'properties', 'status', 'rawProperties' ] ), this.workflow
 				);
 			}
 		}

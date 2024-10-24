@@ -1,7 +1,6 @@
 ( function ( mw, $ ) {
 	workflows.ui.trigger.Manual = function( data, cfg ) {
 		workflows.ui.trigger.Manual.parent.call( this, data, cfg );
-		this.validateInitializer = false;
 	};
 
 	OO.inheritClass( workflows.ui.trigger.Manual, workflows.ui.trigger.PageRelated );

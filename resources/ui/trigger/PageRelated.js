@@ -2,7 +2,9 @@
 	workflows.ui.trigger.PageRelated = function( data, cfg ) {
 		cfg = cfg || {};
 		workflows.ui.trigger.PageRelated.parent.call( this, data, cfg );
-		workflows.ui.trigger.mixin.WorkflowSelector.call( this, cfg );
+		workflows.ui.trigger.mixin.WorkflowSelector.call( this, $.extend( cfg, {
+			useRawProperties: true
+		} ) );
 	};
 
 	OO.inheritClass( workflows.ui.trigger.PageRelated,workflows.ui.trigger.Trigger );

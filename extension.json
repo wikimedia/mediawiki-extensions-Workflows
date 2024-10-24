@@ -568,7 +568,8 @@
 				"workflows-ui-trigger-manual-workflows",
 				"workflows-ui-trigger-since-last-major-days",
 				"workflows-action-edit-label",
-				"workflows-action-delete-label"
+				"workflows-action-delete-label",
+				"workflows-ui-trigger-type-label"
 			],
 			"dependencies": [
 				"oojs-ui"
