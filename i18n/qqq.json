@@ -355,5 +355,6 @@
 	"workflows-editor-editor-dialog-save-title": "Label for the BPMN save dialog",
 	"workflows-editor-editor-dialog-save-action-save": "Label for the BPMN save dialog action\n{{Identical|Save}}",
 	"workflows-editor-editor-dialog-save-action-cancel": "Label for the BPMN cancel dialog action\n{{Identical|Cancel}}",
-	"workflows-ui-overview-details-has-notice-aria-label": "Invisible header label for the workflow type column"
+	"workflows-ui-overview-details-has-notice-aria-label": "Invisible header label for the workflow type column",
+	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create"
 }
