@@ -25,6 +25,7 @@ class ActivitySerializer {
 		$data = [
 			'status' => $activityManager->getActivityStatus( $activity ),
 			'properties' => $properties,
+			'rawProperties' => $activity->getTask()->getDataProperties(),
 			'isUserInteractive' => $activity instanceof UserInteractiveActivity,
 			'isDescribed' => $activity instanceof IDescribedActivity,
 			'isInitializer' => $activity instanceof UserInteractiveActivity && $activity->isInitializer(),
