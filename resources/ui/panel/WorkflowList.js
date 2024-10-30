@@ -83,7 +83,7 @@
 				},
 				assignee: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
-					type: "text",
+					type: "user",
 					valueParser: function( val, row ) {
 						var $layout = $( '<div>' );
 						for ( var i = 0; i < val.length; i++ ) {
@@ -98,8 +98,7 @@
 					filter: {
 						type: 'user',
 						closePopupOnChange: true
-					},
-					autoClosePopup: true
+					}
 				},
 				state: {
 					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text(),
