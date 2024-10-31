@@ -2,8 +2,8 @@ workflows.ui.trigger.mixin.WorkflowSelector = function( cfg ) {
 	cfg = cfg || {};
 	this.definition = null;
 	this.repository = null;
-	this.validateInitializer = true;
-	this.$overlay = cfg.$overlay || null;
+	this.useRawProperties = cfg.useRawProperties || false;
+	this.$overlay = cfg.$overlay || true;
 };
 
 OO.initClass( workflows.ui.trigger.mixin.WorkflowSelector );
@@ -17,8 +17,9 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 	.done( function( activity ) {
 		this.pickerLayout.$element.find( '.oojsplus-ui-expandable-panel' ).remove();
 		if ( activity ) {
+			var properties = this.useRawProperties ? activity.getRawProperties() : activity.getProperties();
 			var data = $.isEmptyObject( this.value.initData ) || this.value.initData.length === 0 ?
-				activity.properties : this.value.initData;
+				properties : this.value.initData;
 			activity.getForm( {
 				buttons: [], properties: data
 			} ).done( function( formObject ) {
@@ -38,18 +39,16 @@ workflows.ui.trigger.mixin.WorkflowSelector.prototype.loadInitializer = function
 							padded: false
 						} ).$element
 					);
-					if ( !this.validateInitializer ) {
-						var inputs = formObject.form.getItems()['inputs'] || {};
-						for ( var key in inputs ) {
-							if ( !inputs.hasOwnProperty( key ) ) {
-								continue;
-							}
-							if ( typeof inputs[key].setRequired === 'function' ) {
-								inputs[key].setRequired( false );
-							}
-							if ( typeof inputs[key].setValidation === 'function' ) {
-								inputs[key].setValidation( null );
-							}
+					var inputs = formObject.form.getItems()['inputs'] || {};
+					for ( var key in inputs ) {
+						if ( !inputs.hasOwnProperty( key ) ) {
+							continue;
+						}
+						if ( typeof inputs[key].setRequired === 'function' ) {
+							inputs[key].setRequired( false );
+						}
+						if ( typeof inputs[key].setValidation === 'function' ) {
+							inputs[key].setValidation( null );
 						}
 					}
 					formObject.connect( this, {

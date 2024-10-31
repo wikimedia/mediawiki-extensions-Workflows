@@ -6,10 +6,14 @@
 			padded: false,
 			expanded: false
 		} );
+
 		this.selectWidget = new OO.ui.DropdownWidget( {
 			$overlay: cfg.$overlay
 		} );
-		this.panel.$element.append( this.selectWidget.$element );
+		this.panel.$element.append( new OO.ui.FieldLayout( this.selectWidget, {
+			label: mw.msg( 'workflows-ui-trigger-type-label' ),
+			align: 'top'
+		} ).$element );
 
 		this.$element.append( this.panel.$element );
 	};
