@@ -53,7 +53,7 @@ class Workflows extends AttentionIndicator {
 	 */
 	public static function factory(
 		string $key, Config $config, User $user, MediaWikiServices $services,
-		WorkflowStateStore $stateStore = null, UserFactory $userFactory = null
+		?WorkflowStateStore $stateStore = null, ?UserFactory $userFactory = null
 	) {
 		if ( !$stateStore ) {
 			$stateStore = $services->getService( 'WorkflowsStateStore' );

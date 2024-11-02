@@ -25,7 +25,7 @@ class WorkflowDefinition {
 	 * @return static
 	 */
 	public static function factory(
-		$id, DefinitionSource $definitionSource, DefinitionContext $context = null, $elements = []
+		$id, DefinitionSource $definitionSource, ?DefinitionContext $context = null, $elements = []
 	) {
 		if ( !$context ) {
 			$context = new DefinitionContext();
