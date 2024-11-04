@@ -17,7 +17,6 @@
 	"workflows-form-label-vote-widget-approve": "အွောန်ႏအတီႏ",
 	"workflows-ui-alert-activity-edit-request-complete-button": "ထွား စဲင်းစဲ့အခရာႏဖုံႏ",
 	"workflows-activity-edit-request-name": "မွဉ်းဖျင်ကွီကော့ꩻမုꩻ",
-	"workflows-notification-user-vote-accept-web": "$1 {{GENDER:$1|လက်ခံႏလဲဉ်း}} လိတ်မဲ့ငါ $2",
 	"workflows-ui-workflow-overview-action-cancel": "ပေ့ꩻထိုꩻ",
 	"workflows-ui-overview-details-state-running": "ရုဲင်ꩻတသွိုးဒျာႏ",
 	"workflows-ui-overview-details-state-finished": "ထွူထိုꩻလဲဉ်း",

@@ -7,6 +7,7 @@
 			"Veracious"
 		]
 	},
+	"logentry-ext-workflows-sendmail-send": "Kirim surat: Surat dengan subjek ' $4 ' terkirim",
 	"workflows-ui-task-completion-action-complete": "Kirim",
 	"workflows-ui-task-completion-action-cancel": "Batal",
 	"workflows-form-placeholder-comment": "Komentar",
@@ -27,7 +28,6 @@
 	"workflows-activity-property-comment": "Komentar",
 	"workflows-activity-property-delegate_to": "Delegasikan ke",
 	"workflows-activity-property-action": "Tindakan",
-	"logentry-ext-workflows-sendmail-send": "Kirim surat: Surat dengan subjek ' $4 ' terkirim",
 	"workflows-editor-editor-dialog-save-title": "Simpan diagram",
 	"workflows-editor-editor-dialog-save-action-save": "Simpan",
 	"workflows-editor-editor-dialog-save-action-cancel": "Batal"

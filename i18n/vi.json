@@ -8,6 +8,7 @@
 	},
 	"workflows-ui-starter-action-choose": "Chọn",
 	"workflows-ui-starter-action-cancel": "Hủy bỏ",
+	"logentry-ext-workflows-sendmail-send": "Gửi thư: Đã gửi thư có chủ đề ' $4 '",
 	"workflows-ui-task-completion-action-complete": "Đăng",
 	"workflows-ui-task-completion-action-cancel": "Hủy bỏ",
 	"workflows-uto-activity-user_feedback": "Phản hồi của người dùng",
@@ -32,6 +33,5 @@
 	"workflows-collect-data-form-groupname": "Nhóm",
 	"workflows-collect-data-form-username": "Người dùng",
 	"workflows-activity-history-vote-result-yes": "Chấp nhận",
-	"workflows-activity-history-vote-result-no": "Từ chối",
-	"logentry-ext-workflows-sendmail-send": "Gửi thư: Đã gửi thư có chủ đề ' $4 '"
+	"workflows-activity-history-vote-result-no": "Từ chối"
 }

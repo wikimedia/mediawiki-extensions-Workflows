@@ -151,16 +151,16 @@
 	"workflows-ui-action-cancel": "Откажи",
 	"workflows-ui-trigger-action-create": "Зачувај",
 	"workflows-ui-trigger-action-choose": "Продолжи",
-	"workflows-ui-trigger-editor-dialog-title": "Покревач на работен тек",
+	"workflows-ui-trigger-editor-dialog-title": "покренувач на работен тек",
 	"workflows-ui-trigger-page-title": "Покревачи на работни текови",
 	"workflows-ui-trigger-page-desc": "Овозможува определување на услови за отпочнување на работен тек",
-	"workflows-ui-trigger-delete-dialog-title": "Избриши покревач",
+	"workflows-ui-trigger-delete-dialog-title": "Избриши покренувач",
 	"workflows-ui-trigger-action-delete": "Избриши",
 	"workflows-ui-trigger-delete-prompt": "Дали сигурно сакате да го избришете покревачот „$1“?",
 	"workflows-ui-triggers-error-delete-fail": "Не успеав да го избришам покревачот",
-	"workflows-ui-trigger-choose-error": "Не можев да го вклучам уредникот за избраниот вид на покревач",
+	"workflows-ui-trigger-choose-error": "Не можев да го вклучам уредникот за избраниот вид на покренувач",
 	"workflows-ui-triggers-error-persist-fail": "Не успеав да го одржам покревачот",
-	"workflows-ui-triggers-add-button": "Додај нов покревач",
+	"workflows-ui-triggers-add-button": "Додај нов покренувач",
 	"workflows-ui-workflow-trigger-editor-booklet-page-details-title": "Поединости за покревачот",
 	"workflows-ui-trigger-editor-error": "Примерокот на уредникот е неважечки",
 	"workflows-ui-trigger-init-form": "Првични податоци за работниот тек",
@@ -350,5 +350,6 @@
 	"workflows-editor-editor-dialog-save-title": "Зачувај дијаграм",
 	"workflows-editor-editor-dialog-save-action-save": "Зачувај",
 	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
-	"workflows-ui-overview-details-has-notice-label": "Има напомена?"
+	"workflows-ui-overview-details-has-notice-label": "Има напомена?",
+	"workflows-ui-trigger-type-label": "Вид на покренувач"
 }

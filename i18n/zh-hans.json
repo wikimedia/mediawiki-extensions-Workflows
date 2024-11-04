@@ -23,8 +23,6 @@
 	"workflows-ui-action-start": "发起一个工作流",
 	"workflows-ui-task-completion-action-cancel": "取消",
 	"workflows-group-vote-group-empty": "未选择投票群组",
-	"workflows-notification-ended-email-body": "页面“$1”的工作流“$2”已完成",
-	"workflows-notification-due-date-proximity-email-sub": "页面“$1”工作流任务“$2”即将到期",
 	"workflows-ui-workflow-overview-action-abort": "中止",
 	"workflows-ui-workflow-overview-action-restore": "恢复",
 	"workflows-ui-workflow-overview-action-cancel": "关闭",

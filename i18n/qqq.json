@@ -13,7 +13,6 @@
 		]
 	},
 	"workflows-desc": "{{desc|name=Workflows}}",
-	"workflowsoverview": "Vue générale des flux de travail",
 	"workflows-global-action-overview": "Label for a link to [[Special:Workflows_overview]]",
 	"workflows-global-action-overview-desc": "Tooltip for a link to [[Special:Workflows_overview]]",
 	"action-workflows-view": "{{doc-action|workflows-view}}",
@@ -186,7 +185,6 @@
 	"workflows-ui-trigger-field-description": "Field label",
 	"workflows-ui-trigger-field-workflow-picker": "Field label",
 	"workflows-activity-editpage-error-no-title": "Workflow exception when EditPage activity received no target title",
-	"workflows-activity-editpage-permissiondenied": "L’utilisate{{GENDER:$1|eur|rice}} « $1 » n’a pas de droit de modifier la page « $2 »",
 	"workflows-activity-user-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|User feedback}}",
 	"workflows-activity-user-vote-name": "Name of activity, which is used in notifications.\n{{Identical|User vote}}",
 	"workflows-activity-group-feedback-name": "Name of activity, which is used in notifications.\n{{Identical|Group feedback}}",
@@ -355,6 +353,5 @@
 	"workflows-editor-editor-dialog-save-title": "Label for the BPMN save dialog",
 	"workflows-editor-editor-dialog-save-action-save": "Label for the BPMN save dialog action\n{{Identical|Save}}",
 	"workflows-editor-editor-dialog-save-action-cancel": "Label for the BPMN cancel dialog action\n{{Identical|Cancel}}",
-	"workflows-ui-overview-details-has-notice-aria-label": "Invisible header label for the workflow type column",
 	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create"
 }
