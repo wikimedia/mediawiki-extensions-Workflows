@@ -3,11 +3,20 @@
 namespace MediaWiki\Extension\Workflows\Tests;
 
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
+use MediaWiki\MediaWikiServices;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use TitleFactory;
 
 class PageRelatedTriggerTest extends TestCase {
+
+	protected function setUp(): void {
+		parent::setUp();
+
+		MediaWikiServices::getInstance()->getUserFactory()
+			->newFromName( 'MediaWiki default' );
+	}
+
 	/**
 	 * @param \Title $title
 	 * @param array $rules
