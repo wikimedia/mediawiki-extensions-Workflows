@@ -1,4 +1,5 @@
 workflows.editor.element.registry.register( 'custom_form', {
+	isUserActivity: true,
 	class: 'activity-custom-form activity-bootstrap-icon',
 	label: mw.message( 'workflows-uto-activity-custom_form' ).text(),
 	defaultData: {
