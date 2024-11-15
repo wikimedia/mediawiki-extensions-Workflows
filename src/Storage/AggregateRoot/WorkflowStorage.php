@@ -43,7 +43,7 @@ class WorkflowStorage implements AggregateRoot {
 	}
 
 	public static function recreateFromEvents(
-		AggregateRootId $aggregateRootId, Generator $events, WorkflowEventDispatcher $dispatcher = null
+		AggregateRootId $aggregateRootId, Generator $events, ?WorkflowEventDispatcher $dispatcher = null
 	): AggregateRoot {
 		$aggregateRoot = new static( $aggregateRootId );
 

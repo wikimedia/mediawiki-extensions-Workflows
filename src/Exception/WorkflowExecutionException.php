@@ -17,7 +17,7 @@ class WorkflowExecutionException extends Exception {
 	 * @param string $message
 	 * @param IElement|null $element
 	 */
-	public function __construct( $message, IElement $element = null ) {
+	public function __construct( $message, ?IElement $element = null ) {
 		$this->message = $message;
 		$this->element = $element;
 

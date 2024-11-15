@@ -27,8 +27,8 @@ class WorkflowEventRepository implements AggregateRootRepository {
 
 	public function __construct(
 		WorkflowMessageRepository $messageRepository,
-		WorkflowMessageDispatcher $dispatcher = null,
-		MessageDecorator $decorator = null
+		?WorkflowMessageDispatcher $dispatcher = null,
+		?MessageDecorator $decorator = null
 	) {
 		$this->messages = $messageRepository;
 		$this->dispatcher = $dispatcher ?: WorkflowMessageDispatcher::newFromRegisteredListeners();
