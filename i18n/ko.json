@@ -133,5 +133,6 @@
 	"workflows-ui-trigger-field-conditions": "조건",
 	"workflows-workflow-file-definition-group-feedback-title": "그룹 피드백",
 	"workflows-workflow-file-definition-user-approval-title": "단일 사용자 승인",
-	"workflows-workflow-file-definition-user-feedback-title": "단일 사용자 피드백"
+	"workflows-workflow-file-definition-user-feedback-title": "단일 사용자 피드백",
+	"workflows-ui-trigger-type-label": "트리거 유형"
 }
