@@ -8,7 +8,8 @@
 			"McDutchie",
 			"Robin van der Vliet",
 			"Romaine",
-			"Vistaus"
+			"Vistaus",
+			"Siebrand"
 		]
 	},
 	"workflows-desc": "Hiermee kunnen allerlei werkstromen op de wiki ingesteld en uitgevoerd worden",
@@ -236,7 +237,7 @@
 	"workflows-ui-group-threshold-hint-percent": "Deze groep heeft momenteel {{PLURAL:$1|één gebruiker|$1 gebruikers}}. Deelname van minimaal {{PLURAL:$2|één gebruiker|$2 gebruikers}} is vereist om deze werkstroom te voltooien",
 	"workflows-editor-title": "Bewerken van $1",
 	"workflows-editor-viewer-section-diagram": "Diagram",
-	"workflows-editor-viewer-section-xml": "Ruwe XML weergeven",
+	"workflows-editor-viewer-section-xml": "Onbewerkte XML weergeven",
 	"workflows-editor-editor-field-summary": "Samenvatting",
 	"workflows-editor-editor-button-save": "Opslaan",
 	"workflows-editor-editor-button-cancel": "Annuleren",
