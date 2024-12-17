@@ -354,5 +354,10 @@
 	"workflows-editor-editor-dialog-save-title": "Label for the BPMN save dialog",
 	"workflows-editor-editor-dialog-save-action-save": "Label for the BPMN save dialog action\n{{Identical|Save}}",
 	"workflows-editor-editor-dialog-save-action-cancel": "Label for the BPMN cancel dialog action\n{{Identical|Cancel}}",
-	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create"
+	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create",
+	"workflowsoverview": "Name of a specialpage",
+	"workflows-activity-editpage-permissiondenied": "Error message when user does not have permission to edit a page",
+	"workflows-ui-group-threshold-hint-user": "Hint in an activity configuration dialog about the number of users in a given group.\n * $1 - number of users in the group",
+	"workflows-ui-group-threshold-hint-percent": "Hint in an activity configuration dialog about the number of users in a given group.\n * $1 - number of users in the group\n * $2 - number of users required to complete the workflow",
+	"workflows-ui-overview-details-has-notice-label": "Label of a grid column on the workflow overview page, indicating if the workflow has a notice. Column shows boolean values."
 }
