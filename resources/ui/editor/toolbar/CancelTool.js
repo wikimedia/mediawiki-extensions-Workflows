@@ -4,9 +4,9 @@ workflows.editor.tool.CancelTool = function () {
 
 OO.inheritClass( workflows.editor.tool.CancelTool, OO.ui.Tool );
 workflows.editor.tool.CancelTool.static.name = 'cancel';
-workflows.editor.tool.CancelTool.static.icon = 'cancel';
+workflows.editor.tool.CancelTool.static.icon = 'close';
 workflows.editor.tool.CancelTool.static.iconTitle = mw.message( 'workflows-editor-editor-button-cancel' );
-workflows.editor.tool.CancelTool.static.flags = [ 'destructive' ];
+workflows.editor.tool.CancelTool.static.flags = [];
 workflows.editor.tool.CancelTool.static.displayBothIconAndLabel = false;
 workflows.editor.tool.CancelTool.prototype.onSelect = function () {
 	this.setActive( false );
