@@ -158,8 +158,9 @@ final class ActivityManager {
 	 * @throws WorkflowExecutionException
 	 */
 	public function completeActivity( IActivity $activity, $data, WorkflowContext $context ) {
+		$data = $this->getValidatedData( $activity, $this->parseValues( $data ) );
 		$this->assertMembers( $activity );
-		$this->updateActivityProperties( $activity, $this->parseValues( $data ) );
+		$this->updateActivityProperties( $activity, $data );
 		$status = $activity->execute( $this->getActivityProperties( $activity ), $context );
 		if ( !$status instanceof ExecutionStatus ) {
 			throw new WorkflowExecutionException(
