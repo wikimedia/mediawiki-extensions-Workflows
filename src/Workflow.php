@@ -289,7 +289,6 @@ final class Workflow {
 		}
 
 		$this->assertActorMatches( $activity );
-		$data = $this->getActivityManager()->getValidatedData( $activity, $data );
 		$status = $this->activityManager->completeActivity( $activity, $data, $this->getContext() );
 		if ( $status instanceof IntermediateExecutionStatus ) {
 			// Does not progress the workflow, just update data
