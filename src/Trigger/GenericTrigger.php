@@ -262,7 +262,7 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	 * @return bool
 	 */
 	public function shouldTrigger( $qualifyingData = [] ): bool {
-		return true;
+		return !$this->isAlreadyRunning();
 	}
 
 	/**
