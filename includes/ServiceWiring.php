@@ -88,6 +88,7 @@ return [
 
 		return new \MediaWiki\Extension\Workflows\TriggerRepo(
 			$services->getService( 'WorkflowFactory' ),
+			$services->getService( 'WorkflowsStateStore' ),
 			$services->getTitleFactory(),
 			$services->getService( 'WorkflowLogger' ),
 			$services->getObjectFactory(),
