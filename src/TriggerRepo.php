@@ -6,6 +6,7 @@ use CommentStoreComment;
 use Content;
 use FormatJson;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
+use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -35,6 +36,9 @@ class TriggerRepo {
 	/** @var ObjectFactory */
 	private $objectFactory;
 
+	/** @var WorkflowStateStore */
+	private $workflowStore;
+
 	/** @var bool */
 	private $loaded = false;
 
@@ -52,6 +56,7 @@ class TriggerRepo {
 
 	/**
 	 * @param WorkflowFactory $workflowFactory
+	 * @param WorkflowStateStore $stateStore
 	 * @param \TitleFactory $titleFactory
 	 * @param LoggerInterface $logger
 	 * @param ObjectFactory $objectFactory
@@ -59,8 +64,8 @@ class TriggerRepo {
 	 * @param array $triggerTypeRegistry
 	 */
 	public function __construct(
-		WorkflowFactory $workflowFactory, \TitleFactory $titleFactory, LoggerInterface $logger,
-		ObjectFactory $objectFactory, $page, $triggerTypeRegistry
+		WorkflowFactory $workflowFactory, WorkflowStateStore $stateStore, \TitleFactory $titleFactory,
+		LoggerInterface $logger, ObjectFactory $objectFactory, $page, $triggerTypeRegistry
 	) {
 		$this->workflowFactory = $workflowFactory;
 		$this->titleFactory = $titleFactory;
@@ -68,6 +73,7 @@ class TriggerRepo {
 		$this->objectFactory = $objectFactory;
 		$this->page = $page;
 		$this->triggerTypeRegistry = $triggerTypeRegistry;
+		$this->workflowStore = $stateStore;
 	}
 
 	/**
@@ -180,6 +186,9 @@ class TriggerRepo {
 			return;
 		}
 		$object->setWorkflowFactory( $this->workflowFactory );
+		if ( $object instanceof NoParallelTrigger ) {
+			$object->setWorkflowStore( $this->workflowStore );
+		}
 		if ( $object instanceof LoggerAwareInterface ) {
 			$object->setLogger( $this->logger );
 		}
