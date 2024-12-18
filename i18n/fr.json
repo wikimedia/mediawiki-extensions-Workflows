@@ -355,5 +355,6 @@
 	"workflows-editor-editor-dialog-save-title": "Enregistrer le diagramme",
 	"workflows-editor-editor-dialog-save-action-save": "Enregistrer",
 	"workflows-editor-editor-dialog-save-action-cancel": "Annuler",
+	"workflows-ui-overview-details-has-notice-label": "Possède une notice ?",
 	"workflows-ui-trigger-type-label": "Type de déclencheur"
 }
