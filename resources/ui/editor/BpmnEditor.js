@@ -21,8 +21,13 @@ workflows.ui.widget.BpmnEditor.prototype.initItems = function( config ) {
 	this.toolbar = new OO.ui.Toolbar( workflows.editor.toolFactory, workflows.editor.toolGroupFactory );
 	this.toolbar.setup( [
 		{
-			type: 'list',
+			type: 'bar',
+			align: 'before',
+			include: [ 'cancel' ]
+		},
+		{
 			align: 'after',
+			type: 'list',
 			icon: 'menu',
 			indicator: null,
 			include: [ 'inspectProcess' ]
@@ -30,9 +35,8 @@ workflows.ui.widget.BpmnEditor.prototype.initItems = function( config ) {
 		{
 			align: 'after',
 			type: 'bar',
-			include: [ 'cancel', 'save' ]
+			include: [ 'save' ]
 		},
-
 	] );
 	this.toolbar.connect( this, {
 		editProcessContext: 'inspectProcess',
