@@ -58,7 +58,7 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 			try {
 				// Just the act of loading the workflow will probe any activity it might be on
 				// and automatically preserve changes in case of status update
-				$workflow = Workflow::newFromInstanceID(
+				$workflow = Workflow::newFromInstanceIDForBot(
 					$workflowId, $this->workflowRepo, $this->definitionRepositoryFactory
 				);
 				if ( !$workflow instanceof Workflow ) {
