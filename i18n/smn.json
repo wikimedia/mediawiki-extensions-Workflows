@@ -23,5 +23,7 @@
 	"workflows-activity-property-comment": "Komment",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Kevttee",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Kevttee",
-	"workflows-editor-editor-dialog-save-action-save": "Vuorkkii"
+	"workflows-editor-editor-dialog-save-action-save": "Vuorkkii",
+	"workflows-activity-property-username": "Kevtteenommâ",
+	"workflows-editor-editor-button-save": "Vuorkkii"
 }

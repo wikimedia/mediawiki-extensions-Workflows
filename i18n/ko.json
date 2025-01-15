@@ -147,5 +147,10 @@
 	"workflows-ui-trigger-field-conditions": "조건",
 	"workflows-workflow-file-definition-group-feedback-title": "그룹 피드백",
 	"workflows-workflow-file-definition-user-approval-title": "단일 사용자 승인",
-	"workflows-workflow-file-definition-user-feedback-title": "단일 사용자 피드백"
+	"workflows-workflow-file-definition-user-feedback-title": "단일 사용자 피드백",
+	"workflows-editor-editor-button-cancel": "취소",
+	"workflows-ui-editor-inspector-activity-edit-page-property-user": "사용자",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "사용자",
+	"workflows-editor-editor-dialog-save-action-cancel": "취소",
+	"workflows-ui-trigger-type-label": "트리거 유형"
 }
