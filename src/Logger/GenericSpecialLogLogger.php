@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Logger;
 
 use ManualLogEntry;
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 class GenericSpecialLogLogger implements ISpecialLogLogger {

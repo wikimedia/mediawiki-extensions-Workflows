@@ -13,9 +13,9 @@ use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 use Message;
 use MWException;
-use Title;
 use User;
 
 require_once dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) . '/maintenance/Maintenance.php';

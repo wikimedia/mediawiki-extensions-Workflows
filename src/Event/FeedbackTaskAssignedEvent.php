@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\Workflows\Event;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Message;
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
-use Title;
 
 class FeedbackTaskAssignedEvent extends TaskAssignedEvent {
 

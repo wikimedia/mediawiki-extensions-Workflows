@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
 use TitleFactory;
@@ -47,7 +48,7 @@ class EditPageActivityTest extends MediaWikiIntegrationTestCase {
 		$spclLogLoggerMock->expects( $this->once() )->method( 'addEntry' );
 
 		$titleFactoryMock = $this->createMock( TitleFactory::class );
-		$titleFactoryMock->method( 'newFromText' )->willReturn( \Title::newFromDBkey( 'Dummy_page' ) );
+		$titleFactoryMock->method( 'newFromText' )->willReturn( Title::newFromDBkey( 'Dummy_page' ) );
 		$userFactoryMock = $this->createMock( UserFactory::class );
 		$userFactoryMock->method( 'newFromName' )->willReturn( $this->user );
 		$permissionManagerMock = $this->createMock( PermissionManager::class );

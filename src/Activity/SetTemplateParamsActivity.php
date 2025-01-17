@@ -8,13 +8,13 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
 use Message;
 use MWContentSerializationException;
 use MWException;
 use MWStake\MediaWiki\Component\Wikitext\Node\Transclusion;
 use MWStake\MediaWiki\Component\Wikitext\ParserFactory;
-use Title;
 use TitleFactory;
 use User;
 

@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Trigger;
 
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
-use Title;
+use MediaWiki\Title\Title;
 
 class TimeBasedTrigger extends GenericTrigger {
 	/** @var array */

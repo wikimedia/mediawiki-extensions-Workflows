@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\Trigger;
 
 use MediaWiki\Extension\Workflows\IPageTrigger;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
-use Title;
+use MediaWiki\Title\Title;
 
 class PageRelatedTrigger extends GenericTrigger implements IPageTrigger {
 	/** @var Title|null */

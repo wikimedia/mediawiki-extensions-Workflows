@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Data;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
 
@@ -40,7 +41,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 	public function extend( $dataSets ) {
 		foreach ( $dataSets as &$dataSet ) {
 			$title = $dataSet->get( 'page_title_object' );
-			if ( $title instanceof \Title ) {
+			if ( $title instanceof Title ) {
 				$dataSet->set( Record::PAGE_LINK, $title->getLocalURL() );
 			}
 			/** @var WorkflowId $id */

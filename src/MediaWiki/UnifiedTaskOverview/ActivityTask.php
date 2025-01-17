@@ -7,10 +7,10 @@ use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use Message;
 use PageProps;
 use RawMessage;
-use Title;
 
 class ActivityTask implements ITaskDescriptor {
 	/** @var UserInteractiveActivity */

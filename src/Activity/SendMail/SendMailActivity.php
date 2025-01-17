@@ -12,8 +12,8 @@ use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Mail\IEmailer;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MWException;
-use Title;
 use User;
 
 class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {

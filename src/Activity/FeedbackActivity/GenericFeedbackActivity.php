@@ -10,8 +10,8 @@ use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\Title\Title;
 use Message;
-use Title;
 use User;
 
 abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogLoggerAwareInterface {
