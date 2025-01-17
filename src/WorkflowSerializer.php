@@ -8,8 +8,8 @@ use FormatJson;
 use IContextSource;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\Title\Title;
 use RequestContext;
-use Title;
 
 class WorkflowSerializer {
 	/** @var WorkflowEventRepository */

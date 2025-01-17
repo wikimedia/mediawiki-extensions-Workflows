@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows;
 
-use Title;
+use MediaWiki\Title\Title;
 
 interface IPageTrigger extends ITrigger {
 

@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Tests;
 
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use Psr\Log\LoggerInterface;
 use TitleFactory;
@@ -17,7 +18,7 @@ class PageRelatedTriggerTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger::shouldTrigger
 	 */
 	public function testShouldTrigger( $rules, $qualifyingData, $shouldTrigger ) {
-		$title = $this->createMock( \Title::class );
+		$title = $this->createMock( Title::class );
 		$title->method( 'getNamespace' )->willReturn( 0 );
 		$title->method( 'getPrefixedDBkey' )->willReturn( 'PageA' );
 		$title->method( 'getParentCategories' )->willReturn( [
@@ -26,7 +27,7 @@ class PageRelatedTriggerTest extends MediaWikiIntegrationTestCase {
 		] );
 		$titleFactoryMock = $this->createMock( TitleFactory::class );
 		$titleFactoryMock->method( 'newFromText' )->willReturnCallback( static function ( $pagename ){
-			return \Title::newFromDBkey( $pagename );
+			return Title::newFromDBkey( $pagename );
 		} );
 		$trigger = new PageRelatedTrigger(
 			$titleFactoryMock, 'dummy',

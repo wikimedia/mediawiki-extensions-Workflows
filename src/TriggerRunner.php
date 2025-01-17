@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows;
 
+use MediaWiki\Title\Title;
 use Psr\Log\LoggerInterface;
-use Title;
 
 class TriggerRunner {
 	/** @var TriggerRepo */

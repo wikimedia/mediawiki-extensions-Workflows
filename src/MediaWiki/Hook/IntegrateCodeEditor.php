@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
-use Title;
+use MediaWiki\Title\Title;
 
 class IntegrateCodeEditor {
 

@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\HookHandler;
 
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\SpecialPage\SpecialPageFactory;
+use MediaWiki\Title\Title;
 use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\RestrictedTextLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\Hook\MWStakeCommonUIRegisterSkinSlotComponents;
-use Title;
 
 class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 	/** @var SpecialPageFactory */

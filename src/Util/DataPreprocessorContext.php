@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Util;
 
 use MediaWiki\Extension\Workflows\WorkflowContext;
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 class DataPreprocessorContext {

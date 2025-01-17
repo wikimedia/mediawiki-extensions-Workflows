@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Workflows\Rest;
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Rest\HttpException;
-use Title;
+use MediaWiki\Title\Title;
 use TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 

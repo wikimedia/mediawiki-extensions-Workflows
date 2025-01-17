@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Workflows\Tests\Util;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
-use Title;
 
 /**
  * @covers \MediaWiki\Extension\Workflows\Util\DataPreprocessor

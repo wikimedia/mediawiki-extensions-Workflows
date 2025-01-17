@@ -6,7 +6,7 @@ use DateTime;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Util\DataFlattener;
-use Title;
+use MediaWiki\Title\Title;
 use TitleFactory;
 use User;
 

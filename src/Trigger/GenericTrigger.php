@@ -12,10 +12,10 @@ use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use Message;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use Title;
 use TitleFactory;
 
 class GenericTrigger implements ITrigger, LoggerAwareInterface {

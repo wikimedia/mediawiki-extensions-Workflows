@@ -8,9 +8,9 @@ use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramXmlAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\BPMNContent;
+use MediaWiki\Title\Title;
 use ParserOutput;
 use TextContentHandler;
-use Title;
 
 class BPMNHandler extends TextContentHandler {
 	public function __construct( $modelId = 'BPMN' ) {
