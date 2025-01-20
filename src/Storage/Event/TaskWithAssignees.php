@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Storage\Event;
 
+use MediaWiki\User\User;
 use Ramsey\Uuid\UuidInterface;
-use User;
 
 abstract class TaskWithAssignees extends ActivityEvent {
 	/** @var array */

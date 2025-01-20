@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\Workflows\Storage\Event;
 
 use MediaWiki\Extension\Workflows\Storage\Event\Mixin\ActorTrait;
 use MediaWiki\Extension\Workflows\Storage\Event\Mixin\ElementTrait;
+use MediaWiki\User\User;
 use Ramsey\Uuid\UuidInterface;
-use User;
 
 class ActivityEvent extends Event {
 	use ElementTrait;

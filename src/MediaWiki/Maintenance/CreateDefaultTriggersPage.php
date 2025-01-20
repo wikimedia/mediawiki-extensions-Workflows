@@ -14,9 +14,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Message;
 use MWException;
-use User;
 
 require_once dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) . '/maintenance/Maintenance.php';
 

@@ -6,7 +6,7 @@ use DateTime;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Title\Title;
-use User;
+use MediaWiki\User\User;
 
 /**
  * @package MediaWiki\Extension\Workflows

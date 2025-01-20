@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\Workflows\Storage\Event;
 
 use DateTime;
 use MediaWiki\Extension\Workflows\Storage\Event\Mixin\ActorTrait;
+use MediaWiki\User\User;
 use Ramsey\Uuid\UuidInterface;
-use User;
 
 class WorkflowAborted extends Event {
 	use ActorTrait;

@@ -11,6 +11,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdater;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -253,7 +254,7 @@ class TriggerRepo {
 	}
 
 	private function getPageUpdater() {
-		return $this->wikipage->newPageUpdater( \User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] ) );
+		return $this->wikipage->newPageUpdater( User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] ) );
 	}
 
 	/**

@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\Query;
 
 use EventSauce\EventSourcing\Consumer;
 use MediaWiki\Extension\Workflows\Storage\ReplayConsumer;
-use User;
+use MediaWiki\User\User;
 
 interface WorkflowStateStore extends ReplayConsumer, Consumer {
 

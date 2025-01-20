@@ -10,8 +10,8 @@ use MediaWiki\Extension\Workflows\Storage\Event\TaskIntermediateStateChanged;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskLoopCompleted;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
-use User;
 
 class Workflows extends AttentionIndicator {
 

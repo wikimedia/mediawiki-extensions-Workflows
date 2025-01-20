@@ -11,8 +11,8 @@ use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\Logger\SpecialLogLoggerAwareInterface;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Message;
-use User;
 
 abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogLoggerAwareInterface {
 	/**

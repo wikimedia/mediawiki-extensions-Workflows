@@ -7,8 +7,8 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Util\DataFlattener;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use TitleFactory;
-use User;
 
 /**
  * @package MediaWiki\Extension\Workflows

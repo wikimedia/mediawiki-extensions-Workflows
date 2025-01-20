@@ -14,9 +14,9 @@ use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\WorkflowContext;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\Events\Notifier;
-use User;
 
 class GroupVoteActivity extends GenericVoteActivity {
 

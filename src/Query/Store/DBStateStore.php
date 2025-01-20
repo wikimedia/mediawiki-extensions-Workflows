@@ -11,7 +11,7 @@ use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\Event;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventClassInflector;
 use MediaWiki\Extension\Workflows\Workflow;
-use User;
+use MediaWiki\User\User;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 final class DBStateStore implements WorkflowStateStore {

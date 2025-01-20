@@ -13,8 +13,8 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Mail\IEmailer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MWException;
-use User;
 
 class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {
 

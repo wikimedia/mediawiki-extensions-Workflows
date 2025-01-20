@@ -14,7 +14,7 @@ use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\SpecialPage\SpecialPageFactory;
-use User;
+use MediaWiki\User\User;
 
 class AddUnifiedTaskOverviewUserActivities implements GetTaskDescriptors {
 	/** @var WorkflowStateStore */

@@ -9,7 +9,7 @@ use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\WorkflowContext;
-use User;
+use MediaWiki\User\User;
 
 class UserFeedbackActivity extends GenericFeedbackActivity {
 
