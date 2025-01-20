@@ -10,8 +10,8 @@ use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Exception\WorkflowPropertyValidationException;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
-use User;
 
 final class ActivityManager {
 

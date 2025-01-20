@@ -14,7 +14,7 @@ use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
 use MediaWiki\Extension\Workflows\WorkflowContext;
-use User;
+use MediaWiki\User\User;
 
 class GroupFeedbackActivity extends GenericFeedbackActivity {
 

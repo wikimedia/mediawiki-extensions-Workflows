@@ -13,10 +13,10 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use Message;
 use TitleFactory;
-use User;
 use WikitextContent;
 
 class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {

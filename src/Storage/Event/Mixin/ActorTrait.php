@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Storage\Event\Mixin;
 
 use MediaWiki\MediaWikiServices;
-use User;
+use MediaWiki\User\User;
 
 trait ActorTrait {
 	/** @var User */

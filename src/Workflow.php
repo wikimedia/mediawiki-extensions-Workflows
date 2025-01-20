@@ -43,12 +43,12 @@ use MediaWiki\Extension\Workflows\Storage\Event\WorkflowUnAborted;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\User\User;
 use PermissionsError;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use RequestContext;
 use TitleFactory;
-use User;
 
 final class Workflow {
 	public const STATE_NOT_STARTED = 'not_started';

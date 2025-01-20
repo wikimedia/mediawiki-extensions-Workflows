@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
 
@@ -79,7 +80,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			$bits = explode( '#', $assignee );
 			$username = array_shift( $bits );
 			$user = $this->userFactory->newFromName( $username );
-			if ( $user instanceof \User ) {
+			if ( $user instanceof User ) {
 				$res[] = $this->linkRenderer->makeLink(
 					$user->getUserPage(), $user->getRealName() ?: $user->getName()
 				);

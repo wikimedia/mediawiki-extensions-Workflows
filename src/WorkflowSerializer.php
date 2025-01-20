@@ -9,6 +9,7 @@ use IContextSource;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use RequestContext;
 
 class WorkflowSerializer {
@@ -40,7 +41,7 @@ class WorkflowSerializer {
 		$definitionSource = $workflow->getDefinition()->getSource();
 		$initiator = null;
 		if ( $workflow->getCurrentState() !== Workflow::STATE_NOT_STARTED ) {
-			if ( $workflow->getContext()->getInitiator() instanceof \User ) {
+			if ( $workflow->getContext()->getInitiator() instanceof User ) {
 				$initiator = $workflow->getContext()->getInitiator()->getName();
 			}
 		}

@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Workflows\Storage\Event;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Storage\Event\Mixin\ActorTrait;
+use MediaWiki\User\User;
 use Ramsey\Uuid\UuidInterface;
-use User;
 
 final class WorkflowInitialized extends Event {
 	use ActorTrait;
