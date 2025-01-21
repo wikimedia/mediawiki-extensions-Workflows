@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Data;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\IStore;
 
@@ -13,7 +14,7 @@ class Store implements IStore {
 	private $stateStore;
 	/** @var WorkflowFactory */
 	private $workflowFactory;
-	/** @var \TitleFactory */
+	/** @var TitleFactory */
 	private $titleFactory;
 	/** @var LinkRenderer */
 	private $linkRenderer;
@@ -23,13 +24,13 @@ class Store implements IStore {
 	/**
 	 * @param WorkflowStateStore $stateStore
 	 * @param WorkflowFactory $wfFactory
-	 * @param \TitleFactory $titleFactory
+	 * @param TitleFactory $titleFactory
 	 * @param LinkRenderer $linkRenderer
 	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
 		WorkflowStateStore $stateStore, WorkflowFactory $wfFactory,
-		\TitleFactory $titleFactory, LinkRenderer $linkRenderer, UserFactory $userFactory
+		TitleFactory $titleFactory, LinkRenderer $linkRenderer, UserFactory $userFactory
 	) {
 		$this->stateStore = $stateStore;
 		$this->workflowFactory = $wfFactory;

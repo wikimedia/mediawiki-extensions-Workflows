@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\Workflows\Tests;
 
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use MediaWikiIntegrationTestCase;
 use Psr\Log\LoggerInterface;
-use TitleFactory;
 
 class PageRelatedTriggerTest extends MediaWikiIntegrationTestCase {
 

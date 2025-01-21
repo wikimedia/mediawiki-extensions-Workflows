@@ -11,11 +11,11 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdater;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use TitleFactory;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use WikiPage;
 
@@ -53,14 +53,14 @@ class TriggerRepo {
 
 	/**
 	 * @param WorkflowFactory $workflowFactory
-	 * @param \TitleFactory $titleFactory
+	 * @param TitleFactory $titleFactory
 	 * @param LoggerInterface $logger
 	 * @param ObjectFactory $objectFactory
 	 * @param string $page
 	 * @param array $triggerTypeRegistry
 	 */
 	public function __construct(
-		WorkflowFactory $workflowFactory, \TitleFactory $titleFactory, LoggerInterface $logger,
+		WorkflowFactory $workflowFactory, TitleFactory $titleFactory, LoggerInterface $logger,
 		ObjectFactory $objectFactory, $page, $triggerTypeRegistry
 	) {
 		$this->workflowFactory = $workflowFactory;

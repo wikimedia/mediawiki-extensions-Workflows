@@ -6,9 +6,9 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use MWStake\MediaWiki\Component\DataStore\IPrimaryDataProvider;
 use MWStake\MediaWiki\Component\DataStore\ReaderParams;
-use TitleFactory;
 
 class PrimaryDataProvider implements IPrimaryDataProvider {
 	/** @var WorkflowStateStore */

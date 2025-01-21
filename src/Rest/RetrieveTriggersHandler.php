@@ -6,7 +6,7 @@ use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Title\Title;
-use TitleFactory;
+use MediaWiki\Title\TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class RetrieveTriggersHandler extends TriggerHandler {
