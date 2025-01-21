@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\Util;
 
+use MediaWiki\Context\RequestContext;
 use Parser;
 use ParserOptions;
-use RequestContext;
 
 class DataPreprocessor {
 

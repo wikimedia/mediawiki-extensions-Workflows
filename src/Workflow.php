@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows;
 use DateTime;
 use EventSauce\EventSourcing\AggregateRoot;
 use Exception;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus\IntermediateExecutionStatus;
 use MediaWiki\Extension\Workflows\Definition\Element\EndEvent;
 use MediaWiki\Extension\Workflows\Definition\Element\Gateway;
@@ -47,7 +48,6 @@ use MediaWiki\User\User;
 use PermissionsError;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use RequestContext;
 use TitleFactory;
 
 final class Workflow {

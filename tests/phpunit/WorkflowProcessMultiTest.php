@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Tests;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
@@ -17,7 +18,7 @@ class WorkflowProcessMultiTest extends MediaWikiIntegrationTestCase {
 
 	public function setUp(): void {
 		$this->defRepository = new TestDefinitionRepository();
-		\RequestContext::getMain()->setUser( $this->getTestUser( 'sysop' )->getUser() );
+		RequestContext::getMain()->setUser( $this->getTestUser( 'sysop' )->getUser() );
 	}
 
 	/**
