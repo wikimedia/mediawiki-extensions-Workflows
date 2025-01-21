@@ -8,10 +8,10 @@
 	"url": "https://en.wiki.bluespice.com/wiki/Reference:Workflows",
 	"descriptionmsg": "workflows-desc",
 	"requires": {
-		"MediaWiki": ">= 1.39.0",
+		"MediaWiki": ">= 1.43.0",
 		"extensions": {
 			"Forms": ">= 1.2.0",
-			"OOJSPlus": ">= 2.0.0"
+			"OOJSPlus": ">= 3.0.0"
 		}
 	},
 	"attributes": {
