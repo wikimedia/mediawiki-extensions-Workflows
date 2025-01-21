@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Rest\Handler;
@@ -28,7 +29,7 @@ abstract class TriggerHandler extends Handler {
 		if ( !$this->permissionManager ) {
 			return;
 		}
-		$user = \RequestContext::getMain()->getUser();
+		$user = RequestContext::getMain()->getUser();
 		if ( !$this->permissionManager->userHasRight( $user, 'workflows-admin' ) ) {
 			throw new HttpException( 'permissiondenied', 401 );
 		}

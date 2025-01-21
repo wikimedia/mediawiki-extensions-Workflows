@@ -6,11 +6,11 @@ use Content;
 use Html;
 use JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\MediaWikiServices;
 use OOUI\ProgressBarWidget;
 use ParserOutput;
-use RequestContext;
 
 class TriggerDefinitionHandler extends JsonContentHandler {
 	/**

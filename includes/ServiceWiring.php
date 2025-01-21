@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\ActivityManagerFactory;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Logger\GenericSpecialLogLogger;

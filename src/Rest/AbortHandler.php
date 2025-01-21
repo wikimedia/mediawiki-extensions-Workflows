@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Rest\HttpException;
-use RequestContext;
 
 class AbortHandler extends JSONBodyActionHandler {
 

@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Data;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
@@ -17,7 +18,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 	private $linkRenderer;
 	/** @var UserFactory */
 	private $userFactory;
-	/** @var \RequestContext|null */
+	/** @var RequestContext|null */
 	private $context;
 
 	/**
@@ -31,7 +32,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 		$this->workflowFactory = $workflowFactory;
 		$this->linkRenderer = $linkRenderer;
 		$this->userFactory = $userFactory;
-		$this->context = \RequestContext::getMain();
+		$this->context = RequestContext::getMain();
 	}
 
 	/**

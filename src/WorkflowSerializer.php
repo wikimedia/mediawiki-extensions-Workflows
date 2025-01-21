@@ -6,11 +6,11 @@ use EventSauce\EventSourcing\PointInTime;
 use Exception;
 use FormatJson;
 use IContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use RequestContext;
 
 class WorkflowSerializer {
 	/** @var WorkflowEventRepository */

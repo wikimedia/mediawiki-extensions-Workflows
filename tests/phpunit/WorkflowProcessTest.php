@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Tests;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Element\EndEvent;
@@ -31,7 +32,7 @@ class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
 
 	public function setUp(): void {
 		$this->defRepository = new TestDefinitionRepository();
-		\RequestContext::getMain()->setUser( $this->getTestUser( 'sysop' )->getUser() );
+		RequestContext::getMain()->setUser( $this->getTestUser( 'sysop' )->getUser() );
 	}
 
 	/**

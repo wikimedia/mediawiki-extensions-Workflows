@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 
 use IContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\IDescribedActivity;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
@@ -11,7 +12,6 @@ use MediaWiki\Extension\Workflows\Workflow;
 use Message;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use Psr\Log\LoggerInterface;
-use RequestContext;
 
 class GenericDescriptor implements IActivityDescriptor {
 	/** @var UserInteractiveActivity */
