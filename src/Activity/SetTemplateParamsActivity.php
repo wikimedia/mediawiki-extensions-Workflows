@@ -9,6 +9,7 @@ use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use Message;
@@ -16,7 +17,6 @@ use MWContentSerializationException;
 use MWException;
 use MWStake\MediaWiki\Component\Wikitext\Node\Transclusion;
 use MWStake\MediaWiki\Component\Wikitext\ParserFactory;
-use TitleFactory;
 
 class SetTemplateParamsActivity extends GenericActivity {
 	/** @var ParserFactory */

@@ -13,10 +13,10 @@ use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use Message;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use TitleFactory;
 
 class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	/** @var WorkflowFactory */

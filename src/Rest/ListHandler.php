@@ -8,9 +8,9 @@ use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Rest\Handler;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ReaderParams;
-use TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ListHandler extends Handler {

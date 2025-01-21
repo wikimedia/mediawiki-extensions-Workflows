@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\Workflows\Data;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ReaderParams;
-use TitleFactory;
 
 class Reader extends \MWStake\MediaWiki\Component\DataStore\Reader {
 	/** @var WorkflowStateStore */

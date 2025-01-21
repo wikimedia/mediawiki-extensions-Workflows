@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\Workflows\PropertyValidator;
 
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use Message;
-use TitleFactory;
 
 class ExistingTitle implements IPropertyValidator {
 	/** @var TitleFactory */
