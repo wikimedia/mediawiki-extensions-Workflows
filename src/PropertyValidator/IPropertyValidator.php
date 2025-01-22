@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\PropertyValidator;
 
 use MediaWiki\Extension\Workflows\IActivity;
-use Message;
+use MediaWiki\Message\Message;
 
 interface IPropertyValidator {
 	/**

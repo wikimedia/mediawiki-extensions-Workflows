@@ -7,8 +7,8 @@ use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
-use Message;
 use PageProps;
 use RawMessage;
 
@@ -89,7 +89,7 @@ class ActivityTask implements ITaskDescriptor {
 		// workflows-uto-activity-group_vote
 		// workflows-uto-activity-user_feedback
 		// workflows-uto-activity-group_feedback
-		return \Message::newFromKey(
+		return Message::newFromKey(
 			'workflows-uto-activity-' . $this->getActivityType()
 		);
 	}

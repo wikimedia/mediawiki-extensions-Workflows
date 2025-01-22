@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Workflows\Exception;
 use Exception;
 use MediaWiki\Extension\Workflows\Definition\IElement;
 use MediaWiki\Extension\Workflows\Definition\ITask;
-use Message;
+use MediaWiki\Message\Message;
 
 class WorkflowExecutionException extends Exception {
 	/** @var string */

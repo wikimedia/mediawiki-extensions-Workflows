@@ -6,7 +6,7 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
-use Message;
+use MediaWiki\Message\Message;
 
 class TestDefinitionRepository implements IDefinitionRepository {
 

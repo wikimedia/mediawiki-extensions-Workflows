@@ -6,9 +6,9 @@ use Exception;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
+use MediaWiki\Message\Message;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
-use Message;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class WikiPageDefinitionRepository implements IDefinitionRepository {

@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 
 use MediaWiki\Extension\Workflows\IActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use Message;
+use MediaWiki\Message\Message;
 
 class UserVoteDescriptor extends FeedbackDescriptor {
 

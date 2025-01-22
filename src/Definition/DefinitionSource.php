@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Definition;
 
 use JsonSerializable;
-use Message;
+use MediaWiki\Message\Message;
 
 class DefinitionSource implements JsonSerializable {
 	/** @var string */

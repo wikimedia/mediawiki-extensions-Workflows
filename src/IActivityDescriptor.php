@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows;
 
 use JsonSerializable;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
-use Message;
+use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 
 interface IActivityDescriptor extends JsonSerializable {

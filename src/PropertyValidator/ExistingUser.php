@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Workflows\PropertyValidator;
 
 use MediaWiki\Extension\Workflows\IActivity;
+use MediaWiki\Message\Message;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
-use Message;
 
 class ExistingUser implements IPropertyValidator {
 	/** @var UserFactory */
