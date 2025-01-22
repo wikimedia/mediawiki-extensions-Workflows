@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\HookHandler;
 
 use MediaWiki\Extension\Workflows\TriggerRepo;
+use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Title\Title;
-use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\RestrictedTextLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\Hook\MWStakeCommonUIRegisterSkinSlotComponents;
 

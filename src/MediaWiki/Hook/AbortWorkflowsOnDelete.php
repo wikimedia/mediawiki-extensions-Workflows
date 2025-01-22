@@ -6,6 +6,7 @@ use ManualLogEntry;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
+use MediaWiki\Message\Message;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
@@ -42,7 +43,7 @@ class AbortWorkflowsOnDelete implements PageDeleteCompleteHook {
 			$workflow = $this->workflowFactory->getWorkflow( $workflowId );
 			$workflow->autoAbort(
 				'page-deleted',
-				\Message::newFromKey( 'workflows-auto-aborted-workflow-page-deleted' )->text(),
+				Message::newFromKey( 'workflows-auto-aborted-workflow-page-deleted' )->text(),
 				true, false
 			);
 			$this->workflowFactory->persist( $workflow );

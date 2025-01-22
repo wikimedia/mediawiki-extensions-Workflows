@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
+use MediaWiki\Message\Message;
 use MediaWiki\Rest\Handler;
 
 class RetrieveTriggerTypesHandler extends Handler {
@@ -16,13 +17,13 @@ class RetrieveTriggerTypesHandler extends Handler {
 
 		$types = [];
 		foreach ( $typesAttribute as $key => $class ) {
-			$labelMessage = \Message::newFromKey( 'workflows-triggers-type-' . $key . '-label' );
+			$labelMessage = Message::newFromKey( 'workflows-triggers-type-' . $key . '-label' );
 			if ( $labelMessage->exists() ) {
 				$label = $labelMessage->text();
 			} else {
 				$label = $key;
 			}
-			$descMessage = \Message::newFromKey( 'workflows-triggers-type-' . $key . '-desc' );
+			$descMessage = Message::newFromKey( 'workflows-triggers-type-' . $key . '-desc' );
 			$desc = '';
 			if ( $descMessage->exists() ) {
 				$desc = $descMessage->text();

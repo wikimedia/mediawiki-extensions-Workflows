@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Workflows\PropertyValidator;
 
 use MediaWiki\Extension\Workflows\IActivity;
+use MediaWiki\Message\Message;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\User\UserFactory;
-use Message;
 
 class CanExecuteTask extends ValidUser {
 	/** @var PermissionManager */

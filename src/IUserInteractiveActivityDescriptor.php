@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows;
 
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
-use Message;
+use MediaWiki\Message\Message;
 
 interface IUserInteractiveActivityDescriptor extends IActivityDescriptor {
 	/**

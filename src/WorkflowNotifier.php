@@ -11,7 +11,7 @@ use MediaWiki\Extension\Workflows\Event\WorkflowEndedEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
-use Message as MWMessage;
+use MediaWiki\Message\Message as MWMessage;
 use MWStake\MediaWiki\Component\Events\BotAgent;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use MWStake\MediaWiki\Component\Events\Notifier;

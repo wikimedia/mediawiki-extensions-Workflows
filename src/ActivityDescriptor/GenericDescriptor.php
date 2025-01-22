@@ -9,7 +9,7 @@ use MediaWiki\Extension\Workflows\IDescribedActivity;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use Message;
+use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use Psr\Log\LoggerInterface;
 

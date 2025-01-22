@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Workflows\Event;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\User\UserIdentity;
-use Message;
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
 
 class DueDateProximityEvent extends TaskAssignedEvent {

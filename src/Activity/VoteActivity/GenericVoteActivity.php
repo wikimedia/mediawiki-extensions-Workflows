@@ -8,7 +8,7 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Event\VoteEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\WorkflowContext;
-use Message;
+use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\Events\Notifier;
 
 abstract class GenericVoteActivity extends GenericFeedbackActivity {

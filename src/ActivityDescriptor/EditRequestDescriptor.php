@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\EditRequestActivityTask;
 use MediaWiki\Extension\Workflows\Workflow;
-use Message;
+use MediaWiki\Message\Message;
 
 class EditRequestDescriptor extends GenericUIActivityDescriptor {
 	/**

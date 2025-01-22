@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Exception;
 
+use MediaWiki\Message\Message;
+
 class WorkflowPropertyValidationException extends WorkflowExecutionException {
 	/** @var string */
 	private $property;
@@ -20,7 +22,7 @@ class WorkflowPropertyValidationException extends WorkflowExecutionException {
 	 * @return string
 	 */
 	protected function getExceptionMessage() {
-		return \Message::newFromKey( 'workflows-exception-property-validation' )->params(
+		return Message::newFromKey( 'workflows-exception-property-validation' )->params(
 			$this->property,
 			$this->message
 		)->text();

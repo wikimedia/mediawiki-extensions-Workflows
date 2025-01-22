@@ -9,7 +9,7 @@ use MediaWiki\Extension\Workflows\IUserInteractiveActivityDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\ActivityTask;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use Message;
+use MediaWiki\Message\Message;
 use Psr\Log\LoggerInterface;
 
 class GenericUIActivityDescriptor extends GenericDescriptor implements IUserInteractiveActivityDescriptor {

@@ -6,7 +6,7 @@ use Exception;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
-use Message;
+use MediaWiki\Message\Message;
 use MWException;
 
 abstract class FileRepository implements IDefinitionRepository {

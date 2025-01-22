@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview;
 
-use Message;
+use MediaWiki\Message\Message;
 
 class InstructedActivity extends ActivityTask {
 
