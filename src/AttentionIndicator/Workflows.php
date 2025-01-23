@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\AttentionIndicator;
 
 use BlueSpice\Discovery\AttentionIndicator;
 use BlueSpice\Discovery\IAttentionIndicator;
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskIntermediateStateChanged;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskLoopCompleted;
