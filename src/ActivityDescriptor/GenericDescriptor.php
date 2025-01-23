@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\IDescribedActivity;

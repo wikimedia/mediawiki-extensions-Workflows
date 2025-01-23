@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\ActivityDescriptor;
 
 use DateTime;
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\IUserInteractiveActivityDescriptor;
 use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\ActivityTask;
