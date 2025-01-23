@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Definition\Repository;
 
-use Config;
 use ExtensionRegistry;
+use MediaWiki\Config\Config;
 use MediaWiki\HookContainer\HookContainer;
 
 class WorkflowFileDefinitionRepository extends FileRepository {

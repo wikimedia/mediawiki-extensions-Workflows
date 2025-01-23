@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Activity\SendMail;
 
-use Config;
 use MailAddress;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
 use MediaWiki\Extension\Workflows\Activity\GenericActivity;
 use MediaWiki\Extension\Workflows\Definition\ITask;
