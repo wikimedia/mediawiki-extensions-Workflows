@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Eduardoaddad",
+			"Fúlvio",
 			"Juan90264",
 			"Mello25"
 		]
@@ -12,6 +13,7 @@
 	"workflows-ui-overview-details-state-label": "Estado:",
 	"workflows-ui-overview-details-action-reason": "Motivo",
 	"workflows-ui-overview-details-page-context-page": "Página",
+	"workflows-ui-overview-grid-filter-state-all": "Todos",
 	"workflows-collect-data-form-username": "Usuário",
 	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|mais um|$1 mais}}",
 	"workflows-workflow-file-definition-group-feedback-title": "Feedback do grupo",
