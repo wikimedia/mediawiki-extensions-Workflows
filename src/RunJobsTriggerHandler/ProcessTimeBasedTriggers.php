@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
 
 use BlueSpice\RunJobsTriggerHandler\Interval\OnceADay;
 use MediaWiki\Extension\Workflows\TriggerRunner;
+use MediaWiki\Status\Status;
 use MWStake\MediaWiki\Component\RunJobsTrigger\IHandler;
 use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
 use Psr\Log\NullLogger;
-use Status;
 
 final class ProcessTimeBasedTriggers implements IHandler {
 

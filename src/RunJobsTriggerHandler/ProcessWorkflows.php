@@ -6,6 +6,7 @@ use Exception;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\Status\Status;
 use MWStake\MediaWiki\Component\Events\Notifier;
 use MWStake\MediaWiki\Component\RunJobsTrigger\IHandler;
 use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
@@ -13,7 +14,6 @@ use MWStake\MediaWiki\Component\RunJobsTrigger\Interval\OnceEveryHour;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use Status;
 
 class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 

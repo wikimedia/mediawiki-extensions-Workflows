@@ -11,9 +11,9 @@ use MediaWiki\Extension\Workflows\Logger\ISpecialLogLogger;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\Extension\Workflows\WorkflowContextMutable;
 use MediaWiki\Mail\IEmailer;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\TitleFactory;
 use MediaWikiIntegrationTestCase;
-use Status;
 
 /**
  * @covers \MediaWiki\Extension\Workflows\Activity\SendMail\SendMailActivity
