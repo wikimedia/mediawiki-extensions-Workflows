@@ -8,6 +8,7 @@ use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramXmlAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\BPMNContent;
+use MediaWiki\Html\Html;
 use MediaWiki\Title\Title;
 use ParserOutput;
 use TextContentHandler;
@@ -61,7 +62,7 @@ class BPMNHandler extends TextContentHandler {
 			return;
 		}
 
-		$output->setText( \Html::element( 'div', [
+		$output->setText( Html::element( 'div', [
 			'id' => 'workflows-editor-panel',
 			'action' => 'view',
 			'data-xml' => $content->getText()

@@ -6,6 +6,7 @@ use EditAction;
 use ExtensionRegistry;
 use JsonContent;
 use MediaWiki\EditPage\Constraint\UnicodeConstraint;
+use MediaWiki\Html\Html;
 use OutputPage;
 use RuntimeException;
 
@@ -52,7 +53,7 @@ class EditDiagramAction extends EditAction {
 		$content = $this->getArticle()->getPage()->getTitle()->exists() ?
 			$this->getArticle()->getPage()->getContent() :
 			null;
-		$out->addHTML( \Html::element( 'div', [
+		$out->addHTML( Html::element( 'div', [
 			'id' => 'workflows-editor-panel',
 			'data-action' => $this->getArticle()->getPage()->getTitle()->exists() ? 'edit' : 'create',
 			'data-xml' => $content ? $content->getText() : $this->getDefaultXml(),
