@@ -8,6 +8,10 @@ use MediaWiki\Title\TitleFactory;
 use MediaWikiIntegrationTestCase;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @covers \MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger
+ * @group Database
+ */
 class PageRelatedTriggerTest extends MediaWikiIntegrationTestCase {
 
 	/**
