@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Special;
 
 use Html;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 class WorkflowOverview extends SpecialPage {
 	public function __construct() {
