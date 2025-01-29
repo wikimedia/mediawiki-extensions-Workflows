@@ -7,7 +7,7 @@ use ExtensionRegistry;
 use MediaWiki\Content\JsonContent;
 use MediaWiki\EditPage\Constraint\UnicodeConstraint;
 use MediaWiki\Html\Html;
-use OutputPage;
+use MediaWiki\Output\OutputPage;
 use RuntimeException;
 
 class EditDiagramAction extends EditAction {
