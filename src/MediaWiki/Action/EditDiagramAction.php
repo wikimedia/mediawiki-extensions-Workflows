@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\Action;
 
 use EditAction;
 use ExtensionRegistry;
-use JsonContent;
+use MediaWiki\Content\JsonContent;
 use MediaWiki\EditPage\Constraint\UnicodeConstraint;
 use MediaWiki\Html\Html;
 use OutputPage;
