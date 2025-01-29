@@ -4,11 +4,11 @@ namespace MediaWiki\Extension\Workflows;
 
 use EventSauce\EventSourcing\PointInTime;
 use Exception;
-use FormatJson;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
