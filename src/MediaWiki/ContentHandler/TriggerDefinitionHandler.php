@@ -9,8 +9,8 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\ParserOutput;
 use OOUI\ProgressBarWidget;
-use ParserOutput;
 
 class TriggerDefinitionHandler extends JsonContentHandler {
 	/**

@@ -9,8 +9,8 @@ use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramXmlAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\BPMNContent;
 use MediaWiki\Html\Html;
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
-use ParserOutput;
 use TextContentHandler;
 
 class BPMNHandler extends TextContentHandler {
