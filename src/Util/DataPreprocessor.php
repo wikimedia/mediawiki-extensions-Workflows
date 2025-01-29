@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Workflows\Util;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Parser\ParserOptions;
 use Parser;
-use ParserOptions;
 
 class DataPreprocessor {
 
