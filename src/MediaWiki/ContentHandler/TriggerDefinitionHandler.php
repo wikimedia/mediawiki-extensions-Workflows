@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\ContentHandler;
 
-use Content;
+use MediaWiki\Content\Content;
 use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Context\RequestContext;

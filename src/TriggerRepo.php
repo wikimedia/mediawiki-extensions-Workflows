@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows;
 
 use CommentStoreComment;
-use Content;
+use MediaWiki\Content\Content;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;

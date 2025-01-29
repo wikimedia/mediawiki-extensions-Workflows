@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\ContentHandler;
 
 use Article;
-use Content;
+use MediaWiki\Content\Content;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Content\TextContentHandler;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditDiagramAction;
