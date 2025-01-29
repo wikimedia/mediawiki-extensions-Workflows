@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Content;
 
-use TextContent;
+use MediaWiki\Content\TextContent;
 
 class BPMNContent extends TextContent {
 	public function __construct( $text ) {
