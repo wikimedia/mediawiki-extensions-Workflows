@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\Workflows;
 
 use CommentStoreComment;
 use Content;
-use FormatJson;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;

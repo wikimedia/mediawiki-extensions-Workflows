@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows;
 
-use FormatJson;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
+use MediaWiki\Json\FormatJson;
 
 class ActivitySerializer {
 	/** @var Workflow */
