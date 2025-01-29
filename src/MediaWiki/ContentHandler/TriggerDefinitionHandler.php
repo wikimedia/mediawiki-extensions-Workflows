@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\ContentHandler;
 
 use Content;
-use JsonContentHandler;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
