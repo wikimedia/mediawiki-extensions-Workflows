@@ -31,6 +31,7 @@ abstract class JSONBodyActionHandler extends ActionHandler {
 		return [
 			'data' => [
 				static::PARAM_SOURCE => 'body',
+				ParamValidator::PARAM_TYPE => 'array',
 				ParamValidator::PARAM_REQUIRED => false,
 			]
 		];
