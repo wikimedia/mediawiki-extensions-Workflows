@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"Gmelfi"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Scegghi",
@@ -34,5 +35,6 @@
 	"workflows-ui-action-cancel": "Annulla",
 	"workflows-ui-trigger-action-create": "Sarva",
 	"workflows-ui-trigger-field-name": "Nomu",
-	"workflows-action-edit-label": "Cancia"
+	"workflows-action-edit-label": "Cancia",
+	"workflows-activity-editpage-error-invalid-cm": "Tipu di cuntinutu furnutu nun validu"
 }
