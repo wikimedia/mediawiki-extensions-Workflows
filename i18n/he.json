@@ -378,5 +378,7 @@
 	"workflows-editor-editor-dialog-save-action-save": "שמירה",
 	"workflows-editor-editor-dialog-save-action-cancel": "ביטול",
 	"workflows-ui-overview-details-has-notice-label": "יש הודעה?",
-	"workflows-ui-trigger-type-label": "סוג מזנק"
+	"workflows-ui-trigger-type-label": "סוג מזנק",
+	"workflows-activity-editpage-error-invalid-cm": "סופק סוג תוכן בלתי־תקין",
+	"workflows-activity-editpage-summary": "הדף נערך על־ידי פעילות זרימת עבודה"
 }

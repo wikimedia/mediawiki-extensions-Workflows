@@ -80,5 +80,6 @@
 	"workflows-ui-editor-inspector-process-title": "Modifica il contesto del processo",
 	"workflows-editor-editor-dialog-save-title": "Salva diagramma",
 	"workflows-editor-editor-dialog-save-action-save": "Salva",
-	"workflows-editor-editor-dialog-save-action-cancel": "Annulla"
+	"workflows-editor-editor-dialog-save-action-cancel": "Annulla",
+	"workflows-activity-editpage-error-invalid-cm": "Tipo di contenuto fornito non valido"
 }
