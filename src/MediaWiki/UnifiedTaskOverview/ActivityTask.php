@@ -6,11 +6,11 @@ use Exception;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Page\PageProps;
 use MediaWiki\Title\Title;
-use RawMessage;
 
 class ActivityTask implements ITaskDescriptor {
 	/** @var UserInteractiveActivity */
