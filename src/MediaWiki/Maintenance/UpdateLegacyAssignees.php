@@ -3,11 +3,11 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Maintenance;
 
 use Exception;
-use LoggedUpdateMaintenance;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 use MediaWiki\MediaWikiServices;
 
 require_once __DIR__ . '/../../../../../maintenance/Maintenance.php';

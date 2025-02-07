@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Maintenance;
 
-use LoggedUpdateMaintenance;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 use MediaWiki\MediaWikiServices;
 
 class UpdateWorkflowState extends LoggedUpdateMaintenance {
