@@ -4,12 +4,12 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\Maintenance;
 
 use CommentStoreComment;
 use Exception;
-use LoggedUpdateMaintenance;
 use MediaWiki\Extension\Workflows\Definition\Repository\FileRepository;
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Extension\Workflows\Trigger\PageRelatedTrigger;
 use MediaWiki\Extension\Workflows\TriggerRepo;
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Revision\RevisionRecord;
