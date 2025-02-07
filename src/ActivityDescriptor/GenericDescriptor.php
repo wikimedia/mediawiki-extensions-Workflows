@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\IDescribedActivity;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use Psr\Log\LoggerInterface;
@@ -44,7 +45,7 @@ class GenericDescriptor implements IActivityDescriptor {
 	 * @return Message
 	 */
 	public function getActivityName(): Message {
-		return new \RawMessage( $this->activity->getTask()->getName() );
+		return new RawMessage( $this->activity->getTask()->getName() );
 	}
 
 	/**
@@ -55,7 +56,7 @@ class GenericDescriptor implements IActivityDescriptor {
 
 		$taskMsg = Message::newFromKey( "workflows-ui-workflow-overview-step-name-$taskName" );
 		if ( !$taskMsg->exists() ) {
-			$taskMsg = new \RawMessage( $taskName );
+			$taskMsg = new RawMessage( $taskName );
 		}
 
 		return $taskMsg;

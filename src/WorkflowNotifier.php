@@ -11,11 +11,11 @@ use MediaWiki\Extension\Workflows\Event\WorkflowEndedEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\Event\ActivityEvent;
 use MediaWiki\Extension\Workflows\Storage\Event\TaskStarted;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message as MWMessage;
 use MWStake\MediaWiki\Component\Events\BotAgent;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use MWStake\MediaWiki\Component\Events\Notifier;
-use RawMessage;
 use Throwable;
 
 /**
