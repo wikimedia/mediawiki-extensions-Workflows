@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Maintenance;
 
-use CommentStoreComment;
 use Exception;
+use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Extension\Workflows\Definition\Repository\FileRepository;
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
