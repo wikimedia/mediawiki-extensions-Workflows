@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows\Tests\Activity;
 
-use HashConfig;
 use MailAddress;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\Workflows\Activity\SendMail\SendMailActivity;
 use MediaWiki\Extension\Workflows\Definition\DefinitionContext;
 use MediaWiki\Extension\Workflows\Definition\Element\Task;
