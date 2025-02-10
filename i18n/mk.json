@@ -375,5 +375,7 @@
 	"workflows-editor-editor-dialog-save-action-save": "Зачувај",
 	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
 	"workflows-ui-overview-details-has-notice-label": "Има напомена?",
-	"workflows-ui-trigger-type-label": "Вид на покренувач"
+	"workflows-ui-trigger-type-label": "Вид на покренувач",
+	"workflows-activity-editpage-error-invalid-cm": "Укажан е неважечки вид на содржина",
+	"workflows-activity-editpage-summary": "Страницата е уредена со активност на работен тек"
 }
