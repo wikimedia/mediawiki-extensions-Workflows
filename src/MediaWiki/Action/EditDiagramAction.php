@@ -3,11 +3,11 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Action;
 
 use EditAction;
-use ExtensionRegistry;
 use MediaWiki\Content\JsonContent;
 use MediaWiki\EditPage\Constraint\UnicodeConstraint;
 use MediaWiki\Html\Html;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Registration\ExtensionRegistry;
 use RuntimeException;
 
 class EditDiagramAction extends EditAction {
