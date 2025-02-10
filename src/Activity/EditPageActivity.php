@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Activity;
 
 use MediaWiki\CommentStore\CommentStoreComment;
+use MediaWiki\Content\WikitextContent;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\IActivity;
@@ -17,7 +18,6 @@ use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
-use WikitextContent;
 
 class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {
 	private const MODE_REPLACE = 'replace';
