@@ -43,6 +43,7 @@
 	"workflows-action-edit-label": "Modifica",
 	"workflows-action-delete-label": "Cancella",
 	"workflows-ui-trigger-field-description": "Descrizione",
+	"workflows-activity-editpage-error-invalid-cm": "Tipo di contenuto fornito non valido",
 	"workflows-activity-editpage-error-no-title": "Nessun titolo fornito",
 	"workflows-activity-property-instructions": "Istruzioni",
 	"workflows-activity-property-username": "Nome utente",
@@ -80,6 +81,5 @@
 	"workflows-workflow-file-definition-user-feedback-desc": "Chiedi un feedback ad un utente mentre revisiona una pagina. Una volta fatta questo, invia una notifica per posta elettronica al destinatario specificato.",
 	"workflows-editor-editor-dialog-save-title": "Salva diagramma",
 	"workflows-editor-editor-dialog-save-action-save": "Salva",
-	"workflows-editor-editor-dialog-save-action-cancel": "Annulla",
-	"workflows-activity-editpage-error-invalid-cm": "Tipo di contenuto fornito non valido"
+	"workflows-editor-editor-dialog-save-action-cancel": "Annulla"
 }
