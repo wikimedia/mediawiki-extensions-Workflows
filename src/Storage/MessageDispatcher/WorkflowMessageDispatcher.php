@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Workflows\Storage\MessageDispatcher;
 use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\Message;
 use EventSauce\EventSourcing\MessageDispatcher;
-use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Registration\ExtensionRegistry;
 
 class WorkflowMessageDispatcher implements MessageDispatcher {
 	/** @var Consumer[] */

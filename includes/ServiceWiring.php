@@ -16,6 +16,7 @@ use MediaWiki\Extension\Workflows\WorkflowNotifierFactory;
 use MediaWiki\Extension\Workflows\WorkflowSerializer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Registration\ExtensionRegistry;
 
 return [
 	'DefinitionRepositoryFactory' => static function ( MediaWikiServices $services ) {

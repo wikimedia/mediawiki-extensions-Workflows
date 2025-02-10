@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Rest;
 
 use MediaWiki\Message\Message;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Rest\Handler;
 
 class RetrieveTriggerTypesHandler extends Handler {
@@ -10,10 +11,10 @@ class RetrieveTriggerTypesHandler extends Handler {
 	 * @inheritDoc
 	 */
 	public function execute() {
-		$typesAttribute = \ExtensionRegistry::getInstance()->getAttribute(
+		$typesAttribute = ExtensionRegistry::getInstance()->getAttribute(
 			'WorkflowsTriggerTypes'
 		);
-		$editors = \ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsTriggerEditors' );
+		$editors = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsTriggerEditors' );
 
 		$types = [];
 		foreach ( $typesAttribute as $key => $class ) {
