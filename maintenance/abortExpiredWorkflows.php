@@ -4,6 +4,7 @@ use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFact
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Util\AutoAborter;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 
 require_once dirname( dirname( dirname( __DIR__ ) ) ) . '/maintenance/Maintenance.php';
