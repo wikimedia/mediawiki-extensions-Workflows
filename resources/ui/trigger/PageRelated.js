@@ -3,7 +3,8 @@
 		cfg = cfg || {};
 		workflows.ui.trigger.PageRelated.parent.call( this, data, cfg );
 		workflows.ui.trigger.mixin.WorkflowSelector.call( this, $.extend( cfg, {
-			useRawProperties: true
+			useRawProperties: true,
+			$overlay: cfg.$overlay
 		} ) );
 	};
 

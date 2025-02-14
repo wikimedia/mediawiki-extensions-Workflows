@@ -6,6 +6,8 @@ use MediaWiki\Content\Content;
 use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\Workflows\MediaWiki\Action\EditTriggers;
+use MediaWiki\Extension\Workflows\MediaWiki\Action\EditTriggerSourceAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -48,23 +50,33 @@ class TriggerDefinitionHandler extends JsonContentHandler {
 		return false;
 	}
 
+	/**
+	 * @return string[]
+	 */
+	public function getActionOverrides() {
+		return [
+			'edit' => EditTriggers::class,
+			'edittriggersource' => EditTriggerSourceAction::class
+		];
+	}
+
 	protected function fillParserOutput(
 		Content $content,
 		ContentParseParams $cpoParams,
-		ParserOutput &$output
+		ParserOutput &$parserOutput
 	) {
 		$context = RequestContext::getMain();
-		$output->addModules( [ 'ext.workflows.triggers' ] );
+		$parserOutput->addModules( [ 'ext.workflows.triggers' ] );
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( !$pm->userHasRight( $context->getUser(), 'workflows-admin' ) ) {
 			// TODO: Message could be improved
-			$output->setText( $context->msg( 'badaccess' )->text() );
+			$parserOutput->setRawText( $context->msg( 'badaccess' )->text() );
 			return;
 		}
 
 		$context->getOutput()->enableOOUI();
-		$output->setTitleText( $context->msg( 'workflows-ui-trigger-page-title' )->text() );
-		$output->setText(
+		$parserOutput->setTitleText( $context->msg( 'workflows-ui-trigger-page-title' )->text() );
+		$parserOutput->setRawText(
 			Html::rawElement( 'div', [
 					'id' => 'workflows-triggers-cnt'
 				], new ProgressBarWidget( [ 'progress' => false ] )
