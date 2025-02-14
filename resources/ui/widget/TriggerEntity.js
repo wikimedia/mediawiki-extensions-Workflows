@@ -5,6 +5,7 @@
 		this.id = id;
 		this.data = data;
 		this.typeDesc = typeDesc;
+		this.editMode = cfg.editMode || false;
 
 		var nameLabel = this.data.name_parsed;
 		if ( !this.data.active ) {
@@ -21,7 +22,7 @@
 			title:  typeDesc.desc,
 		} ).$element );
 
-		if ( this.typeDesc.editor !== null ) {
+		if ( this.editMode && this.typeDesc.editor !== null ) {
 			var editButton = new OO.ui.ButtonWidget( {
 				icon: 'edit',
 				framed: false,

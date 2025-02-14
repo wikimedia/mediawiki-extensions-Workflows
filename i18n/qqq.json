@@ -361,5 +361,7 @@
 	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create",
 	"workflows-ui-group-threshold-hint-user": "Hint in an activity configuration dialog about the number of users in a given group.\n * $1 - number of users in the group",
 	"workflows-ui-group-threshold-hint-percent": "Hint in an activity configuration dialog about the number of users in a given group.\n * $1 - number of users in the group\n * $2 - number of users required to complete the workflow",
-	"workflows-ui-overview-details-has-notice-label": "Label of a grid column on the workflow overview page, indicating if the workflow has a notice. Column shows boolean values."
+	"workflows-ui-overview-details-has-notice-label": "Label of a grid column on the workflow overview page, indicating if the workflow has a notice. Column shows boolean values.",
+	"workflows-ui-action-edittriggersource": "Label for the action that opens the trigger source editor",
+	"workflows-ui-action-edit-triggers": "Label for the action that opens the trigger editor"
 }
