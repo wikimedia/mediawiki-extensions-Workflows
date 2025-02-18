@@ -181,8 +181,10 @@
 	"workflows-ui-trigger-item-inactive": "$1 (לא פעיל)",
 	"workflows-ui-trigger-field-description": "תיאור",
 	"workflows-ui-trigger-field-workflow-picker": "איזו זרימת עבודה להתחיל",
+	"workflows-activity-editpage-error-invalid-cm": "סופק סוג תוכן בלתי־תקין",
 	"workflows-activity-editpage-error-no-title": "לא ניתנה כותרת",
 	"workflows-activity-editpage-permissiondenied": "{{GENDER:$1|למשתמש|למשתמשת}} $1 אין הרשאה לערוך את הדף \"$2\"",
+	"workflows-activity-editpage-summary": "הדף נערך על־ידי פעילות זרימת עבודה",
 	"workflows-activity-user-feedback-name": "משוב מהמשתמש",
 	"workflows-activity-user-vote-name": "הצבעת משתמש",
 	"workflows-activity-group-feedback-name": "משוב קבוצתי",
@@ -354,7 +356,5 @@
 	"workflows-editor-editor-dialog-save-action-save": "שמירה",
 	"workflows-editor-editor-dialog-save-action-cancel": "ביטול",
 	"workflows-ui-overview-details-has-notice-label": "יש הודעה?",
-	"workflows-ui-trigger-type-label": "סוג מזנק",
-	"workflows-activity-editpage-error-invalid-cm": "סופק סוג תוכן בלתי־תקין",
-	"workflows-activity-editpage-summary": "הדף נערך על־ידי פעילות זרימת עבודה"
+	"workflows-ui-trigger-type-label": "סוג מזנק"
 }
