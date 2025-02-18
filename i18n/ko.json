@@ -152,5 +152,7 @@
 	"workflows-ui-editor-inspector-activity-edit-page-property-user": "사용자",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "사용자",
 	"workflows-editor-editor-dialog-save-action-cancel": "취소",
-	"workflows-ui-trigger-type-label": "트리거 유형"
+	"workflows-ui-trigger-type-label": "트리거 유형",
+	"workflows-ui-action-edittriggersource": "원본 편집",
+	"workflows-ui-action-edit-triggers": "편집"
 }
