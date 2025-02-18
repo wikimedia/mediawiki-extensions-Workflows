@@ -22,5 +22,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Мања измена?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Коментар",
 	"workflows-editor-editor-dialog-save-action-save": "Сачувај",
-	"workflows-editor-editor-dialog-save-action-cancel": "Откажи"
+	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
+	"workflows-ui-action-edittriggersource": "Уреди извор",
+	"workflows-ui-action-edit-triggers": "Уреди"
 }
