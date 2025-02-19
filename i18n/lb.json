@@ -133,5 +133,7 @@
 	"workflows-ui-editor-inspector-id": "ID",
 	"workflows-editor-editor-dialog-save-title": "Diagramm späicheren",
 	"workflows-editor-editor-dialog-save-action-save": "Späicheren",
-	"workflows-editor-editor-dialog-save-action-cancel": "Ofbriechen"
+	"workflows-editor-editor-dialog-save-action-cancel": "Ofbriechen",
+	"workflows-ui-action-edittriggersource": "Quelltext änneren",
+	"workflows-ui-action-edit-triggers": "Änneren"
 }
