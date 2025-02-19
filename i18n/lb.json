@@ -133,5 +133,7 @@
 	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Instruktiounen",
 	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "Kleng Ännerung?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Kleng Ännerung?",
-	"workflows-workflow-file-definition-group-feedback-title": "Gruppefeedback"
+	"workflows-workflow-file-definition-group-feedback-title": "Gruppefeedback",
+	"workflows-ui-action-edittriggersource": "Quelltext änneren",
+	"workflows-ui-action-edit-triggers": "Änneren"
 }
