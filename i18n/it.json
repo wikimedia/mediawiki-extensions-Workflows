@@ -81,5 +81,7 @@
 	"workflows-workflow-file-definition-user-feedback-desc": "Chiedi un feedback ad un utente mentre revisiona una pagina. Una volta fatta questo, invia una notifica per posta elettronica al destinatario specificato.",
 	"workflows-editor-editor-dialog-save-title": "Salva diagramma",
 	"workflows-editor-editor-dialog-save-action-save": "Salva",
-	"workflows-editor-editor-dialog-save-action-cancel": "Annulla"
+	"workflows-editor-editor-dialog-save-action-cancel": "Annulla",
+	"workflows-ui-action-edittriggersource": "Modifica sorgente",
+	"workflows-ui-action-edit-triggers": "Modifica"
 }
