@@ -5,5 +5,7 @@
 		]
 	},
 	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "ਮਾਮੂਲੀ ਦੁਹਰਾਅ?",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "ਸਫ਼ੇ ਉੱਤੇ ਫਰਮੇ ਦੀ ਸੂਚੀ"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "ਸਫ਼ੇ ਉੱਤੇ ਫਰਮੇ ਦੀ ਸੂਚੀ",
+	"workflows-ui-action-edittriggersource": "ਸਰੋਤ ਸੋਧੋ",
+	"workflows-ui-action-edit-triggers": "ਸੋਧੋ"
 }
