@@ -20,5 +20,6 @@
 	"workflows-global-action-overview": "کم دی چال",
 	"workflows-ui-editor-inspector-id": "آئی ڈی",
 	"workflows-editor-editor-dialog-save-action-save": "بچاؤ",
-	"workflows-editor-editor-dialog-save-action-cancel": "منسوخ"
+	"workflows-editor-editor-dialog-save-action-cancel": "منسوخ",
+	"workflows-ui-action-edit-triggers": "لکھو"
 }
