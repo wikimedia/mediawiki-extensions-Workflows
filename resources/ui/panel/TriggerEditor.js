@@ -1,5 +1,6 @@
 workflows.ui.panel.TriggerEditor = function( cfg ) {
 	workflows.ui.panel.TriggerEditor.parent.call( this, cfg );
+	this.editable = false;
 };
 
 OO.inheritClass( workflows.ui.panel.TriggerEditor, workflows.ui.panel.TriggerOverview );
@@ -11,11 +12,18 @@ workflows.ui.panel.TriggerEditor.prototype.load = function() {
 };
 
 workflows.ui.panel.TriggerEditor.prototype.render = function( data, types ) {
-	this.$triggerCnt = $( '<div>' ).addClass( 'workflows-ui-trigger-cnt' );
-	this.appendHeader();
-	this.appendTriggers( data, types );
-	this.$element.append( this.$triggerCnt );
-	this.emit( 'loaded' );
+	mw.user.getRights().done( function( rights ) {
+		if ( rights.indexOf( 'workflows-admin' ) !== -1 ) {
+			this.editable = true;;
+		}
+		this.$triggerCnt = $( '<div>' ).addClass( 'workflows-ui-trigger-cnt' );
+		if ( this.editable ) {
+			this.appendHeader();
+		}
+		this.appendTriggers( data, types );
+		this.$element.append( this.$triggerCnt );
+		this.emit( 'loaded' );
+	}.bind( this ) );
 };
 
 workflows.ui.panel.TriggerEditor.prototype.appendTriggers = function( data, types ) {
@@ -31,7 +39,7 @@ workflows.ui.panel.TriggerEditor.prototype.appendTriggers = function( data, type
 			continue;
 		}
 		var widget = new workflows.ui.widget.TriggerEntity( triggerId, triggerData, types[triggerData.type], {
-			editMode: true,
+			editMode: this.editable,
 			editable: types[triggerData.type].hasOwnProperty( 'editor' ) && types[triggerData.type].editor !== null
 		} );
 
@@ -56,15 +64,14 @@ workflows.ui.panel.TriggerEditor.prototype.appendHeader = function() {
 			} )
 		],
 		saveable: false,
-		cancelable: true
+		cancelable: false
 	} );
 	this.toolbar.connect( this, {
 		action: ( action ) => {
 			if ( action === 'add' ) {
 				this.openEmptyTriggerDialog();
 			}
-		},
-		cancel: 'onCancel'
+		}
 	} );
 	this.toolbar.setup();
 

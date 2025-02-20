@@ -12,7 +12,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdater;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
-use MediaWiki\User\User;
 use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -190,14 +189,15 @@ class TriggerRepo {
 
 	/**
 	 * @param string $name
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public function deleteTrigger( $name ) {
+	public function deleteTrigger( $name, $user ) {
 		$this->assertLoaded();
 		$triggers = $this->getRawTriggers();
 		if ( isset( $triggers[$name] ) ) {
 			unset( $triggers[$name] );
-			return $this->setContent( $triggers );
+			return $this->setContent( $triggers, $user );
 		}
 
 		return false;
@@ -208,9 +208,10 @@ class TriggerRepo {
 	 *
 	 * @param string $name
 	 * @param array $data
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public function upsertTrigger( $name, $data ) {
+	public function upsertTrigger( $name, $data, $user ) {
 		$this->assertLoaded();
 		$triggers = $this->getRawTriggers();
 		if ( isset( $triggers[$name] ) ) {
@@ -219,17 +220,18 @@ class TriggerRepo {
 			$triggers[$name] = $data;
 		}
 
-		return $this->setContent( $triggers );
+		return $this->setContent( $triggers, $user );
 	}
 
 	/**
 	 * @param array $data
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public function setContent( $data ) {
+	public function setContent( $data, $user ) {
 		$this->assertLoaded();
 		$content = new TriggerDefinitionContent( FormatJson::encode( $data ) );
-		$updater = $this->getPageUpdater();
+		$updater = $this->getPageUpdater( $user );
 		$updater->setContent( SlotRecord::MAIN, $content );
 
 		if ( $this->persistContent( $updater ) ) {
@@ -253,8 +255,12 @@ class TriggerRepo {
 		return $this->wikipage->getTitle();
 	}
 
-	private function getPageUpdater() {
-		return $this->wikipage->newPageUpdater( User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] ) );
+	/**
+	 * @param UserIdentity $user
+	 * @return PageUpdater
+	 */
+	private function getPageUpdater( $user ) {
+		return $this->wikipage->newPageUpdater( $user );
 	}
 
 	/**

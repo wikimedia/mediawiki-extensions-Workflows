@@ -986,6 +986,9 @@
 	"SpecialPages": {
 		"WorkflowsOverview": {
 			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\WorkflowOverview"
+		},
+		"WorkflowTriggers": {
+			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\WorkflowTriggers"
 		}
 	},
 	"ExtensionMessagesFiles": {

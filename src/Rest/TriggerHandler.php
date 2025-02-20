@@ -2,11 +2,10 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Rest\Handler;
-use MediaWiki\Rest\HttpException;
+use MediaWiki\User\UserIdentity;
 
 abstract class TriggerHandler extends Handler {
 	/** @var TriggerRepo */
@@ -25,14 +24,18 @@ abstract class TriggerHandler extends Handler {
 		$this->permissionManager = $permissionManager;
 	}
 
-	protected function assertUserIsAdmin() {
+	/**
+	 * @param UserIdentity $user
+	 * @return void
+	 */
+	protected function assertUserIsAdmin( $user ) {
 		if ( !$this->permissionManager ) {
-			return;
+			return false;
 		}
-		$user = RequestContext::getMain()->getUser();
 		if ( !$this->permissionManager->userHasRight( $user, 'workflows-admin' ) ) {
-			throw new HttpException( 'permissiondenied', 401 );
+			return false;
 		}
+		return true;
 	}
 
 	/**

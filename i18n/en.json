@@ -349,5 +349,6 @@
 	"workflows-ui-overview-details-has-notice-label": "Has notice?",
 	"workflows-ui-trigger-type-label": "Trigger type",
 	"workflows-ui-action-edittriggersource": "Edit source",
-	"workflows-ui-action-edit-triggers": "Edit"
+	"workflows-ui-action-edit-triggers": "Edit",
+	"workflowtriggers": "Workflow triggers"
 }
