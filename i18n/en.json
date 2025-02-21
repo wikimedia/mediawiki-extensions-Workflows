@@ -130,7 +130,7 @@
 	"workflows-activity-history-vote-result-no": "Declined",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Property",
 	"workflows-ui-overview-details-raw-data-popup-value": "Value",
-	"workflows-ui-overview-details-raw-data-popup-label": "Property values",
+	"workflows-ui-overview-details-raw-data-popup-label": "Raw property values",
 	"workflows-triggers-type-edit-label": "On edit",
 	"workflows-triggers-type-create-label": "On page creation",
 	"workflows-triggers-type-move-label": "On page move",

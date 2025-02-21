@@ -250,6 +250,7 @@
 			}
 			historyPanel.$element.append(
 				new OO.ui.HorizontalLayout( {
+					classes: [ 'history-item-wrapper' ],
 					items: [
 						new OO.ui.LabelWidget( {
 							label: key,

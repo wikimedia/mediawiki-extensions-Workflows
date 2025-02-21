@@ -7,7 +7,7 @@
 				icon: 'info',
 				title: mw.message('workflows-ui-overview-details-raw-data-popup-label').text(),
 				framed: false,
-				$overlay: false,
+				$overlay: true,
 				flags: [ 'progressive' ]
 			};
 		}
@@ -19,6 +19,7 @@
 			width: popupContent.width + 30,
 			padded: false,
 			autoFlip: true,
+			$overlay: true,
 			classes: [ 'workflow-data-popup' ]
 		} );
 
@@ -31,7 +32,10 @@
 				this.popup.$body.css( 'height', '100%' );
 			}
 		} );
-		this.$element.children()[1].tabIndex = 0;
+		const children = this.$element.children();
+		if ( children.length > 1 ) {
+			children[1].tabIndex = 0;
+		}
 		this.$element.addClass( 'activity-data-raw-popup' );
 	};
 
