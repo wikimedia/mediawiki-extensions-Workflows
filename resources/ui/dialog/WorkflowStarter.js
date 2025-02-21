@@ -118,11 +118,6 @@
 		this.updateSize();
 	};
 
-	workflows.ui.dialog.WorkflowStarter.prototype.hideErrors = function() {
-		workflows.ui.dialog.WorkflowStarter.parent.prototype.hideErrors.call( this );
-		this.close();
-	};
-
 	workflows.ui.dialog.WorkflowStarter.prototype.getActionProcess = function ( action ) {
 		return workflows.ui.dialog.WorkflowStarter.parent.prototype.getActionProcess.call( this, action ).next(
 			function() {
