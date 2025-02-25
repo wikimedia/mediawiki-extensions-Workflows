@@ -109,7 +109,7 @@ workflows.ui.widget.GroupThresholdValue.prototype.updateGroupHint = function() {
 				this.removeHint();
 				return;
 			}
-			var userCount = data.usercount ?? null;
+			var userCount = data.usercount || null;
 			if ( userCount === null ) {
 				this.removeHint();
 				return;

@@ -56,7 +56,10 @@
 					headerText: mw.message( 'workflows-ui-overview-details-has-notice-label' ).text(),
 					invisibleLabel: true,
 					type: "icon",
-					width: 35
+					width: 35,
+					valueParser: function( val ) {
+						return val ? 'alert' : '';
+					}
 				},
 				title: {
 					headerText: mw.message( 'workflows-ui-overview-details-workflow-type-label' ).text(),
