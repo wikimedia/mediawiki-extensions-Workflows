@@ -356,5 +356,7 @@
 	"workflows-editor-editor-dialog-save-action-save": "שמירה",
 	"workflows-editor-editor-dialog-save-action-cancel": "ביטול",
 	"workflows-ui-overview-details-has-notice-label": "יש הודעה?",
-	"workflows-ui-trigger-type-label": "סוג מזנק"
+	"workflows-ui-trigger-type-label": "סוג מזנק",
+	"workflows-ui-action-edittriggersource": "עריכת קוד מקור",
+	"workflows-ui-action-edit-triggers": "עריכה"
 }
