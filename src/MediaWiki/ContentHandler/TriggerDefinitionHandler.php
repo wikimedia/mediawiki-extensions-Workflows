@@ -6,7 +6,6 @@ use MediaWiki\Content\Content;
 use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Extension\Workflows\MediaWiki\Action\EditTriggers;
 use MediaWiki\Extension\Workflows\MediaWiki\Action\EditTriggerSourceAction;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
 use MediaWiki\Html\Html;
@@ -55,7 +54,6 @@ class TriggerDefinitionHandler extends JsonContentHandler {
 	 */
 	public function getActionOverrides() {
 		return [
-			'edit' => EditTriggers::class,
 			'edittriggersource' => EditTriggerSourceAction::class
 		];
 	}

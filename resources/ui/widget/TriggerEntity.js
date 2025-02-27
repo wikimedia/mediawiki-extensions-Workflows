@@ -61,6 +61,9 @@
 		if ( data.hasOwnProperty( 'active') && !data.active ) {
 			this.$element.addClass( 'workflows-trigger-inactive' );
 		}
+		if ( this.editMode ) {
+			this.$element.addClass( 'trigger-edit' );
+		}
 	};
 
 	OO.inheritClass( workflows.ui.widget.TriggerEntity, OO.ui.Widget );
