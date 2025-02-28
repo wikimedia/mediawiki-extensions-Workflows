@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"GünniBusch",
 			"Justman10000",
 			"McDutchie",
 			"Mschlindwein",
@@ -301,5 +302,5 @@
 	"workflows-editor-editor-dialog-save-title": "Diagramm speichern",
 	"workflows-editor-editor-dialog-save-action-save": "Speichern",
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
-	"workflowtriggers": "Workflow-Triggers"
+	"workflowtriggers": "Workflow-Trigger"
 }

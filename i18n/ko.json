@@ -140,5 +140,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "취소",
 	"workflows-ui-trigger-type-label": "트리거 유형",
 	"workflows-ui-action-edittriggersource": "원본 편집",
-	"workflows-ui-action-edit-triggers": "편집"
+	"workflows-ui-action-edit-triggers": "편집",
+	"workflowtriggers": "워크플로 트리거"
 }
