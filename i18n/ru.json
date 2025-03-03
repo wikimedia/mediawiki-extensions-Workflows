@@ -5,13 +5,15 @@
 			"Dirruw'o",
 			"Gulka.nik",
 			"Kareyac",
-			"Pacha Tchernof"
+			"Pacha Tchernof",
+			"Yurina Tatiana"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
 	"workflows-ui-starter-action-done": "Начать",
 	"workflows-ui-starter-action-cancel": "Отменить",
 	"logentry-ext-workflows-editpage-edit": "Страниц отредактировано: $4",
+	"workflows-ui-task-completion-action-complete": "Отправить",
 	"workflows-ui-task-completion-action-cancel": "Отмена",
 	"workflows-ui-workflow-overview-action-restore": "Восстановить",
 	"workflows-ui-workflow-overview-action-cancel": "Закрыть",
@@ -59,5 +61,6 @@
 	"workflows-editor-editor-dialog-save-title": "Сохранить диаграмму",
 	"workflows-editor-editor-dialog-save-action-save": "Сохранить",
 	"workflows-editor-editor-dialog-save-action-cancel": "Отмена",
+	"workflows-ui-action-edittriggersource": "Править код",
 	"workflows-ui-action-edit-triggers": "Править"
 }
