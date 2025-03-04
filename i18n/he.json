@@ -358,5 +358,6 @@
 	"workflows-ui-overview-details-has-notice-label": "יש הודעה?",
 	"workflows-ui-trigger-type-label": "סוג מזנק",
 	"workflows-ui-action-edittriggersource": "עריכת קוד מקור",
-	"workflows-ui-action-edit-triggers": "עריכה"
+	"workflows-ui-action-edit-triggers": "עריכה",
+	"workflowtriggers": "מזנקי זרימת עבודה"
 }
