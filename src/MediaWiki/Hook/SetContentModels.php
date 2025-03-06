@@ -24,7 +24,8 @@ class SetContentModels implements ContentHandlerDefaultModelForHook {
 			return false;
 		}
 		// Hardcoded pagename
-		if ( $title->equals( $this->triggerRepo->getTitle() ) ) {
+		$triggerTitle = $this->triggerRepo->getTitle();
+		if ( $triggerTitle && $title->equals( $triggerTitle ) ) {
 			$model = 'workflow-triggers';
 			return false;
 		}
