@@ -71,9 +71,17 @@ class LogicObjectFactory {
 	/**
 	 * @param Gateway $gateway
 	 * @return IDecision
+	 * @throws Exception
 	 */
 	public function getDecisionForGateway( Gateway $gateway ): IDecision {
 		return $this->getInstance( $gateway, 'DecisionRegistry' );
+	}
+
+	/**
+	 * @return ISpecialLogLogger
+	 */
+	public function getSpecialLogLogger(): ISpecialLogLogger {
+		return $this->specialLogLogger;
 	}
 
 	/**
