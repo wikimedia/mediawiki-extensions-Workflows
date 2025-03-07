@@ -9,7 +9,7 @@ use OOUI\ProgressBarWidget;
 class WorkflowTriggers extends SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'WorkflowTriggers', 'read' );
+		parent::__construct( 'WorkflowTriggers', 'workflows-admin' );
 	}
 
 	/**
