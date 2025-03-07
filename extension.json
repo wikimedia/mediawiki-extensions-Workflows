@@ -998,8 +998,7 @@
 		"echo-subscriptions-email-workflow-cat": 1
 	},
 	"Actions": {
-		"editxml": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Action\\EditDiagramXmlAction",
-		"edittriggersource": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Action\\EditTriggerSourceAction"
+		"editxml": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Action\\EditDiagramXmlAction"
 	},
 	"manifest_version": 2,
 	"load_composer_autoloader": true

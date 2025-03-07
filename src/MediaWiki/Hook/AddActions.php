@@ -35,9 +35,6 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 		if ( $title->getContentModel() === 'BPMN' ) {
 			$this->addEditXmlAction( $sktemplate, $links );
 		}
-		if ( $title->getContentModel() === 'workflow-triggers' ) {
-			$this->addEditTriggerSourceAction( $sktemplate, $links );
-		}
 		if ( $title->isSpecialPage() || !$title->isContentPage() ) {
 			return;
 		}
@@ -92,27 +89,5 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 		$links['views']['editxml']['text'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->plain();
 		$links['views']['editxml']['title'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->plain();
 		$links['views']['editxml']['href'] = $sktemplate->getTitle()->getLinkURL( [ 'action' => 'editxml' ] );
-	}
-
-	/**
-	 * @param SkinTemplate $sktemplate
-	 * @param array &$links
-	 *
-	 * @return void
-	 */
-	private function addEditTriggerSourceAction( SkinTemplate $sktemplate, array &$links ) {
-		if ( !isset( $links['views']['edit'] ) ) {
-			return;
-		}
-		$links['views']['edit']['text'] = $sktemplate->msg( 'workflows-ui-action-edit-triggers' )->plain();
-		$links['views']['edit']['title'] = $sktemplate->msg( 'workflows-ui-action-edit-triggers' )->plain();
-		$links['views']['edittriggersource'] = $links['views']['edit'];
-		$links['views']['edittriggersource']['text'] =
-			$sktemplate->msg( 'workflows-ui-action-edittriggersource' )->plain();
-		$links['views']['edittriggersource']['title'] =
-			$sktemplate->msg( 'workflows-ui-action-edittriggersource' )->plain();
-		$links['views']['edittriggersource']['href'] = $sktemplate->getTitle()->getLinkURL(
-			[ 'action' => 'edittriggersource' ]
-		);
 	}
 }
