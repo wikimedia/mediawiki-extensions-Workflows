@@ -362,7 +362,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Label for the BPMN cancel dialog action\n{{Identical|Cancel}}",
 	"workflows-ui-overview-details-has-notice-label": "Label of a grid column on the workflow overview page, indicating if the workflow has a notice. Column shows boolean values.",
 	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create",
-	"workflows-ui-action-edittriggersource": "Label for the action that opens the trigger source editor",
 	"workflows-ui-action-edit-triggers": "Label for the action that opens the trigger editor",
 	"workflowtriggers": "Title of special page [[Special:Workflow_triggers]]"
 }
