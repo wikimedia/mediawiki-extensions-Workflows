@@ -300,6 +300,16 @@ final class Workflow {
 		$this->getPrivateContext()->setStartDate( $startDate );
 		$this->getPrivateContext()->setWorkflowId( $this->getStorage()->aggregateRootId() );
 		$this->doStart( $contextData );
+		if ( !$this->runningDry ) {
+			$this->logicObjectFactory->getSpecialLogLogger()->addEntry(
+				'start',
+				$this->getPrivateContext()->getContextPage() ?
+					$this->getPrivateContext()->getContextPage() :
+					$this->titleFactory->newMainPage(),
+				$this->actor,
+				''
+			);
+		}
 	}
 
 	/**
@@ -391,6 +401,14 @@ final class Workflow {
 		$this->storage->recordEvent(
 			WorkflowAborted::newFromData( $this->getActor(), $endDate, $reason )
 		);
+		$this->logicObjectFactory->getSpecialLogLogger()->addEntry(
+			'abort',
+			$this->getPrivateContext()->getContextPage() ?
+				$this->getPrivateContext()->getContextPage() :
+				$this->titleFactory->newMainPage(),
+			$this->actor,
+			$reason ?? ''
+		);
 		$this->stateMessage = $reason;
 		$this->state = static::STATE_ABORTED;
 	}
@@ -420,6 +438,14 @@ final class Workflow {
 		$this->storage->recordEvent(
 			WorkflowAutoAborted::newFromData( $this->getActor(), $endDate, $stateMessage )
 		);
+		$this->logicObjectFactory->getSpecialLogLogger()->addEntry(
+			'auto-abort',
+			$this->getPrivateContext()->getContextPage() ?
+				$this->getPrivateContext()->getContextPage() :
+				$this->titleFactory->newMainPage(),
+			$this->actor,
+			$message
+		);
 		$this->stateMessage = $stateMessage;
 		$this->state = static::STATE_ABORTED;
 	}
@@ -438,6 +464,14 @@ final class Workflow {
 		$this->getPrivateContext()->setEndDate( null );
 		$this->state = static::STATE_RUNNING;
 		$this->stateMessage = $reason;
+		$this->logicObjectFactory->getSpecialLogLogger()->addEntry(
+			'unabort',
+			$this->getPrivateContext()->getContextPage() ?
+				$this->getPrivateContext()->getContextPage() :
+				$this->titleFactory->newMainPage(),
+			$this->actor,
+			$reason
+		);
 		$this->extendDueDateIfExpired();
 	}
 
@@ -792,6 +826,14 @@ final class Workflow {
 			$this->getPrivateContext()->setEndDate( $endDate );
 			$this->storage->recordEvent(
 				WorkflowEnded::newFromData( $end->getId(), $endDate )
+			);
+			$this->logicObjectFactory->getSpecialLogLogger()->addEntry(
+				'finish',
+				$this->getPrivateContext()->getContextPage() ?
+					$this->getPrivateContext()->getContextPage() :
+					$this->titleFactory->newMainPage(),
+				$this->actor,
+				''
 			);
 			return $this->markEnd( $end );
 		}
