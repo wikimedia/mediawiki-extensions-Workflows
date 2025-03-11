@@ -49,4 +49,11 @@ interface WorkflowStateStore extends ReplayConsumer, Consumer {
 	 * @return WorkflowStateModel[]
 	 */
 	public function modelsFromIds( array $ids ): array;
+
+	/**
+	 * Array of fieldName => direction pairs
+	 * @param array $sort
+	 * @return void
+	 */
+	public function setSort( array $sort ): void;
 }
