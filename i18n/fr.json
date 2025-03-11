@@ -7,7 +7,8 @@
 			"Mahabarata",
 			"Paraboule",
 			"SleaY",
-			"Verdy p"
+			"Verdy p",
+			"JLTRY"
 		]
 	},
 	"workflows-desc": "Permet de définir et d’exécuter différents flux de travail sur le wiki",
@@ -141,7 +142,7 @@
 	"workflows-activity-history-vote-result-no": "Refusé",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Propriété",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valeur",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs de la propriété",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs brutes des propriétés",
 	"workflows-triggers-type-edit-label": "En cas de modification",
 	"workflows-triggers-type-create-label": "En cas de création de page",
 	"workflows-triggers-type-move-label": "En cas de déplacement de page",

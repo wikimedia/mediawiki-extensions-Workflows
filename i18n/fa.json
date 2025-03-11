@@ -12,7 +12,7 @@
 	"workflows-activity-history-vote-result-no": "برگشت‌خورده",
 	"workflows-ui-overview-details-raw-data-popup-prop": "ویژگی",
 	"workflows-ui-overview-details-raw-data-popup-value": "مقدار",
-	"workflows-ui-overview-details-raw-data-popup-label": "مقدارهای ویژگی",
+	"workflows-ui-overview-details-raw-data-popup-label": "مقدارهای خام ویژگی",
 	"workflows-activity-property-instructions": "دستورالعمل",
 	"workflows-activity-property-username": "نام کاربری",
 	"workflows-activity-property-due_date": "موعد مقرر",
@@ -37,6 +37,5 @@
 	"workflows-workflow-file-definition-user-feedback-title": "بازخورد تک کاربر",
 	"workflows-workflow-file-definition-user-feedback-desc": "از یک کاربر بخواهید تا هنگام بازبینی یک صفحه، بازخورد دهد. هرگاه رأی‌گیری تمام شود، از طریق دریافت یک ایمیل پیرامون نتیجهٔ رأی‌گیری آگاه خواهید شد.",
 	"workflows-ui-overview-details-has-notice-label": "دارای اعلان است؟",
-	"workflows-ui-action-edittriggersource": "ویرایش مبدأ",
 	"workflows-ui-action-edit-triggers": "ویرایش"
 }

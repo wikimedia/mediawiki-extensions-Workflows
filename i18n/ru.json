@@ -61,6 +61,5 @@
 	"workflows-editor-editor-dialog-save-title": "Сохранить диаграмму",
 	"workflows-editor-editor-dialog-save-action-save": "Сохранить",
 	"workflows-editor-editor-dialog-save-action-cancel": "Отмена",
-	"workflows-ui-action-edittriggersource": "Править код",
 	"workflows-ui-action-edit-triggers": "Править"
 }

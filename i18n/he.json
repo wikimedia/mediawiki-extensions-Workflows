@@ -139,7 +139,7 @@
 	"workflows-activity-history-vote-result-no": "נדחה",
 	"workflows-ui-overview-details-raw-data-popup-prop": "מאפיין",
 	"workflows-ui-overview-details-raw-data-popup-value": "ערך",
-	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים",
+	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים גולמיים",
 	"workflows-triggers-type-edit-label": "בעת עריכה",
 	"workflows-triggers-type-create-label": "בעת יצירת דף",
 	"workflows-triggers-type-move-label": "בעת העברת דף",
@@ -357,7 +357,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "ביטול",
 	"workflows-ui-overview-details-has-notice-label": "יש הודעה?",
 	"workflows-ui-trigger-type-label": "סוג מזנק",
-	"workflows-ui-action-edittriggersource": "עריכת קוד מקור",
 	"workflows-ui-action-edit-triggers": "עריכה",
 	"workflowtriggers": "מזנקי זרימת עבודה"
 }
