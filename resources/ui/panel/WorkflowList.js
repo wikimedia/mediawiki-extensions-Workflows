@@ -198,6 +198,17 @@
 						mw.message( 'workflows-ui-overview-details-last-time-column' ).text()
 					);
 					$row.append( $cell );
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-start-time-raw-column' ).text()
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-last-time-raw-column' ).text()
+					);
+					$row.append( $cell );
 
 					$table.append( $row );
 
@@ -222,6 +233,14 @@
 
 						$cell = $( '<td>' );
 						$cell.append( record.state );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.start_formatted );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.last_formatted );
 						$row.append( $cell );
 
 						$cell = $( '<td>' );

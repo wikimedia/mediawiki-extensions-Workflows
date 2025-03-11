@@ -57,7 +57,9 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			if ( $startedTs ) {
 				$dataSet->set(
 					Record::START_FORMATTED,
-					$this->context->getLanguage()->userDate( $startedTs, $this->context->getUser() )
+					$this->context->getLanguage()->userTimeAndDate( $startedTs, $this->context->getUser(), [
+						'timecorrection' => true
+					] )
 				);
 			}
 
@@ -65,7 +67,9 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			if ( $touchedTs ) {
 				$dataSet->set(
 					Record::LAST_FORMATTED,
-					$this->context->getLanguage()->userDate( $touchedTs, $this->context->getUser() )
+					$this->context->getLanguage()->userTimeAndDate( $touchedTs, $this->context->getUser(), [
+						'timecorrection' => true
+					] )
 				);
 			}
 
