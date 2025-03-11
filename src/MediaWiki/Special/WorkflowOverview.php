@@ -3,17 +3,14 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Special;
 
 use MediaWiki\Html\Html;
-use MediaWiki\SpecialPage\SpecialPage;
+use OOJSPlus\Special\OOJSGridSpecialPage;
 
-class WorkflowOverview extends SpecialPage {
+class WorkflowOverview extends OOJSGridSpecialPage {
 	public function __construct() {
 		parent::__construct( 'WorkflowsOverview', 'workflows-view' );
 	}
 
-	public function execute( $subPage ) {
-		parent::execute( $subPage );
-
-		$this->getOutput()->enableOOUI();
+	public function doExecute( $subPage ) {
 		$this->getOutput()->addModules( 'ext.workflows.special.overview' );
 		$this->getOutput()->addHTML( Html::element( 'div', [
 			'id' => 'workflows-overview-loader',
