@@ -368,5 +368,7 @@
 	"workflows-ui-overview-details-has-notice-label": "Label of a grid column on the workflow overview page, indicating if the workflow has a notice. Column shows boolean values.",
 	"workflows-ui-trigger-type-label": "Label for the dropdown picker selecting type of trigger to create",
 	"workflows-ui-action-edit-triggers": "Label for the action that opens the trigger editor",
-	"workflowtriggers": "Title of special page [[Special:Workflow_triggers]]"
+	"workflowtriggers": "Title of special page [[Special:Workflow_triggers]]",
+	"workflows-ui-overview-details-start-time-raw-column": "Column header for workflow list export",
+	"workflows-ui-overview-details-last-time-raw-column": "Column header for workflow list export"
 }
