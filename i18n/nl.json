@@ -361,7 +361,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Annuleren",
 	"workflows-ui-overview-details-has-notice-label": "Heeft bericht?",
 	"workflows-ui-trigger-type-label": "Soort activering",
-	"workflows-ui-action-edittriggersource": "Bron bewerken",
 	"workflows-ui-action-edit-triggers": "Bewerken",
 	"workflowtriggers": "Voorwaarden opstart werkstroom"
 }

@@ -354,7 +354,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
 	"workflows-ui-overview-details-has-notice-label": "Има напомена?",
 	"workflows-ui-trigger-type-label": "Вид на покренувач",
-	"workflows-ui-action-edittriggersource": "Уреди извор",
 	"workflows-ui-action-edit-triggers": "Уреди",
 	"workflowtriggers": "Покревачи на работни текови"
 }
