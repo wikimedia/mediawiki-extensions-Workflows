@@ -9,18 +9,18 @@ window.workflows = {
 		dialog: {}
 	},
 	ui: {
-		openWorkflowStarter: function( repos ) {
+		openWorkflowStarter: function ( repos ) {
 			repos = repos || [];
-			mw.loader.using( [ "ext.workflows.ui.starter" ], function() {
-				var windowManager = new OO.ui.WindowManager();
+			mw.loader.using( [ 'ext.workflows.ui.starter' ], () => {
+				const windowManager = new OO.ui.WindowManager();
 				$( document.body ).append( windowManager.$element );
 
-				var dialog = new workflows.ui.dialog.WorkflowStarter( {
+				const dialog = new workflows.ui.dialog.WorkflowStarter( {
 					repos: repos,
 					contextData: workflows.context.getWorkflowContext()
 				} );
 				windowManager.addWindows( [ dialog ] );
-				windowManager.openWindow( dialog ).closed.then( function( data ) {
+				windowManager.openWindow( dialog ).closed.then( ( data ) => {
 					if ( !data ) {
 						return;
 					}
@@ -29,13 +29,13 @@ window.workflows = {
 			} );
 
 		},
-		openWorkflowManager: function( workflow, overviewType ) {
-			var windowManager = new OO.ui.WindowManager();
+		openWorkflowManager: function ( workflow, overviewType ) {
+			const windowManager = new OO.ui.WindowManager();
 			$( document.body ).append( windowManager.$element );
 
-			var dialog = new workflows.ui.dialog.WorkflowOverview( workflow, overviewType );
+			const dialog = new workflows.ui.dialog.WorkflowOverview( workflow, overviewType );
 			windowManager.addWindows( [ dialog ] );
-			windowManager.openWindow( dialog ).closed.then( function( data ) {
+			windowManager.openWindow( dialog ).closed.then( ( data ) => {
 				if ( data && data.action === 'abort' ) {
 					workflows.ui.alert.manager.removeForWorkflow( data.workflow );
 				}
@@ -44,30 +44,30 @@ window.workflows = {
 				}
 				windowManager.removeWindows( [ dialog ] );
 				windowManager.destroy();
-			}.bind( this ) );
+			} );
 
 		},
-		openActivityCompletionDialog: function( workflow, activity ) {
+		openActivityCompletionDialog: function ( workflow, activity ) {
 			activity = activity || workflow.getCurrent();
-			var dfd = $.Deferred();
+			const dfd = $.Deferred();
 
-			if ( !activity instanceof workflows.object.UserInteractiveActivity ) {
-				console.error( 'Trying to open dialog for completion of non-user activity' );
+			if ( !( activity instanceof workflows.object.UserInteractiveActivity ) ) {
+				console.error( 'Trying to open dialog for completion of non-user activity' ); // eslint-disable-line no-console
 				dfd.reject();
 			}
-			mw.loader.using( [ "ext.workflows.ui.task.complete" ], function() {
-				var windowManager = new OO.ui.WindowManager();
+			mw.loader.using( [ 'ext.workflows.ui.task.complete' ], () => {
+				const windowManager = new OO.ui.WindowManager();
 				$( document.body ).append( windowManager.$element );
 
-				var dialog = new workflows.ui.dialog.TaskCompletion( workflow, activity );
+				const dialog = new workflows.ui.dialog.TaskCompletion( workflow, activity );
 				windowManager.addWindows( [ dialog ] );
 				dfd.resolve( windowManager.openWindow( dialog ) );
 			} );
 
 			return dfd.promise();
 		},
-		addRunningWorkflowAlerts: async function() {
-			var response = await workflows.list.filtered( {
+		addRunningWorkflowAlerts: async function () {
+			const response = await workflows.list.filtered( {
 				filter: {
 					context: {
 						field: 'context',
@@ -78,12 +78,12 @@ window.workflows = {
 				}
 			} );
 			if ( !response.hasOwnProperty( 'workflows' ) ) {
-				console.error( 'Cannot load running workflows' );
+				console.error( 'Cannot load running workflows' ); // eslint-disable-line no-console
 				return;
 			}
 
-			for ( var i = 0; i < response.workflows.length; i++ ) {
-				var workflow = await workflows.getWorkflow( response.workflows[i].id );
+			for ( let i = 0; i < response.workflows.length; i++ ) {
+				const workflow = await workflows.getWorkflow( response.workflows[ i ].id );
 				workflows.ui.alert.manager.addFromWorkflow( workflow );
 			}
 		},
@@ -108,9 +108,9 @@ window.workflows = {
 			if ( initData && !data.hasOwnProperty( 'initData' ) ) {
 				data.initData = initData;
 			}
-			var dfd = $.Deferred();
-			mw.loader.using( [ "ext.workflows.api", "ext.workflows.objects" ], function() {
-				workflows._internal._getApi().done( function( api ) {
+			const dfd = $.Deferred();
+			mw.loader.using( [ 'ext.workflows.api', 'ext.workflows.objects' ], () => {
+				workflows._internal._getApi().done( function ( api ) {
 					callback.call( this, api, data, dfd );
 				} );
 			} );
@@ -122,15 +122,15 @@ window.workflows = {
 			promise: null,
 			api: null
 		},
-		_getApi: function() {
+		_getApi: function () {
 			// Get API Singleton
 			if ( workflows._internal._api.promise ) {
 				return workflows._internal._api.promise;
 			}
 
-			var dfd = $.Deferred();
+			const dfd = $.Deferred();
 			if ( !workflows._internal._api.api ) {
-				mw.loader.using( [ "ext.workflows.api" ], function() {
+				mw.loader.using( [ 'ext.workflows.api' ], () => {
 					workflows._internal._api.api = new workflows.api.Api();
 					workflows._internal._api.promise = null;
 					dfd.resolve( workflows._internal._api.api );
@@ -145,7 +145,7 @@ window.workflows = {
 	},
 	context: {
 		/* Basic context to be passed to the workflow when starting */
-		getWorkflowContext: function() {
+		getWorkflowContext: function () {
 			return {
 				pageId: mediaWiki.config.get( 'wgArticleId' ),
 				revision: mediaWiki.config.get( 'wgRevisionId' )
@@ -166,81 +166,81 @@ window.workflows = {
 		}
 	},
 	initiate: {
-		listAvailableTypes: function() {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.getDefinitions().done( function( definitions ) {
+		listAvailableTypes: function () {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.getDefinitions().done( ( definitions ) => {
 					dfd.resolve( definitions );
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 
 			return dfd.promise();
 		},
-		getDefinitionDetails: function( repo, definition ) {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.getDefinitionDetails( repo, definition ).done( function( data ) {
+		getDefinitionDetails: function ( repo, definition ) {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.getDefinitionDetails( repo, definition ).done( ( data ) => {
 					dfd.resolve( data );
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 			return dfd.promise();
 		},
-		startWorkflowOfType: function( repository, type, data ) {
-			return workflows._internal._withStartContext( data, function( api, data, dfd ) {
-				api.startWorkflow( repository, type, data ).done( function( response ) {
-					var id = response.id || null;
-					workflows.getWorkflow( id ).done( function( workflow ) {
+		startWorkflowOfType: function ( repository, type, data ) {
+			return workflows._internal._withStartContext( data, ( api, data, dfd ) => { // eslint-disable-line no-shadow
+				api.startWorkflow( repository, type, data ).done( ( response ) => {
+					const id = response.id || null;
+					workflows.getWorkflow( id ).done( ( workflow ) => {
 						dfd.resolve( workflow );
-					} ).fail( function ( error ) {
+					} ).fail( ( error ) => {
 						dfd.reject( error );
 					} );
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 		},
-		dryStartWorkflowOfType: function( repository, type, data, initData ) {
-			return workflows._internal._withStartContext( data, function( api, data, dfd ) {
-				api.dryStartWorkflow( repository, type, data ).done( function( response ) {
+		dryStartWorkflowOfType: function ( repository, type, data, initData ) {
+			return workflows._internal._withStartContext( data, ( api, data, dfd ) => { // eslint-disable-line no-shadow
+				api.dryStartWorkflow( repository, type, data ).done( ( response ) => {
 					if ( response.initializer !== null ) {
-						var activity = workflows.object.ElementFactory.make(
+						const activity = workflows.object.ElementFactory.make(
 							response.initializer, new workflows.object.NullWorkflow()
 						);
 						dfd.resolve( activity );
 					} else {
 						dfd.resolve( null );
 					}
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			}, initData );
 		}
 	},
 	list: {
-		all: function( params ) {
-			return workflows.list.filtered(params );
+		all: function ( params ) {
+			return workflows.list.filtered( params );
 		},
-		active: function( params ) {
+		active: function ( params ) {
 			params.filter = params.filter || {};
 			params.filter.state = { type: 'list', operator: 'in', value: [ 'running' ] };
 			return workflows.list.filtered( params );
 		},
-		filtered: function( params ) {
+		filtered: function ( params ) {
 			function serialize( data, fieldProperty ) {
 				fieldProperty = fieldProperty || 'field';
-				var res = [];
-				for ( var key in data ) {
+				const res = [];
+				for ( const key in data ) {
 					if ( !data.hasOwnProperty( key ) ) {
 						continue;
 					}
-					if ( data[key] ) {
-						var objectData = typeof data[key].getValue === 'function' ? data[key].getValue() : data[key];
-						var serialized = {};
-						serialized[fieldProperty] = key;
+					if ( data[ key ] ) {
+						const objectData = typeof data[ key ].getValue === 'function' ? data[ key ].getValue() : data[ key ];
+						const serialized = {};
+						serialized[ fieldProperty ] = key;
 						res.push( $.extend( serialized, objectData ) );
 					}
 				}
@@ -249,13 +249,13 @@ window.workflows = {
 			}
 			params.filter = serialize( params.filter );
 			params.sort = serialize( params.sort, 'property' );
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
 				api.getWorkflows( params ).done(
-					function( workflows ) {
+					( workflows ) => {
 						dfd.resolve( workflows );
 					}
-				).fail( function ( error ) {
+				).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
@@ -263,41 +263,41 @@ window.workflows = {
 		}
 	},
 	getWorkflow: function ( id ) {
-		var dfd = $.Deferred();
-		mw.loader.using( [ "ext.workflows.objects" ], function() {
+		const dfd = $.Deferred();
+		mw.loader.using( [ 'ext.workflows.objects' ], () => {
 			if ( !id ) {
 				dfd.reject( 'Invalid ID' );
 			} else {
-				workflows._internal._getApi().done( function( api ) {
-					var workflow = new workflows.object.Workflow( id, api );
+				workflows._internal._getApi().done( ( api ) => {
+					const workflow = new workflows.object.Workflow( id, api );
 					workflow.load()
-					.done( function () {
-						dfd.resolve( workflow );
-					} )
-					.fail( function ( error ) {
-						dfd.reject( error );
-					} );
+						.done( () => {
+							dfd.resolve( workflow );
+						} )
+						.fail( ( error ) => {
+							dfd.reject( error );
+						} );
 				} );
 			}
 		} );
 
 		return dfd.promise();
 	},
-	userCan: function( right ) {
-		var dfd = $.Deferred();
+	userCan: function ( right ) {
+		const dfd = $.Deferred();
 		if ( workflows._internal.userCan.hasOwnProperty( right ) ) {
-			if ( workflows._internal.userCan[right] ) {
+			if ( workflows._internal.userCan[ right ] ) {
 				dfd.resolve();
 			} else {
 				dfd.reject();
 			}
 		} else {
-			mw.user.getRights( function( rights ) {
+			mw.user.getRights( ( rights ) => {
 				if ( rights.indexOf( right ) !== -1 ) {
-					workflows._internal.userCan[right] = true;
+					workflows._internal.userCan[ right ] = true;
 					dfd.resolve();
 				} else {
-					workflows._internal.userCan[right] = false;
+					workflows._internal.userCan[ right ] = false;
 					dfd.reject();
 				}
 			} );
@@ -306,59 +306,59 @@ window.workflows = {
 		return dfd.promise();
 	},
 	triggers: {
-		getAvailableTypes: function() {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.getTriggerTypes().done( function( data ) {
+		getAvailableTypes: function () {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.getTriggerTypes().done( ( data ) => {
 					dfd.resolve( data );
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 			return dfd.promise();
 		},
-		getAll: function() {
+		getAll: function () {
 			return workflows.triggers.get( null );
 		},
-		get: function( key ) {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.getTriggers( key ).done( function( data ) {
+		get: function ( key ) {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.getTriggers( key ).done( ( data ) => {
 					dfd.resolve( data );
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 			return dfd.promise();
 		},
-		persist: function( triggers ) {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.persistTriggers( triggers ).done( function() {
+		persist: function ( triggers ) {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.persistTriggers( triggers ).done( () => {
 					dfd.resolve();
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 			return dfd.promise();
 		},
-		delete: function( key ) {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.deleteTrigger( key ).done( function() {
+		delete: function ( key ) {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.deleteTrigger( key ).done( () => {
 					dfd.resolve();
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
 			return dfd.promise();
 		},
-		getManualTriggersForPage: function( page ) {
-			var dfd = $.Deferred();
-			workflows._internal._getApi().done( function( api ) {
-				api.getManualTriggersForPage( page ).done( function( data ) {
+		getManualTriggersForPage: function ( page ) {
+			const dfd = $.Deferred();
+			workflows._internal._getApi().done( ( api ) => {
+				api.getManualTriggersForPage( page ).done( ( data ) => {
 					dfd.resolve( data );
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					dfd.reject( error );
 				} );
 			} );
@@ -366,31 +366,32 @@ window.workflows = {
 		}
 	},
 	util: {
-		callbackFromString: function( str ) {
-			var parts = str.split( '.' );
-			var func = window[parts[0]];
-			for( var i = 1; i < parts.length; i++ ) {
-				func = func[parts[i]];
+		callbackFromString: function ( str ) {
+			const parts = str.split( '.' );
+			let func = window[ parts[ 0 ] ];
+			for ( let i = 1; i < parts.length; i++ ) {
+				func = func[ parts[ i ] ];
 			}
 
 			return func;
 		},
-		getDeepValue: function( obj, path ) {
+		getDeepValue: function ( obj, path ) {
 			if ( !obj ) {
 				return undefined;
 			}
-			var parts = path.split( "." );
+			const parts = path.split( '.' );
 			if ( parts.length === 1 ) {
-				return obj[parts[0]];
+				return obj[ parts[ 0 ] ];
 			}
 
- 			return workflows.util.getDeepValue( obj[parts[0]], parts.slice( 1 ).join( "." ) );
+			return workflows.util.getDeepValue( obj[ parts[ 0 ] ], parts.slice( 1 ).join( '.' ) );
 		},
-		getAvailableWorkflowOptions: function( availableRepos ) {
+		getAvailableWorkflowOptions: function ( availableRepos ) {
 			availableRepos = availableRepos || [];
-			var dfd = $.Deferred();
-			workflows.initiate.listAvailableTypes().done( function ( types ) {
-				var options = [], definitions, repo, i;
+			const dfd = $.Deferred();
+			workflows.initiate.listAvailableTypes().done( ( types ) => {
+				const options = [];
+				let definitions, repo, i;
 				for ( repo in types ) {
 					if ( !types.hasOwnProperty( repo ) ) {
 						continue;
@@ -398,33 +399,33 @@ window.workflows = {
 					if ( availableRepos.length > 0 && availableRepos.indexOf( repo ) === -1 ) {
 						continue;
 					}
-					definitions = types[repo].definitions;
+					definitions = types[ repo ].definitions;
 					for ( i = 0; i < definitions.length; i++ ) {
-						var option = {
+						const option = {
 							data: {
 								workflow: {
 									repo: repo,
-									workflow: definitions[i].key,
+									workflow: definitions[ i ].key
 								},
-								desc: definitions[i].desc || ''
+								desc: definitions[ i ].desc || ''
 							},
-							label: definitions[i].title,
-							desc: definitions[i].desc
+							label: definitions[ i ].title,
+							desc: definitions[ i ].desc
 						};
-						options.push(  option );
+						options.push( option );
 					}
 				}
 				dfd.resolve( options );
-			}  ).fail( function() {
+			} ).fail( function () {
 				dfd.reject( arguments );
-			}  );
+			} );
 
 			return dfd.promise();
 		}
 	}
 };
 
-function maybeAddAlerts() {
+function maybeAddAlerts() { // eslint-disable-line no-implicit-globals
 	if (
 		mw.config.get( 'wgNamespaceNumber' ) < 0 ||
 		!mw.config.get( 'wgRevisionId' ) ||
@@ -433,44 +434,44 @@ function maybeAddAlerts() {
 		return;
 	}
 
-	$( document ).on( 'click', '#ca-wf_start', function() {
+	$( document ).on( 'click', '#ca-wf_start', () => {
 		workflows.ui.openWorkflowStarter();
 	} );
 
-	$( document ).on( 'click', '#ca-wf_view_for_page,#ca-varlang-wf_view_for_page', function() {
+	$( document ).on( 'click', '#ca-wf_view_for_page,#ca-varlang-wf_view_for_page', () => {
 		workflows.ui.openWorkflowManager( null, 'page' );
 	} );
 
-	mw.loader.using( [ 'ext.workflows.alert' ], function() {
+	mw.loader.using( [ 'ext.workflows.alert' ], () => {
 		workflows.ui.alert.manager = new workflows.ui.alert.Manager();
 		workflows.ui.addRunningWorkflowAlerts();
 	} );
 }
 
-function maybeAddEditor() {
-	var $c = $( '#workflows-editor-panel' );
+function maybeAddEditor() { // eslint-disable-line no-implicit-globals
+	const $c = $( '#workflows-editor-panel' );
 	if ( $c.length === 0 ) {
 		return;
 	}
 
-	var action = $c.data( 'action' );
+	const action = $c.data( 'action' );
 	if ( action === 'edit' || action === 'create' ) {
-		mw.loader.using( mw.config.get( 'workflowPluginModules' ) ).done( function() {
-			mw.loader.using( [ 'ext.workflows.editor' ] ).done( function() {
-				var editor = new workflows.ui.widget.BpmnEditor( $c.data() );
+		mw.loader.using( mw.config.get( 'workflowPluginModules' ) ).done( () => {
+			mw.loader.using( [ 'ext.workflows.editor' ] ).done( () => {
+				const editor = new workflows.ui.widget.BpmnEditor( $c.data() );
 				$c.html( editor.$element );
 			} );
 		} );
 
 	} else {
-		mw.loader.using( [ 'ext.workflows.viewer' ] ).done( function() {
-			var viewer = new workflows.ui.widget.BpmnViewer( $c.data() );
+		mw.loader.using( [ 'ext.workflows.viewer' ] ).done( () => {
+			const viewer = new workflows.ui.widget.BpmnViewer( $c.data() );
 			$c.html( viewer.$element );
 		} );
 	}
 }
 
-$( function() {
+$( () => {
 	maybeAddAlerts();
 	maybeAddEditor();
 } );

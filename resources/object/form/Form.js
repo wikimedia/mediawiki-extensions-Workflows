@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	workflows.object.form.Form = function( cfg, activity ) {
+	workflows.object.form.Form = function ( cfg, activity ) {
 		OO.EventEmitter.call( this );
 
 		cfg = cfg || {};
@@ -11,14 +11,14 @@
 		this.moduleData = cfg.moduleData || {};
 		this.$overlay = cfg.$overlay || true;
 
-		var formConfig = {};
+		const formConfig = {};
 		if ( this.moduleData.hasOwnProperty( 'definitionJSON' ) ) {
-			var definition = JSON.parse( this.moduleData.definitionJSON );
+			const definition = JSON.parse( this.moduleData.definitionJSON );
 			mw.ext.forms.widget.Form.static.convertToJS( definition );
 			formConfig.definition = $.extend( true, {}, definition, {
 				buttons: this.getButtons()
 			} );
-			delete( formConfig.definition.listeners );
+			delete ( formConfig.definition.listeners );
 		} else {
 			formConfig.definition = {
 				items: this.getDefinitionItems( this.properties ),
@@ -39,9 +39,9 @@
 	OO.inheritClass( workflows.object.form.Form, mw.ext.forms.standalone.Form );
 	OO.mixinClass( workflows.object.form.Form, OO.EventEmitter );
 
-	workflows.object.form.Form.prototype.getDefinitionItems = function() {
-		var items = [];
-		for ( var prop in this.properties ) {
+	workflows.object.form.Form.prototype.getDefinitionItems = function () {
+		const items = [];
+		for ( const prop in this.properties ) {
 			if ( !this.properties.hasOwnProperty( prop ) ) {
 				continue;
 			}
@@ -55,24 +55,24 @@
 		return items;
 	};
 
-	workflows.object.form.Form.prototype.getButtons = function() {
+	workflows.object.form.Form.prototype.getButtons = function () {
 		return this.buttons;
 	};
 
-	workflows.object.form.Form.prototype.getData = function() {
+	workflows.object.form.Form.prototype.getData = function () {
 		return this.properties;
 	};
 
-	workflows.object.form.Form.prototype.getAction = function() {
+	workflows.object.form.Form.prototype.getAction = function () {
 		return this.action;
 	};
 
-	workflows.object.form.Form.prototype.getTitle = function() {
+	workflows.object.form.Form.prototype.getTitle = function () {
 		return this.activity.getName();
 	};
 
-	workflows.object.form.Form.prototype.onDataSubmitted = function( data, summary ) {
+	workflows.object.form.Form.prototype.onDataSubmitted = function ( data, summary ) {
 		this.emit( 'submit', data, summary );
 	};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

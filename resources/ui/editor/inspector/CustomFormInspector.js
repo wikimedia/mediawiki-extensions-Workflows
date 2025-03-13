@@ -1,15 +1,15 @@
-workflows.editor.inspector.CustomFormInspector = function( element, dialog ) {
+workflows.editor.inspector.CustomFormInspector = function ( element, dialog ) {
 	workflows.editor.inspector.CustomFormInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.CustomFormInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.CustomFormInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.CustomFormInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-custom-form-title' ).text();
 };
 
-workflows.editor.inspector.CustomFormInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.CustomFormInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-activity-custom-form-form-to-use' ).text()
@@ -23,7 +23,7 @@ workflows.editor.inspector.CustomFormInspector.prototype.getItems = function() {
 				{ data: 'backend', label: mw.message( 'workflows-ui-editor-inspector-activity-custom-form-form-type-backend' ).text() }
 			],
 			listeners: {
-				change: function( formType ) {
+				change: function ( formType ) {
 					this.getItem( 'extensionElements.wf:FormModule.wf:Module' ).setRequired( formType === 'backend' );
 					this.getItem( 'extensionElements.wf:FormModule.wf:Class' ).setRequired( formType === 'backend' );
 					this.getItem( 'extensionElements.wf:Form' ).setRequired( formType === 'on-wiki' );
@@ -44,8 +44,8 @@ workflows.editor.inspector.CustomFormInspector.prototype.getItems = function() {
 			label: mw.message( 'workflows-ui-editor-inspector-activity-custom-form-form-title' ).text(),
 			name: 'extensionElements.wf:Form',
 			widget_$overlay: this.dialog.$overlay,
-			validate: function( title ) {
-				var form = this;
+			validate: function ( title ) {
+				let form = this;
 				if ( typeof this.getForm === 'function' ) {
 					form = this.getForm();
 				}
@@ -64,13 +64,13 @@ workflows.editor.inspector.CustomFormInspector.prototype.getItems = function() {
 			type: 'text',
 			name: 'extensionElements.wf:FormModule.wf:Module',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-custom-form-form-module' ).text(),
-			hidden: true,
+			hidden: true
 		},
 		{
 			type: 'text',
 			name: 'extensionElements.wf:FormModule.wf:Class',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-custom-form-form-class' ).text(),
-			hidden: true,
+			hidden: true
 		},
 		{
 			type: 'section_label',
@@ -84,7 +84,7 @@ workflows.editor.inspector.CustomFormInspector.prototype.getItems = function() {
 	].concat( workflows.editor.inspector.CustomFormInspector.parent.prototype.getItems.call( this ) );
 };
 
-workflows.editor.inspector.CustomFormInspector.prototype.getPropertyField = function( propertyName ) {
+workflows.editor.inspector.CustomFormInspector.prototype.getPropertyField = function ( propertyName ) {
 	if ( propertyName === 'username' ) {
 		return {
 			type: 'user_picker',
@@ -96,12 +96,12 @@ workflows.editor.inspector.CustomFormInspector.prototype.getPropertyField = func
 	return workflows.editor.inspector.CustomFormInspector.parent.prototype.getPropertyField.call( this, propertyName );
 };
 
-workflows.editor.inspector.CustomFormInspector.prototype.convertDataForForm = function( data ) {
+workflows.editor.inspector.CustomFormInspector.prototype.convertDataForForm = function ( data ) {
 	data = workflows.editor.inspector.CustomFormInspector.parent.prototype.convertDataForForm.call( this, data );
 	if ( data.extensionElements.hasOwnProperty( 'wf:Form' ) ) {
 		data.formType = 'on-wiki';
 		if ( data.extensionElements.hasOwnProperty( 'wf:Form' ) ) {
-			data.extensionElements['wf:Form'] = data.extensionElements['wf:Form'] + '.form';
+			data.extensionElements[ 'wf:Form' ] = data.extensionElements[ 'wf:Form' ] + '.form';
 		}
 	} else {
 		data.formType = 'backend';
@@ -109,16 +109,16 @@ workflows.editor.inspector.CustomFormInspector.prototype.convertDataForForm = fu
 	return data;
 };
 
-workflows.editor.inspector.CustomFormInspector.prototype.preprocessDataForModelUpdate = function( data ) {
+workflows.editor.inspector.CustomFormInspector.prototype.preprocessDataForModelUpdate = function ( data ) {
 	if ( data.formType === 'on-wiki' ) {
-		var formName = data['extensionElements']['wf:Form'];
+		let formName = data.extensionElements[ 'wf:Form' ];
 		// Strip .form from the form name
 		formName = formName.replace( /\.form$/, '' );
-		data['extensionElements']['wf:Form'] = formName;
-		delete ( data['extensionElements']['wf:FormModule'] );
+		data.extensionElements[ 'wf:Form' ] = formName;
+		delete ( data.extensionElements[ 'wf:FormModule' ] );
 	}
 	if ( data.formType === 'backend' ) {
-		delete ( data['extensionElements']['wf:Form'] );
+		delete ( data.extensionElements[ 'wf:Form' ] );
 	}
 	return workflows.editor.inspector.CustomFormInspector.parent.prototype.preprocessDataForModelUpdate.call( this, data );
 };

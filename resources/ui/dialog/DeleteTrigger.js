@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.dialog.DeleteTrigger = function( cfg ) {
+( function ( mw, $ ) {
+	workflows.ui.dialog.DeleteTrigger = function ( cfg ) {
 		workflows.ui.dialog.DeleteTrigger.super.call( this, cfg );
 		this.key = cfg.key;
 	};
@@ -23,10 +23,10 @@
 	workflows.ui.dialog.DeleteTrigger.prototype.initialize = function () {
 		workflows.ui.dialog.DeleteTrigger.super.prototype.initialize.apply( this, arguments );
 
-		var notice = new OO.ui.LabelWidget( {
+		const notice = new OO.ui.LabelWidget( {
 			label: mw.message( 'workflows-ui-trigger-delete-prompt', this.key ).text()
 		} );
-		var panel = new OO.ui.PanelLayout( {
+		const panel = new OO.ui.PanelLayout( {
 			$content: notice.$element,
 			padded: true
 		} );
@@ -34,28 +34,28 @@
 		this.$body.append( panel.$element );
 	};
 
-	workflows.ui.dialog.DeleteTrigger.prototype.showErrors = function( errors ) {
+	workflows.ui.dialog.DeleteTrigger.prototype.showErrors = function ( errors ) {
 		workflows.ui.dialog.DeleteTrigger.parent.prototype.showErrors.call( this, errors );
 		this.updateSize();
 	};
 
-	workflows.ui.dialog.DeleteTrigger.prototype.hideErrors = function() {
+	workflows.ui.dialog.DeleteTrigger.prototype.hideErrors = function () {
 		workflows.ui.dialog.DeleteTrigger.parent.prototype.hideErrors.call( this );
 		this.close();
 	};
 
 	workflows.ui.dialog.DeleteTrigger.prototype.getActionProcess = function ( action ) {
 		return workflows.ui.dialog.DeleteTrigger.parent.prototype.getActionProcess.call( this, action ).next(
-			function() {
+			function () {
 				if ( action === 'delete' ) {
-					var dfd = $.Deferred();
+					const dfd = $.Deferred();
 					this.pushPending();
-					workflows.triggers.delete( this.key ).done( function() {
+					workflows.triggers.delete( this.key ).done( () => {
 						window.location.reload();
-					} ).fail( function() {
+					} ).fail( () => {
 						this.popPending();
 						dfd.reject( mw.message( 'workflows-ui-triggers-error-delete-fail' ).text() );
-					}.bind( this ) );
+					} );
 					return dfd.promise();
 				}
 			}, this
@@ -69,9 +69,9 @@
 
 	workflows.ui.dialog.DeleteTrigger.prototype.getBodyHeight = function () {
 		if ( !this.$errors.hasClass( 'oo-ui-element-hidden' ) ) {
-			return this.$element.find( '.oo-ui-processDialog-errors' )[0].scrollHeight;
+			return this.$element.find( '.oo-ui-processDialog-errors' )[ 0 ].scrollHeight;
 		}
 		return 80;
 	};
 
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki, jQuery ) );

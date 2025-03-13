@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.TriggerEditorBooklet = function( cfg ) {
+( function () {
+	workflows.ui.TriggerEditorBooklet = function ( cfg ) {
 		workflows.ui.TriggerEditorBooklet.parent.call( this, cfg );
 		this.triggerData = cfg || null;
 		this.$overlay = cfg.$overlay;
@@ -8,7 +8,7 @@
 
 	OO.inheritClass( workflows.ui.TriggerEditorBooklet, OO.ui.BookletLayout );
 
-	workflows.ui.TriggerEditorBooklet.prototype.makePages = function() {
+	workflows.ui.TriggerEditorBooklet.prototype.makePages = function () {
 		this.pages = {
 			triggerTypeSelection: new workflows.ui.TriggerSelectionPage(
 				'triggerTypeSelection', { $overlay: this.$overlay }
@@ -20,4 +20,4 @@
 
 		this.addPages( Object.values( this.pages ) );
 	};
-} )( mediaWiki, jQuery, workflows );
+}() );

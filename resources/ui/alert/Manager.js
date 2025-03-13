@@ -1,26 +1,26 @@
 ( function ( mw, $ ) {
-	workflows.ui.alert.Manager = function() {
+	workflows.ui.alert.Manager = function () {
 		this.alerts = {};
 	};
 
 	OO.initClass( workflows.ui.alert.Manager );
 
-	workflows.ui.alert.Manager.prototype.has = function( id ) {
+	workflows.ui.alert.Manager.prototype.has = function ( id ) {
 		return this.alerts.hasOwnProperty( id );
 	};
 
-	workflows.ui.alert.Manager.prototype.addFromWorkflow = function( workflow ) {
+	workflows.ui.alert.Manager.prototype.addFromWorkflow = function ( workflow ) {
 		if ( workflow.getState() !== workflows.state.RUNNING ) {
 			return;
 		}
-		var activities = workflow.getCurrent();
+		const activities = workflow.getCurrent();
 		if ( !$.isEmptyObject( activities ) ) {
-			var selected = this.selectActivity( activities );
+			const selected = this.selectActivity( activities );
 			if ( selected === null ) {
 				this.add( new workflows.ui.alert.Alert( workflow.id, workflow ) );
 				return;
 			}
-			var alert = new workflows.ui.alert.ActivityAlert(
+			const alert = new workflows.ui.alert.ActivityAlert(
 				workflow.id + '_' + selected.getId(), selected, workflow
 			);
 			alert.connect( this, {
@@ -33,11 +33,11 @@
 		}
 	};
 
-	workflows.ui.alert.Manager.prototype.add = function( alert ) {
+	workflows.ui.alert.Manager.prototype.add = function ( alert ) {
 		if ( this.has( alert.getId() ) ) {
 			return;
 		}
-		this.alerts[alert.getId()] = alert;
+		this.alerts[ alert.getId() ] = alert;
 		alert.connect( this, {
 			manage: 'openWorkflowOverview'
 		} );
@@ -48,61 +48,61 @@
 		);
 	};
 
-	workflows.ui.alert.Manager.prototype.remove = function( id ) {
+	workflows.ui.alert.Manager.prototype.remove = function ( id ) {
 		if ( this.has( id ) ) {
-			delete( this.alerts[id] );
+			delete ( this.alerts[ id ] );
 		}
 		mwstake.alerts.remove( id );
 	};
 
-	workflows.ui.alert.Manager.prototype.openWorkflowOverview = function( id, role ) {
+	workflows.ui.alert.Manager.prototype.openWorkflowOverview = function ( id, role ) {
 		if ( !this.has( id ) ) {
-			console.error( 'Trying to manage non-existing workflows ' + id );
+			console.error( 'Trying to manage non-existing workflows ' + id ); // eslint-disable-line no-console
 		}
 
-		workflows.ui.openWorkflowManager( this.alerts[id].getWorkflow(), role === 'admin' ? 'page' : null );
+		workflows.ui.openWorkflowManager( this.alerts[ id ].getWorkflow(), role === 'admin' ? 'page' : null );
 	};
 
-	workflows.ui.alert.Manager.prototype.removeForWorkflow = function( workflow ) {
-		for ( var id in this.alerts ) {
+	workflows.ui.alert.Manager.prototype.removeForWorkflow = function ( workflow ) {
+		for ( const id in this.alerts ) {
 			if ( !this.alerts.hasOwnProperty( id ) ) {
 				continue;
 			}
-			if ( this.alerts[id].getWorkflow().getId() === workflow.getId() ) {
+			if ( this.alerts[ id ].getWorkflow().getId() === workflow.getId() ) {
 				this.remove( id );
 			}
 		}
 	};
 
-	workflows.ui.alert.Manager.prototype.completeActivity = function( workflow, activity ) {
+	workflows.ui.alert.Manager.prototype.completeActivity = function ( workflow, activity ) {
 		if ( activity instanceof workflows.object.UserInteractiveActivity ) {
 			workflows.ui.openActivityCompletionDialog( workflow, activity )
-			.done( function( dialog ) {
-				dialog.closed.then( function( data ) {
-					if ( !data || !data.result ) {
+				.done( ( dialog ) => {
+					dialog.closed.then( ( data ) => {
+						if ( !data || !data.result ) {
 						// Will never happen
-						return;
-					}
-					window.location.reload();
-				}.bind( this ) );
-			}.bind( this ) );
+							return;
+						}
+						window.location.reload();
+					} );
+				} );
 		}
 	};
 
-	workflows.ui.alert.Manager.prototype.selectActivity = function( activities ) {
-		var activity = null;
-		for ( var id in activities ) {
+	workflows.ui.alert.Manager.prototype.selectActivity = function ( activities ) {
+		let activity = null;
+		for ( const id in activities ) {
 			if ( !activities.hasOwnProperty( id ) ) {
 				continue;
 			}
 
 			if (
-				!( activities[id] instanceof workflows.object.UserInteractiveActivity ) ||
-				activities[id].getState() !== workflows.state.activity.STARTED
+				!( activities[ id ] instanceof workflows.object.UserInteractiveActivity ) ||
+				activities[ id ].getState() !== workflows.state.activity.STARTED
 			) {
 				continue;
 			}
-			activity = activities[id];
+			activity = activities[ id ];
 			if ( activity.isUserTargeted( mw.config.get( 'wgUserName' ) ) ) {
 				return activity;
 			}
@@ -110,4 +110,4 @@
 
 		return null;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

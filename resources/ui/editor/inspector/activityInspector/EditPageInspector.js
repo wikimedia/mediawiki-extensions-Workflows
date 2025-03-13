@@ -1,15 +1,15 @@
-workflows.editor.inspector.EditPageInspector = function( element, dialog ) {
+workflows.editor.inspector.EditPageInspector = function ( element, dialog ) {
 	workflows.editor.inspector.EditPageInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.EditPageInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.EditPageInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.EditPageInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-edit-page-title' ).text();
 };
 
-workflows.editor.inspector.EditPageInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.EditPageInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
@@ -17,13 +17,13 @@ workflows.editor.inspector.EditPageInspector.prototype.getItems = function() {
 		{
 			type: 'text',
 			name: 'properties.title',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-title' ).text(),
+			label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-title' ).text()
 		},
 		{
 			type: 'text',
 			name: 'properties.user',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-user' ).text(),
-			help: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-user-help' ).text(),
+			help: mw.message( 'workflows-ui-editor-inspector-activity-edit-page-property-user-help' ).text()
 		},
 		{
 			type: 'textarea',

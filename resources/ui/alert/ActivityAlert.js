@@ -1,4 +1,4 @@
-workflows.ui.alert.ActivityAlert = function( id, activity, workflow ) {
+workflows.ui.alert.ActivityAlert = function ( id, activity, workflow ) {
 	workflows.ui.alert.ActivityAlert.parent.call( this, id, workflow );
 
 	OO.EventEmitter.call( this );
@@ -8,7 +8,7 @@ workflows.ui.alert.ActivityAlert = function( id, activity, workflow ) {
 OO.inheritClass( workflows.ui.alert.ActivityAlert, workflows.ui.alert.Alert );
 OO.mixinClass( workflows.ui.alert.ActivityAlert, OO.EventEmitter );
 
-workflows.ui.alert.ActivityAlert.prototype.getContent = function() {
+workflows.ui.alert.ActivityAlert.prototype.getContent = function () {
 	this.completeButton = new OO.ui.ButtonWidget( {
 		framed: false,
 		flags: [ 'progressive', 'primary' ],
@@ -29,6 +29,6 @@ workflows.ui.alert.ActivityAlert.prototype.getContent = function() {
 	} ).$element;
 };
 
-workflows.ui.alert.ActivityAlert.prototype.onComplete = function() {
+workflows.ui.alert.ActivityAlert.prototype.onComplete = function () {
 	this.emit( 'completeActivity', this.workflow, this.activity );
 };

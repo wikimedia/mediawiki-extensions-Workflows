@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.WorkflowStartBooklet = function( cfg ) {
+( function () {
+	workflows.ui.WorkflowStartBooklet = function ( cfg ) {
 		workflows.ui.WorkflowStartBooklet.parent.call( this, cfg );
 
 		this.repos = cfg.repos;
@@ -10,9 +10,9 @@
 
 	OO.inheritClass( workflows.ui.WorkflowStartBooklet, OO.ui.BookletLayout );
 
-	workflows.ui.WorkflowStartBooklet.prototype.makePages = function() {
+	workflows.ui.WorkflowStartBooklet.prototype.makePages = function () {
 		this.pages = {
-			wfSelection: new workflows.ui.WorkflowSelectionPage( 'wfSelection',{
+			wfSelection: new workflows.ui.WorkflowSelectionPage( 'wfSelection', {
 				repos: this.repos,
 				$overlay: this.$overlay
 			} ),
@@ -23,4 +23,4 @@
 
 		this.addPages( Object.values( this.pages ) );
 	};
-} )( mediaWiki, jQuery, workflows );
+}() );

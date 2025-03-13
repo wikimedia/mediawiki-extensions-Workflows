@@ -1,6 +1,6 @@
-( function ( mw, $, wf ) {
-	workflows.ui.WorkflowSelectionPage = function( name, cfg ) {
-		workflows.ui.WorkflowSelectionPage .parent.call( this, name, cfg );
+( function ( mw ) {
+	workflows.ui.WorkflowSelectionPage = function ( name, cfg ) {
+		workflows.ui.WorkflowSelectionPage.parent.call( this, name, cfg );
 
 		this.value = null;
 		this.panel = new OO.ui.PanelLayout();
@@ -8,12 +8,12 @@
 			$overlay: cfg.$overlay
 		} );
 		this.picker.connect( this, {
-			error: function( error ) {
+			error: function ( error ) {
 				this.emit( 'error', error );
 			}
 		} );
 		this.picker.getMenu().connect( this, {
-			select: function( item ) {
+			select: function ( item ) {
 				this.value = null;
 				if ( item ) {
 					this.value = item.getData();
@@ -30,20 +30,20 @@
 
 	OO.inheritClass( workflows.ui.WorkflowSelectionPage, OO.ui.PageLayout );
 
-	workflows.ui.WorkflowSelectionPage.prototype.reset = function() {
+	workflows.ui.WorkflowSelectionPage.prototype.reset = function () {
 		this.picker.getMenu().selectItem( null );
 	};
 
-	workflows.ui.WorkflowSelectionPage.prototype.getWorkflow = function() {
+	workflows.ui.WorkflowSelectionPage.prototype.getWorkflow = function () {
 		return this.value.workflow;
 	};
 
-	workflows.ui.WorkflowSelectionPage.prototype.getDescription = function() {
+	workflows.ui.WorkflowSelectionPage.prototype.getDescription = function () {
 		return this.value.desc || '';
 	};
 
-	workflows.ui.WorkflowSelectionPage.prototype.getInitialData = function() {
+	workflows.ui.WorkflowSelectionPage.prototype.getInitialData = function () {
 		return this.value.initData || {};
 	};
 
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki ) );

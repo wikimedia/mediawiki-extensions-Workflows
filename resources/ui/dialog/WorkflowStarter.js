@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.dialog.WorkflowStarter = function( cfg ) {
+( function ( mw, $ ) {
+	workflows.ui.dialog.WorkflowStarter = function ( cfg ) {
 		workflows.ui.dialog.WorkflowStarter.super.call( this, cfg );
 
 		this.repos = cfg.repos || [];
@@ -33,25 +33,24 @@
 		}
 	];
 
-	workflows.ui.dialog.WorkflowStarter.prototype.getReadyProcess = function( data ) {
+	workflows.ui.dialog.WorkflowStarter.prototype.getReadyProcess = function ( data ) {
 		return workflows.ui.dialog.WorkflowStarter.parent.prototype.getReadyProcess.call( this, data )
-			.next( function() {
+			.next( function () {
 				this.actions.setAbilities( { back: false, choose: false, start: false } );
 				this.switchPanel( 'wfSelection' );
 			}, this );
 	};
 
-	workflows.ui.dialog.WorkflowStarter.prototype.getSetupProcess = function( data ) {
+	workflows.ui.dialog.WorkflowStarter.prototype.getSetupProcess = function ( data ) {
 		return workflows.ui.dialog.WorkflowStarter.parent.prototype.getSetupProcess.call( this, data )
-		.next( function() {
+			.next( function () {
 			// Prevent flickering, disable all actions before init is done
-			this.actions.setMode( 'INVALID' );
-		}, this );
+				this.actions.setMode( 'INVALID' );
+			}, this );
 	};
 
 	workflows.ui.dialog.WorkflowStarter.prototype.initialize = function () {
 		workflows.ui.dialog.WorkflowStarter.super.prototype.initialize.apply( this, arguments );
-
 
 		this.booklet = new workflows.ui.WorkflowStartBooklet( {
 			repos: this.repos,
@@ -66,7 +65,7 @@
 	};
 
 	workflows.ui.dialog.WorkflowStarter.prototype.switchPanel = function ( name, data ) {
-		var page = this.booklet.getPage( name );
+		const page = this.booklet.getPage( name );
 		if ( !page ) {
 			return;
 		}
@@ -95,15 +94,15 @@
 				this.setSize( 'large' );
 				page.initWorkflow( data.workflow, data.contextData, data.desc, data.initData );
 				page.connect( this, {
-				 	loaded: function( form ) {
+					loaded: function ( form ) { // eslint-disable-line no-unused-vars
 						this.actions.setAbilities( { choose: false, start: true, back: true } );
 					},
-					fail: function() {
-				 		this.popPending();
+					fail: function () {
+						this.popPending();
 						this.updateSize();
 						this.actions.setAbilities( { choose: false, start: false, back: true } );
 					},
-					layoutChange: function() {
+					layoutChange: function () {
 						this.popPending();
 						this.updateSize();
 					}
@@ -113,19 +112,19 @@
 
 	};
 
-	workflows.ui.dialog.WorkflowStarter.prototype.showErrors = function( errors ) {
+	workflows.ui.dialog.WorkflowStarter.prototype.showErrors = function ( errors ) {
 		workflows.ui.dialog.WorkflowStarter.parent.prototype.showErrors.call( this, errors );
 		this.updateSize();
 	};
 
 	workflows.ui.dialog.WorkflowStarter.prototype.getActionProcess = function ( action ) {
 		return workflows.ui.dialog.WorkflowStarter.parent.prototype.getActionProcess.call( this, action ).next(
-			function() {
+			function () {
 				if ( action === 'choose' ) {
 					if ( this.toRetry === action ) {
 						this.switchPanel( 'wfSelection' );
 					} else {
-						var selectedWorkflow = this.booklet.getCurrentPage().getWorkflow();
+						const selectedWorkflow = this.booklet.getCurrentPage().getWorkflow();
 						if ( !selectedWorkflow ) {
 							this.toRetry = 'choose';
 							return new OO.ui.Error( 'Workflow not selected' );
@@ -140,29 +139,29 @@
 					}
 				}
 				if ( action === 'start' ) {
-					var page = this.booklet.getCurrentPage();
+					const page = this.booklet.getCurrentPage();
 					if ( page.getName() === 'init' ) {
-						var dfd = $.Deferred();
+						const dfd = $.Deferred();
 						this.pushPending();
 
 						page.connect( this, {
-							initCompleted: function( workflow ) {
+							initCompleted: function ( workflow ) {
 								return this.close( { result: true, workflow: workflow } );
 							},
-							initFailed: function( error ) {
+							initFailed: function ( error ) {
 								this.popPending();
 								this.lastError = 'init-failed';
 								dfd.reject( new OO.ui.Error( error, {
 									recoverable: false
 								} ) );
 							},
-							validationFailed: function() {
+							validationFailed: function () {
 								this.popPending();
 								dfd.resolve();
 							}
 						} );
 
-						var form = page.getForm();
+						const form = page.getForm();
 						if ( form ) {
 							if ( !( form instanceof workflows.object.form.Form ) ) {
 								this.lastError = 'no-form';
@@ -205,12 +204,12 @@
 
 	workflows.ui.dialog.WorkflowStarter.prototype.getBodyHeight = function () {
 		if ( !this.$errors.hasClass( 'oo-ui-element-hidden' ) ) {
-			return this.$element.find( '.oo-ui-processDialog-errors' )[0].scrollHeight;
+			return this.$element.find( '.oo-ui-processDialog-errors' )[ 0 ].scrollHeight;
 		}
 		if ( this.booklet.getCurrentPageName() === 'wfSelection' ) {
 			return 100;
 		}
-		return this.$element.find( '.oo-ui-window-body' )[0].scrollHeight;
+		return this.$element.find( '.oo-ui-window-body' )[ 0 ].scrollHeight;
 	};
 
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki, jQuery ) );

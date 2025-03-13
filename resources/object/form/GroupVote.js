@@ -1,12 +1,12 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 
-	workflows.object.form.GroupVote = function( cfg, activity ) {
+	workflows.object.form.GroupVote = function ( cfg, activity ) {
 		workflows.object.form.GroupVote.parent.call( this, cfg, activity );
 	};
 
 	OO.inheritClass( workflows.object.form.GroupVote, workflows.object.form.Form );
 
-	workflows.object.form.GroupVote.prototype.getDefinitionItems = function() {
+	workflows.object.form.GroupVote.prototype.getDefinitionItems = function () {
 		return [
 			{
 				name: 'instructions',
@@ -28,4 +28,4 @@
 			}
 		];
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki ) );

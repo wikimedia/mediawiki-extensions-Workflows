@@ -1,5 +1,5 @@
-( function ( mw, $ ) {
-	workflows.object.DescribedActivity = function( cfg, workflow ) {
+( function () {
+	workflows.object.DescribedActivity = function ( cfg, workflow ) {
 		workflows.object.DescribedActivity.parent.call( this, cfg, workflow );
 
 		this.description = cfg.description || {};
@@ -10,16 +10,16 @@
 
 	OO.inheritClass( workflows.object.DescribedActivity, workflows.object.Activity );
 
-	workflows.object.DescribedActivity.prototype.getDescription = function() {
+	workflows.object.DescribedActivity.prototype.getDescription = function () {
 		return this.description;
 	};
 
-	workflows.object.DescribedActivity.prototype.getHistory = function() {
+	workflows.object.DescribedActivity.prototype.getHistory = function () {
 		return this.history;
 	};
 
-	workflows.object.DescribedActivity.prototype.getDisplayData = function() {
+	workflows.object.DescribedActivity.prototype.getDisplayData = function () {
 		return this.displayData;
 	};
 
-} )( mediaWiki, jQuery );
+}() );

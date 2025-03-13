@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	workflows.ui.TriggerSelectionPage = function( name, cfg ) {
+	workflows.ui.TriggerSelectionPage = function ( name, cfg ) {
 		workflows.ui.TriggerSelectionPage.parent.call( this, name, cfg );
 		this.action = '';
 		this.panel = new OO.ui.PanelLayout( {
@@ -20,9 +20,9 @@
 
 	OO.inheritClass( workflows.ui.TriggerSelectionPage, OO.ui.PageLayout );
 
-	workflows.ui.TriggerSelectionPage.prototype.init = function() {
+	workflows.ui.TriggerSelectionPage.prototype.init = function () {
 		this.selectWidget.getMenu().connect( this, {
-			select: function( item ) {
+			select: function ( item ) {
 				this.value = null;
 				if ( item ) {
 					this.value = item.getData();
@@ -30,60 +30,60 @@
 				}
 			}
 		} );
-		workflows.triggers.getAvailableTypes().done( function( types ) {
-			var options = [];
-			for ( var type in types ) {
+		workflows.triggers.getAvailableTypes().done( ( types ) => {
+			const options = [];
+			for ( const type in types ) {
 				if ( !types.hasOwnProperty( type ) ) {
 					continue;
 				}
-				if ( types[type].editor === null ) {
+				if ( types[ type ].editor === null ) {
 					// No UI
 					continue;
 				}
-				var option = new OO.ui.MenuOptionWidget( {
-					data: $.extend( {}, {
-						editor: types[type].editor,
-						label: types[type].label,
-						desc: types[type].desc || []
+				const option = new OO.ui.MenuOptionWidget( {
+					data: Object.assign( {}, {
+						editor: types[ type ].editor,
+						label: types[ type ].label,
+						desc: types[ type ].desc || []
 					}, { type: type } ),
-					label: types[type].label
+					label: types[ type ].label
 				} );
 				$( '<span>' )
-				.css( {
-					'font-size': '0.9em',
-					'color': 'grey'
-				} )
-				.html( types[type].desc ).insertAfter( option.$label );
+					.css( {
+						'font-size': '0.9em',
+						color: 'grey'
+					} )
+					.html( types[ type ].desc ).insertAfter( option.$label );
 				options.push( option );
 			}
 			this.selectWidget.getMenu().addItems( options );
-		}.bind( this ) ).fail( function() {
+		} ).fail( () => {
 			this.emit( 'error' );
-		}.bind( this ) );
+		} );
 	};
 
-	workflows.ui.TriggerSelectionPage.prototype.getTitle = function() {
+	workflows.ui.TriggerSelectionPage.prototype.getTitle = function () {
 		return mw.message( 'workflows-ui-workflow-trigger-editor-booklet-page-selection-title' ).text();
 	};
 
-	workflows.ui.TriggerSelectionPage.prototype.reset = function() {
+	workflows.ui.TriggerSelectionPage.prototype.reset = function () {
 		this.selectWidget.getMenu().selectItem( null );
 	};
 
-	workflows.ui.TriggerSelectionPage.prototype.getTriggerKey = function() {
+	workflows.ui.TriggerSelectionPage.prototype.getTriggerKey = function () {
 		return this.value.type;
 	};
 
-	workflows.ui.TriggerSelectionPage.prototype.getLabel = function() {
+	workflows.ui.TriggerSelectionPage.prototype.getLabel = function () {
 		return this.value.label;
 	};
 
-	workflows.ui.TriggerSelectionPage.prototype.getEditor = function() {
+	workflows.ui.TriggerSelectionPage.prototype.getEditor = function () {
 		return this.value.editor;
 	};
 
-	workflows.ui.TriggerSelectionPage.prototype.getDesc = function() {
+	workflows.ui.TriggerSelectionPage.prototype.getDesc = function () {
 		return this.value.desc;
 	};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

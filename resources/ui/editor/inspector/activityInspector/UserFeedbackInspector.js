@@ -1,15 +1,15 @@
-workflows.editor.inspector.UserFeedbackInspector = function( element, dialog ) {
+workflows.editor.inspector.UserFeedbackInspector = function ( element, dialog ) {
 	workflows.editor.inspector.UserFeedbackInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.UserFeedbackInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.UserFeedbackInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.UserFeedbackInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-user-feedback-title' ).text();
 };
 
-workflows.editor.inspector.UserFeedbackInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.UserFeedbackInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
@@ -27,7 +27,7 @@ workflows.editor.inspector.UserFeedbackInspector.prototype.getItems = function()
 		{
 			type: 'text',
 			name: 'properties.due_date',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text(),
+			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text()
 		},
 		{
 			type: 'text',

@@ -1,15 +1,15 @@
-workflows.editor.inspector.SetTemplateParamInspector = function( element, dialog ) {
+workflows.editor.inspector.SetTemplateParamInspector = function ( element, dialog ) {
 	workflows.editor.inspector.UserVoteInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.SetTemplateParamInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.SetTemplateParamInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.SetTemplateParamInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-title' ).text();
 };
 
-workflows.editor.inspector.SetTemplateParamInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.SetTemplateParamInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
@@ -18,7 +18,7 @@ workflows.editor.inspector.SetTemplateParamInspector.prototype.getItems = functi
 			type: 'text',
 			name: 'properties.user',
 			label: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-user' ).text(),
-			help: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-user-help' ).text(),
+			help: mw.message( 'workflows-ui-editor-inspector-activity-set-template-param-property-user-help' ).text()
 		},
 		{
 			type: 'text',

@@ -1,11 +1,11 @@
-( function ( mw, $ ) {
-	workflows.object.form.UserCollectData = function( cfg, activity ) {
+( function ( mw ) {
+	workflows.object.form.UserCollectData = function ( cfg, activity ) {
 		workflows.object.form.UserCollectData.parent.call( this, cfg, activity );
 	};
 
 	OO.inheritClass( workflows.object.form.UserCollectData, workflows.object.form.Form );
 
-	workflows.object.form.UserCollectData.prototype.getDefinitionItems = function() {
+	workflows.object.form.UserCollectData.prototype.getDefinitionItems = function () {
 		return [
 			{
 				name: 'username',
@@ -27,4 +27,4 @@
 		];
 	};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki ) );
