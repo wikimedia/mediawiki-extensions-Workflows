@@ -1,5 +1,5 @@
-( function ( mw, $ ) {
-	workflows.object.Activity = function( cfg, workflow ) {
+( function () {
+	workflows.object.Activity = function ( cfg, workflow ) {
 		workflows.object.Activity.parent.call( this, cfg, workflow );
 
 		this.properties = cfg.properties || {};
@@ -9,20 +9,21 @@
 
 	OO.inheritClass( workflows.object.Activity, workflows.object.Element );
 
-	workflows.object.Activity.prototype.getProperties = function() {
+	workflows.object.Activity.prototype.getProperties = function () {
 		return this.properties;
 	};
 
-	workflows.object.Activity.prototype.getRawProperties = function() {
+	workflows.object.Activity.prototype.getRawProperties = function () {
 		return this.rawProperties;
 	};
 
 	/**
 	 * One of the workflows.state.activity states
-	 * @returns {int}
+	 *
+	 * @return {number}
 	 */
-	workflows.object.Activity.prototype.getState = function() {
+	workflows.object.Activity.prototype.getState = function () {
 		return this.state;
 	};
 
-} )( mediaWiki, jQuery );
+}() );

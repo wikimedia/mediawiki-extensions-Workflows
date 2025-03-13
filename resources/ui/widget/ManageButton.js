@@ -1,5 +1,5 @@
-( function( mw, $ ) {
-	workflows.ui.widget.ManageButton = function( forInitiator ) {
+( function () {
+	workflows.ui.widget.ManageButton = function ( forInitiator ) {
 		workflows.ui.widget.ManageButton.parent.call( this );
 
 		this.tryAddButton( forInitiator );
@@ -8,18 +8,18 @@
 
 	OO.inheritClass( workflows.ui.widget.ManageButton, OO.ui.Widget );
 
-	workflows.ui.widget.ManageButton.prototype.tryAddButton = function( forInitiator ) {
-		workflows.userCan( 'workflows-admin' ).done( function() {
+	workflows.ui.widget.ManageButton.prototype.tryAddButton = function ( forInitiator ) {
+		workflows.userCan( 'workflows-admin' ).done( () => {
 			this.appendButton( 'admin' );
-		}.bind( this ) ).fail( function() {
+		} ).fail( () => {
 			if ( forInitiator ) {
 				this.appendButton( 'initiator' );
 			}
-		}.bind( this ) );
+		} );
 	};
 
-	workflows.ui.widget.ManageButton.prototype.appendButton = function( role ) {
-		var button = new OO.ui.ButtonWidget( {
+	workflows.ui.widget.ManageButton.prototype.appendButton = function ( role ) {
+		const button = new OO.ui.ButtonWidget( {
 			icon: 'info',
 			framed: false,
 			data: {
@@ -27,10 +27,10 @@
 			}
 		} );
 		button.connect( this, {
-			click: function() {
+			click: function () {
 				this.emit( 'click', button.getData() );
 			}
 		} );
 		this.$element.append( button.$element );
 	};
-} )( mediaWiki, jQuery );
+}() );

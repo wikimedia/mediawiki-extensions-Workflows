@@ -1,12 +1,12 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 
-	workflows.object.form.EditRequest = function( cfg, activity ) {
+	workflows.object.form.EditRequest = function ( cfg, activity ) {
 		workflows.object.form.EditRequest.parent.call( this, cfg, activity );
 	};
 
 	OO.inheritClass( workflows.object.form.EditRequest, workflows.object.form.Form );
 
-	workflows.object.form.EditRequest.prototype.getDefinitionItems = function() {
+	workflows.object.form.EditRequest.prototype.getDefinitionItems = function () {
 		return [
 			{
 				type: 'label',
@@ -26,4 +26,4 @@
 			}
 		];
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki ) );

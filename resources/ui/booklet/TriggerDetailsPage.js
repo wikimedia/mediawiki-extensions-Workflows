@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	workflows.ui.TriggerDetailsPage = function( name, cfg ) {
+	workflows.ui.TriggerDetailsPage = function ( name, cfg ) {
 		workflows.ui.TriggerDetailsPage.parent.call( this, name, cfg );
 
 		this.$overlay = cfg.$overlay;
@@ -13,28 +13,28 @@
 
 	OO.inheritClass( workflows.ui.TriggerDetailsPage, OO.ui.PageLayout );
 
-	workflows.ui.TriggerDetailsPage.prototype.init = function( data ) {
+	workflows.ui.TriggerDetailsPage.prototype.init = function ( data ) {
 		this.editor = data.editor || null;
 		this.editorWidget = null;
-		this.value = $.extend( {}, data.value || {}, {
+		this.value = Object.assign( {}, data.value || {}, {
 			type: data.type
 		} );
 
-		var layout = new OO.ui.FieldsetLayout( {
+		const layout = new OO.ui.FieldsetLayout( {
 			label: data.label,
 			help: data.desc,
 			helpInline: true
 		} );
 
-		this.initEditor().done( function( editor ) {
+		this.initEditor().done( ( editor ) => {
 			editor.connect( this, {
-				sizeChange: function() {
+				sizeChange: function () {
 					this.emit( 'sizeChange' );
 				},
-				loading: function() {
+				loading: function () {
 					this.emit( 'loading' );
 				},
-				loaded: function() {
+				loaded: function () {
 					this.emit( 'loaded' );
 				}
 			} );
@@ -43,55 +43,55 @@
 			this.panel.$element.append( layout.$element );
 			this.editorWidget = editor;
 			this.emit( 'loaded' );
-		}.bind( this ) );
+		} );
 	};
 
-	workflows.ui.TriggerDetailsPage.prototype.getTitle = function() {
+	workflows.ui.TriggerDetailsPage.prototype.getTitle = function () {
 		return mw.message( 'workflows-ui-workflow-trigger-editor-booklet-page-details-title' ).text();
 	};
 
-	workflows.ui.TriggerDetailsPage.prototype.reset = function() {
+	workflows.ui.TriggerDetailsPage.prototype.reset = function () {
 	};
 
-	workflows.ui.TriggerDetailsPage.prototype.getValidity = function() {
+	workflows.ui.TriggerDetailsPage.prototype.getValidity = function () {
 		if ( !this.editorWidget ) {
-			console.error( 'Called "getValidity" before instantiating editor' );
+			console.error( 'Called "getValidity" before instantiating editor' ); // eslint-disable-line no-console
 			return $.Deferred().reject().promise();
 		}
 		return this.editorWidget.getValidity();
 	};
 
-	workflows.ui.TriggerDetailsPage.prototype.getValue = function() {
+	workflows.ui.TriggerDetailsPage.prototype.getValue = function () {
 		if ( !this.editorWidget ) {
-			console.error( 'Called "getValue" before instantiating editor' );
+			console.error( 'Called "getValue" before instantiating editor' ); // eslint-disable-line no-console
 			return $.Deferred().reject().promise();
 		}
 		return this.editorWidget.getValue();
 	};
 
-	workflows.ui.TriggerDetailsPage.prototype.initEditor = function() {
-		var dfd = $.Deferred();
+	workflows.ui.TriggerDetailsPage.prototype.initEditor = function () {
+		const dfd = $.Deferred();
 
-		mw.loader.using( this.editor.module, function() {
-			var cls = this.editor.class || '',
-				cb = this.editor.cb || '',
-				func = '', editor = null;
+		mw.loader.using( this.editor.module, () => {
+			const cls = this.editor.class || '';
+			const cb = this.editor.cb || '';
+			let func = '', editor = null;
 
 			if ( cls ) {
 				func = workflows.util.callbackFromString( cls );
-				editor = new func( this.value, { $overlay: this.$overlay } );
+				editor = new func( this.value, { $overlay: this.$overlay } ); // eslint-disable-line new-cap
 			} else if ( cb ) {
 				func = workflows.util.callbackFromString( cb );
 				editor = func( this.value, { $overlay: this.$overlay } );
 			}
-			if ( editor instanceof workflows.ui.trigger.Trigger ){
+			if ( editor instanceof workflows.ui.trigger.Trigger ) {
 				dfd.resolve( editor );
 			} else {
 				dfd.reject( mw.message( 'workflows-ui-trigger-editor-error' ).text() );
 			}
-		}.bind( this ) );
+		} );
 
 		return dfd.promise();
 	};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

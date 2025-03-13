@@ -19,10 +19,18 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.{css,less}',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!resources/ui/editor/bpmn-js/**'
 			]
 		},
-		banana: conf.MessagesDirs
+		banana: Object.assign(
+			conf.MessagesDirs,
+			{
+				options: {
+					requireLowerCase: 'initial'
+				}
+			}
+		)
 	} );
 
 	grunt.registerTask( 'test', [ 'eslint', 'stylelint', 'banana' ] );

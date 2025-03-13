@@ -1,15 +1,15 @@
 .activity-bootstrap-icon::before {
 	display: inline-block;
-	font-family: bootstrap-icons !important;
+	font-family: 'bootstrap-icons' !important; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	font-style: normal;
 	font-weight: normal !important;
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
-	vertical-align: -.125em;
+	vertical-align: -0.125em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	content: "\2800" !important;
+	content: '\2800' !important;
 }
 
 .activity-icon::before {
@@ -17,38 +17,39 @@
 	background-size: 20px;
 	background-position: center;
 }
+
 .activity-icon.activity-custom-form::before {
-	background-image: url( ./../../styles/icons/activity-custom-form-icon.svg);
+	background-image: url( ./../../styles/icons/activity-custom-form-icon.svg );
 }
 
 .activity-icon.activity-send-mail::before {
-	background-image: url( ./../../styles/icons/activity-send-mail-icon.svg);
+	background-image: url( ./../../styles/icons/activity-send-mail-icon.svg );
 }
 
 .activity-icon.activity-user-feedback::before {
-	background-image: url( ./../../styles/icons/activity-user-feedback-icon.svg);
+	background-image: url( ./../../styles/icons/activity-user-feedback-icon.svg );
 }
 
 .activity-icon.activity-user-vote::before {
-	background-image: url( ./../../styles/icons/activity-user-vote-icon.svg);
+	background-image: url( ./../../styles/icons/activity-user-vote-icon.svg );
 }
 
 .activity-icon.activity-group-feedback::before {
-	background-image: url( ./../../styles/icons/activity-group-feedback-icon.svg);
+	background-image: url( ./../../styles/icons/activity-group-feedback-icon.svg );
 }
 
 .activity-icon.activity-group-vote::before {
-	background-image: url( ./../../styles/icons/activity-group-vote-icon.svg);
+	background-image: url( ./../../styles/icons/activity-group-vote-icon.svg );
 }
 
 .activity-icon.activity-edit-page::before {
-	background-image: url( ./../../styles/icons/activity-edit-page-icon.svg);
+	background-image: url( ./../../styles/icons/activity-edit-page-icon.svg );
 }
 
 .activity-icon.activity-edit-request::before {
-	background-image: url( ./../../styles/icons/activity-edit-request-icon.svg);
+	background-image: url( ./../../styles/icons/activity-edit-request-icon.svg );
 }
 
 .activity-icon.activity-set-template-param::before {
-	background-image: url( ./../../styles/icons/activity-template-param-icon.svg);
+	background-image: url( ./../../styles/icons/activity-template-param-icon.svg );
 }

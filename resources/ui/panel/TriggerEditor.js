@@ -1,20 +1,20 @@
-workflows.ui.panel.TriggerEditor = function( cfg ) {
+workflows.ui.panel.TriggerEditor = function ( cfg ) {
 	workflows.ui.panel.TriggerEditor.parent.call( this, cfg );
 	this.editable = false;
 };
 
 OO.inheritClass( workflows.ui.panel.TriggerEditor, workflows.ui.panel.TriggerOverview );
 
-workflows.ui.panel.TriggerEditor.prototype.load = function() {
+workflows.ui.panel.TriggerEditor.prototype.load = function () {
 	mw.loader.using( [ 'ext.workflows.trigger.editor.dialog' ], () => {
 		workflows.ui.panel.TriggerEditor.parent.prototype.load.call( this );
 	} );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.render = function( data, types ) {
-	mw.user.getRights().done( function( rights ) {
+workflows.ui.panel.TriggerEditor.prototype.render = function ( data, types ) {
+	mw.user.getRights().done( ( rights ) => {
 		if ( rights.indexOf( 'workflows-admin' ) !== -1 ) {
-			this.editable = true;;
+			this.editable = true;
 		}
 		this.$triggerCnt = $( '<div>' ).addClass( 'workflows-ui-trigger-cnt' );
 		if ( this.editable ) {
@@ -23,24 +23,24 @@ workflows.ui.panel.TriggerEditor.prototype.render = function( data, types ) {
 		this.appendTriggers( data, types );
 		this.$element.append( this.$triggerCnt );
 		this.emit( 'loaded' );
-	}.bind( this ) );
+	} );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.appendTriggers = function( data, types ) {
-	for ( var triggerId in data ) {
+workflows.ui.panel.TriggerEditor.prototype.appendTriggers = function ( data, types ) {
+	for ( const triggerId in data ) {
 		if ( !data.hasOwnProperty( triggerId ) ) {
 			continue;
 		}
-		var triggerData = data[triggerId];
-		this.triggerData[triggerId] = triggerData;
+		const triggerData = data[ triggerId ];
+		this.triggerData[ triggerId ] = triggerData;
 
 		if ( !types.hasOwnProperty( triggerData.type ) ) {
-			console.warn( 'Type of trigger ' + triggerId + ' is not supported' );
+			console.warn( 'Type of trigger ' + triggerId + ' is not supported' ); // eslint-disable-line no-console
 			continue;
 		}
-		var widget = new workflows.ui.widget.TriggerEntity( triggerId, triggerData, types[triggerData.type], {
+		const widget = new workflows.ui.widget.TriggerEntity( triggerId, triggerData, types[ triggerData.type ], {
 			editMode: this.editable,
-			editable: types[triggerData.type].hasOwnProperty( 'editor' ) && types[triggerData.type].editor !== null
+			editable: types[ triggerData.type ].hasOwnProperty( 'editor' ) && types[ triggerData.type ].editor !== null
 		} );
 
 		widget.connect( this, {
@@ -51,7 +51,7 @@ workflows.ui.panel.TriggerEditor.prototype.appendTriggers = function( data, type
 	}
 };
 
-workflows.ui.panel.TriggerEditor.prototype.appendHeader = function() {
+workflows.ui.panel.TriggerEditor.prototype.appendHeader = function () {
 	this.toolbar = new OOJSPlus.ui.toolbar.ManagerToolbar( {
 		actions: [
 			new OOJSPlus.ui.toolbar.tool.ToolbarTool( {
@@ -78,45 +78,45 @@ workflows.ui.panel.TriggerEditor.prototype.appendHeader = function() {
 	this.$element.append( this.toolbar.$element );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.onCancel = function() {
+workflows.ui.panel.TriggerEditor.prototype.onCancel = function () {
 	const title = mw.Title.newFromText( mw.config.get( 'wgPageName' ) );
 	if ( title ) {
 		window.location.href = title.getUrl();
 	}
 };
 
-workflows.ui.panel.TriggerEditor.prototype.editTrigger = function( id, data, typeDesc ) {
+workflows.ui.panel.TriggerEditor.prototype.editTrigger = function ( id, data, typeDesc ) {
 	data.id = id;
-	this.openEditDialog( $.extend( {}, typeDesc, {
+	this.openEditDialog( Object.assign( {}, typeDesc, {
 		type: data.type,
 		value: data
 	} ) );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.deleteTrigger = function( id ) {
+workflows.ui.panel.TriggerEditor.prototype.deleteTrigger = function ( id ) {
 	if ( !this.triggerData.hasOwnProperty( id ) ) {
 		return;
 	}
 	this.openDeleteDialog( id );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.openEmptyTriggerDialog = function() {
+workflows.ui.panel.TriggerEditor.prototype.openEmptyTriggerDialog = function () {
 	this.openEditDialog( null );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.openEditDialog = function( data ) {
+workflows.ui.panel.TriggerEditor.prototype.openEditDialog = function ( data ) {
 	this.doOpenDialog( new workflows.ui.dialog.TriggerEditor( { triggerData: data, allData: this.triggerData } ) );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.openDeleteDialog = function( key, data ) {
+workflows.ui.panel.TriggerEditor.prototype.openDeleteDialog = function ( key, data ) {
 	this.doOpenDialog( new workflows.ui.dialog.DeleteTrigger( { key: key, data: data } ) );
 };
 
-workflows.ui.panel.TriggerEditor.prototype.doOpenDialog = function( dialog ) {
-	var windowManager = new OO.ui.WindowManager();
+workflows.ui.panel.TriggerEditor.prototype.doOpenDialog = function ( dialog ) {
+	const windowManager = new OO.ui.WindowManager();
 	$( document.body ).append( windowManager.$element );
 	windowManager.addWindows( [ dialog ] );
-	windowManager.openWindow( dialog ).closed.then( function() {
+	windowManager.openWindow( dialog ).closed.then( () => {
 		$( document.body ).remove( windowManager.$element );
 	} );
 };

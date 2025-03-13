@@ -1,4 +1,4 @@
-workflows.editor.inspector.InspectorDialog = function( element, cfg ) {
+workflows.editor.inspector.InspectorDialog = function ( element, cfg ) {
 	cfg = cfg || {};
 	cfg.size = 'large';
 	workflows.editor.inspector.InspectorDialog.parent.call( this, cfg );
@@ -10,7 +10,6 @@ workflows.editor.inspector.InspectorDialog = function( element, cfg ) {
 };
 
 OO.inheritClass( workflows.editor.inspector.InspectorDialog, OO.ui.ProcessDialog );
-
 
 workflows.editor.inspector.InspectorDialog.static.name = 'taskCompletion';
 workflows.editor.inspector.InspectorDialog.static.title = mw.message( 'workflows-ui-editor-inspector-title' ).text();
@@ -31,7 +30,6 @@ workflows.editor.inspector.InspectorDialog.prototype.initialize = function () {
 	workflows.editor.inspector.InspectorDialog.static.title = this.inspector.getDialogTitle();
 	workflows.editor.inspector.InspectorDialog.super.prototype.initialize.apply( this, arguments );
 
-
 	this.panel = new OO.ui.PanelLayout( {
 		expanded: true,
 		padded: true
@@ -41,7 +39,7 @@ workflows.editor.inspector.InspectorDialog.prototype.initialize = function () {
 	this.form.render();
 	// this.form is the standalone, this.form.form is actual Form object
 	this.form.form.connect( this, {
-		layoutChange: function() {
+		layoutChange: function () {
 			this.updateSize();
 		}
 	} );
@@ -52,16 +50,16 @@ workflows.editor.inspector.InspectorDialog.prototype.initialize = function () {
 
 workflows.editor.inspector.InspectorDialog.prototype.getActionProcess = function ( action ) {
 	return workflows.editor.inspector.InspectorDialog.parent.prototype.getActionProcess.call( this, action ).next(
-		function() {
+		function () {
 			if ( action === 'save' ) {
 				this.pushPending();
-				var dfd = $.Deferred();
+				const dfd = $.Deferred();
 				this.form.connect( this, {
-					dataSubmitted: function( data ) {
+					dataSubmitted: function ( data ) {
 						this.inspector.updateModel( data );
 						this.close();
 					},
-					validationFailed: function() {
+					validationFailed: function () {
 						this.popPending();
 						dfd.resolve();
 					}
@@ -78,5 +76,5 @@ workflows.editor.inspector.InspectorDialog.prototype.getActionProcess = function
 };
 
 workflows.editor.inspector.InspectorDialog.prototype.getBodyHeight = function () {
-	return this.$element.find( '.oo-ui-window-body' )[0].scrollHeight + 10;
+	return this.$element.find( '.oo-ui-window-body' )[ 0 ].scrollHeight + 10;
 };

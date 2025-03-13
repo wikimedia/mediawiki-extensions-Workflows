@@ -1,5 +1,5 @@
-workflows.ui.panel.TriggerOverview = function( cfg ) {
-	cfg = $.extend( {
+workflows.ui.panel.TriggerOverview = function ( cfg ) {
+	cfg = Object.assign( {
 		padded: true
 	}, cfg || {} );
 
@@ -12,39 +12,39 @@ workflows.ui.panel.TriggerOverview = function( cfg ) {
 
 OO.inheritClass( workflows.ui.panel.TriggerOverview, OO.ui.PanelLayout );
 
-workflows.ui.panel.TriggerOverview.prototype.load = function() {
-	workflows.triggers.getAvailableTypes().done( function( types ) {
-		workflows.triggers.getAll().done( function( data ) {
+workflows.ui.panel.TriggerOverview.prototype.load = function () {
+	workflows.triggers.getAvailableTypes().done( ( types ) => {
+		workflows.triggers.getAll().done( ( data ) => {
 			this.render( data, types );
-		}.bind( this ) ).fail( function() {
+		} ).fail( () => {
 			this.showError();
-		}.bind( this ) );
-	}.bind( this ) ).fail( function() {
+		} );
+	} ).fail( () => {
 		this.showError();
-	}.bind( this ) );
+	} );
 };
 
-workflows.ui.panel.TriggerOverview.prototype.render = function( data, types ) {
+workflows.ui.panel.TriggerOverview.prototype.render = function ( data, types ) {
 	this.$triggerCnt = $( '<div>' ).addClass( 'workflows-ui-trigger-cnt' );
 	this.appendTriggers( data, types );
 	this.$element.append( this.$triggerCnt );
 	this.emit( 'loaded' );
 };
 
-workflows.ui.panel.TriggerOverview.prototype.appendTriggers = function( data, types ) {
-	for ( var triggerId in data ) {
+workflows.ui.panel.TriggerOverview.prototype.appendTriggers = function ( data, types ) {
+	for ( const triggerId in data ) {
 		if ( !data.hasOwnProperty( triggerId ) ) {
 			continue;
 		}
-		var triggerData = data[triggerId];
-		this.triggerData[triggerId] = triggerData;
+		const triggerData = data[ triggerId ];
+		this.triggerData[ triggerId ] = triggerData;
 
 		if ( !types.hasOwnProperty( triggerData.type ) ) {
-			console.warn( 'Type of trigger ' + triggerId + ' is not supported' );
+			console.warn( 'Type of trigger ' + triggerId + ' is not supported' ); // eslint-disable-line no-console
 			continue;
 		}
-		var widget = new workflows.ui.widget.TriggerEntity(
-			triggerId, triggerData, types[triggerData.type], {
+		const widget = new workflows.ui.widget.TriggerEntity(
+			triggerId, triggerData, types[ triggerData.type ], {
 				editMode: false
 			}
 		);
@@ -52,8 +52,8 @@ workflows.ui.panel.TriggerOverview.prototype.appendTriggers = function( data, ty
 	}
 };
 
-workflows.ui.panel.TriggerOverview.prototype.showError = function() {
-	//TODO: I18n
+workflows.ui.panel.TriggerOverview.prototype.showError = function () {
+	// TODO: I18n
 	this.$element.html( new OO.ui.MessageWidget( {
 		type: 'error',
 		label: mw.message( 'workflows-error-generic' ).text()

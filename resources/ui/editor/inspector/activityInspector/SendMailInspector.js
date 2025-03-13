@@ -1,15 +1,15 @@
-workflows.editor.inspector.SendMailInspector = function( element, dialog ) {
+workflows.editor.inspector.SendMailInspector = function ( element, dialog ) {
 	workflows.editor.inspector.SendMailInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.SendMailInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.SendMailInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.SendMailInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-send-mail-title' ).text();
 };
 
-workflows.editor.inspector.SendMailInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.SendMailInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()

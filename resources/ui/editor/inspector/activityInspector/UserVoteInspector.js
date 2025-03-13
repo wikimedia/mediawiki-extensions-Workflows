@@ -1,15 +1,15 @@
-workflows.editor.inspector.UserVoteInspector = function( element, dialog ) {
+workflows.editor.inspector.UserVoteInspector = function ( element, dialog ) {
 	workflows.editor.inspector.UserVoteInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.UserVoteInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.UserVoteInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.UserVoteInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-user-vote-title' ).text();
 };
 
-workflows.editor.inspector.UserVoteInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.UserVoteInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
@@ -17,7 +17,7 @@ workflows.editor.inspector.UserVoteInspector.prototype.getItems = function() {
 		{
 			type: 'text',
 			name: 'properties.assigned_user',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-assigned_user' ).text(),
+			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-assigned_user' ).text()
 		},
 		{
 			type: 'text',
@@ -27,7 +27,7 @@ workflows.editor.inspector.UserVoteInspector.prototype.getItems = function() {
 		{
 			type: 'text',
 			name: 'properties.due_date',
-			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text(),
+			label: mw.message( 'workflows-ui-editor-inspector-activity-user-activity-property-due_date' ).text()
 		},
 		{
 			type: 'text',

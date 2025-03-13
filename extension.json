@@ -63,7 +63,7 @@
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\CustomForm\\CustomFormActivity"
 					},
 					"edit_request": {
-						"class":"\\MediaWiki\\Extension\\Workflows\\Activity\\EditRequest\\EditRequestActivity"
+						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\EditRequest\\EditRequestActivity"
 					},
 					"edit_page": {
 						"class": "\\MediaWiki\\Extension\\Workflows\\Activity\\EditPageActivity",
@@ -812,7 +812,7 @@
 		},
 		"setContentModels": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\SetContentModels",
-			"services":  [ "WorkflowTriggerRepo" ]
+			"services": [ "WorkflowTriggerRepo" ]
 		},
 		"addActions": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddActions",

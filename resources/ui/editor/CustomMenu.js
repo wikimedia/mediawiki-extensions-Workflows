@@ -3,10 +3,10 @@ class WorkflowsContextPadProvider {
 		contextPad.registerProvider( this );
 	}
 
-	getContextPadEntries( element ) {
-		return function( entries ) {
-			delete entries["append.intermediate-event"];
-			delete entries["append.append-task"];
+	getContextPadEntries( element ) { // eslint-disable-line no-unused-vars
+		return function ( entries ) {
+			delete entries[ 'append.intermediate-event' ];
+			delete entries[ 'append.append-task' ];
 			delete entries.append;
 			delete entries.replace;
 			return entries;
@@ -19,8 +19,9 @@ WorkflowsContextPadProvider.$inject = [ 'contextPad' ];
 class WorkflowsPaletteProvider {
 
 	constructor( palette, create, elementFactory,
-	             spaceTool, lassoTool, handTool,
-	             globalConnect, translate, bpmnFactory ) {
+		spaceTool, lassoTool, handTool,
+		globalConnect, translate, bpmnFactory
+	) {
 		this._palette = palette;
 		this._create = create;
 		this._elementFactory = elementFactory;
@@ -31,7 +32,7 @@ class WorkflowsPaletteProvider {
 		this._translate = translate;
 		this._bpmnFactory = bpmnFactory;
 
-		palette.registerProvider(this);
+		palette.registerProvider( this );
 	}
 }
 
@@ -47,8 +48,8 @@ WorkflowsPaletteProvider.$inject = [
 	'bpmnFactory'
 ];
 
-WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
-	var actions = {},
+WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
+	const actions = {},
 		create = this._create,
 		elementFactory = this._elementFactory,
 		spaceTool = this._spaceTool,
@@ -58,13 +59,13 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
 		translate = this._translate,
 		bpmnFactory = this._bpmnFactory;
 
-	function createAction(type, group, className, title, options ) {
-		function createListener(event) {
-			var shape = elementFactory.createShape( { type: type }, options );
-			create.start(event, shape);
+	function createAction( type, group, className, title, options ) {
+		function createListener( event ) {
+			const shape = elementFactory.createShape( { type: type }, options );
+			create.start( event, shape );
 		}
 
-		var shortType = type.replace(/^bpmn:/, '');
+		const shortType = type.replace( /^bpmn:/, '' ); // eslint-disable-line no-unused-vars
 
 		return {
 			group: group,
@@ -78,26 +79,26 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
 	}
 
 	function createActivityAction( type, group, className, title, options ) {
-		function createActivity(event) {
-			var businessObject = bpmnFactory.create( type ),
+		function createActivity( event ) {
+			const businessObject = bpmnFactory.create( type ),
 				shape = elementFactory.createShape( { type: type, businessObject: businessObject } );
 
 			businessObject.extensionElements = workflows.editor.util.extensionElements.create(
 				'bpmn:ExtensionElements', {}, shape
 			);
 
-			var extElementsData = options.extensionElements || {};
-			extElementsData['wf:Type'] = options.activityType;
+			const extElementsData = options.extensionElements || {};
+			extElementsData[ 'wf:Type' ] = options.activityType;
 			workflows.editor.util.extensionElements.assignFromData( shape, extElementsData );
 
-			var properties = options.properties || {};
-			for ( var property in properties ) {
+			const properties = options.properties || {};
+			for ( const property in properties ) {
 				if ( !properties.hasOwnProperty( property ) ) {
 					continue;
 				}
-				workflows.editor.util.properties.set( shape, property, properties[property] );
+				workflows.editor.util.properties.set( shape, property, properties[ property ] );
 			}
-			create.start(event, shape);
+			create.start( event, shape );
 		}
 
 		return {
@@ -115,40 +116,40 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
 		'hand-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-hand-tool',
-			title: translate('Activate the hand tool'),
+			title: translate( 'Activate the hand tool' ),
 			action: {
-				click: function(event) {
-					handTool.activateHand(event);
+				click: function ( event ) {
+					handTool.activateHand( event );
 				}
 			}
 		},
 		'lasso-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-lasso-tool',
-			title: translate('Activate the lasso tool'),
+			title: translate( 'Activate the lasso tool' ),
 			action: {
-				click: function(event) {
-					lassoTool.activateSelection(event);
+				click: function ( event ) {
+					lassoTool.activateSelection( event );
 				}
 			}
 		},
 		'space-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-space-tool',
-			title: translate('Activate the create/remove space tool'),
+			title: translate( 'Activate the create/remove space tool' ),
 			action: {
-				click: function(event) {
-					spaceTool.activateSelection(event);
+				click: function ( event ) {
+					spaceTool.activateSelection( event );
 				}
 			}
 		},
 		'global-connect-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-connection-multi',
-			title: translate('Activate the global connect tool'),
+			title: translate( 'Activate the global connect tool' ),
 			action: {
-				click: function(event) {
-					globalConnect.start(event);
+				click: function ( event ) {
+					globalConnect.start( event );
 				}
 			}
 		},
@@ -158,15 +159,15 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
 		},
 		'create.start-event': createAction(
 			'bpmn:StartEvent', 'event', 'bpmn-icon-start-event-none',
-			translate('Create StartEvent')
+			translate( 'Create StartEvent' )
 		),
 		'create.end-event': createAction(
 			'bpmn:EndEvent', 'event', 'bpmn-icon-end-event-none',
-			translate('Create EndEvent')
+			translate( 'Create EndEvent' )
 		),
 		'create.exclusive-gateway': createAction(
 			'bpmn:ExclusiveGateway', 'gateway', 'bpmn-icon-gateway-none',
-			translate('Create Gateway')
+			translate( 'Create Gateway' )
 		),
 		'create-separator': {
 			group: 'create',
@@ -174,22 +175,22 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
 		}
 	} );
 
-	var customElements = workflows.editor.element.registry.getAll();
-	for ( var key in customElements ) {
+	const customElements = workflows.editor.element.registry.getAll();
+	for ( const key in customElements ) {
 		if ( !customElements.hasOwnProperty( key ) ) {
 			continue;
 		}
-		var element = customElements[key];
+		const element = customElements[ key ];
 		if ( element instanceof workflows.editor.element.WorkflowActivityElement ) {
-			actions['create.activity-' + key] = createActivityAction(
+			actions[ 'create.activity-' + key ] = createActivityAction(
 				element.getType(), element.getGroup(), element.getClass(),
 				element.getLabel(),
-				$.extend( {
+				Object.assign( {
 					activityType: key
 				}, element.getDefaultData() )
 			);
 		} else {
-			actions['create.' + key] = createAction(
+			actions[ 'create.' + key ] = createAction(
 				element.getType(), element.getGroup(), element.getClass(), element.getLabel()
 			);
 		}
@@ -198,13 +199,11 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function() {
 	return actions;
 };
 
-
 window.workflows.editor.customMenuModule = {
 	__init__: [
 		'customContextPadProvider',
 		'paletteProvider'
 	],
 	paletteProvider: [ 'type', WorkflowsPaletteProvider ],
-	customContextPadProvider: [ 'type', WorkflowsContextPadProvider ],
+	customContextPadProvider: [ 'type', WorkflowsContextPadProvider ]
 };
-

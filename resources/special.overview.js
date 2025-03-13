@@ -1,11 +1,11 @@
-$( function() {
-	var $container = $( '#workflows-overview' );
+$( function () {
+	const $container = $( '#workflows-overview' );
 	if ( $container.length === 0 ) {
 		return;
 	}
-	var $loader = $( '#workflows-overview-loader' );
+	const $loader = $( '#workflows-overview-loader' );
 
-	var panel = new workflows.ui.panel.WorkflowList( {
+	const panel = new workflows.ui.panel.WorkflowList( {
 		expanded: false
 	} );
 
@@ -22,17 +22,17 @@ $( function() {
 	}
 
 	panel.connect( this, {
-		selected: function( id ) {
+		selected: function ( id ) {
 			setLoading( true );
-			workflows.getWorkflow( id ).done( function( workflow ) {
-				var windowManager = new OO.ui.WindowManager();
+			workflows.getWorkflow( id ).done( ( workflow ) => {
+				const windowManager = new OO.ui.WindowManager();
 				$( document.body ).append( windowManager.$element );
 
-				var dialog = new workflows.ui.dialog.WorkflowOverview( workflow, null );
+				const dialog = new workflows.ui.dialog.WorkflowOverview( workflow, null );
 				setLoading( false );
 				windowManager.addWindows( [ dialog ] );
-				windowManager.openWindow( dialog ).closed.then( function() {
-						this.load();
+				windowManager.openWindow( dialog ).closed.then( function () {
+					this.load();
 				}.bind( panel ) );
 			} );
 		}

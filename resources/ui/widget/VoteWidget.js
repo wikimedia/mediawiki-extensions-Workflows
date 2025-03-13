@@ -1,5 +1,5 @@
-( function( mw, $ ) {
-	workflows.ui.widget.Vote = function( cfg ) {
+( function ( mw, $ ) {
+	workflows.ui.widget.Vote = function ( cfg ) {
 		cfg = cfg || {};
 		workflows.ui.widget.Vote.parent.call( this, cfg );
 		this.$input.remove();
@@ -17,7 +17,7 @@
 		no: 'decline-icon'
 	};
 
-	workflows.ui.widget.Vote.prototype.makeVoteLayout = function() {
+	workflows.ui.widget.Vote.prototype.makeVoteLayout = function () {
 		this.icon = new OO.ui.IconWidget( {
 			classes: [ 'vote-icon' ],
 			icon: 'circleHelp'
@@ -34,7 +34,7 @@
 					data: 'no',
 					label: mw.message( 'workflows-form-label-vote-widget-decline' ).text(),
 					classes: [ 'vote-no' ]
-				} ),
+				} )
 			]
 		} );
 
@@ -54,25 +54,25 @@
 		this.$element.append( this.voteLayout.$element );
 	};
 
-	workflows.ui.widget.Vote.prototype.onVote = function( item ) {
+	workflows.ui.widget.Vote.prototype.onVote = function ( item ) {
 		if ( !item ) {
 			return;
 		}
 		this.setValidityFlag( true );
-		this.icon.setIcon( workflows.ui.widget.Vote.static.icons[item.getData()] );
+		this.icon.setIcon( workflows.ui.widget.Vote.static.icons[ item.getData() ] );
 		this.value = item.getData();
 	};
 
-	workflows.ui.widget.Vote.prototype.setRequired = function( required ) {
+	workflows.ui.widget.Vote.prototype.setRequired = function ( required ) {
 		this.required = required;
 	};
 
-	workflows.ui.widget.Vote.prototype.getValue = function() {
+	workflows.ui.widget.Vote.prototype.getValue = function () {
 		return this.value;
 	};
 
-	workflows.ui.widget.Vote.prototype.getValidity = function() {
-		var dfd = $.Deferred();
+	workflows.ui.widget.Vote.prototype.getValidity = function () {
+		const dfd = $.Deferred();
 		if ( !this.required ) {
 			dfd.resolve();
 		}
@@ -86,7 +86,7 @@
 		return dfd.promise();
 	};
 
-	workflows.ui.widget.Vote.prototype.setValidityFlag = function( valid ) {
+	workflows.ui.widget.Vote.prototype.setValidityFlag = function ( valid ) {
 		if ( !valid ) {
 			this.$element.addClass( 'invalid' );
 		} else {
@@ -94,7 +94,7 @@
 		}
 	};
 
-	workflows.ui.widget.Vote.prototype.setValue = function( value ) {
+	workflows.ui.widget.Vote.prototype.setValue = function ( value ) {
 		if ( !value ) {
 			if ( this.voteButtons && this.icon ) {
 				// Deselects everything
@@ -108,4 +108,4 @@
 			this.value = value;
 		}
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

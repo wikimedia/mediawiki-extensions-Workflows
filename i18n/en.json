@@ -1,4 +1,5 @@
 {
+	"@metadata": {},
 	"workflows-desc": "Allows to define and execute various workflows on the wiki",
 	"workflowsoverview": "Workflows overview",
 	"workflows-global-action-overview": "Workflows",

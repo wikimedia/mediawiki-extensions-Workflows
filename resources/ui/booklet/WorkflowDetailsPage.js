@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.WorkflowDetailsPage = function( name, cfg ) {
+( function ( mw, $ ) {
+	workflows.ui.WorkflowDetailsPage = function ( name, cfg ) {
 		workflows.ui.WorkflowDetailsPage.parent.call( this, name, cfg );
 		this.panel = new OO.ui.PanelLayout( {
 			padded: false,
@@ -11,7 +11,7 @@
 
 	OO.inheritClass( workflows.ui.WorkflowDetailsPage, OO.ui.PageLayout );
 
-	workflows.ui.WorkflowDetailsPage.prototype.init = function( workflow ) {
+	workflows.ui.WorkflowDetailsPage.prototype.init = function ( workflow ) {
 		this.panel.$element.children().remove();
 
 		this.workflow = workflow;
@@ -20,16 +20,16 @@
 		this.addActivities();
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addDetailsSection = function() {
+	workflows.ui.WorkflowDetailsPage.prototype.addDetailsSection = function () {
 		this.addSection( 'details', 'article' );
 		this.detailsPanel = new OO.ui.PanelLayout( {
 			expanded: false,
 			padded: true,
 			classes: [ 'details-panel' ]
 		} );
-		this.$detailsPanelTable = $( '<table>' ).append( $('<colgroup>')
-		.append( $('<col span="1" style="width: 30%;">')
-		.append( $('<col span="1" style="width: 70%;">'))) );;
+		this.$detailsPanelTable = $( '<table>' ).append( $( '<colgroup>' )
+			.append( $( '<col span="1" style="width: 30%;">' ) // eslint-disable-line no-jquery/no-parse-html-literal
+				.append( $( '<col span="1" style="width: 70%;">' ) ) ) ); // eslint-disable-line no-jquery/no-parse-html-literal
 		this.detailsPanel.$element.append( this.$detailsPanelTable );
 		this.panel.$element.append( this.detailsPanel.$element );
 		this.addContextPage();
@@ -39,79 +39,79 @@
 		this.addState();
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addDefinition = function() {
-		var definition = this.workflow.getDefinition();
-		var title = new OO.ui.LabelWidget( {
+	workflows.ui.WorkflowDetailsPage.prototype.addDefinition = function () {
+		const definition = this.workflow.getDefinition();
+		const title = new OO.ui.LabelWidget( {
 			label: definition.title,
 			classes: [ 'overview-title' ]
 		} );
 		this.headerPanel.addItems( [ title ] );
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addTimestamps = function() {
-		var timestamps = this.workflow.getTimestamps();
+	workflows.ui.WorkflowDetailsPage.prototype.addTimestamps = function () {
+		const timestamps = this.workflow.getTimestamps();
 
-		this.$detailsPanelTable.append( $('<tr>' ).append(
+		this.$detailsPanelTable.append( $( '<tr>' ).append(
 			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-start-time', '' ).text() ),
-			$( '<td>' ).append( timestamps.startDateAndTime  )
-		));
+			$( '<td>' ).append( timestamps.startDateAndTime )
+		) );
 
-		var messageKey = '';
+		let messageKey = '';
 		if ( this.workflow.getState() !== 'finished' ) {
 			messageKey = 'workflows-ui-overview-details-last-time';
 		} else {
 			messageKey = 'workflows-ui-overview-details-end-time';
 		}
-		this.$detailsPanelTable.append( $('<tr>' ).append(
-			$( '<th>' ).text( mw.message(
+		this.$detailsPanelTable.append( $( '<tr>' ).append(
+			$( '<th>' ).text( mw.message( // eslint-disable-line mediawiki/msg-doc
 				messageKey,
 				''
 			) ),
-			$( '<td>' ).append( timestamps.lastDateAndTime  )
-		));
+			$( '<td>' ).append( timestamps.lastDateAndTime )
+		) );
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addInitiator = function() {
-		var initiator = this.workflow.getInitiator();
+	workflows.ui.WorkflowDetailsPage.prototype.addInitiator = function () {
+		const initiator = this.workflow.getInitiator();
 		if ( !initiator ) {
 			return;
 		}
-		var userWidget = new OOJSPlus.ui.widget.UserWidget( {
-			user_name: initiator,  showLink: true, showRawUsername: false
+		const userWidget = new OOJSPlus.ui.widget.UserWidget( {
+			user_name: initiator, showLink: true, showRawUsername: false
 		} );
 
-		this.$detailsPanelTable.append( $('<tr>' ).append(
+		this.$detailsPanelTable.append( $( '<tr>' ).append(
 			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-initiator' ).text() ),
 			$( '<td>' ).append( userWidget.$element )
-		));
+		) );
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addState = function() {
-		var state = this.workflow.getState();
-		var label = new OO.ui.LabelWidget( {
+	workflows.ui.WorkflowDetailsPage.prototype.addState = function () {
+		const state = this.workflow.getState();
+		const label = new OO.ui.LabelWidget( {
 			label: mw.message( 'workflows-ui-overview-details-state-label' ).text()
 		} );
 
-		var stateClass = 'workflow-state-inactive';
+		let stateClass = 'workflow-state-inactive';
 		if ( state === 'finished' ) {
 			stateClass = 'workflow-state-finished';
 		} else if ( state === 'running' ) {
 			stateClass = 'workflow-state-active';
 		}
-		var stateLabel = new OO.ui.LabelWidget( {
-			label: mw.message( 'workflows-ui-overview-details-state-' + state ).text(),
+		const stateLabel = new OO.ui.LabelWidget( { // eslint-disable-line mediawiki/class-doc
+			label: mw.message( 'workflows-ui-overview-details-state-' + state ).text(), // eslint-disable-line mediawiki/msg-doc
 			classes: [ stateClass ]
 		} );
 
-		var layout = new OO.ui.HorizontalLayout( {
+		const layout = new OO.ui.HorizontalLayout( {
 			items: [ label, stateLabel ],
 			classes: [ 'overview-state-layout' ]
 		} );
 
-		var stateMessage = this.workflow.getStateMessage();
+		const stateMessage = this.workflow.getStateMessage();
 		if ( stateMessage ) {
 			if ( typeof stateMessage === 'string' ) {
-				var stateComment = new OO.ui.PopupButtonWidget( {
+				const stateComment = new OO.ui.PopupButtonWidget( {
 					icon: 'info',
 					framed: false,
 					label: mw.message( 'workflows-ui-overview-details-state-comment' ).text(),
@@ -125,9 +125,9 @@
 				} );
 				layout.$element.append( stateComment.$element );
 			}
-			if( state === 'aborted' && typeof stateMessage === 'object' ) {
+			if ( state === 'aborted' && typeof stateMessage === 'object' ) {
 				if ( stateMessage.isAuto ) {
-					var autoAbort = new OO.ui.PopupButtonWidget( {
+					const autoAbort = new OO.ui.PopupButtonWidget( {
 						icon: 'error',
 						framed: false,
 						label: mw.message( 'workflows-ui-overview-details-state-comment' ).text(),
@@ -146,7 +146,7 @@
 		this.sectionLayout.addItems( [ layout ] );
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addActivities = function() {
+	workflows.ui.WorkflowDetailsPage.prototype.addActivities = function () {
 		if ( this.workflow.getState() === 'running' ) {
 			this.addSection( 'activity', 'userContributions' );
 			this.addCurrentActivities();
@@ -156,38 +156,38 @@
 			this.addCurrentActivities();
 		}
 
-		var pastActivities = this.getPastActivities();
+		const pastActivities = this.getPastActivities();
 		if ( pastActivities.length > 0 ) {
 			this.addSection( 'past', 'clock' );
 			this.addPastActivities( pastActivities );
 		}
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addCurrentActivities = function() {
-		var current = this.workflow.getCurrent();
+	workflows.ui.WorkflowDetailsPage.prototype.addCurrentActivities = function () {
+		const current = this.workflow.getCurrent();
 		if ( !current ) {
 			this.noCurrentActivity();
 			return;
 		}
-		for ( var name in current ) {
+		for ( const name in current ) {
 			if ( !current.hasOwnProperty( name ) ) {
 				continue;
 			}
-			this.addActivity( current[name], name );
+			this.addActivity( current[ name ], name );
 		}
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addPastActivities = function( activities ) {
-		for ( var i = 0; i < activities.length; i++ ) {
-			var activity = activities[i];
+	workflows.ui.WorkflowDetailsPage.prototype.addPastActivities = function ( activities ) {
+		for ( let i = 0; i < activities.length; i++ ) {
+			const activity = activities[ i ];
 
 			if ( activity.initializer ) {
 				continue;
 			}
 
-			var localizedProperties = activity.getDisplayData().localizedProperties || {};
+			const localizedProperties = activity.getDisplayData().localizedProperties || {};
 
-			var name = new OO.ui.LabelWidget( {
+			const name = new OO.ui.LabelWidget( {
 					label: activity.getDescription().taskName,
 					classes: [ 'name' ]
 				} ),
@@ -203,22 +203,22 @@
 			this.panel.$element.append(
 				layout.$element
 			);
-			var historyWidget = this.getActivityHistory( activity );
+			const historyWidget = this.getActivityHistory( activity );
 			if ( historyWidget ) {
 				layout.$element.append( historyWidget.$element );
 			}
 		}
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getPastActivities = function() {
-		var taskKeys = this.workflow.getTaskKeys(),
+	workflows.ui.WorkflowDetailsPage.prototype.getPastActivities = function () {
+		const taskKeys = this.workflow.getTaskKeys(),
 			activities = [];
-		for ( var i = 0; i < taskKeys.length; i ++ ) {
-			var task = this.workflow.getTask( taskKeys[i] );
+		for ( let i = 0; i < taskKeys.length; i++ ) {
+			const task = this.workflow.getTask( taskKeys[ i ] );
 			if ( task.state !== workflows.state.activity.COMPLETE ) {
 				continue;
 			}
-			if ( !task instanceof workflows.object.DescribedActivity )  {
+			if ( !( task instanceof workflows.object.DescribedActivity ) ) {
 				continue;
 			}
 			if ( typeof task.getHistory !== 'function' ) {
@@ -230,8 +230,8 @@
 		return activities;
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function( activity ) {
-		var history = activity.getHistory() || {};
+	workflows.ui.WorkflowDetailsPage.prototype.getActivityHistory = function ( activity ) {
+		const history = activity.getHistory() || {};
 
 		if (
 			$.isEmptyObject( history ) ||
@@ -239,12 +239,12 @@
 		) {
 			return null;
 		}
-		var historyPanel = new OO.ui.PanelLayout( {
+		const historyPanel = new OO.ui.PanelLayout( {
 			padded: true,
 			expanded: false,
 			classes: [ 'workflow-details-history' ]
 		} );
-		for ( var key in history ) {
+		for ( const key in history ) {
 			if ( !history.hasOwnProperty( key ) ) {
 				continue;
 			}
@@ -257,7 +257,7 @@
 							classes: [ 'history-item' ]
 						} ),
 						new OO.ui.LabelWidget( {
-							label: history[key],
+							label: history[ key ],
 							classes: [ 'history-value' ]
 						} )
 					]
@@ -268,16 +268,17 @@
 		return historyPanel;
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addSection = function( name, icon ) {
-		var iconWidget = new OO.ui.IconWidget( {
+	workflows.ui.WorkflowDetailsPage.prototype.addSection = function ( name, icon ) {
+		const iconWidget = new OO.ui.IconWidget( {
 			icon: icon
 		} );
-		// workflows-ui-overview-details-section-page
-		// workflows-ui-overview-details-section-details
-		// workflows-ui-overview-details-section-expired
-		// workflows-ui-overview-details-section-activity
-		// workflows-ui-overview-details-section-past
-		var label = new OO.ui.LabelWidget( {
+		const label = new OO.ui.LabelWidget( {
+			// The following messages are used here:
+			// * workflows-ui-overview-details-section-page
+			// * workflows-ui-overview-details-section-details
+			// * workflows-ui-overview-details-section-expired
+			// * workflows-ui-overview-details-section-activity
+			// * workflows-ui-overview-details-section-past
 			label: mw.message( 'workflows-ui-overview-details-section-' + name ).text()
 		} );
 
@@ -289,7 +290,7 @@
 		this.panel.$element.append( this.sectionLayout.$element );
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.noCurrentActivity = function() {
+	workflows.ui.WorkflowDetailsPage.prototype.noCurrentActivity = function () {
 		this.panel.$element.append(
 			new OO.ui.LabelWidget( {
 				label: mw.message( 'workflows-ui-overview-details-no-current-activity' ).text()
@@ -297,14 +298,14 @@
 		);
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addContextPage = function() {
-		var context = this.workflow.getContext();
+	workflows.ui.WorkflowDetailsPage.prototype.addContextPage = function () {
+		const context = this.workflow.getContext();
 		if ( !context || !context.hasOwnProperty( 'pageId' ) || !this.workflow.getContextPage() ) {
 			return;
 		}
 
-		var title = new mw.Title( this.workflow.getContextPage() );
-		var titleButton = new OO.ui.ButtonWidget( {
+		const title = new mw.Title( this.workflow.getContextPage() );
+		const titleButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			label: title.getMainText(),
 			href: title.getUrl(),
@@ -312,35 +313,35 @@
 			target: '_new'
 		} );
 
-		var initialData = this.getInitialData();
-		var initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
+		const initialData = this.getInitialData();
+		const initialRawDataPopup = new workflows.ui.widget.InitialRawDataPopup( initialData );
 
-		this.$detailsPanelTable.append( $('<tr>' ).append(
+		this.$detailsPanelTable.append( $( '<tr>' ).append(
 			$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-page-context-page' ).text() ),
 			$( '<td>' ).append( titleButton.$element ),
 			$( '<td>' ).append( initialRawDataPopup.$element )
 		) );
 
 		if ( context.hasOwnProperty( 'revision' ) ) {
-			var revisionButton = new OO.ui.ButtonWidget( {
+			const revisionButton = new OO.ui.ButtonWidget( {
 				framed: false,
 				label: context.revision.toString(),
 				href: title.getUrl( { oldid: context.revision } ),
 				target: '_new'
 			} );
-			this.$detailsPanelTable.append( $('<tr>' ).append(
+			this.$detailsPanelTable.append( $( '<tr>' ).append(
 				$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-page-context-revision' ).text() ),
 				$( '<td>' ).append( revisionButton.$element )
 			) );
 		}
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function( activity, rawName ) {
-		if ( !activity instanceof workflows.object.Activity ) {
+	workflows.ui.WorkflowDetailsPage.prototype.addActivity = function ( activity, rawName ) {
+		if ( !( activity instanceof workflows.object.Activity ) ) {
 			return;
 		}
-		var isDescribed = activity instanceof workflows.object.DescribedActivity;
-		var name = new OO.ui.LabelWidget( {
+		const isDescribed = activity instanceof workflows.object.DescribedActivity;
+		const name = new OO.ui.LabelWidget( {
 				label: isDescribed ? activity.getDescription().taskName : rawName,
 				classes: [ 'name' ]
 			} ),
@@ -354,8 +355,8 @@
 
 		if ( isDescribed ) {
 			if ( activity instanceof workflows.object.UserInteractiveActivity ) {
-				var assignedUsersLayout = new OO.ui.HorizontalLayout();
-				var targetUsers = activity.targetUsers;
+				const assignedUsersLayout = new OO.ui.HorizontalLayout();
+				const targetUsers = activity.targetUsers;
 				if ( !targetUsers ) {
 					assignedUsersLayout.$element.append( new OO.ui.LabelWidget( {
 						label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-none' ).text()
@@ -363,27 +364,27 @@
 				} else {
 					this.appendTargetUsers( targetUsers, assignedUsersLayout );
 				}
-				var $table = $('<table>').append( $('<colgroup>')
-				.append( $('<col span="1" style="width: 30%;">')
-				.append( $('<col span="1" style="width: 70%;">'))) );
-				layout.$element.append(  $table.append( $('<tr>' ).append(
+				const $table = $( '<table>' ).append( $( '<colgroup>' )
+					.append( $( '<col span="1" style="width: 30%;">' ) // eslint-disable-line no-jquery/no-parse-html-literal
+						.append( $( '<col span="1" style="width: 70%;">' ) ) ) ); // eslint-disable-line no-jquery/no-parse-html-literal
+				layout.$element.append( $table.append( $( '<tr>' ).append(
 					$( '<th>' ).text( mw.message( 'workflows-ui-overview-details-activity-assigned-users' ).text() ),
 					$( '<td>' ).append( assignedUsersLayout.$element )
 				) ) );
 
-				var dueDate = activity.getDescription().dueDate;
+				const dueDate = activity.getDescription().dueDate;
 				if ( dueDate ) {
-					var proximity = activity.getDescription().dueDateProximity;
-					var labelDue = new OO.ui.LabelWidget( {
-						label: mw.message( "workflows-ui-overview-details-due-date-label" ).text()
+					const proximity = activity.getDescription().dueDateProximity;
+					const labelDue = new OO.ui.LabelWidget( {
+						label: mw.message( 'workflows-ui-overview-details-due-date-label' ).text()
 					} );
 
-					var label = new OO.ui.LabelWidget( {
+					const label = new OO.ui.LabelWidget( {
 						label: dueDate,
 						classes: [ 'proximity' ]
 					} );
 
-					var dueDateLayout = new OO.ui.HorizontalLayout( {
+					const dueDateLayout = new OO.ui.HorizontalLayout( {
 						items: [ labelDue, label ],
 						classes: [ 'proximity-layout' ]
 					} );
@@ -398,15 +399,15 @@
 			}
 
 			if ( !$.isEmptyObject( activity.getHistory() ) ) {
-				var historyWidget = this.getActivityHistory( activity );
+				const historyWidget = this.getActivityHistory( activity );
 				if ( historyWidget ) {
 					layout.$element.append( historyWidget.$element );
 				}
 			}
 		} else {
 			layout.$element.append( new OO.ui.LabelWidget( {
-					label: mw.message( 'workflows-ui-overview-details-activity-automatic' ).text()
-				} ).$element
+				label: mw.message( 'workflows-ui-overview-details-activity-automatic' ).text()
+			} ).$element
 			);
 		}
 
@@ -415,10 +416,10 @@
 		);
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getInitialData = function() {
-		var activities = this.getPastActivities();
-		for ( var i = 0; i < activities.length; i++ ) {
-			var activity = activities[i];
+	workflows.ui.WorkflowDetailsPage.prototype.getInitialData = function () {
+		const activities = this.getPastActivities();
+		for ( let i = 0; i < activities.length; i++ ) {
+			const activity = activities[ i ];
 
 			if ( activity.initializer ) {
 				return activity.getDisplayData().localizedProperties || {};
@@ -428,37 +429,37 @@
 		return {};
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getTitle = function() {
+	workflows.ui.WorkflowDetailsPage.prototype.getTitle = function () {
 		if ( this.workflow ) {
-			var definition = this.workflow.getDefinition();
+			const definition = this.workflow.getDefinition();
 			return definition.title;
 		}
 		return mw.message( 'workflows-ui-workflow-overview-dialog-title' ).text();
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.isExpired = function() {
+	workflows.ui.WorkflowDetailsPage.prototype.isExpired = function () {
 		return this.workflow.getState() === 'aborted' &&
 			typeof this.workflow.getStateMessage() === 'object' &&
 			this.workflow.getStateMessage().type === 'duedate';
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.appendTargetUsers = function( users, layout ) {
-		var displayUsers = users,
-			moreUsers = []
+	workflows.ui.WorkflowDetailsPage.prototype.appendTargetUsers = function ( users, layout ) {
+		let displayUsers = users,
+			moreUsers = [];
 		if ( users.length > 3 ) {
 			displayUsers = users.slice( 0, 3 );
 			moreUsers = users.slice( 3 );
 		}
-		for ( var i = 0; i < displayUsers.length; i++ ) {
-			var userWidget = new OOJSPlus.ui.widget.UserWidget( {
-				user_name: displayUsers[i],  showLink: true, showRawUsername: false,
+		for ( let i = 0; i < displayUsers.length; i++ ) {
+			const userWidget = new OOJSPlus.ui.widget.UserWidget( {
+				user_name: displayUsers[ i ], showLink: true, showRawUsername: false,
 				classes: [ 'workflow-details-user-widget' ]
 			} );
 			userWidget.$element.css( 'display', 'block' );
 			layout.$element.append( userWidget.$element );
 		}
 		if ( moreUsers.length > 0 ) {
-			var $popupContent = this.getMoreUsersPopup( moreUsers ),
+			const $popupContent = this.getMoreUsersPopup( moreUsers ),
 				popup = new OO.ui.PopupButtonWidget( {
 					framed: false,
 					label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-more', moreUsers.length ).text(),
@@ -468,10 +469,10 @@
 						padded: true,
 						align: 'forwards',
 						autoFlip: true
- 					}
+					}
 				} );
 			popup.popup.connect( this, {
-				ready: function() {
+				ready: function () {
 					popup.popup.$body.css( 'height', '100%' );
 				}
 			} );
@@ -479,11 +480,11 @@
 		}
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getMoreUsersPopup = function( users ) {
-		var $panel = $( '<div>' ).addClass( 'workflow-details-more-users-popup' );
-		for ( var i = 0; i < users.length; i++ ) {
-			var userWidget = new OOJSPlus.ui.widget.UserWidget( {
-				user_name: users[i],  showLink: true, showRawUsername: false,
+	workflows.ui.WorkflowDetailsPage.prototype.getMoreUsersPopup = function ( users ) {
+		const $panel = $( '<div>' ).addClass( 'workflow-details-more-users-popup' );
+		for ( let i = 0; i < users.length; i++ ) {
+			const userWidget = new OOJSPlus.ui.widget.UserWidget( {
+				user_name: users[ i ], showLink: true, showRawUsername: false,
 				classes: [ 'workflow-details-user-widget' ]
 			} );
 			$panel.append( userWidget.$element );
@@ -492,12 +493,12 @@
 		return $panel;
 	};
 
-	workflows.ui.WorkflowDetailsPage.prototype.getTrueDimensions = function( $item ) {
+	workflows.ui.WorkflowDetailsPage.prototype.getTrueDimensions = function ( $item ) {
 		$( 'body' ).append( $item );
-		var height = $item.outerHeight(),
+		const height = $item.outerHeight(),
 			width = $item.outerWidth();
 		$item.remove();
 
 		return { height: height, width: width };
 	};
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki, jQuery ) );

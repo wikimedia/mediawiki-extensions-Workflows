@@ -1,103 +1,103 @@
 workflows.editor.Schema = {
 	wf: {
 		// See data/schema.json for the BPMN 2.0 schema
-		name: "Workflows",
-		uri: "http://hallowelt.com/schema/bpmn/wf",
-		prefix: "wf",
-		"xml": {
-			"tagAlias": "lowerCase"
+		name: 'Workflows',
+		uri: 'http://hallowelt.com/schema/bpmn/wf',
+		prefix: 'wf',
+		xml: {
+			tagAlias: 'lowerCase'
 		},
 		types: [
 			{
-				name: "Context",
-				superClass: [ "Element" ],
+				name: 'Context',
+				superClass: [ 'Element' ],
 				properties: [
 					{
-						name: "items",
+						name: 'items',
 						isMany: true,
-						type: "ContextItem"
+						type: 'ContextItem'
 					}
 				]
 			},
 			{
-				name: "ContextItem",
+				name: 'ContextItem',
 				properties: [
 					{
-						name: "name",
+						name: 'name',
 						isAttr: true,
-						type: "String"
+						type: 'String'
 					}
 				]
 			},
 			{
-				name: "Type",
-				superClass: [ "Element" ],
+				name: 'Type',
+				superClass: [ 'Element' ],
 				properties: [
 					{
-						name: "text",
+						name: 'text',
 						isBody: true,
-						type: "String"
+						type: 'String'
 					}
 				]
 			},
 			{
-				name: "Initializer",
-				superClass: [ "Element" ],
+				name: 'Initializer',
+				superClass: [ 'Element' ],
 				properties: [
 					{
-						name: "text",
+						name: 'text',
 						isBody: true,
-						type: "String"
+						type: 'String'
 					}
 				]
 			},
 			{
-				name: "FormModule",
-				superClass: [ "Element" ],
+				name: 'FormModule',
+				superClass: [ 'Element' ],
 				properties: [
 					{
-						name: "formModule",
+						name: 'formModule',
 						isMany: false,
-						type: "Module"
+						type: 'Module'
 					},
 					{
-						name: "formClass",
+						name: 'formClass',
 						isMany: false,
-						type: "Class"
+						type: 'Class'
 					}
 				]
 			},
 			{
 				// wf:formModule.wf:module
-				name: "Module",
+				name: 'Module',
 				properties: [
 					{
-						name: "text",
+						name: 'text',
 						isBody: true,
-						type: "String"
+						type: 'String'
 					}
 				]
 			},
 			{
 				// wf:formModule.wf:class
-				name: "Class",
+				name: 'Class',
 				properties: [
 					{
-						name: "text",
+						name: 'text',
 						isBody: true,
-						type: "String"
+						type: 'String'
 					}
 				]
 			},
 			{
 				// wf:form
-				name: "Form",
-				superClass: [ "Element" ],
+				name: 'Form',
+				superClass: [ 'Element' ],
 				properties: [
 					{
-						name: "text",
+						name: 'text',
 						isBody: true,
-						type: "String"
+						type: 'String'
 					}
 				]
 			}

@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	workflows.ui.trigger.Trigger = function( data, cfg ) {
+	workflows.ui.trigger.Trigger = function ( data, cfg ) {
 		cfg = cfg || {};
 		this.$overlay = cfg.$overlay || null;
 		OO.EventEmitter.call( this );
@@ -13,21 +13,21 @@
 
 	workflows.ui.trigger.Trigger.static.tagName = 'div';
 
-	workflows.ui.trigger.Trigger.prototype.getFields = function() {
+	workflows.ui.trigger.Trigger.prototype.getFields = function () {
 		if ( !this.value.hasOwnProperty( 'active' ) ) {
 			this.value.active = true;
 		}
-		var name = this.value.name || '';
-		if ( name && mw.message( name ).exists() ) {
-			name = mw.message( name ).text();
+		let name = this.value.name || '';
+		if ( name && mw.message( name ).exists() ) { // eslint-disable-line mediawiki/msg-doc
+			name = mw.message( name ).text(); // eslint-disable-line mediawiki/msg-doc
 		}
 		this.name = new OO.ui.TextInputWidget( {
 			required: true,
 			value: name
 		} );
-		var description = this.value.description || '';
-		if ( description && mw.message( description ).exists() ) {
-			description = mw.message( description ).text();
+		let description = this.value.description || '';
+		if ( description && mw.message( description ).exists() ) { // eslint-disable-line mediawiki/msg-doc
+			description = mw.message( description ).text(); // eslint-disable-line mediawiki/msg-doc
 		}
 		this.description = new OO.ui.MultilineTextInputWidget( {
 			value: description,
@@ -55,12 +55,12 @@
 		];
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getConditionPanelConfig = function() {
+	workflows.ui.trigger.Trigger.prototype.getConditionPanelConfig = function () {
 		return {};
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getConditionPanel = function() {
-		var def = this.getConditionPanelConfig(),
+	workflows.ui.trigger.Trigger.prototype.getConditionPanel = function () {
+		const def = this.getConditionPanelConfig(),
 			value = this.value.rules || {},
 			$panel = $( '<div>' );
 		this.conditionsPanel = new OOJSPlus.ui.widget.ExpandablePanel( {
@@ -71,53 +71,51 @@
 			padded: false
 		} );
 		this.conditionsPanel.connect( this, {
-			stateChange: function() {
+			stateChange: function () {
 				this.emit( 'sizeChange' );
 			}
 		} );
-		var include = $.extend( def.include || {}, value.include || {} );
-		var exclude = $.extend( def.exclude || {}, value.exclude || {} );
+		const include = $.extend( def.include || {}, value.include || {} );
+		const exclude = $.extend( def.exclude || {}, value.exclude || {} );
 		this.initConditionSection( 'include', include, $panel );
 		this.initConditionSection( 'exclude', exclude || {}, $panel );
 
 		return this.conditionsPanel;
 	};
 
-	workflows.ui.trigger.Trigger.prototype.initConditionSection = function( type, config, $panel ) {
-		for( var key in config ) {
-			if ( !config.hasOwnProperty( key ) || config[key] === false ) {
+	workflows.ui.trigger.Trigger.prototype.initConditionSection = function ( type, config, $panel ) {
+		for ( const key in config ) {
+			if ( !config.hasOwnProperty( key ) || config[ key ] === false ) {
 				continue;
 			}
-			var widget = this.getConditionWidget( key, type );
+			const widget = this.getConditionWidget( key, type );
 			if ( !widget ) {
 				// Could not find a widget for this condition, consider it an alien condition
 				// and store it so that it can be preserved when saving
-				this.alienConditions[type][key] = config[key];
+				this.alienConditions[ type ][ key ] = config[ key ];
 				continue;
 			}
-			this.conditionWidgets[type][key] = widget;
-			/*
-				workflows-trigger-ui-condition-include-namespace
-				workflows-trigger-ui-condition-exclude-namespace
-				workflows-trigger-ui-condition-exclude-category
-				workflows-trigger-ui-condition-include-category
-				workflows-trigger-ui-condition-exclude-editType
-			*/
-			$panel.append( new OO.ui.FieldLayout( this.conditionWidgets[type][key], {
+			this.conditionWidgets[ type ][ key ] = widget;
+			$panel.append( new OO.ui.FieldLayout( this.conditionWidgets[ type ][ key ], {
+				// The following messages are used here:
+				// * workflows-trigger-ui-condition-include-namespace
+				// * workflows-trigger-ui-condition-exclude-namespace
+				// * workflows-trigger-ui-condition-exclude-category
+				// * workflows-trigger-ui-condition-include-category
+				// * workflows-trigger-ui-condition-exclude-editType
 				label: mw.message( 'workflows-trigger-ui-condition-' + type + '-' + key ).text(),
 				align: 'left'
 			} ).$element );
 		}
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getConditionWidget = function( key, type ) {
+	workflows.ui.trigger.Trigger.prototype.getConditionWidget = function ( key, type ) {
+		let value;
 		switch ( key ) {
 			case 'namespace':
-				var value = workflows.util.getDeepValue( this.value, 'rules.' + type + '.namespace' ) || [];
+				value = workflows.util.getDeepValue( this.value, 'rules.' + type + '.namespace' ) || [];
 				value = value.map(
-					function( id ) {
-						return id + '';
-					}
+					( id ) => String( id )
 				);
 				return new mw.widgets.NamespacesMultiselectWidget( {
 					$overlay: this.$overlay,
@@ -129,14 +127,14 @@
 					selected: workflows.util.getDeepValue( this.value, 'rules.' + type + '.category' ) || []
 				} );
 			case 'editType':
-				var value = workflows.util.getDeepValue( this.value, 'rules.' + type + '.editType' ) || null;
+				value = workflows.util.getDeepValue( this.value, 'rules.' + type + '.editType' ) || null;
 				return new OO.ui.CheckboxInputWidget( { selected: value === 'minor' } );
 			default:
 				return null;
 		}
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getConditionValue = function() {
+	workflows.ui.trigger.Trigger.prototype.getConditionValue = function () {
 		return {
 			include: $.extend(
 				this.alienConditions.include,
@@ -144,26 +142,26 @@
 			),
 			exclude: $.extend(
 				this.alienConditions.exclude, this.getConditionGroupValue( this.conditionWidgets.exclude || {}, 'exclude' )
-			),
+			)
 		};
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getConditionGroupValue = function( items, type ) {
-		var value = {};
-		for ( var key in items ) {
+	workflows.ui.trigger.Trigger.prototype.getConditionGroupValue = function ( items, type ) {
+		const value = {};
+		for ( const key in items ) {
 			if ( !items.hasOwnProperty( key ) ) {
 				continue;
 			}
 			// Special case, "only major edits" is always an exclude rule, exclude minor
-			if ( key === 'editType' && type === 'exclude' && items[key].isSelected() ) {
+			if ( key === 'editType' && type === 'exclude' && items[ key ].isSelected() ) {
 				value.editType = 'minor';
 			} else {
-				var itemVal = items[key].getValue();
+				const itemVal = items[ key ].getValue();
 				if ( typeof itemVal === 'object' && $.isEmptyObject( itemVal ) ) {
 					continue;
 				}
 				if ( itemVal ) {
-					value[key] = items[key].getValue();
+					value[ key ] = items[ key ].getValue();
 				}
 			}
 		}
@@ -171,7 +169,7 @@
 		return value;
 	};
 
-	workflows.ui.trigger.Trigger.prototype.generateData = function() {
+	workflows.ui.trigger.Trigger.prototype.generateData = function () {
 		this.value.active = this.active.isSelected();
 		this.value.name = this.name.getValue();
 		this.value.description = this.description.getValue();
@@ -182,24 +180,24 @@
 		}
 	};
 
-	workflows.ui.trigger.Trigger.prototype.generateTriggerId = function( name, type ) {
-		var key = name.toLowerCase().replace( ' ', '-' ).trim();
+	workflows.ui.trigger.Trigger.prototype.generateTriggerId = function ( name, type ) {
+		const key = name.toLowerCase().replace( ' ', '-' ).trim();
 		return 'trigger-' + key + '-' + type;
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getValue = function() {
-		var dfd = $.Deferred();
+	workflows.ui.trigger.Trigger.prototype.getValue = function () {
+		const dfd = $.Deferred();
 
-		this.getValidity().done( function() {
+		this.getValidity().done( () => {
 			dfd.resolve( this.generateData() );
-		}.bind( this ) ).fail( function() {
+		} ).fail( () => {
 			dfd.reject();
 		} );
 
 		return dfd.promise();
 	};
 
-	workflows.ui.trigger.Trigger.prototype.getValidity = function() {
+	workflows.ui.trigger.Trigger.prototype.getValidity = function () {
 		return this.name.getValidity();
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

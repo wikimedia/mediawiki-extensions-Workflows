@@ -39,11 +39,11 @@ workflows.editor.dialog.SaveDialog.prototype.getBodyHeight = function () {
 };
 
 workflows.editor.dialog.SaveDialog.prototype.getActionProcess = function ( action ) {
-	return workflows.editor.dialog.SaveDialog.parent.prototype.getActionProcess.call( this, action ).next( function () {
+	return workflows.editor.dialog.SaveDialog.parent.prototype.getActionProcess.call( this, action ).next( () => {
 		if ( action === 'save' ) {
 			this.close( { action: 'save', summary: this.summaryField.getValue() } );
 		} else {
 			this.close( { action: 'cancel' } );
 		}
-	}.bind( this ) );
+	} );
 };

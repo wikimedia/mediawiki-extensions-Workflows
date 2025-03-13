@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.WorkflowStartPage = function( name, cfg ) {
+( function ( mw ) {
+	workflows.ui.WorkflowStartPage = function ( name, cfg ) {
 		workflows.ui.WorkflowStartPage.parent.call( this, name, cfg );
 		this.form = null;
 		this.$overlay = cfg.$overlay || true;
@@ -7,25 +7,25 @@
 
 	OO.inheritClass( workflows.ui.WorkflowStartPage, OO.ui.PageLayout );
 
-	workflows.ui.WorkflowStartPage.prototype.initWorkflow = function( workflow, data, desc, initData ) {
+	workflows.ui.WorkflowStartPage.prototype.initWorkflow = function ( workflow, data, desc, initData ) {
 		data = data || {};
 		this.workflowSource = workflow;
 		this.startData = data;
 		this.workflowTitle = new OO.ui.LabelWidget( { label: '', classes: [ 'workflows-ui-starter-wf-title-label' ] } );
 		this.workflowDesc = new OO.ui.LabelWidget( { label: '', classes: [ 'workflows-ui-starter-wf-title-desc' ] } );
-		workflows.initiate.getDefinitionDetails( workflow.repository, workflow.definition ).done( function ( details ) {
+		workflows.initiate.getDefinitionDetails( workflow.repository, workflow.definition ).done( ( details ) => {
 			if ( details.hasOwnProperty( 'title' ) ) {
 				this.workflowTitle.setLabel( details.title );
 			}
 			if ( details.hasOwnProperty( 'desc' ) ) {
 				this.workflowDesc.setLabel( details.desc );
 			}
-		}.bind( this ) );
+		} );
 
 		workflows.initiate.dryStartWorkflowOfType( this.workflowSource.repository, this.workflowSource.definition, this.startData, initData )
-			.done( function( activity ) {
+			.done( ( activity ) => {
 				if ( activity ) {
-					activity.getForm( { buttons: [], $overlay: this.$overlay } ).done( function( formObject ) {
+					activity.getForm( { buttons: [], $overlay: this.$overlay } ).done( ( formObject ) => {
 						this.$element.append( this.workflowTitle.$element );
 						this.$element.append( this.workflowDesc.$element );
 						this.$element.append(
@@ -37,10 +37,10 @@
 						formObject.connect( this, {
 							submit: 'startWorkflow',
 							validationFailed: 'validationFailed',
-							initComplete: function() {
+							initComplete: function () {
 								this.adjustSize( formObject );
 							},
-							layoutChange: function() {
+							layoutChange: function () {
 								this.adjustSize( formObject );
 							}
 						} );
@@ -49,7 +49,7 @@
 						this.adjustSize( formObject );
 						this.emit( 'loaded', formObject );
 						this.form = formObject;
-					}.bind( this ) );
+					} );
 				} else {
 					this.form = null;
 					this.$element.append( this.workflowTitle.$element );
@@ -60,8 +60,8 @@
 					this.emit( 'loaded' );
 					this.emit( 'layoutChange' );
 				}
-			}.bind( this ) ).fail( function( error ) {
-				var message = ( error.hasOwnProperty( 'error' ) && error.error.hasOwnProperty( 'message' ) ) ?
+			} ).fail( ( error ) => {
+				const message = ( error.hasOwnProperty( 'error' ) && error.error.hasOwnProperty( 'message' ) ) ?
 					error.error.message : mw.message( 'workflows-ui-starter-error-generic' ).text();
 				this.$element.html( new OO.ui.MessageWidget( {
 					type: 'error',
@@ -69,15 +69,15 @@
 				} ).$element );
 				this.$element.height( 130 );
 				this.emit( 'fail' );
-			}.bind( this ) );
+			} );
 	};
 
-	workflows.ui.WorkflowStartPage.prototype.reset = function() {
+	workflows.ui.WorkflowStartPage.prototype.reset = function () {
 		this.$element.children().remove();
 		this.form = null;
 	};
 
-	workflows.ui.WorkflowStartPage.prototype.adjustSize = function( formObject ) {
+	workflows.ui.WorkflowStartPage.prototype.adjustSize = function ( formObject ) {
 		// Force page size to form size
 		this.$element.height(
 			formObject.$element.outerHeight() + this.workflowTitle.$element.outerHeight() +
@@ -86,17 +86,17 @@
 		this.emit( 'layoutChange' );
 	};
 
-	workflows.ui.WorkflowStartPage.prototype.getForm = function() {
+	workflows.ui.WorkflowStartPage.prototype.getForm = function () {
 		return this.form;
 	};
 
-	workflows.ui.WorkflowStartPage.prototype.validationFailed = function() {
+	workflows.ui.WorkflowStartPage.prototype.validationFailed = function () {
 		this.emit( 'validationFailed' );
 	};
 
-	workflows.ui.WorkflowStartPage.prototype.startWorkflow = function( initData ) {
+	workflows.ui.WorkflowStartPage.prototype.startWorkflow = function ( initData ) {
 		initData = initData || null;
-		var data = {
+		const data = {
 			startData: this.startData
 		};
 
@@ -109,14 +109,14 @@
 			this.workflowSource.definition,
 			data
 		)
-		.done( function( workflow ) {
-			this.emit( 'initCompleted', workflow );
-		}.bind( this ) ).fail( function( error ) {
-			if ( error.hasOwnProperty( 'error' ) && error.error.hasOwnProperty( 'message' ) ){
-				this.emit( 'initFailed', error.error.message );
-			} else {
-				this.emit( 'initFailed' );
-			}
-		}.bind( this ) );
+			.done( ( workflow ) => {
+				this.emit( 'initCompleted', workflow );
+			} ).fail( ( error ) => {
+				if ( error.hasOwnProperty( 'error' ) && error.error.hasOwnProperty( 'message' ) ) {
+					this.emit( 'initFailed', error.error.message );
+				} else {
+					this.emit( 'initFailed' );
+				}
+			} );
 	};
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki ) );

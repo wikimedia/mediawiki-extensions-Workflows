@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.panel.WorkflowList = function( cfg ) {
+( function ( mw, $ ) {
+	workflows.ui.panel.WorkflowList = function ( cfg ) {
 		cfg = $.extend( {
 			padded: true,
 			expanded: false
@@ -19,10 +19,10 @@
 			filter: this.filterData
 		} );
 		this.store.connect( this, {
-			loadFailed: function() {
+			loadFailed: function () {
 				this.emit( 'loadFailed' );
 			},
-			loading: function() {
+			loading: function () {
 				if ( this.isLoading ) {
 					return;
 				}
@@ -32,7 +32,7 @@
 		} );
 		this.grid = this.makeGrid();
 		this.grid.connect( this, {
-			datasetChange: function() {
+			datasetChange: function () {
 				this.isLoading = false;
 				this.emit( 'loaded' );
 			}
@@ -44,10 +44,10 @@
 
 	OO.inheritClass( workflows.ui.panel.WorkflowList, OO.ui.PanelLayout );
 
-	workflows.ui.panel.WorkflowList.prototype.makeGrid = function() {
+	workflows.ui.panel.WorkflowList.prototype.makeGrid = function () {
 		this.$grid = $( '<div>' );
 
-		var gridCfg = {
+		const gridCfg = {
 			deletable: false,
 			style: 'differentiate-rows',
 			exportable: true,
@@ -55,15 +55,15 @@
 				has_notice: {
 					headerText: mw.message( 'workflows-ui-overview-details-has-notice-label' ).text(),
 					invisibleLabel: true,
-					type: "icon",
+					type: 'icon',
 					width: 35,
-					valueParser: function( val ) {
+					valueParser: function ( val ) {
 						return val ? 'alert' : '';
 					}
 				},
 				title: {
 					headerText: mw.message( 'workflows-ui-overview-details-workflow-type-label' ).text(),
-					type: "text",
+					type: 'text',
 					filter: {
 						type: 'text'
 					},
@@ -72,11 +72,11 @@
 				},
 				page_prefixed_text: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-page' ).text(),
-					type: "url",
-					urlProperty: "page_link",
-					valueParser: function( val ) {
+					type: 'url',
+					urlProperty: 'page_link',
+					valueParser: function ( val ) {
 						// Truncate long titles
-						return val.length > 35 ? val.substr( 0, 34 ) + '...' : val;
+						return val.length > 35 ? val.slice( 0, 34 ) + '...' : val;
 					},
 					sortable: true,
 					filter: {
@@ -86,15 +86,15 @@
 				},
 				assignee: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
-					type: "user",
-					valueParser: function( val, row ) {
-						var $layout = $( '<div>' );
-						for ( var i = 0; i < val.length; i++ ) {
+					type: 'user',
+					valueParser: function ( val ) {
+						const $layout = $( '<div>' );
+						for ( let i = 0; i < val.length; i++ ) {
 							if ( i > 2 ) {
 								$layout.append( '...' );
 								return new OO.ui.HtmlSnippet( $layout );
 							}
-							$layout.append( $( val[i] ).css( { display: 'block' } ) );
+							$layout.append( $( val[ i ] ).css( { display: 'block' } ) );
 						}
 						return new OO.ui.HtmlSnippet( $layout );
 					},
@@ -105,11 +105,11 @@
 				},
 				state: {
 					headerText: mw.message( 'workflows-ui-overview-details-state-column' ).text(),
-					valueParser: function( value, row ) {
+					valueParser: function ( value, row ) {
 						if ( typeof value !== 'string' ) {
 							return value;
 						}
-						return new OO.ui.LabelWidget( {
+						return new OO.ui.LabelWidget( { // eslint-disable-line mediawiki/class-doc
 							label: row.state_label,
 							title: row.state_label,
 							classes: [ 'workflow-state', 'workflow-state-icon-' + value ]
@@ -130,18 +130,18 @@
 				},
 				start_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-start-time-column' ).text(),
-					type: "date",
-					display: "start_formatted",
+					type: 'date',
+					display: 'start_formatted',
 					sortable: true
 				},
 				last_ts: {
 					headerText: mw.message( 'workflows-ui-overview-details-last-time-column' ).text(),
-					type: "date",
-					display: "last_formatted",
+					type: 'date',
+					display: 'last_formatted',
 					sortable: true
 				},
 				detailsAction: {
-					type: "action",
+					type: 'action',
 					actionId: 'details',
 					headerText: mw.message( 'workflows-ui-overview-details-action-details-column' ).text(),
 					title: mw.message( 'workflows-ui-overview-details-action-details-column' ).text(),
@@ -150,8 +150,8 @@
 				}
 			},
 			store: this.store,
-			provideExportData: function() {
-				var dfd = $.Deferred(),
+			provideExportData: function () {
+				const dfd = $.Deferred(),
 					store = new workflows.store.Workflows( {
 						pageSize: -1,
 						sorter: {
@@ -160,10 +160,10 @@
 							}
 						}
 					} );
-				store.load().done( function( response ) {
-					var $table = $( '<table>' ),
-						$row = $( '<tr>' ),
-						$cell = $( '<td>' );
+				store.load().done( ( response ) => {
+					const $table = $( '<table>' );
+					let $row = $( '<tr>' );
+					let $cell = $( '<td>' );
 					$cell.append(
 						mw.message( 'workflows-ui-overview-details-workflow-type-label' ).text()
 					);
@@ -183,7 +183,7 @@
 
 					$cell = $( '<td>' );
 					$cell.append(
-						mw.message( 'workflows-ui-overview-details-state-column' ).text(),
+						mw.message( 'workflows-ui-overview-details-state-column' ).text()
 					);
 					$row.append( $cell );
 
@@ -201,11 +201,11 @@
 
 					$table.append( $row );
 
-					for ( var id in response ) {
+					for ( const id in response ) {
 						if ( !response.hasOwnProperty( id ) ) {
 							continue;
 						}
-						var record =response[id];
+						const record = response[ id ];
 						$row = $( '<tr>' );
 
 						$cell = $( '<td>' );
@@ -236,7 +236,7 @@
 					}
 
 					dfd.resolve( '<table>' + $table.html() + '</table>' );
-				} ).fail( function() {
+				} ).fail( () => {
 					dfd.reject( 'Failed to load data' );
 				} );
 
@@ -244,9 +244,9 @@
 			}
 		};
 
-		var grid = new OOJSPlus.ui.data.GridWidget( gridCfg );
+		const grid = new OOJSPlus.ui.data.GridWidget( gridCfg );
 		grid.connect( this, {
-			action: function( action, row ) {
+			action: function ( action, row ) {
 				if ( action !== 'details' ) {
 					return;
 				}
@@ -258,4 +258,4 @@
 		this.emit( 'gridRendered' );
 		return grid;
 	};
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki, jQuery ) );

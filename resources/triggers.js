@@ -1,12 +1,12 @@
-$( function() {
-	var $viewCnt = $( '#workflows-triggers-cnt' );
+$( function () {
+	const $viewCnt = $( '#workflows-triggers-cnt' );
 	let panel = null;
 	if ( $viewCnt.length ) {
 		panel = new workflows.ui.panel.TriggerOverview( {
 			expanded: false
 		} );
 		panel.connect( this, {
-			loaded: function() {
+			loaded: function () {
 				$viewCnt.html( panel.$element );
 			}
 		} );
@@ -18,7 +18,7 @@ $( function() {
 			expanded: false
 		} );
 		panel.connect( this, {
-			loaded: function() {
+			loaded: function () {
 				$editorCnt.html( panel.$element );
 			}
 		} );

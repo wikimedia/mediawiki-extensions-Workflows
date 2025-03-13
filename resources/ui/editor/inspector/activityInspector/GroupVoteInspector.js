@@ -1,15 +1,15 @@
-workflows.editor.inspector.GroupVoteInspector = function( element, dialog ) {
+workflows.editor.inspector.GroupVoteInspector = function ( element, dialog ) {
 	workflows.editor.inspector.GroupVoteInspector.parent.call( this, element, dialog );
 };
 
 OO.inheritClass( workflows.editor.inspector.GroupVoteInspector, workflows.editor.inspector.ActivityInspector );
 
-workflows.editor.inspector.GroupVoteInspector.prototype.getDialogTitle = function() {
+workflows.editor.inspector.GroupVoteInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-group-vote-title' ).text();
 };
 
-workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
-	return  [
+workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function () {
+	return [
 		{
 			type: 'section_label',
 			title: mw.message( 'workflows-ui-editor-inspector-properties' ).text()
@@ -23,7 +23,7 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 				{ data: 'group', label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-assignment-type-group-assignment' ).text() }
 			],
 			listeners: {
-				change: function( assignmentType ) {
+				change: function ( assignmentType ) {
 					this.getItem( 'properties.assigned_group' ).setRequired( assignmentType === 'group' );
 					this.getItem( 'properties.assigned_users' ).setRequired( assignmentType === 'user-list' );
 					if ( assignmentType === 'user-list' ) {
@@ -67,8 +67,8 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 				{ data: 'percent', label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-threshold_unit-percent' ).text() }
 			],
 			listeners: {
-				change: function( thresholdUnit ) {
-					var item = this.getItem( 'properties.threshold_yes_value' );
+				change: function ( thresholdUnit ) {
+					const item = this.getItem( 'properties.threshold_yes_value' );
 					if ( thresholdUnit === 'user' ) {
 						item.max = 1000;
 						item.setStep( 1 );
@@ -97,8 +97,8 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 				{ data: 'percent', label: mw.message( 'workflows-ui-editor-inspector-activity-group-vote-property-threshold_unit-percent' ).text() }
 			],
 			listeners: {
-				change: function( thresholdUnit ) {
-					var item = this.getItem( 'properties.threshold_no_value' );
+				change: function ( thresholdUnit ) {
+					const item = this.getItem( 'properties.threshold_no_value' );
 					if ( thresholdUnit === 'user' ) {
 						item.max = 1000;
 						item.setStep( 1 );
@@ -135,7 +135,7 @@ workflows.editor.inspector.GroupVoteInspector.prototype.getItems = function() {
 	];
 };
 
-workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = function( data ) {
+workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = function ( data ) {
 	data.properties = this.getPropertiesKeyValue();
 
 	if (
@@ -146,20 +146,20 @@ workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = fun
 	}
 
 	// First element "" could appear if we try to split empty string by ","
-	if ( data.properties.assigned_users[0] === '' ) {
+	if ( data.properties.assigned_users[ 0 ] === '' ) {
 		data.properties.assigned_users.shift();
 	}
 
 	return data;
 };
 
-workflows.editor.inspector.GroupVoteInspector.prototype.preprocessDataForModelUpdate = function( data ) {
+workflows.editor.inspector.GroupVoteInspector.prototype.preprocessDataForModelUpdate = function ( data ) {
 	data = workflows.editor.inspector.GroupVoteInspector.parent.prototype.preprocessDataForModelUpdate.call( this, data );
 	if ( data.assignmentType === 'user-list' ) {
-		delete ( data['properties']['assigned_group'] );
+		delete ( data.properties.assigned_group );
 	}
 	if ( data.assignmentType === 'group' ) {
-		delete ( data['properties']['assigned_users'] );
+		delete ( data.properties.assigned_users );
 	}
 	return data;
 };

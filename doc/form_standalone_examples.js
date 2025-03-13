@@ -1,7 +1,8 @@
-( function( mw, $ ) {
-	$( function() {
+/* eslint-disable new-cap, no-console */
+( function ( mw, $ ) {
+	$( function () {
 		// 1. Normal way
-		var form = new mw.ext.forms.standalone.Form( {
+		let form = new mw.ext.forms.standalone.Form( {
 			definition: {
 				items: [
 					{
@@ -12,15 +13,14 @@
 				]
 			}
 		} );
-		form.connect( this,  {
-			dataSubmitted: function( data ) {
+		form.connect( this, {
+			dataSubmitted: function ( data ) {
 				console.log( data );
 			}
 		} );
 		// Render must be called after events handlers are registered
 		form.render();
 		$( '#content' ).append( form.$element );
-
 
 		// 2 With custom submit button and validation and title
 		form = new mw.ext.forms.standalone.Form( {
@@ -40,17 +40,17 @@
 						widget_label: 'Custom submit',
 						flags: [ 'progressive', 'primary' ],
 						listeners: {
-							click: function() {
+							click: function () {
 								this.submitForm();
 							}
 						},
-						style: "margin-top: 10px;"
+						style: 'margin-top: 10px;'
 					}
 				]
 			}
 		} );
-		form.connect( this,  {
-			dataSubmitted: function( data ) {
+		form.connect( this, {
+			dataSubmitted: function ( data ) {
 				console.log( data );
 			}
 		} );
@@ -58,13 +58,13 @@
 		$( '#content' ).append( form.$element );
 
 		// 3 custom class
-		var myForm = function() {
+		const myForm = function () {
 			myForm.parent.call( this );
 		};
 
 		OO.inheritClass( myForm, mw.ext.forms.standalone.Form );
 
-		myForm.prototype.makeItems = function() {
+		myForm.prototype.makeItems = function () {
 			return [
 				{
 					type: 'number',
@@ -74,10 +74,10 @@
 			];
 		};
 
-		myForm.prototype.onDataSubmitted = function( data, summary ) {
+		myForm.prototype.onDataSubmitted = function ( data, summary ) {
 			myForm.parent.prototype.onDataSubmitted.call( this, data, summary );
 
-			console.log( "DATA IS:" );
+			console.log( 'DATA IS:' );
 			console.log( data );
 		};
 
@@ -85,4 +85,4 @@
 		$( '#content' ).append( form.$element );
 
 	} );
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

@@ -1,5 +1,5 @@
-( function ( mw, $, wf ) {
-	workflows.ui.dialog.TaskCompletion = function( workflow, activity ) {
+( function ( mw, $ ) {
+	workflows.ui.dialog.TaskCompletion = function ( workflow, activity ) {
 		workflows.ui.dialog.TaskCompletion.super.call( this, {} );
 
 		this.workflow = workflow;
@@ -27,40 +27,39 @@
 		workflows.ui.dialog.TaskCompletion.static.title = this.activity.getName();
 		workflows.ui.dialog.TaskCompletion.super.prototype.initialize.apply( this, arguments );
 
-
 		this.panel = new OO.ui.PanelLayout( {
 			expanded: true,
 			padded: true
 		} );
-		this.activity.getForm( { buttons: [], $overlay: this.$overlay } ).done( function( form ) {
+		this.activity.getForm( { buttons: [], $overlay: this.$overlay } ).done( ( form ) => {
 			this.form = form;
 			this.form.getForm().connect( this, {
-				layoutChange: function() {
+				layoutChange: function () {
 					this.updateSize();
 				}
 			} );
 			this.form.$element.addClass( 'nopadding' );
 			this.panel.$element.append( this.form.$element );
 			this.updateSize();
-		}.bind( this ) );
+		} );
 		this.$body.append( this.panel.$element );
 	};
 
 	workflows.ui.dialog.TaskCompletion.prototype.getActionProcess = function ( action ) {
 		return workflows.ui.dialog.TaskCompletion.parent.prototype.getActionProcess.call( this, action ).next(
-			function() {
+			function () {
 				if ( action === 'complete' ) {
 					this.pushPending();
-					var dfd = $.Deferred();
+					const dfd = $.Deferred();
 					this.form.connect( this, {
-						submit: function( data ) {
-							this.activity.complete( data ).done( function ( task ) {
+						submit: function ( data ) {
+							this.activity.complete( data ).done( ( task ) => { // eslint-disable-line no-unused-vars
 								this.close( { result: true } );
-							}.bind( this ) ).fail( function ( error ) {
+							} ).fail( ( error ) => {
 								dfd.reject( new OO.ui.Error( error, { recoverable: false } ) );
 							} );
 						},
-						validationFailed: function() {
+						validationFailed: function () {
 							this.popPending();
 							dfd.resolve();
 						}
@@ -76,22 +75,22 @@
 		);
 	};
 
-	workflows.ui.dialog.TaskCompletion.prototype.showErrors = function( errors ) {
+	workflows.ui.dialog.TaskCompletion.prototype.showErrors = function ( errors ) {
 		workflows.ui.dialog.TaskCompletion.parent.prototype.showErrors.call( this, errors );
 		this.updateSize();
 	};
 
-	workflows.ui.dialog.TaskCompletion.prototype.hideErrors = function() {
+	workflows.ui.dialog.TaskCompletion.prototype.hideErrors = function () {
 		workflows.ui.dialog.TaskCompletion.parent.prototype.hideErrors.call( this );
 		this.close( { result: false } );
 	};
 
 	workflows.ui.dialog.TaskCompletion.prototype.getBodyHeight = function () {
 		if ( !this.$errors.hasClass( 'oo-ui-element-hidden' ) ) {
-			return this.$element.find( '.oo-ui-processDialog-errors' )[0].scrollHeight;
+			return this.$element.find( '.oo-ui-processDialog-errors' )[ 0 ].scrollHeight;
 		}
 
-		return this.$element.find( '.oo-ui-window-body' )[0].scrollHeight + 10;
+		return this.$element.find( '.oo-ui-window-body' )[ 0 ].scrollHeight + 10;
 	};
 
-} )( mediaWiki, jQuery, workflows );
+}( mediaWiki, jQuery ) );

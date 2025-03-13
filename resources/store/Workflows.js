@@ -8,8 +8,8 @@ workflows.store.Workflows = function ( cfg ) {
 
 OO.inheritClass( workflows.store.Workflows, OOJSPlus.ui.data.store.Store );
 
-workflows.store.Workflows.prototype.doLoadData = function() {
-	var dfd = $.Deferred();
+workflows.store.Workflows.prototype.doLoadData = function () {
+	const dfd = $.Deferred();
 
 	workflows.list.filtered( {
 		filter: this.filters || {},
@@ -17,19 +17,19 @@ workflows.store.Workflows.prototype.doLoadData = function() {
 		offset: this.offset,
 		limit: this.limit
 	} ).done(
-		function( response ) {
+		( response ) => {
 			if ( !response.hasOwnProperty( 'workflows' ) ) {
 				return;
 			}
 
 			this.total = response.total;
 			dfd.resolve( this.indexData( response.workflows ) );
-		}.bind( this)
+		}
 	);
 
 	return dfd.promise();
 };
 
-workflows.store.Workflows.prototype.getTotal = function() {
+workflows.store.Workflows.prototype.getTotal = function () {
 	return this.total;
 };

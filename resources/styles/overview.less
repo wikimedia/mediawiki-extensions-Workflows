@@ -4,45 +4,56 @@
 		font-weight: bold;
 
 		.workflow-state-active {
-			color: #47A65D;
+			color: #47a65d;
 		}
+
 		.workflow-state-finished {
 			color: #747474;
 		}
+
 		.workflow-state-inactive {
-			color: #A62E39;
+			color: #a62e39;
 		}
+
 		.oo-ui-popupWidget-popup {
 			span {
-				font-size: 14px;
+				font-size: 14px; // stylelint-disable-line declaration-property-unit-disallowed-list
 			}
 		}
 	}
+
 	.details-panel {
 		background-color: #f7f6f6;
+
 		> .oo-ui-labelWidget {
 			display: block;
 		}
 	}
+
 	table {
 		width: 100%;
-		font-size: 15px;
+		font-size: 15px; // stylelint-disable-line declaration-property-unit-disallowed-list
+
 		td {
 			height: 36px;
 			vertical-align: middle;
 		}
+
 		.oo-ui-horizontalLayout > .oo-ui-widget {
 			margin-bottom: 0;
 		}
+
 		tr > th {
 			font-weight: normal;
 		}
 	}
+
 	.overview-section-label {
 		padding: 10px 0;
 		font-weight: bold;
 		text-decoration: underline;
 	}
+
 	.overview-activity-layout {
 		background-color: #f7f6f6;
 		position: relative;
@@ -55,33 +66,42 @@
 			margin-right: 0;
 		}
 	}
+
 	.proximity-layout {
 		float: right;
+
 		.proximity {
-			color: #47A65D;
+			color: #47a65d;
 		}
+
 		.proximity-close {
 			color: orangered;
 		}
+
 		.proximity-overdue {
-			color: #A62E39;
+			color: #a62e39;
 		}
 	}
+
 	.workflow-details-history {
 		.history-item-wrapper {
 			display: table-row;
+
 			.history-item {
 				display: table-cell;
 			}
+
 			.history-value {
 				font-weight: bold;
 				margin-left: 20px;
 			}
 		}
 	}
+
 	.activity-data-raw-popup {
 		float: right;
 	}
+
 	.initial-data-raw-popup {
 		float: right;
 	}
@@ -91,19 +111,22 @@
 	/* This is shown in a popup, cannot be much wider */
 	max-width: 370px;
 	width: auto;
+
 	.popup-table-header th {
 		font-weight: bold;
 		padding-left: 10px;
 	}
-	tr > th, tr > td {
+
+	tr > th,
+	tr > td {
 		font-weight: normal;
 		padding-left: 10px;
 	}
-	tr:nth-child(1) {
+
+	tr:nth-child( 1 ) {
 		background-color: transparent;
 		border-bottom: 1px solid #c2c2c2;
 	}
-
 }
 
 .workflow-data-popup .oo-ui-popupWidget-body-padded > :first-child {
@@ -116,7 +139,7 @@
 	width: auto !important;
 }
 
-.oojsplus-data-gridWidget-cell[data-column="state"] {
+.oojsplus-data-gridWidget-cell[ data-column='state' ] {
 	>label {
 		width: 100%;
 	}
@@ -136,12 +159,13 @@
 }
 
 .workflow-state-icon-aborted {
-	background-color: #A62E39;
+	background-color: #a62e39;
 }
 
 .workflow-state-icon-running {
-	background-color: #47A65D;
+	background-color: #47a65d;
 }
+
 .workflow-details-user-widget {
 	display: block;
 }

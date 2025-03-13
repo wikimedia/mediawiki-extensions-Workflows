@@ -2,5 +2,12 @@
 	"extends": [
 		"stylelint-config-wikimedia/support-basic",
 		"stylelint-config-wikimedia/mediawiki"
-	]
+	],
+	"rules": {
+		"color-named": null,
+		"declaration-no-important": null,
+		"no-descending-specificity": null,
+		"selector-class-pattern": null,
+		"selector-max-id": null
+	}
 }
