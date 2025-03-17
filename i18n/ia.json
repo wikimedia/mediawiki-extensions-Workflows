@@ -135,7 +135,7 @@
 	"workflows-activity-history-vote-result-no": "Refusate",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Proprietate",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valor",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valores del proprietate",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valores brute de proprietates",
 	"workflows-triggers-type-edit-label": "In caso de modification",
 	"workflows-triggers-type-create-label": "In caso de creation de pagina",
 	"workflows-triggers-type-move-label": "In caso de renomination de pagina",
