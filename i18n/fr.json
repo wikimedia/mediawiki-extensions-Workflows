@@ -7,7 +7,8 @@
 			"Mahabarata",
 			"Paraboule",
 			"SleaY",
-			"Verdy p"
+			"Verdy p",
+			"JLTRY"
 		]
 	},
 	"workflows-desc": "Permet de définir et d’exécuter différents flux de travail sur le wiki",
@@ -183,8 +184,10 @@
 	"workflows-ui-trigger-item-inactive": "$1 (inactif)",
 	"workflows-ui-trigger-field-description": "Description",
 	"workflows-ui-trigger-field-workflow-picker": "Flux de travail à démarrer",
+	"workflows-activity-editpage-error-invalid-cm": "Type de contenu fourni non valide",
 	"workflows-activity-editpage-error-no-title": "Aucun titre fourni",
 	"workflows-activity-editpage-permissiondenied": "L’utilisat{{GENDER:$1|eur|rice}} « $1 » n’a pas le droit de modifier la page « $2 »",
+	"workflows-activity-editpage-summary": "La page a été modifiée par une activité de workflow",
 	"workflows-activity-user-feedback-name": "Avis d’utilisateur",
 	"workflows-activity-user-vote-name": "Vote d’utilisateur",
 	"workflows-activity-group-feedback-name": "Avis de groupe",
@@ -356,5 +359,6 @@
 	"workflows-editor-editor-dialog-save-action-save": "Enregistrer",
 	"workflows-editor-editor-dialog-save-action-cancel": "Annuler",
 	"workflows-ui-overview-details-has-notice-label": "Possède une notice ?",
-	"workflows-ui-trigger-type-label": "Type de déclencheur"
+	"workflows-ui-trigger-type-label": "Type de déclencheur",
+	"workflows-ui-action-edit-triggers": "Modifier"
 }

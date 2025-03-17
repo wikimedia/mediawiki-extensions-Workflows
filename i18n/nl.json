@@ -185,8 +185,10 @@
 	"workflows-ui-trigger-item-inactive": "$1 (inactief)",
 	"workflows-ui-trigger-field-description": "Beschrijving",
 	"workflows-ui-trigger-field-workflow-picker": "Te starten werkstroom",
+	"workflows-activity-editpage-error-invalid-cm": "Onjuist type inhoud opgegeven",
 	"workflows-activity-editpage-error-no-title": "Geen titel opgegeven",
 	"workflows-activity-editpage-permissiondenied": "De gebruiker “$1” heeft geen toestemming om de pagina “$2” te bewerken.",
+	"workflows-activity-editpage-summary": "De pagina is bewerkt door een werkstroom-activiteit",
 	"workflows-activity-user-feedback-name": "Gebruikersfeedback",
 	"workflows-activity-user-vote-name": "Gebruikersstem",
 	"workflows-activity-group-feedback-name": "Groepsfeedback",
@@ -358,5 +360,6 @@
 	"workflows-editor-editor-dialog-save-action-save": "Opslaan",
 	"workflows-editor-editor-dialog-save-action-cancel": "Annuleren",
 	"workflows-ui-overview-details-has-notice-label": "Heeft bericht?",
-	"workflows-ui-trigger-type-label": "Soort activering"
+	"workflows-ui-trigger-type-label": "Soort activering",
+	"workflows-ui-action-edit-triggers": "Bewerken"
 }
