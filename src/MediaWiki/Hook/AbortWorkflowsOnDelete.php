@@ -2,17 +2,16 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Hook;
 
-use ManualLogEntry;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Message\Message;
-use MediaWiki\Page\Hook\PageDeleteCompleteHook;
+use MediaWiki\Page\Hook\PageDeleteHook;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
-use MediaWiki\Revision\RevisionRecord;
+use StatusValue;
 
-class AbortWorkflowsOnDelete implements PageDeleteCompleteHook {
+class AbortWorkflowsOnDelete implements PageDeleteHook {
 
 	/** @var WorkflowFactory */
 	private $workflowFactory;
@@ -26,17 +25,17 @@ class AbortWorkflowsOnDelete implements PageDeleteCompleteHook {
 		$this->stateStore = $stateStore;
 	}
 
-	public function onPageDeleteComplete(
-		ProperPageIdentity $page,
-		Authority $deleter,
-		string $reason,
-		int $pageID,
-		RevisionRecord $deletedRev,
-		ManualLogEntry $logEntry,
-		int $archivedRevisionCount
+	/**
+	 * @inheritDoc
+	 */
+	public function onPageDelete(
+		ProperPageIdentity $page, Authority $deleter, string $reason, StatusValue $status, bool $suppress
 	) {
+		// Abort workflows running on page before page is actually deleted,
+		// This will make sure page can still be retrieved by pageID, which is how
+		// pages are stored in workflow context. Needed to be able to emit abort events
 		$active = $this->stateStore->active()->complexQuery( [
-			'context' => [ 'pageId' => $pageID ]
+			'context' => [ 'pageId' => $page->getId() ]
 		] );
 		/** @var WorkflowId $workflow */
 		foreach ( $active as $workflowId ) {
