@@ -194,7 +194,8 @@ final class DBStateStore implements WorkflowStateStore {
 		$res = $this->lb->getConnection( DB_REPLICA )->selectRow(
 			static::TABLE,
 			'*',
-			[ 'wfs_workflow_id' => $id->toString() ]
+			[ 'wfs_workflow_id' => $id->toString() ],
+			__METHOD__
 		);
 
 		if ( !$res ) {

@@ -44,6 +44,7 @@ class UpdateLegacyAssignees extends LoggedUpdateMaintenance {
 						'workflows_state',
 						[ 'wfs_assignees' ],
 						[ 'wfs_workflow_id' => $id->toString() ],
+						__METHOD__
 					);
 					if ( $stateRow === false ) {
 						continue;
