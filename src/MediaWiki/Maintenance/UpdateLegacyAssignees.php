@@ -57,6 +57,7 @@ class UpdateLegacyAssignees extends LoggedUpdateMaintenance {
 						'workflows_state',
 						[ 'wfs_assignees' => implode( '|', $users ) ],
 						[ 'wfs_workflow_id' => $id->toString() ],
+						__METHOD__
 					);
 					$res ? $success++ : $fail++;
 
