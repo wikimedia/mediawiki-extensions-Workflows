@@ -328,7 +328,6 @@ final class Workflow {
 	 */
 	public function completeTask( $task, $data = [] ) {
 		$this->setActor( RequestContext::getMain()->getUser() );
-		$this->assertActorCan( 'execute' );
 		$this->assertWorkflowState( static::STATE_RUNNING );
 		$this->assertMembers( __METHOD__ );
 
