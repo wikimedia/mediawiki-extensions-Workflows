@@ -1,6 +1,6 @@
 {
 	"name": "Workflows",
-	"version": "3.0.0-alpha",
+	"version": "4.0.0-alpha",
 	"license-name": "GPL-3.0-only",
 	"author": [
 		"[https://www.hallowelt.com Hallo Welt! GmbH]"
@@ -8,9 +8,9 @@
 	"url": "https://en.wiki.bluespice.com/wiki/Reference:Workflows",
 	"descriptionmsg": "workflows-desc",
 	"requires": {
-		"MediaWiki": ">= 1.39.0",
+		"MediaWiki": ">= 1.43.0",
 		"extensions": {
-			"Forms": ">= 1.2.0",
+			"Forms": ">= 2.0.0",
 			"OOJSPlus": ">= 2.0.0"
 		}
 	},
