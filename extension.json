@@ -1,6 +1,6 @@
 {
 	"name": "Workflows",
-	"version": "3.0.0-alpha",
+	"version": "3.1.0-alpha",
 	"license-name": "GPL-3.0-only",
 	"author": [
 		"[https://www.hallowelt.com Hallo Welt! GmbH]"
@@ -10,7 +10,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.43.0",
 		"extensions": {
-			"Forms": ">= 1.2.0",
+			"Forms": ">= 2.0.0",
 			"OOJSPlus": ">= 3.0.0"
 		}
 	},
