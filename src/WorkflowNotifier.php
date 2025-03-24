@@ -79,6 +79,11 @@ class WorkflowNotifier implements Consumer {
 				$this->notifyAboutEvent( $activity, $event );
 			}
 		}
+		$contextPage = $this->workflow->getContext()->getContextPage();
+		if ( !$contextPage ) {
+			// No context page
+			return;
+		}
 
 		if ( $event instanceof Storage\Event\WorkflowAborted ) {
 			$reason = $event->getReason();
@@ -90,7 +95,7 @@ class WorkflowNotifier implements Consumer {
 				// Notify initiator of workflow
 				$notification = new WorkflowAbortedEvent(
 					new BotAgent(),
-					$this->workflow->getContext()->getContextPage(),
+					$contextPage,
 					[ $initiator ],
 					$workflowNameMsg,
 					$reason
@@ -115,7 +120,7 @@ class WorkflowNotifier implements Consumer {
 							// Notify participants
 							$notification = new WorkflowAbortedEvent(
 								new BotAgent(),
-								$this->workflow->getContext()->getContextPage(),
+								$contextPage,
 								$targetUsers,
 								$workflowNameMsg,
 								$reason
@@ -132,7 +137,7 @@ class WorkflowNotifier implements Consumer {
 			$initiator = $this->workflow->getContext()->getInitiator();
 			if ( $initiator ) {
 				$notification = new WorkflowEndedEvent(
-					$this->workflow->getContext()->getContextPage(),
+					$contextPage,
 					[ $initiator ],
 					$workflowNameMsg
 				);
@@ -177,8 +182,13 @@ class WorkflowNotifier implements Consumer {
 			if ( empty( $targetUsers ) ) {
 				return null;
 			}
+			$contextPage = $this->workflow->getContext()->getContextPage();
+			if ( !$contextPage ) {
+				// No context page
+				return null;
+			}
 			return new TaskAssignedEvent(
-				$this->workflow->getContext()->getContextPage(),
+				$contextPage,
 				$targetUsers,
 				$activity->getActivityDescriptor()->getActivityName()->parse()
 			);
