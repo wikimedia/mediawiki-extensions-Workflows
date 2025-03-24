@@ -11,7 +11,7 @@
 		"MediaWiki": ">= 1.43.0",
 		"extensions": {
 			"Forms": ">= 2.0.0",
-			"OOJSPlus": ">= 2.0.0"
+			"OOJSPlus": ">= 3.0.0"
 		}
 	},
 	"attributes": {
