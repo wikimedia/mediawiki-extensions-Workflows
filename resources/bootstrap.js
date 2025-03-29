@@ -425,7 +425,7 @@ window.workflows = {
 	}
 };
 
-function maybeAddAlerts() { // eslint-disable-line no-implicit-globals
+function maybeAddAlerts() {
 	if (
 		mw.config.get( 'wgNamespaceNumber' ) < 0 ||
 		!mw.config.get( 'wgRevisionId' ) ||
@@ -448,7 +448,7 @@ function maybeAddAlerts() { // eslint-disable-line no-implicit-globals
 	} );
 }
 
-function maybeAddEditor() { // eslint-disable-line no-implicit-globals
+function maybeAddEditor() {
 	const $c = $( '#workflows-editor-panel' );
 	if ( $c.length === 0 ) {
 		return;

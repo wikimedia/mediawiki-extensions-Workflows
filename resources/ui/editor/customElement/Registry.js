@@ -1,4 +1,4 @@
-var elementRegistry = function () { // eslint-disable-line no-implicit-globals, no-var
+var elementRegistry = function () { // eslint-disable-line no-var
 	elementRegistry.parent.call( this );
 };
 
