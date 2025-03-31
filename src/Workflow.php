@@ -1138,6 +1138,7 @@ final class Workflow {
 	 * Assert actor has permissions
 	 * @param string $action
 	 * @param ITask|null $task
+	 * @throws PermissionsError
 	 */
 	private function assertActorCan( $action, $task = null ) {
 		if ( $this->runsAsBotProcess() ) {
@@ -1147,6 +1148,9 @@ final class Workflow {
 		$actor = $this->operatingActor ?? RequestContext::getMain()->getUser();
 		if ( !( $actor instanceof User ) ) {
 			throw new PermissionsError( $right );
+		}
+		if ( $actor->isSystemUser() ) {
+			return;
 		}
 		if ( $this->state === self::STATE_RUNNING ) {
 			$initiator = $this->getContext()->getInitiator();
