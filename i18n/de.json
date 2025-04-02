@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"GünniBusch",
 			"Justman10000",
 			"McDutchie",
 			"Mschlindwein",
@@ -10,8 +11,7 @@
 			"Talex42",
 			"TomatoCake",
 			"Umlaut",
-			"Vhoesl",
-			"GünniBusch"
+			"Vhoesl"
 		]
 	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
