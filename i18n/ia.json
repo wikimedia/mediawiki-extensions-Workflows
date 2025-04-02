@@ -353,5 +353,11 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Cancellar",
 	"workflows-ui-overview-details-has-notice-label": "Ha nota?",
 	"workflows-ui-trigger-type-label": "Typo de activator",
-	"workflows-ui-action-edit-triggers": "Modificar"
+	"workflows-ui-action-edit-triggers": "Modificar",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|ha comenciate}} le fluxo de travalio sur le pagina $3",
+	"logentry-ext-workflows-finish": "Le fluxo de travalio sur le pagina $3 ha terminate",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|ha abortate}} le fluxo de travalio sur le pagina $3",
+	"logentry-ext-workflows-auto-abort": "Le fluxo de travalio sur le pagina $3 ha essite automaticamente abortate",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|ha restaurate}} le fluxo de travalio sur le pagina $3",
+	"workflowtriggers": "Activatores de fluxo de travalio"
 }

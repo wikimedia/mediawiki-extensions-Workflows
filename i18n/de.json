@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"GünniBusch",
 			"Justman10000",
 			"McDutchie",
 			"Mschlindwein",
@@ -10,8 +11,7 @@
 			"Talex42",
 			"TomatoCake",
 			"Umlaut",
-			"Vhoesl",
-			"GünniBusch"
+			"Vhoesl"
 		]
 	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
@@ -220,8 +220,8 @@
 	"workflows-activity-property-groupname": "Gruppenname",
 	"workflows-activity-property-usernameEditor": "Bearbeiter",
 	"workflows-activity-property-instructionsEditor": "Anweisungen für Bearbeiter",
-	"workflows-activity-property-usernameReviewer": "Begutachter",
-	"workflows-activity-property-instructionsReviewer": "Anweisungen für Begutachter",
+	"workflows-activity-property-usernameReviewer": "Prüfer",
+	"workflows-activity-property-instructionsReviewer": "Anweisungen für Prüfer",
 	"workflows-activity-property-usernameApprover": "Freigebender",
 	"workflows-activity-property-instructionsApprover": "Anweisungen für Freigebenden",
 	"workflows-activity-property-vote": "Stimme",

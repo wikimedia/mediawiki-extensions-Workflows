@@ -362,5 +362,10 @@
 	"workflows-ui-overview-details-has-notice-label": "Heeft bericht?",
 	"workflows-ui-trigger-type-label": "Soort activering",
 	"workflows-ui-action-edit-triggers": "Bewerken",
-	"workflowtriggers": "Voorwaarden opstart werkstroom"
+	"workflowtriggers": "Voorwaarden opstart werkstroom",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 opgestart",
+	"logentry-ext-workflows-finish": "De werkstroom op pagina $3 is voltooid",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 afgebroken",
+	"logentry-ext-workflows-auto-abort": "De werkstroom op pagina $3 is automatisch afgebroken",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 hersteld"
 }
