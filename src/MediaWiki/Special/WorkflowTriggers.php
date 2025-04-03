@@ -23,6 +23,12 @@ class WorkflowTriggers extends SpecialPage {
 		$this->getContext()->getOutput()->enableOOUI();
 		$out->addHTML(
 			Html::rawElement( 'div', [
+				'id' => 'workflows-triggers-hint'
+			], $this->msg( 'workflows-triggers-edit-json-label' )->parse()
+			)
+		);
+		$out->addHTML(
+			Html::rawElement( 'div', [
 				'id' => 'workflows-triggers-editor-cnt'
 			], new ProgressBarWidget( [ 'progress' => false ] )
 			)

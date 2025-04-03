@@ -319,5 +319,6 @@
 	"workflows-editor-editor-dialog-save-action-save": "Speichern",
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
 	"workflows-ui-action-edit-triggers": "Bearbeiten",
-	"workflowtriggers": "Workflow-Trigger"
+	"workflowtriggers": "Workflow-Trigger",
+	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden"
 }
