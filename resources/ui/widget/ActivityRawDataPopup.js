@@ -7,8 +7,7 @@
 				icon: 'info',
 				title: mw.message( 'workflows-ui-overview-details-raw-data-popup-label' ).text(),
 				framed: false,
-				$overlay: true,
-				flags: [ 'progressive' ]
+				$overlay: true
 			};
 		}
 
