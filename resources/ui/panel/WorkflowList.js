@@ -51,6 +51,7 @@
 			deletable: false,
 			style: 'differentiate-rows',
 			exportable: true,
+			showExportProgressDialog: true,
 			columns: {
 				has_notice: {
 					headerText: mw.message( 'workflows-ui-overview-details-has-notice-label' ).text(),
@@ -150,14 +151,13 @@
 			provideExportData: function() {
 				var dfd = $.Deferred(),
 					store = new workflows.store.Workflows( {
-						pageSize: -1,
 						sorter: {
 							page_prefixed_text: {
 								direction: 'ASC'
 							}
 						}
 					} );
-				store.load().done( function( response ) {
+				store.loadAll().done( function( response ) {
 					var $table = $( '<table>' ),
 						$row = $( '<tr>' ),
 						$cell = $( '<td>' );
@@ -189,7 +189,17 @@
 						mw.message( 'workflows-ui-overview-details-start-time-column' ).text()
 					);
 					$row.append( $cell );
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-start-time-column' ).text()
+					);
+					$row.append( $cell );
 
+					$cell = $( '<td>' );
+					$cell.append(
+						mw.message( 'workflows-ui-overview-details-last-time-column' ).text()
+					);
+					$row.append( $cell );
 					$cell = $( '<td>' );
 					$cell.append(
 						mw.message( 'workflows-ui-overview-details-last-time-column' ).text()
@@ -226,7 +236,15 @@
 						$row.append( $cell );
 
 						$cell = $( '<td>' );
+						$cell.append( record.start_formatted );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
 						$cell.append( record.last_ts );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.last_formatted );
 						$row.append( $cell );
 
 						$table.append( $row );

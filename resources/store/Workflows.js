@@ -6,7 +6,7 @@ workflows.store.Workflows = function ( cfg ) {
 	workflows.store.Workflows.parent.call( this, cfg );
 };
 
-OO.inheritClass( workflows.store.Workflows, OOJSPlus.ui.data.store.Store );
+OO.inheritClass( workflows.store.Workflows, OOJSPlus.ui.data.store.RemoteStore );
 
 workflows.store.Workflows.prototype.doLoadData = function() {
 	var dfd = $.Deferred();
