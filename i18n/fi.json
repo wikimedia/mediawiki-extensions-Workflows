@@ -4,6 +4,7 @@
 			"MITO",
 			"Pyscowicz",
 			"Rönttönen",
+			"Samoasambia",
 			"Yupik"
 		]
 	},
@@ -14,7 +15,7 @@
 	"workflows-ui-alert-action-complete": "Suorita tehtävä",
 	"workflows-ui-task-completion-action-complete": "Lähetä",
 	"workflows-ui-task-completion-action-cancel": "Peruuta",
-	"workflows-uto-activity-custom_form": "Mukautettu pyyntö",
+	"workflows-uto-activity-custom_form": "Mukautettu lomake",
 	"workflows-form-placeholder-comment": "Kommentti",
 	"workflows-form-label-vote-widget-approve": "Hyväksy",
 	"workflows-form-label-vote-widget-decline": "Hylätty",

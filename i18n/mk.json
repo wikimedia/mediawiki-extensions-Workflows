@@ -160,7 +160,7 @@
 	"workflows-activity-history-vote-result-no": "Одбиено",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Својство",
 	"workflows-ui-overview-details-raw-data-popup-value": "Вредност",
-	"workflows-ui-overview-details-raw-data-popup-label": "Вредности на својството",
+	"workflows-ui-overview-details-raw-data-popup-label": "Сирови вредности на својството",
 	"workflows-triggers-type-edit-label": "При уредување",
 	"workflows-triggers-type-create-label": "При создавање на страница",
 	"workflows-triggers-type-move-label": "При преместување на страница",
@@ -377,5 +377,12 @@
 	"workflows-ui-overview-details-has-notice-label": "Има напомена?",
 	"workflows-ui-trigger-type-label": "Вид на покренувач",
 	"workflows-activity-editpage-error-invalid-cm": "Укажан е неважечки вид на содржина",
-	"workflows-activity-editpage-summary": "Страницата е уредена со активност на работен тек"
+	"workflows-activity-editpage-summary": "Страницата е уредена со активност на работен тек",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|започна}} работен тек на страницата $3",
+	"logentry-ext-workflows-finish": "Работниот тек на страницата $3 заврши",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|го откажа}} работниот тек на страницата $3",
+	"logentry-ext-workflows-auto-abort": "Работниот тек на страницата $3 е автоматски откажан",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|го поврати}} работниот тек на страницата $3",
+	"workflows-ui-action-edit-triggers": "Уреди",
+	"workflowtriggers": "Покревачи на работни текови"
 }

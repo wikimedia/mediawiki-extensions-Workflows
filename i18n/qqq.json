@@ -364,5 +364,13 @@
 	"workflows-ui-group-threshold-hint-percent": "Hint in an activity configuration dialog about the number of users in a given group.\n * $1 - number of users in the group\n * $2 - number of users required to complete the workflow",
 	"workflows-ui-overview-details-has-notice-label": "Label of a grid column on the workflow overview page, indicating if the workflow has a notice. Column shows boolean values.",
 	"workflows-ui-action-edittriggersource": "Label for the action that opens the trigger source editor",
-	"workflows-ui-action-edit-triggers": "Label for the action that opens the trigger editor"
+	"workflows-ui-action-edit-triggers": "Label for the action that opens the trigger editor",
+	"logentry-ext-workflows-start": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-finish": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-abort": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-auto-abort": "Entry on [[Special:Log]]",
+	"logentry-ext-workflows-unabort": "Entry on [[Special:Log]]",
+	"workflowtriggers": "Title of special page [[Special:Workflow_triggers]]",
+	"workflows-ui-overview-details-start-time-raw-column": "Column header for workflow list export",
+	"workflows-ui-overview-details-last-time-raw-column": "Column header for workflow list export"
 }

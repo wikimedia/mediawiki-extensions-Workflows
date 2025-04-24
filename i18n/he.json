@@ -163,7 +163,7 @@
 	"workflows-activity-history-vote-result-no": "נדחה",
 	"workflows-ui-overview-details-raw-data-popup-prop": "מאפיין",
 	"workflows-ui-overview-details-raw-data-popup-value": "ערך",
-	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים",
+	"workflows-ui-overview-details-raw-data-popup-label": "ערכי מאפיינים גולמיים",
 	"workflows-triggers-type-edit-label": "בעת עריכה",
 	"workflows-triggers-type-create-label": "בעת יצירת דף",
 	"workflows-triggers-type-move-label": "בעת העברת דף",
@@ -380,5 +380,12 @@
 	"workflows-ui-overview-details-has-notice-label": "יש הודעה?",
 	"workflows-ui-trigger-type-label": "סוג מזנק",
 	"workflows-activity-editpage-error-invalid-cm": "סופק סוג תוכן בלתי־תקין",
-	"workflows-activity-editpage-summary": "הדף נערך על־ידי פעילות זרימת עבודה"
+	"workflows-activity-editpage-summary": "הדף נערך על־ידי פעילות זרימת עבודה",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|התחיל|התחילה}} זרימת עבודה בדף $3",
+	"logentry-ext-workflows-finish": "זרימת העבודה בדף $3 הסתיימה",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|הפסיק|הפסיקה}} את זרימת העבודה בדף $3",
+	"logentry-ext-workflows-auto-abort": "זרימת העבודה בדף $3 הופסקה באופן אוטומטי",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|שחזר|שחזרה}} את זרימת העבודה בדף $3",
+	"workflows-ui-action-edit-triggers": "עריכה",
+	"workflowtriggers": "מזנקי זרימת עבודה"
 }

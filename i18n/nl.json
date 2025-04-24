@@ -167,7 +167,7 @@
 	"workflows-activity-history-vote-result-no": "Afgewezen",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Eigenschap",
 	"workflows-ui-overview-details-raw-data-popup-value": "Waarde",
-	"workflows-ui-overview-details-raw-data-popup-label": "Eigenschapswaarden",
+	"workflows-ui-overview-details-raw-data-popup-label": "Ruwe eigenschapswaarden",
 	"workflows-triggers-type-edit-label": "Bij bewerking",
 	"workflows-triggers-type-create-label": "Bij aanmaak pagina",
 	"workflows-triggers-type-move-label": "Bij hernoemen pagina",
@@ -382,5 +382,14 @@
 	"workflows-editor-editor-dialog-save-action-save": "Opslaan",
 	"workflows-editor-editor-dialog-save-action-cancel": "Annuleren",
 	"workflows-ui-overview-details-has-notice-label": "Heeft bericht?",
-	"workflows-ui-trigger-type-label": "Soort activering"
+	"workflows-ui-trigger-type-label": "Soort activering",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 opgestart",
+	"logentry-ext-workflows-finish": "De werkstroom op pagina $3 is voltooid",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 afgebroken",
+	"logentry-ext-workflows-auto-abort": "De werkstroom op pagina $3 is automatisch afgebroken",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 hersteld",
+	"workflows-activity-editpage-error-invalid-cm": "Onjuist type inhoud opgegeven",
+	"workflows-activity-editpage-summary": "De pagina is bewerkt door een werkstroom-activiteit",
+	"workflows-ui-action-edit-triggers": "Bewerken",
+	"workflowtriggers": "Voorwaarden opstart werkstroom"
 }

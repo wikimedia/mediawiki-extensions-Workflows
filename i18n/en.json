@@ -130,7 +130,7 @@
 	"workflows-activity-history-vote-result-no": "Declined",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Property",
 	"workflows-ui-overview-details-raw-data-popup-value": "Value",
-	"workflows-ui-overview-details-raw-data-popup-label": "Property values",
+	"workflows-ui-overview-details-raw-data-popup-label": "Raw property values",
 	"workflows-triggers-type-edit-label": "On edit",
 	"workflows-triggers-type-create-label": "On page creation",
 	"workflows-triggers-type-move-label": "On page move",
@@ -349,5 +349,14 @@
 	"workflows-ui-overview-details-has-notice-label": "Has notice?",
 	"workflows-ui-trigger-type-label": "Trigger type",
 	"workflows-ui-action-edittriggersource": "Edit source",
-	"workflows-ui-action-edit-triggers": "Edit"
+	"workflows-ui-action-edit-triggers": "Edit",
+	"@metadata": [],
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|started}} workflow on page $3",
+	"logentry-ext-workflows-finish": "Workflow on page $3 has finished",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|aborted}} workflow on page $3",
+	"logentry-ext-workflows-auto-abort": "Workflow on page $3 was automatically aborted",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|restored}} workflow on page $3",
+	"workflowtriggers": "Workflow triggers",
+	"workflows-ui-overview-details-start-time-raw-column": "Started on (raw)",
+	"workflows-ui-overview-details-last-time-raw-column": "Last activity on (raw)"
 }

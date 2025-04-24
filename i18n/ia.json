@@ -159,7 +159,7 @@
 	"workflows-activity-history-vote-result-no": "Refusate",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Proprietate",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valor",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valores del proprietate",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valores brute de proprietates",
 	"workflows-triggers-type-edit-label": "In caso de modification",
 	"workflows-triggers-type-create-label": "In caso de creation de pagina",
 	"workflows-triggers-type-move-label": "In caso de renomination de pagina",
@@ -373,5 +373,15 @@
 	"workflows-editor-editor-dialog-save-title": "Salveguardar diagramma",
 	"workflows-editor-editor-dialog-save-action-save": "Salveguardar",
 	"workflows-editor-editor-dialog-save-action-cancel": "Cancellar",
-	"workflows-ui-overview-details-has-notice-label": "Ha nota?"
+	"workflows-ui-overview-details-has-notice-label": "Ha nota?",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|ha comenciate}} le fluxo de travalio sur le pagina $3",
+	"logentry-ext-workflows-finish": "Le fluxo de travalio sur le pagina $3 ha terminate",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|ha abortate}} le fluxo de travalio sur le pagina $3",
+	"logentry-ext-workflows-auto-abort": "Le fluxo de travalio sur le pagina $3 ha essite automaticamente abortate",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|ha restaurate}} le fluxo de travalio sur le pagina $3",
+	"workflows-activity-editpage-error-invalid-cm": "Le typo de contento fornite non es valide",
+	"workflows-activity-editpage-summary": "Le pagina ha essite modificate per un activitate de fluxo de travalio",
+	"workflows-ui-trigger-type-label": "Typo de activator",
+	"workflows-ui-action-edit-triggers": "Modificar",
+	"workflowtriggers": "Activatores de fluxo de travalio"
 }

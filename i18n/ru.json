@@ -5,7 +5,8 @@
 			"Dirruw'o",
 			"Gulka.nik",
 			"Kareyac",
-			"Pacha Tchernof"
+			"Pacha Tchernof",
+			"Yurina Tatiana"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
@@ -59,5 +60,6 @@
 	"workflows-editor-editor-dialog-save-title": "Сохранить диаграмму",
 	"workflows-editor-editor-dialog-save-action-save": "Сохранить",
 	"workflows-editor-editor-dialog-save-action-cancel": "Отмена",
-	"workflows-ui-action-edit-triggers": "Править"
+	"workflows-ui-action-edit-triggers": "Править",
+	"workflows-ui-task-completion-action-complete": "Отправить"
 }

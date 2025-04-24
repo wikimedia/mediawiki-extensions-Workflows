@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Gomoko",
+			"JLTRY",
 			"MacOS Weed",
 			"Mahabarata",
 			"Paraboule",
@@ -163,7 +164,7 @@
 	"workflows-activity-history-vote-result-no": "Refusé",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Propriété",
 	"workflows-ui-overview-details-raw-data-popup-value": "Valeur",
-	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs de la propriété",
+	"workflows-ui-overview-details-raw-data-popup-label": "Valeurs brutes des propriétés",
 	"workflows-triggers-type-edit-label": "En cas de modification",
 	"workflows-triggers-type-create-label": "En cas de création de page",
 	"workflows-triggers-type-move-label": "En cas de déplacement de page",
@@ -380,5 +381,14 @@
 	"workflows-editor-default-xml-not-found": "Définition XML par défaut non trouvée, impossible de créer de nouveaux diagrammes",
 	"workflows-editor-editor-dialog-save-title": "Enregistrer le diagramme",
 	"workflows-ui-overview-details-has-notice-label": "Possède une notice ?",
-	"workflows-ui-trigger-type-label": "Type de déclencheur"
+	"workflows-ui-trigger-type-label": "Type de déclencheur",
+	"logentry-ext-workflows-start": "$1 flux de travail {{GENDER:$2| démarré|démarrée}}  sur la page $3",
+	"logentry-ext-workflows-finish": "Le flux de travail de la page $3 est terminé",
+	"logentry-ext-workflows-abort": "$1 flux de travail {{GENDER:$2| abandonné}}  sur la page $3",
+	"logentry-ext-workflows-auto-abort": "Le flux de travail sur la page $3 a été automatiquement interrompu",
+	"logentry-ext-workflows-unabort": "$1 flux de travail {{GENDER:$2| restauré|restaurée}}  sur la page $3",
+	"workflows-activity-editpage-error-invalid-cm": "Type de contenu fourni non valide",
+	"workflows-activity-editpage-summary": "La page a été modifiée par une activité de workflow",
+	"workflows-ui-action-edit-triggers": "Modifier",
+	"workflowtriggers": "Déclencheurs de flux de travail"
 }

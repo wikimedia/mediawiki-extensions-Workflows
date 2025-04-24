@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"GünniBusch",
 			"Justman10000",
 			"McDutchie",
 			"Mschlindwein",
@@ -241,8 +242,8 @@
 	"workflows-activity-property-groupname": "Gruppenname",
 	"workflows-activity-property-usernameEditor": "Bearbeiter",
 	"workflows-activity-property-instructionsEditor": "Anweisungen für Bearbeiter",
-	"workflows-activity-property-usernameReviewer": "Begutachter",
-	"workflows-activity-property-instructionsReviewer": "Anweisungen für Begutachter",
+	"workflows-activity-property-usernameReviewer": "Prüfer",
+	"workflows-activity-property-instructionsReviewer": "Anweisungen für Prüfer",
 	"workflows-activity-property-usernameApprover": "Freigebender",
 	"workflows-activity-property-instructionsApprover": "Anweisungen für Freigebenden",
 	"workflows-activity-property-vote": "Stimme",
@@ -324,5 +325,23 @@
 	"workflows-ui-editor-inspector-activity-send-mail-title": "Aktivität „E-Mail senden“",
 	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Empfänger",
 	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Betreff",
-	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Inhalt"
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Inhalt",
+	"workflows-activity-editpage-error-invalid-cm": "Ungültiger Inhaltstyp angegeben",
+	"workflows-activity-editpage-summary": "Die Seite wurde durch eine Workflow-Aktivität bearbeitet",
+	"workflows-ui-editor-inspector-activity-user-feedback-title": "Benutzerfeedback-Aktivität",
+	"workflows-ui-editor-inspector-activity-user-activity-property-assigned_user": "Zugewiesener Benutzer",
+	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Anweisungen",
+	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Fälligkeitsdatum",
+	"workflows-ui-editor-inspector-activity-edit-page-property-title": "Zu bearbeitende Wiki-Seite",
+	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Benutzer",
+	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Inhalt",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode-prepend": "Voranstellen",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode-append": "Anhängen",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace": "Ersetzen",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Benutzer",
+	"workflows-ui-editor-inspector-activity-group-vote-property-assignment-type-group-assignment": "Gruppenzuweisung",
+	"workflows-ui-editor-inspector-activity-group-vote-property-assigned_users": "Zugewiesene Benutzer",
+	"workflows-ui-editor-inspector-activity-group-vote-property-assigned_group": "Zugewiesene Benutzergruppe",
+	"workflows-ui-action-edit-triggers": "Bearbeiten",
+	"workflowtriggers": "Workflow-Trigger"
 }
