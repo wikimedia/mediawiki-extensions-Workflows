@@ -17,7 +17,7 @@ class TimeBasedTrigger extends GenericTrigger {
 		/** @var Title $title */
 		foreach ( $this->matches as $title ) {
 			try {
-				return $this->startWorkflow( $this->repo, $this->definition, [
+				$this->startWorkflow( $this->repo, $this->definition, [
 					'pageId' => $title->getArticleID(),
 					'revision' => $title->getLatestRevID(),
 				], $this->initData );
@@ -28,7 +28,6 @@ class TimeBasedTrigger extends GenericTrigger {
 					'contextData' => $this->getContextData(),
 					'initData' => $this->initData,
 				] );
-				return false;
 			}
 
 		}
