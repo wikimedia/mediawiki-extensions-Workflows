@@ -360,5 +360,8 @@
 	"workflows-ui-overview-details-has-notice-label": "Има напомена?",
 	"workflows-ui-trigger-type-label": "Вид на покренувач",
 	"workflows-ui-action-edit-triggers": "Уреди",
-	"workflowtriggers": "Покревачи на работни текови"
+	"workflowtriggers": "Покревачи на работни текови",
+	"workflows-ui-overview-details-start-time-raw-column": "Започнато на (сирово)",
+	"workflows-ui-overview-details-last-time-raw-column": "Последна активност (сирово)",
+	"workflows-triggers-edit-json-label": "Изворниот код на покренувачот на работниот тек може да се измени на [[MediaWiki:WorkflowTriggers]]"
 }
