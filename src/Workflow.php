@@ -541,7 +541,6 @@ final class Workflow {
 	 * @throws Exception
 	 */
 	public function persist( WorkflowEventRepository $repository ) {
-		$this->assertActorCan( 'execute' );
 		$this->assertMembers( __METHOD__ );
 		$repository->persist( $this->storage );
 	}
