@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Event;
 
+use MediaWiki\Extension\NotifyMe\Event\NotifyAgentEvent;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
@@ -11,7 +12,7 @@ use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
 use MWStake\MediaWiki\Component\Events\PriorityEvent;
 use MWStake\MediaWiki\Component\Events\TitleEvent;
 
-class VoteDelegateEvent extends TitleEvent implements PriorityEvent {
+class VoteDelegateEvent extends TitleEvent implements PriorityEvent, NotifyAgentEvent {
 	/** @var string */
 	private $activity;
 
