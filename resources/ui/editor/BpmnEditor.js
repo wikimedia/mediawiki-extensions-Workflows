@@ -105,15 +105,11 @@ workflows.ui.widget.BpmnEditor.prototype.openInspector = function ( element ) {
 	if ( !inspector ) {
 		return;
 	}
-	this.openDialog( new workflows.editor.inspector.InspectorDialog( element, { inspector: inspector } ) ).then(
-		( data ) => { // eslint-disable-line no-unused-vars
-			windowManager.destroy(); // eslint-disable-line no-undef
-		}
-	);
+	this.openDialog( new workflows.editor.inspector.InspectorDialog( element, { inspector: inspector } ) );
 };
 
-workflows.ui.widget.BpmnEditor.prototype.openDialog = function ( dialog, then ) { // eslint-disable-line no-unused-vars
-	const windowManager = new OO.ui.WindowManager();
+workflows.ui.widget.BpmnEditor.prototype.openDialog = function ( dialog ) { // eslint-disable-line no-unused-vars
+	const windowManager = OO.ui.getWindowManager();
 	$( document.body ).append( windowManager.$element );
 	windowManager.addWindows( [ dialog ] );
 	return windowManager.openWindow( dialog ).closed;
