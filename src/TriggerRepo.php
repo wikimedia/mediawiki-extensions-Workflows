@@ -13,6 +13,8 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdater;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
+use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -217,7 +219,7 @@ class TriggerRepo {
 	 *
 	 * @param string $name
 	 * @param array $data
-	 * @param UserIdentity $user
+	 * @param User $user
 	 * @return bool
 	 */
 	public function upsertTrigger( $name, $data, $user ) {
