@@ -327,7 +327,7 @@ final class Workflow {
 	 * @throws WorkflowExecutionException
 	 */
 	public function completeTask( $task, $data = [] ) {
-		$this->setActor( RequestContext::getMain()->getUser() );
+		$this->setActor( $this->getActor() );
 		$this->assertWorkflowState( static::STATE_RUNNING );
 		$this->assertMembers( __METHOD__ );
 
@@ -616,9 +616,7 @@ final class Workflow {
 		}
 		$this->definition->setContextData( $contextData );
 		$this->getPrivateContext()->setDefinitionContext( $this->definition->getContext() );
-		if ( !$this->actor instanceof User ) {
-			$this->setActor( RequestContext::getMain()->getUser() );
-		}
+		$this->setActor( $this->getActor() );
 		$this->getPrivateContext()->setInitiator( $this->getActor() );
 
 		$this->state = static::STATE_RUNNING;
@@ -1083,6 +1081,7 @@ final class Workflow {
 	 *
 	 * @param string $taskID
 	 * @return IActivity
+	 * @throws Exception
 	 */
 	public function establishCurrent( $taskID ) {
 		if ( is_array( $this->current ) ) {
@@ -1202,6 +1201,7 @@ final class Workflow {
 	/**
 	 * @param IActivity $activity
 	 * @return int
+	 * @throws WorkflowExecutionException
 	 */
 	public function getActivityStatus( IActivity $activity ): int {
 		return $this->activityManager->getActivityStatus( $activity );

@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\Trigger;
 
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 class TimeBasedTrigger extends GenericTrigger {
 	/** @var array */
@@ -78,5 +79,12 @@ class TimeBasedTrigger extends GenericTrigger {
 				$this->matches[] = $page;
 			}
 		}
+	}
+
+	/**
+	 * @return User|null
+	 */
+	protected function getActor(): ?User {
+		return User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
 	}
 }
