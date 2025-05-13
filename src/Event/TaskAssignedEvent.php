@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Extension\Workflows\Event;
 
-use MediaWiki\Extension\NotifyMe\Event\NotifyAgentEvent;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MWStake\MediaWiki\Component\Events\BotAgent;
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
+use MWStake\MediaWiki\Component\Events\NotifyAgentEvent;
 use MWStake\MediaWiki\Component\Events\PriorityEvent;
 use MWStake\MediaWiki\Component\Events\TitleEvent;
 
