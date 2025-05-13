@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows\Tests;
 
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
@@ -66,7 +65,7 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 			"username" => "Dummy user",
 			"instructions" => "Do this thing!"
 		], $data['initData'] );
-		$user = RequestContext::getMain()->getUser();
+		$user = $this->getTestSysop()->getUser();
 		$data['initData']['username'] = 'Foo-Bar';
 		$updateRes = $repo->upsertTrigger( 'start-approval-on-edit', $data, $user );
 		$this->assertTrue( $updateRes );
