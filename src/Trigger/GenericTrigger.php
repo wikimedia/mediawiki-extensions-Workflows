@@ -15,6 +15,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
+use MediaWiki\User\User;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
@@ -182,6 +183,9 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 		$workflow = $this->workflowFactory->newEmpty( $definition, $repo );
 		if ( $this->isAutomatic() ) {
 			$workflow->markAsBotProcess();
+		}
+		if ( $this->getActor() ) {
+			$workflow->setActor( $this->getActor() );
 		}
 		$workflow->start( $contextData );
 		$initializer = $this->getInitializer( $workflow );
@@ -430,5 +434,12 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 		}
 
 		return $msg->text();
+	}
+
+	/**
+	 * @return User|null
+	 */
+	protected function getActor(): ?User {
+		return null;
 	}
 }
