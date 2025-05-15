@@ -146,7 +146,11 @@ workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = fun
 	}
 
 	// First element "" could appear if we try to split empty string by ","
-	if ( data.properties.assigned_users[ 0 ] === '' ) {
+	if (
+		data.properties.hasOwnProperty( 'assigned_users' ) &&
+		data.properties.assigned_users.length &&
+		data.properties.assigned_users[ 0 ] === ''
+	) {
 		data.properties.assigned_users.shift();
 	}
 
