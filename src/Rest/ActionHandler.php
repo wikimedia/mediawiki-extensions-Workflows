@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Rest;
 
 use Exception;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Workflow;
@@ -61,7 +62,9 @@ abstract class ActionHandler extends Handler {
 				throw new HttpException( "ID {$id->toString()} is not valid" );
 			}
 
-			return $this->workflowFactory->getWorkflow( $id );
+			$workflow = $this->workflowFactory->getWorkflow( $id );
+			$workflow->setActor( RequestContext::getMain()->getUser() );
+			return $workflow;
 		} catch ( WorkflowExecutionException $ex ) {
 			throw new HttpException( $ex->getMessage() );
 		}

@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Rest;
 
 use Exception;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
@@ -30,7 +31,9 @@ class StartHandler extends JSONBodyActionHandler {
 		$definition = $this->getParameter( 'id' );
 		$repository = $this->getParameter( 'repository' );
 
-		return $this->getWorkflowFactory()->newEmpty( $definition, $repository );
+		$engine = $this->getWorkflowFactory()->newEmpty( $definition, $repository );
+		$engine->setActor( RequestContext::getMain()->getUser() );
+		return $engine;
 	}
 
 	/**
