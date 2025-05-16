@@ -367,5 +367,8 @@
 	"logentry-ext-workflows-finish": "De werkstroom op pagina $3 is voltooid",
 	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 afgebroken",
 	"logentry-ext-workflows-auto-abort": "De werkstroom op pagina $3 is automatisch afgebroken",
-	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 hersteld"
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|heeft}} de werkstroom op pagina $3 hersteld",
+	"workflows-ui-overview-details-start-time-raw-column": "Begonnen op (ruw)",
+	"workflows-ui-overview-details-last-time-raw-column": "Laatste activiteit op (ruw)",
+	"workflows-triggers-edit-json-label": "De broncode voor het activeren van werkstromen kan worden bewerkt op [[MediaWiki:WorkflowTriggers]]"
 }
