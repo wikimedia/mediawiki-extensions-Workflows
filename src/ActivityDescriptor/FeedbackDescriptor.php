@@ -46,6 +46,9 @@ class FeedbackDescriptor extends GenericUIActivityDescriptor {
 		if ( $event instanceof TaskStarted ) {
 			$validUsers = $workflow->getActivityManager()->getTargetUsersForActivity( $this->activity, true ) ?? [];
 
+			if ( !$workflow->getContext()->getContextPage() ) {
+				return null;
+			}
 			return new FeedbackTaskAssignedEvent(
 				$workflow->getContext()->getInitiator(),
 				$workflow->getContext()->getContextPage(),
