@@ -269,9 +269,9 @@
 				"workflows-ui-starter-init-note",
 				"workflows-ui-starter-error-generic",
 				"workflows-ui-starter-dialog-title",
-				"workflows-ui-starter-action-choose",
+				"workflows-ui-dialog-action-next",
+				"workflows-ui-dialog-action-back",
 				"workflows-ui-starter-action-start",
-				"workflows-ui-starter-action-back",
 				"workflows-ui-starter-action-cancel",
 				"workflows-ui-starter-init-form-fail",
 				"workflows-ui-starter-action-done"
@@ -554,7 +554,8 @@
 			"messages": [
 				"workflows-ui-action-cancel",
 				"workflows-ui-trigger-action-create",
-				"workflows-ui-trigger-action-choose",
+				"workflows-ui-dialog-action-back",
+				"workflows-ui-dialog-action-next",
 				"workflows-ui-trigger-editor-dialog-title",
 				"workflows-error-generic",
 				"workflows-ui-trigger-delete-dialog-title",

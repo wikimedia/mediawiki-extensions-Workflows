@@ -14,7 +14,7 @@
 	workflows.ui.dialog.WorkflowStarter.static.actions = [
 		{
 			action: 'choose',
-			label: mw.message( 'workflows-ui-starter-action-choose' ).text(),
+			label: mw.message( 'workflows-ui-dialog-action-next' ).text(),
 			flags: [ 'primary', 'progressive' ], modes: [ 'wfSelection' ]
 		},
 		{
@@ -24,12 +24,12 @@
 		},
 		{
 			action: 'back', disabled: true,
-			label: mw.message( 'workflows-ui-starter-action-back' ).text(),
+			label: mw.message( 'workflows-ui-dialog-action-back' ).text(),
 			flags: 'primary', modes: [ 'init' ]
 		},
 		{
-			label: mw.message( 'workflows-ui-starter-action-cancel' ).text(),
-			flags: 'safe', modes: [ 'wfSelection', 'init' ]
+			title: mw.message( 'workflows-ui-starter-action-cancel' ).text(),
+			flags: [ 'safe', 'close' ], modes: [ 'wfSelection', 'init' ]
 		}
 	];
 

@@ -14,10 +14,8 @@
 	"workflows-ui-starter-init-note": "Please fill out required initialization information",
 	"workflows-ui-starter-error-generic": "Cannot start workflow",
 	"workflows-ui-starter-dialog-title": "Start a workflow",
-	"workflows-ui-starter-action-choose": "Choose",
 	"workflows-ui-starter-action-start": "Start workflow",
 	"workflows-ui-starter-action-done": "Start",
-	"workflows-ui-starter-action-back": "Choose another",
 	"workflows-ui-starter-action-cancel": "Cancel",
 	"workflows-ui-starter-init-form-fail": "Initialization form cannot be retrieved",
 	"workflows-ui-action-start": "Start a workflow",
@@ -150,7 +148,6 @@
 	"workflows-triggers-type-since-last-major-desc": "Trigger a workflow after a defined period, after page's last major edit",
 	"workflows-ui-action-cancel": "Cancel",
 	"workflows-ui-trigger-action-create": "Save",
-	"workflows-ui-trigger-action-choose": "Continue",
 	"workflows-ui-trigger-editor-dialog-title": "Workflow trigger",
 	"workflows-ui-trigger-page-title": "Workflow triggers",
 	"workflows-ui-trigger-page-desc": "Allows definition of conditions for starting a workflow",
@@ -368,5 +365,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Activate the global connect tool",
 	"workflows-ui-editor-toolbar-create-start-event": "Create StartEvent",
 	"workflows-ui-editor-toolbar-create-end-event": "Create EndEvent",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Create Gateway"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Create Gateway",
+	"workflows-ui-dialog-action-back": "Back",
+	"workflows-ui-dialog-action-next": "Next"
 }
