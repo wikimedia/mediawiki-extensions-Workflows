@@ -17,9 +17,9 @@
 			flags: [ 'primary', 'progressive' ]
 		},
 		{
-			label: mw.message( 'workflows-ui-task-completion-action-cancel' ).text(),
+			title: mw.message( 'workflows-ui-task-completion-action-cancel' ).text(),
 			action: 'cancel',
-			flags: 'safe'
+			flags: [ 'safe', 'close' ]
 		}
 	];
 

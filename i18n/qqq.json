@@ -27,10 +27,8 @@
 	"workflows-ui-starter-init-note": "Notification text that tells the user, that the user has to fill out the required initialization information",
 	"workflows-ui-starter-error-generic": "Generic error message when a workflow could not have been started",
 	"workflows-ui-starter-dialog-title": "Title of the start workflow dialog.\n{{Identical|Start a workflow}}",
-	"workflows-ui-starter-action-choose": "Label for the \"choose\" workflow proccess dialog action.\n{{Identical|Choose}}",
 	"workflows-ui-starter-action-start": "Label for the \"start\" workflow proccess dialog action.\n{{Identical|Start workflow}}",
 	"workflows-ui-starter-action-done": "Label for the \"complete\" start workflow process dialog action.\n{{Identical|Done}}",
-	"workflows-ui-starter-action-back": "Label for the \"back\" workflow proccess dialog action.\n{{Identical|Choose another}}",
 	"workflows-ui-starter-action-cancel": "Label for the \"cancel\" workflow proccess dialog action.\n{{Identical|Cancel}}",
 	"workflows-ui-starter-init-form-fail": "Generic error message when the initialization form cannot be retrieved",
 	"workflows-ui-action-start": "Label for the content action link that opens a the start workflow dialog.\n[[Identical|Start a workflow}}",
@@ -163,7 +161,6 @@
 	"workflows-triggers-type-since-last-major-desc": "Description of a trigger type",
 	"workflows-ui-action-cancel": "Process dialog action label\n\n{{Identical|Cancel}}",
 	"workflows-ui-trigger-action-create": "Process dialog action label\n\n{{Identical|Save}}",
-	"workflows-ui-trigger-action-choose": "Process dialog action label\n{{identical|Continue}}",
 	"workflows-ui-trigger-editor-dialog-title": "Process dialog title",
 	"workflows-ui-trigger-page-title": "Workflow trigger management page title",
 	"workflows-ui-trigger-page-desc": "Workflow trigger management description",
@@ -381,5 +378,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Label for the tool in BPMN editor",
 	"workflows-ui-editor-toolbar-create-start-event": "{{doc-important|Do not translate <code>StartEvent</code>}}\nLabel for the tool in BPMN editor",
 	"workflows-ui-editor-toolbar-create-end-event": "{{doc-important|Do not translate <code>EndEvent</code>}}\nLabel for the tool in BPMN editor",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Label for the tool in BPMN editor"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Label for the tool in BPMN editor",
+	"workflows-ui-dialog-action-back": "Process dialog action label\n\n{{Identical|Back}}",
+	"workflows-ui-dialog-action-next": "Process dialog action label\n\n{{Identical|Next}}"
 }

@@ -13,7 +13,7 @@
 	workflows.ui.dialog.TriggerEditor.static.actions = [
 		{
 			action: 'choose',
-			label: mw.message( 'workflows-ui-trigger-action-choose' ).text(),
+			label: mw.message( 'workflows-ui-dialog-action-next' ).text(),
 			flags: [ 'primary', 'progressive' ], modes: [ 'triggerTypeSelection' ]
 		},
 		{
@@ -22,8 +22,13 @@
 			flags: [ 'primary', 'progressive' ], modes: [ 'triggerDetails' ]
 		},
 		{
-			label: mw.message( 'workflows-ui-action-cancel' ).text(),
-			flags: 'safe', modes: [ 'triggerTypeSelection', 'triggerDetails' ]
+			action: 'back',
+			label: mw.message( 'workflows-ui-dialog-action-back' ).text(),
+			modes: [ 'triggerDetails' ]
+		},
+		{
+			title: mw.message( 'workflows-ui-action-cancel' ).text(),
+			flags: [ 'safe', 'close' ], modes: [ 'triggerTypeSelection', 'triggerDetails' ]
 		}
 	];
 
@@ -87,6 +92,9 @@
 		this.actions.setMode( name );
 		this.booklet.setPage( name );
 		page.reset();
+		if ( this.triggerData && name === 'triggerDetails' ) {
+			this.actions.categorized.actions.back[ 0 ].toggle( false );
+		}
 
 		switch ( name ) {
 			case 'triggerTypeSelection':
@@ -111,7 +119,6 @@
 			case 'triggerDetails':
 				this.popPending();
 				this.setSize( 'large' );
-				this.actions.setAbilities( { choose: false, create: true } );
 				page.init( data );
 				page.connect( this, {
 					loading: function () {
@@ -121,7 +128,12 @@
 					loaded: function () {
 						this.popPending();
 						this.updateSize();
-						this.actions.setAbilities( { choose: false, create: true } );
+						if ( this.triggerData ) {
+							this.actions.setAbilities( { choose: false, create: true } );
+						} else {
+							this.actions.setAbilities( { back: true, choose: false, create: true } );
+						}
+
 					},
 					sizeChange: function () {
 						this.updateSize();
@@ -164,6 +176,9 @@
 							value: {}
 						} );
 					}
+				}
+				if ( action === 'back' ) {
+					this.switchPanel( 'triggerTypeSelection' );
 				}
 				if ( action === 'create' ) {
 					const dfd = $.Deferred();

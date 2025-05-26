@@ -15,8 +15,8 @@
 			flags: [ 'primary', 'destructive' ]
 		},
 		{
-			label: mw.message( 'workflows-ui-action-cancel' ).text(),
-			flags: 'safe'
+			title: mw.message( 'workflows-ui-action-cancel' ).text(),
+			flags: [ 'safe', 'close' ]
 		}
 	];
 
