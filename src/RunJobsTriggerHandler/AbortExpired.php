@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
 
 use BlueSpice\RunJobsTriggerHandler\Interval\OnceADay;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
+use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Util\AutoAborter;
 use MediaWiki\Extension\Workflows\Workflow;
@@ -22,9 +23,9 @@ final class AbortExpired extends ProcessWorkflows {
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		Notifier $notifier
+		Notifier $notifier, WorkflowStateStore $stateStore
 	) {
-		parent::__construct( $workflowRepo, $definitionRepositoryFactory, $notifier );
+		parent::__construct( $workflowRepo, $definitionRepositoryFactory, $notifier, $stateStore );
 		$this->autoAborter = new AutoAborter( $workflowRepo );
 	}
 

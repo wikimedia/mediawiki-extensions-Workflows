@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
 
 use Exception;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
+use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Status\Status;
@@ -31,27 +32,32 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	/** @var Notifier */
 	protected $notifier;
 
+	/** @var WorkflowStateStore */
+	protected $stateStore;
+
 	/**
 	 *
 	 * @param WorkflowEventRepository $workflowRepo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
 	 * @param Notifier $notifier
+	 * @param WorkflowStateStore $stateStore
 	 */
 	public function __construct(
 		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		Notifier $notifier
+		Notifier $notifier, WorkflowStateStore $stateStore
 	) {
 		$this->workflowRepo = $workflowRepo;
 		$this->definitionRepositoryFactory = $definitionRepositoryFactory;
 		$this->logger = new NullLogger();
 		$this->notifier = $notifier;
+		$this->stateStore = $stateStore;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function run() {
-		$workflowIds = $this->workflowRepo->retrieveAllIds();
+		$workflowIds = $this->stateStore->active()->query();
 		foreach ( $workflowIds as $workflowId ) {
 			$this->logger->debug( "Loading '{id}'", [ 'id' => $workflowId->toString() ] );
 
