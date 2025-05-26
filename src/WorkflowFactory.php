@@ -33,8 +33,11 @@ class WorkflowFactory {
 	 * Retrieve instance of Workflow based on ID
 	 * Good for public use
 	 *
-	 * @param WorkflowId $aggregateRootId
+	 * @param AggregateRootId $aggregateRootId
 	 * @return Workflow
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 * @throws WorkflowExecutionException
 	 */
 	public function getWorkflow(
 		AggregateRootId $aggregateRootId

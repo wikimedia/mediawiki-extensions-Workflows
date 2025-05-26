@@ -19,7 +19,7 @@ class AddBackgroundProcess {
 			'class' => ProcessWorkflows::class,
 			'services' => [
 				'WorkflowEventRepository', 'DefinitionRepositoryFactory',
-				'MWStake.Notifier'
+				'MWStake.Notifier', 'WorkflowsStateStore'
 			]
 		];
 		$handlers[ProcessTimeBasedTriggers::HANDLER_KEY] = [
@@ -30,13 +30,14 @@ class AddBackgroundProcess {
 			'class' => SendDueDateProximityNotifications::class,
 			'services' => [
 				'WorkflowEventRepository', 'DefinitionRepositoryFactory',
-				'MWStake.Notifier'
+				'MWStake.Notifier', 'WorkflowsStateStore'
 			]
 		];
 		$handlers[AbortExpired::HANDLER_KEY] = [
 			'class' => AbortExpired::class,
 			'services' => [
-				'WorkflowEventRepository', 'DefinitionRepositoryFactory', 'MWStake.Notifier'
+				'WorkflowEventRepository', 'DefinitionRepositoryFactory', 'MWStake.Notifier',
+				'WorkflowsStateStore'
 			]
 		];
 

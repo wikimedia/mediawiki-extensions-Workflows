@@ -49,7 +49,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			/** @var WorkflowId $id */
 			$id = $dataSet->get( Record::ID );
 			try {
-				$workflow = $this->workflowFactory->getWorkflow( $id );
+				$workflow = $this->workflowFactory->getWorkflowForBot( $id );
 			} catch ( \Exception $e ) {
 				// If the workflow is not found, we skip it
 				continue;
