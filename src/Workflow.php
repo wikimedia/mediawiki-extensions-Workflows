@@ -150,9 +150,10 @@ final class Workflow {
 		WorkflowId $id, WorkflowEventRepository $repo,
 		DefinitionRepositoryFactory $definitionRepositoryFactory
 	) {
-		$instance = self::create();
 		$actor = User::newSystemUser( 'Mediawiki default', [ 'steal' => true ] );
-		return self::setup( $id, $repo, $definitionRepositoryFactory, $instance, $actor );
+		return self::newFromInstanceID(
+			$id, $repo, $definitionRepositoryFactory, $actor
+		);
 	}
 
 	/**
@@ -162,6 +163,7 @@ final class Workflow {
 	 * @param WorkflowId $id
 	 * @param WorkflowEventRepository $repo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
+	 * @param User|null $actor
 	 * @return self
 	 * @throws ContainerExceptionInterface
 	 * @throws NotFoundExceptionInterface
@@ -169,10 +171,10 @@ final class Workflow {
 	 */
 	public static function newFromInstanceID(
 		WorkflowId $id, WorkflowEventRepository $repo,
-		DefinitionRepositoryFactory $definitionRepositoryFactory
+		DefinitionRepositoryFactory $definitionRepositoryFactory, ?User $actor = null
 	) {
 		$instance = self::create();
-		return self::setup( $id, $repo, $definitionRepositoryFactory, $instance );
+		return self::setup( $id, $repo, $definitionRepositoryFactory, $instance, $actor );
 	}
 
 	/**
@@ -204,7 +206,10 @@ final class Workflow {
 		}
 		$instance->setStorage( $storage );
 		$instance->setExecutionMode( self::EXECUTION_MODE_EXECUTING );
-
+		if ( $actor ) {
+			// reset actor that might have been set by the repository
+			$instance->setActor( $actor );
+		}
 		// Check if current process should be continued
 		if ( $instance->actionFlags & self::_CONTINUE_EXECUTION_FLAG ) {
 			$first = null;
@@ -513,7 +518,6 @@ final class Workflow {
 	 * @throws Exception
 	 */
 	public function current( $elementId = null ) {
-		$this->assertActorCan( 'view' );
 		$this->assertMembers( __METHOD__ );
 		if ( $elementId && isset( $this->current[$elementId] ) ) {
 			return $this->current[$elementId];
@@ -565,6 +569,7 @@ final class Workflow {
 
 	/**
 	 * @return IActivity[]
+	 * @throws PermissionsError
 	 */
 	public function getCompletedTasks(): array {
 		$this->assertActorCan( 'view' );
@@ -1139,6 +1144,10 @@ final class Workflow {
 	 * @throws PermissionsError
 	 */
 	private function assertActorCan( $action, $task = null ) {
+		if ( $this->executionMode === static::EXECUTION_MODE_REPLAYING ) {
+			// If we are replaying, do not check permissions
+			return;
+		}
 		if ( $this->runsAsBotProcess() ) {
 			return;
 		}

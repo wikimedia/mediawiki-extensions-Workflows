@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Workflows\Process;
 
 use Exception;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
+use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Events\Notifier;
@@ -27,7 +28,8 @@ class ProcessWorkflows implements IProcessStep, LoggerAwareInterface {
 	public function __construct(
 		private readonly WorkflowEventRepository $workflowRepo,
 		private readonly DefinitionRepositoryFactory $definitionRepositoryFactory,
-		protected readonly Notifier $notifier
+		protected readonly Notifier $notifier,
+		protected readonly WorkflowStateStore $stateStore
 	) {
 		$this->logger = new NullLogger();
 	}
@@ -41,7 +43,7 @@ class ProcessWorkflows implements IProcessStep, LoggerAwareInterface {
 	 * @throws NotFoundExceptionInterface
 	 */
 	public function execute( $data = [] ): array {
-		$workflowIds = $this->workflowRepo->retrieveAllIds();
+		$workflowIds = $this->stateStore->active()->query();
 		foreach ( $workflowIds as $workflowId ) {
 			$this->logger->debug( "Loading '{id}'", [ 'id' => $workflowId->toString() ] );
 

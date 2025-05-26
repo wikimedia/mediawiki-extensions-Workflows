@@ -30,7 +30,8 @@ class BackgroundProcessCron {
 				'services' => [
 					'WorkflowEventRepository',
 					'DefinitionRepositoryFactory',
-					'MWStake.Notifier'
+					'MWStake.Notifier',
+					'WorkflowsStateStore'
 				],
 			]
 		] ) );
@@ -45,7 +46,8 @@ class BackgroundProcessCron {
 					'services' => [
 						'WorkflowEventRepository',
 						'DefinitionRepositoryFactory',
-						'MWStake.Notifier'
+						'MWStake.Notifier',
+						'WorkflowsStateStore'
 					],
 				]
 			] )
@@ -61,7 +63,8 @@ class BackgroundProcessCron {
 					'services' => [
 						'WorkflowEventRepository',
 						'DefinitionRepositoryFactory',
-						'MWStake.Notifier'
+						'MWStake.Notifier',
+						'WorkflowsStateStore'
 					],
 				]
 			] )
