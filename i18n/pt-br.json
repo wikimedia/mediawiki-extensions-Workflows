@@ -15,6 +15,7 @@
 	"workflows-ui-overview-details-page-context-page": "Página",
 	"workflows-ui-overview-grid-filter-state-all": "Todos",
 	"workflows-collect-data-form-username": "Usuário",
+	"workflows-activity-property-due_date": "Data de vencimento",
 	"workflows-ui-overview-details-activity-assigned-users-more": "e {{PLURAL:$1|mais um|$1 mais}}",
 	"workflows-workflow-file-definition-group-feedback-title": "Feedback do grupo",
 	"workflows-workflow-file-definition-group-feedback-desc": "Peça feedback a um grupo de usuários enquanto revisa uma página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
