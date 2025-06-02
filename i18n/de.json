@@ -30,7 +30,7 @@
 	"workflows-ui-starter-dialog-title": "Workflow starten",
 	"workflows-ui-starter-action-choose": "Auswählen",
 	"workflows-ui-starter-action-start": "Workflow starten",
-	"workflows-ui-starter-action-done": "Fertig",
+	"workflows-ui-starter-action-done": "Starten",
 	"workflows-ui-starter-action-back": "Auswahl ändern",
 	"workflows-ui-starter-action-cancel": "Abbrechen",
 	"workflows-ui-starter-init-form-fail": "Formular zur Initialisierung kann nicht abgerufen werden",
