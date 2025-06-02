@@ -21,6 +21,12 @@ workflows.ui.panel.TriggerEditor.prototype.render = function ( data, types ) {
 			this.appendHeader();
 		}
 		this.appendTriggers( data, types );
+		if ( $( document ).find( '#oojsplus-skeleton-cnt' ) ) {
+			$( '#oojsplus-skeleton-cnt' ).empty();
+		}
+		if ( $( '#workflows-triggers-hint:visible' ).length === 0 ) { // eslint-disable-line no-jquery/no-sizzle
+			$( '#workflows-triggers-hint' )[ 0 ].style.display = 'block';
+		}
 		this.$element.append( this.$triggerCnt );
 		this.emit( 'loaded' );
 	} );

@@ -3,10 +3,9 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Special;
 
 use MediaWiki\Html\Html;
-use MediaWiki\SpecialPage\SpecialPage;
-use OOUI\ProgressBarWidget;
+use OOJSPlus\Special\OOJSCardSpecialPage;
 
-class WorkflowTriggers extends SpecialPage {
+class WorkflowTriggers extends OOJSCardSpecialPage {
 
 	public function __construct() {
 		parent::__construct( 'WorkflowTriggers', 'workflows-admin' );
@@ -15,23 +14,21 @@ class WorkflowTriggers extends SpecialPage {
 	/**
 	 * @inheritDoc
 	 */
-	public function execute( $subPage ) {
-		parent::execute( $subPage );
+	public function doExecute( $subPage ) {
 		$out = $this->getOutput();
 
 		$out->addModules( [ 'ext.workflows.triggers' ] );
-		$this->getContext()->getOutput()->enableOOUI();
 		$out->addHTML(
 			Html::rawElement( 'div', [
-				'id' => 'workflows-triggers-hint'
+				'id' => 'workflows-triggers-hint',
+				'style' => 'display: none'
 			], $this->msg( 'workflows-triggers-edit-json-label' )->parse()
 			)
 		);
 		$out->addHTML(
 			Html::rawElement( 'div', [
 				'id' => 'workflows-triggers-editor-cnt'
-			], new ProgressBarWidget( [ 'progress' => false ] )
-			)
+			] )
 		);
 	}
 }
