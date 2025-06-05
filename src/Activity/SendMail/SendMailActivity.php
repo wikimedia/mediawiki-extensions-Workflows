@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Activity\SendMail;
 
+use Exception;
 use MailAddress;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus;
@@ -14,7 +15,6 @@ use MediaWiki\Mail\IEmailer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use MWException;
 
 class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {
 
@@ -60,7 +60,7 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 	 * @param array $data
 	 * @param WorkflowContext $context
 	 * @return ExecutionStatus
-	 * @throws MWException In cases of some invalid values
+	 * @throws Exception In cases of some invalid values
 	 */
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$to = $data['recipient'];
