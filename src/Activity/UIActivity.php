@@ -8,7 +8,7 @@ use MediaWiki\Extension\Workflows\ActivityDescriptor\GenericUIActivityDescriptor
 use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
-use MWException;
+use Throwable;
 
 class UIActivity extends GenericActivity implements UserInteractiveActivity {
 	/** @var DateTime|null */
@@ -119,7 +119,7 @@ class UIActivity extends GenericActivity implements UserInteractiveActivity {
 				'form' => $form
 			] );
 			return $definitionManager->getDefinition( $form );
-		} catch ( MWException $ex ) {
+		} catch ( Throwable $ex ) {
 			$this->logger->debug( 'Failed: {message}', [
 				'message' => $ex->getMessage()
 			] );

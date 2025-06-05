@@ -7,7 +7,7 @@ use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\Parser\BPMNDefinitionParser;
 use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
 use MediaWiki\Message\Message;
-use MWException;
+use RuntimeException;
 
 abstract class FileRepository implements IDefinitionRepository {
 	/** @var array */
@@ -77,12 +77,12 @@ abstract class FileRepository implements IDefinitionRepository {
 	/**
 	 * @param string $key
 	 * @param string $filePath
-	 * @throws MWException
+	 * @throws RuntimeException
 	 */
 	public function register( $key, $filePath ) {
 		$fullPath = $this->getFilePath( $filePath );
 		if ( !file_exists( $fullPath ) ) {
-			throw new MWException( 'Cannot find definition file at ' . $fullPath );
+			throw new RuntimeException( 'Cannot find definition file at ' . $fullPath );
 		}
 		$this->files[$key] = $this->getDefinitionText( $filePath );
 	}
