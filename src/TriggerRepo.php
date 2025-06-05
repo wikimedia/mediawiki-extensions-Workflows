@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows;
 
+use InvalidArgumentException;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\Content;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
@@ -15,9 +16,9 @@ use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use MWException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
+use RuntimeException;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use WikiPage;
 
@@ -284,7 +285,7 @@ class TriggerRepo {
 	/**
 	 * @param PageUpdater $updater
 	 * @return bool
-	 * @throws MWException
+	 * @throws RuntimeException
 	 */
 	private function persistContent( PageUpdater $updater ) {
 		$revision = $updater->saveRevision(
@@ -305,7 +306,7 @@ class TriggerRepo {
 	}
 
 	/**
-	 * @throws MWException
+	 * @throws InvalidArgumentException
 	 */
 	private function setWikipage() {
 		$title = $this->titleFactory->newFromText( $this->page );

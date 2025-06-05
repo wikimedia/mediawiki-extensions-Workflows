@@ -14,9 +14,9 @@ use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MWContentSerializationException;
-use MWException;
 use MWStake\MediaWiki\Component\Wikitext\Node\Transclusion;
 use MWStake\MediaWiki\Component\Wikitext\ParserFactory;
+use RuntimeException;
 
 class SetTemplateParamsActivity extends GenericActivity {
 	/** @var ParserFactory */
@@ -71,7 +71,8 @@ class SetTemplateParamsActivity extends GenericActivity {
 	 * @return ExecutionStatus
 	 * @throws WorkflowExecutionException
 	 * @throws MWContentSerializationException
-	 * @throws MWException
+	 * @throws LogicException
+	 * @throws RuntimeException
 	 */
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$this->assertData( $data );

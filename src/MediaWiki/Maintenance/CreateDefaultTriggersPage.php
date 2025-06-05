@@ -16,7 +16,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use MWException;
+use RuntimeException;
 
 require_once dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) . '/maintenance/Maintenance.php';
 
@@ -49,7 +49,7 @@ class CreateDefaultTriggersPage extends LoggedUpdateMaintenance {
 	/**
 	 * @param Title $title
 	 * @param TriggerRepo $triggerRepo
-	 * @throws MWException
+	 * @throws RuntimeException
 	 * @return bool
 	 */
 	private function createPage( Title $title, TriggerRepo $triggerRepo ) {
