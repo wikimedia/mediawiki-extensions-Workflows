@@ -88,10 +88,18 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 		$from = $this->fromAddress;
 		$subject = $data['subject'];
 		$bodyText = $data[ 'body' ];
+		$format = $data['format'] ?? 'plaintext';
 
-		$bodyText = strip_tags( $bodyText );
+		$options = [];
+		$htmlBody = null;
+		if ( $format === 'html' ) {
+			$htmlBody = $this->wrapHtml( $bodyText );
+			$options['contentType'] = 'text/html;charset=UTF-8';
+		} else {
+			$bodyText = strip_tags( $bodyText );
+		}
 
-		$status = $this->emailer->send( $to, $from, $subject, $bodyText );
+		$status = $this->emailer->send( $to, $from, $subject, $bodyText, $htmlBody, $options );
 		if ( $status->isGood() ) {
 			$this->getSpecialLogLogger()->addEntry(
 				'sendmail-send',
@@ -122,4 +130,17 @@ class SendMailActivity extends GenericActivity implements SpecialLogLoggerAwareI
 
 		return new ExecutionStatus( static::STATUS_COMPLETE );
 	}
+
+	/**
+	 * @param string $body
+	 * @return string
+	 */
+	private function wrapHtml( string $body ): string {
+		// Make a valid html mail
+		$res = '<html><head><meta charset="UTF-8"></head><body>';
+		$res .= $body;
+		$res .= '</body></html>';
+		return $res;
+	}
+
 }
