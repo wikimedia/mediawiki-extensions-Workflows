@@ -366,5 +366,8 @@
 	"workflows-ui-overview-details-has-notice-label": "Possède une notice ?",
 	"workflows-ui-trigger-type-label": "Type de déclencheur",
 	"workflows-ui-action-edit-triggers": "Modifier",
-	"workflowtriggers": "Déclencheurs de flux de travail"
+	"workflowtriggers": "Déclencheurs de flux de travail",
+	"workflows-ui-overview-details-start-time-raw-column": "Commencé le (brut)",
+	"workflows-ui-overview-details-last-time-raw-column": "Dernière activité sur (brut)",
+	"workflows-triggers-edit-json-label": "Le code source des déclencheurs de workflow peut être modifié sur [[MediaWiki:WorkflowTriggers]]"
 }
