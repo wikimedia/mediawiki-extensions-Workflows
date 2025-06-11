@@ -3,11 +3,12 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Action;
 
 use EditAction;
-use MediaWiki\Content\JsonContent;
 use MediaWiki\EditPage\Constraint\UnicodeConstraint;
 use MediaWiki\Html\Html;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Revision\SlotRecord;
 use RuntimeException;
 
 class EditDiagramAction extends EditAction {
@@ -48,16 +49,26 @@ class EditDiagramAction extends EditAction {
 				->params( $this->getTitle()->getText() )
 				->text()
 		);
+		if ( !$out->getTitle() ) {
+			$oldid = '';
+		} else {
+			$oldid = $this->getContext()->getRequest()->getVal( 'oldid', $out->getTitle()->getLatestRevID() );
+		}
 
-		/** @var JsonContent $content */
-		$content = $this->getArticle()->getPage()->getTitle()->exists() ?
-			$this->getArticle()->getPage()->getContent() :
-			null;
+		$revision = null;
+		if ( $oldid ) {
+			$revision = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionById( $oldid );
+		}
+		$xml = $revision?->getContent( SlotRecord::MAIN )?->getText();
+		if ( !$xml ) {
+			$xml = $this->getDefaultXml();
+		}
+
 		$out->addHTML( Html::element( 'div', [
 			'id' => 'workflows-editor-panel',
 			'data-action' => $this->getArticle()->getPage()->getTitle()->exists() ? 'edit' : 'create',
-			'data-xml' => $content ? $content->getText() : $this->getDefaultXml(),
-			'data-revid' => $out->getTitle() ? $out->getTitle()->getLatestRevID() : '',
+			'data-xml' => $xml,
+			'data-revid' => $oldid,
 			'data-token' => $out->getRequest()->getSession()->getToken()->toString(),
 			'data-unicode_check' => UnicodeConstraint::VALID_UNICODE,
 			'style' => 'height: 1000px; width: 100%'
