@@ -74,10 +74,6 @@
 					headerText: mw.message( 'workflows-ui-overview-details-section-page' ).text(),
 					type: 'url',
 					urlProperty: 'page_link',
-					valueParser: function ( val ) {
-						// Truncate long titles
-						return val.length > 35 ? val.slice( 0, 34 ) + '...' : val;
-					},
 					sortable: true,
 					filter: {
 						type: 'text'
