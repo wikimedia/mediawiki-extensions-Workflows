@@ -2,10 +2,13 @@
 
 namespace MediaWiki\Extension\Workflows\Trigger;
 
+use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\Exception\WorkflowTriggerException;
 use MediaWiki\Extension\Workflows\ITrigger;
+use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
+use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
@@ -442,4 +445,29 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 	protected function getActor(): ?User {
 		return null;
 	}
+
+	/**
+	 * @param Title $title
+	 * @param WorkflowStateStore $workflowStore
+	 * @return bool
+	 */
+	public function checkIsAlreadyRunning( Title $title, WorkflowStateStore $workflowStore ): bool {
+		$running = $workflowStore->active()->complexQuery( [
+			'context' => [ 'pageId' => $title->getArticleID() ],
+		], true );
+		$workflowDefinitions = array_map( static function ( WorkflowStateModel $wf ) {
+			$def = $wf->getPayload()['definition'] ?? null;
+			if ( $def instanceof DefinitionSource ) {
+				return md5( $def->getRepositoryKey() . $def->getName() );
+			} elseif ( is_array( $def ) ) {
+				return md5( $def['repositoryKey'] . $def['name'] );
+			}
+			return null;
+		}, $running );
+
+		$definition = md5( $this->repo . $this->definition );
+
+		return in_array( $definition, $workflowDefinitions );
+	}
+
 }
