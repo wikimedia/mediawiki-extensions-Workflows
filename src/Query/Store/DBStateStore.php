@@ -95,17 +95,29 @@ final class DBStateStore implements WorkflowStateStore {
 	}
 
 	/**
+	 * @param array $sort
+	 * @return void
+	 */
+	public function setSort( array $sort ): void {
+		$dbSort = [];
+		foreach ( $sort as $field => $dir ) {
+			$dbSort[] = $field . ' ' . strtoupper( $dir );
+		}
+		$this->options['ORDER BY'] = implode( ', ', $dbSort );
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function query( $returnModel = false ): array {
 		$db = $this->lb->getConnection( DB_REPLICA );
-		$res = $db->select(
-			static::TABLE,
-			[ 'wfs_workflow_id' ],
-			$this->conditions,
-			__METHOD__,
-			$this->options
-		);
+		$res = $db->newSelectQueryBuilder()
+			->from( static::TABLE )
+			->fields( [ 'wfs_workflow_id' ] )
+			->where( $this->conditions )
+			->options( $this->options )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$return = [];
 		foreach ( $res as $row ) {
@@ -119,6 +131,7 @@ final class DBStateStore implements WorkflowStateStore {
 
 		// reset conditions
 		$this->conditions = [];
+		$this->options = [];
 		return $return;
 	}
 

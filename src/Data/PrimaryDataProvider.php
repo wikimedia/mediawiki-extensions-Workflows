@@ -15,6 +15,12 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 	private $stateStore;
 	/** @var TitleFactory */
 	private $titleFactory;
+	/** @var string[] */
+	private $propertyMap = [
+		'start_ts' => 'wfs_started',
+		'last_ts' => 'wfs_touched',
+		'state' => 'wfs_state',
+	];
 
 	/**
 	 * @param WorkflowStateStore $stateStore
@@ -47,12 +53,24 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 			}
 			$filter->setApplied( true );
 		}
+		$sort = [];
+		foreach ( $params->getSort() as $sortField ) {
+			$property = $this->propertyMap[$sortField->getProperty()] ?? null;
+			if ( !$property ) {
+				continue;
+			}
+			$sort[$property] = $sortField->getDirection();
+		}
+		if ( !empty( $sort ) ) {
+			$this->stateStore->setSort( $sort );
+		}
 
 		if ( $onlyActive ) {
 			$this->stateStore->active();
 		} else {
 			$this->stateStore->all();
 		}
+
 		if ( $context ) {
 			$models = $this->stateStore->complexQuery( [ 'context' => $context ], true );
 		} else {
