@@ -428,8 +428,7 @@ window.workflows = {
 function maybeAddAlerts() {
 	if (
 		mw.config.get( 'wgNamespaceNumber' ) < 0 ||
-		!mw.config.get( 'wgRevisionId' ) ||
-		mw.config.get( 'wgPageContentModel' ) !== 'wikitext'
+		!mw.config.get( 'wgRevisionId' )
 	) {
 		return;
 	}
