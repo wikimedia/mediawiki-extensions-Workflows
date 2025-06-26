@@ -115,6 +115,9 @@ workflows.editor.inspector.GroupFeedbackInspector.prototype.convertDataForForm =
 	if ( data.properties.assigned_users[ 0 ] === '' ) {
 		data.properties.assigned_users.shift();
 	}
+	if ( data.properties.hasOwnProperty( 'assigned_group' ) && data.properties.assigned_group !== '' ) {
+		data.assignmentType = 'group';
+	}
 
 	return data;
 };
