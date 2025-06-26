@@ -153,6 +153,9 @@ workflows.editor.inspector.GroupVoteInspector.prototype.convertDataForForm = fun
 	) {
 		data.properties.assigned_users.shift();
 	}
+	if ( data.properties.hasOwnProperty( 'assigned_group' ) && data.properties.assigned_group !== '' ) {
+		data.assignmentType = 'group';
+	}
 
 	return data;
 };
