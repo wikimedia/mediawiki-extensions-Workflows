@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Krisztina"
+		]
+	},
+	"workflows-form-edit-request-submit-to-continue": "A szerkesztés befejezése utána a „Küldés” gombra kattintva, készre jelenti a feladatot",
+	"workflows-ui-alert-activity-edit-request": "Felkérték Önt a lap szerkesztésére",
+	"workflows-ui-overview-details-action-abort-note": "A munkafolyamat megszakítása azonnal megállítja az összes folyamatban lévő feladatot. Biztosan megszakítja a munkafolyamatot?",
+	"workflows-ui-overview-details-action-restore-note": "\nA munkafolyamat visszaállítása a megszakított állapotból folytatja a munkafolyamatot. Biztosan visszaállítja ezt a munkafolyamatot?",
+	"workflows-default-user-feedback-body": "Munkafolyamat részletei:\nKezdés dátuma: $1 \nBefejezés dátuma: $2 \nLap: $3 \nVáltozat: $4 \nFelhasználó: $5 \nÚtmutatók: $6 \nVisszajelzések: $7 \n\nEzt az e-mailt azért küldtük, mert $8 megjelölt téged e-mail címzettként ennél a munkafolyamatnál.",
+	"workflows-default-group-feedback-body": "Munkafolyamat részletei:\nKezdés dátuma: $1 \nBefejezés dátuma: $2 \nLap: $3 \nVáltozat: $4 \nFelhasználó: $5 \nÚtmutatók: $6 \nVisszajelzések:\n $7 \n\nEzt az e-mailt azért küldtük, mert $8 megjelölte Önt e-mail címzettként ennél a munkafolyamatnál.",
+	"workflows-ui-trigger-delete-prompt": "Biztosan törölni akarja a(z) „$1” triggert?",
+	"workflows-event-task-assigned-bot": "Hozzárendelték a $2 feladathoz a $1 lapon",
+	"workflows-event-feedback-task-assigned": "$2 laphoz kapcsolódóan {{GENDER:$1| kiosztott}} Önnek $3 feladatot, az alábbi utasításokkal: $4",
+	"workflows-event-feedback-task-assigned-no-instructions": "$2 laphoz kapcsolódóan {{GENDER:$1| kiosztott}} Önnek $3 feladatot"
+}
