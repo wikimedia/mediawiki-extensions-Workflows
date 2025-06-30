@@ -23,5 +23,6 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Feedback de usuário único",
 	"workflows-workflow-file-definition-user-feedback-desc": "Peça feedback a um usuário enquanto revisa uma página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
 	"workflows-workflow-file-definition-document-control-title": "Controle especializado de documentos",
-	"workflows-workflow-file-definition-document-control-desc": "Peça a um usuário para editar uma página e a outro usuário especialista para revisar essas alterações. Em seguida, peça a um terceiro usuário para aceitar e publicar a página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado."
+	"workflows-workflow-file-definition-document-control-desc": "Peça a um usuário para editar uma página e a outro usuário especialista para revisar essas alterações. Em seguida, peça a um terceiro usuário para aceitar e publicar a página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
+	"workflows-activity-property-due_date": "Data de vencimento"
 }
