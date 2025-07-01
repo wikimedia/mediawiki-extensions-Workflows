@@ -5,7 +5,6 @@
 			"Krisztina"
 		]
 	},
-	"workflows-activity-editpage-error-invalid-cm": "A megadott tartalom típusa érvénytelen",
 	"workflows-desc": "Lehetővé teszi különféle munkafolyamatok meghatározását és végrehajtását a wikin",
 	"workflowsoverview": "Munkafolyamatok áttekintése",
 	"workflows-global-action-overview": "Munkafolyamatok",
@@ -157,6 +156,7 @@
 	"workflows-action-edit-label": "Szerkesztés",
 	"workflows-action-delete-label": "Törlés",
 	"workflows-ui-trigger-field-description": "Leírás",
+	"workflows-activity-editpage-error-invalid-cm": "A megadott tartalom típusa érvénytelen",
 	"workflows-activity-editpage-error-no-title": "Nincs megadva cím",
 	"workflows-activity-editpage-permissiondenied": "A(z) „ {{GENDER:$1| $1 }}” felhasználónak nincs jogosultsága a(z) „$2” lap szerkesztéséhez.",
 	"workflows-activity-editpage-summary": "A lapot egy munkafolyamat tevékenység szerkesztette",
