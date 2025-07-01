@@ -254,5 +254,20 @@
 	"workflows-ui-trigger-type-label": "Trigger típusa",
 	"workflows-ui-action-edit-triggers": "Szerkesztés",
 	"workflowtriggers": "Munkafolyamat triggerek",
-	"workflows-triggers-edit-json-label": "A munkafolyamat triggerek forráskódja szerkeszthető a [[MediaWiki:WorkflowTriggers]] lapon."
+	"workflows-triggers-edit-json-label": "A munkafolyamat triggerek forráskódja szerkeszthető a [[MediaWiki:WorkflowTriggers]] lapon.",
+	"workflows-triggers-type-edit-label": "Szerkesztéskor",
+	"workflows-triggers-type-create-label": "Lap létrehozásakor",
+	"workflows-triggers-type-move-label": "Lap átnevezésekor",
+	"workflows-triggers-type-edit-desc": "Munkafolyamat indítása egy lap szerkesztése után",
+	"workflows-triggers-type-create-desc": "Munkafolyamat indítása egy lap létrehozásakor",
+	"workflows-triggers-type-move-desc": "Munkafolyamat indítása, amikor egy lapot átneveznek",
+	"workflows-triggers-type-manual-desc": "Feltételek meghatározása, amelyek esetén a munkafolyamat manuálisan indítható",
+	"workflows-triggers-type-since-last-major-desc": "Munkafolyamat indítása egy meghatározott idővel a legutóbbi nagyobb módosítás után",
+	"workflows-ui-trigger-page-desc": "Lehetővé teszi a munkafolyamat indításához szükséges feltételek meghatározását",
+	"workflows-ui-trigger-choose-error": "Nem nyílt meg a szerkesztőmód a kiválasztott trigger típusnál",
+	"workflows-ui-triggers-error-persist-fail": "Nem sikerült menteni a triggert",
+	"workflows-trigger-ui-condition-include-category": "Trigger az alábbi kategóriákon belül",
+	"workflows-trigger-ui-condition-exclude-editType": "Trigger, csak a nagyobb szerkesztések esetén",
+	"workflows-ui-trigger-item-inactive": "$1 (inaktív)",
+	"workflows-ui-trigger-field-workflow-picker": "Munkafolyamat kezdése"
 }
