@@ -26,8 +26,7 @@
 			const editButton = new OO.ui.ButtonWidget( {
 				icon: 'edit',
 				framed: false,
-				title: mw.message( 'workflows-action-edit-label' ).text(),
-				flags: 'destructive'
+				title: mw.message( 'workflows-action-edit-label' ).text()
 			} );
 			const deleteButton = new OO.ui.ButtonWidget( {
 				icon: 'trash',
