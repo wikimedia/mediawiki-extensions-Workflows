@@ -358,5 +358,8 @@
 	"workflowtriggers": "Workflow triggers",
 	"workflows-ui-overview-details-start-time-raw-column": "Started on (raw)",
 	"workflows-ui-overview-details-last-time-raw-column": "Last activity on (raw)",
-	"workflows-triggers-edit-json-label": "The source code of the workflow triggers can be edited on [[MediaWiki:WorkflowTriggers]]"
+	"workflows-triggers-edit-json-label": "The source code of the workflow triggers can be edited on [[MediaWiki:WorkflowTriggers]]",
+	"workflows-move-invalid-content-model": "Cannot move workflow to a page with a different content model",
+	"workflows-move-definition-in-use": "Cannot move workflow definition, because it is in use by one or more active workflows. Abort any active workflows before moving the definition.",
+	"workflows-move-definition-in-use-past": "By moving this definition, any workflow that used it in the past will no longer be able to be accessed"
 }
