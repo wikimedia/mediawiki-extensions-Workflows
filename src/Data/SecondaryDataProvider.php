@@ -48,7 +48,13 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			}
 			/** @var WorkflowId $id */
 			$id = $dataSet->get( Record::ID );
-			$workflow = $this->workflowFactory->getWorkflow( $id );
+			try {
+				$workflow = $this->workflowFactory->getWorkflow( $id );
+			} catch ( \Exception $e ) {
+				// If the workflow is not found, we skip it
+				continue;
+			}
+
 			$dataSet->set( Record::ID, $id->toString() );
 			$dataSet->set( Record::ASSIGNEE, $this->formatAssignee( $dataSet->get( Record::ASSIGNEE ) ) );
 			$dataSet->set( Record::STATE_LABEL, $this->getStateLabel( $workflow->getCurrentState() ) );

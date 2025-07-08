@@ -803,7 +803,8 @@
 		"PageDelete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
-		"PageSaveComplete": "triggerWorkflows"
+		"PageSaveComplete": "triggerWorkflows",
+		"MovePageIsValidMove": "preventChangesToDefinitions"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -840,6 +841,10 @@
 		"triggerWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\TriggerWorkflows",
 			"services": [ "WorkflowTriggerRunner", "WorkflowLogger" ]
+		},
+		"preventChangesToDefinitions": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\PreventChangesToDefinitions",
+			"services": [ "WorkflowsStateStore" ]
 		}
 	},
 	"ContentHandlers": {
