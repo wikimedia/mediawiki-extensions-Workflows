@@ -1174,7 +1174,11 @@ final class Workflow {
 	 * @return User
 	 */
 	private function getActor() {
-		return $this->actor ?? RequestContext::getMain()->getUser();
+		if ( !$this->actor || !$this->actor->isRegistered() ) {
+			// If actor is anon, try to set it from the context user
+			return RequestContext::getMain()->getUser();
+		}
+		return $this->actor;
 	}
 
 	/**

@@ -284,6 +284,15 @@ final class DBStateStore implements WorkflowStateStore {
 						return false;
 					}
 					break;
+				case 'definition':
+					$definition = $model->getPayload()['definition'];
+					if (
+						$definition['repositoryKey'] !== $filterData['repositoryKey'] ||
+						$definition['name'] !== $filterData['name']
+					) {
+						return false;
+					}
+					break;
 				case 'state':
 					if ( !$this->matchState( $model->getState(), $filterData ) ) {
 						return false;
