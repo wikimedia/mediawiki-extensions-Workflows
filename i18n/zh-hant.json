@@ -146,7 +146,7 @@
 	"workflows-activity-error-no-title": "無效標題",
 	"workflows-activity-cannot-edit": "使用者「{{GENDER:$1|$1}}」無法編輯頁面「$2」",
 	"workflows-activity-set-template-params-cannot-save": "儲存失敗",
-	"workflows-ui-overview-details-section-details": "詳細資料",
+	"workflows-ui-overview-details-section-details": "詳細資訊",
 	"workflows-ui-overview-details-due-date-label": "到期",
 	"workflows-ui-overview-details-section-assignee": "分配給",
 	"workflows-activity-property-username": "使用者名稱",
