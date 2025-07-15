@@ -8,10 +8,10 @@
 	"workflows-global-action-overview": "Arbejdsgange",
 	"workflows-global-action-overview-desc": "Oversigt over alle arbejdsgange",
 	"workflows-ui-starter-action-choose": "Vælg",
-	"workflows-collect-data-form-groupname": "Gruppe",
-	"workflows-collect-data-form-username": "Bruger",
 	"workflows-ui-workflow-overview-action-restore": "Gendan",
 	"workflows-ui-workflow-overview-action-cancel": "Luk",
 	"workflows-ui-workflow-overview-action-back": "Tilbage",
-	"workflows-ui-overview-details-page-context-page": "Side"
+	"workflows-ui-overview-details-page-context-page": "Side",
+	"workflows-collect-data-form-groupname": "Gruppe",
+	"workflows-collect-data-form-username": "Bruger"
 }
