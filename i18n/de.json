@@ -4,6 +4,7 @@
 			"Brettchenweber",
 			"GünniBusch",
 			"Justman10000",
+			"MLRodrigue",
 			"McDutchie",
 			"Mschlindwein",
 			"Osnard",
@@ -253,12 +254,12 @@
 	"workflows-ui-editor-inspector-properties-additional-name": "Name",
 	"workflows-ui-editor-inspector-properties-additional-value": "Wert",
 	"workflows-ui-editor-inspector-activity-custom-form-title": "Custom form activity",
-	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "Zu verwendende Form",
-	"workflows-ui-editor-inspector-activity-custom-form-form-type": "Typ der Form",
+	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "Zu verwendendes Formular",
+	"workflows-ui-editor-inspector-activity-custom-form-form-type": "Formulartyp",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "On-wiki-Form",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-backend": "Backend-Form",
 	"workflows-ui-editor-inspector-activity-custom-form-form-module": "Form Modul",
-	"workflows-ui-editor-inspector-activity-custom-form-form-title": "Titel der Form",
+	"workflows-ui-editor-inspector-activity-custom-form-form-title": "Titel des Formulars",
 	"workflows-ui-editor-inspector-activity-custom-form-form-class": "Klasse der Form",
 	"workflows-ui-editor-inspector-activity-initializer": "Verwendung als Initialisierer",
 	"workflows-ui-editor-inspector-activity-section-initializer": "Initialisierer",
@@ -320,5 +321,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
 	"workflows-ui-action-edit-triggers": "Bearbeiten",
 	"workflowtriggers": "Workflow-Trigger",
-	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden"
+	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode": "Bearbeitungsmodus"
 }
