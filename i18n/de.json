@@ -278,6 +278,7 @@
 	"workflows-ui-editor-inspector-activity-edit-page-property-title": "Zu bearbeitende Wiki-Seite",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Benutzer",
 	"workflows-ui-editor-inspector-activity-edit-page-property-content": "Inhalt",
+	"workflows-ui-editor-inspector-activity-edit-page-property-mode": "Bearbeitungsmodus",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-prepend": "Voranstellen",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-append": "Anhängen",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace": "Ersetzen",
@@ -321,6 +322,5 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
 	"workflows-ui-action-edit-triggers": "Bearbeiten",
 	"workflowtriggers": "Workflow-Trigger",
-	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden",
-	"workflows-ui-editor-inspector-activity-edit-page-property-mode": "Bearbeitungsmodus"
+	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden"
 }
