@@ -323,7 +323,7 @@
 	"workflowtriggers": "Workflow-Trigger",
 	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode": "Bearbeitungsmodus",
-	"workflows-ui-editor-inspector-activity-edit-page-title": "Aktivität der Wikiseite bearbeiten",
+	"workflows-ui-editor-inspector-activity-edit-page-title": "Aktivität Wikiseite bearbeiten",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "Wenn kein Benutzer angegeben wird, wird ein Systembenutzer verwendet",
 	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "Kleine Änderung?",
 	"workflows-ui-editor-inspector-activity-user-vote-title": "Aktivität Benutzerabstimmung",
