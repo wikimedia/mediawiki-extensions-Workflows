@@ -275,7 +275,7 @@
 	"workflows-ui-editor-inspector-activity-user-activity-property-assigned_user": "Zugewiesener Benutzer",
 	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Anweisungen",
 	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Fälligkeitsdatum",
-	"workflows-ui-editor-inspector-activity-edit-page-title": "Aktivität der Wikiseite bearbeiten",
+	"workflows-ui-editor-inspector-activity-edit-page-title": "Aktivität Wikiseite bearbeiten",
 	"workflows-ui-editor-inspector-activity-edit-page-property-title": "Zu bearbeitende Wiki-Seite",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user": "Benutzer",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "Wenn kein Benutzer angegeben wird, wird ein Systembenutzer verwendet",
