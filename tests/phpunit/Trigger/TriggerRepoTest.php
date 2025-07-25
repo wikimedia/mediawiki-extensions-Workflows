@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Workflows\Tests;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
 use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Extension\Workflows\WorkflowFactory;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use Monolog\Logger;
 
@@ -83,9 +82,9 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 	 */
 	private function getRepo() {
 		$workflowFactoryMock = $this->createMock( WorkflowFactory::class );
-		$titleFactory = MediaWikiServices::getInstance()->getTitleFactory();
+		$titleFactory = $this->getServiceContainer()->getTitleFactory();
 		$workflowStateStoreMock = $this->createMock( WorkflowStateStore::class );
-		$objectFactory = MediaWikiServices::getInstance()->getObjectFactory();
+		$objectFactory = $this->getServiceContainer()->getObjectFactory();
 		$loggerMock = $this->createMock( Logger::class );
 		$registry = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsTriggerTypes' );
 

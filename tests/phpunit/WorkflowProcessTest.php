@@ -19,7 +19,6 @@ use MediaWiki\Extension\Workflows\Storage\Event\WorkflowInitialized;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowStarted;
 use MediaWiki\Extension\Workflows\Tests\DefinitionRepository\TestDefinitionRepository;
 use MediaWiki\Extension\Workflows\Workflow;
-use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -128,7 +127,7 @@ class WorkflowProcessTest extends MediaWikiIntegrationTestCase {
 	 * @throws WorkflowExecutionException
 	 */
 	public function testLooping() {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$loFactory = $services->getService( 'WorkflowLogicObjectFactory' );
 		$loFactory->register( [ 'class' => TestActivity::class ], 'TestActivity', 'activity' );
 		$engine = Workflow::newEmpty( 'looping', $this->defRepository );

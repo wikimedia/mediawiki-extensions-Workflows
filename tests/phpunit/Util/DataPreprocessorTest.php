@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Workflows\Tests\Util;
 
 use MediaWiki\Extension\Workflows\Util\DataPreprocessor;
 use MediaWiki\Extension\Workflows\Util\DataPreprocessorContext;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
@@ -19,7 +18,7 @@ class DataPreprocessorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider providePreprocessTestData
 	 */
 	public function testPreprocess( $context, $contextData, $inputData, $expectedData ) {
-		$parser = MediaWikiServices::getInstance()->getParser();
+		$parser = $this->getServiceContainer()->getParser();
 		$preprocessor = new DataPreprocessor( $parser );
 		$preprocessorContext = new DataPreprocessorContext( $context['title'] );
 		$outputData = $preprocessor->preprocess( $inputData, $contextData, $preprocessorContext );
