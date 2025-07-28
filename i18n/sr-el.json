@@ -4,5 +4,21 @@
 	},
 	"workflows-ui-trigger-action-create": "Sačuvaj",
 	"workflows-ui-workflow-overview-step-name-user-vote-approval": "Odobri",
-	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1|još jedan|još $1}}"
+	"workflows-ui-overview-details-activity-assigned-users-more": "i {{PLURAL:$1|još jedan|još $1}}",
+	"workflows-ui-trigger-field-conditions": "Uslovi",
+	"workflows-editor-title": "Uređivanje $1",
+	"workflows-editor-editor-button-save": "Sačuvaj",
+	"workflows-editor-editor-button-cancel": "Otkaži",
+	"workflows-ui-editor-inspector-properties": "Svojstva",
+	"workflows-ui-editor-inspector-properties-additional": "Dodaj novo svojstvo",
+	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Primalac",
+	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Tema",
+	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Tekst",
+	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Uputstva",
+	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Krajnji rok",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Manja izmena?",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Komentar",
+	"workflows-editor-editor-dialog-save-action-save": "Sačuvaj",
+	"workflows-editor-editor-dialog-save-action-cancel": "Otkaži",
+	"workflows-ui-action-edit-triggers": "Uredi"
 }

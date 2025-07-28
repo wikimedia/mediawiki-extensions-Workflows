@@ -391,5 +391,8 @@
 	"workflows-activity-editpage-error-invalid-cm": "Onjuist type inhoud opgegeven",
 	"workflows-activity-editpage-summary": "De pagina is bewerkt door een werkstroom-activiteit",
 	"workflows-ui-action-edit-triggers": "Bewerken",
-	"workflowtriggers": "Voorwaarden opstart werkstroom"
+	"workflowtriggers": "Voorwaarden opstart werkstroom",
+	"workflows-ui-overview-details-start-time-raw-column": "Begonnen op (ruw)",
+	"workflows-ui-overview-details-last-time-raw-column": "Laatste activiteit op (ruw)",
+	"workflows-triggers-edit-json-label": "De broncode voor het activeren van werkstromen kan worden bewerkt op [[MediaWiki:WorkflowTriggers]]"
 }

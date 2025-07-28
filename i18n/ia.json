@@ -383,5 +383,8 @@
 	"workflows-activity-editpage-summary": "Le pagina ha essite modificate per un activitate de fluxo de travalio",
 	"workflows-ui-trigger-type-label": "Typo de activator",
 	"workflows-ui-action-edit-triggers": "Modificar",
-	"workflowtriggers": "Activatores de fluxo de travalio"
+	"workflowtriggers": "Activatores de fluxo de travalio",
+	"workflows-ui-overview-details-start-time-raw-column": "Data de initio (crude)",
+	"workflows-ui-overview-details-last-time-raw-column": "Data de ultime activitate (crude)",
+	"workflows-triggers-edit-json-label": "Le codice fonte pro activar le fluxos de travalio pote esser modificate sur [[MediaWiki:WorkflowTriggers]]"
 }

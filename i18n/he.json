@@ -387,5 +387,8 @@
 	"logentry-ext-workflows-auto-abort": "זרימת העבודה בדף $3 הופסקה באופן אוטומטי",
 	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|שחזר|שחזרה}} את זרימת העבודה בדף $3",
 	"workflows-ui-action-edit-triggers": "עריכה",
-	"workflowtriggers": "מזנקי זרימת עבודה"
+	"workflowtriggers": "מזנקי זרימת עבודה",
+	"workflows-ui-overview-details-start-time-raw-column": "מלי התחיל (גולמי)",
+	"workflows-ui-overview-details-last-time-raw-column": "מתי הייתה פעילות אחרונה (גולמי)",
+	"workflows-triggers-edit-json-label": "אפשר לערוך את קוד המקור של מזנקי זרימת העבודה בדף [[MediaWiki:WorkflowTriggers]]"
 }

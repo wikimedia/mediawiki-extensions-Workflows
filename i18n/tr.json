@@ -5,7 +5,8 @@
 			"Can",
 			"Hedda",
 			"Rapsar",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"ToprakM"
 		]
 	},
 	"workflows-desc": "Wiki'de çeşitli iş akışlarını tanımlamaya ve yürütmeye izin verir",
@@ -123,7 +124,7 @@
 	"workflows-ui-overview-details-action-abort-note": "Bir iş akışının iptal edilmesi, devam eden tüm görevleri hemen durduracaktır. Bu iş akışını iptal etmek istediğinizden emin misiniz?",
 	"workflows-ui-overview-details-action-restore-note": "Bir iş akışını geri yüklemek, iş akışını durdurulduğu durumdan devam ettirir. Bu iş akışını geri yüklemek istediğinizden emin misiniz?",
 	"workflows-ui-overview-details-activity-due-date": "Son tarih",
-	"workflows-ui-overview-details-action-reason": "Sebep",
+	"workflows-ui-overview-details-action-reason": "Gerekçe",
 	"workflows-ui-overview-details-page-context-revision": "Sürüm",
 	"workflows-ui-overview-details-page-context-page": "Sayfa",
 	"workflows-ui-overview-details-workflow-type-label": "Tür",

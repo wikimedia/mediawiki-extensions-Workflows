@@ -372,5 +372,6 @@
 	"logentry-ext-workflows-unabort": "Entry on [[Special:Log]]",
 	"workflowtriggers": "Title of special page [[Special:Workflow_triggers]]",
 	"workflows-ui-overview-details-start-time-raw-column": "Column header for workflow list export",
-	"workflows-ui-overview-details-last-time-raw-column": "Column header for workflow list export"
+	"workflows-ui-overview-details-last-time-raw-column": "Column header for workflow list export",
+	"workflows-triggers-edit-json-label": "Label on Special:Workflow_triggers to indicate that json editing is possible on [[MediaWiki:WorkflowTriggers]]"
 }
