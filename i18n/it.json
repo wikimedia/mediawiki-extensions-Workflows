@@ -83,5 +83,12 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Annulla",
 	"workflows-activity-editpage-error-invalid-cm": "Tipo di contenuto fornito non valido",
 	"workflows-ui-action-edittriggersource": "Modifica sorgente",
-	"workflows-ui-action-edit-triggers": "Modifica"
+	"workflows-ui-action-edit-triggers": "Modifica",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Attività \"Modulo personalizzato\"",
+	"workflows-ui-editor-inspector-activity-send-mail-title": "Attività \"Invia email\"",
+	"workflows-ui-editor-inspector-activity-edit-page-title": "Attività \"Modifica pagina wiki\"",
+	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "Se non viene specificato l'utente, verrà utilizzato quello di sistema.",
+	"workflows-ui-editor-inspector-activity-edit-request-title": "Attività \"Richiesta di modifica\"",
+	"workflows-ui-editor-inspector-activity-user-vote-title": "Attività \"Voto utente\"",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "Se non viene specificato l'utente, verrà utilizzato quello di sistema."
 }

@@ -155,5 +155,8 @@
 	"workflows-ui-trigger-type-label": "트리거 유형",
 	"workflows-ui-action-edittriggersource": "원본 편집",
 	"workflows-ui-action-edit-triggers": "편집",
-	"workflowtriggers": "워크플로 트리거"
+	"workflowtriggers": "워크플로 트리거",
+	"workflows-ui-editor-inspector-activity-send-mail-title": "\"이메일 보내기\" 활동",
+	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다.",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다."
 }
