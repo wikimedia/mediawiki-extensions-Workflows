@@ -3,6 +3,7 @@
 		"authors": [
 			"Cabadeck",
 			"Dirruw'o",
+			"Elzav",
 			"Gulka.nik",
 			"Kareyac",
 			"Pacha Tchernof",
@@ -61,5 +62,10 @@
 	"workflows-editor-editor-dialog-save-title": "Сохранить диаграмму",
 	"workflows-editor-editor-dialog-save-action-save": "Сохранить",
 	"workflows-editor-editor-dialog-save-action-cancel": "Отмена",
-	"workflows-ui-action-edit-triggers": "Править"
+	"workflows-ui-action-edit-triggers": "Править",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Действие «Пользовательская форма»",
+	"workflows-ui-editor-inspector-activity-user-feedback-title": "Активность «Отзывы пользователей»",
+	"workflows-ui-editor-inspector-activity-edit-request-title": "Действие «Запрос на изменение»",
+	"workflows-ui-editor-inspector-activity-user-vote-title": "Действие \"Голосование пользователя\"",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "Если пользователь не указан, будет использована система 1."
 }

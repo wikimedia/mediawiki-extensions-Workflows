@@ -8,6 +8,7 @@
 			"McDutchie",
 			"Mschlindwein",
 			"Osnard",
+			"PretzelRocky",
 			"TMg",
 			"Talex42",
 			"TomatoCake",
@@ -356,5 +357,6 @@
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_yes_value": "Schwellenwert (für positive Stimmen)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit": "Schwellenwert Einheit (für negative Stimmen)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help": "Bestimmung des Zeitpunkts zum Beenden der Aktivität in Abhängigkeit zur Anzahl / zum Prozentsatz der abstimmenden Benutzer",
-	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Schwellenwert (für negative Stimmen)"
+	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Schwellenwert (für negative Stimmen)",
+	"workflows-ui-editor-inspector-id": "ID"
 }
