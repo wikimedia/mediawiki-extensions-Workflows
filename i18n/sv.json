@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"McDutchie",
-			"Sabelöga"
+			"Sabelöga",
+			"Yupik"
 		]
 	},
 	"workflows-desc": "Tillåter definiering och utövning av diverse arbetsflöden på wikin",
@@ -109,5 +110,6 @@
 	"workflows-uto-body-field-instructions": "Instruktioner: $1",
 	"workflows-ui-overview-details-initiator": "Inleddes av",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde",
-	"workflows-ui-workflow-overview-step-name-edit-request": "Redigeringsbegäran"
+	"workflows-ui-workflow-overview-step-name-edit-request": "Redigeringsbegäran",
+	"workflows-activity-property-username": "Användarnamn"
 }
