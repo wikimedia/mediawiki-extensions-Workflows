@@ -6,7 +6,8 @@
 			"Gulka.nik",
 			"Kareyac",
 			"Pacha Tchernof",
-			"Yurina Tatiana"
+			"Yurina Tatiana",
+			"Elzav"
 		]
 	},
 	"workflows-ui-starter-action-choose": "Выбрать",
@@ -50,6 +51,11 @@
 	"workflows-editor-viewer-section-diagram": "Диаграмма",
 	"workflows-editor-editor-button-save": "Сохранить",
 	"workflows-editor-editor-button-cancel": "Отмена",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Действие «Пользовательская форма»",
+	"workflows-ui-editor-inspector-activity-user-feedback-title": "Активность «Отзывы пользователей»",
+	"workflows-ui-editor-inspector-activity-edit-request-title": "Действие «Запрос на изменение»",
+	"workflows-ui-editor-inspector-activity-user-vote-title": "Действие \"Голосование пользователя\"",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "Если пользователь не указан, будет использована система 1.",
 	"workflows-workflow-file-definition-group-feedback-title": "Группа Отзывов",
 	"workflows-workflow-file-definition-group-feedback-desc": "Попросите группу пользователей оставить отзыв во время просмотра страницы. Как только это будет сделано, указанному получателю будет отправлено уведомление по электронной почте.",
 	"workflows-workflow-file-definition-user-approval-title": "Личное одобрение пользователя",
