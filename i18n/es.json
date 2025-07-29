@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aegis1009",
 			"Agusbou2015",
 			"DiegoAmbrocio",
 			"Fitoschido",
 			"Josuert",
 			"MarcoAurelio",
 			"No se",
-			"Aegis1009"
+			"Yupik"
 		]
 	},
 	"workflows-ui-starter-action-done": "Iniciar",
@@ -43,5 +44,6 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Comentarios de un solo usuario",
 	"workflows-workflow-file-definition-user-feedback-desc": "Pida a un usuario que le dé su opinión mientras revisa una página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado.",
 	"workflows-workflow-file-definition-document-control-title": "Control de documentos por parte de expertos",
-	"workflows-workflow-file-definition-document-control-desc": "Pide a un usuario que edite una página y a otro usuario experto que revise esos cambios. A continuación, pida a un tercer usuario que acepte y publique la página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado."
+	"workflows-workflow-file-definition-document-control-desc": "Pide a un usuario que edite una página y a otro usuario experto que revise esos cambios. A continuación, pida a un tercer usuario que acepte y publique la página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado.",
+	"workflows-activity-property-username": "Nombre de usuario"
 }

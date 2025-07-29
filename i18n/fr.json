@@ -2,14 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
+			"Bananax47",
 			"Gomoko",
 			"JLTRY",
 			"MacOS Weed",
 			"Mahabarata",
 			"Paraboule",
 			"SleaY",
-			"Verdy p",
-			"Bananax47"
+			"Verdy p"
 		]
 	},
 	"workflows-desc": "Permet de définir et d’exécuter différents flux de travail sur le wiki",
