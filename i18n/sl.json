@@ -97,5 +97,7 @@
 	"workflows-editor-default-xml-not-found": "Privzete definicije XML ni bilo mogoče najti; novih diagramov ni mogoče ustvariti.",
 	"workflows-editor-editor-dialog-save-title": "Shrani diagram",
 	"workflows-editor-editor-dialog-save-action-save": "Shrani",
-	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči"
+	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči",
+	"workflows-ui-editor-inspector-properties-additional-name": "Ime",
+	"workflows-ui-editor-inspector-name": "Ime"
 }
