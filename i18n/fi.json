@@ -57,5 +57,6 @@
 	"workflows-ui-overview-details-raw-data-popup-value": "Arvo",
 	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
 	"workflows-ui-action-cancel": "Peruuta",
-	"workflows-ui-trigger-field-description": "Kuvaus"
+	"workflows-ui-trigger-field-description": "Kuvaus",
+	"workflows-activity-property-username": "Käyttäjänimi"
 }

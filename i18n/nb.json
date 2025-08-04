@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"EdoAug",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Yupik"
 		]
 	},
 	"workflows-ui-starter-action-done": "Start",
 	"workflows-ui-workflow-overview-action-back": "Tilbake",
 	"workflows-activity-history-vote-result-yes": "Godkjent",
 	"workflows-activity-history-vote-result-no": "Avvist",
+	"workflows-activity-property-username": "Brukernavn",
 	"workflows-workflow-file-definition-group-feedback-title": "Gruppetilbakemelding",
 	"workflows-workflow-file-definition-group-feedback-desc": "Spør en gruppe med brukere om tilbakemeldinger når du gjennomgår en side. Et e-postvarsel blir sendt til angitt mottaker når det er gjort.",
 	"workflows-workflow-file-definition-user-approval-title": "Enkeltbrukergodkjenning",

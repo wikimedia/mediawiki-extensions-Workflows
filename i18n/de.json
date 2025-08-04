@@ -12,7 +12,8 @@
 			"Umlaut",
 			"Vhoesl",
 			"GünniBusch",
-			"MLRodrigue"
+			"MLRodrigue",
+			"PretzelRocky"
 		]
 	},
 	"workflows-desc": "Erlaubt das Definieren und Durchführen von Workflows im Wiki",
@@ -344,6 +345,7 @@
 	"workflows-event-vote-delegate-no-comment": "{{GENDER:$1|hat}} die Abstimmung zur Workflow-Aufgabe \"$3\" auf Seite $2 an $4 delegiert",
 	"workflows-event-feedback-task-assigned": "{{GENDER:$1|hat}} dir die Aufgabe $3 auf Seite $2 mit der folgenden Anweisung zugewiesen: $4",
 	"workflows-event-feedback-task-assigned-no-instructions": "{{GENDER:$1|hat}} dir die Aufgabe $3 auf Seite $2 zugewiesen",
+	"workflows-ui-editor-inspector-id": "ID",
 	"workflows-editor-editor-dialog-save-title": "Diagramm speichern",
 	"workflows-editor-editor-dialog-save-action-save": "Speichern",
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",

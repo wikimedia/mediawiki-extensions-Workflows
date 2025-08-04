@@ -42,7 +42,7 @@
 	"logentry-ext-workflows-groupvote-yes": "Groepsstem: $1 {{GENDER:$2|heeft}} ‘ja’ gestemd op de pagina $3",
 	"logentry-ext-workflows-groupvote-no": "Groepsstem: $1 {{GENDER:$2|heeft}} ‘nee’ gestemd op de pagina $3",
 	"logentry-ext-workflows-userfeedback": "Gebruiker $1 {{GENDER:$2|heeft}} op pagina $3 terugkoppeling gegeven",
-	"logentry-ext-workflows-groupfeedback": "Groepsterugkoppeling: Gebruiker $1 {{GENDER:$2|heeft}} op pagina $3 terugkoppeling gegeven:",
+	"logentry-ext-workflows-groupfeedback": "Groepsterugkoppeling: Gebruiker $1 heeft {{GENDER:$2|zijn|haar|een}} mening over de pagina $3 gegeven:",
 	"logentry-ext-workflows-editpage-edit": "Pagina bewerkt: $4",
 	"workflows-ui-alert-action-complete": "Handeling voltooien",
 	"workflows-ui-alert-running-workflow-user-task": "Op deze pagina draait een werkstroom. Er moet worden ingegrepen",
