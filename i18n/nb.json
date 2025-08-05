@@ -10,6 +10,7 @@
 	"workflows-ui-workflow-overview-action-back": "Tilbake",
 	"workflows-activity-history-vote-result-yes": "Godkjent",
 	"workflows-activity-history-vote-result-no": "Avvist",
+	"workflows-activity-property-username": "Brukernavn",
 	"workflows-workflow-file-definition-group-feedback-title": "Gruppetilbakemelding",
 	"workflows-workflow-file-definition-group-feedback-desc": "Spør en gruppe med brukere om tilbakemeldinger når du gjennomgår en side. Et e-postvarsel blir sendt til angitt mottaker når det er gjort.",
 	"workflows-workflow-file-definition-user-approval-title": "Enkeltbrukergodkjenning",
@@ -17,6 +18,5 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Enkeltbrukertilbakemeldinger",
 	"workflows-workflow-file-definition-user-feedback-desc": "Spør en bruker om tilbakemeldinger når du gjennomgår en side. Et e-postvarsel blir sendt til angitt mottaker når det er gjort.",
 	"workflows-workflow-file-definition-document-control-title": "Ekspertsdokumentkontroll",
-	"workflows-workflow-file-definition-document-control-desc": "Spør en bruker om å redigere en side og en annen ekspertbruker om å gjennomgå endringene. Spør så en tredje bruker om å godkjenne og publisere siden. Et e-postvarsel blir sendt til angitt mottaker når det er gjort.",
-	"workflows-activity-property-username": "Brukernavn"
+	"workflows-workflow-file-definition-document-control-desc": "Spør en bruker om å redigere en side og en annen ekspertbruker om å gjennomgå endringene. Spør så en tredje bruker om å godkjenne og publisere siden. Et e-postvarsel blir sendt til angitt mottaker når det er gjort."
 }

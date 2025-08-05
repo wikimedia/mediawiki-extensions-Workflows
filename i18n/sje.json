@@ -8,6 +8,6 @@
 	"workflows-form-placeholder-comment": "Målgedibme",
 	"workflows-form-instructions-comment": "Målgedibme",
 	"workflows-ui-trigger-field-description": "Gåvådibme",
-	"workflows-activity-property-comment": "Målgedibme",
-	"workflows-activity-property-username": "Adnejnamma"
+	"workflows-activity-property-username": "Adnejnamma",
+	"workflows-activity-property-comment": "Målgedibme"
 }
