@@ -373,5 +373,8 @@
 	"workflowtriggers": "Title of special page [[Special:Workflow_triggers]]",
 	"workflows-ui-overview-details-start-time-raw-column": "Column header for workflow list export",
 	"workflows-ui-overview-details-last-time-raw-column": "Column header for workflow list export",
-	"workflows-triggers-edit-json-label": "Label on Special:Workflow_triggers to indicate that json editing is possible on [[MediaWiki:WorkflowTriggers]]"
+	"workflows-triggers-edit-json-label": "Label on Special:Workflow_triggers to indicate that json editing is possible on [[MediaWiki:WorkflowTriggers]]",
+	"workflows-move-invalid-content-model": "Error message when trying to move a BPMN page to a different content model",
+	"workflows-move-definition-in-use": "Error message when trying to move a BPMN page that is used in a workflow",
+	"workflows-move-definition-in-use-past": "Warning when moving a BPMN page that was previously used in a workflow"
 }
