@@ -286,6 +286,7 @@
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-prepend": "Voranstellen",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-append": "Anhängen",
 	"workflows-ui-editor-inspector-activity-edit-page-property-mode-replace": "Ersetzen",
+	"workflows-ui-editor-inspector-activity-edit-request-title": "Aktivität \"Bearbeitungsanfrage\"",
 	"workflows-ui-editor-inspector-activity-user-vote-title": "Aktivität \"Benutzerabstimmung\"",
 	"workflows-ui-editor-inspector-activity-set-template-param-title": "Aktivität \"Vorlagenparameter festlegen\"",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-user": "Benutzer",
