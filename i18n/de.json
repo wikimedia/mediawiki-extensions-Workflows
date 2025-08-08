@@ -358,5 +358,6 @@
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit": "Schwellenwert Einheit (für negative Stimmen)",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_unit-help": "Bestimmung des Zeitpunkts zum Beenden der Aktivität in Abhängigkeit zur Anzahl / zum Prozentsatz der abstimmenden Benutzer",
 	"workflows-ui-editor-inspector-activity-group-vote-property-threshold_no_value": "Schwellenwert (für negative Stimmen)",
-	"workflows-ui-editor-inspector-id": "ID"
+	"workflows-ui-editor-inspector-id": "ID",
+	"workflows-ui-editor-inspector-activity-edit-request-title": "Aktivität \"Bearbeitungsanfrage\""
 }
