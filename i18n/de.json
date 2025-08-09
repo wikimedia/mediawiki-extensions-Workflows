@@ -147,7 +147,7 @@
 	"workflows-activity-history-vote-result-no": "Abgelehnt",
 	"workflows-ui-overview-details-raw-data-popup-prop": "Eigenschaft",
 	"workflows-ui-overview-details-raw-data-popup-value": "Wert",
-	"workflows-ui-overview-details-raw-data-popup-label": "Eigenschaftswerte",
+	"workflows-ui-overview-details-raw-data-popup-label": "Rohe Eigenschaftswerte",
 	"workflows-triggers-type-edit-label": "Nach Bearbeitung",
 	"workflows-triggers-type-create-label": "Nach Seitenerstellung",
 	"workflows-triggers-type-move-label": "Nach Seitenverschiebung",
@@ -358,5 +358,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
 	"workflows-ui-action-edit-triggers": "Bearbeiten",
 	"workflowtriggers": "Workflow-Trigger",
-	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden"
+	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden",
+	"workflows-ui-editor-inspector-activity-edit-request-title": "Aktivität \"Bearbeitungsanfrage\""
 }
