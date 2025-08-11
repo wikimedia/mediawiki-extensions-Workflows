@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yueman"
+		]
+	},
+	"workflows-ui-starter-action-cancel": "取消",
+	"workflows-ui-task-completion-action-complete": "遞交",
+	"workflows-ui-task-completion-action-cancel": "取消",
+	"workflows-ui-workflow-overview-action-cancel": "閂",
+	"workflows-ui-overview-grid-filter-state-all": "全部",
+	"workflows-collect-data-form-username": "用戶",
+	"workflows-ui-action-cancel": "取消",
+	"workflows-ui-trigger-field-name": "名"
+}

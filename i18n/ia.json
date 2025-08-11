@@ -362,5 +362,8 @@
 	"workflowtriggers": "Activatores de fluxo de travalio",
 	"workflows-ui-overview-details-start-time-raw-column": "Data de initio (crude)",
 	"workflows-ui-overview-details-last-time-raw-column": "Data de ultime activitate (crude)",
-	"workflows-triggers-edit-json-label": "Le codice fonte pro activar le fluxos de travalio pote esser modificate sur [[MediaWiki:WorkflowTriggers]]"
+	"workflows-triggers-edit-json-label": "Le codice fonte pro activar le fluxos de travalio pote esser modificate sur [[MediaWiki:WorkflowTriggers]]",
+	"workflows-move-invalid-content-model": "Non pote displaciar le fluxo de travalio a un pagina con un altere modello de contento",
+	"workflows-move-definition-in-use": "Non pote displaciar le definition del fluxo de travalio, perque illo es usate per un o plus fluxos de travalio active. Aborta omne fluxos de travalio active ante de displaciar le definition.",
+	"workflows-move-definition-in-use-past": "Si iste definition es displaciate, omne fluxo de travalio que lo ha usate in le passato devenira inaccessibile"
 }
