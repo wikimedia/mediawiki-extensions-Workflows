@@ -272,7 +272,7 @@
 	"workflows-ui-editor-inspector-activity-send-mail-property-recipient": "Empfänger",
 	"workflows-ui-editor-inspector-activity-send-mail-property-subject": "Betreff",
 	"workflows-ui-editor-inspector-activity-send-mail-property-body": "Inhalt",
-	"workflows-ui-editor-inspector-activity-user-feedback-title": "Benutzerfeedback-Aktivität",
+	"workflows-ui-editor-inspector-activity-user-feedback-title": "Aktivität \"Benutzerfeedback\"",
 	"workflows-ui-editor-inspector-activity-user-activity-property-assigned_user": "Zugewiesener Benutzer",
 	"workflows-ui-editor-inspector-activity-user-activity-property-instructions": "Anweisungen",
 	"workflows-ui-editor-inspector-activity-user-activity-property-due_date": "Fälligkeitsdatum",
@@ -359,5 +359,13 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
 	"workflows-ui-action-edit-triggers": "Bearbeiten",
 	"workflowtriggers": "Workflow-Trigger",
-	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden"
+	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden",
+	"workflows-ui-editor-toolbar-lasso-tool": "Aktivieren des Lasso-Tools",
+	"workflows-ui-editor-toolbar-hand-tool": "Aktivieren des Hand-Tools",
+	"workflows-ui-editor-toolbar-space-tool": "Aktivieren des Erstellen / Entfernen von Space-Tools",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Aktivieren des globalen Verbindungs-Tools",
+	"workflows-ui-editor-toolbar-create-start-event": "Erstellen des StartEvents",
+	"workflows-ui-editor-toolbar-create-end-event": "Erstellen des EndEvents",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Erstellen eines Gateways"
+
 }
