@@ -361,5 +361,12 @@
 	"workflows-triggers-edit-json-label": "The source code of the workflow triggers can be edited on [[MediaWiki:WorkflowTriggers]]",
 	"workflows-move-invalid-content-model": "Cannot move workflow to a page with a different content model",
 	"workflows-move-definition-in-use": "Cannot move workflow definition, because it is in use by one or more active workflows. Abort any active workflows before moving the definition.",
-	"workflows-move-definition-in-use-past": "By moving this definition, any workflow that used it in the past will no longer be able to be accessed"
+	"workflows-move-definition-in-use-past": "By moving this definition, any workflow that used it in the past will no longer be able to be accessed",
+	"workflows-ui-editor-toolbar-lasso-tool": "Activate the lasso tool",
+	"workflows-ui-editor-toolbar-hand-tool": "Activate the hand tool",
+	"workflows-ui-editor-toolbar-space-tool": "Activate the create/remove space tool",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Activate the global connect tool",
+	"workflows-ui-editor-toolbar-create-start-event": "Create StartEvent",
+	"workflows-ui-editor-toolbar-create-end-event": "Create EndEvent",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Create Gateway"
 }
