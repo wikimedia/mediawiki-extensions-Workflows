@@ -637,7 +637,14 @@
 				"workflows-ui-editor-inspector-process-title",
 				"workflows-editor-editor-dialog-save-title",
 				"workflows-editor-editor-dialog-save-action-save",
-				"workflows-editor-editor-dialog-save-action-cancel"
+				"workflows-editor-editor-dialog-save-action-cancel",
+				"workflows-ui-editor-toolbar-lasso-tool",
+				"workflows-ui-editor-toolbar-hand-tool",
+				"workflows-ui-editor-toolbar-space-tool",
+				"workflows-ui-editor-toolbar-global-connect-tool",
+				"workflows-ui-editor-toolbar-create-start-event",
+				"workflows-ui-editor-toolbar-create-end-event",
+				"workflows-ui-editor-toolbar-create-exclusive-gateway"
 			]
 		},
 		"ext.workflows.editor.customElements": {

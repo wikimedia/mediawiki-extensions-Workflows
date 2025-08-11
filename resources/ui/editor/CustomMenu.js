@@ -44,7 +44,6 @@ WorkflowsPaletteProvider.$inject = [
 	'lassoTool',
 	'handTool',
 	'globalConnect',
-	'translate',
 	'bpmnFactory'
 ];
 
@@ -56,7 +55,6 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
 		lassoTool = this._lassoTool,
 		handTool = this._handTool,
 		globalConnect = this._globalConnect,
-		translate = this._translate,
 		bpmnFactory = this._bpmnFactory;
 
 	function createAction( type, group, className, title, options ) {
@@ -116,7 +114,7 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
 		'hand-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-hand-tool',
-			title: translate( 'Activate the hand tool' ),
+			title: mw.msg( 'workflows-ui-editor-toolbar-hand-tool' ),
 			action: {
 				click: function ( event ) {
 					handTool.activateHand( event );
@@ -126,7 +124,7 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
 		'lasso-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-lasso-tool',
-			title: translate( 'Activate the lasso tool' ),
+			title: mw.msg( 'workflows-ui-editor-toolbar-lasso-tool' ),
 			action: {
 				click: function ( event ) {
 					lassoTool.activateSelection( event );
@@ -136,7 +134,7 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
 		'space-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-space-tool',
-			title: translate( 'Activate the create/remove space tool' ),
+			title: mw.msg( 'workflows-ui-editor-toolbar-space-tool' ),
 			action: {
 				click: function ( event ) {
 					spaceTool.activateSelection( event );
@@ -146,7 +144,7 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
 		'global-connect-tool': {
 			group: 'tools',
 			className: 'bpmn-icon-connection-multi',
-			title: translate( 'Activate the global connect tool' ),
+			title: mw.msg( 'workflows-ui-editor-toolbar-global-connect-tool' ),
 			action: {
 				click: function ( event ) {
 					globalConnect.start( event );
@@ -159,15 +157,15 @@ WorkflowsPaletteProvider.prototype.getPaletteEntries = function () {
 		},
 		'create.start-event': createAction(
 			'bpmn:StartEvent', 'event', 'bpmn-icon-start-event-none',
-			translate( 'Create StartEvent' )
+			mw.msg( 'workflows-ui-editor-toolbar-create-start-event' )
 		),
 		'create.end-event': createAction(
 			'bpmn:EndEvent', 'event', 'bpmn-icon-end-event-none',
-			translate( 'Create EndEvent' )
+			mw.msg( 'workflows-ui-editor-toolbar-create-end-event' )
 		),
 		'create.exclusive-gateway': createAction(
 			'bpmn:ExclusiveGateway', 'gateway', 'bpmn-icon-gateway-none',
-			translate( 'Create Gateway' )
+			mw.msg( 'workflows-ui-editor-toolbar-create-exclusive-gateway' )
 		),
 		'create-separator': {
 			group: 'create',
