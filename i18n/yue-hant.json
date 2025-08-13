@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"JeffreyKim",
 			"Yueman"
 		]
 	},
@@ -11,5 +12,8 @@
 	"workflows-ui-overview-grid-filter-state-all": "全部",
 	"workflows-collect-data-form-username": "用戶",
 	"workflows-ui-action-cancel": "取消",
-	"workflows-ui-trigger-field-name": "名"
+	"workflows-ui-trigger-field-name": "名",
+	"workflows-move-invalid-content-model": "將工作流程移去唔同內容模型嘅版",
+	"workflows-move-definition-in-use": "移動唔到工作流程定義，因為呢個定義由一個或者多個活動工作流程使用緊。喺移動定義之前，中止任何有效嘅工作流程。",
+	"workflows-move-definition-in-use-past": "移動呢個定義之後，任何過去用過呢個定義嘅工作流程都唔會再被存取"
 }
