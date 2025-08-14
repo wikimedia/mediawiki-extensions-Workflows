@@ -370,5 +370,8 @@
 	"workflowtriggers": "Voorwaarden opstart werkstroom",
 	"workflows-ui-overview-details-start-time-raw-column": "Begonnen op (ruw)",
 	"workflows-ui-overview-details-last-time-raw-column": "Laatste activiteit op (ruw)",
-	"workflows-triggers-edit-json-label": "De broncode voor het activeren van werkstromen kan worden bewerkt op [[MediaWiki:WorkflowTriggers]]"
+	"workflows-triggers-edit-json-label": "De broncode voor het activeren van werkstromen kan worden bewerkt op [[MediaWiki:WorkflowTriggers]]",
+	"workflows-move-invalid-content-model": "Kan de werkstroom niet verplaatsen naar een pagina met een ander inhoudsmodel",
+	"workflows-move-definition-in-use": "Kan de werkstroomdefinitie niet verplaatsen omdat deze wordt gebruikt door een of meer actieve werkstromen. Breek alle actieve werkstromen af voordat u de definitie verplaatst.",
+	"workflows-move-definition-in-use-past": "Door deze definitie te verplaatsen wordt het onmogelijk om toegang te krijgen tot eventuele werkstromen die deze definitie in het verleden gebruikt hebben."
 }
