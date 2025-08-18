@@ -370,5 +370,8 @@
 	"workflowtriggers": "Déclencheurs de flux de travail",
 	"workflows-ui-overview-details-start-time-raw-column": "Commencé le (brut)",
 	"workflows-ui-overview-details-last-time-raw-column": "Dernière activité sur (brut)",
-	"workflows-triggers-edit-json-label": "Le code source des déclencheurs de workflow peut être modifié sur [[MediaWiki:WorkflowTriggers]]"
+	"workflows-triggers-edit-json-label": "Le code source des déclencheurs de workflow peut être modifié sur [[MediaWiki:WorkflowTriggers]]",
+	"workflows-move-invalid-content-model": "Impossible de déplacer le flux de travail vers une page avec un modèle de contenu différent",
+	"workflows-move-definition-in-use": "Impossible de déplacer la définition du workflow, car elle est utilisée par un ou plusieurs workflows actifs. Interrompez tous les workflows actifs avant de déplacer la définition.",
+	"workflows-move-definition-in-use-past": "En déplaçant cette définition, tout flux de travail qui l'utilisait dans le passé ne sera plus accessible"
 }
