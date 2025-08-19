@@ -376,5 +376,12 @@
 	"workflows-triggers-edit-json-label": "Label on Special:Workflow_triggers to indicate that json editing is possible on [[MediaWiki:WorkflowTriggers]]",
 	"workflows-move-invalid-content-model": "Error message when trying to move a BPMN page to a different content model",
 	"workflows-move-definition-in-use": "Error message when trying to move a BPMN page that is used in a workflow",
-	"workflows-move-definition-in-use-past": "Warning when moving a BPMN page that was previously used in a workflow"
+	"workflows-move-definition-in-use-past": "Warning when moving a BPMN page that was previously used in a workflow",
+	"workflows-ui-editor-toolbar-lasso-tool": "Label for the tool in BPMN editor",
+	"workflows-ui-editor-toolbar-hand-tool": "Label for the tool in BPMN editor",
+	"workflows-ui-editor-toolbar-space-tool": "Label for the tool in BPMN editor",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Label for the tool in BPMN editor",
+	"workflows-ui-editor-toolbar-create-start-event": "{{doc-important|Do not translate <code>StartEvent</code>}}\nLabel for the tool in BPMN editor",
+	"workflows-ui-editor-toolbar-create-end-event": "{{doc-important|Do not translate <code>EndEvent</code>}}\nLabel for the tool in BPMN editor",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Label for the tool in BPMN editor"
 }
