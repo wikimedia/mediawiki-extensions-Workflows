@@ -1,5 +1,5 @@
 {
-	"@metadata": {},
+	"@metadata": [],
 	"workflows-desc": "Allows to define and execute various workflows on the wiki",
 	"workflowsoverview": "Workflows overview",
 	"workflows-global-action-overview": "Workflows",
@@ -368,5 +368,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Activate the global connect tool",
 	"workflows-ui-editor-toolbar-create-start-event": "Create StartEvent",
 	"workflows-ui-editor-toolbar-create-end-event": "Create EndEvent",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Create Gateway"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Create Gateway",
+	"workflows-ui-dialog-action-back": "Back",
+	"workflows-ui-dialog-action-next": "Next"
 }

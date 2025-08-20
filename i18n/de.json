@@ -366,5 +366,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Aktivieren des globalen Verbindungs-Tools",
 	"workflows-ui-editor-toolbar-create-start-event": "Erstellen des StartEvents",
 	"workflows-ui-editor-toolbar-create-end-event": "Erstellen des EndEvents",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Erstellen eines Gateways"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Erstellen eines Gateways",
+	"workflows-ui-dialog-action-back": "Zurück",
+	"workflows-ui-dialog-action-next": "Weiter"
 }
