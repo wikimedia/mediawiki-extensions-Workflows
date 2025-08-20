@@ -383,5 +383,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Label for the tool in BPMN editor",
 	"workflows-ui-editor-toolbar-create-start-event": "{{doc-important|Do not translate <code>StartEvent</code>}}\nLabel for the tool in BPMN editor",
 	"workflows-ui-editor-toolbar-create-end-event": "{{doc-important|Do not translate <code>EndEvent</code>}}\nLabel for the tool in BPMN editor",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Label for the tool in BPMN editor"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Label for the tool in BPMN editor",
+	"workflows-ui-dialog-action-back": "Process dialog action label\n\n{{Identical|Back}}",
+	"workflows-ui-dialog-action-next": "Process dialog action label\n\n{{Identical|Next}}"
 }
