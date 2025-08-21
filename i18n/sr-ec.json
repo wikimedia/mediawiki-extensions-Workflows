@@ -23,5 +23,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Коментар",
 	"workflows-editor-editor-dialog-save-action-save": "Сачувај",
 	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
-	"workflows-ui-action-edit-triggers": "Уреди"
+	"workflows-ui-action-edit-triggers": "Уреди",
+	"workflows-ui-dialog-action-back": "Назад",
+	"workflows-ui-dialog-action-next": "Следеће"
 }

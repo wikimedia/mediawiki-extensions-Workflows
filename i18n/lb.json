@@ -134,5 +134,7 @@
 	"workflows-editor-editor-dialog-save-title": "Diagramm späicheren",
 	"workflows-editor-editor-dialog-save-action-save": "Späicheren",
 	"workflows-editor-editor-dialog-save-action-cancel": "Ofbriechen",
-	"workflows-ui-action-edit-triggers": "Änneren"
+	"workflows-ui-action-edit-triggers": "Änneren",
+	"workflows-ui-dialog-action-back": "Zeréck",
+	"workflows-ui-dialog-action-next": "Nächst"
 }
