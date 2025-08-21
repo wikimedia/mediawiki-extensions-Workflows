@@ -3,6 +3,7 @@
 		"authors": [
 			"Caiofernandes",
 			"Hamilton Abreu",
+			"Mansil alfalb",
 			"McDutchie"
 		]
 	},
@@ -228,5 +229,8 @@
 	"workflows-workflow-file-definition-user-feedback-title": "Comentários de um único utilizador",
 	"workflows-workflow-file-definition-user-feedback-desc": "Pedir comentários a um utilizador enquanto revê uma página. Quando estiverem concluídos, é enviada uma notificação por correio eletrónico ao destinatário especificado.",
 	"workflows-workflow-file-definition-document-control-title": "Controlo de documento por especialista",
-	"workflows-workflow-file-definition-document-control-desc": "Pedir a um utilizador para editar uma página e a outro utilizador especialista para rever essas alterações. Depois pedir a um terceiro utilizador para aceitar e publicar a página. Quando estiver tudo concluído, é enviada uma notificação por correio eletrónico ao destinatário especificado."
+	"workflows-workflow-file-definition-document-control-desc": "Pedir a um utilizador para editar uma página e a outro utilizador especialista para rever essas alterações. Depois pedir a um terceiro utilizador para aceitar e publicar a página. Quando estiver tudo concluído, é enviada uma notificação por correio eletrónico ao destinatário especificado.",
+	"workflows-ui-editor-toolbar-space-tool": "Ativar a ferramenta de criação/remoção de espaço",
+	"workflows-ui-dialog-action-back": "Voltar",
+	"workflows-ui-dialog-action-next": "Seguinte"
 }

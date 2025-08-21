@@ -365,5 +365,14 @@
 	"workflows-triggers-edit-json-label": "Le codice fonte pro activar le fluxos de travalio pote esser modificate sur [[MediaWiki:WorkflowTriggers]]",
 	"workflows-move-invalid-content-model": "Non pote displaciar le fluxo de travalio a un pagina con un altere modello de contento",
 	"workflows-move-definition-in-use": "Non pote displaciar le definition del fluxo de travalio, perque illo es usate per un o plus fluxos de travalio active. Aborta omne fluxos de travalio active ante de displaciar le definition.",
-	"workflows-move-definition-in-use-past": "Si iste definition es displaciate, omne fluxo de travalio que lo ha usate in le passato devenira inaccessibile"
+	"workflows-move-definition-in-use-past": "Si iste definition es displaciate, omne fluxo de travalio que lo ha usate in le passato devenira inaccessibile",
+	"workflows-ui-editor-toolbar-lasso-tool": "Activar le utensile de lasso",
+	"workflows-ui-editor-toolbar-hand-tool": "Activar le utensile de mano",
+	"workflows-ui-editor-toolbar-space-tool": "Activar le utensile pro crear/remover spatio",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Activar le utensile de connexion global",
+	"workflows-ui-editor-toolbar-create-start-event": "Crear StartEvent",
+	"workflows-ui-editor-toolbar-create-end-event": "Crear EndEvent",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Crear passarella",
+	"workflows-ui-dialog-action-back": "Retro",
+	"workflows-ui-dialog-action-next": "Proxime"
 }

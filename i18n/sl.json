@@ -99,5 +99,6 @@
 	"workflows-editor-editor-dialog-save-action-save": "Shrani",
 	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči",
 	"workflows-ui-editor-inspector-properties-additional-name": "Ime",
-	"workflows-ui-editor-inspector-name": "Ime"
+	"workflows-ui-editor-inspector-name": "Ime",
+	"workflows-activity-property-action": "Dejanje"
 }

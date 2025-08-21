@@ -373,5 +373,12 @@
 	"workflows-triggers-edit-json-label": "De broncode voor het activeren van werkstromen kan worden bewerkt op [[MediaWiki:WorkflowTriggers]]",
 	"workflows-move-invalid-content-model": "Kan de werkstroom niet verplaatsen naar een pagina met een ander inhoudsmodel",
 	"workflows-move-definition-in-use": "Kan de werkstroomdefinitie niet verplaatsen omdat deze wordt gebruikt door een of meer actieve werkstromen. Breek alle actieve werkstromen af voordat u de definitie verplaatst.",
-	"workflows-move-definition-in-use-past": "Door deze definitie te verplaatsen wordt het onmogelijk om toegang te krijgen tot eventuele werkstromen die deze definitie in het verleden gebruikt hebben."
+	"workflows-move-definition-in-use-past": "Door deze definitie te verplaatsen wordt het onmogelijk om toegang te krijgen tot eventuele werkstromen die deze definitie in het verleden gebruikt hebben.",
+	"workflows-ui-editor-toolbar-lasso-tool": "Het lasso-gereedschap activeren",
+	"workflows-ui-editor-toolbar-hand-tool": "Het handgereedschap activeren",
+	"workflows-ui-editor-toolbar-space-tool": "Het gereedschap voor het maken/verwijderen van ruimte activeren",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Het gereedschap voor wereldwijde verbinding activeren",
+	"workflows-ui-editor-toolbar-create-start-event": "StartEvent aanmaken",
+	"workflows-ui-editor-toolbar-create-end-event": "EndEvent aanmaken",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway aanmaken"
 }
