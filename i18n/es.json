@@ -20,7 +20,6 @@
 	"workflows-triggers-type-manual-label": "Manual",
 	"workflows-ui-action-cancel": "Cancelar",
 	"workflows-ui-trigger-action-create": "Guardar",
-	"workflows-ui-trigger-action-choose": "Continuar",
 	"workflows-ui-trigger-delete-dialog-title": "Eliminar disparador",
 	"workflows-ui-trigger-action-delete": "Eliminar",
 	"workflows-ui-trigger-delete-prompt": "¿Estás seguro de querer eliminar el disparador \"$1\"?",

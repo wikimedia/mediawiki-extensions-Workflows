@@ -8,7 +8,6 @@
 		]
 	},
 	"workflows-ui-starter-action-done": "Inizio",
-	"workflows-ui-starter-action-back": "Scegli un altro",
 	"workflows-ui-starter-action-cancel": "Annulla",
 	"workflows-ui-alert-action-complete": "Completa azione",
 	"workflows-ui-task-completion-action-complete": "Invia",
@@ -37,7 +36,6 @@
 	"workflows-triggers-type-manual-label": "Manuale",
 	"workflows-ui-action-cancel": "Annulla",
 	"workflows-ui-trigger-action-create": "Salva",
-	"workflows-ui-trigger-action-choose": "Continua",
 	"workflows-ui-trigger-action-delete": "Cancella",
 	"workflows-ui-trigger-field-name": "Nome",
 	"workflows-action-edit-label": "Modifica",

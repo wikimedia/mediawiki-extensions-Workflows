@@ -5,7 +5,6 @@
 			"Սերգեյ Սաֆարյան"
 		]
 	},
-	"workflows-ui-starter-action-choose": "Ընտրել",
 	"workflows-ui-starter-action-done": "Սկսել",
 	"workflows-ui-starter-action-cancel": "Չեղարկել",
 	"workflows-ui-task-completion-action-cancel": "Չեղարկել",
@@ -23,7 +22,6 @@
 	"workflows-activity-history-vote-result-yes": "Հաստատվել է",
 	"workflows-ui-action-cancel": "Չեղարկել",
 	"workflows-ui-trigger-action-create": "Հիշել",
-	"workflows-ui-trigger-action-choose": "Շարունակել",
 	"workflows-ui-trigger-action-delete": "Ջնջել",
 	"workflows-action-edit-label": "Խմբագրել",
 	"workflows-action-delete-label": "Ջնջել",
