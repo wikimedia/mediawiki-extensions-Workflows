@@ -20,7 +20,7 @@ class WorkflowsPaletteProvider {
 
 	constructor( palette, create, elementFactory,
 		spaceTool, lassoTool, handTool,
-		globalConnect, translate, bpmnFactory
+		globalConnect, bpmnFactory
 	) {
 		this._palette = palette;
 		this._create = create;
@@ -29,7 +29,6 @@ class WorkflowsPaletteProvider {
 		this._lassoTool = lassoTool;
 		this._handTool = handTool;
 		this._globalConnect = globalConnect;
-		this._translate = translate;
 		this._bpmnFactory = bpmnFactory;
 
 		palette.registerProvider( this );
