@@ -380,5 +380,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Het gereedschap voor wereldwijde verbinding activeren",
 	"workflows-ui-editor-toolbar-create-start-event": "StartEvent aanmaken",
 	"workflows-ui-editor-toolbar-create-end-event": "EndEvent aanmaken",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway aanmaken"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway aanmaken",
+	"workflows-ui-dialog-action-back": "Terug",
+	"workflows-ui-dialog-action-next": "Volgende"
 }
