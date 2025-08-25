@@ -390,5 +390,14 @@
 	"workflows-triggers-edit-json-label": "Изворниот код на покренувачот на работниот тек може да се измени на [[MediaWiki:WorkflowTriggers]]",
 	"workflows-move-invalid-content-model": "Не можете да го преместите работниот тек на страница со поинаков содржински модел",
 	"workflows-move-definition-in-use": "Не можете да ја преместите определбата на рабониот тек бидејќи истата е во употреба од еден или повеќе активни работни текови. Прекиунете ги пред да ја преместувате определбата.",
-	"workflows-move-definition-in-use-past": "Преместувајќи ја определбата, сите работни текови што ја користеле во минатото повеќе нема да бидат достапни"
+	"workflows-move-definition-in-use-past": "Преместувајќи ја определбата, сите работни текови што ја користеле во минатото повеќе нема да бидат достапни",
+	"workflows-ui-editor-toolbar-lasso-tool": "Пушти ја алатката ласо",
+	"workflows-ui-editor-toolbar-hand-tool": "Пушти ја алатката рака",
+	"workflows-ui-editor-toolbar-space-tool": "Пушти ја алатката создај/отстрани простор",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Пушти ја алатката глобално поврзување",
+	"workflows-ui-editor-toolbar-create-start-event": "Создај StartEvent",
+	"workflows-ui-editor-toolbar-create-end-event": "Создај EndEvent",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Создај Gateway",
+	"workflows-ui-dialog-action-back": "Назад",
+	"workflows-ui-dialog-action-next": "Следно"
 }

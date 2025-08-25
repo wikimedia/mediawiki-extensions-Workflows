@@ -39,5 +39,6 @@
 	"workflows-global-action-overview": "কর্মপ্রবাহ",
 	"workflows-editor-editor-dialog-save-action-save": "সংরক্ষণ করুন",
 	"workflows-ui-action-edittriggersource": "উৎস সম্পাদনা",
-	"workflows-ui-action-edit-triggers": "সম্পাদনা"
+	"workflows-ui-action-edit-triggers": "সম্পাদনা",
+	"workflows-ui-dialog-action-next": "পরবর্তী"
 }

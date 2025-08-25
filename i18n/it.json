@@ -90,5 +90,7 @@
 	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "Se non viene specificato l'utente, verrà utilizzato quello di sistema.",
 	"workflows-ui-editor-inspector-activity-edit-request-title": "Attività \"Richiesta di modifica\"",
 	"workflows-ui-editor-inspector-activity-user-vote-title": "Attività \"Voto utente\"",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "Se non viene specificato l'utente, verrà utilizzato quello di sistema."
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "Se non viene specificato l'utente, verrà utilizzato quello di sistema.",
+	"workflows-ui-dialog-action-back": "Indietro",
+	"workflows-ui-dialog-action-next": "Successivo"
 }

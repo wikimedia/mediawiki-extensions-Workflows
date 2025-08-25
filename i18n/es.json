@@ -8,6 +8,7 @@
 			"Josuert",
 			"MarcoAurelio",
 			"No se",
+			"Rousmery96",
 			"Yupik"
 		]
 	},
@@ -45,5 +46,14 @@
 	"workflows-workflow-file-definition-document-control-desc": "Pide a un usuario que edite una página y a otro usuario experto que revise esos cambios. A continuación, pida a un tercer usuario que acepte y publique la página. Una vez hecho esto, se envía una notificación por correo electrónico al destinatario especificado.",
 	"workflows-ui-editor-inspector-activity-custom-form-title": "Actividad \"Formulario personalizado\"",
 	"workflows-ui-editor-inspector-activity-edit-request-title": "Actividad \"Solicitar Edición\"",
-	"workflows-activity-property-username": "Nombre de usuario"
+	"workflows-activity-property-username": "Nombre de usuario",
+	"workflows-ui-editor-toolbar-lasso-tool": "Activar la herramienta lazo",
+	"workflows-ui-editor-toolbar-hand-tool": "Activar la herramienta manual",
+	"workflows-ui-editor-toolbar-space-tool": "Activar la herramienta crear/eliminar espacio",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Activar la herramienta de conexión global",
+	"workflows-ui-editor-toolbar-create-start-event": "Crear evento de inicio",
+	"workflows-ui-editor-toolbar-create-end-event": "Crear evento final",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Crear puerta de enlace",
+	"workflows-ui-dialog-action-back": "Atrás",
+	"workflows-ui-dialog-action-next": "Próximo"
 }
