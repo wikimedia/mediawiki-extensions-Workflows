@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"BOKOBA VEROLY"
+		]
+	},
+	"workflows-ui-editor-toolbar-lasso-tool": "Fungola esaleli ya lasso",
+	"workflows-ui-editor-toolbar-hand-tool": "Fungola esaleli ya loboko",
+	"workflows-ui-editor-toolbar-space-tool": "Tyá esaleli ya kosala/kolongola esika",
+	"workflows-ui-editor-toolbar-global-connect-tool": "Fungola esaleli ya connexion ya mokili mobimba",
+	"workflows-ui-editor-toolbar-create-start-event": "Kobimisa likambo ya ebandeli",
+	"workflows-ui-editor-toolbar-create-end-event": "Kosala likambo ya nsuka",
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Kobongisa porte",
+	"workflows-ui-dialog-action-back": "Bozongi nsima",
+	"workflows-ui-dialog-action-next": "Oyo elandi"
+}
