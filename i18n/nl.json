@@ -26,10 +26,8 @@
 	"workflows-ui-starter-init-note": "Vul de vereiste aanvangsgegevens in",
 	"workflows-ui-starter-error-generic": "Kan de werkstroom niet starten",
 	"workflows-ui-starter-dialog-title": "Start een werkstroom",
-	"workflows-ui-starter-action-choose": "Kiezen",
 	"workflows-ui-starter-action-start": "Werkstroom starten",
 	"workflows-ui-starter-action-done": "Starten",
-	"workflows-ui-starter-action-back": "Een andere kiezen",
 	"workflows-ui-starter-action-cancel": "Annuleren",
 	"workflows-ui-starter-init-form-fail": "Initialisatieformulier kan niet worden opgehaald",
 	"workflows-ui-action-start": "Een werkstroom starten",
@@ -162,7 +160,6 @@
 	"workflows-triggers-type-since-last-major-desc": "Een werkstroom starten na een bepaalde periode na de laatste grote bewerking van de pagina",
 	"workflows-ui-action-cancel": "Annuleren",
 	"workflows-ui-trigger-action-create": "Opslaan",
-	"workflows-ui-trigger-action-choose": "Doorgaan",
 	"workflows-ui-trigger-editor-dialog-title": "Voorwaarde opstart werkstroom",
 	"workflows-ui-trigger-page-title": "Voorwaarden opstart werkstroom",
 	"workflows-ui-trigger-page-desc": "Hiermee kunnen de voorwaarden voor het opstarten van een werkstroom worden bepaald",
@@ -380,5 +377,7 @@
 	"workflows-ui-editor-toolbar-global-connect-tool": "Het gereedschap voor wereldwijde verbinding activeren",
 	"workflows-ui-editor-toolbar-create-start-event": "StartEvent aanmaken",
 	"workflows-ui-editor-toolbar-create-end-event": "EndEvent aanmaken",
-	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway aanmaken"
+	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway aanmaken",
+	"workflows-ui-dialog-action-back": "Terug",
+	"workflows-ui-dialog-action-next": "Volgende"
 }

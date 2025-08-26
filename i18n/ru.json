@@ -10,7 +10,6 @@
 			"Yurina Tatiana"
 		]
 	},
-	"workflows-ui-starter-action-choose": "Выбрать",
 	"workflows-ui-starter-action-done": "Начать",
 	"workflows-ui-starter-action-cancel": "Отменить",
 	"logentry-ext-workflows-editpage-edit": "Страниц отредактировано: $4",
@@ -30,7 +29,6 @@
 	"workflows-triggers-type-manual-label": "Руководство",
 	"workflows-ui-action-cancel": "Отмена",
 	"workflows-ui-trigger-action-create": "Сохранить",
-	"workflows-ui-trigger-action-choose": "Продолжить",
 	"workflows-ui-trigger-action-delete": "Удалить",
 	"workflows-ui-trigger-since-last-major-days": "Количество дней с последней большой версии",
 	"workflows-ui-trigger-field-active": "Активен",
