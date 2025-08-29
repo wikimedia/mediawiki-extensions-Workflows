@@ -5,5 +5,7 @@
 		]
 	},
 	"workflows-ui-overview-grid-filter-state-all": "Pêro",
-	"workflows-ui-workflow-overview-action-cancel": "Kip ke"
+	"workflows-ui-workflow-overview-action-cancel": "Kip ke",
+	"workflows-ui-dialog-action-back": "Peyser",
+	"workflows-ui-dialog-action-next": "Bahdoyên"
 }
