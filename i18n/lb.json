@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Volvox"
+			"Volvox",
+			"GilPe"
 		]
 	},
 	"workflows-ui-starter-action-done": "Ufänken",
@@ -29,7 +30,7 @@
 	"workflows-ui-workflow-overview-action-abort": "Ofbriechen",
 	"workflows-ui-workflow-overview-action-restore": "Restauréieren",
 	"workflows-ui-workflow-overview-action-cancel": "Zoumaachen",
-	"workflows-ui-workflow-overview-action-back": "Zréck",
+	"workflows-ui-workflow-overview-action-back": "Zeréck",
 	"workflows-ui-overview-details-start-time": "ugefaangen den: $1",
 	"workflows-ui-overview-details-start-time-column": "Ugefaangen den",
 	"workflows-ui-overview-details-last-time": "Lescht Aktivitéit den: $1",
@@ -102,7 +103,7 @@
 	"workflows-ui-group-threshold-hint-user": "Dëse Grupp huet de Moment {{PLURAL:$1|ee Benotzer|$1 Benotzer}}",
 	"workflows-editor-title": "Ännere vu(n) $1",
 	"workflows-editor-viewer-section-diagram": "Diagramm",
-	"workflows-editor-editor-field-summary": "Resumé",
+	"workflows-editor-editor-field-summary": "Resümmee",
 	"workflows-editor-editor-button-save": "Späicheren",
 	"workflows-editor-editor-button-cancel": "Ofbriechen",
 	"workflows-ui-action-editxml": "XML änneren",
