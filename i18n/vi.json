@@ -7,7 +7,6 @@
 		]
 	},
 	"workflows-ui-starter-action-cancel": "Hủy bỏ",
-	"logentry-ext-workflows-sendmail-send": "Gửi thư: Đã gửi thư có chủ đề ' $4 '",
 	"workflows-ui-task-completion-action-complete": "Đăng",
 	"workflows-ui-task-completion-action-cancel": "Hủy bỏ",
 	"workflows-uto-activity-user_feedback": "Phản hồi của người dùng",
