@@ -293,7 +293,7 @@ window.workflows = {
 			}
 		} else {
 			mw.user.getRights( ( rights ) => {
-				if ( rights.indexOf( right ) !== -1 ) {
+				if ( rights.includes( right ) ) {
 					workflows._internal.userCan[ right ] = true;
 					dfd.resolve();
 				} else {
@@ -396,7 +396,7 @@ window.workflows = {
 					if ( !types.hasOwnProperty( repo ) ) {
 						continue;
 					}
-					if ( availableRepos.length > 0 && availableRepos.indexOf( repo ) === -1 ) {
+					if ( availableRepos.length > 0 && !availableRepos.includes( repo ) ) {
 						continue;
 					}
 					definitions = types[ repo ].definitions;

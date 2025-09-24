@@ -108,7 +108,7 @@ workflows.ui.widget.BpmnEditor.prototype.openInspector = function ( element ) {
 	this.openDialog( new workflows.editor.inspector.InspectorDialog( element, { inspector: inspector } ) );
 };
 
-workflows.ui.widget.BpmnEditor.prototype.openDialog = function ( dialog ) { // eslint-disable-line no-unused-vars
+workflows.ui.widget.BpmnEditor.prototype.openDialog = function ( dialog ) {
 	const windowManager = OO.ui.getWindowManager();
 	$( document.body ).append( windowManager.$element );
 	windowManager.addWindows( [ dialog ] );

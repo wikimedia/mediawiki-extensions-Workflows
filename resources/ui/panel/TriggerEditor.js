@@ -13,7 +13,7 @@ workflows.ui.panel.TriggerEditor.prototype.load = function () {
 
 workflows.ui.panel.TriggerEditor.prototype.render = function ( data, types ) {
 	mw.user.getRights().done( ( rights ) => {
-		if ( rights.indexOf( 'workflows-admin' ) !== -1 ) {
+		if ( rights.includes( 'workflows-admin' ) ) {
 			this.editable = true;
 		}
 		this.$triggerCnt = $( '<div>' ).addClass( 'workflows-ui-trigger-cnt' );

@@ -78,7 +78,7 @@
 	};
 
 	workflows.object.UserInteractiveActivity.prototype.isUserTargeted = function ( username ) {
-		return this.targetUsers.length === 0 || this.targetUsers.indexOf( username ) !== -1;
+		return this.targetUsers.length === 0 || this.targetUsers.includes( username );
 	};
 
 	workflows.object.UserInteractiveActivity.prototype.getCompleteButtonMessage = function () {
