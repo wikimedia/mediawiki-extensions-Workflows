@@ -39,7 +39,6 @@ final class AbortExpired extends ProcessWorkflows {
 	}
 
 	/**
-	 *
 	 * @return Interval
 	 */
 	public function getInterval() {

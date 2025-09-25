@@ -50,7 +50,6 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 *
 	 * @covers \MediaWiki\Extension\Workflows\TriggerRepo::upsertTrigger
 	 * @covers \MediaWiki\Extension\Workflows\TriggerRepo::setContent
 	 */

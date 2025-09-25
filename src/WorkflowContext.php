@@ -24,7 +24,6 @@ class WorkflowContext {
 	}
 
 	/**
-	 *
 	 * @return DefinitionContext
 	 */
 	public function getDefinitionContext(): DefinitionContext {

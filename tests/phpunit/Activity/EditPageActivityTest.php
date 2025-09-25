@@ -68,7 +68,6 @@ class EditPageActivityTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public static function provideCompleteItemData() {

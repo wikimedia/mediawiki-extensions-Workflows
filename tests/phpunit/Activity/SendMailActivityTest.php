@@ -22,13 +22,11 @@ use MediaWikiIntegrationTestCase;
 class SendMailActivityTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 *
 	 * @param array $data
 	 * @param array $expectedMail
 	 *
 	 * @covers \MediaWiki\Extension\Workflows\Activity\SendMail\SendMailActivity::execute
 	 * @dataProvider provideCompleteItemData
-	 *
 	 */
 	public function testCompleteItem( $data, $expectedMail ) {
 		$spclLogLoggerMock = $this->createMock( ISpecialLogLogger::class );
@@ -56,7 +54,6 @@ class SendMailActivityTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public static function provideCompleteItemData() {

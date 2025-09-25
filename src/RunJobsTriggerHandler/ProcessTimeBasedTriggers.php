@@ -20,7 +20,6 @@ final class ProcessTimeBasedTriggers implements IHandler {
 	protected $triggerRunner;
 
 	/**
-	 *
 	 * @param TriggerRunner $triggerRunner
 	 */
 	public function __construct( TriggerRunner $triggerRunner ) {
@@ -40,7 +39,6 @@ final class ProcessTimeBasedTriggers implements IHandler {
 	}
 
 	/**
-	 *
 	 * @return Interval
 	 */
 	public function getInterval() {
@@ -48,7 +46,6 @@ final class ProcessTimeBasedTriggers implements IHandler {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getKey() {

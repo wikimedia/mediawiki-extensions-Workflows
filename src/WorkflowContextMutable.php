@@ -63,7 +63,6 @@ class WorkflowContextMutable {
 	}
 
 	/**
-	 *
 	 * @return DefinitionContext
 	 */
 	public function getDefinitionContext(): DefinitionContext {

@@ -6,7 +6,6 @@ use MediaWiki\Extension\Workflows\Workflow;
 
 /**
  * Internal use only! Do not use this class!!!
- *
  */
 final class WorkflowEventDispatcher {
 	/** @var array */

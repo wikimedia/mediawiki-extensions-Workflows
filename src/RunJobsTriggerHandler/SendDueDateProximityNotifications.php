@@ -44,7 +44,6 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 	}
 
 	/**
-	 *
 	 * @return Interval
 	 */
 	public function getInterval() {

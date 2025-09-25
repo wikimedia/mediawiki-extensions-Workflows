@@ -32,7 +32,6 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	protected $notifier;
 
 	/**
-	 *
 	 * @param WorkflowEventRepository $workflowRepo
 	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
 	 * @param Notifier $notifier
@@ -76,7 +75,6 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	}
 
 	/**
-	 *
 	 * @return Interval
 	 */
 	public function getInterval() {
@@ -84,7 +82,6 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getKey() {

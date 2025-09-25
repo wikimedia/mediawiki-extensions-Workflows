@@ -10,7 +10,6 @@ use MediaWiki\Extension\Workflows\RunJobsTriggerHandler\SendDueDateProximityNoti
 class AddBackgroundProcess {
 
 	/**
-	 *
 	 * @param array &$handlers
 	 * @return bool
 	 */

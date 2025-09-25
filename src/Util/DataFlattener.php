@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Workflows\Util;
 class DataFlattener {
 
 	/**
-	 *
 	 * @param array $contextData
 	 * @return array
 	 */
