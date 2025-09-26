@@ -145,7 +145,7 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 				$this->getTask()
 			);
 		}
-		if ( isset( $data['user'] ) ) {
+		if ( !empty( $data['user'] ) ) {
 			$this->user = $this->userFactory->newFromName( $data['user'] );
 			if ( !( $this->user instanceof User ) || !$this->user->isRegistered() ) {
 				// Previous validation is assumed
