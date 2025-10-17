@@ -156,7 +156,14 @@ workflows.editor.inspector.Inspector.prototype.getPropertiesKeyValue = function 
 		if ( !properties.hasOwnProperty( propertyKey ) ) {
 			continue;
 		}
-		keyValue[ propertyKey ] = properties[ propertyKey ].value;
+
+		let pvalue = properties[ propertyKey ].value;
+		if ( pvalue === 'true' ) {
+			pvalue = true;
+		} else if ( pvalue === 'false' ) {
+			pvalue = false;
+		}
+		keyValue[ propertyKey ] = pvalue;
 	}
 	return keyValue;
 };
