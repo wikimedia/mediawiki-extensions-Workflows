@@ -11,8 +11,7 @@
 				name: 'groupname',
 				label: mw.message( 'workflows-collect-data-form-groupname' ).text(),
 				type: 'group_picker',
-				required: true,
-				widget_$overlay: this.$overlay
+				required: true
 			},
 			{
 				name: 'instructions',
@@ -31,8 +30,7 @@
 				options: [
 					{ data: 'user', label: mw.message( 'workflows-collect-data-form-threshold-unit-user' ).text() },
 					{ data: 'percent', label: mw.message( 'workflows-collect-data-form-threshold-unit-percent' ).text() }
-				],
-				widget_$overlay: this.$overlay
+				]
 			},
 			{
 				name: 'threshold_value',
