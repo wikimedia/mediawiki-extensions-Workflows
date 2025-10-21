@@ -11,8 +11,7 @@
 				name: 'username',
 				label: mw.message( 'workflows-collect-data-form-username' ).text(),
 				type: 'user_picker',
-				required: true,
-				widget_$overlay: this.$overlay
+				required: true
 			},
 			{
 				name: 'instructions',
