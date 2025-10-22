@@ -83,11 +83,11 @@ class AddActions implements SkinTemplateNavigation__UniversalHook {
 		if ( !isset( $links['views']['edit'] ) ) {
 			return;
 		}
-		$links['views']['edit']['text'] = $sktemplate->msg( 'workflows-ui-action-edit' )->plain();
-		$links['views']['edit']['title'] = $sktemplate->msg( 'workflows-ui-action-edit' )->plain();
+		$links['views']['edit']['text'] = $sktemplate->msg( 'workflows-ui-action-edit' )->text();
+		$links['views']['edit']['title'] = $sktemplate->msg( 'workflows-ui-action-edit' )->text();
 		$links['views']['editxml'] = $links['views']['edit'];
-		$links['views']['editxml']['text'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->plain();
-		$links['views']['editxml']['title'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->plain();
+		$links['views']['editxml']['text'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->text();
+		$links['views']['editxml']['title'] = $sktemplate->msg( 'workflows-ui-action-editxml' )->text();
 		$links['views']['editxml']['href'] = $sktemplate->getTitle()->getLinkURL( [ 'action' => 'editxml' ] );
 	}
 }
