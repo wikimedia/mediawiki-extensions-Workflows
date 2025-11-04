@@ -191,7 +191,7 @@
 	"workflows-ui-trigger-page-desc": "Erlaubt das Angeben von Bedingungen, um einen Workflow auszulösen",
 	"workflows-ui-trigger-delete-dialog-title": "Auslöser löschen",
 	"workflows-ui-trigger-action-delete": "Löschen",
-	"workflows-ui-trigger-delete-prompt": "Bist du sicher, dass du Auslöser \"$1\" löschen möchtest?",
+	"workflows-ui-trigger-delete-prompt": "{{#FORMAL:Bist du|Sind Sie}} sicher, dass {{#FORMAL:du|Sie}} Auslöser \"$1\" löschen {{#FORMAL:möchtest|möchten}}?",
 	"workflows-ui-triggers-error-delete-fail": "Auslöser konnte nicht gelöscht werden",
 	"workflows-ui-trigger-choose-error": "Der Editor für den ausgewählten Auslösertyp kann nicht gestarted werden",
 	"workflows-ui-triggers-error-persist-fail": "Auslöser konnte nicht gespeichert werden",
