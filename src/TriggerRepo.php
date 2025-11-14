@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows;
 
-use InvalidArgumentException;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\Content;
 use MediaWiki\Extension\Workflows\MediaWiki\Content\TriggerDefinitionContent;
@@ -116,12 +115,13 @@ class TriggerRepo {
 	}
 
 	private function assertLoaded() {
+		if ( $this->loaded ) {
+			return;
+		}
 		if ( !$this->wikipage ) {
 			$this->setWikipage();
 		}
-		if ( !$this->loaded ) {
-			$this->load();
-		}
+		$this->load();
 	}
 
 	/**
@@ -260,11 +260,8 @@ class TriggerRepo {
 	 * @return Title|null
 	 */
 	public function getTitle(): ?Title {
-		$this->assertLoaded();
-		if ( !$this->wikipage ) {
-			return null;
-		}
-		return $this->wikipage->getTitle();
+		$this->setWikipage( mustExist: false );
+		return $this->wikipage?->getTitle();
 	}
 
 	/**
@@ -306,12 +303,15 @@ class TriggerRepo {
 	}
 
 	/**
-	 * @throws InvalidArgumentException
+	 * @param bool $mustExist
 	 */
-	private function setWikipage() {
+	private function setWikipage( bool $mustExist = true ) {
 		$title = $this->titleFactory->newFromText( $this->page );
-		if ( !$title->exists() ) {
-			$this->logger->error( 'Cannot load triggers from page ' . $this->page );
+		if ( !$title ) {
+			return;
+		}
+		if ( $mustExist && !$title->exists() ) {
+			$this->logger->warning( 'Cannot load triggers from page ' . $this->page . ' - page does not exist' );
 		}
 		$this->wikipage = MediaWikiServices::getInstance()->getWikiPageFactory()
 			->newFromTitle( $title );
