@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"LoveIceLang"
+			"LoveIceLang",
+			"Sveinn í Felli"
 		]
 	},
 	"workflows-ui-starter-action-done": "Byrja",
@@ -10,5 +11,6 @@
 	"workflows-ui-trigger-action-create": "Vista",
 	"workflows-ui-trigger-field-name": "Nafn",
 	"workflows-action-edit-label": "Breyta",
-	"workflows-action-delete-label": "Eyða"
+	"workflows-action-delete-label": "Eyða",
+	"workflows-activity-set-template-params-cannot-save": "Vistun mistókst"
 }
