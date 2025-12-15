@@ -4,6 +4,7 @@
 			"Agam Riyandana",
 			"Ekirahardian",
 			"Leapofod",
+			"Penyuwangi",
 			"Veracious"
 		]
 	},
@@ -15,7 +16,7 @@
 	"workflows-ui-workflow-overview-action-cancel": "Tutup",
 	"workflows-ui-overview-details-state-finished": "Selesai",
 	"workflows-ui-overview-details-action-reason": "Alasan",
-	"workflows-ui-overview-details-workflow-type-label": "Tipe",
+	"workflows-ui-overview-details-workflow-type-label": "Jenis",
 	"workflows-ui-overview-grid-filter-state-all": "Semua",
 	"workflows-form-instructions-comment": "Komentar",
 	"workflows-error-generic": "Terjadi galat",
