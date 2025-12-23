@@ -381,5 +381,8 @@
 	"workflows-ui-editor-toolbar-create-end-event": "{{doc-important|Do not translate <code>EndEvent</code>}}\nLabel for the tool in BPMN editor",
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Label for the tool in BPMN editor",
 	"workflows-ui-dialog-action-back": "Process dialog action label\n\n{{Identical|Back}}",
-	"workflows-ui-dialog-action-next": "Process dialog action label\n\n{{Identical|Next}}"
+	"workflows-ui-dialog-action-next": "Process dialog action label\n\n{{Identical|Next}}",
+	"workflows-ui-meta-noworkflows-yes": "Option label for yes/no setting - Yes",
+	"workflows-ui-meta-noworkflows-no": "Option label for yes/no setting - No",
+	"workflows-ui-meta-noworkflows-label": "Label for page meta item in VisualEditor - disable workflows on this page"
 }

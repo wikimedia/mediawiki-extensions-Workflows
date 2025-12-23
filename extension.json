@@ -201,6 +201,11 @@
 					"buckets": [ "personal" ]
 				}
 			}
+		},
+		"BlueSpiceVisualEditorConnector": {
+			"PluginModules": [
+				"ext.workflows.visualEditorPlugin.magic"
+			]
 		}
 	},
 	"callback": "MediaWiki\\Extension\\Workflows\\Extension::register",
@@ -797,6 +802,21 @@
 				"workflows-editor-viewer-section-diagram",
 				"workflows-editor-viewer-section-xml"
 			]
+		},
+		"ext.workflows.visualEditorPlugin.magic": {
+			"scripts": [
+				"ui/plugin/MWMetaDialog.js",
+				"dm/NoWorkflowMetaItem.js",
+				"ext.workflows.visualEditorPlugin.magic.js"
+			],
+			"messages": [
+				"workflows-ui-meta-noworkflows-yes",
+				"workflows-ui-meta-noworkflows-no",
+				"workflows-ui-meta-noworkflows-label"
+			],
+			"dependencies": [
+				"ext.workflows.bootstrap"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -814,7 +834,8 @@
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
 		"PageSaveComplete": "triggerWorkflows",
-		"MovePageIsValidMove": "preventChangesToDefinitions"
+		"MovePageIsValidMove": "preventChangesToDefinitions",
+		"GetDoubleUnderscoreIDs": "addMagic"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -855,6 +876,9 @@
 		"preventChangesToDefinitions": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\PreventChangesToDefinitions",
 			"services": [ "WorkflowsStateStore" ]
+		},
+		"addMagic": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddMagic"
 		}
 	},
 	"ContentHandlers": {
@@ -1009,7 +1033,8 @@
 		}
 	},
 	"ExtensionMessagesFiles": {
-		"WorkflowsOverviewAlias": "languages/SpecialWorkflowOverview.alias.php"
+		"WorkflowsOverviewAlias": "languages/SpecialWorkflowOverview.alias.php",
+		"WorkflowsMagic": "languages/Workflows.magic.php"
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-email-workflow-cat": 1

@@ -12,7 +12,9 @@
 		"mws": "readonly",
 		"mwstake": "readonly",
 		"OOJSPlus": "readonly",
-		"workflows": "readonly"
+		"workflows": "readonly",
+		"ve": "readonly",
+		"bs": "readonly"
 	},
 	"rules": {
 		"es-x/no-async-functions": "off",
