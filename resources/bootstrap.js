@@ -93,8 +93,10 @@ window.workflows = {
 		widget: {},
 		trigger: {
 			mixin: {}
-		}
+		},
+		plugin: {}
 	},
+	dm: {},
 	object: {
 		form: {}
 	},

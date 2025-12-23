@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows;
 
+use MediaWiki\Page\PageProps;
 use MediaWiki\Title\Title;
 use Psr\Log\LoggerInterface;
 
@@ -10,16 +11,22 @@ class TriggerRunner {
 	private $repo;
 	/** @var LoggerInterface */
 	private $logger;
+
+	/** @var PageProps */
+	private PageProps $pageProps;
+
 	/** @var array */
 	private $triggered = [];
 
 	/**
 	 * @param TriggerRepo $repo
 	 * @param LoggerInterface $logger
+	 * @param PageProps $pageProps
 	 */
-	public function __construct( TriggerRepo $repo, LoggerInterface $logger ) {
+	public function __construct( TriggerRepo $repo, LoggerInterface $logger, PageProps $pageProps ) {
 		$this->repo = $repo;
 		$this->logger = $logger;
+		$this->pageProps = $pageProps;
 	}
 
 	/**
@@ -78,6 +85,15 @@ class TriggerRunner {
 	 * @return bool
 	 */
 	private function canRunWorkflowForTitle( Title $title ) {
-		return $title->getContentModel() === 'wikitext' && $title->isContentPage();
+		$isEligible = $title->getContentModel() === 'wikitext' && $title->isContentPage();
+		if ( !$isEligible ) {
+			return false;
+		}
+		if ( !$title->exists() ) {
+			return $isEligible;
+		}
+		$props = $this->pageProps->getProperties( $title, [ 'NOWORKFLOWEXECUTION' ] );
+		$props = $props[$title->getArticleId()] ?? [];
+		return !isset( $props['NOWORKFLOWEXECUTION'] );
 	}
 }
