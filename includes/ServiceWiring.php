@@ -100,7 +100,8 @@ return [
 	'WorkflowTriggerRunner' => static function ( MediaWikiServices $services ) {
 		return new \MediaWiki\Extension\Workflows\TriggerRunner(
 			$services->getService( 'WorkflowTriggerRepo' ),
-			$services->getService( 'WorkflowLogger' )
+			$services->getService( 'WorkflowLogger' ),
+			$services->getPageProps()
 		);
 	},
 
