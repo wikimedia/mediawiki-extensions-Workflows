@@ -10,7 +10,8 @@
 			"Raymond",
 			"Robby",
 			"Umherirrender",
-			"Verdy p"
+			"Verdy p",
+			"Toliño"
 		]
 	},
 	"workflows-desc": "{{desc|name=Workflows}}",
@@ -23,7 +24,7 @@
 	"right-workflows-execute": "{{doc-right|workflows-execute}}",
 	"action-workflows-admin": "{{doc-action|workflows-admin}}",
 	"right-workflows-admin": "{{doc-right|workflows-admin}}",
-	"workflows-ui-starter-select-workflow": "Label for dropdown selection widget that allowes workflow seletion.\n{{Identical|Select workflow}}",
+	"workflows-ui-starter-select-workflow": "Label for dropdown selection widget that allowes workflow selection.\n{{Identical|Select workflow}}",
 	"workflows-ui-starter-init-note": "Notification text that tells the user, that the user has to fill out the required initialization information",
 	"workflows-ui-starter-error-generic": "Generic error message when a workflow could not have been started",
 	"workflows-ui-starter-dialog-title": "Title of the start workflow dialog.\n{{Identical|Start a workflow}}",
