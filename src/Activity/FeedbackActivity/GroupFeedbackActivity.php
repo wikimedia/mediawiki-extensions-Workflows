@@ -148,7 +148,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 
 		$this->logToSpecialLog( 'groupfeedback', $feedback );
 
-		$data['users_feedbacks'] = json_encode( $this->getUsersFeedbacks() );
+		$data['users_feedbacks'] = $this->getUsersFeedbacks();
 
 		// We need to reset comment field for next users
 		$data['comment'] = '';
