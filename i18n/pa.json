@@ -7,5 +7,7 @@
 	"workflows-ui-overview-details-raw-data-popup-label": "ਕੱਚੇ ਗੁਣ ਮੁੱਲ",
 	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "ਮਾਮੂਲੀ ਦੁਹਰਾਅ?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "ਸਫ਼ੇ ਉੱਤੇ ਫਰਮੇ ਦੀ ਸੂਚੀ",
-	"workflows-ui-action-edit-triggers": "ਸੋਧੋ"
+	"workflows-ui-action-edit-triggers": "ਸੋਧੋ",
+	"workflows-ui-overview-details-section-page": "ਵਿਸ਼ਾ ਵਰਕਾ",
+	"workflows-ui-overview-details-page-context-page": "ਵਰਕਾ"
 }
