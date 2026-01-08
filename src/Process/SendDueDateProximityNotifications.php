@@ -1,26 +1,27 @@
 <?php
 
-namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
+namespace MediaWiki\Extension\Workflows\Process;
 
-use BlueSpice\RunJobsTriggerHandler\Interval\OnceADay;
 use DateTime;
+use Exception;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Event\DueDateProximityEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
+use PermissionsError;
 
 final class SendDueDateProximityNotifications extends ProcessWorkflows {
 
-	public const HANDLER_KEY = 'ext-workflows-send-due-date-proximity-notifications';
-
 	/**
 	 * @param Workflow $workflow
+	 *
 	 * @return void
 	 * @throws WorkflowExecutionException
+	 * @throws PermissionsError
+	 * @throws Exception
 	 */
-	protected function processWorkflow( Workflow $workflow ) {
+	protected function processWorkflow( Workflow $workflow ): void {
 		if ( $workflow->getCurrentState() !== Workflow::STATE_RUNNING ) {
 			return;
 		}
@@ -44,18 +45,10 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 	}
 
 	/**
-	 *
-	 * @return Interval
-	 */
-	public function getInterval() {
-		return new OnceADay();
-	}
-
-	/**
 	 * @param UserInteractiveActivity $activity
 	 * @return bool
 	 */
-	private function dueDateClose( UserInteractiveActivity $activity ) {
+	private function dueDateClose( UserInteractiveActivity $activity ): bool {
 		$dueDate = $activity->getDueDate();
 		if ( !$dueDate instanceof DateTime ) {
 			return false;
@@ -77,7 +70,7 @@ final class SendDueDateProximityNotifications extends ProcessWorkflows {
 	 */
 	private function notifyDueDateProximity(
 		UserInteractiveActivity $activity, Workflow $workflow
-	) {
+	): void {
 		$this->notifier->emit(
 			new DueDateProximityEvent(
 				$workflow->getContext()->getContextPage(),

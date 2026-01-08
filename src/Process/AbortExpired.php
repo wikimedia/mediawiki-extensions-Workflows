@@ -1,21 +1,18 @@
 <?php
 
-namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
+namespace MediaWiki\Extension\Workflows\Process;
 
-use BlueSpice\RunJobsTriggerHandler\Interval\OnceADay;
+use Exception;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Util\AutoAborter;
 use MediaWiki\Extension\Workflows\Workflow;
 use MWStake\MediaWiki\Component\Events\Notifier;
-use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
 
 final class AbortExpired extends ProcessWorkflows {
 
-	public const HANDLER_KEY = 'ext-workflows-abort-expired';
-
 	/** @var AutoAborter */
-	protected $autoAborter;
+	protected AutoAborter $autoAborter;
 
 	/**
 	 * @inheritDoc
@@ -32,17 +29,9 @@ final class AbortExpired extends ProcessWorkflows {
 	 * @param Workflow $workflow
 	 *
 	 * @return void
-	 * @throws \Exception
+	 * @throws Exception
 	 */
-	protected function processWorkflow( Workflow $workflow ) {
+	protected function processWorkflow( Workflow $workflow ): void {
 		$this->autoAborter->abortIfExpired( $workflow );
-	}
-
-	/**
-	 *
-	 * @return Interval
-	 */
-	public function getInterval() {
-		return new OnceADay();
 	}
 }

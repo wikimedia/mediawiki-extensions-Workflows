@@ -1,35 +1,23 @@
 <?php
 
-namespace MediaWiki\Extension\Workflows\RunJobsTriggerHandler;
+namespace MediaWiki\Extension\Workflows\Process;
 
 use Exception;
 use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFactory;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventRepository;
 use MediaWiki\Extension\Workflows\Workflow;
-use MediaWiki\Status\Status;
 use MWStake\MediaWiki\Component\Events\Notifier;
-use MWStake\MediaWiki\Component\RunJobsTrigger\IHandler;
-use MWStake\MediaWiki\Component\RunJobsTrigger\Interval;
-use MWStake\MediaWiki\Component\RunJobsTrigger\Interval\OnceEveryHour;
+use MWStake\MediaWiki\Component\ProcessManager\IProcessStep;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-class ProcessWorkflows implements IHandler, LoggerAwareInterface {
-
-	public const HANDLER_KEY = 'ext-workflows-process-workflows';
-
-	/** @var WorkflowEventRepository */
-	protected $workflowRepo;
-
-	/** @var DefinitionRepositoryFactory */
-	protected $definitionRepositoryFactory;
+class ProcessWorkflows implements IProcessStep, LoggerAwareInterface {
 
 	/** @var LoggerInterface|null */
-	protected $logger = null;
-
-	/** @var Notifier */
-	protected $notifier;
+	protected LoggerInterface|null $logger = null;
 
 	/**
 	 *
@@ -38,19 +26,22 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 	 * @param Notifier $notifier
 	 */
 	public function __construct(
-		WorkflowEventRepository $workflowRepo, DefinitionRepositoryFactory $definitionRepositoryFactory,
-		Notifier $notifier
+		private readonly WorkflowEventRepository $workflowRepo,
+		private readonly DefinitionRepositoryFactory $definitionRepositoryFactory,
+		protected readonly Notifier $notifier
 	) {
-		$this->workflowRepo = $workflowRepo;
-		$this->definitionRepositoryFactory = $definitionRepositoryFactory;
 		$this->logger = new NullLogger();
-		$this->notifier = $notifier;
 	}
 
 	/**
-	 * @inheritDoc
+	 * @param array $data
+	 *
+	 * @return array
+	 *
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
 	 */
-	public function run() {
+	public function execute( $data = [] ): array {
 		$workflowIds = $this->workflowRepo->retrieveAllIds();
 		foreach ( $workflowIds as $workflowId ) {
 			$this->logger->debug( "Loading '{id}'", [ 'id' => $workflowId->toString() ] );
@@ -70,23 +61,7 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 
 		}
 
-		return Status::newGood();
-	}
-
-	/**
-	 *
-	 * @return Interval
-	 */
-	public function getInterval() {
-		return new OnceEveryHour();
-	}
-
-	/**
-	 *
-	 * @inheritDoc
-	 */
-	public function getKey() {
-		return static::HANDLER_KEY;
+		return [ 'success' => true ];
 	}
 
 	/**
