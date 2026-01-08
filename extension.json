@@ -216,6 +216,9 @@
 	"TestAutoloadNamespaces": {
 		"MediaWiki\\Extension\\Workflows\\Tests\\": "tests/phpunit/"
 	},
+	"ExtensionFunctions": [
+		"MediaWiki\\Extension\\Workflows\\BackgroundProcessCron::register"
+	],
 	"ResourceModules": {
 		"ext.workflows.bootstrap": {
 			"scripts": "bootstrap.js"
@@ -806,7 +809,6 @@
 		"ContentHandlerDefaultModelFor": "setContentModels",
 		"SkinTemplateNavigation::Universal": "addActions",
 		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
-		"MWStakeRunJobsTriggerRegisterHandlers": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\MWStakeRunJobsTriggerRegisterHandlers\\AddBackgroundProcess::callback",
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
 		"PageDelete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
