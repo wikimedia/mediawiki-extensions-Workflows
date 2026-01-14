@@ -137,7 +137,7 @@
 	"workflows-default-user-feedback-report-subject": "De werkstroom “Gebruikersterugkoppeling” voor de pagina “$1” is voltooid",
 	"workflows-default-user-feedback-body": "Details werkstroom:\nBegonnen op: $1\nVoltooid op: $2\nPagina: $3\nVersie: $4\nGebruiker: $5\nInstructies: $6\nTerugkoppeling: $7\n\nDeze e-mail is naar u verzonden omdat $8 u heeft aangewezen als e-mailontvanger voor deze werkstroom.",
 	"workflows-default-group-feedback-report-subject": "De werkstroom “Groepsterugkoppeling” voor de pagina “$1” is voltooid",
-	"workflows-default-group-feedback-body": "Details werkstroom:\nBegonnen op: $1\nVoltooid op: $2\nPagina: $3\nVersie: $4\nGebruikers: $5\nInstructies: $6\nTerugkoppelingen: $7\n\nDeze e-mail is naar u verzonden omdat $8 u heeft aangewezen als e-mailontvanger voor deze werkstroom.",
+	"workflows-default-group-feedback-body": "Details werkstroom:\nBegonnen op: $1\nVoltooid op: $2\nPagina: $3\nVersie: $4\n\nGebruikers: $5\n\nInstructies: $6\n\nTerugkoppelingen: $7\n\nDeze e-mail is naar u verzonden omdat $8 u heeft aangewezen als e-mailontvanger voor deze werkstroom.",
 	"workflows-collect-data-form-groupname": "Groep",
 	"workflows-collect-data-form-instructions": "Instructies",
 	"workflows-collect-data-form-username": "Gebruiker",
