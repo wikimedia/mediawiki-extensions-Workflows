@@ -3,6 +3,7 @@
 		"authors": [
 			"McDutchie",
 			"Sabelöga",
+			"Stefan2255",
 			"Yupik"
 		]
 	},
@@ -110,7 +111,7 @@
 	"workflows-ui-overview-details-section-activity": "Aktuella uppgifter",
 	"workflows-ui-overview-details-section-page": "Ämnessida",
 	"workflows-ui-overview-details-no-current-activity": "Hittade inte väntande uppgifter",
-	"workflows-ui-overview-details-activity-assigned-users": "Tilldelade användare:",
+	"workflows-ui-overview-details-activity-assigned-users": "Väntande åtgärd från användare:",
 	"workflows-ui-overview-details-activity-assigned-users-none": "Inga tilldelade användare, vemsomhelst kan slutföra denna uppgift",
 	"workflows-ui-overview-details-activity-automatic": "Automatisk uppgift. Bearbetar i bakgrund...",
 	"workflows-ui-overview-details-action-abort-note": "Avbryter du ett arbetsflöde kommer alla pågående uppgifter omedelbart att stoppas. Vill du verkligen avbryta arbetsflödet?",
@@ -131,8 +132,23 @@
 	"workflows-ui-overview-details-state-autoabort-comment": "Arbetsflödet avbröts!",
 	"workflows-auto-aborted-workflow-page-deleted": "Arbetsflödet avbröts för att den berörda sidan raderades",
 	"workflows-uto-body-field-instructions": "Instruktioner: $1",
-	"workflows-ui-overview-details-initiator": "Inleddes av",
+	"workflows-ui-overview-details-initiator": "Startad av:",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|inledde}} detta arbetsflöde",
 	"workflows-ui-workflow-overview-step-name-edit-request": "Redigeringsbegäran",
-	"workflows-activity-property-username": "Användarnamn"
+	"workflows-activity-property-username": "Användarnamn",
+	"workflows-global-action-overview": "Arbetsflöden",
+	"workflows-global-action-overview-desc": "Översikt över alla arbetsflöden",
+	"workflows-ui-starter-action-done": "Start",
+	"logentry-ext-workflows-userfeedback": "Användaren $1 {{GENDER:$2|gav feedback}} på sidan $3",
+	"logentry-ext-workflows-groupfeedback": "Gruppfeedback: Användare $1 {{GENDER:$2|gav}} feedback på sidan $3:",
+	"logentry-ext-workflows-editpage-edit": "Sidan redigerad: $4",
+	"logentry-ext-workflows-start": "$1 {{GENDER:$2|startade}} arbetsflöde på sidan $3",
+	"logentry-ext-workflows-finish": "Arbetsflödet på sidan $3 har slutförts",
+	"logentry-ext-workflows-abort": "$1 {{GENDER:$2|avbröt}} arbetsflöde på sidan $3",
+	"logentry-ext-workflows-auto-abort": "Arbetsflödet på sidan $3 avbröts automatiskt",
+	"logentry-ext-workflows-unabort": "$1 {{GENDER:$2|återställde}} arbetsflöde på sidan $3",
+	"workflows-ui-workflow-overview-action-back": "Tillbaka",
+	"workflows-ui-overview-details-action-details-column": "se detaljer",
+	"workflows-exception-property-validation": "Validering misslyckades för egenskapen \"$1\": $2",
+	"workflows-property-validator-valid-user-error": "Användaren \"$1\" är inte en giltig användare"
 }

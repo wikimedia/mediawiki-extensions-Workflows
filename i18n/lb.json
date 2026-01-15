@@ -106,7 +106,7 @@
 	"workflows-default-user-feedback-report-subject": "De Workflow „Benotzerfeedback“ fir d'Säit „$1“ ass fäerdeg",
 	"workflows-default-user-feedback-body": "Workflow-Detailer:\nUgefaangen: $1\nFäerdeg: $2\nSäit: $3\nVersioun: $4\nBenotzer: $5\nInstruktiounen: $6\nFeedback: $7\n\nDir hutt dës E-Mail kritt, well de Benotzer $8 Iech als E-Mail-Empfänger fir dëse Workflow designéiert huet.",
 	"workflows-default-group-feedback-report-subject": "De Workflow „Gruppefeedback“ fir d'Säit „$1“ ass fäerdeg",
-	"workflows-default-group-feedback-body": "Workflow-Detailer:\nUgefaangen: $1\nFäerdeg: $2\nSäit: $3\nVersioun: $4\nBenotzer: $5\nInstruktiounen: $6\nFeedback: $7\n\nDir hutt dës E-Mail kritt, well de Benotzer $8 Iech als E-Mail-Empfänger fir dëse Workflow designéiert huet.",
+	"workflows-default-group-feedback-body": "Workflow-Detailer:\nUgefaangen: $1\nFäerdeg: $2\nSäit: $3\nVersioun: $4\n\nBenotzer: $5\n\nInstruktiounen: $6\n\nFeedback: $7\n\nDir hutt dës E-Mail kritt, well de Benotzer $8 Iech als E-Mail-Empfänger fir dëse Workflow designéiert huet.",
 	"workflows-collect-data-form-groupname": "Grupp",
 	"workflows-activity-history-vote-result-yes": "Akzeptéiert",
 	"workflows-activity-history-vote-result-no": "Refuséiert",

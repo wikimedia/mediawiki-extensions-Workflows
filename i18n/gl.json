@@ -129,7 +129,7 @@
 	"workflows-default-user-feedback-report-subject": "Rematou o fluxo de traballo «Comentarios de usuario» para a páxina «$1»",
 	"workflows-default-user-feedback-body": "Detalles do fluxo de traballo:\nInicio: $1\nFin: $2\nPáxina: $3\nRevisión: $4\nUsuario: $5\nInstrucións: $6\nComentarios: $7\n\nEste correo electrónico envióuseche porque $8 te designou como destinatario do correo electrónico para este fluxo de traballo.",
 	"workflows-default-group-feedback-report-subject": "Rematou o fluxo de traballo «Comentarios de grupo» para a páxina «$1»",
-	"workflows-default-group-feedback-body": "Detalles do fluxo de traballo:\nInicio: $1\nFin: $2\nPáxina: $3\nRevisión: $4\nUsuarios: $5\nInstrucións: $6\nComentarios: $7\n\nEste correo electrónico envióuseche porque $8 te designou como destinatario do correo electrónico para este fluxo de traballo.",
+	"workflows-default-group-feedback-body": "Detalles do fluxo de traballo:\nInicio: $1\nFin: $2\nPáxina: $3\nRevisión: $4\n\nUsuarios: $5\n\nInstrucións: $6\n\nComentarios: $7\n\nEste correo electrónico envióuseche porque $8 te designou como destinatario do correo electrónico para este fluxo de traballo.",
 	"workflows-collect-data-form-groupname": "Grupo",
 	"workflows-collect-data-form-instructions": "Instrucións",
 	"workflows-collect-data-form-username": "Usuario",
