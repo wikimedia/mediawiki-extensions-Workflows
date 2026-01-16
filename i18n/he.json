@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"HumansCanWinElves",
+			"IKhitron",
 			"Neriah",
 			"Xnet1234",
 			"YaronSh",
@@ -154,7 +155,7 @@
 	"workflows-default-user-feedback-report-subject": "זרימת העבודה \"משוב ממשתמש\" עבור הדף \"$1\" הסתיימה",
 	"workflows-default-user-feedback-body": "פרטי זרימת עבודה:\nהתחלה: $1 \nסיום: $2 \nדף: $3 \nגרסה: $4 \nמשתמש: $5 \nהוראות: $6 \nמשוב: $7 \n\nהמכתב הזה נשלח אליך, כי סומנת על־ידי $8 כנמען דוא\"ל עבור זרימת העבודה הזאת.",
 	"workflows-default-group-feedback-report-subject": "זרימת העבודה \"משוב מקבוצה\" עבור הדף \"$1\" הסתיימה",
-	"workflows-default-group-feedback-body": "פרטי זרימת עבודה:\nהתחלה: $1 \nסיום: $2 \nדף: $3 \nגרסה: $4 \nמשתמש: $5 \nהוראות: $6 \nמשובים:$7 \n\nהמכתב הזה נשלח אליך, כי סומנת על־ידי $8 כנמען דוא\"ל עבור זרימת העבודה הזאת.",
+	"workflows-default-group-feedback-body": "פרטי זרימת עבודה:\nהתחלה: $1 \nסיום: $2 \nדף: $3 \nגרסה: $4 \n\nמשתמש: $5 \n\nהוראות: $6 \n\nמשובים:$7 \n\nהמכתב הזה נשלח אליך, כי סומנת על־ידי $8 כנמען דוא\"ל עבור זרימת העבודה הזאת.",
 	"workflows-collect-data-form-groupname": "קבוצה",
 	"workflows-collect-data-form-instructions": "הוראות",
 	"workflows-collect-data-form-username": "משתמש",
