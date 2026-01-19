@@ -129,7 +129,7 @@
 	"workflows-default-user-feedback-report-subject": "Le fluxo de travalio “Commentario de usator” pro le pagina “$1” ha concludite",
 	"workflows-default-user-feedback-body": "Detalios del fluxo de travalio:\nComenciate le: $1\nConcludite le: $2\nPagina: $3\nVersion: $4\nUsator: $5\nInstructiones: $6\nCommentario: $7\n\nIste message te ha essite inviate perque $8 te ha indicate como destinatario de e-mail pro iste fluxo de travalio.",
 	"workflows-default-group-feedback-report-subject": "Le fluxo de travalio “Commentario de gruppo” pro le pagina “$1” ha concludite",
-	"workflows-default-group-feedback-body": "Detalios del fluxo de travalio:\nComenciate le: $1\nConcludite le: $2\nPagina: $3\nVersion: $4\nUsator: $5\nInstructiones: $6\nRetroactiones: $7\n\nIste message te ha essite inviate perque $8 te ha indicate como destinatario de e-mail pro iste fluxo de travalio.",
+	"workflows-default-group-feedback-body": "Detalios del fluxo de travalio:\nComenciate le: $1\nTerminate le: $2\nPagina: $3\nVersion: $4\n\nUsatores:$5\n\nInstructiones: $6\n\nRetroactiones:$7\n\nIste message te ha essite inviate perque $8 te ha indicate como destinatario de e-mail pro iste fluxo de travalio.",
 	"workflows-collect-data-form-groupname": "Gruppo",
 	"workflows-collect-data-form-instructions": "Instructiones",
 	"workflows-collect-data-form-username": "Usator",
