@@ -4,12 +4,6 @@
 			"Cabal"
 		]
 	},
-	"workflows-ui-overview-details-section-page": "ਵਿਸ਼ਾ ਵਰਕਾ",
-	"workflows-ui-overview-details-page-context-page": "ਵਰਕਾ",
-	"workflows-ui-overview-details-raw-data-popup-label": "ਕੱਚੇ ਗੁਣ ਮੁੱਲ",
-	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "ਮਾਮੂਲੀ ਦੁਹਰਾਅ?",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "ਸਫ਼ੇ ਉੱਤੇ ਫਰਮੇ ਦੀ ਸੂਚੀ",
-	"workflows-ui-action-edit-triggers": "ਸੋਧੋ",
 	"workflows-ui-starter-action-done": "ਸ਼ੁਰੂ ਕਰੋ",
 	"workflows-ui-starter-action-cancel": "ਰੱਦ ਕਰੋ",
 	"workflows-ui-task-completion-action-complete": "ਹਵਾਲੇ ਕਰੋ",
@@ -21,8 +15,10 @@
 	"workflows-ui-workflow-overview-action-back": "ਪਿਛਾਂਹ",
 	"workflows-ui-overview-details-state-finished": "ਪੂਰਾ ਹੋਇਆ",
 	"workflows-ui-overview-details-state-aborted": "ਰੱਦ ਕੀਤਾ ਗਿਆ",
+	"workflows-ui-overview-details-section-page": "ਵਿਸ਼ਾ ਵਰਕਾ",
 	"workflows-ui-overview-details-action-reason": "ਕਾਰਨ",
 	"workflows-ui-overview-details-page-context-revision": "ਸੋਧ",
+	"workflows-ui-overview-details-page-context-page": "ਵਰਕਾ",
 	"workflows-ui-overview-details-workflow-type-label": "ਕਿਸਮ",
 	"workflows-ui-overview-grid-filter-state-all": "ਸਾਰੇ",
 	"workflows-ui-overview-grid-filter-state-active": "ਸਰਗਰਮ",
@@ -30,6 +26,7 @@
 	"workflows-collect-data-form-instructions": "ਹਦਾਇਤਾਂ",
 	"workflows-collect-data-form-username": "ਵਰਤੋਂਕਾਰ",
 	"workflows-activity-history-vote-result-yes": "ਮਨਜ਼ੂਰ ਕੀਤਾ",
+	"workflows-ui-overview-details-raw-data-popup-label": "ਕੱਚੇ ਗੁਣ ਮੁੱਲ",
 	"workflows-triggers-type-manual-label": "ਦਸਤੀ",
 	"workflows-ui-action-cancel": "ਰੱਦ ਕਰੋ",
 	"workflows-ui-trigger-action-create": "ਸਾਂਭੋ",
@@ -38,5 +35,8 @@
 	"workflows-ui-trigger-field-active": "ਸਰਗਰਮ",
 	"workflows-action-edit-label": "ਸੋਧੋ",
 	"workflows-action-delete-label": "ਮਿਟਾਓ",
-	"workflows-ui-trigger-field-description": "ਵੇਰਵਾ"
+	"workflows-ui-trigger-field-description": "ਵੇਰਵਾ",
+	"workflows-ui-editor-inspector-activity-edit-page-property-minor": "ਮਾਮੂਲੀ ਦੁਹਰਾਅ?",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "ਸਫ਼ੇ ਉੱਤੇ ਫਰਮੇ ਦੀ ਸੂਚੀ",
+	"workflows-ui-action-edit-triggers": "ਸੋਧੋ"
 }
