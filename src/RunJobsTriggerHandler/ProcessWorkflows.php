@@ -60,13 +60,11 @@ class ProcessWorkflows implements IHandler, LoggerAwareInterface {
 				$workflow = Workflow::newFromInstanceIDForBot(
 					$workflowId, $this->workflowRepo, $this->definitionRepositoryFactory
 				);
-				if ( !$workflow instanceof Workflow ) {
-					continue;
-				}
 
 				$this->processWorkflow( $workflow );
 			} catch ( Exception $ex ) {
-				return Status::newFatal( $ex->getMessage() );
+				$this->logger->error( $ex->getMessage() );
+				continue;
 			}
 
 		}
