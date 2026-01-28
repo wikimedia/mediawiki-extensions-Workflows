@@ -14,6 +14,9 @@ class AbortExpiredWorkflows extends Maintenance {
 		parent::__construct();
 	}
 
+	/**
+	 * @return void
+	 */
 	public function execute() {
 		/** @var WorkflowEventRepository $store */
 		$store = MediaWikiServices::getInstance()->getService( 'WorkflowEventRepository' );
@@ -25,9 +28,14 @@ class AbortExpiredWorkflows extends Maintenance {
 		$ids = $store->retrieveAllIds();
 		$this->output( "Found " . count( $ids ) . " workflows\n" );
 		foreach ( $ids as $id ) {
-			$workflow = Workflow::newFromInstanceID( $id, $store, $definitionRepoFactory );
-			if ( $autoAborter->abortIfExpired( $workflow ) ) {
-				$aborted++;
+			try {
+				$workflow = Workflow::newFromInstanceID( $id, $store, $definitionRepoFactory );
+				if ( $autoAborter->abortIfExpired( $workflow ) ) {
+					$aborted++;
+				}
+			} catch ( \Throwable $ex ) {
+				$this->error( $ex->getMessage() );
+				continue;
 			}
 		}
 
