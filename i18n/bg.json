@@ -6,6 +6,7 @@
 		]
 	},
 	"workflows-ui-task-completion-action-cancel": "Отказ",
+	"workflows-ui-overview-details-action-reason": "Причина",
 	"workflows-ui-action-cancel": "Отказ",
 	"workflows-activity-property-username": "Потребителско име",
 	"workflows-activity-property-usernameEditor": "Редактор",
