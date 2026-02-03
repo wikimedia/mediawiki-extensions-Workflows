@@ -6,12 +6,12 @@
 		]
 	},
 	"workflows-ui-task-completion-action-cancel": "Отказ",
+	"workflows-ui-overview-details-action-reason": "Причина",
 	"workflows-ui-action-cancel": "Отказ",
 	"workflows-activity-property-username": "Потребителско име",
 	"workflows-activity-property-usernameEditor": "Редактор",
 	"workflows-activity-property-comment": "Коментар",
 	"workflows-activity-property-action": "Действие",
 	"workflows-editor-editor-button-cancel": "Отказ",
-	"workflows-editor-editor-dialog-save-action-cancel": "Отказ",
-	"workflows-ui-overview-details-action-reason": "Причина"
+	"workflows-editor-editor-dialog-save-action-cancel": "Отказ"
 }
