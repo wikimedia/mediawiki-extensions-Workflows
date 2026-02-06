@@ -19,7 +19,7 @@
 	"require": {
 		"composer/installers": "~1.0|~2",
 		"eventsauce/eventsauce": "0.8.*",
-		"mwstake/mediawiki-component-formengine": "~3",
+		"mwstake/mediawiki-component-formengine": "^3.1",
 		"mwstake/mediawiki-component-runjobstrigger": "~3",
 		"mwstake/mediawiki-component-alertbanners": "~3",
 		"mwstake/mediawiki-component-events": "~4",
