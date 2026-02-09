@@ -4,8 +4,12 @@
 			"Cabal"
 		]
 	},
+	"workflows-ui-starter-init-note": "ਕਿਰਪਾ ਕਰਕੇ ਲੋੜੀਂਦੀ ਸ਼ੁਰੂਆਤੀ ਜਾਣਕਾਰੀ ਭਰੋ।",
 	"workflows-ui-starter-action-done": "ਸ਼ੁਰੂ ਕਰੋ",
 	"workflows-ui-starter-action-cancel": "ਰੱਦ ਕਰੋ",
+	"logentry-ext-workflows-editpage-edit": "ਵਰਕਾ ਸੋਧਿਆ ਗਿਆ: $4",
+	"workflows-ui-alert-action-complete": "ਕਾਰਵਾਈ ਪੂਰੀ ਕਰੋ",
+	"workflows-ui-task-completion-dialog-title": "ਸਰਗਰਮੀ ਪੂਰੀ ਕਰੋ",
 	"workflows-ui-task-completion-action-complete": "ਹਵਾਲੇ ਕਰੋ",
 	"workflows-ui-task-completion-action-cancel": "ਰੱਦ ਕਰੋ",
 	"workflows-uto-activity-user_feedback": "ਵਰਤੋਂਕਾਰ ਸੁਝਾਅ",
@@ -14,6 +18,7 @@
 	"workflows-ui-alert-activity-edit-request-complete-button": "ਵੇਰਵੇ ਵੇਖੋ",
 	"workflows-activity-edit-request-name": "ਬੇਨਤੀ ਦੀ ਸੋਧ",
 	"workflows-ui-workflow-overview-action-abort": "ਰੋਕੋ",
+	"workflows-ui-workflow-overview-action-restore": "ਮੁੜ-ਬਹਾਲ ਕਰੋ",
 	"workflows-ui-workflow-overview-action-back": "ਪਿਛਾਂਹ",
 	"workflows-ui-overview-details-state-not_started": "ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ",
 	"workflows-ui-overview-details-state-running": "ਸਰਗਰਮ",
