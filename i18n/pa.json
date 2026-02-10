@@ -70,5 +70,10 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "ਰੱਦ ਕਰੋ",
 	"workflows-ui-action-edit-triggers": "ਸੋਧੋ",
 	"workflows-ui-dialog-action-back": "ਪਿਛਾਂਹ",
-	"workflows-ui-dialog-action-next": "ਅਗਲਾ"
+	"workflows-ui-dialog-action-next": "ਅਗਲਾ",
+	"workflows-ui-starter-init-note": "ਕਿਰਪਾ ਕਰਕੇ ਲੋੜੀਂਦੀ ਸ਼ੁਰੂਆਤੀ ਜਾਣਕਾਰੀ ਭਰੋ।",
+	"logentry-ext-workflows-editpage-edit": "ਵਰਕਾ ਸੋਧਿਆ ਗਿਆ: $4",
+	"workflows-ui-alert-action-complete": "ਕਾਰਵਾਈ ਪੂਰੀ ਕਰੋ",
+	"workflows-ui-task-completion-dialog-title": "ਸਰਗਰਮੀ ਪੂਰੀ ਕਰੋ",
+	"workflows-ui-workflow-overview-action-restore": "ਮੁੜ-ਬਹਾਲ ਕਰੋ"
 }
