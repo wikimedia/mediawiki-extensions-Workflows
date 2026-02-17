@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"GilPe",
 			"Robby",
-			"Volvox",
-			"GilPe"
+			"Volvox"
 		]
 	},
 	"workflows-ui-starter-action-done": "Ufänken",
@@ -64,7 +64,7 @@
 	"workflows-default-user-feedback-report-subject": "De Workflow „Benotzerfeedback“ fir d'Säit „$1“ ass fäerdeg",
 	"workflows-default-user-feedback-body": "Workflow-Detailer:\nUgefaangen: $1\nFäerdeg: $2\nSäit: $3\nVersioun: $4\nBenotzer: $5\nInstruktiounen: $6\nFeedback: $7\n\nDir hutt dës E-Mail kritt, well de Benotzer $8 Iech als E-Mail-Empfänger fir dëse Workflow designéiert huet.",
 	"workflows-default-group-feedback-report-subject": "De Workflow „Gruppefeedback“ fir d'Säit „$1“ ass fäerdeg",
-	"workflows-default-group-feedback-body": "Workflow-Detailer:\nUgefaangen: $1\nFäerdeg: $2\nSäit: $3\nVersioun: $4\nBenotzer: $5\nInstruktiounen: $6\nFeedback: $7\n\nDir hutt dës E-Mail kritt, well de Benotzer $8 Iech als E-Mail-Empfänger fir dëse Workflow designéiert huet.",
+	"workflows-default-group-feedback-body": "Workflow-Detailer:\nUgefaangen: $1\nFäerdeg: $2\nSäit: $3\nVersioun: $4\n\nBenotzer: $5\n\nInstruktiounen: $6\n\nFeedback: $7\n\nDir hutt dës E-Mail kritt, well de Benotzer $8 Iech als E-Mail-Empfänger fir dëse Workflow designéiert huet.",
 	"workflows-collect-data-form-groupname": "Grupp",
 	"workflows-collect-data-form-instructions": "Instruktiounen",
 	"workflows-collect-data-form-username": "Benotzer",
