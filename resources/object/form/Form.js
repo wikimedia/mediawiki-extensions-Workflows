@@ -18,6 +18,16 @@
 			formConfig.definition = $.extend( true, {}, definition, {
 				buttons: this.getButtons()
 			} );
+
+			// If overlay is set to true, use dialogs overlay
+			if ( this.$overlay && Array.isArray( formConfig.definition.items ) ) {
+				formConfig.definition.items.forEach( ( item ) => {
+					if ( item.widget_$overlay === true ) {
+						item.widget_$overlay = this.$overlay; // eslint-disable-line no-jquery/variable-pattern
+					}
+				} );
+			}
+
 			delete ( formConfig.definition.listeners );
 		} else {
 			formConfig.definition = {
