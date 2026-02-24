@@ -76,16 +76,23 @@ class WorkflowMessageRepository implements MessageRepository {
 				__METHOD__
 			);
 
-			$this->validWorkflowIds = [];
+			$workflowIds = [];
 			foreach ( $res as $row ) {
-				$this->validWorkflowIds[] = $row->workflow_id;
+				$workflowIds[] = $row->workflow_id;
 			}
+
+			$this->validWorkflowIds = $this->toWorkflowIds( $workflowIds );
 		}
 
-		return $this->toWorkflowIds( $this->validWorkflowIds );
+		return $this->validWorkflowIds;
 	}
 
-	private function toWorkflowIds( $array ) {
+	/**
+	 * @param array $array
+	 *
+	 * @return array
+	 */
+	private function toWorkflowIds( $array ): array {
 		return array_map( static function ( $id ) {
 			return WorkflowId::fromString( $id );
 		}, $array );
