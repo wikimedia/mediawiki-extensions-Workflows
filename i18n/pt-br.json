@@ -7,6 +7,9 @@
 			"Mello25"
 		]
 	},
+	"workflows-desc": "Permite definir e executar vários fluxos de trabalho na wiki",
+	"workflowsoverview": "Visão geral dos fluxos de trabalho",
+	"workflows-global-action-overview": "Fluxos de trabalho",
 	"workflows-ui-task-completion-action-cancel": "Cancelar",
 	"workflows-form-placeholder-comment": "Comentário",
 	"workflows-ui-workflow-overview-action-cancel": "Fechar",
