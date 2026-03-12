@@ -123,10 +123,14 @@ class WorkflowSerializer {
 		return [
 			'start' => $last->dateTime()->format( 'YmdHis' ),
 			// Unfortunate mix, but found no good way to format client-side
-			'startDateAndTime' => $lang->userTimeAndDate( $start->dateTime()->format( 'YmdHis' ), $user ),
+			'startDateAndTime' => $lang->userTimeAndDate(
+				$start->dateTime()->format( 'YmdHis' ), $user, [ 'timecorrection' => true ]
+			),
 			'startDate' => $lang->userDate( $start->dateTime()->format( 'YmdHis' ), $user ),
 			'last' => $last->dateTime()->format( 'YmdHis' ),
-			'lastDateAndTime' => $lang->userTimeAndDate( $last->dateTime()->format( 'YmdHis' ), $user ),
+			'lastDateAndTime' => $lang->userTimeAndDate(
+				$last->dateTime()->format( 'YmdHis' ), $user, [ 'timecorrection' => true ]
+			),
 			'lastDate' => $lang->userDate( $last->dateTime()->format( 'YmdHis' ), $user ),
 		];
 	}
