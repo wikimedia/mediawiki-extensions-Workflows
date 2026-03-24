@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"workflows-desc": "Omogućuje definisanje i izvršavanje različitih radnih procesa na wikiju",
@@ -11,7 +12,7 @@
 	"workflows-ui-starter-action-start": "Pokreni radni proces",
 	"workflows-ui-starter-action-done": "Početak",
 	"workflows-ui-starter-action-cancel": "Otkaži",
-	"workflows-ui-starter-init-form-fail": "Obrazac za pokretanje nije moguće dohvatiti",
+	"workflows-ui-starter-init-form-fail": "Nije moguće preuzeti obrazac za pokretanje",
 	"workflows-ui-action-start": "Pokreni radni proces",
 	"log-name-ext-workflows": "Radni procesi",
 	"log-description-ext-workflows": "Ovaj dnevnik sadrži informacije o svim vrstama aktivnosti koje provodi [[mw:Extension:Workflows]]",
