@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview;
 
-use Exception;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
@@ -81,17 +80,9 @@ class ActivityTask implements ITaskDescriptor {
 
 	/**
 	 * @return Message
-	 * @throws Exception
 	 */
 	public function getSubHeader(): Message {
-		// workflows-uto-activity-custom_form
-		// workflows-uto-activity-user_vote
-		// workflows-uto-activity-group_vote
-		// workflows-uto-activity-user_feedback
-		// workflows-uto-activity-group_feedback
-		return Message::newFromKey(
-			'workflows-uto-activity-' . $this->getActivityType()
-		);
+		return new RawMessage( $this->workflow->getDefinition()->getSource()->getTitle() );
 	}
 
 	/**
