@@ -371,5 +371,8 @@
 	"workflows-ui-editor-toolbar-create-end-event": "Crear un EndEvent",
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Crear unha pasarela",
 	"workflows-ui-dialog-action-back": "Volver",
-	"workflows-ui-dialog-action-next": "Seguinte"
+	"workflows-ui-dialog-action-next": "Seguinte",
+	"workflows-ui-meta-noworkflows-yes": "Si",
+	"workflows-ui-meta-noworkflows-no": "Non",
+	"workflows-ui-meta-noworkflows-label": "Permitir a execución automática do fluxo de traballo nesta páxina"
 }
