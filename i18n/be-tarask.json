@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Nieszczarda2",
+			"Ucukor",
 			"Vlad5250"
 		]
 	},
@@ -39,5 +40,9 @@
 	"workflows-activity-property-instructionsReviewer": "Інструкцыі рэцэнзэнта",
 	"workflows-activity-property-vote": "Голас",
 	"workflows-activity-property-comment": "Камэнтар",
-	"workflows-activity-property-action": "Дзеяньне"
+	"workflows-activity-property-action": "Дзеяньне",
+	"workflows-ui-overview-details-raw-data-popup-value": "Значэньне",
+	"workflows-editor-editor-button-cancel": "Скасаваць",
+	"workflows-editor-editor-dialog-save-action-cancel": "Скасаваць",
+	"workflows-ui-action-edit-triggers": "Рэдагаваць"
 }

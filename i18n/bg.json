@@ -12,5 +12,6 @@
 	"workflows-ui-task-completion-action-cancel": "Отказ",
 	"workflows-ui-action-cancel": "Отказ",
 	"workflows-editor-editor-button-cancel": "Отказ",
-	"workflows-editor-editor-dialog-save-action-cancel": "Отказ"
+	"workflows-editor-editor-dialog-save-action-cancel": "Отказ",
+	"workflows-ui-overview-details-action-reason": "Причина"
 }

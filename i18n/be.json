@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kareyac",
-			"No Sleep till Krupki"
+			"No Sleep till Krupki",
+			"Ucukor"
 		]
 	},
 	"workflows-ui-overview-details-page-context-page": "Старонка",
@@ -12,5 +13,9 @@
 	"workflows-activity-property-username": "Імя ўдзельніка",
 	"workflows-activity-property-groupname": "Назва групы",
 	"workflows-activity-property-usernameEditor": "Рэдактар",
-	"workflows-activity-property-action": "Дзеянне"
+	"workflows-activity-property-action": "Дзеянне",
+	"workflows-ui-starter-action-cancel": "Скасаваць",
+	"workflows-ui-task-completion-action-cancel": "Скасаваць",
+	"workflows-ui-action-cancel": "Скасаваць",
+	"workflows-editor-editor-button-cancel": "Скасаваць"
 }
