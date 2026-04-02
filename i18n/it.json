@@ -89,5 +89,8 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Annulla",
 	"workflows-ui-action-edit-triggers": "Modifica",
 	"workflows-ui-dialog-action-back": "Indietro",
-	"workflows-ui-dialog-action-next": "Successivo"
+	"workflows-ui-dialog-action-next": "Successivo",
+	"workflows-ui-meta-noworkflows-yes": "Sì",
+	"workflows-ui-meta-noworkflows-no": "No",
+	"workflows-ui-meta-noworkflows-label": "Consenti l'esecuzione automatica del flusso di lavoro su questa pagina"
 }
