@@ -49,6 +49,7 @@ use MediaWiki\User\User;
 use PermissionsError;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Throwable;
 
 final class Workflow {
 
@@ -119,6 +120,7 @@ final class Workflow {
 		/** @var WorkflowEventRepository $eventRepo */
 		$eventRepo = $services->getService( 'WorkflowEventRepository' );
 		$eventRepo->addConsumerToDispatcher( $workflowNotifier );
+
 		$definition = $definitionRepository->getDefinition( $definitionId );
 		$instance->setDefinition( $definition );
 		$storage = WorkflowStorage::newInstance();
@@ -372,6 +374,8 @@ final class Workflow {
 		}
 		$this->storage->recordEvent( $event );
 
+		$this->fireWorkflowsUpdateTaskHook( $activity, true );
+
 		return $this->continueExecution( $task );
 	}
 
@@ -420,6 +424,7 @@ final class Workflow {
 		);
 		$this->stateMessage = $reason;
 		$this->state = static::STATE_ABORTED;
+		$this->fireWorkflowsUpdateTaskHookForCurrentTasks();
 	}
 
 	/**
@@ -457,6 +462,7 @@ final class Workflow {
 		);
 		$this->stateMessage = $stateMessage;
 		$this->state = static::STATE_ABORTED;
+		$this->fireWorkflowsUpdateTaskHookForCurrentTasks();
 	}
 
 	/**
@@ -520,7 +526,6 @@ final class Workflow {
 	 *
 	 * @param string|null $elementId Specific element to retrieve
 	 * @return IElement[]|IElement|null if process is not started
-	 * @throws Exception
 	 */
 	public function current( $elementId = null ) {
 		$this->assertMembers( __METHOD__ );
@@ -556,7 +561,6 @@ final class Workflow {
 
 	/**
 	 * @return WorkflowDefinition
-	 * @throws Exception
 	 */
 	public function getDefinition() {
 		$this->assertMembers( __METHOD__ );
@@ -692,6 +696,8 @@ final class Workflow {
 					$this->activityManager->getActivityProperties( $activity )
 				)
 			);
+
+			$this->fireWorkflowsUpdateTaskHook( $activity, false );
 
 			$this->current[$task->getId()] = $task;
 			return $this->continueExecution( $task );
@@ -1388,4 +1394,52 @@ final class Workflow {
 		}
 		return [];
 	}
+
+	/**
+	 * @param IActivity $activity
+	 * @param bool $isCompleted
+	 */
+	private function fireWorkflowsUpdateTaskHook( IActivity $activity, bool $isCompleted ) {
+		if ( !( $activity instanceof UserInteractiveActivity ) ) {
+			return;
+		}
+		if ( !interface_exists( \MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor::class ) ) {
+			return;
+		}
+		$activityDescriptor = $activity->getActivityDescriptor();
+		if ( !( $activityDescriptor instanceof IUserInteractiveActivityDescriptor ) ) {
+			return;
+		}
+		$descriptor = $activityDescriptor->getTaskDescriptor( $this );
+		$targetUsers = $this->activityManager->getTargetUsersForActivity( $activity, true );
+		if ( !$targetUsers ) {
+			return;
+		}
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		foreach ( $targetUsers as $user ) {
+			$hookContainer->run(
+				'WorkflowsUpdateTask',
+				[ $descriptor, $user, $isCompleted ]
+			);
+		}
+	}
+
+	private function fireWorkflowsUpdateTaskHookForCurrentTasks() {
+		$currentElements = $this->current;
+		if ( !is_array( $currentElements ) ) {
+			return;
+		}
+		foreach ( $currentElements as $element ) {
+			if ( !$element instanceof ITask ) {
+				continue;
+			}
+			try {
+				$activity = $this->activityManager->getActivityForTask( $element );
+				$this->fireWorkflowsUpdateTaskHook( $activity, true );
+			} catch ( Throwable ) {
+				continue;
+			}
+		}
+	}
+
 }

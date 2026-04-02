@@ -6,7 +6,7 @@ use DateTime;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
 use MediaWiki\Extension\Workflows\IUserInteractiveActivityDescriptor;
-use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\ActivityTask;
+use MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview\ActivityTaskDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
 use MediaWiki\Message\Message;
@@ -60,7 +60,7 @@ class GenericUIActivityDescriptor extends GenericDescriptor implements IUserInte
 	 * @inheritDoc
 	 */
 	public function getTaskDescriptor( Workflow $workflow ): ITaskDescriptor {
-		return new ActivityTask( $this->activity, $workflow );
+		return new ActivityTaskDescriptor( $this->activity, $workflow );
 	}
 
 	/**

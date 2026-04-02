@@ -154,7 +154,10 @@
 		"UnifiedTaskOverview": {
 			"AttentionIndicatorCollectionRegistry": [
 				"workflows"
-			]
+			],
+			"TaskDescriptorRegistry": {
+				"workflows-activity-": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\UnifiedTaskOverview\\ActivityTaskDescriptor"
+			}
 		},
 		"NotifyMe": {
 			"Events": {
@@ -839,7 +842,6 @@
 		"BeforePageDisplay": "addBootstrap",
 		"ContentHandlerDefaultModelFor": "setContentModels",
 		"SkinTemplateNavigation::Universal": "addActions",
-		"UnifiedTaskOverviewGetTaskDescriptors": "addUTOUserActivities",
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "discovery-skin",
 		"PageDelete": "abortWorkflows",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
@@ -847,11 +849,15 @@
 		"PageSaveComplete": "triggerWorkflows",
 		"MovePageIsValidMove": "preventChangesToDefinitions",
 		"GetDoubleUnderscoreIDs": "addMagic",
-		"MWStakeGenericTagHandlerInitTags": "registerTags"
+		"MWStakeGenericTagHandlerInitTags": "registerTags",
+		"WorkflowsUpdateTask": "updateUnifiedTaskOverview"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\RunDatabaseUpdates"
+		},
+		"updateUnifiedTaskOverview": {
+			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\UpdateUnifiedTaskOverview"
 		},
 		"addBootstrap": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddBootstrap"
@@ -865,10 +871,6 @@
 			"services": [
 				"PermissionManager"
 			]
-		},
-		"addUTOUserActivities": {
-			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddUnifiedTaskOverviewUserActivities",
-			"services": [ "WorkflowsStateStore", "WorkflowFactory", "PermissionManager", "SpecialPageFactory" ]
 		},
 		"abortWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AbortWorkflowsOnDelete",

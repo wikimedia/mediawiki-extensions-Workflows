@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview;
 
 use MediaWiki\Message\Message;
 
-class InstructedActivity extends ActivityTask {
+class InstructedActivity extends ActivityTaskDescriptor {
 
 	/**
 	 * @inheritDoc
