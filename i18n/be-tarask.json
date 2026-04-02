@@ -41,5 +41,7 @@
 	"workflows-activity-property-comment": "Камэнтар",
 	"workflows-activity-property-action": "Дзеяньне",
 	"workflows-editor-editor-button-cancel": "Скасаваць",
-	"workflows-editor-editor-dialog-save-action-cancel": "Скасаваць"
+	"workflows-editor-editor-dialog-save-action-cancel": "Скасаваць",
+	"workflows-ui-overview-details-raw-data-popup-value": "Значэньне",
+	"workflows-ui-action-edit-triggers": "Рэдагаваць"
 }
