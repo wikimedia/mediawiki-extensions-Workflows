@@ -135,5 +135,7 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Ofbriechen",
 	"workflows-ui-action-edit-triggers": "Änneren",
 	"workflows-ui-dialog-action-back": "Zeréck",
-	"workflows-ui-dialog-action-next": "Nächst"
+	"workflows-ui-dialog-action-next": "Nächst",
+	"workflows-ui-meta-noworkflows-yes": "Jo",
+	"workflows-ui-meta-noworkflows-no": "Nee"
 }
