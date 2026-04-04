@@ -23,5 +23,7 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "منسوخ",
 	"workflows-ui-action-edit-triggers": "لکھو",
 	"workflows-ui-dialog-action-back": "پچھوں",
-	"workflows-ui-dialog-action-next": "اڳلا"
+	"workflows-ui-dialog-action-next": "اڳلا",
+	"workflows-ui-meta-noworkflows-yes": "جیا",
+	"workflows-ui-meta-noworkflows-no": "کو"
 }

@@ -26,5 +26,7 @@
 	"workflows-ui-action-edittriggersource": "Уреди извор",
 	"workflows-ui-action-edit-triggers": "Уреди",
 	"workflows-ui-dialog-action-back": "Назад",
-	"workflows-ui-dialog-action-next": "Следеће"
+	"workflows-ui-dialog-action-next": "Следеће",
+	"workflows-ui-meta-noworkflows-yes": "Да",
+	"workflows-ui-meta-noworkflows-no": "Не"
 }
