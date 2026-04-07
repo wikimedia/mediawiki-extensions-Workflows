@@ -24,5 +24,8 @@
 	"workflows-ui-trigger-action-create": "Konservez",
 	"workflows-ui-trigger-field-name": "Nomo",
 	"workflows-action-edit-label": "Redaktar",
-	"workflows-ui-overview-details-raw-data-popup-value": "Valoro"
+	"workflows-ui-overview-details-raw-data-popup-value": "Valoro",
+	"workflows-ui-meta-noworkflows-yes": "Yes",
+	"workflows-ui-meta-noworkflows-no": "No",
+	"workflows-ui-meta-noworkflows-label": "Permisar exekuto di automatala laborofluo en ca pagino"
 }
