@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"INNERLMNT"
+		]
+	},
+	"workflows-ui-meta-noworkflows-yes": "Po",
+	"workflows-ui-meta-noworkflows-no": "Jo",
+	"workflows-ui-meta-noworkflows-label": "Lejo ekzekutimin automatik të punës në këtë faqe"
+}
