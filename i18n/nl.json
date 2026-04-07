@@ -382,5 +382,8 @@
 	"workflows-ui-editor-toolbar-create-end-event": "EndEvent aanmaken",
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway aanmaken",
 	"workflows-ui-dialog-action-back": "Terug",
-	"workflows-ui-dialog-action-next": "Volgende"
+	"workflows-ui-dialog-action-next": "Volgende",
+	"workflows-ui-meta-noworkflows-yes": "Ja",
+	"workflows-ui-meta-noworkflows-no": "Nee",
+	"workflows-ui-meta-noworkflows-label": "Automatische workflow-uitvoering inschakelen op deze pagina"
 }
