@@ -234,7 +234,7 @@
 	"workflows-ui-editor-inspector-properties-additional": "Add a new property",
 	"workflows-ui-editor-inspector-properties-additional-name": "Name",
 	"workflows-ui-editor-inspector-properties-additional-value": "Value",
-	"workflows-ui-editor-inspector-activity-custom-form-title": "\"Custom form\" activity",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Custom form",
 	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "Form to use",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type": "Form type",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "On-wiki form",
