@@ -84,7 +84,7 @@
 	"workflows-activity-editpage-error-invalid-cm": "Tipo di contenuto fornito non valido",
 	"workflows-ui-action-edittriggersource": "Modifica sorgente",
 	"workflows-ui-action-edit-triggers": "Modifica",
-	"workflows-ui-editor-inspector-activity-custom-form-title": "Attività \"Modulo personalizzato\"",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Modulo personalizzato",
 	"workflows-ui-editor-inspector-activity-send-mail-title": "Attività \"Invia email\"",
 	"workflows-ui-editor-inspector-activity-edit-page-title": "Attività \"Modifica pagina wiki\"",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "Se non viene specificato l'utente, verrà utilizzato quello di sistema.",
