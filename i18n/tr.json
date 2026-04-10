@@ -127,7 +127,7 @@
 	"workflows-default-user-feedback-report-subject": "\"$1\" sayfası için \"Kullanıcı geri bildirimi\" iş akışı tamamlandı",
 	"workflows-default-user-feedback-body": "İş akışı ayrıntıları:\nBaşlama tarihi: $1 \nBitme tarihi: $2 \nSayfa: $3 \nSürüm: $4 \nKullanıcı: $5 \nTalimatlar: $6 \nGeri bildirim: $7 \n \nBu e-posta, $8 kullanıcısı bu iş akışı için sizi e-posta alıcısı olarak belirlediğinden size gönderilmiştir.",
 	"workflows-default-group-feedback-report-subject": "\"$1\" sayfası için \"Grup geri bildirimi\" iş akışı tamamlandı",
-	"workflows-default-group-feedback-body": "İş akışı ayrıntıları:\nBaşlama tarihi: $1 \nBitme tarihi: $2 \nSayfa: $3 \nSürüm: $4 \nKullanıcılar: $5 \nTalimatlar: $6 \nGeri Bildirimler: $7 \n \nBu e-posta, $8 kullanıcısı bu iş akışı için sizi e-posta alıcısı olarak belirlediğinden size gönderilmiştir.",
+	"workflows-default-group-feedback-body": "İş akışı ayrıntıları:\nBaşlama tarihi: $1\nBitme tarihi: $2\nSayfa: $3\nSürüm: $4\n\nKullanıcılar: $5\n\nTalimatlar: $6\n\nGeri Bildirimler: $7\n \nBu e-posta, $8 kullanıcısı bu iş akışı için sizi e-posta alıcısı olarak belirlediğinden size gönderilmiştir.",
 	"workflows-collect-data-form-groupname": "Grup",
 	"workflows-collect-data-form-instructions": "Talimatlar",
 	"workflows-collect-data-form-username": "Kullanıcı",
