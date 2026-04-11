@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Agam Riyandana",
+			"Budhiastawa",
 			"Ekirahardian",
 			"Leapofod",
 			"Penyuwangi",
@@ -31,5 +32,6 @@
 	"workflows-activity-property-action": "Tindakan",
 	"workflows-editor-editor-dialog-save-title": "Simpan diagram",
 	"workflows-editor-editor-dialog-save-action-save": "Simpan",
-	"workflows-editor-editor-dialog-save-action-cancel": "Batal"
+	"workflows-editor-editor-dialog-save-action-cancel": "Batal",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Formulir kustom"
 }
