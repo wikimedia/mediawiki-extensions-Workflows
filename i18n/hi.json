@@ -28,5 +28,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "टिप्पणी",
 	"workflows-ui-action-edit-triggers": "सम्पादन",
 	"workflows-ui-dialog-action-back": "पीछे",
-	"workflows-ui-dialog-action-next": "अगला"
+	"workflows-ui-dialog-action-next": "अगला",
+	"workflows-ui-meta-noworkflows-yes": "हाँ",
+	"workflows-ui-meta-noworkflows-no": "नहीं"
 }
