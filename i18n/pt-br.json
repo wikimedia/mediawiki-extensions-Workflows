@@ -27,5 +27,6 @@
 	"workflows-workflow-file-definition-document-control-desc": "Peça a um usuário para editar uma página e a outro usuário especialista para revisar essas alterações. Em seguida, peça a um terceiro usuário para aceitar e publicar a página. Feito isso, uma notificação por e-mail é enviada ao destinatário especificado.",
 	"workflows-desc": "Permite definir e executar vários fluxos de trabalho na wiki",
 	"workflowsoverview": "Visão geral dos fluxos de trabalho",
-	"workflows-global-action-overview": "Fluxos de trabalho"
+	"workflows-global-action-overview": "Fluxos de trabalho",
+	"workflows-global-action-overview-desc": "Visão geral de todos os fluxos de trabalho"
 }
