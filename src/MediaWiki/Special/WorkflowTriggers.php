@@ -8,7 +8,12 @@ use OOJSPlus\Special\OOJSCardSpecialPage;
 class WorkflowTriggers extends OOJSCardSpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'WorkflowTriggers', 'workflows-admin' );
+		parent::__construct( 'WorkflowTriggers' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'workflows-admin';
 	}
 
 	/**

@@ -7,7 +7,12 @@ use OOJSPlus\Special\OOJSGridSpecialPage;
 
 class WorkflowOverview extends OOJSGridSpecialPage {
 	public function __construct() {
-		parent::__construct( 'WorkflowsOverview', 'workflows-view' );
+		parent::__construct( 'WorkflowsOverview' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'workflows-view';
 	}
 
 	public function doExecute( $subPage ) {
