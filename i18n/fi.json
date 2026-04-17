@@ -5,6 +5,7 @@
 			"Pyscowicz",
 			"Rönttönen",
 			"Samoasambia",
+			"Wikipeedikko",
 			"Yupik"
 		]
 	},
@@ -55,5 +56,9 @@
 	"workflows-ui-overview-details-raw-data-popup-label": "Ominaisuuden arvot",
 	"workflows-ui-action-cancel": "Peruuta",
 	"workflows-ui-trigger-field-description": "Kuvaus",
-	"workflows-activity-property-username": "Käyttäjänimi"
+	"workflows-activity-property-username": "Käyttäjänimi",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Mukautettu lomake",
+	"workflows-ui-meta-noworkflows-yes": "Kyllä",
+	"workflows-ui-meta-noworkflows-no": "Ei",
+	"workflows-ui-meta-noworkflows-label": "Salli automaattisten työnkulkujen suorittaminen tällä sivulla"
 }
