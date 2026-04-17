@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Apzp79",
+			"Tensama0415",
 			"Twotwo2019",
 			"Ykhwong"
 		]
@@ -38,7 +39,7 @@
 	"workflows-form-label-vote-widget-decline": "거부",
 	"workflows-ui-alert-activity-edit-request": "이 문서의 편집을 요청하였습니다",
 	"workflows-ui-alert-activity-edit-request-complete-button": "자세한 정보 보기",
-	"workflows-activity-edit-request-name": "요청 편집",
+	"workflows-activity-edit-request-name": "편집 요청",
 	"workflows-uto-activity-edit-request-header": "문서 편집이 요청됨",
 	"echo-category-title-workflow-cat": "워크플로 알림",
 	"workflows-notification-user-vote-accept-email-sub": "$1님이 $2 문서를 {{GENDER:$1|수락했습니다}}",
@@ -158,5 +159,6 @@
 	"workflowtriggers": "워크플로 트리거",
 	"workflows-ui-editor-inspector-activity-send-mail-title": "\"이메일 보내기\" 활동",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다.",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다."
+	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다.",
+	"workflows-ui-overview-details-page-context-page": "문서"
 }
