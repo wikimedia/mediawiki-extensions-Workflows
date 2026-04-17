@@ -898,6 +898,17 @@
 		"workflows-execute",
 		"workflows-admin"
 	],
+	"GrantPermissions": {
+		"basic": {
+			"workflows-view": true
+		},
+		"editpage": {
+			"workflows-execute": true
+		},
+		"editprotected": {
+			"workflows-admin": true
+		}
+	},
 	"RestRoutes": [
 		{
 			"path": "/workflow/list",
