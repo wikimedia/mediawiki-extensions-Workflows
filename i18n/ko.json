@@ -142,5 +142,7 @@
 	"workflows-ui-trigger-type-label": "트리거 유형",
 	"workflows-ui-action-edit-triggers": "편집",
 	"workflowtriggers": "워크플로 트리거",
-	"workflows-ui-overview-details-page-context-page": "문서"
+	"workflows-ui-overview-details-page-context-page": "문서",
+	"workflows-ui-meta-noworkflows-yes": "예",
+	"workflows-ui-meta-noworkflows-no": "아니요"
 }
