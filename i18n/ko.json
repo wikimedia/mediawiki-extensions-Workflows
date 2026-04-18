@@ -145,5 +145,7 @@
 	"workflows-ui-editor-inspector-activity-send-mail-title": "\"이메일 보내기\" 활동",
 	"workflows-ui-editor-inspector-activity-edit-page-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다.",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-user-help": "사용자가 지정되지 않으면 시스템 사용자가 사용됩니다.",
-	"workflows-ui-overview-details-page-context-page": "문서"
+	"workflows-ui-overview-details-page-context-page": "문서",
+	"workflows-ui-meta-noworkflows-yes": "예",
+	"workflows-ui-meta-noworkflows-no": "아니요"
 }
