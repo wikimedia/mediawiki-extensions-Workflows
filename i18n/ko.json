@@ -50,6 +50,7 @@
 	"workflows-ui-overview-details-activity-assigned-users-none": "할당된 사용자가 없으므로 아무나 이 작업을 마칠 수 있습니다",
 	"workflows-ui-overview-details-activity-automatic": "자동 작업입니다. 백그라운드에서 처리하고 있습니다...",
 	"workflows-ui-overview-details-action-reason": "이유",
+	"workflows-ui-overview-details-page-context-page": "문서",
 	"workflows-ui-overview-details-workflow-type-label": "유형",
 	"workflows-ui-overview-grid-filter-state-all": "모두",
 	"workflows-ui-overview-grid-filter-state-active": "활성",
@@ -137,7 +138,6 @@
 	"workflows-ui-trigger-type-label": "트리거 유형",
 	"workflows-ui-action-edit-triggers": "편집",
 	"workflowtriggers": "워크플로 트리거",
-	"workflows-ui-overview-details-page-context-page": "문서",
 	"workflows-ui-meta-noworkflows-yes": "예",
 	"workflows-ui-meta-noworkflows-no": "아니요"
 }
