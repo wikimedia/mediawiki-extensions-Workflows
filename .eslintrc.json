@@ -5,6 +5,10 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
+	"parserOptions": {
+		"sourceType": "commonjs",
+		"ecmaVersion": 2017
+	},
 	"globals": {
 		"BpmnJS": "readonly",
 		"jQuery": "readonly",
@@ -28,8 +32,5 @@
 		"no-underscore-dangle": "off",
 		"no-jquery/no-done-fail": "warn",
 		"mediawiki/no-unlabeled-buttonwidget": "warn"
-	},
-	"parserOptions": {
-		"ecmaVersion": 2017
 	}
 }
