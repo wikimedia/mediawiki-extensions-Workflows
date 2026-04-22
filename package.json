@@ -13,7 +13,7 @@
 		"stylelint-config-wikimedia": "0.18.0"
 	},
 	"eslintIgnore": [
-		"resources/ui/editor/bpmn-js/**",
+		"resources/lib/**",
 		"vendor/**"
 	]
 }

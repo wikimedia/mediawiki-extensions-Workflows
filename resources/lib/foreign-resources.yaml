@@ -1,0 +1,13 @@
+bpmn-js:
+  license: LicenseRef-bpmn.io
+  homepage: https://bpmn.io
+  authors: camunda Services GmbH
+  version: 11.5.0
+  purl: pkg:npm/bpmn-js@11.5.0
+  type: tar
+  src: https://registry.npmjs.org/bpmn-js/-/bpmn-js-11.5.0.tgz
+  integrity: sha384-MdtWGdMxTDu+nGMuKJxQXxPTBQ/tW8C5ew5rXFN7f9TT9ONXrG8lGt2YA9YaMXu3
+  dest:
+    package/dist:
+    package/LICENSE:
+    package/README.md:

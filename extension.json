@@ -831,6 +831,7 @@
 		"localBasePath": "resources",
 		"remoteExtPath": "Workflows/resources"
 	},
+	"ForeignResourcesDir": "resources/lib",
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
 		"BeforePageDisplay": "addBootstrap",
