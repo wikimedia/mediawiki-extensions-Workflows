@@ -113,7 +113,7 @@ final class DBStateStore implements WorkflowStateStore {
 		$db = $this->lb->getConnection( DB_REPLICA );
 		$res = $db->newSelectQueryBuilder()
 			->from( static::TABLE )
-			->fields( [ 'wfs_workflow_id' ] )
+			->fields( [ '*' ] )
 			->where( $this->conditions )
 			->options( $this->options )
 			->caller( __METHOD__ )
@@ -123,7 +123,11 @@ final class DBStateStore implements WorkflowStateStore {
 		foreach ( $res as $row ) {
 			$id = WorkflowId::fromString( $row->wfs_workflow_id );
 			if ( $returnModel ) {
-				$return[] = $this->getModel( $id );
+				$stateModel = DBStateModel::newFromRow( $row );
+				if ( !isset( $this->models[$id->toString()] ) ) {
+					$this->models[$id->toString()] = $stateModel;
+				}
+				$return[] = $stateModel;
 			} else {
 				$return[] = $id;
 			}
