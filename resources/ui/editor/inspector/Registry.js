@@ -1,4 +1,4 @@
-var inspectorRegistry = function () { // eslint-disable-line no-implicit-globals, no-var
+var inspectorRegistry = function () { // eslint-disable-line no-var
 	inspectorRegistry.parent.call( this );
 };
 
