@@ -33,9 +33,9 @@ abstract class BpmnJS extends RL\FileModule {
 			$styleFiles['all'] = [];
 		}
 		$styleFiles['all'] = array_merge( [
-			'ui/editor/bpmn-js/assets/bpmn-js.css',
-			'ui/editor/bpmn-js/assets/diagram-js.css',
-			'ui/editor/bpmn-js/assets/bpmn-font/css/bpmn.css'
+			'lib/bpmn-js/assets/bpmn-js.css',
+			'lib/bpmn-js/assets/diagram-js.css',
+			'lib/bpmn-js/assets/bpmn-font/css/bpmn.css'
 		], $styleFiles['all'] );
 
 		return $styleFiles;
