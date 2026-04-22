@@ -20,7 +20,7 @@ module.exports = function ( grunt ) {
 				'**/*.{css,less}',
 				'!node_modules/**',
 				'!vendor/**',
-				'!resources/ui/editor/bpmn-js/**'
+				'!resources/lib/**'
 			]
 		},
 		banana: Object.assign(
