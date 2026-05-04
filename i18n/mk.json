@@ -130,7 +130,7 @@
 	"workflows-default-user-feedback-report-subject": "Работниот тек „Корисничко мислење“ за страницата „$1“ заврши",
 	"workflows-default-user-feedback-body": "Поединости за работниот тек:\nЗапочнал на: $1\nЗавршил на: $2\nСтраница: $3\nПреработка: $4\nКорисници: $5\nНапатствија: $6\nМислења: $7\n\nОваа порака ви ја испраќаме бидеќи $8 ве назначи како примач на е-пошта за овој работен тек.",
 	"workflows-default-group-feedback-report-subject": "Работниот тек „Групно мислење“ за страницата „$1“ заврши",
-	"workflows-default-group-feedback-body": "Поединости за работниот тек:\nЗапочнал на: $1\nЗавршил на: $2\nСтраница: $3\nПреработка: $4\nКорисници: $5\nНапатствија: $6\nМислења: $7\n\nОваа порака ви ја испраќаме бидеќи $8 ве назначи како примач на е-пошта за овој работен тек.",
+	"workflows-default-group-feedback-body": "Поединости за работниот тек:\nЗапочнал на: $1\nЗавршил на: $2\nСтраница: $3\nПреработка: $4\n\nКорисници: $5\n\nНапатствија: $6\n\nМислења: $7\n\nОваа порака ви ја испраќаме бидеќи $8 ве назначи како примач на е-пошта за овој работен тек.",
 	"workflows-collect-data-form-groupname": "Група",
 	"workflows-collect-data-form-instructions": "Напатствија",
 	"workflows-collect-data-form-username": "Корисник",
@@ -245,7 +245,7 @@
 	"workflows-ui-editor-inspector-properties-additional": "Додај ново својство",
 	"workflows-ui-editor-inspector-properties-additional-name": "Назив",
 	"workflows-ui-editor-inspector-properties-additional-value": "Вредност",
-	"workflows-ui-editor-inspector-activity-custom-form-title": "Активност „Прилагоден образец“",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "Прилагоден образец",
 	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "Образец за употреба",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type": "Вид образец",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "На вики",
@@ -372,5 +372,8 @@
 	"workflows-ui-editor-toolbar-create-end-event": "Создај EndEvent",
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Создај Gateway",
 	"workflows-ui-dialog-action-back": "Назад",
-	"workflows-ui-dialog-action-next": "Следно"
+	"workflows-ui-dialog-action-next": "Следно",
+	"workflows-ui-meta-noworkflows-yes": "Да",
+	"workflows-ui-meta-noworkflows-no": "Не",
+	"workflows-ui-meta-noworkflows-label": "Дозволи автоматско извршување на работниот тек за оваа страница"
 }
