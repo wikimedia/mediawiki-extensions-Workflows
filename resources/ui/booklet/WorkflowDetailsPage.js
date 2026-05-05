@@ -63,7 +63,7 @@
 			messageKey = 'workflows-ui-overview-details-end-time';
 		}
 		this.$detailsPanelTable.append( $( '<tr>' ).append(
-			$( '<th>' ).text( mw.message( // eslint-disable-line mediawiki/msg-doc
+			$( '<th>' ).text( mw.message(
 				messageKey,
 				''
 			) ),
@@ -98,7 +98,7 @@
 		} else if ( state === 'running' ) {
 			stateClass = 'workflow-state-active';
 		}
-		const stateLabel = new OO.ui.LabelWidget( { // eslint-disable-line mediawiki/class-doc
+		const stateLabel = new OO.ui.LabelWidget( {
 			label: mw.message( 'workflows-ui-overview-details-state-' + state ).text(), // eslint-disable-line mediawiki/msg-doc
 			classes: [ stateClass ]
 		} );

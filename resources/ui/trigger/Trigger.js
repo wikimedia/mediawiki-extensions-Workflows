@@ -18,16 +18,16 @@
 			this.value.active = true;
 		}
 		let name = this.value.name || '';
-		if ( name && mw.message( name ).exists() ) { // eslint-disable-line mediawiki/msg-doc
-			name = mw.message( name ).text(); // eslint-disable-line mediawiki/msg-doc
+		if ( name && mw.message( name ).exists() ) {
+			name = mw.message( name ).text();
 		}
 		this.name = new OO.ui.TextInputWidget( {
 			required: true,
 			value: name
 		} );
 		let description = this.value.description || '';
-		if ( description && mw.message( description ).exists() ) { // eslint-disable-line mediawiki/msg-doc
-			description = mw.message( description ).text(); // eslint-disable-line mediawiki/msg-doc
+		if ( description && mw.message( description ).exists() ) {
+			description = mw.message( description ).text();
 		}
 		this.description = new OO.ui.MultilineTextInputWidget( {
 			value: description,
