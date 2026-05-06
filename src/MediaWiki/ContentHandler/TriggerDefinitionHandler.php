@@ -58,13 +58,13 @@ class TriggerDefinitionHandler extends JsonContentHandler {
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( !$pm->userHasRight( $context->getUser(), 'workflows-admin' ) ) {
 			// TODO: Message could be improved
-			$parserOutput->setRawText( $context->msg( 'badaccess' )->text() );
+			$parserOutput->setContentHolderText( $context->msg( 'badaccess' )->text() );
 			return;
 		}
 
 		$context->getOutput()->enableOOUI();
 		$parserOutput->setTitleText( $context->msg( 'workflows-ui-trigger-page-title' )->text() );
-		$parserOutput->setRawText(
+		$parserOutput->setContentHolderText(
 			Html::rawElement( 'div', [
 					'id' => 'workflows-triggers-cnt'
 				], new ProgressBarWidget( [ 'progress' => false ] )

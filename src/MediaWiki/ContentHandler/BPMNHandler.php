@@ -53,7 +53,7 @@ class BPMNHandler extends TextContentHandler {
 			if ( $destTitle instanceof Title ) {
 				$output->addLink( $destTitle );
 				if ( $cpoParams->generateHtml ) {
-					$output->setText( '' );
+					$output->setContentHolderText( '' );
 					$output->setRedirectHeader(
 						MediaWikiServices::getInstance()->getLinkRenderer()
 						->makeRedirectHeader(
@@ -66,7 +66,7 @@ class BPMNHandler extends TextContentHandler {
 			return;
 		}
 
-		$output->setRawText( Html::element( 'div', [
+		$output->setContentHolderText( Html::element( 'div', [
 			'id' => 'workflows-editor-panel',
 			'action' => 'view',
 			'data-xml' => $content->getText()
