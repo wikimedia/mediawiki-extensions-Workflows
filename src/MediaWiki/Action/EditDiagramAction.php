@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\Action;
 
 use EditAction;
-use MediaWiki\EditPage\Constraint\UnicodeConstraint;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
@@ -70,7 +70,7 @@ class EditDiagramAction extends EditAction {
 			'data-xml' => $xml,
 			'data-revid' => $oldid,
 			'data-token' => $out->getRequest()->getSession()->getToken()->toString(),
-			'data-unicode_check' => UnicodeConstraint::VALID_UNICODE,
+			'data-unicode_check' => EditPage::UNICODE_CHECK,
 			'style' => 'height: 1000px; width: 100%'
 		] ) );
 
