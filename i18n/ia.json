@@ -365,5 +365,8 @@
 	"workflows-ui-editor-toolbar-create-end-event": "Crear EndEvent",
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Crear passarella",
 	"workflows-ui-dialog-action-back": "Retro",
-	"workflows-ui-dialog-action-next": "Proxime"
+	"workflows-ui-dialog-action-next": "Proxime",
+	"workflows-ui-meta-noworkflows-yes": "Si",
+	"workflows-ui-meta-noworkflows-no": "No",
+	"workflows-ui-meta-noworkflows-label": "Permitter le execution automatic de fluxos de travalio sur iste pagina"
 }
