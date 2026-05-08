@@ -174,7 +174,7 @@
 	"workflows-ui-triggers-error-persist-fail": "Het is niet gelukt de voorwaarde op te slaan",
 	"workflows-ui-triggers-add-button": "Nieuwe voorwaarde toevoegen",
 	"workflows-ui-workflow-trigger-editor-booklet-page-details-title": "Details voorwaarde",
-	"workflows-ui-trigger-editor-error": "Editor-instantie is ongeldig",
+	"workflows-ui-trigger-editor-error": "Editor-instantie is onjuist",
 	"workflows-ui-trigger-init-form": "Aanvangsgegevens voor de werkstroom",
 	"workflows-ui-trigger-manual-workflows": "Toegestane werkstromen",
 	"workflows-ui-trigger-since-last-major-days": "Aantal dagen sinds de laatste grote bewerking",
