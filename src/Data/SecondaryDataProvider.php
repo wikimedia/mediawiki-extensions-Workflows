@@ -10,6 +10,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
+use Throwable;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
 	/** @var WorkflowFactory */
@@ -38,7 +39,6 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 	/**
 	 * @param \MWStake\MediaWiki\Component\DataStore\Record[] $dataSets
 	 * @return \MWStake\MediaWiki\Component\DataStore\Record[]
-	 * @throws \Exception
 	 */
 	public function extend( $dataSets ) {
 		foreach ( $dataSets as &$dataSet ) {
@@ -50,7 +50,7 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			$id = $dataSet->get( Record::ID );
 			try {
 				$workflow = $this->workflowFactory->getWorkflowForBot( $id );
-			} catch ( \Exception $e ) {
+			} catch ( Throwable $e ) {
 				// If the workflow is not found, we skip it
 				continue;
 			}
