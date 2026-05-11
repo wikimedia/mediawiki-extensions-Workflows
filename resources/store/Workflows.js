@@ -2,11 +2,12 @@ workflows.store.Workflows = function ( cfg ) {
 	this.total = 0;
 	cfg.remoteSort = true;
 	cfg.remoteFilter = true;
+	cfg.path = '';
 
 	workflows.store.Workflows.parent.call( this, cfg );
 };
 
-OO.inheritClass( workflows.store.Workflows, OOJSPlus.ui.data.store.Store );
+OO.inheritClass( workflows.store.Workflows, OOJSPlus.ui.data.store.RemoteRestStore );
 
 workflows.store.Workflows.prototype.doLoadData = function () {
 	const dfd = $.Deferred();
