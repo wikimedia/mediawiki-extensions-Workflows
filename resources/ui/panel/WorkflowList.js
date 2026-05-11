@@ -154,14 +154,13 @@
 			provideExportData: function () {
 				const dfd = $.Deferred(),
 					store = new workflows.store.Workflows( {
-						pageSize: -1,
 						sorter: {
 							page_prefixed_text: {
 								direction: 'ASC'
 							}
 						}
 					} );
-				store.load().done( ( response ) => {
+				store.loadAll().done( ( response ) => {
 					const $table = $( '<table>' );
 					let $row = $( '<tr>' );
 					let $cell = $( '<td>' );
