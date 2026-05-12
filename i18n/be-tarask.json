@@ -45,5 +45,8 @@
 	"workflows-ui-overview-details-raw-data-popup-value": "Значэньне",
 	"workflows-ui-action-edit-triggers": "Рэдагаваць",
 	"workflows-ui-meta-noworkflows-yes": "Так",
-	"workflows-ui-meta-noworkflows-no": "Не"
+	"workflows-ui-meta-noworkflows-no": "Не",
+	"workflows-ui-overview-details-state-label": "Стан:",
+	"workflows-ui-overview-details-state-column": "Стан",
+	"workflows-ui-overview-details-state-comment": "Камэнтар на бягучы стан"
 }
