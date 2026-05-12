@@ -10,6 +10,9 @@
 	"workflows-ui-task-completion-action-complete": "Даслаць",
 	"workflows-ui-task-completion-action-cancel": "Скасаваць",
 	"workflows-form-placeholder-comment": "Камэнтар",
+	"workflows-ui-overview-details-state-label": "Стан:",
+	"workflows-ui-overview-details-state-column": "Стан",
+	"workflows-ui-overview-details-state-comment": "Камэнтар на бягучы стан",
 	"workflows-ui-overview-details-action-reason": "Прычына",
 	"workflows-ui-overview-details-page-context-revision": "Вэрсія",
 	"workflows-ui-overview-details-page-context-page": "Старонка",
@@ -45,8 +48,5 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Скасаваць",
 	"workflows-ui-action-edit-triggers": "Рэдагаваць",
 	"workflows-ui-meta-noworkflows-yes": "Так",
-	"workflows-ui-meta-noworkflows-no": "Не",
-	"workflows-ui-overview-details-state-label": "Стан:",
-	"workflows-ui-overview-details-state-column": "Стан",
-	"workflows-ui-overview-details-state-comment": "Камэнтар на бягучы стан"
+	"workflows-ui-meta-noworkflows-no": "Не"
 }
