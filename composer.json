@@ -25,7 +25,7 @@
 		"mwstake/mediawiki-component-events": "~4",
 		"mwstake/mediawiki-component-wikitext": "~7",
 		"mwstake/mediawiki-component-datastore": "~3",
-		"mwstake/mediawiki-component-commonwebapis": "~3",
+		"mwstake/mediawiki-component-commonwebapis": "~4",
 		"mwstake/mediawiki-component-utils": "~3"
 	},
 	"require-dev": {
