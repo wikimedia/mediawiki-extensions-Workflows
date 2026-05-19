@@ -10,6 +10,7 @@
 	"workflows-ui-task-completion-action-complete": "Даслаць",
 	"workflows-ui-task-completion-action-cancel": "Скасаваць",
 	"workflows-form-placeholder-comment": "Камэнтар",
+	"workflows-form-instructions-loading-text": "Ладаваньне інструкцыяў...",
 	"workflows-ui-overview-details-state-label": "Стан:",
 	"workflows-ui-overview-details-state-column": "Стан",
 	"workflows-ui-overview-details-state-comment": "Камэнтар на бягучы стан",
