@@ -48,5 +48,6 @@
 	"workflows-ui-meta-noworkflows-no": "Не",
 	"workflows-ui-overview-details-state-label": "Стан:",
 	"workflows-ui-overview-details-state-column": "Стан",
-	"workflows-ui-overview-details-state-comment": "Камэнтар на бягучы стан"
+	"workflows-ui-overview-details-state-comment": "Камэнтар на бягучы стан",
+	"workflows-form-instructions-loading-text": "Ладаваньне інструкцыяў..."
 }
