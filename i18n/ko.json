@@ -91,7 +91,7 @@
 	"workflows-ui-overview-details-end-time": "종료된 시간: $1",
 	"workflows-ui-overview-details-section-activity": "현재 작업",
 	"workflows-ui-overview-details-section-page": "제목 문서",
-	"workflows-ui-overview-details-no-current-activity": "보류 중인 작업 없음",
+	"workflows-ui-overview-details-no-current-activity": "대기 중인 작업 없음",
 	"workflows-ui-overview-details-activity-assigned-users": "사용자로부터 대기중인 작업:",
 	"workflows-ui-overview-details-activity-assigned-users-none": "할당된 사용자가 없으므로 아무나 이 작업을 마칠 수 있습니다",
 	"workflows-ui-overview-details-activity-automatic": "자동 작업입니다. 백그라운드에서 처리하고 있습니다...",
