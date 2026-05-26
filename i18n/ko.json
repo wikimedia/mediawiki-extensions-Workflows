@@ -162,7 +162,7 @@
 	"workflows-ui-overview-details-end-time": "종료된 시간: $1",
 	"workflows-ui-overview-details-section-activity": "현재 작업",
 	"workflows-ui-overview-details-section-page": "제목 문서",
-	"workflows-ui-overview-details-no-current-activity": "보류 중인 작업 없음",
+	"workflows-ui-overview-details-no-current-activity": "대기 중인 작업 없음",
 	"workflows-ui-overview-details-activity-due-date": "기한",
 	"workflows-ui-overview-details-page-context-revision": "판",
 	"workflows-ui-workflow-overview-dialog-title-list-page": "이 문서와 관련된 워크플로",
