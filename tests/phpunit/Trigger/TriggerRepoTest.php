@@ -90,7 +90,8 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 
 		return new TriggerRepo(
 			$workflowFactoryMock, $workflowStateStoreMock, $titleFactory, $loggerMock,
-			$objectFactory, 'MediaWiki:WorkflowTriggers', $registry
+			$objectFactory, 'MediaWiki:WorkflowTriggers', $registry,
+			$this->getServiceContainer()->getMainWANObjectCache()
 		);
 	}
 }
