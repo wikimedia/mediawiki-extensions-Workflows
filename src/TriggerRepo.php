@@ -18,6 +18,7 @@ use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
+use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use WikiPage;
 
@@ -56,6 +57,9 @@ class TriggerRepo {
 	/** @var Content|null */
 	private $content = null;
 
+	/** @var WANObjectCache */
+	private $cache;
+
 	/**
 	 * @param WorkflowFactory $workflowFactory
 	 * @param WorkflowStateStore $stateStore
@@ -64,10 +68,12 @@ class TriggerRepo {
 	 * @param ObjectFactory $objectFactory
 	 * @param string $page
 	 * @param array $triggerTypeRegistry
+	 * @param WANObjectCache $cache
 	 */
 	public function __construct(
 		WorkflowFactory $workflowFactory, WorkflowStateStore $stateStore, TitleFactory $titleFactory,
-		LoggerInterface $logger, ObjectFactory $objectFactory, $page, $triggerTypeRegistry
+		LoggerInterface $logger, ObjectFactory $objectFactory, $page, $triggerTypeRegistry,
+		WANObjectCache $cache
 	) {
 		$this->workflowFactory = $workflowFactory;
 		$this->titleFactory = $titleFactory;
@@ -76,6 +82,7 @@ class TriggerRepo {
 		$this->page = $page;
 		$this->triggerTypeRegistry = $triggerTypeRegistry;
 		$this->workflowStore = $stateStore;
+		$this->cache = $cache;
 	}
 
 	/**
@@ -127,7 +134,7 @@ class TriggerRepo {
 	/**
 	 * @param Content|null $content
 	 */
-	private function load( $content = null ) {
+	private function load( ?Content $content = null ) {
 		$this->triggers = [];
 		// Avoid errors during initial install, when
 		// `MediaWiki:WorkflowTriggers` does not exist yet
@@ -135,31 +142,93 @@ class TriggerRepo {
 			$this->loaded = true;
 			return;
 		}
-		if ( $content === null ) {
-			$this->setWikipage();
-			if ( $this->wikipage ) {
-				$content = $this->wikipage->getContent();
-				if ( !( $content instanceof TriggerDefinitionContent ) ) {
-					$this->logger->error( 'Trigger page\'s content is not correct' );
-					return;
-				}
 
-				if ( !$content->isValid() ) {
-					$this->logger->error( 'Could not load trigger data from the page specified' );
-					return;
-				}
+		if ( $content !== null ) {
+			if ( $content instanceof TriggerDefinitionContent && $content->isValid() ) {
 				$this->content = $content;
+				$data = FormatJson::decode( $content->getText(), true );
+				if ( is_array( $data ) ) {
+					foreach ( $data as $key => $triggerData ) {
+						$this->loadTriggerFromData( $key, $triggerData );
+					}
+				}
 			}
+			$this->loaded = true;
+			return;
 		}
 
-		if ( $this->content ) {
-			$data = FormatJson::decode( $content->getText(), 1 );
-			foreach ( $data as $key => $triggerData ) {
-				$this->loadTriggerFromData( $key, $triggerData );
-			}
+		$data = $this->getCachedTriggerData();
+		if ( $data === null ) {
+			return;
 		}
-
+		foreach ( $data as $key => $triggerData ) {
+			$this->loadTriggerFromData( $key, $triggerData );
+		}
 		$this->loaded = true;
+	}
+
+	/**
+	 * Return decoded trigger data from cache, or null when the source page is
+	 * missing / invalid (so the caller can retry on the next request).
+	 * Invalidate cache on lookup fail.
+	 *
+	 * @return array|null
+	 */
+	private function getCachedTriggerData(): ?array {
+		$result = $this->cache->getWithSetCallback(
+			$this->cache->makeKey( 'workflows-triggers', $this->page ),
+			WANObjectCache::TTL_DAY,
+			function ( $oldValue, &$ttl ) {
+				$data = $this->readTriggerDataFromPage();
+				if ( $data === null ) {
+					$ttl = WANObjectCache::TTL_UNCACHEABLE;
+				}
+				return $data;
+			},
+			[ 'checkKeys' => [ $this->makeCheckKey() ] ]
+		);
+		return is_array( $result ) ? $result : null;
+	}
+
+	/**
+	 * Read the raw trigger data array directly from the wiki page.
+	 * Returns null when the page is absent or its content is invalid.
+	 *
+	 * @return array|null
+	 */
+	private function readTriggerDataFromPage(): ?array {
+		if ( !$this->wikipage ) {
+			$this->setWikipage();
+		}
+		if ( !$this->wikipage ) {
+			return null;
+		}
+		$content = $this->wikipage->getContent();
+		if ( !( $content instanceof TriggerDefinitionContent ) ) {
+			if ( $content !== null ) {
+				$this->logger->error( 'Trigger page\'s content is not correct' );
+			}
+			return null;
+		}
+		if ( !$content->isValid() ) {
+			$this->logger->error( 'Could not load trigger data from the page specified' );
+			return null;
+		}
+		return FormatJson::decode( $content->getText(), true ) ?? [];
+	}
+
+	/**
+	 * Invalidate the trigger cache. Call this whenever MediaWiki:WorkflowTriggers is saved.
+	 */
+	public function invalidateCache(): void {
+		$this->cache->touchCheckKey( $this->makeCheckKey() );
+	}
+
+	/**
+	 * @return string
+	 */
+	private function makeCheckKey(): string {
+		return $this->cache->makeKey( 'workflows-triggers-check', $this->page );
 	}
 
 	/**
@@ -275,8 +344,20 @@ class TriggerRepo {
 	/**
 	 * @return array
 	 */
-	private function getRawTriggers() {
-		return FormatJson::decode( $this->content->getText(), 1 );
+	private function getRawTriggers(): array {
+		if ( !$this->wikipage ) {
+			$this->setWikipage();
+		}
+		if ( $this->wikipage ) {
+			$content = $this->wikipage->getContent();
+			if ( $content instanceof TriggerDefinitionContent ) {
+				$this->content = $content;
+			}
+		}
+		if ( !$this->content ) {
+			return [];
+		}
+		return FormatJson::decode( $this->content->getText(), true ) ?? [];
 	}
 
 	/**
