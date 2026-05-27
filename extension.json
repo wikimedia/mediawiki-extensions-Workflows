@@ -869,7 +869,7 @@
 		},
 		"triggerWorkflows": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\TriggerWorkflows",
-			"services": [ "WorkflowTriggerRunner", "WorkflowLogger" ]
+			"services": [ "WorkflowTriggerRunner", "WorkflowLogger", "WorkflowTriggerRepo" ]
 		},
 		"preventChangesToDefinitions": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\PreventChangesToDefinitions",
