@@ -94,7 +94,8 @@ return [
 			$services->getObjectFactory(),
 			// Hardcoded pagename
 			'MediaWiki:WorkflowTriggers',
-			$registry
+			$registry,
+			$services->getMainWANObjectCache()
 		);
 	},
 	'WorkflowTriggerRunner' => static function ( MediaWikiServices $services ) {
