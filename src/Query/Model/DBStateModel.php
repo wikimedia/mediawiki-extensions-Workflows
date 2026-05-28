@@ -121,6 +121,13 @@ final class DBStateModel implements WorkflowStateModel {
 	}
 
 	/**
+	 * @return int|null
+	 */
+	public function getInitiator(): ?int {
+		return $this->initiator;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function serialize(): array {
