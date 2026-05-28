@@ -287,6 +287,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "Index der Vorlage auf der Seite",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_param": "Parameter Index",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "Wert des Parameters",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Parameter hinzufügen",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Kleine Änderung?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Kommentar",
 	"workflows-ui-editor-inspector-activity-group-feedback-title": "Aktivität \"Gruppenfeedback\"",
