@@ -80,6 +80,11 @@
 					},
 					autoClosePopup: true
 				},
+				initiator: {
+					headerText: mw.message( 'workflows-ui-overview-details-initiator-column' ).text(),
+					type: 'user',
+					hidden: true
+				},
 				assignee: {
 					headerText: mw.message( 'workflows-ui-overview-details-section-assignee' ).text(),
 					type: 'user',
@@ -173,6 +178,12 @@
 
 					$cell = $( '<td>' );
 					$cell.append(
+						mw.message( 'workflows-ui-overview-details-initiator-column' ).text()
+					);
+					$row.append( $cell );
+
+					$cell = $( '<td>' );
+					$cell.append(
 						mw.message( 'workflows-ui-overview-details-section-assignee' ).text()
 					);
 					$row.append( $cell );
@@ -221,6 +232,10 @@
 
 						$cell = $( '<td>' );
 						$cell.append( record.page_prefixed_text );
+						$row.append( $cell );
+
+						$cell = $( '<td>' );
+						$cell.append( record.initiator || '' );
 						$row.append( $cell );
 
 						$cell = $( '<td>' );

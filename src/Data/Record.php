@@ -7,6 +7,7 @@ class Record extends \MWStake\MediaWiki\Component\DataStore\Record {
 	public const TITLE = 'title';
 	public const PAGE_PREFIXED_TEXT = 'page_prefixed_text';
 	public const PAGE_LINK = 'page_link';
+	public const INITIATOR = 'initiator';
 	public const ASSIGNEE = 'assignee';
 	public const STATE = 'state';
 	public const STATE_LABEL = 'state_label';

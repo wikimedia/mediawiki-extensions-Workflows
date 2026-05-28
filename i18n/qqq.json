@@ -123,6 +123,7 @@
 	"workflows-auto-aborted-workflow-page-deleted": "Message set as a comment when a workflow was aborted because the page it was related to was deleted",
 	"workflows-uto-body-field-instructions": "Info text that shows additional instructions.\n{{Identical|Instruction}}\n* $1 - text for additional instructions",
 	"workflows-ui-overview-details-initiator": "Label for button that shows who started the workflow.\n{{Identical|Started by}}",
+	"workflows-ui-overview-details-initiator-column": "Column header in the workflows overview table that shows who started the workflow.\n{{Identical|Started by}}",
 	"workflows-uto-activity-body-initiator": "Info text on who initiated the workflow.\n*$1 - Name of the user that initiated the workflow. Use GENDER.\n*$2 - Realname of the user that initiated the workflow",
 	"workflows-ui-overview-details-action-details-column": "Label for the grid action button",
 	"workflows-exception-property-validation": "Validation exception text.\n$1 - failed property\n$2 - error message from validator",
