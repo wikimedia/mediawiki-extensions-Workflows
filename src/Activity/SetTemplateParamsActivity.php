@@ -36,10 +36,8 @@ class SetTemplateParamsActivity extends GenericActivity {
 	private $user;
 	/** @var int */
 	private $templateIndex;
-	/** @var int|string */
-	private $templateParamIndex;
-	/** @var string */
-	private $value;
+	/** @var array */
+	private $templateParams = [];
 	/** @var bool */
 	private $isMinor;
 	/** @var string */
@@ -85,18 +83,22 @@ class SetTemplateParamsActivity extends GenericActivity {
 		}
 		$parser = $this->parserFactory->newRevisionParser( $revision );
 		$templates = $parser->parse();
-		$templates = array_filter( $templates, static function ( $node ) {
+		$templates = array_values( array_filter( $templates, static function ( $node ) {
 			return $node instanceof Transclusion;
-		} );
+		} ) );
 
 		if ( empty( $templates ) || !isset( $templates[$this->templateIndex] ) ) {
 			throw new WorkflowExecutionException(
-				Message::newFromKey( 'workflows-activity-set-template-params-no-target' )->text()
+				Message::newFromKey( 'workflows-activity-set-template-params-no-target' )->text(),
+				$this->getTask()
 			);
 		}
 		/** @var Transclusion $node */
 		$node = $templates[$this->templateIndex];
-		$node->setParam( $this->templateParamIndex, $this->value );
+		foreach ( $this->templateParams as $paramIndex => $paramValue ) {
+			$paramIndex = is_numeric( $paramIndex ) ? (int)$paramIndex : $paramIndex;
+			$node->setParam( $paramIndex, $paramValue );
+		}
 		$parser->replaceNode( $node );
 		$rev = $parser->saveRevision( $this->user, $this->comment, $this->isMinor ? EDIT_MINOR : 0 );
 		if ( !( $rev instanceof RevisionRecord ) ) {
@@ -122,10 +124,9 @@ class SetTemplateParamsActivity extends GenericActivity {
 				$this->getTask()
 			);
 		}
-		if ( isset( $data['user'] ) ) {
+		if ( !empty( $data['user'] ) ) {
 			$this->user = $this->userFactory->newFromName( $data['user'] );
 			if ( $this->user && !$this->permissionManager->userCan( 'edit', $this->user, $this->title ) ) {
-				error_log( 'User ' . $this->user->getName() . ' cannot edit ' . $this->title->getPrefixedText() );
 				throw new WorkflowExecutionException(
 					Message::newFromKey( 'workflows-activity-cannot-edit' )
 						->params( $this->user->getName(), $this->title->getPrefixedText() )->text(),
@@ -137,11 +138,21 @@ class SetTemplateParamsActivity extends GenericActivity {
 		}
 
 		$this->templateIndex = (int)( $data['template-index'] ?? -1 );
-		$this->templateParamIndex = $data['template-param'] ?? -1;
-		if ( is_numeric( $this->templateParamIndex ) ) {
-			$this->templateParamIndex = (int)$this->templateParamIndex;
+		$this->templateParams = [];
+		if ( !empty( $data['template-params'] ) ) {
+			$params = $data['template-params'];
+			if ( is_string( $params ) ) {
+				$decoded = json_decode( $params, true );
+				if ( is_array( $decoded ) ) {
+					$this->templateParams = $decoded;
+				}
+			} elseif ( is_array( $params ) ) {
+				$this->templateParams = $params;
+			}
+		} elseif ( isset( $data['template-param'] ) && isset( $data['value'] ) ) {
+			$key = $data['template-param'];
+			$this->templateParams[$key] = $data['value'];
 		}
-		$this->value = $data['value'] ?? '';
 		$this->isMinor = (bool)( $data['minor'] ?? false );
 		$this->comment = $data['comment'] ?? '';
 	}
