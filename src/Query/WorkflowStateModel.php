@@ -33,6 +33,11 @@ interface WorkflowStateModel {
 	public function getStarted(): string;
 
 	/**
+	 * @return int|null
+	 */
+	public function getInitiator(): ?int;
+
+	/**
 	 * @return string
 	 */
 	public function getState(): string;

@@ -46,6 +46,9 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			if ( $title instanceof Title ) {
 				$dataSet->set( Record::PAGE_LINK, $title->getLocalURL() );
 			}
+
+			$dataSet->set( Record::INITIATOR, $this->formatInitiator( $dataSet->get( Record::INITIATOR ) ) );
+
 			/** @var WorkflowId $id */
 			$id = $dataSet->get( Record::ID );
 			try {
@@ -98,6 +101,23 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 			}
 		}
 		return $res;
+	}
+
+	/**
+	 * @param int|null $initiatorId
+	 * @return string
+	 */
+	private function formatInitiator( $initiatorId ): string {
+		if ( !$initiatorId ) {
+			return '';
+		}
+
+		$user = $this->userFactory->newFromId( (int)$initiatorId );
+		if ( !$user instanceof User || !$user->isRegistered() ) {
+			return '';
+		}
+
+		return $user->getName();
 	}
 
 	/**
