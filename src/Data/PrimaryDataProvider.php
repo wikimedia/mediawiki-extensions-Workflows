@@ -86,6 +86,7 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				Record::TITLE => $this->constructTitleFromDefinition( $model ),
 				Record::PAGE_PREFIXED_TEXT => $page instanceof Title ? $page->getPrefixedText() : '',
 				'page_title_object' => $page,
+				Record::INITIATOR => $model->getInitiator(),
 				Record::STATE => $model->getState(),
 				Record::ASSIGNEE => $model->getAssignees(),
 				Record::LAST_TS => $model->getTouched(),

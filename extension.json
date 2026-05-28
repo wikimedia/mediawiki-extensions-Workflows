@@ -373,6 +373,7 @@
 				"workflows-ui-overview-grid-filter-state-active",
 				"workflows-error-generic",
 				"workflows-ui-overview-details-section-assignee",
+				"workflows-ui-overview-details-initiator-column",
 				"workflows-ui-overview-details-has-notice-label",
 				"workflows-ui-overview-details-start-time-raw-column",
 				"workflows-ui-overview-details-last-time-raw-column"
