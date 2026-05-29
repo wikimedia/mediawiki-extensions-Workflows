@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Workflows\Query;
 
-use EventSauce\EventSourcing\Consumer;
+use EventSauce\EventSourcing\MessageConsumer;
 use MediaWiki\Extension\Workflows\Storage\ReplayConsumer;
 use MediaWiki\User\User;
 
-interface WorkflowStateStore extends ReplayConsumer, Consumer {
+interface WorkflowStateStore extends ReplayConsumer, MessageConsumer {
 
 	/**
 	 * @return WorkflowStateStore

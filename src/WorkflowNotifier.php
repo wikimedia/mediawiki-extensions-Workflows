@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Workflows;
 
-use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\Message;
+use EventSauce\EventSourcing\MessageConsumer;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Event\TaskAssignedEvent;
 use MediaWiki\Extension\Workflows\Event\WorkflowAbortedEvent;
@@ -25,7 +25,7 @@ use Throwable;
  * Individual activities may emit additional notifications,
  * this class deals only with generic workflows notifications
  */
-class WorkflowNotifier implements Consumer {
+class WorkflowNotifier implements MessageConsumer {
 	/** @var Notifier */
 	private $notifier;
 	/** @var ActivityManager */
@@ -51,7 +51,7 @@ class WorkflowNotifier implements Consumer {
 	 * @return void
 	 * @throws WorkflowExecutionException
 	 */
-	public function handle( Message $message ) {
+	public function handle( Message $message ): void {
 		try {
 			$storage = $this->workflow->getStorage();
 		} catch ( Throwable $e ) {

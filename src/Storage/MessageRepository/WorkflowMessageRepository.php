@@ -6,6 +6,7 @@ use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\EventSourcing\Header;
 use EventSauce\EventSourcing\Message;
 use EventSauce\EventSourcing\MessageRepository;
+use EventSauce\EventSourcing\PaginationCursor;
 use EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer;
 use EventSauce\EventSourcing\Serialization\MessageSerializer;
 use Generator;
@@ -46,7 +47,7 @@ class WorkflowMessageRepository implements MessageRepository {
 		$this->serializer = $serializer;
 	}
 
-	public function persist( Message ...$messages ) {
+	public function persist( Message ...$messages ): void {
 		$values = [];
 		foreach ( $messages as $message ) {
 			$values[] = $this->getMessageData( $message );
@@ -117,6 +118,10 @@ class WorkflowMessageRepository implements MessageRepository {
 		] );
 	}
 
+	public function paginate( PaginationCursor $cursor ): Generator {
+		throw new \RuntimeException( 'Pagination is not supported by WorkflowMessageRepository' );
+	}
+
 	private function fetchMessages( $conds ) {
 		$rows = $this->lb->getConnection( DB_REPLICA )->select(
 			$this->tableName,
@@ -148,11 +153,9 @@ class WorkflowMessageRepository implements MessageRepository {
 	private function yieldMessage( IResultWrapper $rows ) {
 		// This uses Generator syntax => https://www.php.net/manual/en/language.generators.syntax.php
 		foreach ( $rows as $row ) {
-			$messages = $this->serializer->unserializePayload( FormatJson::decode( $row->wfe_payload, true ) );
-			foreach ( $messages as $message ) {
-				if ( $message instanceof Message ) {
-					yield $message;
-				}
+			$message = $this->serializer->unserializePayload( FormatJson::decode( $row->wfe_payload, true ) );
+			if ( $message instanceof Message ) {
+				yield $message;
 			}
 		}
 

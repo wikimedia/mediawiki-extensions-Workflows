@@ -22,7 +22,7 @@ class WorkflowId implements AggregateRootId {
 	 * @param string $aggregateRootId
 	 * @return WorkflowId
 	 */
-	public static function fromString( string $aggregateRootId ): AggregateRootId {
+	public static function fromString( string $aggregateRootId ): static {
 		$uuid = Uuid::fromString( $aggregateRootId );
 		return new static( $uuid );
 	}

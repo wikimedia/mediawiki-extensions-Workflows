@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows;
 
-use EventSauce\EventSourcing\PointInTime;
+use DateTimeImmutable;
 use Exception;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
@@ -107,9 +107,9 @@ class WorkflowSerializer {
 			$workflow->getStorage()->aggregateRootId()
 		);
 
-		/** @var PointInTime $start */
+		/** @var DateTimeImmutable $start */
 		$start = null;
-		/** @var PointInTime $last */
+		/** @var DateTimeImmutable $last */
 		$last = null;
 		foreach ( $messages as $message ) {
 			if ( !$start ) {
@@ -121,17 +121,17 @@ class WorkflowSerializer {
 		$user = $this->context->getUser();
 		$lang = $this->context->getLanguage();
 		return [
-			'start' => $last->dateTime()->format( 'YmdHis' ),
+			'start' => $last->format( 'YmdHis' ),
 			// Unfortunate mix, but found no good way to format client-side
 			'startDateAndTime' => $lang->userTimeAndDate(
-				$start->dateTime()->format( 'YmdHis' ), $user, [ 'timecorrection' => true ]
+				$start->format( 'YmdHis' ), $user, [ 'timecorrection' => true ]
 			),
-			'startDate' => $lang->userDate( $start->dateTime()->format( 'YmdHis' ), $user ),
-			'last' => $last->dateTime()->format( 'YmdHis' ),
+			'startDate' => $lang->userDate( $start->format( 'YmdHis' ), $user ),
+			'last' => $last->format( 'YmdHis' ),
 			'lastDateAndTime' => $lang->userTimeAndDate(
-				$last->dateTime()->format( 'YmdHis' ), $user, [ 'timecorrection' => true ]
+				$last->format( 'YmdHis' ), $user, [ 'timecorrection' => true ]
 			),
-			'lastDate' => $lang->userDate( $last->dateTime()->format( 'YmdHis' ), $user ),
+			'lastDate' => $lang->userDate( $last->format( 'YmdHis' ), $user ),
 		];
 	}
 }

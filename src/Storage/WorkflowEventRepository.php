@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\Workflows\Storage;
 
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\EventSourcing\AggregateRootRepository;
-use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\DefaultHeadersDecorator;
 use EventSauce\EventSourcing\Header;
 use EventSauce\EventSourcing\Message;
+use EventSauce\EventSourcing\MessageConsumer;
 use EventSauce\EventSourcing\MessageDecorator;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\WorkflowStorage;
@@ -47,9 +47,9 @@ class WorkflowEventRepository implements AggregateRootRepository {
 	}
 
 	/**
-	 * @param Consumer $consumer
+	 * @param MessageConsumer $consumer
 	 */
-	public function addConsumerToDispatcher( Consumer $consumer ) {
+	public function addConsumerToDispatcher( MessageConsumer $consumer ) {
 		$this->dispatcher->addConsumer( $consumer );
 	}
 
