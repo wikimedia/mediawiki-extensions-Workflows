@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Query\Model;
 
-use EventSauce\EventSourcing\PointInTime;
+use DateTimeImmutable;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\Event;
@@ -143,8 +143,8 @@ final class DBStateModel implements WorkflowStateModel {
 		$this->lastEvent = get_class( $event );
 		if ( $event instanceof WorkflowInitialized ) {
 			$this->payload['definition'] = $event->getDefinitionSource();
-			if ( $event->getTimeOfRecording() instanceof PointInTime ) {
-				$this->started = $event->getTimeOfRecording()->dateTime()->format( 'YmdHis' );
+			if ( $event->getTimeOfRecording() instanceof DateTimeImmutable ) {
+				$this->started = $event->getTimeOfRecording()->format( 'YmdHis' );
 			}
 		}
 		if ( $event instanceof WorkflowStarted ) {
@@ -174,8 +174,8 @@ final class DBStateModel implements WorkflowStateModel {
 			$this->payload[$event->getElementId()] = $event->getData();
 		}
 
-		if ( $event->getTimeOfRecording() instanceof PointInTime ) {
-			$this->touched = $event->getTimeOfRecording()->dateTime()->format( 'YmdHis' );
+		if ( $event->getTimeOfRecording() instanceof DateTimeImmutable ) {
+			$this->touched = $event->getTimeOfRecording()->format( 'YmdHis' );
 		}
 	}
 }

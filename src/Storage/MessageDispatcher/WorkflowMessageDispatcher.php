@@ -2,14 +2,14 @@
 
 namespace MediaWiki\Extension\Workflows\Storage\MessageDispatcher;
 
-use EventSauce\EventSourcing\Consumer;
 use EventSauce\EventSourcing\Message;
+use EventSauce\EventSourcing\MessageConsumer;
 use EventSauce\EventSourcing\MessageDispatcher;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 
 class WorkflowMessageDispatcher implements MessageDispatcher {
-	/** @var Consumer[] */
+	/** @var MessageConsumer[] */
 	private $consumers = [];
 
 	public static function newFromRegisteredListeners() {
@@ -22,7 +22,7 @@ class WorkflowMessageDispatcher implements MessageDispatcher {
 			// TODO: Inject
 			$objectFactory = MediaWikiServices::getInstance()->getObjectFactory();
 			$instance = $objectFactory->createObject( $spec );
-			if ( !$instance instanceof Consumer ) {
+			if ( !$instance instanceof MessageConsumer ) {
 				continue;
 			}
 			$dispatcher->addConsumer( $instance );
@@ -31,7 +31,7 @@ class WorkflowMessageDispatcher implements MessageDispatcher {
 		return $dispatcher;
 	}
 
-	public function dispatch( Message ...$messages ) {
+	public function dispatch( Message ...$messages ): void {
 		foreach ( $messages as $message ) {
 			foreach ( $this->consumers as $consumer ) {
 				$consumer->handle( $message );
@@ -39,7 +39,7 @@ class WorkflowMessageDispatcher implements MessageDispatcher {
 		}
 	}
 
-	public function addConsumer( Consumer $consumer ) {
+	public function addConsumer( MessageConsumer $consumer ) {
 		$this->consumers[] = $consumer;
 	}
 

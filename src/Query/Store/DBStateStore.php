@@ -143,7 +143,7 @@ final class DBStateStore implements WorkflowStateStore {
 	 * Handle message that has been fired
 	 * @param Message $message
 	 */
-	public function handle( Message $message ) {
+	public function handle( Message $message ): void {
 		$event = $message->event();
 		$event->setTimeOfRecording( $message->timeOfRecording() );
 		$this->processEvent( $event, $message->aggregateRootId() );

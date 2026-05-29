@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Storage\Event;
 
-use EventSauce\EventSourcing\PointInTime;
+use DateTimeImmutable;
 use EventSauce\EventSourcing\Serialization\SerializablePayload;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -10,7 +10,7 @@ use Ramsey\Uuid\UuidInterface;
 abstract class Event implements SerializablePayload {
 	/** @var UuidInterface */
 	private $id;
-	/** @var PointInTime|null */
+	/** @var DateTimeImmutable|null */
 	private $recordedAt = null;
 
 	/**
@@ -37,17 +37,17 @@ abstract class Event implements SerializablePayload {
 	}
 
 	/**
-	 * @param PointInTime $recorded
+	 * @param DateTimeImmutable $recorded
 	 * @return void
 	 */
-	public function setTimeOfRecording( PointInTime $recorded ) {
+	public function setTimeOfRecording( DateTimeImmutable $recorded ) {
 		$this->recordedAt = $recorded;
 	}
 
 	/**
-	 * @return PointInTime|null
+	 * @return DateTimeImmutable|null
 	 */
-	public function getTimeOfRecording(): ?PointInTime {
+	public function getTimeOfRecording(): ?DateTimeImmutable {
 		return $this->recordedAt;
 	}
 
@@ -71,7 +71,7 @@ abstract class Event implements SerializablePayload {
 	 * @param array $payload
 	 * @return SerializablePayload
 	 */
-	public static function fromPayload( array $payload ): SerializablePayload {
+	public static function fromPayload( array $payload ): static {
 		$decodedPayload = static::decodePayloadData( $payload );
 		return new static( ...array_values( $decodedPayload ) );
 	}
