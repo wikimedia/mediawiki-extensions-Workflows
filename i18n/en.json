@@ -364,5 +364,10 @@
 	"workflows-ui-dialog-action-next": "Next",
 	"workflows-ui-meta-noworkflows-yes": "Yes",
 	"workflows-ui-meta-noworkflows-no": "No",
-	"workflows-ui-meta-noworkflows-label": "Allow automatic workflow execution on this page"
+	"workflows-ui-meta-noworkflows-label": "Allow automatic workflow execution on this page",
+	"workflows-droplet-myopenworkflows-name": "My open workflows",
+	"workflows-droplet-myopenworkflows-description": "Shows a list of open workflows initiated by the current user",
+	"workflows-tag-myopenworkflows-anon": "You must be logged in to view your workflows.",
+	"workflows-tag-myopenworkflows-empty": "You have no open workflows.",
+	"workflows-tag-myopenworkflows-unknown": "Unknown workflow"
 }

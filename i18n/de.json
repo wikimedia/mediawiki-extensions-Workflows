@@ -359,5 +359,10 @@
 	"workflows-ui-editor-toolbar-create-end-event": "Erstellen des EndEvents",
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Erstellen eines Gateways",
 	"workflows-ui-dialog-action-back": "Zurück",
-	"workflows-ui-dialog-action-next": "Weiter"
+	"workflows-ui-dialog-action-next": "Weiter",
+	"workflows-droplet-myopenworkflows-name": "Meine offenen Workflows",
+	"workflows-droplet-myopenworkflows-description": "Zeigt eine Liste der offenen Workflows des angemeldeten Benutzers",
+	"workflows-tag-myopenworkflows-anon": "Sie müssen angemeldet sein, um Ihre Workflows zu sehen.",
+	"workflows-tag-myopenworkflows-empty": "Sie haben keine offenen Workflows.",
+	"workflows-tag-myopenworkflows-unknown": "Unbekannter Workflow"
 }

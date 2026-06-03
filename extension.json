@@ -206,6 +206,13 @@
 			"PluginModules": [
 				"ext.workflows.visualEditorPlugin.magic"
 			]
+		},
+		"ContentDroplets": {
+			"Droplets": {
+				"my-open-workflows": {
+					"class": "MediaWiki\\Extension\\Workflows\\ContentDroplets\\MyOpenWorkflowsDroplet"
+				}
+			}
 		}
 	},
 	"callback": "MediaWiki\\Extension\\Workflows\\Extension::register",
@@ -225,6 +232,9 @@
 		"MediaWiki\\Extension\\Workflows\\BackgroundProcessCron::register"
 	],
 	"ResourceModules": {
+		"ext.workflows.droplet.myopenworkflows": {
+			"scripts": "droplet/myopenworkflows.js"
+		},
 		"ext.workflows.bootstrap": {
 			"scripts": "bootstrap.js"
 		},
@@ -833,7 +843,8 @@
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\IntegrateCodeEditor::onCodeEditorGetPageLanguage",
 		"PageSaveComplete": "triggerWorkflows",
 		"MovePageIsValidMove": "preventChangesToDefinitions",
-		"GetDoubleUnderscoreIDs": "addMagic"
+		"GetDoubleUnderscoreIDs": "addMagic",
+		"MWStakeGenericTagHandlerInitTags": "registerTags"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -877,6 +888,9 @@
 		},
 		"addMagic": {
 			"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\Hook\\AddMagic"
+		},
+		"registerTags": {
+			"class": "MediaWiki\\Extension\\Workflows\\Hook\\RegisterTags"
 		}
 	},
 	"ContentHandlers": {
