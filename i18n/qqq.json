@@ -389,5 +389,11 @@
 	"workflows-ui-dialog-action-next": "Process dialog action label\n\n{{Identical|Next}}",
 	"workflows-ui-meta-noworkflows-yes": "Option label for yes/no setting - Yes",
 	"workflows-ui-meta-noworkflows-no": "Option label for yes/no setting - No",
-	"workflows-ui-meta-noworkflows-label": "Label for page meta item in VisualEditor - disable workflows on this page"
+	"workflows-ui-meta-noworkflows-label": "Label for page meta item in VisualEditor - disable workflows on this page",
+	"workflows-ui-overview-details-initiator-column": "Column header in the workflows overview table that shows who started the workflow.\n{{Identical|Started by}}",
+	"workflows-droplet-myopenworkflows-name": "Name of the 'My open workflows' content droplet",
+	"workflows-droplet-myopenworkflows-description": "Description of the 'My open workflows' content droplet",
+	"workflows-tag-myopenworkflows-anon": "Message shown to anonymous users when the tag is rendered",
+	"workflows-tag-myopenworkflows-empty": "Message shown when the user has no open workflows",
+	"workflows-tag-myopenworkflows-unknown": "Label for a workflow with no identifiable title"
 }
