@@ -111,6 +111,7 @@
 	"workflows-auto-aborted-workflow-page-deleted": "O fluxo de traballo interrompeuse porque se eliminou a páxina coa que estaba relacionado",
 	"workflows-uto-body-field-instructions": "Instrucións: $1",
 	"workflows-ui-overview-details-initiator": "Iniciado por:",
+	"workflows-ui-overview-details-initiator-column": "Iniciado por",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|iniciou}} este fluxo de traballo",
 	"workflows-ui-overview-details-action-details-column": "máis detalles",
 	"workflows-exception-property-validation": "Fallou a validación da propiedade «$1»: $2",
@@ -368,5 +369,10 @@
 	"workflows-ui-dialog-action-next": "Seguinte",
 	"workflows-ui-meta-noworkflows-yes": "Si",
 	"workflows-ui-meta-noworkflows-no": "Non",
-	"workflows-ui-meta-noworkflows-label": "Permitir a execución automática do fluxo de traballo nesta páxina"
+	"workflows-ui-meta-noworkflows-label": "Permitir a execución automática do fluxo de traballo nesta páxina",
+	"workflows-droplet-myopenworkflows-name": "Os meus fluxos de traballo abertos",
+	"workflows-droplet-myopenworkflows-description": "Mostra unha lista de fluxos de traballo abertos iniciados polo usuario actual",
+	"workflows-tag-myopenworkflows-anon": "Debes iniciar sesión para ver os teus fluxos de traballo.",
+	"workflows-tag-myopenworkflows-empty": "Non tes fluxos de traballo abertos.",
+	"workflows-tag-myopenworkflows-unknown": "Fluxo de traballo descoñecido"
 }

@@ -28,6 +28,7 @@
 	"workflows-ui-overview-grid-filter-state-all": "Tutti",
 	"workflows-form-instructions-comment": "Commenta",
 	"workflows-uto-body-field-instructions": "Istruzioni: $1",
+	"workflows-ui-overview-details-initiator-column": "Iniziato da",
 	"workflows-ui-overview-details-action-details-column": "vedi dettagli",
 	"workflows-property-validator-email-recipient-error": "Il valore \"$1\" non è un indirizzo email valido o un utente con un indirizzo email impostato",
 	"workflows-collect-data-form-instructions": "Istruzioni",
