@@ -41,6 +41,7 @@
 	"workflows-form-instructions-comment": "Kommentti",
 	"workflows-error-generic": "Tapahtui virhe",
 	"workflows-uto-body-field-instructions": "Ohjeet: $1",
+	"workflows-ui-overview-details-initiator-column": "Aloittanut",
 	"workflows-ui-overview-details-action-details-column": "näytä tiedot",
 	"workflows-property-validator-valid-user-error": "Käyttäjä \"$1\" ei ole kelvollinen käyttäjä",
 	"workflows-property-validator-valid-title-error": "\"$1\" ei ole kelvollinen otsikko",
@@ -60,5 +61,10 @@
 	"workflows-ui-editor-inspector-activity-custom-form-title": "Mukautettu lomake",
 	"workflows-ui-meta-noworkflows-yes": "Kyllä",
 	"workflows-ui-meta-noworkflows-no": "Ei",
-	"workflows-ui-meta-noworkflows-label": "Salli automaattisten työnkulkujen suorittaminen tällä sivulla"
+	"workflows-ui-meta-noworkflows-label": "Salli automaattisten työnkulkujen suorittaminen tällä sivulla",
+	"workflows-droplet-myopenworkflows-name": "Avoimet työnkulkuni",
+	"workflows-droplet-myopenworkflows-description": "Näyttää luettelon nykyisen käyttäjän aloittamista avoimista työnkuluista",
+	"workflows-tag-myopenworkflows-anon": "Voit näyttää työnkulkusi vain sisäänkirjautuneena.",
+	"workflows-tag-myopenworkflows-empty": "Sinulla ei ole avoimia työnkulkuja.",
+	"workflows-tag-myopenworkflows-unknown": "Tuntematon työnkulku"
 }
