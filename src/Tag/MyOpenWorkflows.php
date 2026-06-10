@@ -43,11 +43,7 @@ class MyOpenWorkflows extends GenericTag {
 	 * @inheritDoc
 	 */
 	public function getHandler( MediaWikiServices $services ): ITagHandler {
-		return new MyOpenWorkflowsHandler(
-			$services->getService( 'WorkflowsStateStore' ),
-			$services->getTitleFactory(),
-			$services->getLinkRenderer()
-		);
+		return new MyOpenWorkflowsHandler();
 	}
 
 	/**

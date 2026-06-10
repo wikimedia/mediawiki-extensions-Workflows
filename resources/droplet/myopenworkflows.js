@@ -10,3 +10,17 @@ mw.hook( 'ext.visualEditorPlus.tags.registerTags' ).add( ( registry ) => {
 		}
 	};
 } );
+
+$( () => {
+	const $containers = $( '.workflows-my-open-workflows' );
+	if ( !$containers.length ) {
+		return;
+	}
+
+	$containers.each( ( index, element ) => {
+		const panel = new workflows.ui.panel.MyOpenWorkflowList( {
+			expanded: false
+		} );
+		$( element ).append( panel.$element );
+	} );
+} );

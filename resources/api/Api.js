@@ -37,27 +37,28 @@
 	workflows.api.Api.prototype.ajax = function ( path, data, method ) {
 		data = data || {};
 		const dfd = $.Deferred();
+		const requestKey = method + ':' + path + ':' + JSON.stringify( data );
 
-		this.currentRequests[ path ] = $.ajax( {
+		this.currentRequests[ requestKey ] = $.ajax( {
 			method: method,
 			url: this.makeUrl( path ),
 			data: data,
 			contentType: 'application/json',
 			dataType: 'json',
 			beforeSend: function () {
-				if ( this.currentRequests.hasOwnProperty( path ) ) {
-					this.currentRequests[ path ].abort();
+				if ( this.currentRequests.hasOwnProperty( requestKey ) ) {
+					this.currentRequests[ requestKey ].abort();
 				}
 			}.bind( this )
 		} ).done( ( response ) => {
-			delete ( this.currentRequests[ path ] );
+			delete ( this.currentRequests[ requestKey ] );
 			if ( response.success === false ) {
 				dfd.reject();
 				return;
 			}
 			dfd.resolve( response );
 		} ).fail( ( jgXHR, type, status ) => {
-			delete ( this.currentRequests[ path ] );
+			delete ( this.currentRequests[ requestKey ] );
 			if ( type === 'error' ) {
 				dfd.reject( {
 					error: jgXHR.responseJSON || jgXHR.responseText
