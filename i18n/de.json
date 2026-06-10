@@ -118,6 +118,7 @@
 	"workflows-auto-aborted-workflow-page-deleted": "Der Workflow wurde abgebrochen, da die damit verbundene Seite gelöscht wurde",
 	"workflows-uto-body-field-instructions": "Anweisungen: $1",
 	"workflows-ui-overview-details-initiator": "Gestartet von:",
+	"workflows-ui-overview-details-initiator-column": "Gestartet von",
 	"workflows-uto-activity-body-initiator": "$2 {{GENDER:$1|initiierte}} diesen Workflow",
 	"workflows-ui-overview-details-action-details-column": "Details anzeigen",
 	"workflows-exception-property-validation": "Validierung für Eigenschaft \"$1\" fehlgeschlagen: $2",
