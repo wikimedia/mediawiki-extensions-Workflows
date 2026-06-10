@@ -236,7 +236,19 @@
 	],
 	"ResourceModules": {
 		"ext.workflows.droplet.myopenworkflows": {
-			"scripts": "droplet/myopenworkflows.js"
+			"scripts": [
+				"ui/panel/MyOpenWorkflowList.js",
+				"droplet/myopenworkflows.js"
+			],
+			"dependencies": [
+				"ext.workflows.panel.overview",
+				"ext.workflows.bootstrap"
+			]
+		},
+		"ext.workflows.droplet.myopenworkflows.styles": {
+			"styles": [
+				"styles/myopenworkflows.css"
+			]
 		},
 		"ext.workflows.bootstrap": {
 			"scripts": "bootstrap.js"
@@ -360,6 +372,9 @@
 			"scripts": [
 				"store/Workflows.js",
 				"ui/panel/WorkflowList.js"
+			],
+			"styles": [
+				"styles/overview.less"
 			],
 			"messages": [
 				"workflows-ui-overview-details-start-time-column",

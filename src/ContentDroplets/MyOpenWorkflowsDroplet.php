@@ -60,7 +60,7 @@ class MyOpenWorkflowsDroplet extends TagDroplet {
 	 * @return array
 	 */
 	public function getRLModules(): array {
-		return [];
+		return [ 'ext.workflows.droplet.myopenworkflows.styles' ];
 	}
 
 	/**

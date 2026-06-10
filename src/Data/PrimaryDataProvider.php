@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Data;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Workflows\Definition\DefinitionSource;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateModel;
 use MediaWiki\Extension\Workflows\Query\WorkflowStateStore;
@@ -37,11 +38,17 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 	 */
 	public function makeData( $params ) {
 		$onlyActive = false;
+		$assignedToMe = false;
 		$context = [];
 		$filters = $params->getFilter();
 		foreach ( $filters as $filter ) {
 			if ( $filter->getField() === 'context' ) {
 				$context = $filter->getValue();
+				$filter->setApplied( true );
+				continue;
+			}
+			if ( $filter->getField() === 'assigned_to_me' ) {
+				$assignedToMe = (bool)$filter->getValue();
 				$filter->setApplied( true );
 				continue;
 			}
@@ -77,9 +84,15 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 			$models = $this->stateStore->query( true );
 		}
 
+		$contextUser = RequestContext::getMain()->getUser();
+		$currentUserName = $contextUser->isRegistered() ? $contextUser->getName() : null;
+
 		$data = [];
 		/** @var WorkflowStateModel $model */
 		foreach ( $models as $model ) {
+			if ( $assignedToMe && !$this->isAssignedToUser( $model->getAssignees(), $currentUserName ) ) {
+				continue;
+			}
 			$page = $this->getPageFromContext( $model );
 			$data[] = new Record( (object)[
 				Record::ID => $model->getWorkflowId(),
@@ -123,5 +136,25 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 			return null;
 		}
 		return $this->titleFactory->newFromID( $pageId );
+	}
+
+	/**
+	 * @param array $assignees
+	 * @param string|null $username
+	 * @return bool
+	 */
+	private function isAssignedToUser( array $assignees, ?string $username ): bool {
+		if ( !$username ) {
+			return false;
+		}
+
+		foreach ( $assignees as $assignee ) {
+			$assigneeName = explode( '#', (string)$assignee )[0] ?? '';
+			if ( $assigneeName === $username ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

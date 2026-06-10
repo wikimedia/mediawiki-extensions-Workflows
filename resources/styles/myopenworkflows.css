@@ -1,0 +1,19 @@
+/* Icon shown for the droplet in the content droplet picker */
+.droplet .icon-droplet.droplet-myopenworkflows {
+	background-image: url( ../images/contentdroplets-open-workflows-icon.svg );
+}
+
+/* Placeholder shown for the tag while editing the page in VisualEditor */
+.ve-active .mwstake-components-generictaghandler-tag-myopenworkflows {
+	min-height: 120px;
+	background-color: #fafafc;
+	background-image: url( ../images/contentdroplets-open-workflows-icon.svg );
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 64px;
+}
+
+/* Hide the rendered content (e.g. the "must be logged in" notice) behind the placeholder */
+.ve-active .mwstake-components-generictaghandler-tag-myopenworkflows > * {
+	visibility: hidden;
+}
