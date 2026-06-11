@@ -377,5 +377,11 @@
 	"workflows-ui-dialog-action-next": "Proxime",
 	"workflows-ui-meta-noworkflows-yes": "Si",
 	"workflows-ui-meta-noworkflows-no": "No",
-	"workflows-ui-meta-noworkflows-label": "Permitter le execution automatic de fluxos de travalio sur iste pagina"
+	"workflows-ui-meta-noworkflows-label": "Permitter le execution automatic de fluxos de travalio sur iste pagina",
+	"workflows-ui-overview-details-initiator-column": "Comenciate per",
+	"workflows-droplet-myopenworkflows-name": "Mi fluxos de travalio aperte",
+	"workflows-droplet-myopenworkflows-description": "Monstra un lista de fluxos de travalio aperte initiate per le usator actual",
+	"workflows-tag-myopenworkflows-anon": "Tu debe aperir un session pro poter vider tu fluxos de travalio.",
+	"workflows-tag-myopenworkflows-empty": "Tu non ha fluxos de travalio aperte.",
+	"workflows-tag-myopenworkflows-unknown": "Fluxo de travalio incognite"
 }
