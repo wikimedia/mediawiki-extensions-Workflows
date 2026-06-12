@@ -225,7 +225,7 @@
 	"workflows-ui-workflow-overview-step-name-collect-data": "Verzamelen van gegevens",
 	"workflows-activity-set-template-params-no-target": "Het gedefinieerde doelsjabloon bestaat niet op de opgegeven pagina",
 	"workflows-activity-error-no-revision": "Er kan geen versie worden gevonden voor de opgegeven titel",
-	"workflows-activity-error-no-title": "Ongeldige titel",
+	"workflows-activity-error-no-title": "Incorrecte titel",
 	"workflows-activity-cannot-edit": "De gebruiker “$1” kan de pagina “$2” niet bewerken",
 	"workflows-activity-set-template-params-cannot-save": "Opslaan mislukt",
 	"workflows-ui-overview-details-section-details": "Details",
