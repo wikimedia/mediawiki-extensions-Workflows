@@ -364,5 +364,6 @@
 	"workflows-droplet-myopenworkflows-description": "Zeigt eine Liste der offenen Workflows des angemeldeten Benutzers",
 	"workflows-tag-myopenworkflows-anon": "Sie müssen angemeldet sein, um Ihre Workflows zu sehen.",
 	"workflows-tag-myopenworkflows-empty": "Sie haben keine offenen Workflows.",
-	"workflows-tag-myopenworkflows-unknown": "Unbekannter Workflow"
+	"workflows-tag-myopenworkflows-unknown": "Unbekannter Workflow",
+	"workflows-ui-overview-details-initiator-column": "Gestartet von"
 }
