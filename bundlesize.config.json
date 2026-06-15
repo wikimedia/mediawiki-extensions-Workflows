@@ -1,6 +1,12 @@
 [
 	{
 		"resourceModule": "ext.workflows.bootstrap",
-		"maxSize": "2.7 kB"
+		"maxSize": "4 kB"
+	},
+	{
+		"resourceModule": "ext.workflows.activity.collectdata.forms",
+		"maxSize": "2 kB",
+		"@note": "Ignore ext.mws.commonwebapis",
+		"ignoreDependencies": true
 	}
 ]
