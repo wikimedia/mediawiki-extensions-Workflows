@@ -380,6 +380,7 @@
 	"workflows-ui-meta-noworkflows-yes": "Option label for yes/no setting - Yes",
 	"workflows-ui-meta-noworkflows-no": "Option label for yes/no setting - No",
 	"workflows-ui-meta-noworkflows-label": "Label for page meta item in VisualEditor - disable workflows on this page",
+	"workflows-ui-meta-noworkflows-help": "Help text for page meta item in VisualEditor - disable workflows on this page",
 	"workflows-droplet-myopenworkflows-name": "Name of the 'My open workflows' content droplet",
 	"workflows-droplet-myopenworkflows-description": "Description of the 'My open workflows' content droplet",
 	"workflows-tag-myopenworkflows-anon": "Message shown to anonymous users when the tag is rendered",
