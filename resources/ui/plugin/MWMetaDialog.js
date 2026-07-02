@@ -21,7 +21,8 @@ workflows.ui.plugin.MWMetaDialog.prototype.initialize = function () {
 		{
 			$overlay: this.component.$overlay,
 			align: 'top',
-			label: mw.msg( 'workflows-ui-meta-noworkflows-label' )
+			label: mw.msg( 'workflows-ui-meta-noworkflows-label' ),
+			help: mw.msg( 'workflows-ui-meta-noworkflows-help' )
 		}
 	);
 
