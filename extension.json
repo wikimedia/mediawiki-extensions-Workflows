@@ -807,7 +807,8 @@
 			"messages": [
 				"workflows-ui-meta-noworkflows-yes",
 				"workflows-ui-meta-noworkflows-no",
-				"workflows-ui-meta-noworkflows-label"
+				"workflows-ui-meta-noworkflows-label",
+				"workflows-ui-meta-noworkflows-help"
 			],
 			"dependencies": [
 				"ext.workflows.bootstrap"
