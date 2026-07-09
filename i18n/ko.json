@@ -272,7 +272,7 @@
 	"workflows-ui-editor-toolbar-create-exclusive-gateway": "Gateway 만들기",
 	"workflows-ui-dialog-action-back": "뒤로",
 	"workflows-ui-dialog-action-next": "다음",
-	"workflows-ui-meta-noworkflows-label": "이 문서에서 자동 워크플로 실행을 허용합니다",
+	"workflows-ui-meta-noworkflows-label": "자동 워크플로 실행",
 	"logentry-ext-workflows-groupvote-no": "그룹 투표: $1님이 $3 문서에 '아니오'를 {{GENDER:$2|투표했습니다}}",
 	"logentry-ext-workflows-start": "$1님이 $3 문서의 워크플로를 {{GENDER:$2|시작했습니다}}",
 	"logentry-ext-workflows-finish": "$3 문서의 워크플로가 완료되었습니다",
@@ -382,5 +382,6 @@
 	"workflows-droplet-myopenworkflows-description": "현재 사용자가 시작한 열린 워크플로 목록을 표시합니다",
 	"workflows-tag-myopenworkflows-anon": "워크플로를 보려면 로그인해야 합니다.",
 	"workflows-tag-myopenworkflows-empty": "열린 워크플로가 없습니다.",
-	"workflows-tag-myopenworkflows-unknown": "알 수 없는 워크플로"
+	"workflows-tag-myopenworkflows-unknown": "알 수 없는 워크플로",
+	"workflows-ui-meta-noworkflows-help": "문서에서 자동 워크플로 실행을 허용할지 여부를 지정할 수 있습니다."
 }

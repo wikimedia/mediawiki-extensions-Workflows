@@ -375,5 +375,12 @@
 	"workflows-ui-dialog-action-next": "Следно",
 	"workflows-ui-meta-noworkflows-yes": "Да",
 	"workflows-ui-meta-noworkflows-no": "Не",
-	"workflows-ui-meta-noworkflows-label": "Дозволи автоматско извршување на работниот тек за оваа страница"
+	"workflows-ui-meta-noworkflows-label": "Автоматско извршување на работни текови",
+	"workflows-ui-overview-details-initiator-column": "Започнато од",
+	"workflows-ui-meta-noworkflows-help": "Можете да укажете дали да биде дозволено извршување на автоматски работни текови на страницата.",
+	"workflows-droplet-myopenworkflows-name": "Моите отворени работни текови",
+	"workflows-droplet-myopenworkflows-description": "Прикажува список на отворени работни текови започнати од тековниот корисник",
+	"workflows-tag-myopenworkflows-anon": "Морате да сте најавени за да ги гледате вашите работни текови.",
+	"workflows-tag-myopenworkflows-empty": "Немате отворени работни текови.",
+	"workflows-tag-myopenworkflows-unknown": "Непознат работен тек"
 }
