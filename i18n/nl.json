@@ -377,7 +377,7 @@
 	"workflows-ui-dialog-action-next": "Volgende",
 	"workflows-ui-meta-noworkflows-yes": "Ja",
 	"workflows-ui-meta-noworkflows-no": "Nee",
-	"workflows-ui-meta-noworkflows-label": "Automatische workflow-uitvoering inschakelen op deze pagina",
+	"workflows-ui-meta-noworkflows-label": "Automatische workflow-uitvoering",
 	"workflows-droplet-myopenworkflows-name": "Mijn open werkstromen",
 	"workflows-droplet-myopenworkflows-description": "Een lijst met openstaande werkstromen die door de huidige gebruiker zijn gestart",
 	"workflows-tag-myopenworkflows-anon": "U moet aangemeld zijn om uw werkstromen te bekijken.",
