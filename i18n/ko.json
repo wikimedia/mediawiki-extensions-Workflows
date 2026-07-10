@@ -200,7 +200,7 @@
 	"workflows-activity-set-template-params-cannot-save": "저장 실패",
 	"workflows-ui-overview-details-section-details": "자세한 사항",
 	"workflows-ui-overview-details-due-date-label": "기한",
-	"workflows-ui-overview-details-section-assignee": "할당자",
+	"workflows-ui-overview-details-section-assignee": "담당자",
 	"workflows-user-vote-cannot-delegate": "이 작업의 위임은 작업 구성에서 허용되지 않습니다",
 	"workflows-ui-overview-details-section-expired": "만료된 활동",
 	"workflows-activity-property-reportrecipient": "보고 수신자",
