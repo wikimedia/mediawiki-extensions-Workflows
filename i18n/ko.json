@@ -180,7 +180,7 @@
 	"workflows-activity-error-no-title": "잘못된 제목",
 	"workflows-ui-overview-details-section-details": "자세한 사항",
 	"workflows-ui-overview-details-due-date-label": "기한",
-	"workflows-ui-overview-details-section-assignee": "할당자",
+	"workflows-ui-overview-details-section-assignee": "담당자",
 	"workflows-ui-overview-details-section-expired": "만료된 활동",
 	"workflows-activity-property-reportrecipient": "보고 수신자",
 	"workflows-activity-property-comment": "의견",

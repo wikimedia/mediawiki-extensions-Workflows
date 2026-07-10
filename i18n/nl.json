@@ -388,5 +388,6 @@
 	"workflows-droplet-myopenworkflows-description": "Een lijst met openstaande werkstromen die door de huidige gebruiker zijn gestart",
 	"workflows-tag-myopenworkflows-anon": "U moet aangemeld zijn om uw werkstromen te bekijken.",
 	"workflows-tag-myopenworkflows-empty": "U hebt geen open werkstromen.",
-	"workflows-tag-myopenworkflows-unknown": "Onbekende werkstroom"
+	"workflows-tag-myopenworkflows-unknown": "Onbekende werkstroom",
+	"workflows-ui-meta-noworkflows-help": "U kunt aangeven of een automatische werkstroom op de pagina mag worden uitgevoerd."
 }
