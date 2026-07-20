@@ -151,7 +151,7 @@ final class Workflow {
 		WorkflowId $id, WorkflowEventRepository $repo,
 		DefinitionRepositoryFactory $definitionRepositoryFactory
 	) {
-		$actor = User::newSystemUser( 'Mediawiki default', [ 'steal' => true ] );
+		$actor = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
 		return self::newFromInstanceID(
 			$id, $repo, $definitionRepositoryFactory, $actor
 		);
