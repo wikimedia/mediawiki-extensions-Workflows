@@ -57,7 +57,7 @@ abstract class GenericFeedbackActivity extends UIActivity implements SpecialLogL
 	public function __construct( ITask $task ) {
 		parent::__construct( $task );
 
-		$this->logActor = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
+		$this->logActor = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
 	}
 
 	/**
