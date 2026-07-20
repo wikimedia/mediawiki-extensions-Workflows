@@ -93,7 +93,7 @@ class TimeBasedTrigger extends GenericTrigger implements NoParallelTrigger {
 	 * @return User|null
 	 */
 	protected function getActor(): ?User {
-		return User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
+		return User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
 	}
 
 	/**
