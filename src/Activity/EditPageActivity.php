@@ -167,7 +167,7 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 				);
 			}
 		} else {
-			$this->user = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
+			$this->user = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
 		}
 
 		$this->newText = $data['content'] ?? '';
