@@ -14,6 +14,7 @@ use Monolog\Logger;
  * @group Database
  */
 class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
+
 	protected function setUp(): void {
 		parent::setUp();
 
@@ -50,7 +51,6 @@ class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 *
 	 * @covers \MediaWiki\Extension\Workflows\TriggerRepo::upsertTrigger
 	 * @covers \MediaWiki\Extension\Workflows\TriggerRepo::setContent
 	 */

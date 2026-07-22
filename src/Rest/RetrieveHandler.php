@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\MediaWikiServices;
 
 class RetrieveHandler extends ActionHandler {
+
 	/**
 	 * @param WorkflowFactory $factory
 	 */
@@ -13,6 +14,9 @@ class RetrieveHandler extends ActionHandler {
 		parent::__construct( $factory );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doExecute() {
 		$engine = $this->loadWorkflow( $this->getWorkflowId() );
 		$workflowSerializer = MediaWikiServices::getInstance()->getService( 'WorkflowSerializer' );

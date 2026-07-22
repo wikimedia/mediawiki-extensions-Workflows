@@ -14,6 +14,12 @@ class ActivityEvent extends Event {
 	/** @var array|null */
 	private $data;
 
+	/**
+	 * @param UuidInterface $id
+	 * @param string $elementId
+	 * @param User|null $actor
+	 * @param array|null $data
+	 */
 	public function __construct(
 		UuidInterface $id, $elementId, ?User $actor = null, $data = null
 	) {

@@ -9,19 +9,16 @@ use MediaWiki\Parser\ParserOptions;
 class DataPreprocessor {
 
 	/**
-	 *
 	 * @var Parser
 	 */
 	private $parser;
 
 	/**
-	 *
 	 * @var RequestContext
 	 */
 	private $requestContext;
 
 	/**
-	 *
 	 * @param Parser $parser
 	 * @param RequestContext|null $requestContext
 	 */
@@ -39,7 +36,6 @@ class DataPreprocessor {
 	}
 
 	/**
-	 *
 	 * @param array $data
 	 * @param array $contextData
 	 * @param DataPreprocessorContext $context

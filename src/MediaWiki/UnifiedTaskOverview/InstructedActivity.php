@@ -6,6 +6,9 @@ use MediaWiki\Message\Message;
 
 class InstructedActivity extends ActivityTask {
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getBodyMessages() {
 		$messages = parent::getBodyMessages();
 

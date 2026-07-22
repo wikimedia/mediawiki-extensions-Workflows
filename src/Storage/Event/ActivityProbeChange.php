@@ -13,6 +13,12 @@ final class ActivityProbeChange extends Event {
 	/** @var array */
 	private $properties;
 
+	/**
+	 * @param UuidInterface $id
+	 * @param string $elementId
+	 * @param int $status
+	 * @param array $properties
+	 */
 	public function __construct(
 		UuidInterface $id, $elementId, $status, $properties
 	) {

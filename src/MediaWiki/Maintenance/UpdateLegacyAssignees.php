@@ -14,6 +14,9 @@ require_once __DIR__ . '/../../../../../maintenance/Maintenance.php';
 
 class UpdateLegacyAssignees extends LoggedUpdateMaintenance {
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function doDBUpdates() {
 		/** @var WorkflowEventRepository $eventStore */
 		$eventStore = MediaWikiServices::getInstance()->getService( 'WorkflowEventRepository' );
@@ -71,6 +74,9 @@ class UpdateLegacyAssignees extends LoggedUpdateMaintenance {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getUpdateKey() {
 		return 'workflow-state-store-update-legacy-assignees';
 	}

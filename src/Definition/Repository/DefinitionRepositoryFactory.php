@@ -3,9 +3,11 @@
 namespace MediaWiki\Extension\Workflows\Definition\Repository;
 
 use MediaWiki\MediaWikiServices;
+use stdClass;
 use Wikimedia\ObjectFactory\ObjectFactory;
 
 class DefinitionRepositoryFactory {
+
 	/** @var array */
 	private $registry;
 	/** @var ObjectFactory */
@@ -16,6 +18,11 @@ class DefinitionRepositoryFactory {
 		$this->objectFactory = $objectFactory;
 	}
 
+	/**
+	 * @param string $name
+	 * @param array $params
+	 * @return stdClass|null
+	 */
 	public function getRepository( $name, $params = [] ) {
 		// TEMP: If we use OF instance that was injected, it will report "Container disabled!"
 		// when it tries to inject services into objects it creates, dont really know why
@@ -41,6 +48,9 @@ class DefinitionRepositoryFactory {
 		return null;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getRepositoryKeys() {
 		return array_keys( $this->registry );
 	}

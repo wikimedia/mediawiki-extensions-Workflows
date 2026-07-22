@@ -12,7 +12,7 @@ class DataPreprocessorContext {
 	private $title;
 	/** @var User */
 	private $user;
-	/** @var bool|int|null */
+	/** @var int */
 	private $revisionId;
 
 	/**
@@ -33,7 +33,6 @@ class DataPreprocessorContext {
 	}
 
 	/**
-	 *
 	 * @param Title|null $title
 	 * @param User|null $user
 	 * @param int|null $revisionId
@@ -56,7 +55,6 @@ class DataPreprocessorContext {
 	}
 
 	/**
-	 *
 	 * @return Title
 	 */
 	public function getTitle() {
@@ -64,13 +62,15 @@ class DataPreprocessorContext {
 	}
 
 	/**
-	 *
 	 * @return User
 	 */
 	public function getUser() {
 		return $this->user;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getRevisionId() {
 		return $this->revisionId;
 	}
