@@ -6,9 +6,13 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 
 class ParallelStateTracker extends MultiInstanceStateTracker {
+
 	/** @var ITask[] */
 	private $tasks;
 
+	/**
+	 * @param ITask[] $tasks
+	 */
 	public function __construct( $tasks ) {
 		$this->tasks = $tasks;
 	}
@@ -41,6 +45,9 @@ class ParallelStateTracker extends MultiInstanceStateTracker {
 		return $this->tasks[0]->getOutgoing()[0];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getVirtualTask( $taskId ): ?ITask {
 		foreach ( $this->tasks as $task ) {
 			if ( $task->getId() === $taskId ) {

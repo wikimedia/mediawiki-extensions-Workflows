@@ -6,13 +6,20 @@ use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFact
 use MediaWiki\Rest\Handler;
 
 class DefinitionListHandler extends Handler {
+
 	/** @var DefinitionRepositoryFactory */
 	private $repositoryFactory;
 
+	/**
+	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
+	 */
 	public function __construct( DefinitionRepositoryFactory $definitionRepositoryFactory ) {
 		$this->repositoryFactory = $definitionRepositoryFactory;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$res = [];
 		foreach ( $this->repositoryFactory->getRepositoryKeys() as $key ) {

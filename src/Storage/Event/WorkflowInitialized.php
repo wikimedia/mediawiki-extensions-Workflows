@@ -31,6 +31,9 @@ final class WorkflowInitialized extends Event {
 		$this->workflowContext = $workflowContext;
 	}
 
+	/**
+	 * @return DefinitionSource
+	 */
 	public function getDefinitionSource() {
 		return $this->definitionSource;
 	}

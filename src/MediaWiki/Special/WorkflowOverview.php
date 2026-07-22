@@ -6,10 +6,14 @@ use MediaWiki\Html\Html;
 use OOJSPlus\Special\OOJSGridSpecialPage;
 
 class WorkflowOverview extends OOJSGridSpecialPage {
+
 	public function __construct() {
 		parent::__construct( 'WorkflowsOverview', 'workflows-view' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doExecute( $subPage ) {
 		$this->getOutput()->addModules( 'ext.workflows.special.overview' );
 		$this->getOutput()->addHTML( Html::element( 'div', [

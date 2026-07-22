@@ -6,16 +6,24 @@ use MediaWiki\Extension\Workflows\Definition\Repository\DefinitionRepositoryFact
 use MediaWiki\Extension\Workflows\Definition\Repository\IDefinitionRepository;
 use MediaWiki\Rest\Handler;
 use MediaWiki\Rest\HttpException;
+use MediaWiki\Rest\Response;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class DefinitionDetailsHandler extends Handler {
+
 	/** @var DefinitionRepositoryFactory */
 	private $repositoryFactory;
 
+	/**
+	 * @param DefinitionRepositoryFactory $definitionRepositoryFactory
+	 */
 	public function __construct( DefinitionRepositoryFactory $definitionRepositoryFactory ) {
 		$this->repositoryFactory = $definitionRepositoryFactory;
 	}
 
+	/**
+	 * @return Response
+	 */
 	public function execute() {
 		$params = $this->getValidatedParams();
 

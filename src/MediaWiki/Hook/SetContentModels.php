@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 
 class SetContentModels implements ContentHandlerDefaultModelForHook {
+
 	/**
 	 * @var TriggerRepo
 	 */
@@ -18,6 +19,9 @@ class SetContentModels implements ContentHandlerDefaultModelForHook {
 		$this->triggerRepo = $triggerRepo;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function onContentHandlerDefaultModelFor( $title, &$model ) {
 		if ( preg_match( '/\.bpmn$/', $title->getText() ) && !$title->isTalkPage() ) {
 			$model = 'BPMN';

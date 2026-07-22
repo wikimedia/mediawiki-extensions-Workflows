@@ -9,6 +9,7 @@ use MediaWiki\Extension\Workflows\Util\MultiInstanceHelper;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 
 class SequentialStateTracker extends MultiInstanceStateTracker {
+
 	/** @var ITask */
 	private $task;
 	/** @var WorkflowContext */
@@ -81,6 +82,9 @@ class SequentialStateTracker extends MultiInstanceStateTracker {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getVirtualTask( $taskId ): ?ITask {
 		if ( $this->currentTask instanceof ITask && $this->currentTask->getId() === $taskId ) {
 			return $this->currentTask;

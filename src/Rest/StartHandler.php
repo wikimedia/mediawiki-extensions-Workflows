@@ -11,6 +11,10 @@ use MediaWiki\Extension\Workflows\Workflow;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class StartHandler extends JSONBodyActionHandler {
+
+	/**
+	 * @inheritDoc
+	 */
 	public function doExecute() {
 		$engine = $this->getWorkflowEngine();
 
@@ -27,6 +31,9 @@ class StartHandler extends JSONBodyActionHandler {
 		] );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getWorkflowEngine() {
 		$definition = $this->getParameter( 'id' );
 		$repository = $this->getParameter( 'repository' );

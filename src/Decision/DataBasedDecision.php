@@ -8,9 +8,14 @@ use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
 use MediaWiki\Extension\Workflows\IDecision;
 
 class DataBasedDecision implements IDecision {
+
 	/** @var Gateway */
 	private $gateway;
 
+	/**
+	 * @param Gateway $gateway
+	 * @return static
+	 */
 	public static function factory( Gateway $gateway ) {
 		return new static( $gateway );
 	}

@@ -9,6 +9,11 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 
 class MultiInstanceHelper {
 
+	/**
+	 * @param ITask $task
+	 * @param array &$prop
+	 * @throws WorkflowExecutionException
+	 */
 	public function assertTarget( ITask $task, &$prop ) {
 		if ( !$prop['target'] ) {
 			if ( !isset( $task->getDataProperties()[$prop['source']] ) ) {
@@ -21,6 +26,12 @@ class MultiInstanceHelper {
 		}
 	}
 
+	/**
+	 * @param ITask $task
+	 * @param WorkflowContext $context
+	 * @return array
+	 * @throws WorkflowExecutionException
+	 */
 	public function getMultiInstancePropertyData( ITask $task, WorkflowContext $context ) {
 		$multiProps = $task->getMultiInstanceCharacteristics()['props'];
 
@@ -44,10 +55,19 @@ class MultiInstanceHelper {
 		return $this->getDataSets( $sourceData );
 	}
 
+	/**
+	 * @param string $key
+	 * @return bool
+	 */
 	private function isContextDataKey( $key ) {
 		return strpos( $key, '.' ) !== false;
 	}
 
+	/**
+	 * @param string $key
+	 * @param WorkflowContext $context
+	 * @return mixed|null
+	 */
 	private function getDataFromContext( $key, WorkflowContext $context ) {
 		$bits = explode( '.', $key );
 		$activity = array_shift( $bits );
@@ -55,6 +75,11 @@ class MultiInstanceHelper {
 		return $context->getRunningData( $activity, $dataKey );
 	}
 
+	/**
+	 * @param ITask $task
+	 * @param array $prop
+	 * @return array
+	 */
 	public function getTaskLocalSourceValue( ITask $task, $prop ) {
 		if ( !isset( $task->getDataProperties()[$prop['source']] ) ) {
 			throw new WorkflowExecutionException(
@@ -66,6 +91,10 @@ class MultiInstanceHelper {
 		return explode( '|', $task->getDataProperties()[$prop['source']] );
 	}
 
+	/**
+	 * @param array $data
+	 * @return array
+	 */
 	private function getDataSets( $data ) {
 		// Pad to same size
 		$maxLength = 0;
@@ -94,6 +123,11 @@ class MultiInstanceHelper {
 		return $sets;
 	}
 
+	/**
+	 * @param ITask $task
+	 * @param string $counter
+	 * @return Task
+	 */
 	public function cloneTaskWithCounter( ITask $task, $counter ) {
 		return new Task(
 			$task->getId() . '_' . $counter,

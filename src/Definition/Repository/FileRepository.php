@@ -114,6 +114,10 @@ abstract class FileRepository implements IDefinitionRepository {
 		return $type === 'title' ? $definition : '';
 	}
 
+	/**
+	 * @param string $file
+	 * @return string|null
+	 */
 	protected function getDefinitionText( $file ): ?string {
 		$res = file_get_contents( $this->getFilePath( $file ) );
 		if ( $res ) {
@@ -123,8 +127,15 @@ abstract class FileRepository implements IDefinitionRepository {
 		return null;
 	}
 
+	/**
+	 * @param string $file
+	 * @return string
+	 */
 	abstract protected function getFilePath( $file );
 
+	/**
+	 * @return string
+	 */
 	abstract protected function getRootDirectory();
 
 	protected function load() {
@@ -136,6 +147,10 @@ abstract class FileRepository implements IDefinitionRepository {
 		$this->loaded = true;
 	}
 
+	/**
+	 * @param string $text
+	 * @return string
+	 */
 	private function stripExtension( $text ) {
 		if ( substr( $text, -5 ) !== '.bpmn' ) {
 			return $text;

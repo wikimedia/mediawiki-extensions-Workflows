@@ -12,6 +12,7 @@ use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class WikiPageDefinitionRepository implements IDefinitionRepository {
+
 	/** @var ILoadBalancer */
 	private $lb;
 	/** @var RevisionStore */
@@ -115,6 +116,10 @@ class WikiPageDefinitionRepository implements IDefinitionRepository {
 		$this->loaded = true;
 	}
 
+	/**
+	 * @param string $text
+	 * @return string
+	 */
 	private function stripExtension( $text ) {
 		if ( substr( $text, -5 ) !== '.bpmn' ) {
 			return $text;
@@ -146,6 +151,9 @@ class WikiPageDefinitionRepository implements IDefinitionRepository {
 		return 'wikipage';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getDefinitionDisplayTitle( $definition ): string {
 		$message = Message::newFromKey( "workflows-wikipage-definition-$definition-title" );
 		if ( $message->exists() ) {
@@ -154,6 +162,9 @@ class WikiPageDefinitionRepository implements IDefinitionRepository {
 		return $definition;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getDefinitionDescription( $definition ): string {
 		$message = Message::newFromKey( "workflows-wikipage-definition-$definition-desc" );
 		if ( $message->exists() ) {

@@ -11,6 +11,10 @@ use MediaWiki\Rest\HttpException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class CompleteHandler extends JSONBodyActionHandler {
+
+	/**
+	 * @inheritDoc
+	 */
 	public function doExecute() {
 		$workflow = $this->loadWorkflow( $this->getWorkflowId() );
 		$task = $this->getTask( $workflow );

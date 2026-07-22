@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\PropertyValidator\IPropertyValidator;
 use Wikimedia\ObjectFactory\ObjectFactory;
 
 class PropertyValidatorFactory {
+
 	/** @var array */
 	private $registry;
 	/** @var ObjectFactory */
@@ -22,6 +23,10 @@ class PropertyValidatorFactory {
 		$this->objectFactory = $objectFactory;
 	}
 
+	/**
+	 * @param string $name
+	 * @return IPropertyValidator|null
+	 */
 	public function getValidator( $name ) {
 		if ( !isset( $this->validators[$name] ) ) {
 			$this->instantiate( $name );
@@ -30,6 +35,9 @@ class PropertyValidatorFactory {
 		return $this->validators[$name] ?? null;
 	}
 
+	/**
+	 * @param string $name
+	 */
 	private function instantiate( $name ) {
 		if ( !isset( $this->registry[$name] ) ) {
 			return;

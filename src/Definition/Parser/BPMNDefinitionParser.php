@@ -16,6 +16,7 @@ use MediaWiki\Extension\Workflows\Definition\WorkflowDefinition;
 use SimpleXMLElement;
 
 class BPMNDefinitionParser implements IDefinitionParser {
+
 	/** @var DefinitionSource */
 	private $source;
 	/** @var array */
@@ -25,7 +26,7 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		'wf' => null
 	];
 
-	/** @var null */
+	/** @var WorkflowDefinition|null */
 	private $process = null;
 
 	public function __construct( DefinitionSource $source ) {
@@ -46,6 +47,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		return $this->process;
 	}
 
+	/**
+	 * @param string $content
+	 * @return SimpleXMLElement
+	 */
 	private function getXML( $content ) {
 		return simplexml_load_string( $content );
 	}
@@ -66,6 +71,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		}
 	}
 
+	/**
+	 * @param SimpleXMLElement $xml
+	 * @param string $ns
+	 */
 	private function parseChildren( SimpleXMLElement $xml, $ns = 'bpmn2' ) {
 		foreach ( $xml->children( $this->getNamespace( $ns ) ) as $child ) {
 			$name = $child->getName();
@@ -127,6 +136,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		}
 	}
 
+	/**
+	 * @param string $ns
+	 * @return string
+	 */
 	private function getNamespace( $ns ): string {
 		if ( isset( $this->namespaces[$ns] ) ) {
 			return $this->namespaces[$ns];
@@ -135,6 +148,12 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		return '';
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @param string $attribute
+	 * @param string|null $ns
+	 * @return string
+	 */
 	private function getAttribute( SimpleXMLElement $child, $attribute, $ns = null ): string {
 		if ( $ns && isset( $this->namespaces[$ns] ) ) {
 			$attributes = $child->attributes( $this->namespaces[$ns] );
@@ -157,6 +176,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		return '';
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @return StartEvent
+	 */
 	private function parseStartEvent( SimpleXMLElement $child ) {
 		return new StartEvent(
 			$this->getAttribute( $child, 'id' ),
@@ -165,6 +188,11 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		);
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @param string $type
+	 * @return Task
+	 */
 	private function parseTask( SimpleXMLElement $child, $type ) {
 		$properties = [];
 		$internalProperties = [];
@@ -255,6 +283,11 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		return null;
 	}
 
+	/**
+	 * @param SimpleXMLElement $element
+	 * @param array $usedKeys
+	 * @return array
+	 */
 	private function parseWfData( $element, $usedKeys = [] ) {
 		$data = [];
 		foreach ( $element->children( $this->getNamespace( 'wf' ) ) as $wf ) {
@@ -286,6 +319,11 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		}
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @param string $type
+	 * @return array
+	 */
 	private function parseDataAssociation( $child, $type ) {
 		$data = [];
 		foreach ( $child->$type as $item ) {
@@ -297,6 +335,11 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		return $data;
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @param string $ns
+	 * @return array
+	 */
 	private function processDataAssociation( $child, $ns ) {
 		$associationItems = [];
 
@@ -311,6 +354,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		return $associationItems;
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @return DataObjectReference
+	 */
 	private function parseDataObjectReference( SimpleXMLElement $child ) {
 		return new DataObjectReference(
 			$this->getAttribute( $child, 'id' ),
@@ -319,6 +366,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		);
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @return DataObject
+	 */
 	private function parseDataObject( SimpleXMLElement $child ) {
 		$extensionData = $this->getExtensionElementsData( $child ) ?? [];
 		$data = [];
@@ -334,6 +385,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		);
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @return SequenceFlow
+	 */
 	private function parseSequenceFlow( SimpleXMLElement $child ) {
 		return new SequenceFlow(
 			$this->getAttribute( $child, 'id' ),
@@ -343,6 +398,11 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		);
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @param string $type
+	 * @return Gateway
+	 */
 	private function parseGateway( SimpleXMLElement $child, $type ) {
 		return new Gateway(
 			$this->getAttribute( $child, 'id' ),
@@ -354,6 +414,10 @@ class BPMNDefinitionParser implements IDefinitionParser {
 		);
 	}
 
+	/**
+	 * @param SimpleXMLElement $child
+	 * @return EndEvent
+	 */
 	private function parseEndEvent( SimpleXMLElement $child ) {
 		return new EndEvent(
 			$this->getAttribute( $child, 'id' ),

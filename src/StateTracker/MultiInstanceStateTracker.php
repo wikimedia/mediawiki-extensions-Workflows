@@ -6,6 +6,7 @@ use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 
 abstract class MultiInstanceStateTracker {
+
 	/** @var string[] */
 	protected $completed = [];
 
@@ -30,5 +31,9 @@ abstract class MultiInstanceStateTracker {
 		$this->completed[] = $task->getId();
 	}
 
+	/**
+	 * @param string $taskId
+	 * @return ITask|null
+	 */
 	abstract public function getVirtualTask( $taskId ): ?ITask;
 }
