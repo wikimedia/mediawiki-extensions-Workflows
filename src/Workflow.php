@@ -51,6 +51,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 final class Workflow {
+
 	public const STATE_NOT_STARTED = 'not_started';
 	public const STATE_RUNNING = 'running';
 	public const STATE_FINISHED = 'finished';
@@ -374,6 +375,10 @@ final class Workflow {
 		return $this->continueExecution( $task );
 	}
 
+	/**
+	 * @param IActivity $activity
+	 * @return IElement|IElement[]|null
+	 */
 	private function probeActivityStatus( IActivity $activity ) {
 		$changed = $this->activityManager->probeActivityStatus( $activity, $this->getContext() );
 		if ( !$changed ) {
@@ -1128,6 +1133,10 @@ final class Workflow {
 		return $this->definition->getContext()->filterRequiredData( $contextData );
 	}
 
+	/**
+	 * @param string ...$allowed
+	 * @throws WorkflowExecutionException
+	 */
 	private function assertWorkflowState( ...$allowed ) {
 		if ( !in_array( $this->state, $allowed ) ) {
 			throw new WorkflowExecutionException(
@@ -1264,6 +1273,10 @@ final class Workflow {
 			$task->getMultiInstanceCharacteristics()['isSequential'];
 	}
 
+	/**
+	 * @param ITask $task
+	 * @return bool
+	 */
 	private function isTaskMultiInstance( ITask $task ) {
 		return $task->getMultiInstanceCharacteristics() !== null;
 	}
@@ -1302,6 +1315,10 @@ final class Workflow {
 		return $this->continueExecution( $task );
 	}
 
+	/**
+	 * @param ITask $task
+	 * @return IElement|IElement[]|null
+	 */
 	private function startSequential( ITask $task ) {
 		$this->multiInstanceStateTracker = new SequentialStateTracker(
 			$task, $this->getContext(), $this->activityManager

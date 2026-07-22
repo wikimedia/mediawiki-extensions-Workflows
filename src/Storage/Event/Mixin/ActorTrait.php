@@ -6,6 +6,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 
 trait ActorTrait {
+
 	/** @var User */
 	private $actor;
 
@@ -13,6 +14,10 @@ trait ActorTrait {
 		return $this->actor;
 	}
 
+	/**
+	 * @param array $payload
+	 * @return User|null
+	 */
 	public static function actorFromPayload( $payload ): ?User {
 		if ( isset( $payload['actor'] ) && $payload['actor'] !== null ) {
 			return MediaWikiServices::getInstance()->getUserFactory()
@@ -21,6 +26,9 @@ trait ActorTrait {
 		return null;
 	}
 
+	/**
+	 * @return int|null
+	 */
 	public function actorToPayload() {
 		return $this->actor instanceof User ? $this->actor->getId() : null;
 	}

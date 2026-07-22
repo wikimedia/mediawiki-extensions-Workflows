@@ -3,9 +3,15 @@
 namespace MediaWiki\Extension\Workflows\Definition\Element;
 
 class DataObjectReference extends Element {
+
 	/** @var string */
 	private $dataObjectRef;
 
+	/**
+	 * @param string $id
+	 * @param string $dataObjectRef
+	 * @param string|null $name
+	 */
 	public function __construct( $id, $dataObjectRef, $name = null ) {
 		parent::__construct( $id, $name );
 

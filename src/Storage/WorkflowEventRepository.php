@@ -9,6 +9,7 @@ use EventSauce\EventSourcing\DefaultHeadersDecorator;
 use EventSauce\EventSourcing\Header;
 use EventSauce\EventSourcing\Message;
 use EventSauce\EventSourcing\MessageDecorator;
+use Generator;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\AggregateRoot\WorkflowStorage;
 use MediaWiki\Extension\Workflows\Storage\MessageDispatcher\WorkflowMessageDispatcher;
@@ -16,6 +17,7 @@ use MediaWiki\Extension\Workflows\Storage\MessageRepository\WorkflowMessageRepos
 use MediaWiki\Extension\Workflows\Workflow;
 
 class WorkflowEventRepository implements AggregateRootRepository {
+
 	/** @var WorkflowMessageRepository */
 	private $messages;
 	/** @var MessageDecorator */
@@ -72,6 +74,10 @@ class WorkflowEventRepository implements AggregateRootRepository {
 		);
 	}
 
+	/**
+	 * @param AggregateRootId $aggregateRootId
+	 * @return Generator
+	 */
 	public function retrieveMessages( AggregateRootId $aggregateRootId ) {
 		return $this->messages->retrieveAll( $aggregateRootId );
 	}
@@ -86,6 +92,10 @@ class WorkflowEventRepository implements AggregateRootRepository {
 		$this->replayDispatcher->setWorkflow( $workflow, ...$dependencies );
 	}
 
+	/**
+	 * @param AggregateRootId $aggregateRootId
+	 * @return Generator
+	 */
 	private function retrieveAllEvents( AggregateRootId $aggregateRootId ) {
 		/** @var Generator<Message> $messages */
 		$messages = $this->messages->retrieveAll( $aggregateRootId );

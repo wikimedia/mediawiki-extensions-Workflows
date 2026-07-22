@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Definition\Element;
 use MediaWiki\Extension\Workflows\Definition\IDataObject;
 
 class DataObject extends Element implements IDataObject {
+
 	/** @var array */
 	protected $data = [];
 	/** @var bool */
@@ -17,6 +18,12 @@ class DataObject extends Element implements IDataObject {
 		return new static( 'empty', [] );
 	}
 
+	/**
+	 * @param string $id
+	 * @param array $data
+	 * @param bool $isCollection
+	 * @param string|null $name
+	 */
 	public function __construct( $id, $data, $isCollection = false, $name = null ) {
 		parent::__construct( $id, $name );
 		$this->data = $data;

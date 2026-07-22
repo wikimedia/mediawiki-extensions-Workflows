@@ -20,6 +20,7 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 
 class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareInterface {
+
 	private const MODE_REPLACE = 'replace';
 	private const MODE_APPEND = 'append';
 	private const MODE_PREPEND = 'prepend';
@@ -130,6 +131,10 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 		] );
 	}
 
+	/**
+	 * @param array $data
+	 * @throws WorkflowExecutionException
+	 */
 	private function processData( $data ) {
 		if ( !isset( $data['title'] ) ) {
 			throw new WorkflowExecutionException(

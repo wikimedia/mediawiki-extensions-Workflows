@@ -16,6 +16,9 @@ class WorkflowStorage implements AggregateRoot {
 	/** @var array */
 	private $replayedEvents = [];
 
+	/**
+	 * @return static
+	 */
 	public static function newInstance() {
 		$id = WorkflowId::newWorkflowId();
 		return new static( $id );

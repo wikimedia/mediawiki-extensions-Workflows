@@ -14,6 +14,9 @@ class TestDefinitionRepository implements IDefinitionRepository {
 		return [ 'test', 'looping', 'user_vote' ];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getDefinition( $definitionName, ?int $version = null ): WorkflowDefinition {
 		$parser = new BPMNDefinitionParser(
 			new DefinitionSource( $this->getName(), $definitionName, $version ?? 1 )
@@ -29,10 +32,16 @@ class TestDefinitionRepository implements IDefinitionRepository {
 		return Message::newFromKey( 'dummy' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getDefinitionDisplayTitle( $definition ): string {
 		return $definition;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getDefinitionDescription( $definition ): string {
 		return '';
 	}

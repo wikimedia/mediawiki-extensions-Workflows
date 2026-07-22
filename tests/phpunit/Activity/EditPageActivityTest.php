@@ -20,6 +20,7 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class EditPageActivityTest extends MediaWikiIntegrationTestCase {
+
 	/** @var User */
 	private $user;
 
@@ -68,7 +69,6 @@ class EditPageActivityTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public static function provideCompleteItemData() {

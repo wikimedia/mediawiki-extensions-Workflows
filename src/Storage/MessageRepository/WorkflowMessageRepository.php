@@ -18,13 +18,14 @@ use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class WorkflowMessageRepository implements MessageRepository {
+
 	/** @var ILoadBalancer */
 	private $lb;
 	/** @var MessageSerializer */
 	private $serializer;
 	/** @var string */
 	private $tableName = 'workflows_event';
-	/** @var null */
+	/** @var array */
 	private $validWorkflowIds = null;
 
 	/**
@@ -145,6 +146,10 @@ class WorkflowMessageRepository implements MessageRepository {
 		];
 	}
 
+	/**
+	 * @param IResultWrapper $rows
+	 * @return Generator
+	 */
 	private function yieldMessage( IResultWrapper $rows ) {
 		// This uses Generator syntax => https://www.php.net/manual/en/language.generators.syntax.php
 		foreach ( $rows as $row ) {

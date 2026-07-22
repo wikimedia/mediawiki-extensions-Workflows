@@ -8,9 +8,14 @@ use Ramsey\Uuid\UuidInterface;
 final class GatewayDecisionMade extends Event {
 	use ElementTrait;
 
-	/** @var null */
-	private $nextRef = null;
+	/** @var string|null */
+	private $nextRef;
 
+	/**
+	 * @param UuidInterface $id
+	 * @param string $taskId
+	 * @param string|null $nextRef
+	 */
 	public function __construct( UuidInterface $id, $taskId, $nextRef ) {
 		parent::__construct( $id );
 		$this->elementID = $taskId;

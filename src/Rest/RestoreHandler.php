@@ -7,6 +7,9 @@ use MediaWiki\Rest\HttpException;
 
 class RestoreHandler extends JSONBodyActionHandler {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doExecute() {
 		$workflow = $this->loadWorkflow( $this->getWorkflowId() );
 		if ( $workflow->getCurrentState() !== Workflow::STATE_ABORTED ) {

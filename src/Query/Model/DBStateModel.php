@@ -16,8 +16,10 @@ use MediaWiki\Extension\Workflows\Storage\Event\WorkflowStarted;
 use MediaWiki\Extension\Workflows\Storage\Event\WorkflowUnAborted;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventClassInflector;
 use MediaWiki\Extension\Workflows\Workflow;
+use stdClass;
 
 final class DBStateModel implements WorkflowStateModel {
+
 	/** @var WorkflowEventClassInflector */
 	private $inflector;
 	/** @var WorkflowId */
@@ -37,6 +39,10 @@ final class DBStateModel implements WorkflowStateModel {
 	/** @var array */
 	private $payload;
 
+	/**
+	 * @param stdClass $row
+	 * @return static
+	 */
 	public static function newFromRow( $row ) {
 		return new static(
 			WorkflowId::fromString( $row->wfs_workflow_id ),

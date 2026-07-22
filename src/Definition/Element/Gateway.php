@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Workflows\Definition\Element;
 
 class Gateway extends Element {
+
 	/** @var array */
 	protected $data = [];
 	/** @var bool */
@@ -12,6 +13,14 @@ class Gateway extends Element {
 	/** @var array */
 	protected $extensionElements;
 
+	/**
+	 * @param string $id
+	 * @param array $incoming
+	 * @param array $outgoing
+	 * @param string $type
+	 * @param string|null $name
+	 * @param array $extensionElements
+	 */
 	public function __construct(
 		$id, $incoming, $outgoing, $type, $name = null, $extensionElements = []
 	) {

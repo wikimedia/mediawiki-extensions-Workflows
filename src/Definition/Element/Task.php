@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows\Definition\Element;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 
 class Task extends Element implements ITask {
+
 	/** @var array */
 	protected $dataProperties;
 	/** @var array|null */
@@ -20,6 +21,19 @@ class Task extends Element implements ITask {
 	/** @var array|null */
 	protected $multiInstanceCharacteristics;
 
+	/**
+	 * @param string $id
+	 * @param string $name
+	 * @param string[] $incoming
+	 * @param string[] $outgoing
+	 * @param string $type
+	 * @param array $properties
+	 * @param array|null $dataInput
+	 * @param array|null $dataOutput
+	 * @param array $extensionElements
+	 * @param bool $isLooping
+	 * @param array|null $multiInstanceCharacteristics
+	 */
 	public function __construct(
 		$id, $name, $incoming, $outgoing, $type, $properties = [],
 		$dataInput = null, $dataOutput = null, $extensionElements = [], $isLooping = false,

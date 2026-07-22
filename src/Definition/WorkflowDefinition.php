@@ -6,7 +6,7 @@ use MediaWiki\Extension\Workflows\Definition\Element\DataObjectReference;
 
 class WorkflowDefinition {
 
-	/** @var null */
+	/** @var string */
 	private $id;
 	/** @var DefinitionSource */
 	private $source;
@@ -158,6 +158,9 @@ class WorkflowDefinition {
 		$this->elements[$id]->setData( $data );
 	}
 
+	/**
+	 * @param array $data
+	 */
 	public function setContextData( $data = [] ) {
 		foreach ( $this->context->getItemKeys() as $key ) {
 			if ( isset( $data[$key] ) ) {
