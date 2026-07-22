@@ -5,15 +5,22 @@ namespace MediaWiki\Extension\Workflows\Definition\Element;
 use MediaWiki\Extension\Workflows\Definition\IElement;
 
 abstract class Element implements IElement {
+
 	/** @var string */
 	protected $id;
 	/** @var string */
 	protected $name;
-	/** @var string|null */
+	/** @var array|null */
 	protected $incoming;
 	/** @var array|null */
 	protected $outgoing;
 
+	/**
+	 * @param string $id
+	 * @param string $name
+	 * @param array $incoming
+	 * @param array $outgoing
+	 */
 	public function __construct( $id, $name, $incoming = [], $outgoing = [] ) {
 		$this->id = $id;
 		$this->name = $name;

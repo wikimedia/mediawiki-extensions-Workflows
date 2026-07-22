@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Workflows;
 use JsonSerializable;
 
 class UserInteractionModule implements JsonSerializable {
+
 	/** @var array */
 	private $moduleNames = [];
 	/** @var string|null */
@@ -14,6 +15,9 @@ class UserInteractionModule implements JsonSerializable {
 	/** @var array|null */
 	private $data;
 
+	/**
+	 * @return static
+	 */
 	public static function newGeneric() {
 		return new static( [] );
 	}

@@ -13,6 +13,7 @@ use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
 use Throwable;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
+
 	/** @var WorkflowFactory */
 	private $workflowFactory;
 	/** @var LinkRenderer */
@@ -88,6 +89,10 @@ class SecondaryDataProvider implements ISecondaryDataProvider {
 		return $dataSets;
 	}
 
+	/**
+	 * @param array $assignees
+	 * @return array
+	 */
 	private function formatAssignee( $assignees ) {
 		$res = [];
 		foreach ( $assignees as $assignee ) {

@@ -12,12 +12,20 @@ final class WorkflowUnAborted extends Event {
 	/** @var array */
 	private $reason;
 
+	/**
+	 * @param UuidInterface $id
+	 * @param User $actor
+	 * @param array $reason
+	 */
 	public function __construct( UuidInterface $id, User $actor, $reason ) {
 		parent::__construct( $id );
 		$this->actor = $actor;
 		$this->reason = $reason;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getReason() {
 		return $this->reason;
 	}

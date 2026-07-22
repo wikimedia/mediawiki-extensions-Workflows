@@ -9,9 +9,13 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 
 class WorkflowMessageDispatcher implements MessageDispatcher {
+
 	/** @var MessageConsumer[] */
 	private $consumers = [];
 
+	/**
+	 * @return static
+	 */
 	public static function newFromRegisteredListeners() {
 		$dispatcher = new static();
 		$registry = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsWorkflowListeners' );

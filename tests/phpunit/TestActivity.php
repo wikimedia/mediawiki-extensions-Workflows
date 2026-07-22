@@ -9,6 +9,9 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 
 class TestActivity extends GenericActivity {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
 		$loop = $data['loop'];
 		if ( $loop === '' ) {

@@ -14,6 +14,7 @@ use MediaWiki\Rest\Response;
 use Wikimedia\ParamValidator\ParamValidator;
 
 abstract class ActionHandler extends Handler {
+
 	/** @var WorkflowFactory */
 	private $workflowFactory;
 
@@ -24,6 +25,9 @@ abstract class ActionHandler extends Handler {
 		$this->workflowFactory = $factory;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		try {
 			return $this->doExecute();

@@ -15,6 +15,7 @@ use MediaWiki\User\User;
  * @private
  */
 class WorkflowContextMutable {
+
 	/** @var DefinitionContext */
 	private $definitionContext;
 	/** @var null */

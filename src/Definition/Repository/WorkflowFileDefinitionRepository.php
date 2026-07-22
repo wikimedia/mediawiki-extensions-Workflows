@@ -7,6 +7,7 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Registration\ExtensionRegistry;
 
 class WorkflowFileDefinitionRepository extends FileRepository {
+
 	/** @var array */
 	private $attribute;
 	/** @var string */
@@ -14,6 +15,11 @@ class WorkflowFileDefinitionRepository extends FileRepository {
 	/** @var HookContainer */
 	private $hookContainer;
 
+	/**
+	 * @param Config $config
+	 * @param HookContainer $hookContainer
+	 * @return static
+	 */
 	public static function factory( Config $config, HookContainer $hookContainer ) {
 		return new static(
 			ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsWorkflowDefinitions' ),
@@ -22,12 +28,20 @@ class WorkflowFileDefinitionRepository extends FileRepository {
 		);
 	}
 
+	/**
+	 * @param array $attribute
+	 * @param string $base
+	 * @param HookContainer $hookContainer
+	 */
 	public function __construct( $attribute, $base, $hookContainer ) {
 		$this->attribute = $attribute;
 		$this->fileBase = $base;
 		$this->hookContainer = $hookContainer;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getFilePath( $file ) {
 		if ( is_array( $file ) ) {
 			$file = array_pop( $file );
@@ -62,6 +76,10 @@ class WorkflowFileDefinitionRepository extends FileRepository {
 		return $this->fileBase;
 	}
 
+	/**
+	 * @param string $file
+	 * @return bool
+	 */
 	private function isAbsoluteFilePath( $file ) {
 		// TODO: This is pretty basic
 		return file_exists( $file );

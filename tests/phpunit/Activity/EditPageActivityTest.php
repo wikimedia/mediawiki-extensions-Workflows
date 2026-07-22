@@ -20,6 +20,7 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class EditPageActivityTest extends MediaWikiIntegrationTestCase {
+
 	/** @var User */
 	private $user;
 

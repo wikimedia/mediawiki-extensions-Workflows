@@ -8,6 +8,9 @@ use MediaWiki\Rest\HttpException;
 
 class AbortHandler extends JSONBodyActionHandler {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function doExecute() {
 		$workflow = $this->loadWorkflow( $this->getWorkflowId() );
 		if ( $workflow->getCurrentState() !== Workflow::STATE_RUNNING ) {

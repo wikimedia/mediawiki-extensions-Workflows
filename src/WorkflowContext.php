@@ -10,9 +10,9 @@ use MediaWiki\User\User;
 
 /**
  * @package MediaWiki\Extension\Workflows
- * @public
  */
 class WorkflowContext {
+
 	/** @var WorkflowContextMutable */
 	private $mutable;
 

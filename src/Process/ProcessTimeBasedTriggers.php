@@ -18,6 +18,9 @@ final class ProcessTimeBasedTriggers implements IProcessStep {
 		$this->logger = new NullLogger();
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute( $data = [] ): array {
 		$this->triggerRunner->triggerAllOfType( 'time' );
 

@@ -14,6 +14,7 @@ use Monolog\Logger;
  * @group Database
  */
 class TriggerRepoTest extends \MediaWikiIntegrationTestCase {
+
 	protected function setUp(): void {
 		parent::setUp();
 

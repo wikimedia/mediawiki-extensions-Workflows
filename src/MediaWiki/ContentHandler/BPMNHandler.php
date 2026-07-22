@@ -14,26 +14,45 @@ use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 
 class BPMNHandler extends TextContentHandler {
+
+	/**
+	 * @param string $modelId
+	 */
 	public function __construct( $modelId = 'BPMN' ) {
 		parent::__construct( $modelId, [ CONTENT_FORMAT_XML ] );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getContentClass() {
 		return BPMNContent::class;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function supportsSections() {
 		return false;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function supportsCategories() {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function supportsRedirects() {
 		return false;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getActionOverrides() {
 		return [
 			'edit' => EditDiagramAction::class,
