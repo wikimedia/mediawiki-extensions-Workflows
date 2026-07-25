@@ -378,5 +378,6 @@
 	"workflows-tag-myopenworkflows-anon": "Sie müssen angemeldet sein, um Ihre Workflows zu sehen.",
 	"workflows-tag-myopenworkflows-empty": "Sie haben keine offenen Workflows.",
 	"workflows-tag-myopenworkflows-unknown": "Unbekannter Workflow",
-	"workflows-ui-overview-details-initiator-column": "Gestartet von"
+	"workflows-ui-overview-details-initiator-column": "Gestartet von",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Parameter hinzufügen"
 }

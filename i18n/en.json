@@ -371,8 +371,9 @@
 	"workflows-ui-meta-noworkflows-label": "Automatic workflow execution",
 	"workflows-ui-meta-noworkflows-help": "You can specify whether an automatic workflow is allowed to be executed on the page.",
 	"workflows-droplet-myopenworkflows-name": "My open workflows",
-	"workflows-droplet-myopenworkflows-description": "Shows a list of open workflows initiated by the current user",
+	"workflows-droplet-myopenworkflows-description": "Shows a list of open workflows assigned to the current user",
 	"workflows-tag-myopenworkflows-anon": "You must be logged in to view your workflows.",
 	"workflows-tag-myopenworkflows-empty": "You have no open workflows.",
-	"workflows-tag-myopenworkflows-unknown": "Unknown workflow"
+	"workflows-tag-myopenworkflows-unknown": "Unknown workflow",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Add parameter"
 }
