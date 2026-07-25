@@ -385,5 +385,6 @@
 	"workflows-droplet-myopenworkflows-description": "Description of the 'My open workflows' content droplet",
 	"workflows-tag-myopenworkflows-anon": "Message shown to anonymous users when the tag is rendered",
 	"workflows-tag-myopenworkflows-empty": "Message shown when the user has no open workflows",
-	"workflows-tag-myopenworkflows-unknown": "Label for a workflow with no identifiable title"
+	"workflows-tag-myopenworkflows-unknown": "Label for a workflow with no identifiable title",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Label for the button that adds another template parameter row in the set template parameter activity inspector"
 }
