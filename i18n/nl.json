@@ -290,6 +290,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "Index van het sjabloon op de pagina",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_param": "Parameterindex",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "Parameterwaarde",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Parameter toevoegen",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Kleine aanpassing?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Opmerking",
 	"workflows-ui-editor-inspector-activity-group-feedback-title": "Activiteit “Terugkoppeling groep”",
@@ -380,7 +381,7 @@
 	"workflows-ui-meta-noworkflows-label": "Automatische workflow-uitvoering",
 	"workflows-ui-meta-noworkflows-help": "U kunt aangeven of een automatische werkstroom op de pagina mag worden uitgevoerd.",
 	"workflows-droplet-myopenworkflows-name": "Mijn open werkstromen",
-	"workflows-droplet-myopenworkflows-description": "Een lijst met openstaande werkstromen die door de huidige gebruiker zijn gestart",
+	"workflows-droplet-myopenworkflows-description": "Een lijst met openstaande werkstromen die toegewezen zijn aan de huidige gebruiker",
 	"workflows-tag-myopenworkflows-anon": "U moet aangemeld zijn om uw werkstromen te bekijken.",
 	"workflows-tag-myopenworkflows-empty": "U hebt geen open werkstromen.",
 	"workflows-tag-myopenworkflows-unknown": "Onbekende werkstroom"
