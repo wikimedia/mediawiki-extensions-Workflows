@@ -295,6 +295,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "页面上的模板索引",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_param": "参数索引",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "参数值",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "添加参数",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "小修订？",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "留言",
 	"workflows-ui-editor-inspector-activity-group-feedback-title": "“用户组反馈”活动",
@@ -384,9 +385,9 @@
 	"workflows-ui-meta-noworkflows-no": "否",
 	"workflows-ui-meta-noworkflows-label": "自动工作流执行",
 	"workflows-ui-meta-noworkflows-help": "您可以指定是否允许在该页面上执行自动工作流。",
-	"workflows-droplet-myopenworkflows-name": "我打开的工作流",
-	"workflows-droplet-myopenworkflows-description": "显示当前用户发起的打开的工作流列表",
+	"workflows-droplet-myopenworkflows-name": "我开启的工作流",
+	"workflows-droplet-myopenworkflows-description": "显示分配给当前用户的已开启工作流列表",
 	"workflows-tag-myopenworkflows-anon": "您必须登录才能查看您的工作流。",
-	"workflows-tag-myopenworkflows-empty": "您没有打开的工作流。",
+	"workflows-tag-myopenworkflows-empty": "您没有已开启的工作流。",
 	"workflows-tag-myopenworkflows-unknown": "未知工作流"
 }

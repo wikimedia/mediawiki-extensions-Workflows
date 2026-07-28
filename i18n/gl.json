@@ -282,6 +282,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "Índice do modelo na páxina",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_param": "Índice do parámetro",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "Valor do parámetro",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Engadir un parámetro",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "É unha revisión pequena?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Comentario",
 	"workflows-ui-editor-inspector-activity-group-feedback-title": "Actividade «Comentarios de grupo»",
@@ -372,7 +373,7 @@
 	"workflows-ui-meta-noworkflows-label": "Execución automática do fluxo de traballo",
 	"workflows-ui-meta-noworkflows-help": "Podes especificar se na páxina queres permitir a execución automática dun fluxo de traballo.",
 	"workflows-droplet-myopenworkflows-name": "Os meus fluxos de traballo abertos",
-	"workflows-droplet-myopenworkflows-description": "Mostra unha lista de fluxos de traballo abertos iniciados polo usuario actual",
+	"workflows-droplet-myopenworkflows-description": "Mostra unha lista de fluxos de traballo abertos asignados ao usuario actual",
 	"workflows-tag-myopenworkflows-anon": "Debes iniciar sesión para ver os teus fluxos de traballo.",
 	"workflows-tag-myopenworkflows-empty": "Non tes fluxos de traballo abertos.",
 	"workflows-tag-myopenworkflows-unknown": "Fluxo de traballo descoñecido"
