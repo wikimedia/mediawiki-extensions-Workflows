@@ -11,6 +11,7 @@ use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\Storage\Event\Event;
 use MediaWiki\Extension\Workflows\Storage\WorkflowEventClassInflector;
 use MediaWiki\Extension\Workflows\Workflow;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -19,6 +20,8 @@ final class DBStateStore implements WorkflowStateStore {
 
 	/** @var ILoadBalancer */
 	private $lb;
+	/** @var HookContainer */
+	private $hookContainer;
 	/** @var WorkflowEventClassInflector */
 	private $inflector;
 	/** @var WorkflowStateModel[] */
@@ -32,9 +35,11 @@ final class DBStateStore implements WorkflowStateStore {
 
 	/**
 	 * @param ILoadBalancer $loadBalancer
+	 * @param HookContainer $hookContainer
 	 */
-	public function __construct( ILoadBalancer $loadBalancer ) {
+	public function __construct( ILoadBalancer $loadBalancer, HookContainer $hookContainer ) {
 		$this->lb = $loadBalancer;
+		$this->hookContainer = $hookContainer;
 		$this->inflector = new WorkflowEventClassInflector();
 	}
 
@@ -159,7 +164,9 @@ final class DBStateStore implements WorkflowStateStore {
 	 * @throws Exception
 	 */
 	public function handleReplayEvent( $event, WorkflowId $id ) {
-		$this->processEvent( $event, $id );
+		// Replaying re-applies events that have already happened, so no state actually
+		// changes now - consumers of `WorkflowsStateChanged` must not be notified again
+		$this->processEvent( $event, $id, false );
 	}
 
 	/**
@@ -182,12 +189,20 @@ final class DBStateStore implements WorkflowStateStore {
 	/**
 	 * @param Event $event
 	 * @param WorkflowId $id
+	 * @param bool $fireStateChangedHook Whether to fire `WorkflowsStateChanged` on an actual
+	 *   state transition. Must be `false` while replaying events, since those transitions
+	 *   already happened and their consumers must not be notified again.
 	 * @throws Exception
 	 */
-	private function processEvent( $event, WorkflowId $id ) {
+	private function processEvent( $event, WorkflowId $id, bool $fireStateChangedHook = true ) {
 		$model = $this->getModel( $id );
+		$stateBefore = $model->getState();
 		$model->handleEvent( $event );
 		$this->persistModel( $model );
+
+		if ( $fireStateChangedHook && $stateBefore !== $model->getState() ) {
+			$this->hookContainer->run( 'WorkflowsStateChanged', [ $model, $stateBefore ] );
+		}
 	}
 
 	/**
