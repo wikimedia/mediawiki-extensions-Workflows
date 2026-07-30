@@ -76,7 +76,7 @@ return [
 
 	'WorkflowsStateStore' => static function ( MediaWikiServices $services ) {
 		// For now, is hardcoded to DB store, but we might change this
-		return new DBStateStore( $services->getDBLoadBalancer() );
+		return new DBStateStore( $services->getDBLoadBalancer(), $services->getHookContainer() );
 	},
 
 	'WorkflowSerializer' => static function ( MediaWikiServices $services ) {

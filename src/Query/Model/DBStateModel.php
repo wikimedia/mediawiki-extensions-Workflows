@@ -167,7 +167,14 @@ final class DBStateModel implements WorkflowStateModel {
 			$this->payload['context'] = $context;
 		}
 		if ( $event instanceof TaskStarted || $event instanceof TaskLoopCompleted ) {
-			$this->assignees = $event->getAssignees();
+			// Automatic activities (e.g. a non-interactive step in a loop) record these events
+			// with no assignees. Only overwrite when there actually are some, so the assignees
+			// of the last user interactive activity survive - they are kept even after the
+			// workflow finishes, see below, so the user dashboard can still show who a
+			// finished workflow was assigned to.
+			if ( $event->getAssignees() ) {
+				$this->assignees = $event->getAssignees();
+			}
 		}
 		if ( $event instanceof WorkflowAborted ) {
 			// TODO: this is not very nice, as may lead to invalid filter results, look into it
@@ -179,11 +186,11 @@ final class DBStateModel implements WorkflowStateModel {
 		}
 		if ( $event instanceof WorkflowEnded ) {
 			$this->state = Workflow::STATE_FINISHED;
-			$this->assignees = [];
 		}
 		if ( $event instanceof TaskCompleted ) {
-			// Reset assignees, let new activity set a new set of assignees, if any
-			$this->assignees = [];
+			// Assignees are intentionally not reset here (or on WorkflowEnded above), so the
+			// user dashboard can still show who a task, or the workflow as a whole, was last
+			// assigned to once it is finished.
 			$this->payload[$event->getElementId()] = $event->getData();
 		}
 

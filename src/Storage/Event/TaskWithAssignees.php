@@ -50,7 +50,11 @@ abstract class TaskWithAssignees extends ActivityEvent {
 		return [
 			'id' => $data['id'],
 			'elementId' => $data['elementId'],
-			'assignees' => $data['assignees'] ?? [],
+			// $data never has an 'assignees' key, since ActivityEvent::decodePayloadData()
+			// does not know about it - read it from the raw $payload instead. Without this,
+			// events reconstructed from storage (e.g. while replaying) always lose their
+			// assignees, defeating their persistence in DBStateModel.
+			'assignees' => $payload['assignees'] ?? [],
 			'actor' => $data['actor'],
 			'data' => $data['data'],
 		];
