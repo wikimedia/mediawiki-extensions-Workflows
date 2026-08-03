@@ -283,6 +283,7 @@
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_index": "Индекс на предлошката на страница",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-template_param": "Параметарски индекс",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-value": "Параметарска вредност",
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Додај параметар",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-minor": "Ситна преработка?",
 	"workflows-ui-editor-inspector-activity-set-template-param-property-comment": "Коментар",
 	"workflows-ui-editor-inspector-activity-group-feedback-title": "Активност „Дадени групни мислења“",
@@ -373,7 +374,7 @@
 	"workflows-ui-meta-noworkflows-label": "Автоматско извршување на работни текови",
 	"workflows-ui-meta-noworkflows-help": "Можете да укажете дали да биде дозволено извршување на автоматски работни текови на страницата.",
 	"workflows-droplet-myopenworkflows-name": "Моите отворени работни текови",
-	"workflows-droplet-myopenworkflows-description": "Прикажува список на отворени работни текови започнати од тековниот корисник",
+	"workflows-droplet-myopenworkflows-description": "Прикажува список на отворени работни текови зададени на тековниот корисник",
 	"workflows-tag-myopenworkflows-anon": "Морате да сте најавени за да ги гледате вашите работни текови.",
 	"workflows-tag-myopenworkflows-empty": "Немате отворени работни текови.",
 	"workflows-tag-myopenworkflows-unknown": "Непознат работен тек"
