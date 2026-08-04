@@ -21,6 +21,7 @@
 	"workflows-form-delegate-header-comment": "Dës Aufgab gouf vum Benotzer $1 un Iech delegéiert mam Kommentar: $2",
 	"workflows-form-delegate-header": "Dës Aufgabe gouf vum Benotzer $1 un Iech delegéiert",
 	"workflows-form-instructions-loading-text": "Instruktioune gi gelueden…",
+	"workflows-ui-alert-activity-edit-request": "Dir gouft gefrot, fir dës Säit z'änneren",
 	"workflows-ui-alert-activity-edit-request-complete-button": "Detailer weisen",
 	"workflows-activity-edit-request-name": "Ännerungsufro",
 	"workflows-ui-workflow-overview-dialog-title": "Detailer vum Workflow",
