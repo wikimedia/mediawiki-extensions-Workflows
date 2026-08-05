@@ -13,6 +13,7 @@ use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
@@ -70,7 +71,7 @@ class EditPageActivity extends GenericActivity implements SpecialLogLoggerAwareI
 			->newFromTitle( $this->title );
 		$updater = $wikiPage->newPageUpdater( $this->user );
 
-		$content = $wikiPage->getContent( SlotRecord::MAIN );
+		$content = $wikiPage->getContent( RevisionRecord::FOR_PUBLIC );
 		if ( $this->title->exists() && !( $content instanceof WikitextContent ) ) {
 			throw new WorkflowExecutionException(
 				Message::newFromKey( 'workflows-activity-editpage-error-invalid-cm' )->text(),
