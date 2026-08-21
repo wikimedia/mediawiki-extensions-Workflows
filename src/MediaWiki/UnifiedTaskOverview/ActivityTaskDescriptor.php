@@ -3,18 +3,13 @@
 namespace MediaWiki\Extension\Workflows\MediaWiki\UnifiedTaskOverview;
 
 use MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor;
-use MediaWiki\Extension\Workflows\Definition\ITask;
-use MediaWiki\Extension\Workflows\Storage\AggregateRoot\Id\WorkflowId;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use MediaWiki\Extension\Workflows\WorkflowFactory;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 use MWStake\MediaWiki\Component\Utils\DisplayTitleHelper;
-use stdClass;
-use Throwable;
 
 class ActivityTaskDescriptor implements ITaskDescriptor {
 
@@ -43,35 +38,6 @@ class ActivityTaskDescriptor implements ITaskDescriptor {
 	}
 
 	/**
-	 * @param stdClass $row
-	 * @return static|null
-	 */
-	public static function newFromTaskRow( stdClass $row ): ?static {
-		$services = MediaWikiServices::getInstance();
-		/** @var WorkflowFactory */
-		$workflowFactory = $services->getService( 'WorkflowFactory' );
-
-		[ $workflowIdStr, $taskElementId ] = explode( ':', $row->uto_key, 2 );
-
-		try {
-			$workflow = $workflowFactory->getWorkflow( WorkflowId::fromString( $workflowIdStr ) );
-			$element = $workflow->current( $taskElementId );
-			if ( !$element instanceof ITask ) {
-				return null;
-			}
-
-			$activity = $workflow->getActivityForTask( $element );
-			if ( !$activity instanceof UserInteractiveActivity ) {
-				return null;
-			}
-
-			return new static( $activity, $workflow );
-		} catch ( Throwable ) {
-			return null;
-		}
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function getUniqueKey(): string {
@@ -96,9 +62,10 @@ class ActivityTaskDescriptor implements ITaskDescriptor {
 
 	/**
 	 * @return string
+	 * @throws \Exception
 	 */
 	public function getType(): string {
-		return 'workflows-activity-' . $this->getActivityType();
+		return 'workflows-activity-' . $this->workflow->getStorage()->aggregateRootId()->toString();
 	}
 
 	/**

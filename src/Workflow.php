@@ -49,7 +49,6 @@ use MediaWiki\User\User;
 use PermissionsError;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use Throwable;
 
 final class Workflow {
 
@@ -374,8 +373,6 @@ final class Workflow {
 		}
 		$this->storage->recordEvent( $event );
 
-		$this->fireWorkflowsUpdateTaskHook( $activity, true );
-
 		return $this->continueExecution( $task );
 	}
 
@@ -424,7 +421,6 @@ final class Workflow {
 		);
 		$this->stateMessage = $reason;
 		$this->state = static::STATE_ABORTED;
-		$this->fireWorkflowsUpdateTaskHookForCurrentTasks();
 	}
 
 	/**
@@ -462,7 +458,6 @@ final class Workflow {
 		);
 		$this->stateMessage = $stateMessage;
 		$this->state = static::STATE_ABORTED;
-		$this->fireWorkflowsUpdateTaskHookForCurrentTasks();
 	}
 
 	/**
@@ -696,8 +691,6 @@ final class Workflow {
 					$this->activityManager->getActivityProperties( $activity )
 				)
 			);
-
-			$this->fireWorkflowsUpdateTaskHook( $activity, false );
 
 			$this->current[$task->getId()] = $task;
 			return $this->continueExecution( $task );
@@ -1393,53 +1386,6 @@ final class Workflow {
 			return $assigneesFromActivity;
 		}
 		return [];
-	}
-
-	/**
-	 * @param IActivity $activity
-	 * @param bool $isCompleted
-	 */
-	private function fireWorkflowsUpdateTaskHook( IActivity $activity, bool $isCompleted ) {
-		if ( !( $activity instanceof UserInteractiveActivity ) ) {
-			return;
-		}
-		if ( !interface_exists( \MediaWiki\Extension\UnifiedTaskOverview\ITaskDescriptor::class ) ) {
-			return;
-		}
-		$activityDescriptor = $activity->getActivityDescriptor();
-		if ( !( $activityDescriptor instanceof IUserInteractiveActivityDescriptor ) ) {
-			return;
-		}
-		$descriptor = $activityDescriptor->getTaskDescriptor( $this );
-		$targetUsers = $this->activityManager->getTargetUsersForActivity( $activity, true );
-		if ( !$targetUsers ) {
-			return;
-		}
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		foreach ( $targetUsers as $user ) {
-			$hookContainer->run(
-				'WorkflowsUpdateTask',
-				[ $descriptor, $user, $isCompleted ]
-			);
-		}
-	}
-
-	private function fireWorkflowsUpdateTaskHookForCurrentTasks() {
-		$currentElements = $this->current;
-		if ( !is_array( $currentElements ) ) {
-			return;
-		}
-		foreach ( $currentElements as $element ) {
-			if ( !$element instanceof ITask ) {
-				continue;
-			}
-			try {
-				$activity = $this->activityManager->getActivityForTask( $element );
-				$this->fireWorkflowsUpdateTaskHook( $activity, true );
-			} catch ( Throwable ) {
-				continue;
-			}
-		}
 	}
 
 }

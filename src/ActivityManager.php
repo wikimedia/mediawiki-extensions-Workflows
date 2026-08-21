@@ -215,6 +215,7 @@ final class ActivityManager {
 	 */
 	public function getTargetUsersForActivity( UserInteractiveActivity $activity, $returnObjects = false ) {
 		$properties = $this->getActivityProperties( $activity );
+		$properties = $this->parseValues( $properties );
 
 		$activityTarget = $activity->getTargetUsers( $properties );
 		if ( $activityTarget === null ) {

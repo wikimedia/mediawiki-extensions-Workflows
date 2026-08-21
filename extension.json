@@ -86,7 +86,12 @@
 					"services": [ "MainConfig", "HookContainer" ]
 				}
 			},
-			"WorkflowListeners": {},
+			"WorkflowListeners": {
+				"uto": {
+					"class": "MediaWiki\\Extension\\Workflows\\MediaWiki\\UnifiedTaskOverview\\Listener",
+					"services": [ "WorkflowsActivityManagerFactory" ]
+				}
+			},
 			"WorkflowDefinitions": {
 				"group-feedback": "Workflows/workflow/GroupFeedback.bpmn",
 				"user-feedback": "Workflows/workflow/UserFeedback.bpmn"
