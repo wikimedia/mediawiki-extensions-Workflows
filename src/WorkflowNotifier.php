@@ -59,11 +59,11 @@ class WorkflowNotifier implements MessageConsumer {
 			return;
 		}
 
-		if ( $message->aggregateRootId() !== $this->workflow->getStorage()->aggregateRootId() ) {
+		if ( $message->aggregateRootId() !== $storage->aggregateRootId() ) {
 			// Not a message for us
 			return;
 		}
-		$event = $message->event();
+		$event = $message->payload();
 
 		$workflowName = $this->workflow->getDefinition()->getSource()->getName();
 		$repo = $this->workflow->getDefinition()->getSource()->getRepositoryKey();
