@@ -23,8 +23,8 @@ workflows.store.Workflows.prototype.doLoadData = function () {
 				return;
 			}
 
-			this.total = response.total;
-			dfd.resolve( this.indexData( response.workflows ) );
+			response.results = response.workflows;
+			dfd.resolve( this.processResponse( response ) );
 		}
 	);
 
