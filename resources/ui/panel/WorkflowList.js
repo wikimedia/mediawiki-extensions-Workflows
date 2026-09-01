@@ -16,7 +16,7 @@
 		);
 
 		this.store = new workflows.store.Workflows( {
-			pageSize: 10,
+			pageSize: cfg.pageSize || 10,
 			filter: this.filterData
 		} );
 		this.store.connect( this, {
