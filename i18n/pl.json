@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"PanWor",
 			"Rzuwig"
 		]
 	},
+	"logentry-ext-workflows-uservote-yes": "Głos użytkownika: $1 {{GENDER:$2|zagłosował|zagłosowała|zagłosował(a)}} „za” na stronie „$3”",
+	"logentry-ext-workflows-uservote-no": "Głos użytkownika: $1 {{GENDER:$2|zagłosował|zagłosowała|zagłosował(a)}} „przeciw” na stronie „$3”",
+	"logentry-ext-workflows-uservote-delegate": "Głos użytkownika: $1 {{GENDER:$2|przekazał|przekazała|przekazał(a)}} prawo głosu na stronie „$3” użytkownikowi [[User:$4|$4]]",
+	"logentry-ext-workflows-sendmail-send": "Wysyłanie wiadomości e-mail: Wysłano wiadomość e-mail z tematem „$4”",
+	"logentry-ext-workflows-editpage-edit": "Edytowano stronę: $4",
 	"workflows-ui-overview-details-section-details": "Szczegóły"
 }
