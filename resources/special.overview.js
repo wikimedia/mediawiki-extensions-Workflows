@@ -6,7 +6,8 @@ $( function () {
 	const $loader = $( '#workflows-overview-loader' );
 
 	const panel = new workflows.ui.panel.WorkflowList( {
-		expanded: false
+		expanded: false,
+		pageSize: 25
 	} );
 
 	function setLoading( loading ) {
