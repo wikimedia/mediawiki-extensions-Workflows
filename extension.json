@@ -151,15 +151,7 @@
 				"ext.workflows.editor.customElements"
 			]
 		},
-		"BlueSpiceDiscovery": {
-			"AttentionIndicatorRegistry": {
-				"workflows": "\\MediaWiki\\Extension\\Workflows\\AttentionIndicator\\Workflows::factory"
-			}
-		},
 		"UnifiedTaskOverview": {
-			"AttentionIndicatorCollectionRegistry": [
-				"workflows"
-			],
 			"TaskDescriptorRegistry": {
 				"workflows-activity-": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\UnifiedTaskOverview\\ActivityTaskDescriptor"
 			}
