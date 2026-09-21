@@ -96,7 +96,7 @@ class SetTemplateParamsActivity extends GenericActivity {
 		}
 		/** @var Transclusion $node */
 		$node = $templates[$this->templateIndex];
-		$node->setParam( $this->templateParamIndex, $this->value );
+		$node->setParam( $this->templateParamIndex, $this->value, true );
 		$parser->replaceNode( $node );
 		$rev = $parser->saveRevision( $this->user, $this->comment, $this->isMinor ? EDIT_MINOR : 0 );
 		if ( !( $rev instanceof RevisionRecord ) ) {
