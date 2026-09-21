@@ -97,7 +97,7 @@ class SetTemplateParamsActivity extends GenericActivity {
 		$node = $templates[$this->templateIndex];
 		foreach ( $this->templateParams as $paramIndex => $paramValue ) {
 			$paramIndex = is_numeric( $paramIndex ) ? (int)$paramIndex : $paramIndex;
-			$node->setParam( $paramIndex, $paramValue );
+			$node->setParam( $paramIndex, $paramValue, true );
 		}
 		$parser->replaceNode( $node );
 		$rev = $parser->saveRevision( $this->user, $this->comment, $this->isMinor ? EDIT_MINOR : 0 );
