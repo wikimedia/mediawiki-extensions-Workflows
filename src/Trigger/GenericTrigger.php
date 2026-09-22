@@ -396,12 +396,18 @@ class GenericTrigger implements ITrigger, LoggerAwareInterface {
 		/** @var DataPreprocessor $preprocessor */
 		$preprocessor = MediaWikiServices::getInstance()->getService( 'WorkflowsDataPreprocessor' );
 		$context = new DataPreprocessorContext( $title );
+		$this->logger->debug( 'Processing pages rule with value: {value}', [ 'value' => $value ] );
+
 		$processed = $preprocessor->preprocess( [ 'value' => $value ], [], $context );
 		if ( !isset( $processed['value'] ) || !is_string( $processed['value'] ) ) {
 			$this->logger->warning( 'Cannot process trigger rule: ' . $value );
 			return [];
 		}
 
+		if ( !$processed['value'] ) {
+			$this->logger->debug( 'Pages rule returned empty value' );
+			return [];
+		}
 		$list = explode( '|', $processed['value'] );
 		$list = array_map( static function ( $item ) {
 			return trim( $item );
