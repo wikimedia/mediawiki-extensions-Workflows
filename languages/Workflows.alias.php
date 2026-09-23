@@ -5,7 +5,8 @@ $specialPageAliases = [];
 /** English (English) */
 $specialPageAliases['en'] = [
 	'WorkflowsOverview' => [ 'WorkflowsOverview', 'Workflows overview' ],
-	'WorkflowTriggers' => [ 'WorkflowTriggers', 'Workflow triggers' ]
+	'WorkflowTriggers' => [ 'WorkflowTriggers', 'Workflow triggers' ],
+	'SignWorkflowActivity' => [ 'SignWorkflowActivity', 'Sign workflow activity' ]
 ];
 
 /** German (Deutsch) */

@@ -104,4 +104,12 @@ class WorkflowContext {
 	public function isRunningAsBot(): bool {
 		return $this->mutable->isRunningAsBot();
 	}
+
+	/**
+	 * @param string $taskId
+	 * @return bool
+	 */
+	public function isSigned( string $taskId ): bool {
+		return $this->mutable->isSigned( $taskId );
+	}
 }

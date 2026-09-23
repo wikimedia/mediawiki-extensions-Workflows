@@ -4,12 +4,14 @@
 		const properties = activity.getProperties();
 		this.allowDelegation = properties.hasOwnProperty( 'allow_delegation' ) ? !!properties.allow_delegation : true;
 		workflows.object.form.UserVote.parent.call( this, cfg, activity );
+		workflows.mixin.SignedActivity.call( this );
 	};
 
 	OO.inheritClass( workflows.object.form.UserVote, workflows.object.form.Form );
+	OO.mixinClass( workflows.object.form.UserVote, workflows.mixin.SignedActivity );
 
 	workflows.object.form.UserVote.prototype.getDefinitionItems = function () {
-		return [
+		return this.getSignatureFormFields().concat( [
 			{
 				name: 'instructions',
 				noLayout: true,
@@ -81,7 +83,7 @@
 				hidden: true,
 				type: 'text'
 			}
-		];
+		] );
 	};
 
 	workflows.object.form.UserVote.prototype.showDelegate = function () {
@@ -97,6 +99,8 @@
 		this.form.showItem( 'delegate_to' );
 		this.form.showItem( 'cancel_delegate' );
 		this.form.showItem( 'delegate_comment' );
+		this.form.hideItem( 'signing_requirement_notice' );
+
 		this.form.emit( 'layoutChange' );
 	};
 
@@ -113,10 +117,13 @@
 		this.form.hideItem( 'cancel_delegate' );
 		this.form.hideItem( 'delegate_to' );
 		this.form.hideItem( 'delegate_comment' );
+		this.onSignatureFormAfterInit( this.form );
 		this.form.emit( 'layoutChange' );
 	};
 
 	workflows.object.form.UserVote.prototype.onInitComplete = function ( form ) {
+		this.onSignatureFormAfterInit( form );
+
 		// Update size of the window once wikitext is parsed
 		form.getItem( 'instructions' ).connect( this, {
 			parseComplete: function () {
@@ -173,5 +180,9 @@
 
 		dfd.resolve( data );
 		return dfd.promise();
+	};
+
+	workflows.object.form.UserVote.prototype.mustSign = function ( data ) {
+		return data.action === 'vote' && workflows.mixin.SignedActivity.prototype.mustSign.call( this, data );
 	};
 }( mediaWiki, jQuery ) );

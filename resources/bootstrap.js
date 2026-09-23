@@ -1,6 +1,7 @@
 window.workflows = {
 	api: {},
 	store: {},
+	mixin: {},
 	editor: {
 		property: {},
 		inspector: {},

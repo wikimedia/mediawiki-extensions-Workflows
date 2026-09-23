@@ -25,11 +25,14 @@ class UserVoteActivity extends GenericVoteActivity {
 	 */
 	protected $activityKey = 'user-vote';
 
+	/** @var bool */
+	private bool $isSigned = false;
+
 	/**
 	 * @inheritDoc
 	 */
 	protected function getSpecialLogAction( string $vote ): string {
-		return 'uservote-' . $vote;
+		return $this->isSigned ? 'uservote-signed-' . $vote : 'uservote-' . $vote;
 	}
 
 	/**
@@ -47,6 +50,22 @@ class UserVoteActivity extends GenericVoteActivity {
 		parent::setSecondaryData( $data, $context );
 		$this->allowDelegation = isset( $data['allow_delegation'] ) ?
 			(bool)$data['allow_delegation'] : true;
+	}
+
+	/**
+	 * @param array $data
+	 * @param WorkflowContext $context
+	 * @return void
+	 * @throws WorkflowExecutionException
+	 */
+	protected function setPrimaryData( array $data, WorkflowContext $context ): void {
+		if ( !empty( $data['require_signing'] ) && $data['require_signing'] !== '0' ) {
+			if ( !$context->isSigned( $this->task->getId() ) ) {
+				throw new WorkflowExecutionException( 'workflows-activity-vote-not-signed' );
+			}
+			$this->isSigned = true;
+		}
+		parent::setPrimaryData( $data, $context );
 	}
 
 	/**
