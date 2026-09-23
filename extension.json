@@ -272,7 +272,8 @@
 				"object/form/Form.js"
 			],
 			"dependencies": [
-				"ext.forms.standalone"
+				"ext.forms.standalone",
+				"ext.workflows.mixin.SignedActivity"
 			]
 		},
 		"ext.workflows.ui.workflowpicker": {
@@ -812,7 +813,8 @@
 			],
 			"dependencies": [
 				"oojs-ui",
-				"ext.forms.standalone"
+				"ext.forms.standalone",
+				"ext.workflows.mixin.SignedActivity"
 			]
 		},
 		"ext.workflows.viewer": {
@@ -842,6 +844,21 @@
 			],
 			"dependencies": [
 				"ext.workflows.bootstrap"
+			]
+		},
+		"ext.workflows.mixin.SignedActivity": {
+			"scripts": [
+				"mixin/SignedActivity.js"
+			],
+			"dependencies": [
+				"ext.workflows.bootstrap"
+			],
+			"messages": [
+				"workflows-ui-editor-inspector-activity-require-signature",
+				"workflows-ui-editor-inspector-activity-require-signature-help",
+				"workflows-ui-editor-inspector-activity-signature-confirmation-text",
+				"workflows-ui-editor-inspector-activity-signature-confirmation-text-help",
+				"workflows-ui-editor-inspector-activity-signature-requirement-notice"
 			]
 		}
 	},
@@ -1071,6 +1088,10 @@
 		},
 		"WorkflowTriggers": {
 			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\WorkflowTriggers"
+		},
+		"SignWorkflowActivity": {
+			"class": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\Special\\SignWorkflowActivity",
+			"services": [ "WorkflowFactory", "WorkflowsSpecialLogLogger", "WorkflowLogger", "TitleFactory" ]
 		}
 	},
 	"ExtensionMessagesFiles": {

@@ -35,6 +35,9 @@ class WorkflowContextMutable {
 	/** @var bool */
 	private $runningAsBot = false;
 
+	/** @var array */
+	private $signedTasks = [];
+
 	/**
 	 * @param TitleFactory $titleFactory
 	 */
@@ -221,5 +224,21 @@ class WorkflowContextMutable {
 	 */
 	public function isRunningAsBot(): bool {
 		return $this->runningAsBot;
+	}
+
+	/**
+	 * @param string $taskId
+	 * @return void
+	 */
+	public function addSignedTask( string $taskId ): void {
+		$this->signedTasks[] = $taskId;
+	}
+
+	/**
+	 * @param string $taskId
+	 * @return bool
+	 */
+	public function isSigned( string $taskId ): bool {
+		return in_array( $taskId, $this->signedTasks );
 	}
 }

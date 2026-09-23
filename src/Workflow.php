@@ -1388,4 +1388,11 @@ final class Workflow {
 		return [];
 	}
 
+	/**
+	 * @param string $taskId
+	 * @return void
+	 */
+	public function signTask( string $taskId ): void {
+		$this->getPrivateContext()->addSignedTask( $taskId );
+	}
 }

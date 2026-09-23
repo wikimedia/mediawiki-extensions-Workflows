@@ -53,6 +53,12 @@
 					const dfd = $.Deferred();
 					this.form.connect( this, {
 						submit: function ( data ) {
+							if ( typeof this.form.mustSign === 'function' ) {
+								if ( this.form.mustSign( data ) ) {
+									this.form.postToSignaturePage( data, this.activity );
+									return;
+								}
+							}
 							this.activity.complete( data ).done( ( task ) => { // eslint-disable-line no-unused-vars
 								this.close( { result: true } );
 							} ).fail( ( error ) => {

@@ -257,4 +257,30 @@ class UserVoteActivityTest extends MediaWikiIntegrationTestCase {
 
 		$activity->start( [], $this->workflowContext );
 	}
+
+	/**
+	 * Case with signing required, but activity is not signed
+	 *
+	 * @covers \MediaWiki\Extension\Workflows\Activity\VoteActivity\UserVoteActivity::execute()
+	 */
+	public function testVoteCannotCompleteWhenNotSignedButSigningRequired() {
+		$this->expectExceptionMessage( Message::newFromKey( 'workflows-activity-vote-not-signed' )->text() );
+
+		$this->setData();
+
+		$this->specialLogLogger->expects( $this->never() )->method( 'addEntry' );
+		$this->notifier->expects( $this->never() )->method( 'emit' );
+
+		$activity = $this->prepareActivity();
+		$activity->start( [], $this->workflowContext );
+
+		$data = [
+			'action' => ActionList::ACTION_VOTE,
+			'vote' => 'yes',
+			'comment' => 'Really great article!',
+			'require_signing' => '1',
+		];
+
+		$activity->execute( $data, $this->workflowContext );
+	}
 }

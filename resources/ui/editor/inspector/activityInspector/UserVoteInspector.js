@@ -1,8 +1,10 @@
 workflows.editor.inspector.UserVoteInspector = function ( element, dialog ) {
 	workflows.editor.inspector.UserVoteInspector.parent.call( this, element, dialog );
+	workflows.mixin.SignedActivity.call( this, {} );
 };
 
 OO.inheritClass( workflows.editor.inspector.UserVoteInspector, workflows.editor.inspector.ActivityInspector );
+OO.mixinClass( workflows.editor.inspector.UserVoteInspector, workflows.mixin.SignedActivity );
 
 workflows.editor.inspector.UserVoteInspector.prototype.getDialogTitle = function () {
 	return mw.message( 'workflows-ui-editor-inspector-activity-user-vote-title' ).text();
@@ -54,7 +56,7 @@ workflows.editor.inspector.UserVoteInspector.prototype.getItems = function () {
 			name: 'properties.comment',
 			hidden: true
 		}
-	];
+	].concat( this.getSignatureEditorFormFields() );
 };
 
 workflows.editor.inspector.Registry.register( 'user_vote', workflows.editor.inspector.UserVoteInspector );
