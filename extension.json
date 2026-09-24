@@ -1075,7 +1075,8 @@
 		{
 			"path": "/workflow/trigger_types",
 			"method": "GET",
-			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveTriggerTypesHandler"
+			"class": "MediaWiki\\Extension\\Workflows\\Rest\\RetrieveTriggerTypesHandler",
+			"services": [ "HookContainer" ]
 		}
 	],
 	"LogTypes": [ "ext-workflows" ],

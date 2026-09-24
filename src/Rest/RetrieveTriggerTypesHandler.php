@@ -2,11 +2,21 @@
 
 namespace MediaWiki\Extension\Workflows\Rest;
 
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Message\Message;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Rest\Handler;
 
 class RetrieveTriggerTypesHandler extends Handler {
+
+	/**
+	 * @param HookContainer $hookContainer
+	 */
+	public function __construct(
+		private readonly HookContainer $hookContainer
+	) {
+	}
+
 	/**
 	 * @inheritDoc
 	 */
@@ -15,6 +25,7 @@ class RetrieveTriggerTypesHandler extends Handler {
 			'WorkflowsTriggerTypes'
 		);
 		$editors = ExtensionRegistry::getInstance()->getAttribute( 'WorkflowsTriggerEditors' );
+		$this->hookContainer->run( 'WorkflowsTriggerTypes', [ &$typesAttribute, &$editors ] );
 
 		$types = [];
 		foreach ( $typesAttribute as $key => $class ) {
