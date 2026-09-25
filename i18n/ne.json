@@ -7,8 +7,8 @@
 		]
 	},
 	"workflows-ui-workflow-overview-action-abort": "रोक्नुहोस्",
-	"workflows-ui-trigger-action-delete": "मेट्ने",
-	"workflows-action-delete-label": "मेट्ने",
+	"workflows-ui-trigger-action-delete": "मेटाउनुहोस्",
+	"workflows-action-delete-label": "मेटाउनुहोस्",
 	"workflows-activity-property-username": "प्रयोगकर्ता",
 	"workflows-activity-property-usernameEditor": "सम्पादक",
 	"workflows-activity-property-vote": "मतदान",
