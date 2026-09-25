@@ -45,13 +45,12 @@ class DataFlattener {
 
 			if ( is_array( $dataValue ) ) {
 				$this->flattenArray( $resultArray, $nestedDataKey, $dataValue );
-
-				// Length is calculated only for lists
-				if ( is_numeric( $dataKey ) ) {
-					$length++;
-				}
 			} else {
 				$resultArray[$nestedDataKey] = $dataValue;
+			}
+			// Length is calculated only for lists
+			if ( is_numeric( $dataKey ) ) {
+				$length++;
 			}
 		}
 
