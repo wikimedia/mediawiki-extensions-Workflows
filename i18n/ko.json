@@ -49,12 +49,10 @@
 	"workflows-ui-task-completion-action-complete": "제출",
 	"workflows-ui-task-completion-action-cancel": "취소",
 	"workflows-form-placeholder-comment": "의견",
-	"workflows-group-vote-group-empty": "투표할 그룹 이름이 지정되지 않았습니다",
 	"workflows-group-vote-group-no-users": "지정된 그룹에 투표할 사용자가 없습니다",
 	"workflows-group-vote-target-title-invalid": "활동 대상 제목이 유효하지 않거나 지정되지 않았습니다",
 	"workflows-group-vote-action-invalid": "작업이 유효하지 않거나 지정되지 않았습니다",
 	"workflows-user-vote-target-title-invalid": "활동 대상 제목이 유효하지 않거나 지정되지 않았습니다",
-	"workflows-user-vote-owner-invalid": "활동 소유자가 유효하지 않거나 지정되지 않았습니다",
 	"workflows-user-vote-actor-invalid": "활동 수행자가 유효하지 않거나 지정되지 않았습니다",
 	"workflows-user-vote-action-invalid": "작업이 유효하지 않거나 지정되지 않았습니다",
 	"workflows-vote-value-invalid": "투표 값이 유효하지 않습니다. \"네\" 또는 \"아니오\" 여야 합니다",
@@ -197,7 +195,6 @@
 	"workflows-activity-error-no-revision": "해당 제목에 대한 판을 찾을 수 없습니다",
 	"workflows-activity-error-no-title": "잘못된 제목",
 	"workflows-activity-cannot-edit": "사용자 \"{{GENDER:$1|$1}}님\"은 \"$2\" 문서를 편집할 수 없습니다",
-	"workflows-activity-set-template-params-cannot-save": "저장 실패",
 	"workflows-ui-overview-details-section-details": "자세한 사항",
 	"workflows-ui-overview-details-due-date-label": "기한",
 	"workflows-ui-overview-details-section-assignee": "담당자",
@@ -354,7 +351,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "취소",
 	"workflows-ui-overview-details-has-notice-label": "알림이 있습니까?",
 	"workflows-ui-trigger-type-label": "트리거 유형",
-	"workflows-ui-action-edit-triggers": "편집",
 	"workflowtriggers": "워크플로 트리거",
 	"workflows-ui-overview-details-start-time-raw-column": "시작일 (원본)",
 	"workflows-ui-overview-details-last-time-raw-column": "마지막 활동일 (원본)",
@@ -377,7 +373,5 @@
 	"workflows-ui-meta-noworkflows-help": "문서에서 자동 워크플로 실행을 허용할지 여부를 지정할 수 있습니다.",
 	"workflows-droplet-myopenworkflows-name": "내 열린 워크플로",
 	"workflows-droplet-myopenworkflows-description": "현재 사용자에게 할당된 워크플로 목록을 표시합니다",
-	"workflows-tag-myopenworkflows-anon": "워크플로를 보려면 로그인해야 합니다.",
-	"workflows-tag-myopenworkflows-empty": "열린 워크플로가 없습니다.",
-	"workflows-tag-myopenworkflows-unknown": "알 수 없는 워크플로"
+	"workflows-tag-myopenworkflows-anon": "워크플로를 보려면 로그인해야 합니다."
 }

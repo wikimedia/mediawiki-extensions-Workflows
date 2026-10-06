@@ -64,6 +64,5 @@
 	"workflows-ui-editor-inspector-id": "Идентфикатор",
 	"workflows-editor-editor-dialog-save-title": "Сохранить диаграмму",
 	"workflows-editor-editor-dialog-save-action-save": "Сохранить",
-	"workflows-editor-editor-dialog-save-action-cancel": "Отмена",
-	"workflows-ui-action-edit-triggers": "Править"
+	"workflows-editor-editor-dialog-save-action-cancel": "Отмена"
 }

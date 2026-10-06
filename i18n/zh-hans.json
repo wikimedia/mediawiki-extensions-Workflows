@@ -59,12 +59,10 @@
 	"workflows-ui-task-completion-action-complete": "提交",
 	"workflows-ui-task-completion-action-cancel": "取消",
 	"workflows-form-placeholder-comment": "评论",
-	"workflows-group-vote-group-empty": "未指定投票的用户组名称",
 	"workflows-group-vote-group-no-users": "指定用户组中没有要投票的用户",
 	"workflows-group-vote-target-title-invalid": "活动目标标题无效或未指定",
 	"workflows-group-vote-action-invalid": "操作无效或未指定",
 	"workflows-user-vote-target-title-invalid": "活动目标标题无效或未指定",
-	"workflows-user-vote-owner-invalid": "活动所有者无效或未指定",
 	"workflows-user-vote-actor-invalid": "活动参与者无效或未指定",
 	"workflows-user-vote-action-invalid": "操作无效或未指定",
 	"workflows-vote-value-invalid": "投票值无效。它应该是“是”或“否”。",
@@ -207,7 +205,6 @@
 	"workflows-activity-error-no-revision": "找不到给定标题的修订",
 	"workflows-activity-error-no-title": "无效标题",
 	"workflows-activity-cannot-edit": "用户“{{GENDER:$1|$1}}”无法编辑页面“$2”",
-	"workflows-activity-set-template-params-cannot-save": "保存失败",
 	"workflows-ui-overview-details-section-details": "详情",
 	"workflows-ui-overview-details-due-date-label": "到期",
 	"workflows-ui-overview-details-section-assignee": "分配给",
@@ -364,7 +361,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "取消",
 	"workflows-ui-overview-details-has-notice-label": "收到通知了吗？",
 	"workflows-ui-trigger-type-label": "触发类型",
-	"workflows-ui-action-edit-triggers": "编辑",
 	"workflowtriggers": "工作流触发器",
 	"workflows-ui-overview-details-start-time-raw-column": "开始于（原始值）",
 	"workflows-ui-overview-details-last-time-raw-column": "上次活动于（原始值）",
@@ -387,7 +383,5 @@
 	"workflows-ui-meta-noworkflows-help": "您可以指定是否允许在该页面上执行自动工作流。",
 	"workflows-droplet-myopenworkflows-name": "我开启的工作流",
 	"workflows-droplet-myopenworkflows-description": "显示分配给当前用户的已开启工作流列表",
-	"workflows-tag-myopenworkflows-anon": "您必须登录才能查看您的工作流。",
-	"workflows-tag-myopenworkflows-empty": "您没有已开启的工作流。",
-	"workflows-tag-myopenworkflows-unknown": "未知工作流"
+	"workflows-tag-myopenworkflows-anon": "您必须登录才能查看您的工作流。"
 }

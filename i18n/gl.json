@@ -46,12 +46,10 @@
 	"workflows-ui-task-completion-action-complete": "Enviar",
 	"workflows-ui-task-completion-action-cancel": "Cancelar",
 	"workflows-form-placeholder-comment": "Comentario",
-	"workflows-group-vote-group-empty": "Non se especificou o nome do grupo para votar",
 	"workflows-group-vote-group-no-users": "O grupo especificado non ten usuarios para votar",
 	"workflows-group-vote-target-title-invalid": "O título do obxectivo da actividade non é válido ou non se especificou",
 	"workflows-group-vote-action-invalid": "A acción non é válida ou non se especificou",
 	"workflows-user-vote-target-title-invalid": "O título do obxectivo da actividade non é válido ou non se especificou",
-	"workflows-user-vote-owner-invalid": "O propietario da actividade non é válido ou non se especificou",
 	"workflows-user-vote-actor-invalid": "O executante da actividade non é válido ou non se especificou",
 	"workflows-user-vote-action-invalid": "A acción non é válida ou non se especificou",
 	"workflows-vote-value-invalid": "O valor do voto non é válido. Debería ser «si» ou «non».",
@@ -194,7 +192,6 @@
 	"workflows-activity-error-no-revision": "Non se atopou ningunha revisión para o título indicado",
 	"workflows-activity-error-no-title": "O título non é válido",
 	"workflows-activity-cannot-edit": "{{GENDER:$1|O usuario|A usuaria}} «$1» non pode editar a páxina «$2»",
-	"workflows-activity-set-template-params-cannot-save": "Fallou o gardado",
 	"workflows-ui-overview-details-section-details": "Detalles",
 	"workflows-ui-overview-details-due-date-label": "Data de vencemento",
 	"workflows-ui-overview-details-section-assignee": "Asignado a",
@@ -351,7 +348,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Cancelar",
 	"workflows-ui-overview-details-has-notice-label": "Ten un aviso?",
 	"workflows-ui-trigger-type-label": "Tipo de activador",
-	"workflows-ui-action-edit-triggers": "Editar",
 	"workflowtriggers": "Activadores do fluxo de traballo",
 	"workflows-ui-overview-details-start-time-raw-column": "Comezou o (sen procesar)",
 	"workflows-ui-overview-details-last-time-raw-column": "Última actividade o (sen procesar)",
@@ -374,7 +370,5 @@
 	"workflows-ui-meta-noworkflows-help": "Podes especificar se na páxina queres permitir a execución automática dun fluxo de traballo.",
 	"workflows-droplet-myopenworkflows-name": "Os meus fluxos de traballo abertos",
 	"workflows-droplet-myopenworkflows-description": "Mostra unha lista de fluxos de traballo abertos asignados ao usuario actual",
-	"workflows-tag-myopenworkflows-anon": "Debes iniciar sesión para ver os teus fluxos de traballo.",
-	"workflows-tag-myopenworkflows-empty": "Non tes fluxos de traballo abertos.",
-	"workflows-tag-myopenworkflows-unknown": "Fluxo de traballo descoñecido"
+	"workflows-tag-myopenworkflows-anon": "Debes iniciar sesión para ver os teus fluxos de traballo."
 }

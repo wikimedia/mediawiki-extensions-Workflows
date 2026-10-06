@@ -53,12 +53,10 @@
 	"workflows-ui-task-completion-action-complete": "Übernehmen",
 	"workflows-ui-task-completion-action-cancel": "Abbrechen",
 	"workflows-form-placeholder-comment": "Kommentar",
-	"workflows-group-vote-group-empty": "Der Name der stimmberechtigten Gruppe ist nicht definiert",
 	"workflows-group-vote-group-no-users": "Die ausgewählte Gruppe hat keine stimmberechtigten Benutzer",
 	"workflows-group-vote-target-title-invalid": "Der Titel der ausgewählten Aktivität ist ungültig oder nicht definiert",
 	"workflows-group-vote-action-invalid": "Die Aktion ist ungültig oder nicht definiert",
 	"workflows-user-vote-target-title-invalid": "Der Titel der ausgewählten Aktivität ist ungültig oder nicht definiert",
-	"workflows-user-vote-owner-invalid": "Der Besitzer der Aktivität ist ungültig oder nicht definiert",
 	"workflows-user-vote-actor-invalid": "Der Auszuführende der Aktivität ist ungültig oder nicht definiert",
 	"workflows-user-vote-action-invalid": "Die Aktion ist ungültig oder nicht definiert",
 	"workflows-vote-value-invalid": "Der Abstimmungswert ist ungültig. Er sollte \"ja\" oder \"nein\" lauten",
@@ -201,7 +199,6 @@
 	"workflows-activity-error-no-revision": "Für den angegebenen Titel kann keine Version gefunden werden",
 	"workflows-activity-error-no-title": "Ungültiger Titel",
 	"workflows-activity-cannot-edit": "Benutzer \"{{GENDER:$1|$1}}\" kann Seite \"$2\" nicht bearbeiten",
-	"workflows-activity-set-template-params-cannot-save": "Speichern fehlgeschlagen",
 	"workflows-ui-overview-details-section-details": "Details",
 	"workflows-ui-overview-details-due-date-label": "Fällig am",
 	"workflows-ui-overview-details-section-assignee": "Zugewiesen an",
@@ -350,7 +347,6 @@
 	"workflows-editor-editor-dialog-save-title": "Diagramm speichern",
 	"workflows-editor-editor-dialog-save-action-save": "Speichern",
 	"workflows-editor-editor-dialog-save-action-cancel": "Abbrechen",
-	"workflows-ui-action-edit-triggers": "Bearbeiten",
 	"workflowtriggers": "Workflow-Trigger",
 	"workflows-triggers-edit-json-label": "Der Quelltext der Workflow-Auslöser kann auf [[MediaWiki:WorkflowTriggers]] bearbeitet werden",
 	"workflows-ui-editor-toolbar-lasso-tool": "Aktivieren des Lasso-Tools",
@@ -368,7 +364,5 @@
 	"workflows-ui-meta-noworkflows-help": "{{#FORMAL: Du kannst|Sie können}} festlegen, ob ein automatischer Workflow auf der Seite ausgeführt werden darf.",
 	"workflows-droplet-myopenworkflows-name": "Meine offenen Workflows",
 	"workflows-droplet-myopenworkflows-description": "Zeigt eine Liste der offenen Workflows des angemeldeten Benutzers",
-	"workflows-tag-myopenworkflows-anon": "Sie müssen angemeldet sein, um Ihre Workflows zu sehen.",
-	"workflows-tag-myopenworkflows-empty": "Sie haben keine offenen Workflows.",
-	"workflows-tag-myopenworkflows-unknown": "Unbekannter Workflow"
+	"workflows-tag-myopenworkflows-anon": "Sie müssen angemeldet sein, um Ihre Workflows zu sehen."
 }

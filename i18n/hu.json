@@ -47,7 +47,6 @@
 	"workflows-ui-task-completion-action-complete": "Küldés",
 	"workflows-ui-task-completion-action-cancel": "Mégse",
 	"workflows-form-placeholder-comment": "Hozzászólás",
-	"workflows-group-vote-group-empty": "Nincs a szavazáshoz csoport kiválasztva",
 	"workflows-group-vote-group-no-users": "A megadott csoportban nincs olyan felhasználó, aki szavazhat",
 	"workflows-group-vote-action-invalid": "A művelet érvénytelen vagy nincs megadva",
 	"workflows-user-vote-action-invalid": "A művelet érvénytelen vagy nincs megadva",
@@ -178,7 +177,6 @@
 	"workflows-ui-workflow-overview-step-name-group-feedback": "Csoportos visszajelzés",
 	"workflows-activity-error-no-title": "Érvénytelen cím",
 	"workflows-activity-cannot-edit": "A(z) „{{GENDER:$1| $1 }}” felhasználó nem tudja szerkeszteni a(z) „$2” lapot",
-	"workflows-activity-set-template-params-cannot-save": "Sikertelen mentés",
 	"workflows-ui-overview-details-section-details": "Részletek",
 	"workflows-ui-overview-details-due-date-label": "Esedékesség",
 	"workflows-ui-overview-details-section-assignee": "Hozzárendelve",
@@ -290,7 +288,6 @@
 	"workflows-editor-editor-dialog-save-action-save": "Mentés",
 	"workflows-editor-editor-dialog-save-action-cancel": "Mégse",
 	"workflows-ui-trigger-type-label": "Trigger típusa",
-	"workflows-ui-action-edit-triggers": "Szerkesztés",
 	"workflowtriggers": "Munkafolyamat triggerek",
 	"workflows-triggers-edit-json-label": "A munkafolyamat triggerek forráskódja szerkeszthető a [[MediaWiki:WorkflowTriggers]] lapon."
 }
