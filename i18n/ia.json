@@ -46,12 +46,10 @@
 	"workflows-ui-task-completion-action-complete": "Submitter",
 	"workflows-ui-task-completion-action-cancel": "Cancellar",
 	"workflows-form-placeholder-comment": "Commento",
-	"workflows-group-vote-group-empty": "Le nomine del gruppo votante non es specificate",
 	"workflows-group-vote-group-no-users": "Le gruppo specificate non ha usatores votante",
 	"workflows-group-vote-target-title-invalid": "Le titulo de destination del activitate non es valide o non es specificate",
 	"workflows-group-vote-action-invalid": "Le action non es valide o non es specificate",
 	"workflows-user-vote-target-title-invalid": "Le titulo de destination del activitate non es valide o non es specificate",
-	"workflows-user-vote-owner-invalid": "Le proprietario del activitate non es valide o non es specificate",
 	"workflows-user-vote-actor-invalid": "Le agente del activitate non es valide o non es specificate",
 	"workflows-user-vote-action-invalid": "Le action non es valide o non es specificate",
 	"workflows-vote-value-invalid": "Le valor del voto non es valide. Debe esser \"si\" o \"no\"",
@@ -194,7 +192,6 @@
 	"workflows-activity-error-no-revision": "Necun version pote esser trovate pro le titulo date.",
 	"workflows-activity-error-no-title": "Titulo invalide",
 	"workflows-activity-cannot-edit": "Le usator \"{{GENDER:$1|$1}}\" non pote modificar le pagina \"$2\"",
-	"workflows-activity-set-template-params-cannot-save": "Salveguarda fallite",
 	"workflows-ui-overview-details-section-details": "Detalios",
 	"workflows-ui-overview-details-due-date-label": "Debite le",
 	"workflows-ui-overview-details-section-assignee": "Assignate a",
@@ -350,7 +347,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Cancellar",
 	"workflows-ui-overview-details-has-notice-label": "Ha nota?",
 	"workflows-ui-trigger-type-label": "Typo de activator",
-	"workflows-ui-action-edit-triggers": "Modificar",
 	"workflowtriggers": "Activatores de fluxo de travalio",
 	"workflows-ui-overview-details-start-time-raw-column": "Data de initio (crude)",
 	"workflows-ui-overview-details-last-time-raw-column": "Data de ultime activitate (crude)",
@@ -372,7 +368,5 @@
 	"workflows-ui-meta-noworkflows-label": "Permitter le execution automatic de fluxos de travalio sur iste pagina",
 	"workflows-droplet-myopenworkflows-name": "Mi fluxos de travalio aperte",
 	"workflows-droplet-myopenworkflows-description": "Monstra un lista de fluxos de travalio aperte initiate per le usator actual",
-	"workflows-tag-myopenworkflows-anon": "Tu debe aperir un session pro poter vider tu fluxos de travalio.",
-	"workflows-tag-myopenworkflows-empty": "Tu non ha fluxos de travalio aperte.",
-	"workflows-tag-myopenworkflows-unknown": "Fluxo de travalio incognite"
+	"workflows-tag-myopenworkflows-anon": "Tu debe aperir un session pro poter vider tu fluxos de travalio."
 }

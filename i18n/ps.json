@@ -42,7 +42,6 @@
 	"workflows-ui-task-completion-action-complete": "سپارل",
 	"workflows-ui-task-completion-action-cancel": "ناگارل",
 	"workflows-form-placeholder-comment": "څرگندونه",
-	"workflows-group-vote-group-empty": "د رایې ورکولو لپاره د ډلې نوم نه دی مشخص شوی",
 	"workflows-group-vote-group-no-users": "مشخصه ډله د رایې ورکولو لپاره هېڅ کارن نلري",
 	"workflows-group-vote-action-invalid": "چاره ناباوره ده يا مشخصه شوې نه ده",
 	"workflows-form-label-vote-widget-approve": "منل",
@@ -117,7 +116,6 @@
 	"workflows-ui-workflow-overview-step-name-edit-request": "غوښتنه سمول",
 	"workflows-ui-workflow-overview-step-name-collect-data": "اومتوکي راټولول",
 	"workflows-activity-error-no-title": "ناسم سرليک",
-	"workflows-activity-set-template-params-cannot-save": "خوندي‌کول نابرياله شول",
 	"workflows-ui-overview-details-section-details": "سپيناوی",
 	"workflows-activity-property-instructions": "لارښوونې",
 	"workflows-activity-property-username": "کارن‌نوم",
@@ -172,10 +170,8 @@
 	"workflows-editor-editor-dialog-save-action-save": "خوندي‌کول",
 	"workflows-editor-editor-dialog-save-action-cancel": "ناگارل",
 	"workflows-ui-overview-details-has-notice-label": "خبرتيا لري؟",
-	"workflows-ui-action-edit-triggers": "سمول",
 	"workflows-ui-dialog-action-back": "پرشاکېدل",
 	"workflows-ui-dialog-action-next": "راتلونکی",
 	"workflows-ui-meta-noworkflows-yes": "هو",
-	"workflows-ui-meta-noworkflows-no": "نه",
-	"workflows-tag-myopenworkflows-unknown": "ناپېژانده کاري‌بهير"
+	"workflows-ui-meta-noworkflows-no": "نه"
 }

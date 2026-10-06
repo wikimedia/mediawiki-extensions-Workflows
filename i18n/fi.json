@@ -64,7 +64,5 @@
 	"workflows-ui-meta-noworkflows-label": "Salli automaattisten työnkulkujen suorittaminen tällä sivulla",
 	"workflows-droplet-myopenworkflows-name": "Avoimet työnkulkuni",
 	"workflows-droplet-myopenworkflows-description": "Näyttää luettelon nykyisen käyttäjän aloittamista avoimista työnkuluista",
-	"workflows-tag-myopenworkflows-anon": "Voit näyttää työnkulkusi vain sisäänkirjautuneena.",
-	"workflows-tag-myopenworkflows-empty": "Sinulla ei ole avoimia työnkulkuja.",
-	"workflows-tag-myopenworkflows-unknown": "Tuntematon työnkulku"
+	"workflows-tag-myopenworkflows-anon": "Voit näyttää työnkulkusi vain sisäänkirjautuneena."
 }

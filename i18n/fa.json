@@ -7,6 +7,8 @@
 			"Mohammad ebz"
 		]
 	},
+	"logentry-ext-workflows-uservote-signed-yes": "رأی کاربر: $1 پس از تأیید هویت، رأی «بله» را در صفحهٔ $3 {{GENDER:$2|ثبت کرد}}",
+	"logentry-ext-workflows-uservote-signed-no": "رأی کاربر: $1 پس از تأیید هویت، رأی «خیر» را در صفحهٔ $3 {{GENDER:$2|ثبت کرد}}",
 	"workflows-collect-data-form-instructions": "دستورالعمل",
 	"workflows-collect-data-form-username": "کاربر",
 	"workflows-activity-history-vote-result-yes": "تأییدشده",
@@ -38,5 +40,5 @@
 	"workflows-workflow-file-definition-user-feedback-title": "بازخورد تک کاربر",
 	"workflows-workflow-file-definition-user-feedback-desc": "از یک کاربر بخواهید تا هنگام بازبینی یک صفحه، بازخورد دهد. هرگاه رأی‌گیری تمام شود، از طریق دریافت یک ایمیل پیرامون نتیجهٔ رأی‌گیری آگاه خواهید شد.",
 	"workflows-ui-overview-details-has-notice-label": "دارای اعلان است؟",
-	"workflows-ui-action-edit-triggers": "ویرایش"
+	"workflows-sign-activity-invalid-request-title": "درخواست نامعتبر"
 }

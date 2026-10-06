@@ -47,12 +47,10 @@
 	"workflows-ui-task-completion-action-complete": "Поднеси",
 	"workflows-ui-task-completion-action-cancel": "Откажи",
 	"workflows-form-placeholder-comment": "Коментар",
-	"workflows-group-vote-group-empty": "Не е укажано името на групата што ќе гласа",
 	"workflows-group-vote-group-no-users": "Укажаната група нема корисници",
 	"workflows-group-vote-target-title-invalid": "Целниот наслов на активноста е неважечки или неукажан",
 	"workflows-group-vote-action-invalid": "Дејството е неважечко или неукажано",
 	"workflows-user-vote-target-title-invalid": "Целниот наслов на активноста не неважечки или неукажан",
-	"workflows-user-vote-owner-invalid": "Сопственикот на активноста е неважечки или неукажан",
 	"workflows-user-vote-actor-invalid": "Дејствителот на активноста е неважечки или неукажан",
 	"workflows-user-vote-action-invalid": "Дејството е неважечко или неукажано",
 	"workflows-vote-value-invalid": "Гласот има неважечка вредност. Треба да гласи „да“ или „не“",
@@ -195,7 +193,6 @@
 	"workflows-activity-error-no-revision": "Не најдов преработки за дадениот наслов",
 	"workflows-activity-error-no-title": "Неважечки наслов",
 	"workflows-activity-cannot-edit": "Корисникот „{{GENDER:$1|$1}}“ не може да ја уредува страницата „$2“",
-	"workflows-activity-set-template-params-cannot-save": "Неуспешно зачувување",
 	"workflows-ui-overview-details-section-details": "Подробно",
 	"workflows-ui-overview-details-due-date-label": "Рок",
 	"workflows-ui-overview-details-section-assignee": "Доделено на",
@@ -352,7 +349,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Откажи",
 	"workflows-ui-overview-details-has-notice-label": "Има напомена?",
 	"workflows-ui-trigger-type-label": "Вид на покренувач",
-	"workflows-ui-action-edit-triggers": "Уреди",
 	"workflowtriggers": "Покревачи на работни текови",
 	"workflows-ui-overview-details-start-time-raw-column": "Започнато на (сирово)",
 	"workflows-ui-overview-details-last-time-raw-column": "Последна активност (сирово)",
@@ -375,7 +371,5 @@
 	"workflows-ui-meta-noworkflows-help": "Можете да укажете дали да биде дозволено извршување на автоматски работни текови на страницата.",
 	"workflows-droplet-myopenworkflows-name": "Моите отворени работни текови",
 	"workflows-droplet-myopenworkflows-description": "Прикажува список на отворени работни текови зададени на тековниот корисник",
-	"workflows-tag-myopenworkflows-anon": "Морате да сте најавени за да ги гледате вашите работни текови.",
-	"workflows-tag-myopenworkflows-empty": "Немате отворени работни текови.",
-	"workflows-tag-myopenworkflows-unknown": "Непознат работен тек"
+	"workflows-tag-myopenworkflows-anon": "Морате да сте најавени за да ги гледате вашите работни текови."
 }

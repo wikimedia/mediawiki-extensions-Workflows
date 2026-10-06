@@ -91,7 +91,6 @@
 	"workflows-ui-workflow-overview-step-name-collect-data": "Donnéeë sammelen",
 	"workflows-activity-error-no-title": "Ongültegen Titel",
 	"workflows-activity-cannot-edit": "{{GENDER:$1|De Benotzer „$1“|D'Benotzerin „$1“}} kann d'Säit „$2“ net änneren",
-	"workflows-activity-set-template-params-cannot-save": "Späicheren huet net funktionéiert",
 	"workflows-ui-overview-details-section-details": "Detailer",
 	"workflows-activity-property-username": "Benotzernumm",
 	"workflows-activity-property-groupname": "Gruppennumm",
@@ -132,9 +131,10 @@
 	"workflows-editor-editor-dialog-save-title": "Diagramm späicheren",
 	"workflows-editor-editor-dialog-save-action-save": "Späicheren",
 	"workflows-editor-editor-dialog-save-action-cancel": "Ofbriechen",
-	"workflows-ui-action-edit-triggers": "Änneren",
 	"workflows-ui-dialog-action-back": "Zeréck",
 	"workflows-ui-dialog-action-next": "Nächst",
 	"workflows-ui-meta-noworkflows-yes": "Jo",
-	"workflows-ui-meta-noworkflows-no": "Nee"
+	"workflows-ui-meta-noworkflows-no": "Nee",
+	"workflows-sign-activity-invalid-request-title": "Ongülteg Ufro",
+	"workflows-sign-activity-invalid-request-body": "Ongülteg Ufroparametere kritt. Probéiert wgl. nach eng Kéier."
 }
