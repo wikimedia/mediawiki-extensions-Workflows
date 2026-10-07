@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\Logger;
 
-use ManualLogEntry;
+use MediaWiki\Logging\ManualLogEntry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
