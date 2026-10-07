@@ -91,5 +91,6 @@
 	"workflows-ui-dialog-action-next": "Successivo",
 	"workflows-ui-meta-noworkflows-yes": "Sì",
 	"workflows-ui-meta-noworkflows-no": "No",
-	"workflows-ui-meta-noworkflows-label": "Esecuzione automatica del flusso di lavoro"
+	"workflows-ui-meta-noworkflows-label": "Esecuzione automatica del flusso di lavoro",
+	"workflows-sign-activity-invalid-request-title": "Richiesta non valida"
 }
