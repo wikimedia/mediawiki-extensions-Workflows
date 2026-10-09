@@ -64,5 +64,8 @@
 	"workflows-ui-meta-noworkflows-label": "Salli automaattisten työnkulkujen suorittaminen tällä sivulla",
 	"workflows-droplet-myopenworkflows-name": "Avoimet työnkulkuni",
 	"workflows-droplet-myopenworkflows-description": "Näyttää luettelon nykyisen käyttäjän aloittamista avoimista työnkuluista",
-	"workflows-tag-myopenworkflows-anon": "Voit näyttää työnkulkusi vain sisäänkirjautuneena."
+	"workflows-tag-myopenworkflows-anon": "Voit näyttää työnkulkusi vain sisäänkirjautuneena.",
+	"workflows-ui-editor-inspector-activity-require-signature": "Vaadi allekirjoitus",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text": "Allekirjoituksen vahvistusteksti",
+	"workflows-sign-activity-invalid-request-title": "Virheellinen pyyntö"
 }
