@@ -134,5 +134,7 @@
 	"workflows-ui-dialog-action-back": "Zeréck",
 	"workflows-ui-dialog-action-next": "Nächst",
 	"workflows-ui-meta-noworkflows-yes": "Jo",
-	"workflows-ui-meta-noworkflows-no": "Nee"
+	"workflows-ui-meta-noworkflows-no": "Nee",
+	"workflows-sign-activity-invalid-request-title": "Ongülteg Ufro",
+	"workflows-sign-activity-invalid-request-body": "Ongülteg Ufroparametere kritt. Probéiert wgl. nach eng Kéier."
 }

@@ -26,7 +26,9 @@
 	"log-name-ext-workflows": "Fluxos de traballo",
 	"log-description-ext-workflows": "Este rexistro contén información sobre todo tipo de actividades levadas a cabo por [[mw:Extension:Workflows]]",
 	"logentry-ext-workflows-uservote-yes": "Voto {{GENDER:$2|do usuario|da usuaria}}: $1 votou «si» na páxina «$3»",
+	"logentry-ext-workflows-uservote-signed-yes": "Voto {{GENDER:$2|do usuario|da usuaria}}: $1 votou «si» na páxina «$3» despois de confirmar a súa identidade",
 	"logentry-ext-workflows-uservote-no": "Voto {{GENDER:$2|do usuario|da usuaria}}: $1 votou «non» na páxina «$3»",
+	"logentry-ext-workflows-uservote-signed-no": "Voto {{GENDER:$2|do usuario|da usuaria}}: $1 votou «non» na páxina «$3» despois de confirmar a súa identidade",
 	"logentry-ext-workflows-uservote-delegate": "Voto {{GENDER:$2|do usuario|da usuaria}}: $1 delegou o seu voto na páxina «$3» a [[User:$4|$4]]",
 	"logentry-ext-workflows-sendmail-send": "Envío de correo: Enviouse un correo co asunto «$4»",
 	"logentry-ext-workflows-groupvote-yes": "Voto de grupo: $1 {{GENDER:$2|votou}} «si» na páxina «$3»",
@@ -370,5 +372,16 @@
 	"workflows-ui-meta-noworkflows-help": "Podes especificar se na páxina queres permitir a execución automática dun fluxo de traballo.",
 	"workflows-droplet-myopenworkflows-name": "Os meus fluxos de traballo abertos",
 	"workflows-droplet-myopenworkflows-description": "Mostra unha lista de fluxos de traballo abertos asignados ao usuario actual",
-	"workflows-tag-myopenworkflows-anon": "Debes iniciar sesión para ver os teus fluxos de traballo."
+	"workflows-tag-myopenworkflows-anon": "Debes iniciar sesión para ver os teus fluxos de traballo.",
+	"signworkflowactivity": "Actividade do fluxo de traballo da sinatura",
+	"workflows-ui-editor-inspector-activity-require-signature": "Solicitar a sinatura",
+	"workflows-ui-editor-inspector-activity-require-signature-help": "Se a opción está marcada, o usuario deberá asinar a actividade para completala",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text": "Texto para a confirmación da sinatura",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text-help": "Texto que se lle mostrará ao usuario cando se lle solicite que asine a actividade",
+	"workflows-ui-editor-inspector-activity-signature-requirement-notice": "Para completares esta actividade é obrigatorio que confirmes a túa identidade. Despois de enviala, irás a unha páxina onde poderás confirmar a túa identidade.",
+	"workflows-sign-activity-invalid-request-title": "Solicitude non válida",
+	"workflows-sign-activity-no-post-body": "Esta páxina só se pode solicitar desde o contexto dun fluxo de traballo",
+	"workflows-sign-activity-invalid-request-body": "Recibíronse parámetros de solicitude non válidos. Inténtao de novo.",
+	"workflows-sign-activity-invalid-user": "Non tes asignada esta actividade",
+	"workflows-activity-vote-not-signed": "Esta actividade necesita a verificación da identidade antes de completala"
 }

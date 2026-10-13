@@ -26,7 +26,9 @@
 	"log-name-ext-workflows": "Hab socodka shaqada",
 	"log-description-ext-workflows": "Diiwaankani wuxuu ka kooban yahay macluumaad ku saabsan dhammaan noocyada hawlaha ay fulisay [[mw:Extension:Workflows]]",
 	"logentry-ext-workflows-uservote-yes": "Codka isticmaalaha: $1 {{GENDER:$2|wuxuu u codeeyay}} 'haa' bogga $3",
+	"logentry-ext-workflows-uservote-signed-yes": "Codka isticmaalaha: $1 {{GENDER:$2|u codeeyay}} 'haa' bogga $3, kadib xaqiijinta aqoonsiga",
 	"logentry-ext-workflows-uservote-no": "Codka isticmaalaha: $1 {{GENDER:$2|wuxuu u codeeyay}} 'maya' bogga $3",
+	"logentry-ext-workflows-uservote-signed-no": "Codka isticmaalaha: $1 {{GENDER:$2|u codeeyay}} 'maya' bogga $3, kadib xaqiijinta aqoonsiga",
 	"logentry-ext-workflows-uservote-delegate": "Codka isticmaalaha: $1 {{GENDER:$2|wuxuu u wakiishay}} codka bogga $3 [[User:$4|$4]]",
 	"logentry-ext-workflows-sendmail-send": "Dir boostada: Boostada leh mawduuca '$4' waa la diray",
 	"logentry-ext-workflows-groupvote-yes": "Codka kooxda: $1 {{GENDER:$2|wuxuu u codeeyay}} 'haa' bogga $3",
@@ -370,5 +372,16 @@
 	"workflows-ui-meta-noworkflows-help": "Waxaad cayimi kartaa in hab socod shaqo oo otomaatig ah loo oggol yahay in lagu fuliyo bogga.",
 	"workflows-droplet-myopenworkflows-name": "Hab socodyadayda shaqada ee furan",
 	"workflows-droplet-myopenworkflows-description": "Waxay muujinaysaa liiska hab socodyada shaqada ee furan ee loo xilsaaray isticmaalaha hadda",
-	"workflows-tag-myopenworkflows-anon": "Waa inaad gashan tahay si aad u aragto hab socodyada shaqadaada."
+	"workflows-tag-myopenworkflows-anon": "Waa inaad gashan tahay si aad u aragto hab socodyada shaqadaada.",
+	"signworkflowactivity": "Saxiix hawsha habsocodka",
+	"workflows-ui-editor-inspector-activity-require-signature": "U baahan saxiix",
+	"workflows-ui-editor-inspector-activity-require-signature-help": "Haddii la doorto, isticmaalaha waxaa looga baahan doonaa inuu saxiixo hawsha ka hor inta aan la dhammaystirin",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text": "Qoraalka xaqiijinta saxiixa",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text-help": "Qoraalka loo soo bandhigi doono isticmaalaha marka laga codsado inuu saxiixo hawsha",
+	"workflows-ui-editor-inspector-activity-signature-requirement-notice": "Dhammaystirka hawshan wuxuu kaa doonayaa inaad xaqiijiso aqoonsigaaga. Kadib gudbinta, waxaa laguu wareejin doonaa bog aad ku xaqiijin karto aqoonsigaaga.",
+	"workflows-sign-activity-invalid-request-title": "Codsi aan sax ahayn",
+	"workflows-sign-activity-no-post-body": "Boggan waxaa la codsan karaa oo keliya iyadoo laga joogo macnaha guud ee habsocodka",
+	"workflows-sign-activity-invalid-request-body": "Waxaa la helay xuduudaha codsiga oo aan sax ahayn. Fadlan mar kale isku day.",
+	"workflows-sign-activity-invalid-user": "Laguma qoondeyn hawshan",
+	"workflows-activity-vote-not-signed": "Hawshani waxay u baahan tahay xaqiijinta aqoonsiga ka hor inta aan la dhammaystirin"
 }
