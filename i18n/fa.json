@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Jeeputer",
+			"LProfo",
 			"LordProfo",
-			"Mohammad ebz",
-			"LProfo"
+			"Mohammad ebz"
 		]
 	},
 	"logentry-ext-workflows-uservote-signed-yes": "رأی کاربر: $1 پس از تأیید هویت، رأی «بله» را در صفحهٔ $3 {{GENDER:$2|ثبت کرد}}",

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rzuwig",
-			"PanWor"
+			"PanWor",
+			"Rzuwig"
 		]
 	},
 	"logentry-ext-workflows-uservote-yes": "Głos użytkownika: $1 {{GENDER:$2|zagłosował|zagłosowała|zagłosował(a)}} „za” na stronie „$3”",
