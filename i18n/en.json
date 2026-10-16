@@ -375,5 +375,18 @@
 	"workflows-tag-myopenworkflows-anon": "You must be logged in to view your workflows.",
 	"workflows-tag-myopenworkflows-empty": "You have no open workflows.",
 	"workflows-tag-myopenworkflows-unknown": "Unknown workflow",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Add parameter"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Add parameter",
+	"logentry-ext-workflows-uservote-signed-yes": "User vote: $1 {{GENDER:$2|voted}} 'yes' on page $3, after confirming identity",
+	"logentry-ext-workflows-uservote-signed-no": "User vote: $1 {{GENDER:$2|voted}} 'no' on page $3, after confirming identity",
+	"signworkflowactivity": "Sign workflow activity",
+	"workflows-ui-editor-inspector-activity-require-signature": "Require signature",
+	"workflows-ui-editor-inspector-activity-require-signature-help": "If checked, user will be required to sign the activity before it can be completed",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text": "Signature confirmation text",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text-help": "Text that will be displayed to the user when they are asked to sign the activity",
+	"workflows-ui-editor-inspector-activity-signature-requirement-notice": "Completing this activity requires you to confirm your identity. After submit, you will be redirected to a page where you can confirm your identity.",
+	"workflows-sign-activity-invalid-request-title": "Invalid request",
+	"workflows-sign-activity-no-post-body": "This page can only be requested from the context of a workflow",
+	"workflows-sign-activity-invalid-request-body": "Invalid request parameters received. Please try again.",
+	"workflows-sign-activity-invalid-user": "You are not assigned to this activity",
+	"workflows-activity-vote-not-signed": "This activity requires identity verification before it can be completed"
 }
