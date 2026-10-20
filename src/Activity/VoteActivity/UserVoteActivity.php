@@ -53,27 +53,18 @@ class UserVoteActivity extends GenericVoteActivity {
 	}
 
 	/**
-	 * @param array $data
-	 * @param WorkflowContext $context
-	 * @return void
-	 * @throws WorkflowExecutionException
+	 * @inheritDoc
 	 */
-	protected function setPrimaryData( array $data, WorkflowContext $context ): void {
+	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
+		$this->setPrimaryData( $data, $context );
+		$this->setSecondaryData( $data, $context );
 		if ( !empty( $data['require_signing'] ) && $data['require_signing'] !== '0' ) {
 			if ( !$context->isSigned( $this->task->getId() ) ) {
 				throw new WorkflowExecutionException( 'workflows-activity-vote-not-signed' );
 			}
 			$this->isSigned = true;
 		}
-		parent::setPrimaryData( $data, $context );
-	}
 
-	/**
-	 * @inheritDoc
-	 */
-	public function execute( $data, WorkflowContext $context ): ExecutionStatus {
-		$this->setPrimaryData( $data, $context );
-		$this->setSecondaryData( $data, $context );
 		if ( !$this->actor instanceof User ) {
 			throw new WorkflowExecutionException( 'workflows-user-vote-actor-invalid' );
 		}
