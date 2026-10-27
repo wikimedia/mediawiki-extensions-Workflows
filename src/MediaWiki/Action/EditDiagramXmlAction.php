@@ -2,7 +2,9 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Action;
 
-class EditDiagramXmlAction extends \EditAction {
+use MediaWiki\Actions\EditAction;
+
+class EditDiagramXmlAction extends EditAction {
 
 	/**
 	 * @return string
