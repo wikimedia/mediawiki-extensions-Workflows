@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Workflows\MediaWiki\Action;
 
-use EditAction;
+use MediaWiki\Actions\EditAction;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
