@@ -27,7 +27,7 @@
 		"mwstake/mediawiki-component-wikitext": "~7",
 		"mwstake/mediawiki-component-datastore": "~4",
 		"mwstake/mediawiki-component-commonwebapis": "~6",
-		"mwstake/mediawiki-component-utils": "~3"
+		"mwstake/mediawiki-component-utils": "~4"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "52.0.0",
