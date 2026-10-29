@@ -22,7 +22,7 @@
 		"ramsey/uuid": "^4.2",
 		"mwstake/mediawiki-component-formengine": "^3.1",
 		"mwstake/mediawiki-component-wikicron": "~6",
-		"mwstake/mediawiki-component-alertbanners": "~3",
+		"mwstake/mediawiki-component-alertbanners": "~4",
 		"mwstake/mediawiki-component-events": "~4",
 		"mwstake/mediawiki-component-wikitext": "~7",
 		"mwstake/mediawiki-component-datastore": "~3",
