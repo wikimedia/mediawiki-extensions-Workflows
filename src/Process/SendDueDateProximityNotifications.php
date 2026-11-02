@@ -4,12 +4,12 @@ namespace MediaWiki\Extension\Workflows\Process;
 
 use DateTime;
 use Exception;
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\Workflows\Definition\ITask;
 use MediaWiki\Extension\Workflows\Event\DueDateProximityEvent;
 use MediaWiki\Extension\Workflows\Exception\WorkflowExecutionException;
 use MediaWiki\Extension\Workflows\UserInteractiveActivity;
 use MediaWiki\Extension\Workflows\Workflow;
-use PermissionsError;
 
 final class SendDueDateProximityNotifications extends ProcessWorkflows {
 
