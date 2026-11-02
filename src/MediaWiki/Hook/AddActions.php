@@ -9,7 +9,7 @@ use MediaWiki\Extension\Workflows\TriggerRepo;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
-use SkinTemplate;
+use MediaWiki\Skin\SkinTemplate;
 
 class AddActions implements SkinTemplateNavigation__UniversalHook {
 	/** @var PermissionManager */
