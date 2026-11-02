@@ -6,6 +6,7 @@ use DateTime;
 use EventSauce\EventSourcing\AggregateRoot;
 use Exception;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\Workflows\Activity\ExecutionStatus\IntermediateExecutionStatus;
 use MediaWiki\Extension\Workflows\Definition\Element\EndEvent;
 use MediaWiki\Extension\Workflows\Definition\Element\Gateway;
@@ -46,7 +47,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
-use PermissionsError;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
