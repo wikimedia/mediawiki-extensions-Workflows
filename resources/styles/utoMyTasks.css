@@ -1,0 +1,9 @@
+/* Icon of the "My open workflows" droplet of UnifiedTaskOverview */
+.droplet .icon-droplet.droplet-mytasks-workflow {
+	background-image: url( ../images/contentdroplets-open-workflows-icon.svg );
+}
+
+/* Editor placeholder of a <mytasks> list showing workflows only */
+.ve-ce-surface .mwstake-components-generictaghandler-tag-mytasks[ data-mwstake-components-generictaghandler-arg-types='workflow' ] {
+	background-image: url( ../images/contentdroplets-open-workflows-icon-greyscale.svg );
+}
