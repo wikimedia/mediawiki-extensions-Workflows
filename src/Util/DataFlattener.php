@@ -56,6 +56,10 @@ class DataFlattener {
 
 		if ( $length > 0 ) {
 			$resultArray["$initialKey._length"] = $length;
+			// Lists of scalars (e.g. multiselect values) are also available as comma-separated string
+			if ( $length === count( $dataArray ) && count( array_filter( $dataArray, 'is_scalar' ) ) === $length ) {
+				$resultArray[$initialKey] = implode( ',', $dataArray );
+			}
 		}
 	}
 }

@@ -13,6 +13,7 @@ use MediaWiki\Extension\Workflows\IActivityDescriptor;
 use MediaWiki\Extension\Workflows\UserInteractionModule;
 use MediaWiki\Extension\Workflows\Util\GroupDataProvider;
 use MediaWiki\Extension\Workflows\Util\ThresholdChecker;
+use MediaWiki\Extension\Workflows\Util\UserListParser;
 use MediaWiki\Extension\Workflows\WorkflowContext;
 use MediaWiki\User\User;
 
@@ -106,7 +107,7 @@ class GroupFeedbackActivity extends GenericFeedbackActivity {
 				$this->groupDataProvider->getUsersInGroup( $data['assigned_group'] )
 			);
 		} elseif ( isset( $data['assigned_users'] ) && !empty( $data['assigned_users'] ) ) {
-			$this->initialAssignedUsers = explode( ',', $data['assigned_users'] );
+			$this->initialAssignedUsers = UserListParser::parse( $data['assigned_users'] );
 		}
 	}
 
