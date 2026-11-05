@@ -154,6 +154,19 @@
 		"UnifiedTaskOverview": {
 			"TaskDescriptorRegistry": {
 				"workflows-activity-": "\\MediaWiki\\Extension\\Workflows\\MediaWiki\\UnifiedTaskOverview\\ActivityTaskDescriptor"
+			},
+			"TaskTypeRegistry": {
+				"workflow": {
+					"prefixes": [ "workflows-activity-" ],
+					"label": "workflows-uto-type-label",
+					"itemLabel": "workflows-uto-type-item-label",
+					"styles": [ "ext.workflows.uto.mytasks.styles" ],
+					"droplet": {
+						"name": "workflows-uto-droplet-mytasks",
+						"description": "workflows-uto-droplet-mytasks-desc",
+						"icon": "droplet-mytasks-workflow"
+					}
+				}
 			}
 		},
 		"NotifyMe": {
@@ -541,6 +554,9 @@
 		},
 		"ext.workflows.uto.styles": {
 			"styles": [ "styles/utoStyles.css" ]
+		},
+		"ext.workflows.uto.mytasks.styles": {
+			"styles": [ "styles/utoMyTasks.css" ]
 		},
 		"ext.workflows.trigger.editors": {
 			"scripts": [
