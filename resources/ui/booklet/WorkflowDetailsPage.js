@@ -357,7 +357,7 @@
 			if ( activity instanceof workflows.object.UserInteractiveActivity ) {
 				const assignedUsersLayout = new OO.ui.HorizontalLayout();
 				const targetUsers = activity.targetUsers;
-				if ( !targetUsers ) {
+				if ( !targetUsers || targetUsers.length === 0 ) {
 					assignedUsersLayout.$element.append( new OO.ui.LabelWidget( {
 						label: mw.message( 'workflows-ui-overview-details-activity-assigned-users-none' ).text()
 					} ).$element );

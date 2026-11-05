@@ -236,9 +236,9 @@ final class ActivityManager {
 			return $returnObjects ? $user : $user->getName();
 		}, $activityTarget );
 
-		return array_filter( $validated, static function ( $user ) {
+		return array_values( array_filter( $validated, static function ( $user ) {
 			return $user !== null;
-		} );
+		} ) );
 	}
 
 	/**
