@@ -386,5 +386,18 @@
 	"workflows-tag-myopenworkflows-anon": "Морате да сте најавени за да ги гледате вашите работни текови.",
 	"workflows-tag-myopenworkflows-empty": "Немате отворени работни текови.",
 	"workflows-tag-myopenworkflows-unknown": "Непознат работен тек",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Додај параметар"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Додај параметар",
+	"logentry-ext-workflows-uservote-signed-yes": "Кориснички глас: $1 {{GENDER:$2|гласаше}} „да“ на страницата $3, откако го потврди идентитетот",
+	"logentry-ext-workflows-uservote-signed-no": "Кориснички глас: $1 {{GENDER:$2|гласаше}} „не“ на страницата $3, откако го потврди идентитетот",
+	"signworkflowactivity": "Потпишува на активности на работен тек",
+	"workflows-ui-editor-inspector-activity-require-signature": "Барај потпис",
+	"workflows-ui-editor-inspector-activity-require-signature-help": "Ако е штиклирано, корисникот ќе мора да ја потпише активност пред истата да се заврши",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text": "Текст за потврда на потпис",
+	"workflows-ui-editor-inspector-activity-signature-confirmation-text-help": "Текстот што тука ќе му се прикаже на корисникот кога ќе му биде побарано да си ја потпише активноста",
+	"workflows-ui-editor-inspector-activity-signature-requirement-notice": "За да ја исполните оваа активност ќе треба да го потврдите вашиот идентитет. Откако ќе поднесете, ќе бидете пренасочени кон страница кајшто ќе можете да го направите тоа.",
+	"workflows-sign-activity-invalid-request-title": "Неважечко барање",
+	"workflows-sign-activity-no-post-body": "Оваа страница може да се побара само од контекстот на рабониот тек",
+	"workflows-sign-activity-invalid-request-body": "Добиени неважечки параметри за барање. Обидете се подоцна.",
+	"workflows-sign-activity-invalid-user": "Не ви е зададена оваа активност",
+	"workflows-activity-vote-not-signed": "Оваа активност бара потврда на идентитетот пред да може да се исполни"
 }
