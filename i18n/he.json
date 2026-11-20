@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A100Star",
 			"Amire80",
 			"HumansCanWinElves",
 			"IKhitron",
@@ -250,7 +251,7 @@
 	"workflows-ui-editor-inspector-properties-additional": "הוספת מאפיין חדש",
 	"workflows-ui-editor-inspector-properties-additional-name": "שם",
 	"workflows-ui-editor-inspector-properties-additional-value": "ערך",
-	"workflows-ui-editor-inspector-activity-custom-form-title": "פעילות \"טופס מותאם אישית\"",
+	"workflows-ui-editor-inspector-activity-custom-form-title": "טופס מותאם אישית",
 	"workflows-ui-editor-inspector-activity-custom-form-form-to-use": "באיזה טופס להשתמש",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type": "סוג טופס",
 	"workflows-ui-editor-inspector-activity-custom-form-form-type-on-wiki": "טופס בוויקי",
