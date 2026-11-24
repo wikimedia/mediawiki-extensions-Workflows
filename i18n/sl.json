@@ -41,6 +41,7 @@
 	"workflows-exception-property-validation": "Preverjanje lastnosti »$1« ni uspelo: $2",
 	"workflows-property-validator-valid-title-error": "»$1« ni veljaven naslov",
 	"workflows-property-validator-required-error": "Vrednost je obvezna",
+	"workflows-ui-overview-details-section-past": "Pretekle dejavnosti",
 	"workflows-collect-data-form-groupname": "Skupina",
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-activity-history-vote-result-yes": "Odobren",
