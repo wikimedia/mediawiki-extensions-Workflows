@@ -100,5 +100,6 @@
 	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči",
 	"workflows-ui-editor-inspector-properties-additional-name": "Ime",
 	"workflows-ui-editor-inspector-name": "Ime",
-	"workflows-activity-property-action": "Dejanje"
+	"workflows-activity-property-action": "Dejanje",
+	"workflows-ui-overview-details-section-past": "Pretekle dejavnosti"
 }
