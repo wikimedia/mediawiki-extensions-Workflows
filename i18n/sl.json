@@ -41,6 +41,7 @@
 	"workflows-exception-property-validation": "Preverjanje lastnosti »$1« ni uspelo: $2",
 	"workflows-property-validator-valid-title-error": "»$1« ni veljaven naslov",
 	"workflows-property-validator-required-error": "Vrednost je obvezna",
+	"workflows-ui-overview-details-section-past": "Pretekle dejavnosti",
 	"workflows-collect-data-form-groupname": "Skupina",
 	"workflows-collect-data-form-username": "Uporabnik",
 	"workflows-activity-history-vote-result-yes": "Odobren",
@@ -95,6 +96,5 @@
 	"workflows-editor-default-xml-not-found": "Privzete definicije XML ni bilo mogoče najti; novih diagramov ni mogoče ustvariti.",
 	"workflows-editor-editor-dialog-save-title": "Shrani diagram",
 	"workflows-editor-editor-dialog-save-action-save": "Shrani",
-	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči",
-	"workflows-ui-overview-details-section-past": "Pretekle dejavnosti"
+	"workflows-editor-editor-dialog-save-action-cancel": "Prekliči"
 }
