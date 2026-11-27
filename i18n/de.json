@@ -376,5 +376,9 @@
 	"workflows-tag-myopenworkflows-anon": "Sie müssen angemeldet sein, um Ihre Workflows zu sehen.",
 	"workflows-tag-myopenworkflows-empty": "Sie haben keine offenen Workflows.",
 	"workflows-tag-myopenworkflows-unknown": "Unbekannter Workflow",
-	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Parameter hinzufügen"
+	"workflows-ui-editor-inspector-activity-set-template-param-property-button-add": "Parameter hinzufügen",
+	"workflows-uto-droplet-mytasks": "Meine offenen Workflows",
+	"workflows-uto-droplet-mytasks-desc": "Zeigt alle offenen Workflows, die dem angemeldeten Benutzer zugewiesen sind.",
+	"workflows-uto-type-label": "Workflows",
+	"workflows-uto-type-item-label": "Workflow"
 }
