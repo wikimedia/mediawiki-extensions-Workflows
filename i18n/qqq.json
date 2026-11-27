@@ -403,5 +403,9 @@
 	"workflows-sign-activity-no-post-body": "Error message shown when [[Special:SignWorkflowActivity]] is requested without POST body data",
 	"workflows-sign-activity-invalid-request-body": "Error message shown when request parameters for [[Special:SignWorkflowActivity]] are invalid",
 	"workflows-sign-activity-invalid-user": "Error message shown when current user is not assigned to the activity they are trying to sign",
-	"workflows-activity-vote-not-signed": "Validation error shown when an activity requires identity verification before completion"
+	"workflows-activity-vote-not-signed": "Validation error shown when an activity requires identity verification before completion",
+	"workflows-uto-droplet-mytasks": "Name of the droplet inserting the <code>&lt;mytasks&gt;</code> tag of UnifiedTaskOverview preset to the activities of Workflows, shown in the content droplet list.",
+	"workflows-uto-droplet-mytasks-desc": "Description of the droplet inserting the <code>&lt;mytasks&gt;</code> tag of UnifiedTaskOverview preset to the activities of Workflows.",
+	"workflows-uto-type-label": "Option of the field choosing the types of task the <code>&lt;mytasks&gt;</code> tag of UnifiedTaskOverview lists: the activities of Workflows.",
+	"workflows-uto-type-item-label": "Type of a task in the type column of the <code>&lt;mytasks&gt;</code> tag of UnifiedTaskOverview: an activity of Workflows.\n{{Identical|Workflow}}"
 }
