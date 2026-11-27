@@ -1,5 +1,5 @@
 {
-	"@metadata": {},
+	"@metadata": [],
 	"workflows-desc": "Allows to define and execute various workflows on the wiki",
 	"workflowsoverview": "Workflows overview",
 	"workflows-global-action-overview": "Workflows",
@@ -379,5 +379,9 @@
 	"workflows-sign-activity-no-post-body": "This page can only be requested from the context of a workflow",
 	"workflows-sign-activity-invalid-request-body": "Invalid request parameters received. Please try again.",
 	"workflows-sign-activity-invalid-user": "You are not assigned to this activity",
-	"workflows-activity-vote-not-signed": "This activity requires identity verification before it can be completed"
+	"workflows-activity-vote-not-signed": "This activity requires identity verification before it can be completed",
+	"workflows-uto-droplet-mytasks": "My open workflows",
+	"workflows-uto-droplet-mytasks-desc": "Displays all open workflows the current user is assigned to.",
+	"workflows-uto-type-label": "Workflows",
+	"workflows-uto-type-item-label": "Workflow"
 }
