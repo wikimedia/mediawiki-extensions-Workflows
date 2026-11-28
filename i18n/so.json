@@ -383,5 +383,9 @@
 	"workflows-sign-activity-no-post-body": "Boggan waxaa la codsan karaa oo keliya iyadoo laga joogo macnaha guud ee habsocodka",
 	"workflows-sign-activity-invalid-request-body": "Waxaa la helay xuduudaha codsiga oo aan sax ahayn. Fadlan mar kale isku day.",
 	"workflows-sign-activity-invalid-user": "Laguma qoondeyn hawshan",
-	"workflows-activity-vote-not-signed": "Hawshani waxay u baahan tahay xaqiijinta aqoonsiga ka hor inta aan la dhammaystirin"
+	"workflows-activity-vote-not-signed": "Hawshani waxay u baahan tahay xaqiijinta aqoonsiga ka hor inta aan la dhammaystirin",
+	"workflows-uto-droplet-mytasks": "Hawlaha shaqo ee furan",
+	"workflows-uto-droplet-mytasks-desc": "Wuxuu muujiyaa dhammaan hawlaha shaqo ee furan ee isticmaalaha hadda loo xilsaaray.",
+	"workflows-uto-type-label": "Hawl socod siinnada",
+	"workflows-uto-type-item-label": "Hawl socodsiin"
 }
